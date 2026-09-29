@@ -1,0 +1,6 @@
+{
+  "description": "Build a point-of-sale screen in an existing Vue 2.7 + Vuetify 2.7 + Vite app with Vuetify 2 APIs and Vue 2 reactivity",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

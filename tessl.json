@@ -13,6 +13,9 @@
     },
     "g14wxz/vue2-vuetify2-vite": {
       "source": "file:./tessl-plugins/vue2-vuetify2-vite"
+    },
+    "tessl-labs/spec-driven-development": {
+      "version": "2.0.1"
     }
   },
   "agents": [

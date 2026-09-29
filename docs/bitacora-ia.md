@@ -277,3 +277,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** el agente había dicho que `ignore` en `dependabot.yml` también frenaba los PR de seguridad → no los frenó en una carpeta nueva → se apagaron los PR automáticos, y las alertas de Vue 2 y Vuetify 2 se revisan a mano.
 - **Tiempo:** 17:14–17:17.
 - **Commits:** este commit (PR #12).
+
+### 2026-09-29 17:20 — Tile spec-driven-development en `tessl.json`
+
+- **Tarea:** "vamos a ocupar ese tile tessl-labs/spec-driven-development, para poder hacer SDD en este proyecto". La persona lo instaló con `tessl install tessl-labs/spec-driven-development` y aprobó ("adelante!") traer el `main` nuevo, conservar su cambio y subirlo en su propia rama con su PR.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** guardó el cambio de `tessl.json` con `git stash` y trajo el `main` nuevo con un avance directo, porque `git pull` con rebase se negó por el cambio sin commit de `.mcp.json.example`. Juntó en `tessl.json` los 4 tiles del proyecto y `tessl-labs/spec-driven-development` 2.0.1, corrió `tessl install` (5 tiles, 8 reglas activas) y abrió la rama `chore/tessl-spec-driven` en un worktree aparte. El tile suma las reglas `spec-before-code`, `one-question-at-a-time` y `spec-format-compliance` y 4 skills.
+- **Revisión de la persona:** instaló el tile y aprobó el plan. Revisión de Codex antes de integrar: por confirmar.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 17:20–17:23.
+- **Commits:** este commit.

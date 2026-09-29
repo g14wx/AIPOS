@@ -4,6 +4,26 @@ git init -q -b main
 git config user.email "persona@example.com"
 git config user.name "Persona"
 TRAILER=$'\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
+# La búsqueda empieza sin escapar % y _; el arreglo llega después de la revisión de Codex.
+mv backend/src/services/productos.js .productos-final.js
+cat > backend/src/services/productos.js <<'JS'
+'use strict';
+const { Op } = require('sequelize');
+const { Producto } = require('../db');
+
+async function buscarProductos(texto) {
+  return Producto.findAll({
+    where: { [Op.or]: [{ codigoBarras: texto }, { nombre: { [Op.like]: `%${texto}%` } }] },
+    limit: 20,
+  });
+}
+
+async function agregarProducto({ nombre, precio, codigoBarras }) {
+  return Producto.create({ nombre, precio, codigoBarras });
+}
+
+module.exports = { buscarProductos, agregarProducto };
+JS
 git add README.md docs/lenguaje-ubicuo.md
 git commit -qm "chore: estructura inicial del proyecto"
 git branch ProductionEnv
@@ -22,6 +42,9 @@ git add backend/migrations/20260930000002-crear-ventas-y-detalles.js backend/db 
 git commit -qm "feat(ventas): procedimiento almacenado para registrar venta${TRAILER}"
 git add backend/src/routes/ventas.js backend/src/services/ventas.js
 git commit -qm "feat(ventas): registrar venta desde la API${TRAILER}"
+mv .productos-final.js backend/src/services/productos.js
+git add backend/src/services/productos.js
+git commit -qm "fix(productos): escapar % y _ en la búsqueda${TRAILER}"
 git add docs/bitacora-ia.md
 git commit -qm "docs: bitácora de IA"
 git switch -q ProductionEnv

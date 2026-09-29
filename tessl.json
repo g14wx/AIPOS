@@ -7,6 +7,9 @@
     },
     "g14wxz/entrega-trazable": {
       "source": "file:./tessl-plugins/entrega-trazable"
+    },
+    "g14wxz/mysql-sequelize-procedimientos": {
+      "source": "file:./tessl-plugins/mysql-sequelize-procedimientos"
     }
   },
   "agents": [

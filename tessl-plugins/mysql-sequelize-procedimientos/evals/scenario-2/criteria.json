@@ -1,0 +1,54 @@
+{
+  "context": "Point-of-sale backend with Express 4, Sequelize 6 and mysql2 on MySQL 8.4. The stored procedure sp_register_sale already exists (db/procedures/sp_register_sale.sql plus its migration): it receives the items as one JSON parameter, rejects an empty list with SIGNAL SQLSTATE '45000' 'SALE_WITHOUT_ITEMS', runs its own START TRANSACTION ... COMMIT with an EXIT HANDLER (ROLLBACK; RESIGNAL), and ends with SELECT saleId, total. sale_items has foreign keys to products and a unique index on (sale_id, product_id). The existing products service uses sequelize.transaction() for bulk price updates. The agent must add POST /api/sales that calls the procedure and answers with proper HTTP status codes. Review the new and changed files under src/.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "call_with_replacements",
+      "description": "The code runs sequelize.query('CALL sp_register_sale(:items)', { replacements: { items: JSON.stringify(items) } }) or an equivalent with a positional replacement. The list goes through JSON.stringify, nothing (not even a comment) comes before CALL in the SQL string, and request data is never concatenated into the SQL. The route is mounted in src/app.js under /api/sales, and async errors reach Express 4 through try/catch with next(err) or an equivalent.",
+      "max_score": 2,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "reads_first_row",
+      "description": "The code treats the value returned by sequelize.query for a CALL as the array of rows of the first result set and answers 201 with its first row (saleId and total), for example rows[0] or const [sale] = await .... It does not index into it again as if it were [results, metadata], and does not return the whole array.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "no_querytypes_select",
+      "description": "The CALL is not run with type: QueryTypes.SELECT (or any QueryTypes value), and the code does not use OUT parameters or a second SELECT @var query.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "no_outer_transaction",
+      "description": "The CALL is not wrapped in sequelize.transaction() and no transaction option is passed to it. Atomicity is left to the procedure's own transaction, even though the task asks for all or nothing and the products service uses sequelize.transaction().",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "maps_signal_and_foreign_key",
+      "description": "Database errors are mapped using err.parent.errno (or err.original, err.parent.code or the Sequelize error class). errno 1644 from the SIGNAL (SALE_WITHOUT_ITEMS) becomes 400 or 409, and 1452 / ForeignKeyConstraintError for an unknown product becomes 400 or 404. Any other error goes to a 500 path without sending SQL text to the client.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "maps_json_and_duplicate",
+      "description": "errno 3140 (invalid JSON) becomes 400, and errno 1062 / UniqueConstraintError (the same product twice in one sale, because of the unique index on sale_id and product_id) becomes 409, or the duplicate is rejected with a 4xx before calling the procedure.",
+      "max_score": 1,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "validates_input",
+      "description": "Before calling, the route answers 400 when items is missing, not an array or empty, when a quantity is not a positive integer, or when unitPrice has more than two decimals or is not a valid amount (for example with /^\\d+(\\.\\d{1,2})?$/), instead of relying on MySQL, which only warns about extra decimals.",
+      "max_score": 1,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "money_not_float",
+      "description": "Prices and totals are never turned into JavaScript numbers for arithmetic (no parseFloat, Number or + to add money, no decimalNumbers: true). The total in the response is the one returned by the procedure.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    }
+  ]
+}

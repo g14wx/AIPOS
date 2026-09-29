@@ -1,0 +1,6 @@
+{
+  "description": "Stored procedure that registers a sale with all its items in one call, plus the sequelize-cli migration that creates it",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

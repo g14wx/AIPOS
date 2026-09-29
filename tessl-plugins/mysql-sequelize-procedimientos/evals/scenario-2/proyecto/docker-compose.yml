@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pos
+      MYSQL_USER: pos
+      MYSQL_PASSWORD: pos
+    ports:
+      - "3306:3306"

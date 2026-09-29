@@ -1,0 +1,13 @@
+2026-09-28T17:42:10.311Z ERROR POST /api/ventas 400 (18 ms)
+SequelizeDatabaseError: VENTA_SIN_LINEAS
+    at Query.formatError (node_modules/sequelize/lib/dialects/mysql/query.js:265:16)
+    at Query.run (node_modules/sequelize/lib/dialects/mysql/query.js:67:18)
+    at async registrarVenta (src/services/ventas.js:5:17)
+  parent: Error: VENTA_SIN_LINEAS {
+    code: 'ER_SIGNAL_EXCEPTION',
+    errno: 1644,
+    sqlState: '45000',
+    sqlMessage: 'VENTA_SIN_LINEAS',
+    sql: "CALL sp_registrar_venta('[]')"
+  }
+request body: {"lineas":[]}

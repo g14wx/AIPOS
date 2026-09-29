@@ -9,7 +9,7 @@ Un entregable (por ejemplo "productos" o "ventas") vive en su propia rama. Entra
 
 Toma del glosario (`docs/lenguaje-ubicuo.md`) el nombre de la rama de integración y de los entregables. Si no están, pregunta. En los comandos, `<integracion>` es esa rama y `<entregable>` es el nombre del entregable.
 
-Si el proyecto todavía no tiene remoto, omite los `git pull` y `git push`, y usa el camino "Solo local" de los pasos 4 y 5.
+Si el proyecto todavía no tiene remoto, omite los `git pull` y `git push`, y usa el camino "Solo local" de los pasos 5 y 6.
 
 ## 0. Revisar el repositorio (una vez por proyecto)
 
@@ -49,7 +49,15 @@ gh pr create --base <integracion> --head feature/<entregable> \
 
 El cuerpo del PR dice qué incluye el entregable, cómo probarlo, qué hizo el agente y qué revisó la persona (enlaza la bitácora).
 
-## 4. Integrar
+## 4. Revisar antes de integrar
+
+Si nadie más revisa los PR, la revisión la hacen otro agente y la persona:
+
+1. Pide la revisión a otro agente desde la rama del entregable, por ejemplo con Codex: `codex review --base <integracion>`.
+2. Corrige cada hallazgo o anota por qué no aplica. Deja el resultado como comentario del PR: `gh pr comment <numero> --body-file <archivo>`.
+3. Integra solo con el visto bueno de la persona.
+
+## 5. Integrar
 
 **Con GitHub**, que es el caso normal:
 
@@ -72,7 +80,7 @@ Comprueba el resultado:
 - `git log --graph --oneline -15 <integracion>` muestra el merge commit. Con GitHub, corre antes `git fetch origin` y mira `origin/<integracion>`.
 - `git branch -a` sigue mostrando `feature/<entregable>`.
 
-## 5. Etiquetar
+## 6. Etiquetar
 
 Etiqueta el commit exacto del merge, no la punta de la rama: si otro PR entra justo después, la punta ya es otro commit.
 
@@ -85,13 +93,13 @@ git tag -a entregable-<entregable> "$sha" -m "Entregable: <entregable>"
 git push origin entregable-<entregable>
 ```
 
-**Solo local**, justo después del merge del paso 4:
+**Solo local**, justo después del merge del paso 5:
 
 ```bash
 git tag -a entregable-<entregable> -m "Entregable: <entregable>"
 ```
 
-## 6. Entrega final
+## 7. Entrega final
 
 Cuando todos los entregables están en `<integracion>`:
 

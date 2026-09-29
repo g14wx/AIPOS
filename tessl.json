@@ -1,0 +1,13 @@
+{
+  "name": "AIPOS",
+  "mode": "managed",
+  "dependencies": {
+    "g14wxz/lenguaje-ubicuo": {
+      "source": "file:./tessl-plugins/lenguaje-ubicuo"
+    }
+  },
+  "agents": [
+    "claude-code",
+    "codex"
+  ]
+}

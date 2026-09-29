@@ -1,0 +1,54 @@
+{
+  "context": "El agente debe agregar la tabla y el modelo para guardar cada producto de una venta con el precio cobrado, usando exactamente los nombres del glosario del proyecto (docs/lenguaje-ubicuo.md): modelo LineaVenta, tabla lineas_venta, columna precio_aplicado, siguiendo la convención escrita allí.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "modelo_linea_venta",
+      "description": "Crea un modelo de Sequelize llamado LineaVenta en src/models.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "tabla_lineas_venta",
+      "description": "La tabla se llama lineas_venta y el modelo la fija con tableName; no depende de la pluralización automática de Sequelize.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "columna_precio_aplicado",
+      "description": "La columna del precio cobrado se llama precio_aplicado (atributo precioAplicado o precio_aplicado en el modelo).",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "migracion_nueva",
+      "description": "Crea una migración nueva con venta_id y producto_id que referencian ventas y productos; no edita las migraciones existentes.",
+      "max_score": 1,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "sigue_convencion",
+      "description": "Sigue la convención del proyecto: nombres del negocio en español, columnas en snake_case y underscored: true, igual que los modelos existentes.",
+      "max_score": 1,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "sin_sinonimos",
+      "description": "No usa como nombre de modelo, tabla o columna: SaleItem, sale_items, OrderLine, order_items, DetalleVenta, detalle_venta, detalles_venta, unit_price, price ni item.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "sin_nombres_vagos",
+      "description": "No crea archivos, clases ni funciones con Manager, Helper, Processor, Data, Info o Util en el nombre.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "resumen_claro",
+      "description": "respuesta.md es corto (unas 100 palabras como máximo), empieza por lo que se hizo y usa las palabras del glosario.",
+      "max_score": 1,
+      "category": "DESIGN"
+    }
+  ]
+}

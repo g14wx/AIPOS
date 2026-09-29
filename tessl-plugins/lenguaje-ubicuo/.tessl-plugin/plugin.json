@@ -1,0 +1,8 @@
+{
+  "name": "g14wxz/lenguaje-ubicuo",
+  "version": "0.1.0",
+  "description": "Lenguaje ubicuo para agentes de código: explicaciones cortas, directas y sin jerga, y un glosario compartido (docs/lenguaje-ubicuo.md) cuyas palabras se usan igual en la conversación, el código, los tests y la base de datos.",
+  "private": false,
+  "rules": "rules",
+  "skills": "skills"
+}

@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 1 h 15 min hasta ahora (12:46–14:00), en curso | 3 | 2 |
+| Preparación: agentes, tiles y glosario | 1 h 25 min hasta ahora (12:46–14:11), en curso | 4 | 4 |
 
 ## Entradas
 
@@ -40,3 +40,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** tiles privados primero → públicos desde el inicio → decisión de la persona.
 - **Tiempo:** 13:35–14:00 (aprobación del plan).
 - **Commits:** ninguno (solo análisis).
+
+### 2026-09-29 14:01 — Tile lenguaje-ubicuo
+
+- **Tarea:** "necesito un tile para definir el 'lenguaje ubicuo' … que sea corto, directo, no mensajes como robot". El motivo: el agente usaba jerga sin explicar, como "ADR", y frases cortadas.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** leyó el artículo de layra4.dev (sacó el texto del código de la página, porque se arma con JavaScript) y la investigación que pegó la persona. Creó `tessl-plugins/lenguaje-ubicuo/` con 2 reglas, la skill `glosario-lenguaje-ubicuo` y 3 evals. Corrió `tessl init` para Claude Code y Codex, instaló el tile y dejó Tessl en modo "managed": la copia instalada de los tiles no va a git y se reinstala con `tessl install`.
+- **Revisión de la persona:** detectó que el agente usaba "plugin" para dos cosas distintas, el tile de Tessl y el plugin de Claude Code caveman ("mira como estamos confundiendo cosas"), y pidió que el tile lo deje claro. Decidió nombres del negocio en español y el tile en español.
+- **Propuestas cambiadas o descartadas:** desactivar el plugin de Claude Code caveman → dejarlo en modo lite (el cambio de configuración sigue pendiente) → decisión de la persona. Aplicar la regla de comunicación en todos los proyectos → solo en AIPOS → decisión de la persona.
+- **Tiempo:** 14:01–14:11.
+- **Commits:** este commit.

@@ -41,6 +41,7 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 
 | Parte del PDF | Requerimiento | Flujo | Tarjetas |
 |---|---|---|---|
+| Propósito de la evaluación: full-stack, MySQL y procedimientos almacenados, Git y trabajo con un agente | RF-11; RNF-02, RNF-09, RNF-10 | 00 | — |
 | Objetivo: una sola pantalla con frontend, backend y base de datos | RNF-01, RNF-02 | 00 | B-02, B-03, B-04 |
 | 1. Administración de productos | RF-01; RN-01 a RN-04 | 01 | P-01, P-02, P-03 |
 | 2. Búsqueda de productos | RF-02 | 02 | P-04, P-05 |
@@ -53,6 +54,7 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 | Uso de inteligencia artificial | RNF-10 | 05, 06 | R-03, E-01 |
 | README.md obligatorio (12 puntos) | RNF-11 | — | E-02 |
 | Entrega en un repositorio público | RNF-12 | 05 | E-03 |
+| Revisión técnica: se evalúan el resultado y la trazabilidad del proceso | RNF-09, RNF-10 | 05, 06 | R-03, E-01 |
 | Aspectos que se evaluarán | [Tabla de abajo](#aspectos-que-se-evaluarán) | — | — |
 
 ### Aspectos que se evaluarán

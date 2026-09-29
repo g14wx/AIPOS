@@ -11,7 +11,7 @@ Formato: [references/plantilla-bitacora.md](references/plantilla-bitacora.md). S
 
 ## Cuándo escribir
 
-- Al terminar cada tarea hecha por el agente, antes del commit, para que la entrada entre en el mismo commit que el cambio.
+- Al terminar cada tarea hecha por el agente, antes del commit, para que la entrada entre en el mismo commit que el cambio. Si la tarea ocupa varios commits, va en el último y nombra los anteriores.
 - Cuando la persona corrige al agente o descarta una de sus propuestas. Es lo más valioso de la bitácora: muestra el criterio de la persona.
 - Al cerrar un entregable: actualiza la tabla de resumen con el tiempo total.
 

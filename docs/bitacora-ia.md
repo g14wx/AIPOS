@@ -8,6 +8,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
 | Preparación: agentes, tiles y glosario | 4 h 35 min hasta ahora (12:46–17:17), en curso | 23 | 8 |
+| Requerimientos, diagramas BPMN y tablero AIPOS | 1 h 38 min (15:18–16:56) | 1 | 7 |
 
 ## Entradas
 
@@ -156,6 +157,16 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Commits:** este commit.
 
 
+
+### 2026-09-29 15:18 — Requerimientos, diagramas BPMN y tablero AIPOS
+
+- **Tarea:** "ahorita full levantar requerimientos y crear diagramas de flujos BPMN … crees archivos .md bajo un nuevo dir llamado requerimientos … y vamos dejando las tareas explicadas en trello … si puedes dejar ahí el diagrama mucho que mejor". A mitad de la tarea: "con tags, para diferenciar el back con el front y otra tarea como e.g devops".
+- **Agente:** Claude Code (Opus 5.5), con un agente Plan que revisó el borrador y 3 agentes en paralelo que subieron los diagramas y las subtareas a Trello.
+- **Qué hizo el agente:** trabajó en otra carpeta del repositorio (worktree `../AIPOS-requerimientos`), porque otra sesión rebasaba ramas en la principal, y puso su trabajo encima de `main` antes del primer commit. Actualizó el glosario y escribió `requerimientos/`: índice con la matriz del PDF, alcance, 12 RF, 13 RNF, entregables y 7 flujos. Dibujó 7 diagramas BPMN con la skill `drawio-skill`: el 01 a mano y los demás con un generador del scratchpad que repite su estilo, con `validate.py` y 2 rondas de revisión visual. Armó el tablero AIPOS: 6 listas, 12 etiquetas de Trello y 27 tarjetas con descripción, subtareas, criterios de aceptación y el diagrama como portada y dentro de la descripción.
+- **Revisión de la persona:** eligió "cajero", "venta actual", que un producto repetido suba la cantidad y "crear producto". Aprobó el plan, el estilo del diagrama 01, los 7 diagramas y los commits ("adelante has los commits"). Confirmó el tablero, recordó que la etapa es de planificación, sin código, y pidió mover T-01 y T-02 con su rama anotada.
+- **Propuestas cambiadas o descartadas:** una tarjeta por historia de usuario → una tarjeta por área → pedido de la persona para distinguir back, front y DevOps. El agente Plan corrigió el borrador (la secuencia de ventas y de la entrega final, "agregar" con dos significados, "etiqueta" ya usada para el tag de git, caminos de error que faltaban) → se aplicó lo comprobado; su dato de que el tablero no era público se descartó → la API de Trello lo muestra público. En el diagrama 03 la vuelta de "Marca el campo" iba en rojo → pasó a negra, porque no es un error. T-01 y T-02 iban a «En progreso» → quedaron en «En revisión» → su rama ya tenía el PR #9 abierto. Pasar el PR por la revisión de Codex → no se pide → decisión de la persona ("no le pidas revision a codex, solo lanza"). El PR #13 chocó con `main` después de los PR #9 y #12 → se cerró y se abrió uno nuevo desde `main` con los mismos 4 commits → decisión de la persona, para no reescribir commits ya subidos.
+- **Tiempo:** 15:18–16:56.
+- **Commits:** este commit y los 3 anteriores de la rama `docs/requerimientos-2`, que entran con el PR que reemplaza al #13, sin revisión de Codex.
 
 ### 2026-09-29 15:19 — PR #2 integrado y resultados de los evals
 

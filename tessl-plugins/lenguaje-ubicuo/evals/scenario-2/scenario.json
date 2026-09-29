@@ -1,6 +1,10 @@
 {
-  "description": "Nombrar tabla, modelo y columnas con las palabras del glosario",
+  "description": "Nombrar tabla, modelo y columnas con las palabras del glosario (proyecto de ejemplo con su propio glosario, distinto del de AIPOS)",
   "fixtures": {
-    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+    "proyecto": {
+      "type": "directory",
+      "path": "./proyecto",
+      "installPath": "."
+    }
   }
 }

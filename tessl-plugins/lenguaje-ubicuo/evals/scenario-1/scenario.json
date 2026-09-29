@@ -1,6 +1,10 @@
 {
-  "description": "Explicar sin jerga por qué no se registró una venta",
+  "description": "Explicar sin jerga por qué no se registró una venta (proyecto de ejemplo con su propio glosario, distinto del de AIPOS)",
   "fixtures": {
-    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+    "proyecto": {
+      "type": "directory",
+      "path": "./proyecto",
+      "installPath": "."
+    }
   }
 }

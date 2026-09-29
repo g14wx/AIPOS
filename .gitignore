@@ -4,3 +4,10 @@
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Local agent config (contains credentials)
+.mcp.json
+.codex/config.toml
+
+# Internal dev docs
+devdoc/

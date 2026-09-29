@@ -1,6 +1,6 @@
 # Setup de agents
 
-[← Volver al README](../README.md)
+[← Volver al README](../../README.md)
 
 ## Configurar el MCP de Trello
 

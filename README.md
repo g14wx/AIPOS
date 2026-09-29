@@ -11,7 +11,7 @@ El flujo también se puede repartir entre dos agentes: Codex en el rol de PM o P
 cada card). Para efectos prácticos, y para avanzar más rápido, aquí se usó
 Claude Code en ambos roles.
 
-La guía de configuración está en [docs/agents-setup.md](docs/agents-setup.md) e incluye:
+La guía de configuración está en [docs/setup/agents-setup.md](docs/setup/agents-setup.md) e incluye:
 
 - Crear el board `AIPOS` en Trello
 - Obtener el API key y el token de Trello

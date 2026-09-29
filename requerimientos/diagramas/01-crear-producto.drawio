@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="31.4.5">
+  <diagram id="flujo-01" name="01 Crear producto">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="2000" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="Flujo 01 · Crear producto" style="text;html=1;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitulo" value="AIPOS · BPMN · RF-01, RF-10 · RN-01 a RN-04 · Tarjetas P-01, P-02, P-03 · Versión 1 · 2026-09-29" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="40" y="56" width="1400" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pool" value="AIPOS" style="swimlane;html=1;horizontal=0;startSize=30;collapsible=0;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="1910" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="carril-cajero" value="Cajero" style="swimlane;html=1;horizontal=0;startSize=30;collapsible=0;fillColor=#fff2cc;swimlaneFillColor=#fffcf0;strokeColor=#d6b656;fontStyle=1;fontSize=13;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="0" width="1880" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="carril-pantalla" value="Pantalla (Vue)" style="swimlane;html=1;horizontal=0;startSize=30;collapsible=0;fillColor=#dae8fc;swimlaneFillColor=#f4f8fe;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="180" width="1880" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="carril-api" value="API (Express)" style="swimlane;html=1;horizontal=0;startSize=30;collapsible=0;fillColor=#d5e8d4;swimlaneFillColor=#f3f9f2;strokeColor=#82b366;fontStyle=1;fontSize=13;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="360" width="1880" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="carril-mysql" value="MySQL" style="swimlane;html=1;horizontal=0;startSize=30;collapsible=0;fillColor=#e1d5e7;swimlaneFillColor=#f8f3fa;strokeColor=#9673a6;fontStyle=1;fontSize=13;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="540" width="1880" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ev-inicio" value="Necesita un&lt;br&gt;producto nuevo" style="shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="carril-cajero">
+          <mxGeometry x="95" y="70" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="Presiona «Nuevo producto»" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=user;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-cajero">
+          <mxGeometry x="220" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="Escribe nombre, precio y código de barras" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=user;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-cajero">
+          <mxGeometry x="390" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" value="¿Guarda o cancela?" style="shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;verticalAlign=bottom;labelBackgroundColor=none;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-cajero">
+          <mxGeometry x="600" y="65" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ev-cancela" value="No se crea nada" style="shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=general;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="carril-cajero">
+          <mxGeometry x="775" y="70" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t2" value="Abre el formulario de producto (modal)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="220" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" value="Valida los campos (RN-01, RN-02, RN-04)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="560" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" value="¿Campos válidos?" style="shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;verticalAlign=bottom;labelBackgroundColor=none;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="770" y="65" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" value="Deshabilita «Guardar» y manda el producto" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="900" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t-error" value="Muestra el error junto al campo y conserva lo escrito" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;fillColor=#fff5f5;strokeColor=#b85450;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="1240" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" value="Cierra el modal y muestra «Producto creado»" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="1580" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ev-fin" value="Producto listo para&lt;br&gt;buscar y vender" style="shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=general;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="carril-pantalla">
+          <mxGeometry x="1795" y="70" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t6" value="Valida los datos otra vez" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=service;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" vertex="1" parent="carril-api">
+          <mxGeometry x="900" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="g3" value="¿Datos válidos?" style="shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-api">
+          <mxGeometry x="1110" y="65" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" value="Crea el producto con Sequelize" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=service;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" vertex="1" parent="carril-api">
+          <mxGeometry x="1240" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t409" value="Responde 409: el código de barras ya existe" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=service;fillColor=#fff5f5;strokeColor=#b85450;fontSize=12;" vertex="1" parent="carril-api">
+          <mxGeometry x="1410" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" value="Responde 201 con el producto" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=service;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" vertex="1" parent="carril-api">
+          <mxGeometry x="1580" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ds-productos" value="productos" style="shape=datastore;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="carril-mysql">
+          <mxGeometry x="1105" y="60" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" value="Inserta la fila en productos" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=script;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="carril-mysql">
+          <mxGeometry x="1240" y="58" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="g4" value="¿Código de barras repetido?&lt;br&gt;(índice único)" style="shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="carril-mysql">
+          <mxGeometry x="1450" y="65" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ev-sin-respuesta" value="" style="shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=boundInt;symbol=error;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1085" y="387" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ev-inicio" target="t1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t3" target="g1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" value="Cancela" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g1" target="ev-cancela">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" value="Guarda" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="g1" target="t4">
+          <mxGeometry x="-0.45" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t4" target="g2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" value="Sí" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g2" target="t5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" value="No: marca los campos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="g2" target="t3">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="865" y="430" />
+              <mxPoint x="610" y="430" />
+              <mxPoint x="610" y="209" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f10" value="POST /api/productos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t5" target="t6">
+          <mxGeometry x="-0.45" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t6" target="g3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f12" value="Sí" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g3" target="t7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f13" value="No: 400" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.3;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="g3" target="t-error">
+          <mxGeometry x="-0.75" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1205" y="430" />
+              <mxPoint x="1349" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t7" target="t8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t8" target="g4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f16" value="Sí" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="g4" target="t409">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f17" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="g4" target="t9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f18" value="409" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t409" target="t-error">
+          <mxGeometry x="-0.75" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1545" y="430" />
+              <mxPoint x="1401" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f19" value="201" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t9" target="t10">
+          <mxGeometry x="-0.45" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#333333;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t10" target="ev-fin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f21" value="Sin respuesta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ev-sin-respuesta" target="t-error">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f22" value="Corrige los datos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeColor=#b85450;fontColor=#b85450;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t-error" target="t3">
+          <mxGeometry x="0.3" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1375" y="118" />
+              <mxPoint x="525" y="118" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a1" value="" style="endArrow=none;dashed=1;dashPattern=4 4;html=1;strokeColor=#9673a6;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t8" target="ds-productos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leyenda" value="Leyenda" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="840" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ley-normal" value="→ Flujo normal" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#333333;" vertex="1" parent="leyenda">
+          <mxGeometry x="10" y="26" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley-error" value="→ Camino de error (se muestra y se corrige)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#b85450;" vertex="1" parent="leyenda">
+          <mxGeometry x="10" y="48" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley-asoc" value="- - Asociación con una tabla de MySQL" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#9673a6;" vertex="1" parent="leyenda">
+          <mxGeometry x="10" y="70" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="notas" value="&lt;b&gt;Reglas&lt;/b&gt;: RN-01 nombre, precio y código de barras obligatorios · RN-02 precio mayor que 0, con 2 decimales como máximo · RN-03 código de barras único, guardado como texto · RN-04 sin espacios en los extremos; nombre hasta 120 caracteres y código de barras hasta 50 (por confirmar).&lt;br&gt;&lt;b&gt;El círculo rojo sobre «Deshabilita…»&lt;/b&gt;: la API no responde (error de red).&lt;br&gt;&lt;b&gt;Tarjetas&lt;/b&gt;: P-01 tabla productos (MySQL) · P-02 API para crear producto (API) · P-03 botón «Nuevo producto» y formulario (Pantalla).&lt;br&gt;&lt;b&gt;Detalle&lt;/b&gt;: requerimientos/flujos/01-crear-producto.md" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="840" width="1560" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

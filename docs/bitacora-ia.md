@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 1 h 25 min hasta ahora (12:46–14:11), en curso | 4 | 4 |
+| Preparación: agentes, tiles y glosario | 1 h 30 min hasta ahora (12:46–14:14), en curso | 5 | 4 |
 
 ## Entradas
 
@@ -49,4 +49,14 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Revisión de la persona:** detectó que el agente usaba "plugin" para dos cosas distintas, el tile de Tessl y el plugin de Claude Code caveman ("mira como estamos confundiendo cosas"), y pidió que el tile lo deje claro. Decidió nombres del negocio en español y el tile en español.
 - **Propuestas cambiadas o descartadas:** desactivar el plugin de Claude Code caveman → dejarlo en modo lite (el cambio de configuración sigue pendiente) → decisión de la persona. Aplicar la regla de comunicación en todos los proyectos → solo en AIPOS → decisión de la persona.
 - **Tiempo:** 14:01–14:11.
+- **Commits:** este commit.
+
+### 2026-09-29 14:11 — Glosario del proyecto
+
+- **Tarea:** armar el glosario de AIPOS con la skill `glosario-lenguaje-ubicuo`.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** creó `docs/lenguaje-ubicuo.md` con las palabras del PDF y de la conversación, separadas en "Negocio" y "Herramientas y proceso", y dejó 5 dudas en "Pendientes".
+- **Revisión de la persona:** eligió "precio aplicado", "detalle de venta" y "registrar venta". Siguen pendientes "venta en pantalla" y "cantidad".
+- **Propuestas cambiadas o descartadas:** ninguna; la persona eligió las 3 opciones que recomendó el agente.
+- **Tiempo:** 14:11–14:14.
 - **Commits:** este commit.

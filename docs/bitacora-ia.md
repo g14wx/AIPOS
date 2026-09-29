@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 2 h 55 min hasta ahora (12:46–15:44), en curso | 16 | 6 |
+| Preparación: agentes, tiles y glosario | 3 h 15 min hasta ahora (12:46–16:00), en curso | 17 | 7 |
 
 ## Entradas
 
@@ -173,3 +173,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 15:28–15:32. Gastó 30 créditos de Tessl.
 - **Commits:** este commit.
+
+### 2026-09-29 15:46 — PR 2 integrado y revisión de Codex del PR 3
+
+- **Tarea:** integrar el PR 2 ("adelante!") y revisar el PR 3 (guías de configuración) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) integró el PR 2, recomendó qué hacer con cada hallazgo y aplicó los cambios.
+- **Qué hizo el agente:** integró el PR 2 en `main` con rebase y abrió el PR 3. Codex encontró 2 hallazgos en el PR 3: a la guía de Tessl le faltaba pedir que se copien las plantillas antes de verificar el MCP, y la entrada de la bitácora de ese trabajo estaba solo en el último de sus dos commits. Claude Code aplicó el primero en el commit `30fac3d` y aclaró la regla de entrega trazable y la skill `bitacora-ia`: si una tarea ocupa varios commits, la entrada va en el último y nombra los anteriores.
+- **Revisión de la persona:** aceptó el hallazgo 1 y descartó el 2.
+- **Propuestas cambiadas o descartadas:** Codex proponía repartir la entrada reescribiendo dos commits ya subidos → se descartó → nuestra regla prohíbe reescribir commits ya subidos; en su lugar se aclaró la regla.
+- **Tiempo:** 15:46–16:00.
+- **Commits:** `30fac3d` (PR 3) y este commit.

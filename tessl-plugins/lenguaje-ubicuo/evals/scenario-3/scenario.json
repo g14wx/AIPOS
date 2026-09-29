@@ -1,0 +1,6 @@
+{
+  "description": "Detenerse y preguntar ante un término que no está en el glosario",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

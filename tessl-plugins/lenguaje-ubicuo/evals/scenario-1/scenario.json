@@ -1,0 +1,6 @@
+{
+  "description": "Explicar sin jerga por qué no se registró una venta",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

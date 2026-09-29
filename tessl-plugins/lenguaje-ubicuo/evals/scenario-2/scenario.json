@@ -1,0 +1,6 @@
+{
+  "description": "Nombrar tabla, modelo y columnas con las palabras del glosario",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

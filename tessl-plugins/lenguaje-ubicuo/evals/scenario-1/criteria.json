@@ -1,0 +1,48 @@
+{
+  "context": "El agente debe explicar a la persona usuaria, en lenguaje simple y con las palabras del glosario del proyecto (docs/lenguaje-ubicuo.md), por qué no se registró su venta. La causa real: la pantalla envió la venta sin líneas (lista vacía) y el procedimiento almacenado sp_registrar_venta la rechazó a propósito con el mensaje VENTA_SIN_LINEAS. Se evalúa solo respuesta.md.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "causa_primero",
+      "description": "La primera o la segunda frase de respuesta.md dice la causa: la venta se envió sin productos (sin líneas de venta) y por eso no se registró.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "sin_jerga_sin_explicar",
+      "description": "Cada término técnico que aparece (por ejemplo procedimiento almacenado, SIGNAL, SQLSTATE, errno, 1644, 45000, ER_SIGNAL_EXCEPTION, JSON, Sequelize, rollback, endpoint) se explica en palabras simples en la misma frase, o no aparece. Un código crudo como 1644 o 45000 sin explicación es un fallo.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "siguiente_paso",
+      "description": "Dice qué hacer para que funcione: agregar al menos un producto a la venta antes de registrarla, o propone cómo evitar el error desde la pantalla.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "palabras_del_glosario",
+      "description": "Usa las palabras del glosario (venta, línea de venta o producto, registrar venta). No usa 'orden', 'transacción', 'carrito', 'checkout', 'sale' ni 'item' para esos conceptos.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "corta",
+      "description": "respuesta.md tiene como máximo unas 120 palabras, sin contar bloques de código.",
+      "max_score": 1,
+      "category": "MINIMALITY"
+    },
+    {
+      "name": "sin_relleno_robot",
+      "description": "No contiene fórmulas de relleno como '¡Claro!', 'Con gusto', 'Espero que esto ayude' o 'Como modelo de lenguaje', ni frases de telegrama sin verbo.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "no_modifica_codigo",
+      "description": "No modifica archivos del proyecto; solo crea respuesta.md.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    }
+  ]
+}

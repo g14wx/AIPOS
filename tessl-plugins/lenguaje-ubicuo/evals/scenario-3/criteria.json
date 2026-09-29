@@ -1,0 +1,48 @@
+{
+  "context": "La palabra 'descuento' no está en el glosario del proyecto (docs/lenguaje-ubicuo.md) y puede significar varias cosas. El agente debe detenerse, preguntar con ejemplos concretos y proponer la entrada del glosario, en lugar de inventar un significado e implementarlo. Dato clave del dominio: el 'precio aplicado' de cada línea de venta ya permite cobrar menos que el precio del catálogo.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detecta_termino_nuevo",
+      "description": "Reconoce que 'descuento' no está definido en el glosario y que su significado no está claro.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "pregunta_concreta",
+      "description": "En respuesta.md hace entre 1 y 3 preguntas concretas con ejemplos del negocio, por ejemplo si el descuento va por línea de venta o sobre el total, o si es un monto o un porcentaje.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "propone_entrada",
+      "description": "Propone la entrada del glosario para 'descuento' (qué significa y su nombre en código) o la agrega en la sección 'Pendientes' de docs/lenguaje-ubicuo.md.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "relaciona_precio_aplicado",
+      "description": "Señala que el precio aplicado de cada línea de venta ya permite cobrar menos que el precio del catálogo, y pregunta si eso basta o si el descuento es otra cosa.",
+      "max_score": 1,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "no_inventa_implementacion",
+      "description": "No crea migraciones, columnas, modelos ni lógica de descuentos basadas en un significado supuesto antes de que la persona usuaria lo confirme.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "sin_ingles_negocio",
+      "description": "Si propone nombres en código, no usa inglés para el concepto del negocio (por ejemplo discount o discount_amount).",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "respuesta_clara",
+      "description": "respuesta.md es corta, empieza por lo importante (qué necesita que le confirmen) y no usa jerga sin explicar.",
+      "max_score": 1,
+      "category": "DESIGN"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[mcp_servers.trello]
+command = "npx"
+args = ["-y", "@delorenj/mcp-server-trello"]
+
+[mcp_servers.trello.env]
+TRELLO_API_KEY = "tu-trello-api-key"
+TRELLO_TOKEN = "tu-trello-token"

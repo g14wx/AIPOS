@@ -1,0 +1,27 @@
+{
+    "mcpServers": {
+        "trello": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@delorenj/mcp-server-trello"
+            ],
+            "env": {
+                "TRELLO_API_KEY": "tu-trello-api-key",
+                "TRELLO_TOKEN": "tu-trello-token"
+            }
+        },
+        "tessl": {
+            "type": "stdio",
+            "command": "tessl",
+            "args": [
+                "mcp",
+                "start"
+            ]
+        },
+        "postman": {
+            "type": "http",
+            "url": "https://mcp.postman.com/mcp"
+        }
+    }
+}

@@ -73,6 +73,10 @@ Las plantillas ya lo declaran:
 - Claude Code: el servidor `tessl` en `.mcp.json.example`.
 - Codex: el bloque `[mcp_servers.tessl]` en `.codex/config.toml.example`.
 
+Los agentes no leen las plantillas `.example`: hay que copiarlas primero. Si todavía no lo hiciste, sigue el
+[paso 4 de la guía de agentes](agents-setup.md#4-agregar-el-servidor-a-claude-code): copia `.mcp.json.example`
+a `.mcp.json` y `.codex/config.toml.example` a `.codex/config.toml`, y marca el proyecto como confiable en Codex.
+
 Si copiaste la plantilla de Codex antes de que tuviera este bloque, agrégalo a tu `.codex/config.toml`:
 
 ```toml

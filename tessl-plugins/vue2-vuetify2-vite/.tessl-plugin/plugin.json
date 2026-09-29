@@ -1,0 +1,8 @@
+{
+  "name": "g14wxz/vue2-vuetify2-vite",
+  "version": "0.1.0",
+  "description": "Guardrails for Vue 2.7 + Vuetify 2.7 frontends built with Vite 7, with exact version pins, a working Vite and Axios setup, and Vuetify 2 component patterns that avoid Vue 3 and Vuetify 3 idioms.",
+  "private": false,
+  "rules": "rules",
+  "skills": "skills"
+}

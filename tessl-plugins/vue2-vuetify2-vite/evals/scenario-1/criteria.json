@@ -1,0 +1,54 @@
+{
+  "context": "Repository with a backend stub and a README that requires Vue 2 + Vuetify + Axios for the frontend. The agent must create frontend/ with Vite. Traps: npm latest gives Vue 3.5, Vuetify 4 (Vue 3 only) and Vite 8 (breaks @vitejs/plugin-vue2); vite-plugin-vuetify and createVuetify are Vuetify 3+; sass does not fit Vuetify 2 on Vite 7; axios 1.14.1 and 0.30.4 are malicious. Review frontend/package.json, vite.config.js, index.html, src/main.js, src/App.vue, src/api/ and the .env files.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "pinned_vue_vuetify",
+      "description": "frontend/package.json pins vue 2.7.16 and vuetify 2.7.2 exactly (or ranges that can only resolve to those 2.x versions). No 'latest', no vue 3.x, no vuetify 3.x or 4.x.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "vite7_plugin_vue2",
+      "description": "Build tooling is vite ^7 (not 8 or latest) with @vitejs/plugin-vue2 2.3.4. It does not use @vitejs/plugin-vue, the old vite-plugin-vue2, Vue CLI or webpack.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "no_vuetify3_tooling",
+      "description": "No vite-plugin-vuetify, no createVuetify, no unplugin-vue-components 31 or later, and no sass or sass-loader in dependencies. Styles come from the prebuilt bundle.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "vue2_bootstrap",
+      "description": "src/main.js does Vue.use(Vuetify) and new Vue({ vuetify: new Vuetify(...), render: h => h(App) }).$mount('#app'); no createApp. App.vue has a single root v-app with the content inside v-main and an app bar.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "css_and_icons",
+      "description": "main.js imports 'vuetify/dist/vuetify.min.css' and '@mdi/font/css/materialdesignicons.css', @mdi/font is a dependency (7.4.47), and Vuetify is created with icons: { iconfont: 'mdi' }.",
+      "max_score": 1,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "vue_alias_dedupe",
+      "description": "vite.config.js uses plugins: [vue()] from '@vitejs/plugin-vue2' and resolve.alias maps vue to 'vue/dist/vue.esm.js' with resolve.dedupe ['vue'], so the production build has a single Vue instance.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "configurable_api_client",
+      "description": "A module such as src/api/http.js exports axios.create({ baseURL: import.meta.env.VITE_API_URL, ... }); a committed .env.example (or similar) documents VITE_API_URL. No process.env and no hardcoded backend URL in components.",
+      "max_score": 2,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "safe_axios_and_node",
+      "description": "axios is ^1.20.0 or another 1.x range that starts at 1.20.0 or later; never 1.14.1, 0.30.4 or a 0.x range. The Node version is stated as 22 or 24 (.nvmrc or engines), not Node 20 or older.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    }
+  ]
+}

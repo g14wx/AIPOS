@@ -10,6 +10,9 @@
     },
     "g14wxz/mysql-sequelize-procedimientos": {
       "source": "file:./tessl-plugins/mysql-sequelize-procedimientos"
+    },
+    "g14wxz/vue2-vuetify2-vite": {
+      "source": "file:./tessl-plugins/vue2-vuetify2-vite"
     }
   },
   "agents": [

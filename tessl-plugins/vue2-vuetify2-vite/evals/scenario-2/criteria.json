@@ -1,0 +1,54 @@
+{
+  "context": "Existing frontend with vue 2.7.16, vuetify 2.7.2, vite 7 and @vitejs/plugin-vue2 (see package.json, src/main.js). src/api/productos.js exports buscarProductos(texto) and registrarVenta(venta). The agent must build the point-of-sale screen and render it in App.vue. Traps: Vue 3 and Vuetify 3 idioms (createApp, v-model:x, modelValue, item-title, headers { title, key }, activator { props }, variant, density, location, several root nodes) and Vue 2 reactivity limits on arrays. Review the new component(s), App.vue and package.json.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "complete_screen",
+      "description": "A point-of-sale component exists and is rendered in App.vue. It searches products by name or barcode, adds them as lines, lets the cashier edit the price and delete a line, shows the total, asks for confirmation, registers the sale, then empties it and shows success or the error message.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "v2_data_table",
+      "description": "The lines table is a v-data-table with headers { text, value } (not { title, key }) and custom cells in #item.<value>=\"{ item }\" slots that use item as the raw row (no item.raw or item.columns). item-key matches the line key when lines have no id field. A v-simple-table with a v-for is also acceptable.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "v2_product_search",
+      "description": "Product search uses v-autocomplete or v-combobox with item-text and item-value (not item-title) and reads the typed text with :search-input.sync (not v-model:search or @update:search), calling buscarProductos. A plain v-text-field with a search button is acceptable only if it uses Vuetify 2 props.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "v2_dialog_and_snackbar",
+      "description": "The confirmation uses v-dialog opened by v-model or by #activator=\"{ on, attrs }\" with v-bind=\"attrs\" v-on=\"on\" (never { props }). Feedback uses v-snackbar with v-model and timeout, positioned with boolean props like top or right (not location), and its button in the #action slot if there is one.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "no_vue3_idioms",
+      "description": "No createApp, defineModel, v-model:x, modelValue or update:modelValue, item-title, variant, density, location, bg-color, v-table, beforeUnmount or unmounted, and no template with several root nodes. Custom child components take v-model through prop value and event input, or use .sync with update:x. package.json versions are unchanged and no Vue 3 or Vuetify 3 package is added.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "reactive_line_updates",
+      "description": "Lines are added with push, removed with splice (finding the line in the array, not a page or sort based index) or by assigning a filtered array, and emptied with splice(0) or a new array. Never this.lines[i] = x or length = 0. New line objects have all their keys when created, or new keys use this.$set.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "computed_total",
+      "description": "The total is a computed property (and subtotals are computed or derived in the template) from the lines, so editing a price updates it at once. The edited price is a number (v-model.number or Number()), not a string that gets concatenated.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "uses_api_module",
+      "description": "The component imports buscarProductos and registrarVenta from src/api/productos.js and sends the lines in the shape that module documents. It does not import axios or hardcode a URL, and if registrarVenta fails it shows the message and keeps the lines.",
+      "max_score": 2,
+      "category": "INTEGRATION"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 3 h 35 min hasta ahora (12:46–16:20), en curso | 19 | 7 |
+| Preparación: agentes, tiles y glosario | 4 h hasta ahora (12:46–16:46), en curso | 20 | 7 |
 
 ## Entradas
 
@@ -237,3 +237,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 16:02–16:20.
 - **Commits:** este commit.
+
+### 2026-09-29 16:32 — Tiles mysql-sequelize-procedimientos y vue2-vuetify2-vite
+
+- **Tarea:** "no perdamos el tiempo, necesito esto antes de media hora": terminar los tiles que faltaban y publicarlos.
+- **Agente:** Claude Code (Opus 5.5), con dos agentes auxiliares que escribieron un tile cada uno, en paralelo.
+- **Qué hizo el agente:** publicó en el registro de Tessl los tiles `lenguaje-ubicuo` y `entrega-trazable`, como públicos. Los agentes auxiliares escribieron los tiles `mysql-sequelize-procedimientos` y `vue2-vuetify2-vite`, en inglés, con una regla, 2 skills y 2 evals cada uno, a partir de los datos ya verificados. Claude Code revisó sus dudas: comprobó en npm que `vuetify@2.7.2` carga el paquete completo (`dist/vuetify.js`), y cambió el alias de Vite a `{ find: /^vue$/ }`, porque la forma de texto también reescribía los imports que empiezan con `vue/`. Agregó los dos tiles a `tessl.json` y a la guía de Tessl.
+- **Revisión de la persona:** pidió todo en media hora. Tessl avisó que la cuenta agotó sus 1.000 créditos del mes, así que los tiles nuevos quedaron sin evals ni revisión de calidad.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 16:32–16:46.
+- **Commits:** este commit y el anterior (tile `mysql-sequelize-procedimientos`).

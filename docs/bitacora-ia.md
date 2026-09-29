@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 3 h 30 min hasta ahora (12:46–16:17), en curso | 18 | 7 |
+| Preparación: agentes, tiles y glosario | 3 h 35 min hasta ahora (12:46–16:20), en curso | 19 | 7 |
 
 ## Entradas
 
@@ -227,3 +227,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
 - **Tiempo:** 16:00–16:17.
 - **Commits:** este commit (PR #7).
+
+### 2026-09-29 16:02 — Dependabot y los PR de Vue 3
+
+- **Tarea:** decidir qué hacer con los PR #5 y #6 que abrió Dependabot.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** al integrar el PR #4 aparecieron los PR #5 (`vue` 2.7.16 → 3.0.0) y #6 (`vuetify` 2.7.2 → 3.0.0), que Dependabot abrió sobre el proyecto de ejemplo del eval del README. Con el frontend real, que la prueba exige en Vue 2, va a pasar lo mismo. Revisó la documentación de GitHub: `ignore` también frena los PR de seguridad, y `exclude-paths` no. Cerró #5 y #6 con un comentario y agregó `.github/dependabot.yml`, que ignora las versiones mayores de `vue` y `vuetify` y apaga los PR de versiones normales; los de seguridad siguen llegando. Antes de subirlo integró el PR #7. También avisó que la rama `docs/requerimientos` de la otra sesión salió de una versión vieja de la rama del PR #7 y debe ponerse encima de `main` antes de su primer commit.
+- **Revisión de la persona:** eligió cerrar los PR y configurar Dependabot, y aprobó integrar el PR #7.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 16:02–16:20.
+- **Commits:** este commit.

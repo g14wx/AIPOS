@@ -6,8 +6,8 @@ Registro de cómo se usó el agente de código en cada tarea. De aquí salen los
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Productos | 3 h | 5 | 2 |
-| Ventas | 4 h 30 min | 6 | 2 |
+| Productos | 2 h 55 min | 3 | 3 |
+| Ventas | 2 h 15 min | 2 | 1 |
 
 ## Entradas
 

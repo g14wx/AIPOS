@@ -34,7 +34,7 @@
     },
     {
       "name": "tiempo_desde_bitacora",
-      "description": "El punto de tiempo usa los totales de la bitácora (productos 3 h, ventas 4 h 30 min, unas 7 h 30 min en total).",
+      "description": "El punto de tiempo usa los totales de la bitácora (productos 2 h 55 min, ventas 2 h 15 min, unas 5 h 10 min en total).",
       "max_score": 1,
       "category": "DESIGN"
     },

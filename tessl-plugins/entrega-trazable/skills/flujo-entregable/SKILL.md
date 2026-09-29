@@ -9,6 +9,8 @@ Un entregable (por ejemplo "productos" o "ventas") vive en su propia rama. Entra
 
 Toma del glosario (`docs/lenguaje-ubicuo.md`) el nombre de la rama de integración y de los entregables. Si no están, pregunta. En los comandos, `<integracion>` es esa rama y `<entregable>` es el nombre del entregable.
 
+Si el proyecto todavía no tiene remoto, omite los `git pull` y `git push`, y usa el camino "Solo local" de los pasos 4 y 5.
+
 ## 0. Revisar el repositorio (una vez por proyecto)
 
 ```bash
@@ -49,23 +51,44 @@ El cuerpo del PR dice qué incluye el entregable, cómo probarlo, qué hizo el a
 
 ## 4. Integrar
 
+**Con GitHub**, que es el caso normal:
+
 ```bash
-gh pr merge <numero> --merge
+gh pr merge <numero> --merge --subject "Merge: entregable <entregable> (#<numero>)"
 ```
 
 - Usa siempre `--merge`: nunca `--squash`, nunca `--rebase` y nunca `--delete-branch`.
-- Sin remoto o sin `gh`, integra en local con:
-  `git switch <integracion> && git merge --no-ff feature/<entregable> -m "Merge: entregable <entregable>"`
-- Comprueba el resultado:
-  - `git log --graph --oneline -15 <integracion>` muestra el merge commit.
-  - `git branch -a` sigue mostrando `feature/<entregable>`.
+- `--subject` deja el mensaje del merge en español. Sin esa opción, GitHub escribe "Merge pull request #… from …".
+- Si falta `gh`, integra el PR desde la web de GitHub con "Create a merge commit" y el mismo mensaje. No integres en local: el entregable tiene que entrar por el PR.
+
+**Solo local**, si el proyecto todavía no tiene remoto:
+
+```bash
+git switch <integracion>
+git merge --no-ff feature/<entregable> -m "Merge: entregable <entregable>"
+```
+
+Comprueba el resultado:
+- `git log --graph --oneline -15 <integracion>` muestra el merge commit. Con GitHub, corre antes `git fetch origin` y mira `origin/<integracion>`.
+- `git branch -a` sigue mostrando `feature/<entregable>`.
 
 ## 5. Etiquetar
 
+Etiqueta el commit exacto del merge, no la punta de la rama: si otro PR entra justo después, la punta ya es otro commit.
+
+**Con GitHub:**
+
 ```bash
-git switch <integracion> && git pull
-git tag -a entregable-<entregable> -m "Entregable: <entregable>"
+sha=$(gh pr view <numero> --json mergeCommit --jq .mergeCommit.oid)
+git fetch origin
+git tag -a entregable-<entregable> "$sha" -m "Entregable: <entregable>"
 git push origin entregable-<entregable>
+```
+
+**Solo local**, justo después del merge del paso 4:
+
+```bash
+git tag -a entregable-<entregable> -m "Entregable: <entregable>"
 ```
 
 ## 6. Entrega final

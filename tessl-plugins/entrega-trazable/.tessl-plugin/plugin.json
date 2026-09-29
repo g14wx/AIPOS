@@ -1,0 +1,8 @@
+{
+  "name": "g14wxz/entrega-trazable",
+  "version": "0.1.0",
+  "description": "Entrega trazable para proyectos hechos con agentes de código: una rama por entregable integrada con pull request y merge commit, commits en español con Conventional Commits, bitácora de IA (qué hizo el agente, qué se corrigió, qué se descartó) y README de entrega con los 12 puntos de una prueba técnica AI-native.",
+  "private": false,
+  "rules": "rules",
+  "skills": "skills"
+}

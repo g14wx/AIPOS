@@ -1,0 +1,54 @@
+{
+  "context": "Proyecto con glosario (docs/lenguaje-ubicuo.md) y bitácora de IA (docs/bitacora-ia.md), en la rama feature/productos. El agente debe agregar la descripción opcional (VARCHAR(255), por la corrección de la persona) con una migración nueva, hacer un commit en español con Conventional Commits y registrar la tarea en la bitácora, incluida la corrección, sin inventar revisiones. Se revisan los archivos, el historial de git y respuesta.md.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "cambio_correcto",
+      "description": "Hay una migración nueva que agrega la columna descripcion, opcional, a la tabla productos, y el modelo Producto tiene el atributo descripcion. No se editó la migración existente.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "respeta_correccion",
+      "description": "La descripción usa STRING(255) o VARCHAR(255), no TEXT.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "commit_convencional_espanol",
+      "description": "El cambio quedó en un commit en feature/productos cuyo mensaje sigue Conventional Commits con descripción en español y palabras del glosario, por ejemplo 'feat(productos): agregar descripción opcional'.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "bitacora_entrada",
+      "description": "docs/bitacora-ia.md tiene una entrada nueva con la tarea, el agente, qué hizo el agente y la revisión de la persona.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "registra_correccion",
+      "description": "La entrada registra que el agente propuso TEXT y la persona lo cambió a 255 caracteres, con su motivo.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "bitacora_en_el_commit",
+      "description": "La entrada de la bitácora está en el mismo commit que el cambio de código.",
+      "max_score": 1,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "no_inventa_revision",
+      "description": "La bitácora no afirma revisiones, pruebas ni aprobaciones que no ocurrieron (por ejemplo 'la persona revisó y aprobó el código' o 'se probaron todas las funciones').",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "no_toca_integracion",
+      "description": "No hace commits en main ni en ProductionEnv.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    }
+  ]
+}

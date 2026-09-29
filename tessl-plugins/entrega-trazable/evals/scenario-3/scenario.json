@@ -1,0 +1,6 @@
+{
+  "description": "README de entrega con los 12 puntos, a partir del código, del historial de git y de la bitácora de IA",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

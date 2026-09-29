@@ -1,0 +1,54 @@
+{
+  "context": "Repositorio local con main, ProductionEnv (rama de integración, definida en docs/lenguaje-ubicuo.md) y feature/productos con 2 commits. El agente debe integrar el entregable en ProductionEnv con un merge commit (no fast-forward, no squash, no rebase), conservar la rama, etiquetar el entregable y no tocar main. Se revisa el estado final del repositorio git y respuesta.md.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "merge_commit_en_integracion",
+      "description": "ProductionEnv contiene un merge commit (dos padres) que integra feature/productos. No fue fast-forward, squash ni cherry-pick.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "rama_conservada",
+      "description": "La rama feature/productos sigue existiendo después de integrar.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "commits_intactos",
+      "description": "Los 2 commits originales de feature/productos se conservan con sus mismos hashes (no hubo rebase ni reescritura).",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "main_intacta",
+      "description": "main no recibió commits nuevos.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "etiqueta_entregable",
+      "description": "Existe una etiqueta anotada que identifica el entregable de productos (por ejemplo entregable-productos) y apunta al merge commit en ProductionEnv.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "mensaje_en_espanol",
+      "description": "El mensaje del merge commit nombra el entregable de productos, en español.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "bitacora_actualizada",
+      "description": "docs/bitacora-ia.md tiene una entrada nueva sobre la integración del entregable, sin afirmar revisiones o pruebas que no ocurrieron.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "respuesta_clara",
+      "description": "respuesta.md es corta, dice qué se hizo (merge commit, rama conservada, etiqueta) en palabras simples y menciona el siguiente paso (subir al remoto cuando exista).",
+      "max_score": 1,
+      "category": "DESIGN"
+    }
+  ]
+}

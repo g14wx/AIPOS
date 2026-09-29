@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 2 h 10 min hasta ahora (12:46–14:58), en curso | 10 | 5 |
+| Preparación: agentes, tiles y glosario | 2 h 30 min hasta ahora (12:46–15:17), en curso | 12 | 6 |
 
 ## Entradas
 
@@ -109,4 +109,24 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Revisión de la persona:** decidió quitar `Claude-Session` y pidió "todo explicado en corto, sencillo, al punto". Para los PR dijo "lo que recomiendes": se sube un PR por rama, de a uno.
 - **Propuestas cambiadas o descartadas:** el agente ponía la línea `Claude-Session` en cada commit, como pide su configuración → se quitó → el repositorio es público y quien evalúe puede no tener acceso a ese enlace.
 - **Tiempo:** 14:52–14:58.
+- **Commits:** este commit.
+
+### 2026-09-29 15:00 — Revisar los PR sin otra persona
+
+- **Tarea:** "ojo, soy el único desarrollador … en el futuro puede que haya alguien que me revise los PRs, pero por el momento nadie".
+- **Agente:** Claude Code (Opus 5.5), y Codex para la revisión.
+- **Qué hizo el agente:** agregó a la skill `flujo-entregable` el paso "Revisar antes de integrar": otro agente revisa el PR, se corrige o se explica cada hallazgo, el resultado queda como comentario del PR y se integra solo con el visto bueno de la persona. Corrió `codex review --base main` sobre el PR 1, que encontró 3 hallazgos. Aplicó los aceptados en el commit `3accfbc` y dejó el resultado como comentario del PR 1.
+- **Revisión de la persona:** decidió cada hallazgo. Aceptó el 1 (avisar que hay que correr `tessl install`) y el 3 (el log del eval 1 no entraba a git por `*.log` en `.gitignore`), y descartó el 2.
+- **Propuestas cambiadas o descartadas:** Codex proponía pasar los evals a "detalle de venta" → se descartó → los evals usan un proyecto de ejemplo con su propio glosario, a propósito, para medir si el agente sigue el glosario del repo donde trabaja.
+- **Tiempo:** 15:00–15:17.
+- **Commits:** `3accfbc` (PR 1) y este commit.
+
+### 2026-09-29 15:13 — Resultado del eval del tile lenguaje-ubicuo
+
+- **Tarea:** medir si el tile `lenguaje-ubicuo` ayuda al agente (eval lanzado a las 14:50).
+- **Agente:** Claude Code (Opus 5.5). Tessl corrió el eval con el modelo `deepseek-v4.1-flash`.
+- **Qué hizo el agente:** revisó el resultado. Sin el tile, 66%; con el tile, 81% (+15 puntos), así que el tile se queda. Por escenario: explicar un error, 40% → 50%; nombrar con el glosario, 91% → 91%; parar ante una palabra nueva, 63% → 100%. El escenario 1 corrió sin el archivo de log (ver la entrada anterior), así que hay que repetirlo. En el escenario 2 el tile no cambia nada: tener el glosario en el repo ya basta para que el agente use sus nombres.
+- **Revisión de la persona:** por confirmar.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 14:50–15:13. Gastó 60 créditos de Tessl.
 - **Commits:** este commit.

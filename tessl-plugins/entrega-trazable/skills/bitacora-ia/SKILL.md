@@ -23,7 +23,7 @@ Formato: [references/plantilla-bitacora.md](references/plantilla-bitacora.md). S
 4. **Revisión de la persona:** solo lo que de verdad pasó en la conversación: qué revisó, qué probó y qué pidió cambiar. Si no lo sabes, escribe "por confirmar" y pregúntale.
 5. **Propuestas cambiadas o descartadas:** qué propuso el agente → qué se decidió → por qué. Ejemplo: "Proponía `FLOAT` para el precio → se usó `DECIMAL(10,2)` → `FLOAT` redondea mal el dinero."
 6. **Tiempo:** hora de inicio y de fin, tomadas de la conversación o de los commits. Si la persona da un estimado, se usa el suyo.
-7. **Commits:** hash corto, o "este commit" si la entrada va en el commit que se está preparando.
+7. **Commits:** el número del PR en GitHub (#N), o "este commit" si la entrada va en el commit que se está preparando. No cites hashes de una rama que se integra con rebase: al integrarla, GitHub crea commits nuevos y esos hashes dejan de existir.
 
 ## Reglas
 

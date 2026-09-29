@@ -35,6 +35,7 @@ Las palabras salen del negocio, no del programador. Si una palabra es fea pero e
 2. Busca también nombres vagos: `Manager`, `Helper`, `Processor`, `Data`, `Info`, `Util`.
 3. Reporta en lenguaje simple con archivo y línea: "`src/services/orderHelper.js:12` dice 'order'; en el glosario es 'venta'".
 4. Propón los cambios de nombre. No renombres nada sin el visto bueno de la persona usuaria.
+5. Después de cada cambio de nombre aprobado, repite la búsqueda: no debe quedar ninguna coincidencia.
 
 ## Cuando un término cambia
 
@@ -43,6 +44,10 @@ En un solo cambio se hace todo esto:
 - Se renombra en el código y en los tests.
 - Si el término es una tabla o una columna, se renombra con una migración nueva (un script que cambia la base de datos paso a paso). Nunca se edita una migración vieja.
 - El mensaje del commit usa el término nuevo.
+
+Antes de hacer el commit, comprueba:
+1. Que no quede el término viejo: `grep -rni --exclude-dir=node_modules --exclude=lenguaje-ubicuo.md "<término viejo>" .` no devuelve nada.
+2. Que la migración nueva se aplica sin errores y que los tests pasan, con los comandos del proyecto (por ejemplo `npx sequelize-cli db:migrate` y `npm test`). Si algo falla, arréglalo antes del commit.
 
 ## Cómo escribir cada entrada
 

@@ -100,3 +100,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 14:42–14:50. Gastó 40 créditos de Tessl en las revisiones.
 - **Commits:** este commit y el anterior (vincular el proyecto).
+
+### 2026-09-29 14:52 — Correcciones de la persona sobre cómo explicar
+
+- **Tarea:** la persona señaló que el agente preguntó "¿Quito la línea Claude-Session?" sin decir qué es ni dónde está, y pidió lo mismo para el código: decir "en el archivo tal, que manda a llamar en la línea tal".
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** agregó dos puntos a la regla de comunicación clara: decir qué es, dónde está y de dónde sale cada cosa, y reportar los problemas de código con archivo, línea, quién llama a qué y qué pasa. Sumó ese punto a un eval. Quitó la línea `Claude-Session` de los 6 commits locales, agregó a la regla de entrega trazable que no se ponen enlaces a sesiones privadas y abrió el PR #2 con el tile `lenguaje-ubicuo`.
+- **Revisión de la persona:** decidió quitar `Claude-Session` y pidió "todo explicado en corto, sencillo, al punto". Para los PR dijo "lo que recomiendes": se sube un PR por rama, de a uno.
+- **Propuestas cambiadas o descartadas:** el agente ponía la línea `Claude-Session` en cada commit, como pide su configuración → se quitó → el repositorio es público y quien evalúe puede no tener acceso a ese enlace.
+- **Tiempo:** 14:52–14:58.
+- **Commits:** este commit.

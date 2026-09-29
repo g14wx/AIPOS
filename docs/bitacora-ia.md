@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 1 h 45 min hasta ahora (12:46–14:30), en curso | 7 | 4 |
+| Preparación: agentes, tiles y glosario | 1 h 55 min hasta ahora (12:46–14:41), en curso | 8 | 4 |
 
 ## Entradas
 
@@ -80,3 +80,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna por ahora.
 - **Tiempo:** 14:16–14:30.
 - **Commits:** este commit.
+
+### 2026-09-29 14:33 — Guía de Tessl y carpeta de setup
+
+- **Tarea:** "necesito documentar como ocupar esto de tessl … así como está docs/agents-setup.md" y "todo lo de setup … debería de ir en un dir más adentro de docs/, e.g. setup".
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** movió la guía de agentes y su imagen a `docs/setup/` y actualizó los enlaces. Escribió `docs/setup/tessl-setup.md` después de comprobar los comandos: la instalación en la documentación oficial de Tessl y el MCP de Tessl en Codex con `codex mcp get tessl`. Agregó el servidor `tessl` a `.codex/config.toml.example`, una sección de Tessl al README y dos palabras al glosario: registro de Tessl y workspace de Tessl.
+- **Revisión de la persona:** pidió ver los mensajes de commit antes de subir nada y pidió juntar las guías de configuración en `docs/setup/`.
+- **Propuestas cambiadas o descartadas:** ninguna. Subir las ramas quedó en espera hasta que la persona revise los mensajes.
+- **Tiempo:** 14:33–14:41.
+- **Commits:** este commit y el anterior (mover las guías).

@@ -18,3 +18,14 @@ La guía de configuración está en [docs/setup/agents-setup.md](docs/setup/agen
 - Configurar el MCP de Trello en Claude Code a partir de `.mcp.json.example`
 - Configurar el mismo MCP en Codex CLI a partir de `.codex/config.toml.example` (opcional)
 - Verificación y solución de problemas
+
+## Tiles de Tessl
+
+Las reglas y skills del agente se reparten con [Tessl](https://tessl.io) en forma de tiles,
+que están en `tessl-plugins/`. La guía está en [docs/setup/tessl-setup.md](docs/setup/tessl-setup.md) e incluye:
+
+- Instalar Tessl y los tiles del proyecto
+- Conectar el MCP de Tessl en Claude Code y Codex (opcional)
+- Cambiar un tile, validarlo y reinstalarlo
+- Medir un tile con evals y publicarlo en el registro de Tessl
+- Solución de problemas

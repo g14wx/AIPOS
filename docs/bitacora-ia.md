@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 4 h 30 min hasta ahora (12:46–17:10), en curso | 21 | 7 |
+| Preparación: agentes, tiles y glosario | 4 h 30 min hasta ahora (12:46–17:14), en curso | 22 | 7 |
 
 ## Entradas
 
@@ -257,3 +257,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
 - **Tiempo:** 16:48–17:10.
 - **Commits:** este commit (PR #9).
+
+### 2026-09-29 17:11 — PR #9 integrado y tiles publicados
+
+- **Tarea:** integrar el PR #9 y publicar los dos tiles nuevos ("ok"), y dejarlo anotado en un PR aparte ("ok vamos").
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** integró el PR #9 en `main` con rebase y publicó en el registro de Tessl `mysql-sequelize-procedimientos` y `vue2-vuetify2-vite`. Los 4 tiles quedaron públicos y pasaron la moderación y el análisis de seguridad de Tessl. Notas de calidad: `lenguaje-ubicuo` 95% y `entrega-trazable` 97%; los dos nuevos quedaron sin nota porque la cuenta agotó sus créditos del mes. No actualizó la carpeta principal del proyecto: ahí había un cambio sin subir en `tessl.json`, de la otra sesión, que instaló `tessl-labs/spec-driven-development`.
+- **Revisión de la persona:** aprobó integrar y publicar, y pidió dejarlo anotado ya en lugar de esperar al próximo cambio.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 17:11–17:14.
+- **Commits:** este commit.

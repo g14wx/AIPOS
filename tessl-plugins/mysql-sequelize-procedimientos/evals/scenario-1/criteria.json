@@ -1,0 +1,54 @@
+{
+  "context": "Point-of-sale backend with Express 4, Sequelize 6, sequelize-cli and mysql2 on MySQL 8.4 (docker image mysql:8.4). Migrations already create products, sales and sale_items, with money as DECIMAL(10,2) and created_at/updated_at defaulting to CURRENT_TIMESTAMP. The agent must write the stored procedure sp_register_sale, which registers a sale and all its items in one call and returns the sale id and total, plus the sequelize-cli migration that creates it. Review the new SQL file (if any), the new migration and any other changed file.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "no_delimiter",
+      "description": "Neither the migration nor any SQL file it runs contains DELIMITER. The CREATE PROCEDURE ... BEGIN ... END is sent as a single statement, without enabling multipleStatements.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "migration_drop_then_create",
+      "description": "The migration's up runs DROP PROCEDURE IF EXISTS sp_register_sale and CREATE PROCEDURE in two separate queryInterface.sequelize.query() calls, passes no replacements and no QueryTypes to the CREATE call, and down drops the procedure. It is CommonJS like the existing migrations and sorts after them.",
+      "max_score": 2,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "json_items_with_json_table",
+      "description": "The procedure receives all items in one JSON parameter and inserts them with INSERT ... SELECT ... FROM JSON_TABLE(<param>, '$[*]' COLUMNS (...)) AS <alias>, reading the unit price as DECIMAL(10,2). No comma-separated strings, no fixed number of item parameters, no loop of one CALL per item.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "exit_handler_rollback_resignal",
+      "description": "The procedure starts and commits its own transaction and declares an EXIT HANDLER FOR SQLEXCEPTION that runs ROLLBACK and then RESIGNAL, so the original error reaches the caller (it is not swallowed or replaced by a success row). The handler is declared after the variable declarations.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "empty_sale_rejected",
+      "description": "A NULL or empty item list (ideally also a non-array JSON value) is rejected with SIGNAL SQLSTATE '45000' and a MESSAGE_TEXT, before any row is inserted.",
+      "max_score": 1,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "total_in_sql",
+      "description": "Line subtotals and the sale total are computed in SQL from quantity and unit price (for example ROUND(quantity * unit_price, 2) and SUM), stored as DECIMAL(10,2), and not taken from a total sent by the caller.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "single_final_select",
+      "description": "The procedure ends with exactly one SELECT that returns the new sale id and total. There are no other result-set SELECTs (for example debug SELECTs) and no OUT parameters.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "no_definer_single_path",
+      "description": "There is no DEFINER= clause and no CREATE OR REPLACE PROCEDURE, and the procedure is not also created from docker-entrypoint-initdb.d, docker-compose.yml or any script outside the migration.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    }
+  ]
+}

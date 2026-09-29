@@ -1,0 +1,6 @@
+{
+  "description": "Express route and service that call an existing stored procedure with Sequelize and map its errors to HTTP status codes",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

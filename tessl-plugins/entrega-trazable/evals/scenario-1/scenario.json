@@ -1,0 +1,6 @@
+{
+  "description": "Integrar un entregable en ProductionEnv con merge commit, sin borrar la rama y con etiqueta",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

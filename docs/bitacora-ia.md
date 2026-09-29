@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 1 h 30 min hasta ahora (12:46–14:14), en curso | 5 | 4 |
+| Preparación: agentes, tiles y glosario | 1 h 45 min hasta ahora (12:46–14:30), en curso | 7 | 4 |
 
 ## Entradas
 
@@ -59,4 +59,24 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Revisión de la persona:** eligió "precio aplicado", "detalle de venta" y "registrar venta". Siguen pendientes "venta en pantalla" y "cantidad".
 - **Propuestas cambiadas o descartadas:** ninguna; la persona eligió las 3 opciones que recomendó el agente.
 - **Tiempo:** 14:11–14:14.
+- **Commits:** este commit.
+
+### 2026-09-29 14:14 — Qué tiles hacen falta
+
+- **Tarea:** "¿qué otras tiles sacamos? que veas que sean necesarias".
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** revisó el plan y lo bajó de 6 tiles a 3: `entrega-trazable`, `mysql-sequelize-procedimientos` y `vue2-vuetify2-vite`. Propuso probar tiles que ya existen en vez de escribirlos (`tessl-labs/express-error-handling`, `openkata/commit-conventions`) y llevar los requisitos de AIPOS en un archivo (`docs/requisitos.md`) en vez de un tile.
+- **Revisión de la persona:** aprobó la propuesta ("ok vamos!").
+- **Propuestas cambiadas o descartadas:** el propio agente cambió su plan: de 6 tiles a 3, porque el agente ya maneja bien Express y los requisitos de un solo proyecto no necesitan un tile.
+- **Tiempo:** 14:14–14:16.
+- **Commits:** ninguno (solo revisión).
+
+### 2026-09-29 14:16 — Tile entrega-trazable
+
+- **Tarea:** crear el primer tile de la lista ("ok vamos!").
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** creó `tessl-plugins/entrega-trazable/` con la regla de entrega trazable, 3 skills (`flujo-entregable`, `bitacora-ia`, `readme-entrega`) y 3 evals con repos de git de ejemplo, y probó los scripts que arman esos repos. La validación de Tessl rechazó la skill `bitacora-ia` porque su descripción tenía dos puntos seguidos de un espacio; el agente la reescribió. Agregó al glosario los términos de entrega, escribió esta bitácora y separó el trabajo en commits, con una rama por tile.
+- **Revisión de la persona:** decidió que los mensajes de commit van en español. A mitad de la tarea preguntó qué estaba haciendo el agente y después pidió seguir ("tu continua como venias haciendo"). Todavía no revisó el contenido del tile (por confirmar).
+- **Propuestas cambiadas o descartadas:** ninguna por ahora.
+- **Tiempo:** 14:16–14:30.
 - **Commits:** este commit.

@@ -1,0 +1,6 @@
+{
+  "description": "Tarea normal que debe terminar con commit en español y entrada en la bitácora de IA, incluida la corrección de la persona",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "context": "Proyecto AIPOS casi terminado, con backend, frontend, procedimiento almacenado, glosario y una bitácora de IA con tiempos, tareas y propuestas descartadas. No hay tests automáticos. El agente debe escribir el README de entrega con los 12 puntos, usando datos reales del repositorio y de la bitácora, sin inventar nada. Se revisa README.md.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "doce_puntos",
+      "description": "El README cubre los 12 puntos pedidos, cada uno identificable.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "procedimiento_ubicado",
+      "description": "El punto del procedimiento almacenado nombra sp_registrar_venta, su archivo backend/db/procedures/sp_registrar_venta.sql, cómo se crea (la migración 20260930000003 o npm run db:migrate) y dónde lo usa la app (backend/src/services/ventas.js, función registrarVenta, desde POST /api/ventas).",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "versiones_reales",
+      "description": "Las versiones coinciden con el repositorio: Vue 2.7.16, Vuetify 2.7.2, Vite 7, Express 4, Sequelize 6.37, MySQL 8.4, Node 22 o superior. No aparecen versiones inventadas ni 'latest'.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "cumplimiento_honesto",
+      "description": "La sección de cumplimiento declara lo pendiente que figura en la bitácora: no hay tests automáticos y la venta en pantalla se pierde al recargar.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "ia_desde_bitacora",
+      "description": "Los puntos de IA usan hechos de la bitácora: Claude Code (Opus 5.5) y Codex, ejemplos de tareas delegadas y al menos dos propuestas descartadas con su motivo (por ejemplo FLOAT → DECIMAL(10,2), Vue CLI → Vite 7, mysql:latest → mysql:8.4, transacción externa descartada).",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "tiempo_desde_bitacora",
+      "description": "El punto de tiempo usa los totales de la bitácora (productos 3 h, ventas 4 h 30 min, unas 7 h 30 min en total).",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "comandos_reales",
+      "description": "Los comandos de instalación y ejecución coinciden con los scripts de backend/package.json y frontend/package.json y con docker-compose.yml, e incluyen copiar .env.example.",
+      "max_score": 1,
+      "category": "INTEGRATION"
+    },
+    {
+      "name": "no_inventa",
+      "description": "No afirma cosas que no existen en el repositorio: tests, cobertura, CI, autenticación, despliegue, Dockerfile de la app o scripts que no están en package.json.",
+      "max_score": 2,
+      "category": "MUST_NOT"
+    }
+  ]
+}

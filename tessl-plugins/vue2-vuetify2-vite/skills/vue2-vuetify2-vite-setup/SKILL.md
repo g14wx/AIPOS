@@ -84,7 +84,7 @@ No `createApp` and no `createVuetify`. Vuetify 2 has no composables: read screen
 
 ## 3. Environment and API client
 
-Only variables that start with `VITE_` reach the browser, through `import.meta.env`; `process.env` does not exist in Vite client code. Document them in a committed `.env.example` (keep `.env` out of git): `VITE_API_URL=http://localhost:3000/api`, or `VITE_API_URL=/api` with the dev proxy above.
+Only variables that start with `VITE_` reach the browser, through `import.meta.env`; `process.env` does not exist in Vite client code. Document them in a committed `.env.example` (keep `.env` out of git). Use `VITE_API_URL=/api` with the dev proxy above; an absolute URL such as `http://localhost:3000/api` skips the proxy and only works if the backend enables CORS.
 
 `src/api/http.js`
 ```js
@@ -94,7 +94,7 @@ export const http = axios.create({ baseURL: import.meta.env.VITE_API_URL, timeou
 
 // Every caller gets an Error with a readable message and the HTTP status.
 http.interceptors.response.use((response) => response, (error) => {
-  const normalized = new Error(error.response?.data?.message ?? error.message);
+  const normalized = new Error(error.response?.data?.error ?? error.response?.data?.message ?? error.message);
   normalized.status = error.response?.status ?? 0;
   return Promise.reject(normalized);
 });

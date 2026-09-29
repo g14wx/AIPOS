@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 4 h hasta ahora (12:46–16:46), en curso | 20 | 7 |
+| Preparación: agentes, tiles y glosario | 4 h 30 min hasta ahora (12:46–17:10), en curso | 21 | 7 |
 
 ## Entradas
 
@@ -247,3 +247,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 16:32–16:46.
 - **Commits:** este commit y el anterior (tile `mysql-sequelize-procedimientos`).
+
+### 2026-09-29 16:48 — Revisión de Codex del PR #9
+
+- **Tarea:** revisar el PR #9 (tiles de MySQL y de Vue 2) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
+- **Qué hizo el agente:** Codex encontró 6 fallas en los ejemplos de las skills y en los evals. Un ítem `null` dejaba colgada la petición en Express 4. El cliente de Vue no leía el mensaje de error del backend (`data.error`). La validación del precio aceptaba valores que no caben en `DECIMAL(10,2)`. El manejador de errores del eval de MySQL convertía en 500 los 400 y 413 del parser de JSON. El ejemplo de `VITE_API_URL` se saltaba el proxy de Vite. Y el eval de Vue no exigía el `package-lock.json`. Claude Code corrigió las 6.
+- **Revisión de la persona:** aceptó los 6 hallazgos, y antes decidió publicar los tiles nuevos solo después de esta revisión.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 16:48–17:10.
+- **Commits:** este commit (PR #9).

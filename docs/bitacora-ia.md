@@ -8,7 +8,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
 | Preparación: agentes, tiles y glosario | 4 h 35 min hasta ahora (12:46–17:17), en curso | 23 | 8 |
-| Requerimientos, diagramas BPMN y tablero AIPOS | 1 h 38 min (15:18–16:56) | 1 | 7 |
+| Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
 
@@ -298,3 +298,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 17:20–17:23.
 - **Commits:** este commit.
+
+### 2026-09-29 17:29 — PR #15 y #14 integrados, enlaces en el tablero AIPOS y cierre de R-00
+
+- **Tarea:** "ok entonces, que estamos esperando?": integrar los PR pendientes y después cambiar las rutas de las tarjetas por enlaces de GitHub, como la persona había aprobado ("ok").
+- **Agente:** Claude Code (Opus 5.5). Tres agentes de Claude Code con Sonnet 5.5 copiaron las descripciones nuevas en Trello.
+- **Qué hizo el agente:** integró los PR #15 y #14 con rebase, lo único que permite la regla de `main`, y puso al día la carpeta principal. Con un script cambió por enlaces de GitHub las 104 rutas de las 27 tarjetas que existen en `main`; la de `README.md:5-6` apunta al commit `df442d5` para que la línea no se mueva. Revisó que los 28 enlaces abran y que Trello guardara las 27 descripciones tal cual. Corrigió la rama vieja `docs/requerimientos` en R-01, R-02 y B-01. Al revisar los criterios de R-00 agregó a la matriz las 2 partes del PDF que no tenían fila: el propósito de la evaluación y la revisión técnica.
+- **Revisión de la persona:** R-01 a R-04 no tienen subtareas ni criterios de aceptación porque son de consulta. Entre aclararlo en el glosario o darles esas listas, eligió aclararlo en "tarjeta". También eligió integrar este PR sin revisión de Codex.
+- **Propuestas cambiadas o descartadas:** ninguna: la persona eligió las opciones que proponía el agente.
+- **Tiempo:** 17:29–17:49.
+- **Commits:** este commit y los 2 anteriores de la rama `docs/cierre-requerimientos`: las filas de la matriz y la aclaración del glosario.

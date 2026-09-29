@@ -1,0 +1,88 @@
+# Requerimientos de AIPOS
+
+Esta carpeta dice qué tiene que hacer y cumplir AIPOS. Sale de la prueba técnica y de las decisiones de la
+persona desarrolladora. Es la base del [tablero AIPOS](https://trello.com/b/K5mkgcdl/aipos) de Trello: cada
+tarjeta apunta a un requerimiento y a un flujo de esta carpeta.
+
+- **Fuente:** el PDF de la prueba técnica (`devdoc/Prueba_Tecnica_Lead_AI_Native_Software_Engineer.pdf`, fuera
+  de git) y las decisiones del 2026-09-29.
+- **Palabras:** las del glosario, [`docs/lenguaje-ubicuo.md`](../docs/lenguaje-ubicuo.md).
+- **Estado:** versión 1, del 2026-09-29. Lo que dice "por confirmar" todavía no está decidido.
+
+## Cómo leer esta carpeta
+
+| Archivo | Qué tiene |
+|---|---|
+| [01-alcance.md](01-alcance.md) | Objetivo, actores, qué entra y qué no, lo que agregamos, supuestos y riesgos. |
+| [02-requerimientos-funcionales.md](02-requerimientos-funcionales.md) | Lo que AIPOS hace (RF), sus reglas de negocio (RN) y los criterios de aceptación. |
+| [03-requerimientos-no-funcionales.md](03-requerimientos-no-funcionales.md) | Lo que AIPOS cumple (RNF): tecnologías, seguridad, errores, Git, uso del agente y README. |
+| [04-entregables.md](04-entregables.md) | Entregables, tarjetas del tablero AIPOS, secuencia y definición de terminado. |
+| [flujos/](flujos/) | Un archivo por flujo, con sus pasos y su diagrama BPMN. |
+| [diagramas/](diagramas/) | Los diagramas: `.drawio` para editar con draw.io y `.png` para ver. |
+
+Un diagrama BPMN dibuja un flujo con una notación estándar. Cada actor tiene su carril (una franja), y dentro
+van sus tareas, sus decisiones y los puntos de inicio y fin.
+
+## Flujos
+
+| # | Flujo | Requerimientos |
+|---|---|---|
+| 00 | [Mapa de procesos](flujos/00-mapa-de-procesos.md) | Todos |
+| 01 | [Crear producto](flujos/01-crear-producto.md) | RF-01, RF-10 |
+| 02 | [Buscar producto](flujos/02-buscar-producto.md) | RF-02, RF-12 |
+| 03 | [Armar la venta actual](flujos/03-armar-la-venta-actual.md) | RF-03 a RF-08 |
+| 04 | [Registrar venta](flujos/04-registrar-venta.md) | RF-09, RF-10, RF-11 |
+| 05 | [Entregar un entregable](flujos/05-entregar-un-entregable.md) | RNF-09, RNF-10 |
+| 06 | [Trabajar una tarjeta con el agente](flujos/06-trabajar-una-tarjeta-con-el-agente.md) | RNF-08, RNF-10 |
+
+## Matriz del PDF
+
+Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
+
+| Parte del PDF | Requerimiento | Flujo | Tarjetas |
+|---|---|---|---|
+| Objetivo: una sola pantalla con frontend, backend y base de datos | RNF-01, RNF-02 | 00 | B-02, B-03, B-04 |
+| 1. Administración de productos | RF-01; RN-01 a RN-04 | 01 | P-01, P-02, P-03 |
+| 2. Búsqueda de productos | RF-02 | 02 | P-04, P-05 |
+| 3. Registro de una venta | RF-03 a RF-09 | 03, 04 | V-03 a V-08 |
+| 4. Persistencia de datos | RF-10 | 01, 04 | P-01, V-01 |
+| 5. Procedimiento almacenado MySQL | RF-11 | 04 | V-02, V-03, E-02 |
+| Alcance: lo que no se hace | [Fuera de alcance](01-alcance.md#fuera-de-alcance) | — | — |
+| Tecnologías requeridas | RNF-02 | — | T-01, T-02, B-02, B-03, B-04 |
+| Requerimientos de Git y GitHub | RNF-09 | 05 | B-01, E-03 |
+| Uso de inteligencia artificial | RNF-10 | 05, 06 | R-03, E-01 |
+| README.md obligatorio (12 puntos) | RNF-11 | — | E-02 |
+| Entrega en un repositorio público | RNF-12 | 05 | E-03 |
+| Aspectos que se evaluarán | [Tabla de abajo](#aspectos-que-se-evaluarán) | — | — |
+
+### Aspectos que se evaluarán
+
+| Aspecto del PDF | Dónde se cubre |
+|---|---|
+| Cumplimiento funcional | RF-01 a RF-11 |
+| Dominio de Vue.js 2, Vuetify y Axios | RNF-02, RNF-06; tarjetas B-04, P-03, P-05, V-04 a V-08 |
+| Dominio de Node.js, Express.js y Sequelize | RNF-02, RNF-06; tarjetas B-02, P-02, P-04, V-03 |
+| Diseño y uso correcto de MySQL | RF-10, RNF-07; tarjetas P-01, V-01 |
+| Crear e integrar procedimientos almacenados | RF-11; tarjetas V-02, V-03 |
+| Calidad, claridad y mantenibilidad del código | RNF-06, RNF-13 |
+| Manejo de errores, seguridad básica y validación | RNF-03, RNF-04, RNF-05 |
+| Arquitectura y separación de responsabilidades | RNF-06 |
+| Uso profesional de Git, ramas y commits | RNF-09; flujo 05 |
+| Calidad del README y reproducibilidad | RNF-07, RNF-11; tarjetas E-02, E-03 |
+| Uso efectivo del agente | RNF-10; flujo 06 |
+| Criterio al revisar, aceptar, corregir o descartar propuestas de IA | RNF-10; [bitácora de IA](../docs/bitacora-ia.md) |
+
+## Preguntas abiertas
+
+Están por confirmar. Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS.
+
+| # | Pregunta | Propuesta | Qué cambia |
+|---|---|---|---|
+| 1 | ¿Se permite un precio aplicado de 0? | Sí, para regalar un producto. | RN-05 |
+| 2 | ¿La venta actual debe seguir ahí si se recarga la página? | No en la versión 1. | Flujo 03 |
+| 3 | ¿Se busca desde 2 caracteres y se muestran 20 resultados como máximo? | Sí. | RF-02 |
+| 4 | ¿Qué límites tienen el precio y la cantidad? | Precio hasta 99 999.99 y cantidad hasta 999. El subtotal y el total usan `DECIMAL(12,2)` para que no se desborden. | RN-02, RN-06 |
+| 5 | ¿Entra RF-12 (Enter con un código de barras exacto)? | Sí, si sobra tiempo. | RF-12 |
+| 6 | ¿Cómo se muestran los precios? | Con 2 decimales y sin símbolo de moneda. | RNF-01 |
+| 7 | ¿Cómo llega la versión final a `main` sin perder los merge commits? La regla "Protect main" de GitHub solo deja squash o rebase. | Se evalúa `ProductionEnv`, que guarda los merge commits, y a `main` se lleva con rebase. La otra opción es permitir un merge commit solo en ese PR. | E-03 |
+| 8 | ¿Cerramos los PR #5 y #6 de Dependabot, que suben a Vue 3 y Vuetify 3? | **Resuelta el 2026-09-29**: se cerraron, y el PR #8 agregó `.github/dependabot.yml`, que ignora las versiones mayores de Vue y Vuetify. | B-04 |

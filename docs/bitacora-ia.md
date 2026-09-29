@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 1 h 55 min hasta ahora (12:46–14:41), en curso | 8 | 4 |
+| Preparación: agentes, tiles y glosario | 2 h 10 min hasta ahora (12:46–14:58), en curso | 10 | 5 |
 
 ## Entradas
 
@@ -90,3 +90,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna. Subir las ramas quedó en espera hasta que la persona revise los mensajes.
 - **Tiempo:** 14:33–14:41.
 - **Commits:** este commit y el anterior (mover las guías).
+
+### 2026-09-29 14:42 — Revisión de calidad de las skills
+
+- **Tarea:** medir los tiles, después de que la persona inició sesión en Tessl (`tessl login`).
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** creó el proyecto `aipos` en Tessl y corrió la revisión de calidad de las 4 skills. Notas sobre 100: `glosario-lenguaje-ubicuo` 93, `flujo-entregable` 90, `bitacora-ia` 95 y `readme-entrega` 97. Aplicó la sugerencia de la revisión: la skill del glosario ahora pide comprobar, después de cambiar un término, que no quede el nombre viejo y que la migración y los tests funcionen. Lanzó el eval del tile `lenguaje-ubicuo`.
+- **Revisión de la persona:** por confirmar.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 14:42–14:50. Gastó 40 créditos de Tessl en las revisiones.
+- **Commits:** este commit y el anterior (vincular el proyecto).

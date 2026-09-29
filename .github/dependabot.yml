@@ -1,6 +1,8 @@
-# Dependabot: alertas y PR de seguridad para los paquetes npm del repositorio.
-# La prueba técnica exige Vue 2 y Vuetify 2. Sus versiones mayores (Vue 3 y
-# Vuetify 3) rompen la app, así que se ignoran también en los PR de seguridad.
+# Dependabot: alertas de seguridad para los paquetes npm del repositorio.
+# La prueba técnica exige Vue 2 y Vuetify 2, que ya no reciben arreglos, así
+# que sus alertas se revisan a mano. Los PR de seguridad automáticos están
+# apagados en la configuración de seguridad del repositorio: proponían pasar a
+# Vue 3 y Vuetify 3, que rompen la app, y este archivo no alcanzó a frenarlos.
 version: 2
 updates:
   - package-ecosystem: "npm"
@@ -8,7 +10,7 @@ updates:
       - "**/*"
     schedule:
       interval: "weekly"
-    # 0 apaga los PR de versiones normales; los de seguridad siguen llegando.
+    # 0 apaga los PR de versiones normales.
     open-pull-requests-limit: 0
     ignore:
       - dependency-name: "vue"

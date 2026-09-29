@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 2 h 40 min hasta ahora (12:46–15:28), en curso | 14 | 6 |
+| Preparación: agentes, tiles y glosario | 2 h 55 min hasta ahora (12:46–15:44), en curso | 16 | 6 |
 
 ## Entradas
 
@@ -152,4 +152,24 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Revisión de la persona:** antes de aprobar preguntó qué era la propuesta ("¿una modificación?"); con la explicación, la aprobó.
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 15:26–15:28.
+- **Commits:** este commit.
+
+### 2026-09-29 15:25 — Revisión de Codex del PR 2
+
+- **Tarea:** revisar el PR 2 (tile `entrega-trazable`) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
+- **Qué hizo el agente:** Codex encontró 5 hallazgos. Tres eran de la skill `flujo-entregable`: el plan B mezclaba dos casos, el mensaje del merge quedaba en inglés y la etiqueta podía caer en otro commit. Dos eran del proyecto de ejemplo del eval del README: el resumen de su bitácora no cuadraba y la bitácora contradecía al historial. Claude Code los aplicó en el commit `64cc617` y dejó el resultado como comentario del PR 2.
+- **Revisión de la persona:** aceptó los 5 hallazgos.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 15:25–15:44.
+- **Commits:** `64cc617` (PR 2) y este commit.
+
+### 2026-09-29 15:28 — Resultado del eval con el límite de largo
+
+- **Tarea:** medir si la regla nueva (3 a 5 frases) acorta las respuestas.
+- **Agente:** Claude Code (Opus 5.5). Tessl corrió el eval con el modelo `deepseek-v4.1-flash`.
+- **Qué hizo el agente:** revisó el resultado. Con el tile, 90%, contra 92% en la corrida anterior; con una sola corrida, esa diferencia es ruido. Las respuestas bajaron de unas 300 palabras a unas 200, pero siguen arriba de la meta de 100.
+- **Revisión de la persona:** por confirmar.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 15:28–15:32. Gastó 30 créditos de Tessl.
 - **Commits:** este commit.

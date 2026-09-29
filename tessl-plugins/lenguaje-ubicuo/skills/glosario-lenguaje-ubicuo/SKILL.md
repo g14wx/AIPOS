@@ -46,7 +46,7 @@ En un solo cambio se hace todo esto:
 - El mensaje del commit usa el término nuevo.
 
 Antes de hacer el commit, comprueba:
-1. Que no quede el término viejo: `grep -rni --exclude-dir=node_modules --exclude=lenguaje-ubicuo.md "<término viejo>" .` no devuelve nada.
+1. Que no quede el término viejo en el código ni en los tests: `git grep -n -i "<término viejo>" -- . ':!docs/lenguaje-ubicuo.md' ':!**/migrations/**'` no devuelve nada. Las migraciones sí lo nombran: la vieja no se toca y la nueva hace el cambio de nombre.
 2. Que la migración nueva se aplica sin errores y que los tests pasan, con los comandos del proyecto (por ejemplo `npx sequelize-cli db:migrate` y `npm test`). Si algo falla, arréglalo antes del commit.
 
 ## Cómo escribir cada entrada

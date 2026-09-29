@@ -7,9 +7,11 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 3 h 15 min hasta ahora (12:46–16:00), en curso | 17 | 7 |
+| Preparación: agentes, tiles y glosario | 3 h 30 min hasta ahora (12:46–16:17), en curso | 18 | 7 |
 
 ## Entradas
+
+
 
 ### 2026-09-29 12:46 — Configuración de agentes y MCP de Trello (reconstruido, por confirmar)
 
@@ -21,6 +23,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 12:46–13:24, según los commits (por confirmar).
 - **Commits:** `39019bc` (commit inicial de la persona), `873e7e3`, `edeeb2e`.
 
+
+
 ### 2026-09-29 13:27 — PR #1 y protección de `main` (reconstruido, por confirmar)
 
 - **Tarea:** proteger `main` con buenas prácticas, con una sola persona desarrollando (según la memoria del agente; por confirmar).
@@ -30,6 +34,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna registrada (por confirmar).
 - **Tiempo:** 13:27–13:34, según GitHub.
 - **Commits:** PR #1 (`edeeb2e` en `main`).
+
+
 
 ### 2026-09-29 13:35 — Análisis de la prueba y plan de tiles
 
@@ -41,6 +47,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 13:35–14:00 (aprobación del plan).
 - **Commits:** ninguno (solo análisis).
 
+
+
 ### 2026-09-29 14:01 — Tile lenguaje-ubicuo
 
 - **Tarea:** "necesito un tile para definir el 'lenguaje ubicuo' … que sea corto, directo, no mensajes como robot". El motivo: el agente usaba jerga sin explicar, como "ADR", y frases cortadas.
@@ -50,6 +58,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** desactivar el plugin de Claude Code caveman → dejarlo en modo lite (el cambio de configuración sigue pendiente) → decisión de la persona. Aplicar la regla de comunicación en todos los proyectos → solo en AIPOS → decisión de la persona.
 - **Tiempo:** 14:01–14:11.
 - **Commits:** este commit.
+
+
 
 ### 2026-09-29 14:11 — Glosario del proyecto
 
@@ -61,6 +71,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 14:11–14:14.
 - **Commits:** este commit.
 
+
+
 ### 2026-09-29 14:14 — Qué tiles hacen falta
 
 - **Tarea:** "¿qué otras tiles sacamos? que veas que sean necesarias".
@@ -70,6 +82,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** el propio agente cambió su plan: de 6 tiles a 3, porque el agente ya maneja bien Express y los requisitos de un solo proyecto no necesitan un tile.
 - **Tiempo:** 14:14–14:16.
 - **Commits:** ninguno (solo revisión).
+
+
 
 ### 2026-09-29 14:16 — Tile entrega-trazable
 
@@ -81,6 +95,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 14:16–14:30.
 - **Commits:** este commit.
 
+
+
 ### 2026-09-29 14:33 — Guía de Tessl y carpeta de setup
 
 - **Tarea:** "necesito documentar como ocupar esto de tessl … así como está docs/agents-setup.md" y "todo lo de setup … debería de ir en un dir más adentro de docs/, e.g. setup".
@@ -90,6 +106,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna. Subir las ramas quedó en espera hasta que la persona revise los mensajes.
 - **Tiempo:** 14:33–14:41.
 - **Commits:** este commit y el anterior (mover las guías).
+
+
 
 ### 2026-09-29 14:42 — Revisión de calidad de las skills
 
@@ -101,6 +119,8 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 14:42–14:50. Gastó 40 créditos de Tessl en las revisiones.
 - **Commits:** este commit y el anterior (vincular el proyecto).
 
+
+
 ### 2026-09-29 14:52 — Correcciones de la persona sobre cómo explicar
 
 - **Tarea:** la persona señaló que el agente preguntó "¿Quito la línea Claude-Session?" sin decir qué es ni dónde está, y pidió lo mismo para el código: decir "en el archivo tal, que manda a llamar en la línea tal".
@@ -111,15 +131,19 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 14:52–14:58.
 - **Commits:** este commit.
 
+
+
 ### 2026-09-29 15:00 — Revisar los PR sin otra persona
 
 - **Tarea:** "ojo, soy el único desarrollador … en el futuro puede que haya alguien que me revise los PRs, pero por el momento nadie".
 - **Agente:** Claude Code (Opus 5.5), y Codex para la revisión.
-- **Qué hizo el agente:** agregó a la skill `flujo-entregable` el paso "Revisar antes de integrar": otro agente revisa el PR, se corrige o se explica cada hallazgo, el resultado queda como comentario del PR y se integra solo con el visto bueno de la persona. Corrió `codex review --base main` sobre el PR 1, que encontró 3 hallazgos. Aplicó los aceptados en el commit `3accfbc` y dejó el resultado como comentario del PR 1.
+- **Qué hizo el agente:** agregó a la skill `flujo-entregable` el paso "Revisar antes de integrar": otro agente revisa el PR, se corrige o se explica cada hallazgo, el resultado queda como comentario del PR y se integra solo con el visto bueno de la persona. Corrió `codex review --base main` sobre el PR #2, que encontró 3 hallazgos. Aplicó los aceptados en el commit `f9889ab` y dejó el resultado como comentario del PR #2.
 - **Revisión de la persona:** decidió cada hallazgo. Aceptó el 1 (avisar que hay que correr `tessl install`) y el 3 (el log del eval 1 no entraba a git por `*.log` en `.gitignore`), y descartó el 2.
 - **Propuestas cambiadas o descartadas:** Codex proponía pasar los evals a "detalle de venta" → se descartó → los evals usan un proyecto de ejemplo con su propio glosario, a propósito, para medir si el agente sigue el glosario del repo donde trabaja.
 - **Tiempo:** 15:00–15:17.
-- **Commits:** `3accfbc` (PR 1) y este commit.
+- **Commits:** `f9889ab` (PR #2) y este commit.
+
+
 
 ### 2026-09-29 15:13 — Resultado del eval del tile lenguaje-ubicuo
 
@@ -131,18 +155,34 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 14:50–15:13. Gastó 60 créditos de Tessl.
 - **Commits:** este commit.
 
-### 2026-09-29 15:19 — PR 1 integrado y resultados de los evals
 
-- **Tarea:** integrar el PR 1 ("vamos!") y medir los dos tiles.
+
+### 2026-09-29 15:19 — PR #2 integrado y resultados de los evals
+
+- **Tarea:** integrar el PR #2 ("vamos!") y medir los dos tiles.
 - **Agente:** Claude Code (Opus 5.5). Tessl corrió los evals con el modelo `deepseek-v4.1-flash`.
-- **Qué hizo el agente:** integró el PR 1 en `main` con rebase, puso las ramas siguientes encima del `main` nuevo y abrió el PR 2 (tile `entrega-trazable`) para que Codex lo revise. Resultados de los evals:
+- **Qué hizo el agente:** integró el PR #2 en `main` con rebase, puso las ramas siguientes encima del `main` nuevo y abrió el PR #3 (tile `entrega-trazable`) para que Codex lo revise. Resultados de los evals:
   - `lenguaje-ubicuo`, repetido con el log y las correcciones: 74% → 92%. Explicar un error, 67% → 88%; nombrar con el glosario, 92% → 92%; parar ante una palabra nueva, 64% → 100%.
   - `entrega-trazable`: 83% → 99%. Commit y bitácora, 50% → 100%; integrar un entregable, 100% → 98%; README, 100% → 100%. En los dos últimos el agente ya lo hacía bien sin el tile, porque las tareas de prueba daban demasiadas pistas.
   - En los dos tiles las respuestas salieron largas: unas 300 palabras cuando la meta era 100.
-- **Revisión de la persona:** aprobó integrar el PR 1. Avisó que otra sesión del agente ("planning") está escribiendo los requisitos del proyecto; esta sesión no la toca.
+- **Revisión de la persona:** aprobó integrar el PR #2. Avisó que otra sesión del agente ("planning") está escribiendo los requisitos del proyecto; esta sesión no la toca.
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 15:19–15:26. Gastó 100 créditos de Tessl en evals.
-- **Commits:** PR 1 en `main` (`f9889ab`) y PR 2 abierto (#3).
+- **Commits:** PR #2 en `main` (`f9889ab`) y PR #3 abierto.
+
+
+
+### 2026-09-29 15:25 — Revisión de Codex del PR #3
+
+- **Tarea:** revisar el PR #3 (tile `entrega-trazable`) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
+- **Qué hizo el agente:** Codex encontró 5 hallazgos. Tres eran de la skill `flujo-entregable`: el plan B mezclaba dos casos, el mensaje del merge quedaba en inglés y la etiqueta podía caer en otro commit. Dos eran del proyecto de ejemplo del eval del README: el resumen de su bitácora no cuadraba y la bitácora contradecía al historial. Claude Code los aplicó en el commit `797bf4b` y dejó el resultado como comentario del PR #3.
+- **Revisión de la persona:** aceptó los 5 hallazgos.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 15:25–15:44.
+- **Commits:** `797bf4b` (PR #3) y este commit.
+
+
 
 ### 2026-09-29 15:26 — Límite de largo en las explicaciones
 
@@ -154,15 +194,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 15:26–15:28.
 - **Commits:** este commit.
 
-### 2026-09-29 15:25 — Revisión de Codex del PR 2
 
-- **Tarea:** revisar el PR 2 (tile `entrega-trazable`) con otro agente antes de integrarlo.
-- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
-- **Qué hizo el agente:** Codex encontró 5 hallazgos. Tres eran de la skill `flujo-entregable`: el plan B mezclaba dos casos, el mensaje del merge quedaba en inglés y la etiqueta podía caer en otro commit. Dos eran del proyecto de ejemplo del eval del README: el resumen de su bitácora no cuadraba y la bitácora contradecía al historial. Claude Code los aplicó en el commit `64cc617` y dejó el resultado como comentario del PR 2.
-- **Revisión de la persona:** aceptó los 5 hallazgos.
-- **Propuestas cambiadas o descartadas:** ninguna descartada.
-- **Tiempo:** 15:25–15:44.
-- **Commits:** `64cc617` (PR 2) y este commit.
 
 ### 2026-09-29 15:28 — Resultado del eval con el límite de largo
 
@@ -174,12 +206,24 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 15:28–15:32. Gastó 30 créditos de Tessl.
 - **Commits:** este commit.
 
-### 2026-09-29 15:46 — PR 2 integrado y revisión de Codex del PR 3
 
-- **Tarea:** integrar el PR 2 ("adelante!") y revisar el PR 3 (guías de configuración) con otro agente antes de integrarlo.
-- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) integró el PR 2, recomendó qué hacer con cada hallazgo y aplicó los cambios.
-- **Qué hizo el agente:** integró el PR 2 en `main` con rebase y abrió el PR 3. Codex encontró 2 hallazgos en el PR 3: a la guía de Tessl le faltaba pedir que se copien las plantillas antes de verificar el MCP, y la entrada de la bitácora de ese trabajo estaba solo en el último de sus dos commits. Claude Code aplicó el primero en el commit `30fac3d` y aclaró la regla de entrega trazable y la skill `bitacora-ia`: si una tarea ocupa varios commits, la entrada va en el último y nombra los anteriores.
+
+### 2026-09-29 15:46 — PR #3 integrado y revisión de Codex del PR #4
+
+- **Tarea:** integrar el PR #3 ("adelante!") y revisar el PR #4 (guías de configuración) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) integró el PR #3, recomendó qué hacer con cada hallazgo y aplicó los cambios.
+- **Qué hizo el agente:** integró el PR #3 en `main` con rebase y abrió el PR #4. Codex encontró 2 hallazgos en el PR #4: a la guía de Tessl le faltaba pedir que se copien las plantillas antes de verificar el MCP, y la entrada de la bitácora de ese trabajo estaba solo en el último de sus dos commits. Claude Code aplicó el primero en el commit `08a1d20` y aclaró la regla de entrega trazable y la skill `bitacora-ia`: si una tarea ocupa varios commits, la entrada va en el último y nombra los anteriores.
 - **Revisión de la persona:** aceptó el hallazgo 1 y descartó el 2.
 - **Propuestas cambiadas o descartadas:** Codex proponía repartir la entrada reescribiendo dos commits ya subidos → se descartó → nuestra regla prohíbe reescribir commits ya subidos; en su lugar se aclaró la regla.
 - **Tiempo:** 15:46–16:00.
-- **Commits:** `30fac3d` (PR 3) y este commit.
+- **Commits:** `08a1d20` (PR #4) y este commit.
+
+### 2026-09-29 16:00 — Revisión de Codex del PR #7 y corrección de la bitácora
+
+- **Tarea:** revisar el PR #7 (ajustes a los tiles) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
+- **Qué hizo el agente:** Codex encontró 3 hallazgos. La comprobación al cambiar un término pedía algo imposible, porque las migraciones siempre nombran el término viejo. La bitácora decía "PR 1, 2 y 3" y citaba hashes de ramas que dejaron de existir al integrar con rebase. Y una entrada estaba fuera de orden. Claude Code hizo que la comprobación busque solo en el código y los tests, corrigió en esta bitácora los números de PR (#2, #3 y #4) y los hashes (`f9889ab`, `797bf4b` y `08a1d20`, los de `main`), movió la entrada de las 15:25 a su lugar e hizo que la skill `bitacora-ia` pida citar el número del PR.
+- **Revisión de la persona:** aceptó los 3 hallazgos.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 16:00–16:17.
+- **Commits:** este commit (PR #7).

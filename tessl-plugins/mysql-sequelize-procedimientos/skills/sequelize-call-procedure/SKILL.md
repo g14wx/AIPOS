@@ -39,11 +39,12 @@ If the app really must combine the call with other writes, pick one owner: remov
 ## 3. Validate before calling
 
 ```js
-const PRICE = /^\d+(\.\d{1,2})?$/;
+const PRICE = /^\d{1,8}(\.\d{1,2})?$/; // DECIMAL(10,2) holds at most 99999999.99
 
 function findItemsProblem(items) {
   if (!Array.isArray(items) || items.length === 0) return 'SALE_WITHOUT_ITEMS';
   for (const item of items) {
+    if (item === null || typeof item !== 'object') return 'INVALID_ITEM';
     if (!Number.isInteger(item.productId) || item.productId < 1) return 'INVALID_PRODUCT_ID';
     if (!Number.isInteger(item.quantity) || item.quantity < 1) return 'INVALID_QUANTITY';
     if (typeof item.unitPrice !== 'string' || !PRICE.test(item.unitPrice)) return 'INVALID_UNIT_PRICE';
@@ -79,10 +80,11 @@ function httpErrorFromDatabase(err) {
 }
 
 router.post('/', async (req, res, next) => {
-  const problem = findItemsProblem(req.body.items);
-  if (problem) return res.status(400).json({ error: problem });
   try {
-    res.status(201).json(await registerSale(req.body.items));
+    const items = (req.body || {}).items;
+    const problem = findItemsProblem(items);
+    if (problem) return res.status(400).json({ error: problem });
+    res.status(201).json(await registerSale(items));
   } catch (err) {
     const httpError = httpErrorFromDatabase(err);
     if (httpError) return res.status(httpError.status).json({ error: httpError.error });
@@ -91,7 +93,16 @@ router.post('/', async (req, res, next) => {
 });
 ```
 
-Express 4 does not catch rejected promises: keep the `try/catch` and `next(err)`.
+Express 4 does not catch rejected promises: keep everything, validation included, inside the `try/catch` and end with `next(err)`. The error middleware keeps the 4xx that `express.json()` sets (malformed JSON → 400, body too large → 413) and answers 500 for the rest:
+
+```js
+app.use((err, req, res, next) => {
+  const status = err.status || err.statusCode;
+  if (status >= 400 && status < 500) return res.status(status).json({ error: err.type || 'BAD_REQUEST' });
+  console.error(err);
+  res.status(500).json({ error: 'INTERNAL_ERROR' });
+});
+```
 
 ## 5. Search products by name or barcode
 

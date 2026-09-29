@@ -49,6 +49,12 @@
       "description": "axios is ^1.20.0 or another 1.x range that starts at 1.20.0 or later; never 1.14.1, 0.30.4 or a 0.x range. The Node version is stated as 22 or 24 (.nvmrc or engines), not Node 20 or older.",
       "max_score": 1,
       "category": "MUST_NOT"
+    },
+    {
+      "name": "lockfile",
+      "description": "frontend/package-lock.json exists (for example generated with npm install --package-lock-only), so installs are reproducible and pinned.",
+      "max_score": 1,
+      "category": "EDGE_CASE"
     }
   ]
 }

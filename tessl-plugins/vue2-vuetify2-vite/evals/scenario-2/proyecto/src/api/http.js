@@ -9,7 +9,7 @@ export const http = axios.create({
 http.interceptors.response.use(
   (response) => response,
   (error) => {
-    const normalized = new Error(error.response?.data?.message ?? error.message);
+    const normalized = new Error(error.response?.data?.error ?? error.response?.data?.message ?? error.message);
     normalized.status = error.response?.status ?? 0;
     return Promise.reject(normalized);
   },

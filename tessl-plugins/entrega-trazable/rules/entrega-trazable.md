@@ -7,5 +7,6 @@ Todo el trabajo tiene que poder seguirse en el historial de git y en la bitácor
 - Un entregable se integra con un PR y un merge commit, que es un commit que une las dos ramas y deja ver que existieron. Nunca con squash ni con rebase. Sigue la skill `flujo-entregable`.
 - Los mensajes de commit siguen Conventional Commits: prefijo en inglés (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`) y descripción en español con las palabras del glosario. Ejemplo: `feat(ventas): registrar venta con procedimiento almacenado`. Un cambio lógico por commit.
 - Si el agente escribió o cambió el código, el commit lleva la línea `Co-Authored-By` del agente.
+- No pongas en commits ni PR enlaces a sesiones privadas del agente, como la línea `Claude-Session`: el repositorio es público y quien revise puede no tener acceso a ellos.
 - Al terminar cada tarea hecha por el agente, agrega una entrada en la bitácora con la skill `bitacora-ia`, en el mismo commit que el cambio.
 - No inventes lo que la persona revisó, corrigió o decidió. Si no lo sabes, pregúntale o márcalo "por confirmar".

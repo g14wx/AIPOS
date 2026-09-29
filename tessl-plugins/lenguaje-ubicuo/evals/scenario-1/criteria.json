@@ -21,6 +21,12 @@
       "category": "DESIGN"
     },
     {
+      "name": "dice_donde",
+      "description": "Dice dónde está el problema, con archivo y línea, y qué llama a qué, en una o dos frases simples. Por ejemplo: en src/services/ventas.js:5, registrarVenta llama a sp_registrar_venta con la lista vacía, y el procedimiento la rechaza en db/procedures/sp_registrar_venta.sql:9.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
       "name": "palabras_del_glosario",
       "description": "Usa las palabras del glosario (venta, línea de venta o producto, registrar venta). No usa 'orden', 'transacción', 'carrito', 'checkout', 'sale' ni 'item' para esos conceptos.",
       "max_score": 2,

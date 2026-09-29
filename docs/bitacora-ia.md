@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 4 h 30 min hasta ahora (12:46–17:14), en curso | 22 | 7 |
+| Preparación: agentes, tiles y glosario | 4 h 35 min hasta ahora (12:46–17:17), en curso | 23 | 8 |
 
 ## Entradas
 
@@ -267,3 +267,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 17:11–17:14.
 - **Commits:** este commit.
+
+### 2026-09-29 17:14 — Dependabot volvió a abrir PR de Vue 3
+
+- **Tarea:** decidir qué hacer con los PR #10 y #11 que abrió Dependabot.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** Dependabot abrió los PR #10 y #11 (`vue` y `vuetify` a 3.0.0) sobre el proyecto de ejemplo del eval del tile `vue2-vuetify2-vite`, aunque `.github/dependabot.yml` debía impedirlo. Eran PR de seguridad automáticos, abiertos por 6 alertas de Vue 2 y Vuetify 2 en los proyectos de ejemplo de los evals. Apagó los PR de seguridad automáticos del repositorio (las alertas siguen visibles), cerró #10 y #11, marcó las 6 alertas como no usadas y corrigió el comentario de `.github/dependabot.yml`.
+- **Revisión de la persona:** eligió apagar los PR de seguridad automáticos.
+- **Propuestas cambiadas o descartadas:** el agente había dicho que `ignore` en `dependabot.yml` también frenaba los PR de seguridad → no los frenó en una carpeta nueva → se apagaron los PR automáticos, y las alertas de Vue 2 y Vuetify 2 se revisan a mano.
+- **Tiempo:** 17:14–17:17.
+- **Commits:** este commit (PR #12).

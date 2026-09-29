@@ -19,15 +19,22 @@ Fuente: el documento de la prueba técnica y las decisiones tomadas en conversac
 
 | Término | Qué significa | Nombre en código | No decir | Ejemplo |
 |---|---|---|---|---|
+| Cajero | La persona que usa el POS: crea y busca productos, arma la venta actual y la registra. No es un usuario del sistema, porque no hay login. | — (no tiene tabla ni modelo) | usuario, vendedor, operador | "El cajero edita el precio aplicado de la leche." |
 | Producto | Algo que se vende en la tienda. Tiene nombre, precio y código de barras. | `Producto`, tabla `productos` | item, artículo, product | "La leche entera es un producto." |
 | Nombre | Cómo se llama un producto. Sirve para buscarlo. | columna `nombre` | descripción, title | "Leche entera 1 L" |
 | Precio | Lo que cuesta un producto según su registro. | columna `precio` en `productos` | costo, price | "La leche tiene precio 25.00." |
-| Código de barras | Número impreso en el producto que se escanea para buscarlo. | columna `codigo_barras` | barcode, sku, código a secas | "7501055300075" |
+| Código de barras | Número impreso en el producto que se escanea para buscarlo. Se guarda como texto para no perder los ceros de la izquierda. | columna `codigo_barras` | barcode, sku, código a secas | "7501055300075" |
+| Crear producto | Dar de alta un producto nuevo desde el botón "Nuevo producto" de la pantalla principal. | `crearProducto` | agregar producto, dar de alta, registrar producto | "El cajero crea el producto 'Leche entera 1 L'." |
 | Buscar producto | Encontrar un producto por su nombre o por su código de barras desde el campo de búsqueda. | `buscarProductos` | filtrar, query | "Escribo 'leche' y aparece la leche entera." |
 | Venta | Lo que se le vendió a un cliente en una sola operación. | `Venta`, tabla `ventas` | orden, transacción, carrito, sale | "La venta 15 tiene 3 detalles." |
-| Detalle de venta | Cada producto dentro de una venta, con su precio aplicado. "Los detalles de la venta" son todos juntos. | `DetalleVenta`, tabla `detalles_venta` | línea, item, sale_item, order_line | "La venta 15 tiene un detalle de leche a 22.00." |
-| Precio aplicado | Lo que se cobró por un producto en una venta. Empieza igual al precio del producto y se puede editar solo dentro de la venta; el precio del producto no cambia. | columna `precio_aplicado` en `detalles_venta` | precio de venta, precio cobrado, unit_price | "La leche tiene precio 25.00 pero se cobró a 22.00." |
-| Total | Suma de los precios aplicados de todos los detalles de una venta. Lo calcula la base de datos, no la pantalla. | columna `total` en `ventas` | monto, amount | "Total: 69.50" |
+| Venta actual | La venta que el cajero arma en la pantalla antes de registrarla. Vive solo en la pantalla; al registrarla se vuelve una venta. | `ventaActual` | carrito, venta en curso, ticket, orden | "La venta actual tiene 2 detalles y total 47.00." |
+| Agregar a la venta actual | Poner en la venta actual un producto elegido en la búsqueda. Si ya está, su cantidad sube en 1. | `agregarAVentaActual` | añadir, meter al carrito, agregar producto | "Agrego otra leche a la venta actual y su cantidad pasa a 2." |
+| Detalle de venta | Cada producto dentro de una venta, con su cantidad, su precio aplicado y su subtotal. Un producto tiene un solo detalle por venta. "Los detalles de la venta" son todos juntos. | `DetalleVenta`, tabla `detalles_venta` | línea, item, sale_item, order_line | "La venta 15 tiene un detalle de 2 leches a 22.00." |
+| Cantidad | Cuántas unidades de un producto lleva un detalle de venta. Es un número entero, 1 o más. | columna `cantidad` en `detalles_venta` | qty, piezas, cant | "2 leches: cantidad 2." |
+| Precio aplicado | Lo que se cobra por cada unidad de un producto en una venta. Empieza igual al precio del producto y se puede editar solo dentro de la venta actual; el precio del producto no cambia. | columna `precio_aplicado` en `detalles_venta` | precio de venta, precio cobrado, unit_price | "La leche tiene precio 25.00 pero se cobró a 22.00." |
+| Subtotal | Precio aplicado por cantidad en un detalle de venta. | columna `subtotal` en `detalles_venta` | importe, monto, total de la línea | "2 leches a 22.00: subtotal 44.00." |
+| Total | Suma de los subtotales de todos los detalles. El total de la venta actual lo calcula la pantalla, solo para mostrarlo; el de la venta lo calcula la base de datos al registrarla, y ese es el que vale. | columna `total` en `ventas` | monto, amount | "Total: 69.50" |
+| Fecha de la venta | Día y hora en que se registró la venta. La pone la base de datos al registrarla. | columna `fecha` en `ventas` | created_at, timestamp, fecha de creación | "La venta 15 se registró el 2026-09-29 a las 15:40." |
 | Registrar venta | Guardar en la base de datos una venta con todos sus detalles, de una sola vez. Si algo falla, no se guarda nada. | `registrarVenta`, procedimiento `sp_registrar_venta` | guardar venta, persistir, checkout | "Al registrar la venta se guardan sus 3 detalles." |
 
 ## Herramientas y proceso
@@ -56,10 +63,7 @@ Fuente: el documento de la prueba técnica y las decisiones tomadas en conversac
 
 ## Pendientes (por confirmar)
 
-| Término | Duda | Opciones |
-|---|---|---|
-| Venta en pantalla | La venta que se arma en pantalla antes de guardarla, ¿tiene nombre propio? | "venta actual" / "venta en curso" / solo "venta" |
-| Cantidad | La prueba no la pide. Si agregas el mismo producto dos veces, ¿se suma una cantidad o aparece otra fila? | Con cantidad / Sin cantidad (una fila por unidad) |
+No hay términos pendientes. Las dudas de reglas de negocio están en `requerimientos/README.md`.
 
 ## Historial de cambios
 
@@ -69,3 +73,4 @@ Fuente: el documento de la prueba técnica y las decisiones tomadas en conversac
 | 2026-09-29 | Se confirman "detalle de venta", "precio aplicado" y "registrar venta". | "Detalle" y "registrar" son las palabras del PDF; "precio aplicado" evita confundirlo con el precio del producto. |
 | 2026-09-29 | Se agregan los términos de entrega (rama de integración, rama de entregable, pull request, merge commit, etiqueta, bitácora de IA y Conventional Commits) y MCP. "ProductionEnv" pasa a ser el nombre de la rama de integración. | Los usa el tile entrega-trazable. |
 | 2026-09-29 | Se agregan "registro de Tessl" y "workspace de Tessl". | Los usa la guía de Tessl. |
+| 2026-09-29 | Se confirman "cajero", "crear producto", "venta actual", "agregar a la venta actual", "cantidad", "subtotal" y "fecha de la venta". Cambian "código de barras", "detalle de venta", "precio aplicado" y "total". | Decisiones de la persona al levantar los requerimientos. "Agregar" nombraba dos cosas en el PDF (crear un producto y ponerlo en la venta), y el PDF pide ver el total antes de registrar la venta. |

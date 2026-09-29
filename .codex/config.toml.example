@@ -5,3 +5,8 @@ args = ["-y", "@delorenj/mcp-server-trello"]
 [mcp_servers.trello.env]
 TRELLO_API_KEY = "tu-trello-api-key"
 TRELLO_TOKEN = "tu-trello-token"
+
+[mcp_servers.tessl]
+type = "stdio"
+command = "tessl"
+args = ["mcp", "start"]

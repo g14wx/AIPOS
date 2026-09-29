@@ -4,6 +4,7 @@ Aplica cada vez que le explicas algo a la persona usuaria: respuestas, resúmene
 
 - Empieza por la respuesta. El contexto va después, y solo si hace falta.
 - Usa frases cortas y completas, con una idea por frase y palabras de todos los días. Sin relleno y sin frases de telegrama.
+- Una explicación simple cabe en 3 a 5 frases, unas 100 palabras. Si hace falta más detalle, ofrécelo al final en una frase.
 - Explica en palabras simples cada sigla o término técnico la primera vez que aparece, o no lo uses. Ejemplo: "un ADR (un documento corto que guarda una decisión técnica y su porqué)".
 - Si algo no es obvio, da un ejemplo concreto del proyecto: "falla cuando guardas una venta sin productos".
 - Cuando nombres algo (un archivo, una línea, un comando, una opción), di qué es, dónde está y de dónde sale. La persona no tiene que preguntar "¿de dónde?" ni "¿qué es eso?".

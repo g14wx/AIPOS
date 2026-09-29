@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 2 h 30 min hasta ahora (12:46–15:17), en curso | 12 | 6 |
+| Preparación: agentes, tiles y glosario | 2 h 40 min hasta ahora (12:46–15:28), en curso | 14 | 6 |
 
 ## Entradas
 
@@ -129,4 +129,27 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Revisión de la persona:** por confirmar.
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 14:50–15:13. Gastó 60 créditos de Tessl.
+- **Commits:** este commit.
+
+### 2026-09-29 15:19 — PR 1 integrado y resultados de los evals
+
+- **Tarea:** integrar el PR 1 ("vamos!") y medir los dos tiles.
+- **Agente:** Claude Code (Opus 5.5). Tessl corrió los evals con el modelo `deepseek-v4.1-flash`.
+- **Qué hizo el agente:** integró el PR 1 en `main` con rebase, puso las ramas siguientes encima del `main` nuevo y abrió el PR 2 (tile `entrega-trazable`) para que Codex lo revise. Resultados de los evals:
+  - `lenguaje-ubicuo`, repetido con el log y las correcciones: 74% → 92%. Explicar un error, 67% → 88%; nombrar con el glosario, 92% → 92%; parar ante una palabra nueva, 64% → 100%.
+  - `entrega-trazable`: 83% → 99%. Commit y bitácora, 50% → 100%; integrar un entregable, 100% → 98%; README, 100% → 100%. En los dos últimos el agente ya lo hacía bien sin el tile, porque las tareas de prueba daban demasiadas pistas.
+  - En los dos tiles las respuestas salieron largas: unas 300 palabras cuando la meta era 100.
+- **Revisión de la persona:** aprobó integrar el PR 1. Avisó que otra sesión del agente ("planning") está escribiendo los requisitos del proyecto; esta sesión no la toca.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 15:19–15:26. Gastó 100 créditos de Tessl en evals.
+- **Commits:** PR 1 en `main` (`f9889ab`) y PR 2 abierto (#3).
+
+### 2026-09-29 15:26 — Límite de largo en las explicaciones
+
+- **Tarea:** limitar el largo de las respuestas, que salieron largas en los evals.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** propuso y, con el visto bueno de la persona, agregó a la regla de comunicación clara: "Una explicación simple cabe en 3 a 5 frases, unas 100 palabras". Relanzó el eval del tile `lenguaje-ubicuo` para medir el cambio.
+- **Revisión de la persona:** antes de aprobar preguntó qué era la propuesta ("¿una modificación?"); con la explicación, la aprobó.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 15:26–15:28.
 - **Commits:** este commit.

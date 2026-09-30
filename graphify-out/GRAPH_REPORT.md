@@ -1,7 +1,7 @@
 # Graph Report - spec-buscar-producto  (2026-09-30)
 
 ## Corpus Check
-- 65 files · ~36,994 words
+- 65 files · ~37,081 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 

@@ -161,6 +161,7 @@ lugar de 3000 si el `.env` lo cambió:
 | `curl -s -G localhost:3000/api/productos --data-urlencode "busqueda=50%" -w "\n%{http_code}\n"` | 200 y solo "Jugo 50% fruta" |
 | `curl -s -G localhost:3000/api/productos --data-urlencode "busqueda=a_b" -w "\n%{http_code}\n"` | 200 y solo "Cable A_B" |
 | `curl -s -G localhost:3000/api/productos --data-urlencode "busqueda=' OR 1=1 --" -w "\n%{http_code}\n"` | 200 y `[]`, no todos los productos |
+| `curl -s -G localhost:3000/api/productos --data-urlencode 'busqueda=a\' -w "\n%{http_code}\n"` | 200 y `[]`, no todos los productos con una "a" |
 | `curl -s -G localhost:3000/api/productos --data-urlencode "busqueda=a" -w "\n%{http_code}\n"` | 400 y `DATOS_INVALIDOS` con `detalles` del campo `busqueda` |
 | `curl -s localhost:3000/api/productos -w "\n%{http_code}\n"` | 400 y `DATOS_INVALIDOS` |
 
@@ -184,8 +185,9 @@ Los cinco primeros son los de la tarjeta P-04; el resto completan la spec.
 5. Dado el texto "' OR 1=1 --", entonces no devuelve todos los productos (con varios productos creados, responde 200 y
    la lista vacía).
    `[@test] ../backend/tests/productos/buscar-productos.test.js`
-6. Dado el texto "a_b", entonces solo aparece "Cable A_B", no "Cable AXB". Dado el texto `\`, entonces no devuelve todos
-   los productos.
+6. Dado el texto "a_b", entonces solo aparece "Cable A_B", no "Cable AXB". Dado el texto `a\` (2 caracteres, con una barra
+   invertida al final), entonces responde 200 y no devuelve todos los productos con una "a" en el nombre: con los
+   productos de ejemplo, la lista vacía. Un solo `\` es de 1 carácter y responde 400.
    `[@test] ../backend/tests/productos/buscar-productos.test.js`
 7. Dado el texto "LÉCH" o "lech", entonces aparece "Leche entera 1 L": no cuentan las mayúsculas ni las tildes.
    `[@test] ../backend/tests/productos/buscar-productos.test.js`
@@ -359,9 +361,9 @@ pasos para reproducirlo y se cierra con el commit que lo corrige (regla de "Prue
 
 ## RF-12 opcional: Enter con un código de barras exacto
 
-Entra si sobra tiempo (pregunta abierta 5), y solo lo hace P-05. No cambia la API: usa la misma búsqueda. No está en el
-diagrama del flujo 02 hasta que se confirme. Si no se hace, la subtarea "RF-12 opcional" de P-05 queda sin marcar y
-nada más cambia.
+Es opcional y entra si sobra tiempo (pregunta abierta 5, resuelta el 2026-09-30), y solo lo hace P-05. No cambia la
+API: usa la misma búsqueda. El diagrama BPMN del flujo 02 todavía no lo dibuja. Si no se hace, la subtarea "RF-12
+opcional" de P-05 queda sin marcar y nada más cambia.
 
 - Con Enter en el campo y 2 o más caracteres, el componente cancela la espera de 300 ms y busca de inmediato, porque un
   lector de código de barras escribe y pulsa Enter más rápido que la espera. Con menos de 2 caracteres, Enter no hace
@@ -370,8 +372,10 @@ nada más cambia.
   emite `producto-elegido` con él, sin pasar por la lista, y limpia el campo, como al elegir un resultado. La
   comparación es exacta, letra por letra.
   `[@test] ../frontend/tests/componentes/BuscadorProductos-enter.test.js`
-- Si no hay ninguna coincidencia, en lugar de "Sin resultados" se ve "No hay un producto con ese código de barras". Si
-  el texto solo coincide con nombres, Enter muestra esos resultados y no agrega nada: el cajero elige.
+- Si ningún producto tiene ese código de barras exacto, se ve "No hay un producto con ese código de barras" (RF-12,
+  criterio 2), sea cual sea el resultado de la búsqueda, y no se agrega nada. Si el texto además coincide con nombres,
+  esos resultados se muestran debajo del mensaje y el cajero elige uno. Si no coincide con nada, el mensaje reemplaza a
+  "Sin resultados".
   `[@test] ../frontend/tests/componentes/BuscadorProductos-enter.test.js`
 - Aplica la misma regla de las respuestas viejas: si el cajero sigue escribiendo, la respuesta de un Enter anterior se
   ignora y no agrega nada.

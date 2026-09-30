@@ -3079,7 +3079,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la api (p-04)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L171"
+      "source_location": "L172"
     },
     {
       "id": "specs_buscar_producto_spec_criterios_de_aceptaci\u00f3n_de_la_pantalla_p_05",
@@ -3091,7 +3091,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la pantalla (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L305"
+      "source_location": "L307"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_busca_el_servicio",
@@ -3115,7 +3115,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L393"
+      "source_location": "L397"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_ve_y_se_comporta",
@@ -3127,7 +3127,7 @@
       "node_kind": "heading",
       "norm_label": "como se ve y se comporta",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L214"
+      "source_location": "L216"
     },
     {
       "id": "specs_buscar_producto_spec_dise\u00f1o_skill_impeccable",
@@ -3139,7 +3139,7 @@
       "node_kind": "heading",
       "norm_label": "diseno (skill `impeccable`)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L282"
+      "source_location": "L284"
     },
     {
       "id": "specs_buscar_producto_spec_documentaci\u00f3n_de_la_api",
@@ -3163,7 +3163,7 @@
       "node_kind": "heading",
       "norm_label": "estados de la zona de resultados",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L267"
+      "source_location": "L269"
     },
     {
       "id": "specs_buscar_producto_spec_lo_que_esta_spec_no_cubre",
@@ -3175,7 +3175,7 @@
       "node_kind": "heading",
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L386"
+      "source_location": "L390"
     },
     {
       "id": "specs_buscar_producto_spec_pantalla_campo_de_b\u00fasqueda_y_resultados_p_05",
@@ -3187,7 +3187,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla: campo de busqueda y resultados (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L212"
+      "source_location": "L214"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_api_con_curl",
@@ -3211,7 +3211,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local: la pantalla en el navegador",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L338"
+      "source_location": "L340"
     },
     {
       "id": "specs_buscar_producto_spec_qui\u00e9n_implementa_qu\u00e9",
@@ -3247,7 +3247,7 @@
       "node_kind": "heading",
       "norm_label": "rf-12 opcional: enter con un codigo de barras exacto",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L360"
+      "source_location": "L362"
     },
     {
       "id": "specs_buscar_producto_spec_validaci\u00f3n_del_texto",
@@ -5726,7 +5726,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L171",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -5737,7 +5737,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L212",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -5759,7 +5759,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L305",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -5770,7 +5770,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L360",
+      "source_location": "L362",
       "weight": 1.0
     },
     {
@@ -5781,7 +5781,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L386",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -5792,7 +5792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L393",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -5825,7 +5825,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L338",
+      "source_location": "L340",
       "weight": 1.0
     },
     {
@@ -5836,7 +5836,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L214",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -5847,7 +5847,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L267",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -5858,7 +5858,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L282",
+      "source_location": "L284",
       "weight": 1.0
     },
     {

@@ -350,7 +350,7 @@
       "file_type": "code",
       "norm_label": "botoneliminar()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L65"
+      "source_location": "L67"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_botones",
@@ -362,7 +362,7 @@
       "file_type": "code",
       "norm_label": "botones()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L61"
+      "source_location": "L63"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_botonregistrar",
@@ -374,7 +374,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L67"
+      "source_location": "L69"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_celdas",
@@ -386,7 +386,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L58"
+      "source_location": "L60"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_clic",
@@ -398,7 +398,7 @@
       "file_type": "code",
       "norm_label": "clic()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L363"
+      "source_location": "L365"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
@@ -410,7 +410,7 @@
       "file_type": "code",
       "norm_label": "eliminarconelfocoenelboton()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L249"
+      "source_location": "L251"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_emitidas",
@@ -422,7 +422,7 @@
       "file_type": "code",
       "norm_label": "emitidas()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L70"
+      "source_location": "L72"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_estadeshabilitado",
@@ -434,7 +434,7 @@
       "file_type": "code",
       "norm_label": "estadeshabilitado()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L69"
+      "source_location": "L71"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_etiqueta",
@@ -446,7 +446,7 @@
       "file_type": "code",
       "norm_label": "etiqueta()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L60"
+      "source_location": "L62"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_filas",
@@ -458,7 +458,7 @@
       "file_type": "code",
       "norm_label": "filas()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L57"
+      "source_location": "L59"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_montar",
@@ -470,7 +470,7 @@
       "file_type": "code",
       "norm_label": "montar()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L51"
+      "source_location": "L53"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_observadorfalso",
@@ -482,7 +482,7 @@
       "file_type": "code",
       "norm_label": "observadorfalso()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L318"
+      "source_location": "L320"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_reemplazarconlaemitida",
@@ -494,7 +494,7 @@
       "file_type": "code",
       "norm_label": "reemplazarconlaemitida()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L73"
+      "source_location": "L75"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_teclear",
@@ -506,7 +506,7 @@
       "file_type": "code",
       "norm_label": "teclear()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L410"
+      "source_location": "L412"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_total",
@@ -518,7 +518,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L59"
+      "source_location": "L61"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_venta",
@@ -530,7 +530,7 @@
       "file_type": "code",
       "norm_label": "venta()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "backend_src_controllers_ventas_registrarventa",
@@ -674,7 +674,7 @@
       "file_type": "code",
       "norm_label": "montar()",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L46"
+      "source_location": "L47"
     },
     {
       "id": "frontend_tests_componentes_animacionlottie_test_preferirmenosmovimiento",
@@ -686,55 +686,7 @@
       "file_type": "code",
       "norm_label": "preferirmenosmovimiento()",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L35"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_destroy",
-      "label": "destroy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "destroy()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_gotoandstop",
-      "label": "goToAndStop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "gotoandstop()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_leer",
-      "label": "leer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "leer()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_play",
-      "label": "play()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "play()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
+      "source_location": "L36"
     },
     {
       "id": "frontend_tests_fixtures_botondeprueba_data",
@@ -749,24 +701,12 @@
       "source_location": "L13"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_crearllamador",
-      "label": "crearLlamador()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "crearllamador()",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L114"
-    },
-    {
       "id": "backend_tests_base_de_datos_sp_registrar_venta_todo_o_nada_test_detalle",
       "label": "detalle()",
       "_callable": true,
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "detalle()",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -778,7 +718,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "quitarelcheckdeprueba()",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -1126,7 +1066,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "crearerror()",
       "source_file": "frontend/src/api/http.js",
@@ -1138,7 +1078,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "traducirerror()",
       "source_file": "frontend/src/api/http.js",
@@ -1150,7 +1090,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "cargar()",
       "source_file": "frontend/tests/api/buscar-productos.test.js",
@@ -1162,7 +1102,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/buscar-productos.test.js",
@@ -1174,7 +1114,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "cargar()",
       "source_file": "frontend/tests/api/crear-producto.test.js",
@@ -1186,7 +1126,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/crear-producto.test.js",
@@ -1198,7 +1138,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "cargarhttp()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -1210,7 +1150,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -1222,7 +1162,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "cargar()",
       "source_file": "frontend/tests/api/registrar-venta.test.js",
@@ -1234,7 +1174,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "errordelaapi()",
       "source_file": "frontend/tests/api/registrar-venta.test.js",
@@ -1246,11 +1186,191 @@
       "_callable": true,
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/registrar-venta.test.js",
       "source_location": "L20"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_boton",
+      "label": "boton()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "boton()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L55"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_dialogo",
+      "label": "dialogo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "dialogo()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L46"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_entrada",
+      "label": "entrada()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "entrada()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_errordelaapi",
+      "label": "errorDeLaApi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "errordelaapi()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L78"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_escribir",
+      "label": "escribir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "escribir()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L60"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_esperar",
+      "label": "esperar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "esperar()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_etiquetade",
+      "label": "etiquetaDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "etiquetade()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_franja",
+      "label": "franja()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "franja()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L58"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_guardarconerror",
+      "label": "guardarConError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "guardarconerror()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_llenarunproductovalido",
+      "label": "llenarUnProductoValido()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "llenarunproductovalido()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L67"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_loescritosigueahi",
+      "label": "loEscritoSigueAhi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "loescritosigueahi()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_mensajesde",
+      "label": "mensajesDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "mensajesde()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L53"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_montar",
+      "label": "montar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "montar()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_presionarguardar",
+      "label": "presionarGuardar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "presionarguardar()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L73"
+    },
+    {
+      "id": "frontend_tests_componentes_formularioproducto_test_raizde",
+      "label": "raizDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "raizde()",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L52"
     },
     {
       "id": "frontend_tests_sin_axios_en_componentes_test_archivosde",
@@ -1673,184 +1793,76 @@
       "source_location": "L8"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_boton",
-      "label": "boton()",
+      "id": "backend_tests_base_de_datos_ayudas_corrercli",
+      "label": "correrCli()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "boton()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L55"
+      "norm_label": "corrercli()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L21"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_dialogo",
-      "label": "dialogo()",
+      "id": "backend_tests_base_de_datos_ayudas_tablasdelabase",
+      "label": "tablasDeLaBase()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "dialogo()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L46"
+      "norm_label": "tablasdelabase()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L43"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_entrada",
-      "label": "entrada()",
+      "id": "backend_tests_base_de_datos_migraciones_test_cargarconfiguracion",
+      "label": "cargarConfiguracion()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "entrada()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L51"
+      "norm_label": "cargarconfiguracion()",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L142"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_errordelaapi",
-      "label": "errorDeLaApi()",
+      "id": "backend_tests_base_de_datos_migraciones_test_contarejecutadas",
+      "label": "contarEjecutadas()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "errordelaapi()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L78"
+      "norm_label": "contarejecutadas()",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L16"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_escribir",
-      "label": "escribir()",
+      "id": "backend_tests_base_de_datos_migraciones_test_tablassinelregistro",
+      "label": "tablasSinElRegistro()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "escribir()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L60"
+      "norm_label": "tablassinelregistro()",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L21"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test_esperar",
-      "label": "esperar()",
+      "id": "backend_tests_base_de_datos_migraciones_ventas_test_tablassinelregistro",
+      "label": "tablasSinElRegistro()",
       "_callable": true,
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "esperar()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_etiquetade",
-      "label": "etiquetaDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "etiquetade()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_franja",
-      "label": "franja()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "franja()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L58"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_guardarconerror",
-      "label": "guardarConError()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "guardarconerror()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_llenarunproductovalido",
-      "label": "llenarUnProductoValido()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "llenarunproductovalido()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L67"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_loescritosigueahi",
-      "label": "loEscritoSigueAhi()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "loescritosigueahi()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_mensajesde",
-      "label": "mensajesDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "mensajesde()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L53"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_montar",
-      "label": "montar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "montar()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_presionarguardar",
-      "label": "presionarGuardar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "presionarguardar()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L73"
-    },
-    {
-      "id": "frontend_tests_componentes_formularioproducto_test_raizde",
-      "label": "raizDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 135,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "raizde()",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
-      "source_location": "L52"
+      "norm_label": "tablassinelregistro()",
+      "source_file": "backend/tests/base-de-datos/migraciones-ventas.test.js",
+      "source_location": "L96"
     },
     {
       "id": "backend_src_errors_desdebasededatos_desdebasededatos",
@@ -2006,7 +2018,7 @@
       "file_type": "code",
       "norm_label": "abrir()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L72"
+      "source_location": "L76"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_avisovisible",
@@ -2018,7 +2030,7 @@
       "file_type": "code",
       "norm_label": "avisovisible()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L87"
+      "source_location": "L91"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_botonregistrar",
@@ -2030,7 +2042,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L89"
+      "source_location": "L93"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_celdas",
@@ -2042,7 +2054,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L85"
+      "source_location": "L89"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_ciendetalles",
@@ -2054,7 +2066,7 @@
       "file_type": "code",
       "norm_label": "ciendetalles()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L37"
+      "source_location": "L40"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_dejarguardado",
@@ -2066,7 +2078,7 @@
       "file_type": "code",
       "norm_label": "dejarguardado()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L79"
+      "source_location": "L83"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_detalle",
@@ -2078,7 +2090,7 @@
       "file_type": "code",
       "norm_label": "detalle()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L31"
+      "source_location": "L34"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_elegir",
@@ -2090,7 +2102,7 @@
       "file_type": "code",
       "norm_label": "elegir()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L95"
+      "source_location": "L99"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_filas",
@@ -2102,7 +2114,7 @@
       "file_type": "code",
       "norm_label": "filas()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L84"
+      "source_location": "L88"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_guardado",
@@ -2114,7 +2126,7 @@
       "file_type": "code",
       "norm_label": "guardado()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L81"
+      "source_location": "L85"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_total",
@@ -2126,7 +2138,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86"
+      "source_location": "L90"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_ventaactual",
@@ -2138,7 +2150,7 @@
       "file_type": "code",
       "norm_label": "ventaactual()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L88"
+      "source_location": "L92"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_zonaventa",
@@ -2150,7 +2162,7 @@
       "file_type": "code",
       "norm_label": "zonaventa()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L83"
+      "source_location": "L87"
     },
     {
       "id": "backend_src_services_productos_buscarproductos",
@@ -2158,7 +2170,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "buscarproductos()",
       "source_file": "backend/src/services/productos.js",
@@ -2170,7 +2182,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "crearproducto()",
       "source_file": "backend/src/services/productos.js",
@@ -2182,7 +2194,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "errordecodigodebarrasrepetido()",
       "source_file": "backend/src/services/productos.js",
@@ -2194,7 +2206,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "escaparparalike()",
       "source_file": "backend/src/services/productos.js",
@@ -2206,47 +2218,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "escodigodebarrasrepetido()",
       "source_file": "backend/src/services/productos.js",
       "source_location": "L53"
     },
     {
-      "id": "backend_tests_productos_crear_producto_500_test_errordetablainexistente",
-      "label": "errorDeTablaInexistente()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "errordetablainexistente()",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L24"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_ejemplode",
+      "id": "backend_tests_productos_documentacion_crear_producto_test_ejemplode",
       "label": "ejemploDe()",
       "_callable": true,
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "ejemplode()",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_validoparalaapi",
-      "label": "validoParaLaApi()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "validoparalaapi()",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L159"
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
+      "source_location": "L23"
     },
     {
       "id": "frontend_src_components_ventaactual_aleliminar",
@@ -2558,7 +2546,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L72"
+      "source_location": "L75"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_celdas",
@@ -2570,7 +2558,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L71"
+      "source_location": "L74"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_estadeshabilitado",
@@ -2582,7 +2570,7 @@
       "file_type": "code",
       "norm_label": "estadeshabilitado()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L74"
+      "source_location": "L77"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_filas",
@@ -2594,7 +2582,7 @@
       "file_type": "code",
       "norm_label": "filas()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L70"
+      "source_location": "L73"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_montar",
@@ -2606,7 +2594,7 @@
       "file_type": "code",
       "norm_label": "montar()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L64"
+      "source_location": "L67"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_observadorfalso",
@@ -2618,7 +2606,7 @@
       "file_type": "code",
       "norm_label": "observadorfalso()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L383"
+      "source_location": "L467"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_total",
@@ -2630,7 +2618,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L75"
+      "source_location": "L78"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_venta",
@@ -2642,7 +2630,7 @@
       "file_type": "code",
       "norm_label": "venta()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L29"
+      "source_location": "L31"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_ventacondetalles",
@@ -2654,7 +2642,7 @@
       "file_type": "code",
       "norm_label": "ventacondetalles()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L30"
+      "source_location": "L32"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_errorde",
@@ -3257,6 +3245,54 @@
       "source_location": "L26"
     },
     {
+      "id": "frontend_tests_pantalla_unica_test_destroy",
+      "label": "destroy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "destroy()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_gotoandstop",
+      "label": "goToAndStop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "gotoandstop()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_leer",
+      "label": "leer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "leer()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_play",
+      "label": "play()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "play()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
       "id": "frontend_tests_tema_test_contraste",
       "label": "contraste()",
       "_callable": true,
@@ -3382,7 +3418,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "errordelaregla()",
       "source_file": "backend/src/services/ventas.js",
@@ -3394,7 +3430,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "esunrechazodelprocedimiento()",
       "source_file": "backend/src/services/ventas.js",
@@ -3406,7 +3442,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "originalde()",
       "source_file": "backend/src/services/ventas.js",
@@ -3418,11 +3454,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "registrarventa()",
       "source_file": "backend/src/services/ventas.js",
       "source_location": "L53"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_ejemplode",
+      "label": "ejemploDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "ejemplode()",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_validoparalaapi",
+      "label": "validoParaLaApi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "validoparalaapi()",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L159"
     },
     {
       "id": "backend_tests_productos_documentacion_buscar_productos_test_buscar",
@@ -3514,7 +3574,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "detalle()",
       "source_file": "backend/tests/ventas/ayudas-registrar-venta.js",
@@ -3526,7 +3586,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "errordemysql()",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -3538,7 +3598,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "errordetablainexistente()",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -3550,7 +3610,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "sindetallesinternos()",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -3562,7 +3622,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "ventavalida()",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -3574,23 +3634,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "ventadelejemplo()",
       "source_file": "backend/tests/ventas/registrar-venta.test.js",
       "source_location": "L24"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_crearprocedimiento",
-      "label": "crearProcedimiento()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "crearprocedimiento()",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L43"
     },
     {
       "id": "backend_tests_ventas_usa_el_procedimiento_test_ventavalida",
@@ -3598,7 +3646,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "ventavalida()",
       "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
@@ -3610,7 +3658,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "concambio()",
       "source_file": "backend/tests/ventas/validacion.test.js",
@@ -3814,7 +3862,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 183,
-      "community_name": "env-example.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "archivosjs()",
       "source_file": "backend/tests/env-example.test.js",
@@ -3826,11 +3874,95 @@
       "_callable": true,
       "_origin": "ast",
       "community": 183,
-      "community_name": "env-example.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "variablesdelejemplo()",
       "source_file": "backend/tests/env-example.test.js",
       "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_globalsetup_setup",
+      "label": "setup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 183,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "setup()",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_crearprocedimiento",
+      "label": "crearProcedimiento()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "crearprocedimiento()",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L43"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test_errordetablainexistente",
+      "label": "errorDeTablaInexistente()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "errordetablainexistente()",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L24"
+    },
+    {
+      "id": "backend_tests_servidor_test_abrirunpuerto",
+      "label": "abrirUnPuerto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "abrirunpuerto()",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "backend_tests_servidor_test_arrancarservidor",
+      "label": "arrancarServidor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "arrancarservidor()",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L29"
+    },
+    {
+      "id": "backend_tests_servidor_test_buscarpuertolibre",
+      "label": "buscarPuertoLibre()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "buscarpuertolibre()",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L21"
+    },
+    {
+      "id": "backend_tests_servidor_test_conplazo",
+      "label": "conPlazo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "conplazo()",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L50"
     },
     {
       "id": "backend_src_validators_comunes_bueno",
@@ -5050,7 +5182,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "cargardocumentacionapi()",
       "source_file": "backend/src/documentacion.js",
@@ -5062,7 +5194,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "ejemplode()",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -5074,7 +5206,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "problemas()",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -5086,23 +5218,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "copiarota()",
       "source_file": "backend/tests/documentacion/openapi-valido.test.js",
       "source_location": "L26"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_ejemplode",
-      "label": "ejemploDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "ejemplode()",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L23"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_borrardatosdeprueba",
@@ -5187,18 +5307,6 @@
       "norm_label": "prepararprueba()",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
       "source_location": "L152"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_verificarprocedimientodelsql",
-      "label": "verificarProcedimientoDelSql()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 86,
-      "community_name": "ayudas-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "verificarprocedimientodelsql()",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L209"
     },
     {
       "id": "backend_tests_base_de_datos_sp_registrar_venta_calculo_test_detalle",
@@ -5513,96 +5621,12 @@
       "source_location": "L126"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
-      "label": "crearProxyCongelable()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "crearproxycongelable()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L53"
-    },
-    {
-      "id": "backend_tests_globalsetup_setup",
-      "label": "setup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "setup()",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_servidor_test_abrirunpuerto",
-      "label": "abrirUnPuerto()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "abrirunpuerto()",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_servidor_test_arrancarservidor",
-      "label": "arrancarServidor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "arrancarservidor()",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L29"
-    },
-    {
-      "id": "backend_tests_servidor_test_buscarpuertolibre",
-      "label": "buscarPuertoLibre()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "buscarpuertolibre()",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "backend_tests_servidor_test_conplazo",
-      "label": "conPlazo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "conplazo()",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L50"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_corrercli",
-      "label": "correrCli()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "corrercli()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L21"
-    },
-    {
       "id": "backend_tests_base_de_datos_ayudas_corrernpm",
       "label": "correrNpm()",
       "_callable": true,
       "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
+      "community": 94,
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "corrernpm()",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
@@ -5613,12 +5637,36 @@
       "label": "correrNpmSinFallar()",
       "_callable": true,
       "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
+      "community": 94,
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "corrernpmsinfallar()",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
       "source_location": "L31"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
+      "label": "crearProxyCongelable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "crearproxycongelable()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L53"
+    },
+    {
+      "id": "backend_tests_base_de_datos_compose_test_leerconfiguracion",
+      "label": "leerConfiguracion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "leerconfiguracion()",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L13"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_buscarclientemysql",
@@ -5626,7 +5674,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "buscarclientemysql()",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
@@ -5638,11 +5686,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "corrersql()",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
       "source_location": "L266"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_crearllamador",
+      "label": "crearLlamador()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 96,
+      "community_name": "ayudas-sp-registrar-venta.js",
+      "file_type": "code",
+      "norm_label": "crearllamador()",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L114"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_leerprocedimiento",
@@ -5650,7 +5710,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "leerprocedimiento()",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
@@ -5662,83 +5722,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "sincomentariosniespacios()",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
       "source_location": "L199"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_tablasdelabase",
-      "label": "tablasDeLaBase()",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_verificarprocedimientodelsql",
+      "label": "verificarProcedimientoDelSql()",
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "tablasdelabase()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L43"
-    },
-    {
-      "id": "backend_tests_base_de_datos_compose_test_leerconfiguracion",
-      "label": "leerConfiguracion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "leerconfiguracion()",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_cargarconfiguracion",
-      "label": "cargarConfiguracion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "cargarconfiguracion()",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L142"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_contarejecutadas",
-      "label": "contarEjecutadas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "contarejecutadas()",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_tablassinelregistro",
-      "label": "tablasSinElRegistro()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "tablassinelregistro()",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_ventas_test_tablassinelregistro",
-      "label": "tablasSinElRegistro()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "tablassinelregistro()",
-      "source_file": "backend/tests/base-de-datos/migraciones-ventas.test.js",
-      "source_location": "L96"
+      "norm_label": "verificarprocedimientodelsql()",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L209"
     },
     {
       "id": "backend_tests_base_de_datos_sp_registrar_venta_cliente_mysql_test_detalle",
@@ -5746,7 +5746,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "detalle()",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js",
@@ -5758,7 +5758,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "archivode()",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -5861,22 +5861,6 @@
       "source_location": "L24"
     },
     {
-      "id": "specs_despliegue_spec",
-      "label": "despliegue.spec.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Despliegue de AIPOS",
-        "description": "Flujo 07 - una etiqueta release-* prueba, construye y despliega AIPOS con Docker en el servidor de producci\u00f3n de aipos.salsalvador.io (pantalla y backend en dos dominios, MySQL solo dentro del servidor), y vuelve a la versi\u00f3n anterior si algo falla"
-      },
-      "node_kind": "page",
-      "norm_label": "despliegue.spec.md",
-      "source_file": "specs/despliegue.spec.md",
-      "source_location": "L1"
-    },
-    {
       "id": "specs_arquitectura_spec",
       "label": "arquitectura.spec.md",
       "_origin": "ast",
@@ -5890,18 +5874,6 @@
       "node_kind": "page",
       "norm_label": "arquitectura.spec.md",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_despliegue",
-      "label": "despliegue.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "despliegue.md",
-      "source_file": "docs/despliegue.md",
       "source_location": "L1"
     },
     {
@@ -6034,18 +6006,6 @@
       "node_kind": "page",
       "norm_label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_07_desplegar_una_version",
-      "label": "07-desplegar-una-version.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "07-desplegar-una-version.md",
-      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
       "source_location": "L1"
     },
     {
@@ -6986,7 +6946,7 @@
       "file_type": "code",
       "norm_label": "huevos",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L23"
+      "source_location": "L25"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_leche",
@@ -6997,7 +6957,7 @@
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L21"
+      "source_location": "L23"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_loadanimation",
@@ -7019,7 +6979,7 @@
       "file_type": "code",
       "norm_label": "pan",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L22"
+      "source_location": "L24"
     },
     {
       "id": "backend_src_controllers_ventas",
@@ -7198,11 +7158,39 @@
       "source_location": "L9"
     },
     {
+      "id": "specs_despliegue_spec",
+      "label": "despliegue.spec.md",
+      "_origin": "ast",
+      "community": 109,
+      "community_name": "07-desplegar-una-version.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Despliegue de AIPOS",
+        "description": "Flujo 07 - una etiqueta release-* prueba, construye y despliega AIPOS con Docker en el servidor de producci\u00f3n de aipos.salsalvador.io (pantalla y backend en dos dominios, MySQL solo dentro del servidor), y vuelve a la versi\u00f3n anterior si algo falla"
+      },
+      "node_kind": "page",
+      "norm_label": "despliegue.spec.md",
+      "source_file": "specs/despliegue.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_despliegue",
+      "label": "despliegue.md",
+      "_origin": "ast",
+      "community": 109,
+      "community_name": "07-desplegar-una-version.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "despliegue.md",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_lenguaje_ubicuo",
       "label": "docs/lenguaje-ubicuo.md",
       "_origin": "ast",
       "community": 109,
-      "community_name": "graphify-setup.md",
+      "community_name": "07-desplegar-una-version.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "docs/lenguaje-ubicuo.md",
@@ -7214,7 +7202,7 @@
       "label": "agents-setup.md",
       "_origin": "ast",
       "community": 109,
-      "community_name": "graphify-setup.md",
+      "community_name": "07-desplegar-una-version.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "agents-setup.md",
@@ -7226,7 +7214,7 @@
       "label": "graphify-setup.md",
       "_origin": "ast",
       "community": 109,
-      "community_name": "graphify-setup.md",
+      "community_name": "07-desplegar-una-version.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "graphify-setup.md",
@@ -7238,7 +7226,7 @@
       "label": "tessl-setup.md",
       "_origin": "ast",
       "community": 109,
-      "community_name": "graphify-setup.md",
+      "community_name": "07-desplegar-una-version.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "tessl-setup.md",
@@ -7250,11 +7238,23 @@
       "label": "README.md",
       "_origin": "ast",
       "community": 109,
-      "community_name": "graphify-setup.md",
+      "community_name": "07-desplegar-una-version.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "readme.md",
       "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version",
+      "label": "07-desplegar-una-version.md",
+      "_origin": "ast",
+      "community": 109,
+      "community_name": "07-desplegar-una-version.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "07-desplegar-una-version.md",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
       "source_location": "L1"
     },
     {
@@ -7605,7 +7605,7 @@
       "file_type": "code",
       "norm_label": "animacion",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "frontend_tests_componentes_animacionlottie_test_loadanimation_instancias",
@@ -7617,28 +7617,6 @@
       "norm_label": "{ loadanimation, instancias }",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
       "source_location": "L10"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test",
-      "label": "pantalla-unica.test.js",
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "pantalla-unica.test.js",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_paquete",
-      "label": "paquete",
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "code",
-      "norm_label": "paquete",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L12"
     },
     {
       "id": "ref_mdi_font",
@@ -7661,17 +7639,6 @@
       "norm_label": "vue",
       "source_file": "frontend/package.json",
       "source_location": "L24"
-    },
-    {
-      "id": "ref_vue_test_utils",
-      "label": "@vue/test-utils",
-      "_origin": "ast",
-      "community": 111,
-      "community_name": "vuetify.js",
-      "file_type": "concept",
-      "norm_label": "@vue/test-utils",
-      "source_file": "frontend/package.json",
-      "source_location": "L30"
     },
     {
       "id": "ref_vuetify",
@@ -7784,132 +7751,22 @@
       "source_location": "L23"
     },
     {
-      "id": "backend_src_database",
-      "label": "database.js",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "database.js",
-      "source_file": "backend/src/database.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_database_config",
-      "label": "{ config }",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "{ config }",
-      "source_file": "backend/src/database.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_src_database_sequelize",
-      "label": "{ Sequelize }",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "{ sequelize }",
-      "source_file": "backend/src/database.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta",
-      "label": "ayudas-sp-registrar-venta.js",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "ayudas-sp-registrar-venta.js",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_config",
-      "label": "{ config }",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "{ config }",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L11"
-    },
-    {
       "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_er_lock_wait_timeout",
       "label": "ER_LOCK_WAIT_TIMEOUT",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "er_lock_wait_timeout",
       "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
       "source_location": "L32"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_er_signal_exception",
-      "label": "ER_SIGNAL_EXCEPTION",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "er_signal_exception",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L34"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_mysql",
-      "label": "mysql",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "mysql",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_prefijo_productos",
-      "label": "PREFIJO_PRODUCTOS",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "prefijo_productos",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L10"
-    },
-    {
       "id": "backend_tests_base_de_datos_sp_registrar_venta_todo_o_nada_test",
       "label": "sp-registrar-venta-todo-o-nada.test.js",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "sp-registrar-venta-todo-o-nada.test.js",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -7920,7 +7777,7 @@
       "label": "{ config }",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "{ config }",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -7931,7 +7788,7 @@
       "label": "contexto",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "contexto",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -7942,7 +7799,7 @@
       "label": "mysql",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "mysql",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -7953,7 +7810,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community_name": "sp-registrar-venta-todo-o-nada.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js",
@@ -8041,7 +7898,7 @@
       "label": "../../src/api/ventas.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "confidence": "EXTRACTED",
       "file_type": "code",
       "norm_label": "../../src/api/ventas.js",
@@ -8052,7 +7909,7 @@
       "label": "http.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "http.js",
       "source_file": "frontend/src/api/http.js",
@@ -8063,7 +7920,7 @@
       "label": "http",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "http",
       "source_file": "frontend/src/api/http.js",
@@ -8074,7 +7931,7 @@
       "label": "api/productos.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "api/productos.js",
       "source_file": "frontend/src/api/productos.js",
@@ -8085,7 +7942,7 @@
       "label": "api/buscar-productos.test.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "api/buscar-productos.test.js",
       "source_file": "frontend/tests/api/buscar-productos.test.js",
@@ -8096,7 +7953,7 @@
       "label": "leche",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/api/buscar-productos.test.js",
@@ -8107,7 +7964,7 @@
       "label": "api/crear-producto.test.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "api/crear-producto.test.js",
       "source_file": "frontend/tests/api/crear-producto.test.js",
@@ -8118,7 +7975,7 @@
       "label": "producto",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "producto",
       "source_file": "frontend/tests/api/crear-producto.test.js",
@@ -8129,7 +7986,7 @@
       "label": "http.test.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "http.test.js",
       "source_file": "frontend/tests/api/http.test.js",
@@ -8140,7 +7997,7 @@
       "label": "api/registrar-venta.test.js",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "api/registrar-venta.test.js",
       "source_file": "frontend/tests/api/registrar-venta.test.js",
@@ -8151,18 +8008,29 @@
       "label": "detalles",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "code",
       "norm_label": "detalles",
       "source_file": "frontend/tests/api/registrar-venta.test.js",
       "source_location": "L32"
     },
     {
+      "id": "frontend_tests_componentes_formularioproducto_test",
+      "label": "FormularioProducto.test.js",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "FormularioProducto.test.js",
+      "file_type": "code",
+      "norm_label": "formularioproducto.test.js",
+      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L1"
+    },
+    {
       "id": "ref_axios",
       "label": "axios",
       "_origin": "ast",
       "community": 116,
-      "community_name": "api/productos.js",
+      "community_name": "FormularioProducto.test.js",
       "file_type": "concept",
       "norm_label": "axios",
       "source_file": "frontend/package.json",
@@ -9480,15 +9348,92 @@
       "source_location": "L11"
     },
     {
-      "id": "frontend_tests_componentes_formularioproducto_test",
-      "label": "FormularioProducto.test.js",
+      "id": "backend_tests_base_de_datos_migraciones_test",
+      "label": "migraciones.test.js",
       "_origin": "ast",
       "community": 135,
-      "community_name": "FormularioProducto.test.js",
+      "community_name": "migraciones.test.js",
       "file_type": "code",
-      "norm_label": "formularioproducto.test.js",
-      "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "norm_label": "migraciones.test.js",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
       "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_migraciones_test_archivos",
+      "label": "archivos",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "archivos",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_base_de_datos_migraciones_test_carpetamigraciones",
+      "label": "carpetaMigraciones",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "carpetamigraciones",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "backend_tests_base_de_datos_migraciones_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_base_de_datos_migraciones_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_vitest_config",
+      "label": "vitest.config.mjs",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "vitest.config.mjs",
+      "source_file": "backend/vitest.config.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_vitest_config_pordefecto",
+      "label": "porDefecto",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "pordefecto",
+      "source_file": "backend/vitest.config.mjs",
+      "source_location": "L14"
+    },
+    {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "migraciones.test.js",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "backend/package.json",
+      "source_location": "L31"
     },
     {
       "id": "backend_src_errors_desdebasededatos",
@@ -9987,7 +9932,7 @@
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L29"
+      "source_location": "L32"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_loadanimation",
@@ -10009,69 +9954,25 @@
       "file_type": "code",
       "norm_label": "pan",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L30"
-    },
-    {
-      "id": "backend_src_models_index",
-      "label": "models/index.js",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "models/index.js",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_models_index_detalleventa",
-      "label": "DetalleVenta",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "detalleventa",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "backend_src_models_index_producto",
-      "label": "Producto",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "producto",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L4"
+      "source_location": "L33"
     },
     {
       "id": "backend_src_models_index_sequelize",
       "label": "sequelize",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/index.js",
       "source_location": "L3"
     },
     {
-      "id": "backend_src_models_index_venta",
-      "label": "Venta",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "venta",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L5"
-    },
-    {
       "id": "backend_src_services_productos",
       "label": "services/productos.js",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "services/productos.js",
       "source_file": "backend/src/services/productos.js",
@@ -10082,7 +9983,7 @@
       "label": "ErrorApi",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/src/services/productos.js",
@@ -10093,7 +9994,7 @@
       "label": "{ Op }",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "{ op }",
       "source_file": "backend/src/services/productos.js",
@@ -10104,73 +10005,18 @@
       "label": "{ sequelize, Producto }",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "{ sequelize, producto }",
       "source_file": "backend/src/services/productos.js",
       "source_location": "L5"
     },
     {
-      "id": "backend_tests_productos_crear_producto_500_test",
-      "label": "crear-producto-500.test.js",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "crear-producto-500.test.js",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_productos_crear_producto_500_test_crearproducto",
-      "label": "{ crearProducto }",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "{ crearproducto }",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_productos_crear_producto_500_test_producto",
-      "label": "{ Producto }",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "{ producto }",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "backend_tests_productos_crear_producto_500_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_productos_crear_producto_500_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "models/index.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/productos/crear-producto-500.test.js",
-      "source_location": "L11"
-    },
-    {
       "id": "backend_tests_productos_escapar_para_like_test",
       "label": "escapar-para-like.test.js",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "escapar-para-like.test.js",
       "source_file": "backend/tests/productos/escapar-para-like.test.js",
@@ -10181,7 +10027,7 @@
       "label": "{ escaparParaLike }",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "{ escaparparalike }",
       "source_file": "backend/tests/productos/escapar-para-like.test.js",
@@ -10192,7 +10038,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 142,
-      "community_name": "models/index.js",
+      "community_name": "services/productos.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/productos/escapar-para-like.test.js",
@@ -10203,7 +10049,7 @@
       "label": "routes/index.js",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "routes/index.js",
       "source_file": "backend/src/routes/index.js",
@@ -10214,7 +10060,7 @@
       "label": "docs",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "docs",
       "source_file": "backend/src/routes/index.js",
@@ -10225,7 +10071,7 @@
       "label": "montajes",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "montajes",
       "source_file": "backend/src/routes/index.js",
@@ -10236,7 +10082,7 @@
       "label": "productos",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "productos",
       "source_file": "backend/src/routes/index.js",
@@ -10247,7 +10093,7 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/src/routes/index.js",
@@ -10258,7 +10104,7 @@
       "label": "salud",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "salud",
       "source_file": "backend/src/routes/index.js",
@@ -10269,7 +10115,7 @@
       "label": "ventas",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "ventas",
       "source_file": "backend/src/routes/index.js",
@@ -10280,7 +10126,7 @@
       "label": "routes/productos.js",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "routes/productos.js",
       "source_file": "backend/src/routes/productos.js",
@@ -10291,7 +10137,7 @@
       "label": "{ buscarProductos, crearProducto }",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "{ buscarproductos, crearproducto }",
       "source_file": "backend/src/routes/productos.js",
@@ -10302,110 +10148,77 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/src/routes/productos.js",
       "source_location": "L3"
     },
     {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test",
-      "label": "documentacion-registrar-venta.test.js",
+      "id": "backend_tests_productos_documentacion_crear_producto_test",
+      "label": "documentacion-crear-producto.test.js",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
-      "norm_label": "documentacion-registrar-venta.test.js",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "norm_label": "documentacion-crear-producto.test.js",
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_cargardocumentacionapi",
+      "id": "backend_tests_productos_documentacion_crear_producto_test_cargardocumentacionapi",
       "label": "{ cargarDocumentacionApi }",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_contexto",
-      "label": "contexto",
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "contexto",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_documento",
-      "label": "documento",
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "documento",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L17"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_errorapi",
-      "label": "ErrorApi",
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "errorapi",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_montajes",
-      "label": "{ montajes }",
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "{ montajes }",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_registrarventa_mensajes_de_las_reglas",
-      "label": "{ registrarVenta, MENSAJES_DE_LAS_REGLAS }",
-      "_origin": "ast",
-      "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
-      "file_type": "code",
-      "norm_label": "{ registrarventa, mensajes_de_las_reglas }",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
       "source_location": "L12"
     },
     {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_require",
+      "id": "backend_tests_productos_documentacion_crear_producto_test_documento",
+      "label": "documento",
+      "_origin": "ast",
+      "community": 143,
+      "community_name": "documentacion-crear-producto.test.js",
+      "file_type": "code",
+      "norm_label": "documento",
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "backend_tests_productos_documentacion_crear_producto_test_montajes",
+      "label": "{ montajes }",
+      "_origin": "ast",
+      "community": 143,
+      "community_name": "documentacion-crear-producto.test.js",
+      "file_type": "code",
+      "norm_label": "{ montajes }",
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "backend_tests_productos_documentacion_crear_producto_test_require",
       "label": "require",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L7"
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
+      "source_location": "L11"
     },
     {
-      "id": "backend_tests_ventas_documentacion_registrar_venta_test_validarventanueva",
-      "label": "{ validarVentaNueva }",
+      "id": "backend_tests_productos_documentacion_crear_producto_test_validarproductonuevo",
+      "label": "{ validarProductoNuevo }",
       "_origin": "ast",
       "community": 143,
-      "community_name": "documentacion-registrar-venta.test.js",
+      "community_name": "documentacion-crear-producto.test.js",
       "file_type": "code",
-      "norm_label": "{ validarventanueva }",
-      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
-      "source_location": "L11"
+      "norm_label": "{ validarproductonuevo }",
+      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
+      "source_location": "L14"
     },
     {
       "id": "specs_armar_venta_actual_spec_agregaraventaactual_v_04",
@@ -11126,7 +10939,7 @@
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L27"
+      "source_location": "L29"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_loadanimation_instancias",
@@ -11148,7 +10961,7 @@
       "file_type": "code",
       "norm_label": "pan",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "readme_aipos",
@@ -12168,6 +11981,28 @@
       "source_location": "L20"
     },
     {
+      "id": "frontend_tests_pantalla_unica_test",
+      "label": "pantalla-unica.test.js",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "pantalla-unica.test.js",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_paquete",
+      "label": "paquete",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "paquete",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L12"
+    },
+    {
       "id": "frontend_tests_tema_test",
       "label": "tema.test.js",
       "_origin": "ast",
@@ -12177,6 +12012,17 @@
       "norm_label": "tema.test.js",
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L1"
+    },
+    {
+      "id": "ref_vue_test_utils",
+      "label": "@vue/test-utils",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "ref_node_fs",
+      "file_type": "concept",
+      "norm_label": "@vue/test-utils",
+      "source_file": "frontend/package.json",
+      "source_location": "L30"
     },
     {
       "id": "specs_despliegue_spec_el_workflow_github_workflows_despliegue_yml",
@@ -12407,7 +12253,7 @@
       "label": "services/ventas.js",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "services/ventas.js",
       "source_file": "backend/src/services/ventas.js",
@@ -12418,7 +12264,7 @@
       "label": "ErrorApi",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/src/services/ventas.js",
@@ -12429,7 +12275,7 @@
       "label": "MENSAJES_DE_LAS_REGLAS",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "mensajes_de_las_reglas",
       "source_file": "backend/src/services/ventas.js",
@@ -12440,29 +12286,117 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/services/ventas.js",
       "source_location": "L4"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_archivo_sql",
-      "label": "ARCHIVO_SQL",
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test",
+      "label": "documentacion-registrar-venta.test.js",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
-      "norm_label": "archivo_sql",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L24"
+      "norm_label": "documentacion-registrar-venta.test.js",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_contexto",
+      "label": "contexto",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "contexto",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_documento",
+      "label": "documento",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "documento",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_errorapi",
+      "label": "ErrorApi",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "errorapi",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_montajes",
+      "label": "{ montajes }",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "{ montajes }",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_registrarventa_mensajes_de_las_reglas",
+      "label": "{ registrarVenta, MENSAJES_DE_LAS_REGLAS }",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "{ registrarventa, mensajes_de_las_reglas }",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_ventas_documentacion_registrar_venta_test_validarventanueva",
+      "label": "{ validarVentaNueva }",
+      "_origin": "ast",
+      "community": 172,
+      "community_name": "documentacion-registrar-venta.test.js",
+      "file_type": "code",
+      "norm_label": "{ validarventanueva }",
+      "source_file": "backend/tests/ventas/documentacion-registrar-venta.test.js",
+      "source_location": "L11"
     },
     {
       "id": "backend_tests_ventas_regla_de_negocio_test",
       "label": "regla-de-negocio.test.js",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "regla-de-negocio.test.js",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12473,7 +12407,7 @@
       "label": "contexto",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "contexto",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12484,7 +12418,7 @@
       "label": "ErrorApi",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12495,7 +12429,7 @@
       "label": "MENSAJES",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "mensajes",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12506,7 +12440,7 @@
       "label": "{ registrarVenta, MENSAJES_DE_LAS_REGLAS }",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "{ registrarventa, mensajes_de_las_reglas }",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12517,7 +12451,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12528,7 +12462,7 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 172,
-      "community_name": "regla-de-negocio.test.js",
+      "community_name": "documentacion-registrar-venta.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/ventas/regla-de-negocio.test.js",
@@ -12760,22 +12694,11 @@
       "source_location": "L86"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_er_sp_does_not_exist",
-      "label": "ER_SP_DOES_NOT_EXIST",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "er_sp_does_not_exist",
-      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
-      "source_location": "L33"
-    },
-    {
       "id": "backend_tests_ventas_error_inesperado_test",
       "label": "error-inesperado.test.js",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "error-inesperado.test.js",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -12786,7 +12709,7 @@
       "label": "contexto",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "contexto",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -12797,7 +12720,7 @@
       "label": "CUERPO_DEL_500",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "cuerpo_del_500",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -12808,7 +12731,7 @@
       "label": "{ registrarVenta }",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "{ registrarventa }",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -12819,7 +12742,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
@@ -12830,99 +12753,11 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
+      "community_name": "error-inesperado.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/ventas/error-inesperado.test.js",
       "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test",
-      "label": "usa-el-procedimiento.test.js",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "usa-el-procedimiento.test.js",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_archivodelamigracion",
-      "label": "archivoDeLaMigracion",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "archivodelamigracion",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L39"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_carpetademigraciones",
-      "label": "carpetaDeMigraciones",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "carpetademigraciones",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L38"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_contexto",
-      "label": "contexto",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "contexto",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L26"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_migracion",
-      "label": "migracion",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "migracion",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L42"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_registrarventa",
-      "label": "{ registrarVenta }",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "{ registrarventa }",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_ventas_usa_el_procedimiento_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 176,
-      "community_name": "usa-el-procedimiento.test.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
-      "source_location": "L20"
     },
     {
       "id": "backend_tests_ventas_validador_venta_test",
@@ -12990,66 +12825,6 @@
       "norm_label": "al crear el producto",
       "source_file": "specs/crear-producto.spec.md",
       "source_location": "L336"
-    },
-    {
-      "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_03",
-      "label": "Criterios de aceptaci\u00f3n de P-03",
-      "_origin": "ast",
-      "community": 178,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "criterios de aceptacion de p-03",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L372"
-    },
-    {
-      "id": "specs_crear_producto_spec_dise\u00f1o_con_impeccable",
-      "label": "Dise\u00f1o con `impeccable`",
-      "_origin": "ast",
-      "community": 178,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "diseno con `impeccable`",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L356"
-    },
-    {
-      "id": "specs_crear_producto_spec_el_formulario",
-      "label": "El formulario",
-      "_origin": "ast",
-      "community": 178,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "el formulario",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L289"
-    },
-    {
-      "id": "specs_crear_producto_spec_los_componentes",
-      "label": "Los componentes",
-      "_origin": "ast",
-      "community": 178,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "los componentes",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L268"
-    },
-    {
-      "id": "specs_crear_producto_spec_p_03_el_bot\u00f3n_nuevo_producto_y_el_formulario",
-      "label": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
-      "_origin": "ast",
-      "community": 178,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "p-03 \u00b7 el boton \"nuevo producto\" y el formulario",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L266"
     },
     {
       "id": "specs_registrar_venta_spec_animaci\u00f3n",
@@ -13370,7 +13145,7 @@
       "label": "env-example.test.js",
       "_origin": "ast",
       "community": 183,
-      "community_name": "env-example.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "env-example.test.js",
       "source_file": "backend/tests/env-example.test.js",
@@ -13381,7 +13156,7 @@
       "label": "ejemplo",
       "_origin": "ast",
       "community": 183,
-      "community_name": "env-example.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "ejemplo",
       "source_file": "backend/tests/env-example.test.js",
@@ -13392,11 +13167,33 @@
       "label": "raiz",
       "_origin": "ast",
       "community": 183,
-      "community_name": "env-example.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "raiz",
       "source_file": "backend/tests/env-example.test.js",
       "source_location": "L6"
+    },
+    {
+      "id": "backend_tests_globalsetup",
+      "label": "globalSetup.js",
+      "_origin": "ast",
+      "community": 183,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "globalsetup.js",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_globalsetup_carpetabackend",
+      "label": "carpetaBackend",
+      "_origin": "ast",
+      "community": 183,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "carpetabackend",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L7"
     },
     {
       "id": "specs_despliegue_spec_imagen_de_la_pantalla_frontend_dockerfile",
@@ -13433,6 +13230,242 @@
       "norm_label": "imagenes",
       "source_file": "specs/despliegue.spec.md",
       "source_location": "L105"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_er_sp_does_not_exist",
+      "label": "ER_SP_DOES_NOT_EXIST",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "er_sp_does_not_exist",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test",
+      "label": "usa-el-procedimiento.test.js",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "usa-el-procedimiento.test.js",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_archivodelamigracion",
+      "label": "archivoDeLaMigracion",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "archivodelamigracion",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_carpetademigraciones",
+      "label": "carpetaDeMigraciones",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "carpetademigraciones",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_contexto",
+      "label": "contexto",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "contexto",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L26"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_migracion",
+      "label": "migracion",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "migracion",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_registrarventa",
+      "label": "{ registrarVenta }",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "{ registrarventa }",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L21"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "backend_tests_ventas_usa_el_procedimiento_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "usa-el-procedimiento.test.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/ventas/usa-el-procedimiento.test.js",
+      "source_location": "L20"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test",
+      "label": "crear-producto-500.test.js",
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "crear-producto-500.test.js",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test_crearproducto",
+      "label": "{ crearProducto }",
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "{ crearproducto }",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test_producto",
+      "label": "{ Producto }",
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "{ producto }",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_500_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 187,
+      "community_name": "crear-producto-500.test.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/productos/crear-producto-500.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_servidor_test",
+      "label": "servidor.test.js",
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "servidor.test.js",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_servidor_test_backend",
+      "label": "backend",
+      "_origin": "ast",
+      "community": 188,
+      "community_name": "servidor.test.js",
+      "file_type": "code",
+      "norm_label": "backend",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_03",
+      "label": "Criterios de aceptaci\u00f3n de P-03",
+      "_origin": "ast",
+      "community": 189,
+      "community_name": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "criterios de aceptacion de p-03",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L372"
+    },
+    {
+      "id": "specs_crear_producto_spec_dise\u00f1o_con_impeccable",
+      "label": "Dise\u00f1o con `impeccable`",
+      "_origin": "ast",
+      "community": 189,
+      "community_name": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "diseno con `impeccable`",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L356"
+    },
+    {
+      "id": "specs_crear_producto_spec_el_formulario",
+      "label": "El formulario",
+      "_origin": "ast",
+      "community": 189,
+      "community_name": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "el formulario",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L289"
+    },
+    {
+      "id": "specs_crear_producto_spec_los_componentes",
+      "label": "Los componentes",
+      "_origin": "ast",
+      "community": 189,
+      "community_name": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "los componentes",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L268"
+    },
+    {
+      "id": "specs_crear_producto_spec_p_03_el_bot\u00f3n_nuevo_producto_y_el_formulario",
+      "label": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "_origin": "ast",
+      "community": 189,
+      "community_name": "P-03 \u00b7 El bot\u00f3n \"Nuevo producto\" y el formulario",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "p-03 \u00b7 el boton \"nuevo producto\" y el formulario",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L266"
     },
     {
       "id": "specs_buscar_producto_spec",
@@ -15561,6 +15594,39 @@
       "source_location": "L1"
     },
     {
+      "id": "backend_src_database",
+      "label": "database.js",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "database.js",
+      "source_file": "backend/src/database.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_database_config",
+      "label": "{ config }",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "{ config }",
+      "source_file": "backend/src/database.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_database_sequelize",
+      "label": "{ Sequelize }",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "{ sequelize }",
+      "source_file": "backend/src/database.js",
+      "source_location": "L3"
+    },
+    {
       "id": "backend_tests_base_de_datos_conexion_test",
       "label": "conexion.test.js",
       "_origin": "ast",
@@ -17683,7 +17749,7 @@
       "label": "documentacion.js",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "documentacion.js",
       "source_file": "backend/src/documentacion.js",
@@ -17694,7 +17760,7 @@
       "label": "fs",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "fs",
       "source_file": "backend/src/documentacion.js",
@@ -17705,7 +17771,7 @@
       "label": "{ parse }",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "{ parse }",
       "source_file": "backend/src/documentacion.js",
@@ -17716,7 +17782,7 @@
       "label": "path",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "path",
       "source_file": "backend/src/documentacion.js",
@@ -17727,7 +17793,7 @@
       "label": "RUTA_DEL_DOCUMENTO",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "ruta_del_documento",
       "source_file": "backend/src/documentacion.js",
@@ -17738,7 +17804,7 @@
       "label": "ejemplos-reales.test.js",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "ejemplos-reales.test.js",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17749,7 +17815,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17760,7 +17826,7 @@
       "label": "{ cargarDocumentacionApi }",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "{ cargardocumentacionapi }",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17771,7 +17837,7 @@
       "label": "documento",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "documento",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17782,7 +17848,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17793,7 +17859,7 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -17804,7 +17870,7 @@
       "label": "openapi-valido.test.js",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "openapi-valido.test.js",
       "source_file": "backend/tests/documentacion/openapi-valido.test.js",
@@ -17815,7 +17881,7 @@
       "label": "archivo",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "archivo",
       "source_file": "backend/tests/documentacion/openapi-valido.test.js",
@@ -17826,7 +17892,7 @@
       "label": "{ cargarDocumentacionApi }",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "{ cargardocumentacionapi }",
       "source_file": "backend/tests/documentacion/openapi-valido.test.js",
@@ -17837,84 +17903,18 @@
       "label": "require",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/documentacion/openapi-valido.test.js",
       "source_location": "L6"
     },
     {
-      "id": "backend_tests_productos_documentacion_crear_producto_test",
-      "label": "documentacion-crear-producto.test.js",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "documentacion-crear-producto.test.js",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_documento",
-      "label": "documento",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "documento",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_montajes",
-      "label": "{ montajes }",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "{ montajes }",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_productos_documentacion_crear_producto_test_validarproductonuevo",
-      "label": "{ validarProductoNuevo }",
-      "_origin": "ast",
-      "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
-      "file_type": "code",
-      "norm_label": "{ validarproductonuevo }",
-      "source_file": "backend/tests/productos/documentacion-crear-producto.test.js",
-      "source_location": "L14"
-    },
-    {
       "id": "ref_apidevtools_swagger_parser",
       "label": "@apidevtools/swagger-parser",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "concept",
       "norm_label": "@apidevtools/swagger-parser",
       "source_file": "backend/package.json",
@@ -17925,7 +17925,7 @@
       "label": "yaml",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "concept",
       "norm_label": "yaml",
       "source_file": "backend/package.json",
@@ -17936,7 +17936,7 @@
       "label": "Archivos",
       "_origin": "ast",
       "community": 60,
-      "community_name": "documentacion-crear-producto.test.js",
+      "community_name": "documentacion.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "archivos",
@@ -18293,7 +18293,7 @@
       "label": "DetalleVenta.js",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "detalleventa.js",
       "source_file": "backend/src/models/DetalleVenta.js",
@@ -18304,7 +18304,7 @@
       "label": "{ DataTypes }",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "{ datatypes }",
       "source_file": "backend/src/models/DetalleVenta.js",
@@ -18315,7 +18315,7 @@
       "label": "DetalleVenta",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "detalleventa",
       "source_file": "backend/src/models/DetalleVenta.js",
@@ -18326,18 +18326,62 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/DetalleVenta.js",
       "source_location": "L4"
     },
     {
+      "id": "backend_src_models_index",
+      "label": "models/index.js",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "models/index.js",
+      "file_type": "code",
+      "norm_label": "models/index.js",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_models_index_detalleventa",
+      "label": "DetalleVenta",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "models/index.js",
+      "file_type": "code",
+      "norm_label": "detalleventa",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_src_models_index_producto",
+      "label": "Producto",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "models/index.js",
+      "file_type": "code",
+      "norm_label": "producto",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_models_index_venta",
+      "label": "Venta",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "models/index.js",
+      "file_type": "code",
+      "norm_label": "venta",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L5"
+    },
+    {
       "id": "backend_src_models_producto",
       "label": "Producto.js",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "producto.js",
       "source_file": "backend/src/models/Producto.js",
@@ -18348,7 +18392,7 @@
       "label": "{ DataTypes }",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "{ datatypes }",
       "source_file": "backend/src/models/Producto.js",
@@ -18359,7 +18403,7 @@
       "label": "Producto",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "producto",
       "source_file": "backend/src/models/Producto.js",
@@ -18370,7 +18414,7 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/Producto.js",
@@ -18381,7 +18425,7 @@
       "label": "Venta.js",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "venta.js",
       "source_file": "backend/src/models/Venta.js",
@@ -18392,7 +18436,7 @@
       "label": "{ DataTypes }",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "{ datatypes }",
       "source_file": "backend/src/models/Venta.js",
@@ -18403,7 +18447,7 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/Venta.js",
@@ -18414,7 +18458,7 @@
       "label": "Venta",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "code",
       "norm_label": "venta",
       "source_file": "backend/src/models/Venta.js",
@@ -18425,7 +18469,7 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 64,
-      "community_name": "sequelize",
+      "community_name": "models/index.js",
       "file_type": "concept",
       "norm_label": "sequelize",
       "source_file": "backend/package.json",
@@ -21514,11 +21558,66 @@
       "source_location": "L17"
     },
     {
+      "id": "backend_tests_base_de_datos_ayudas",
+      "label": "ayudas.js",
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "ayudas.js",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_carpetabackend",
+      "label": "carpetaBackend",
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "carpetabackend",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_carpetaraiz",
+      "label": "carpetaRaiz",
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "carpetaraiz",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_base_de_datos_compose_test",
+      "label": "compose.test.js",
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "compose.test.js",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_compose_test_archivo",
+      "label": "archivo",
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "ayudas.js",
+      "file_type": "code",
+      "norm_label": "archivo",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L7"
+    },
+    {
       "id": "backend_tests_base_de_datos_salud_con_base_test",
       "label": "salud-con-base.test.js",
       "_origin": "ast",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "salud-con-base.test.js",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -21529,7 +21628,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -21540,7 +21639,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -21551,55 +21650,11 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
       "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_globalsetup",
-      "label": "globalSetup.js",
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "globalsetup.js",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_globalsetup_carpetabackend",
-      "label": "carpetaBackend",
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "carpetabackend",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_servidor_test",
-      "label": "servidor.test.js",
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "servidor.test.js",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_servidor_test_backend",
-      "label": "backend",
-      "_origin": "ast",
-      "community": 94,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "backend",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L10"
     },
     {
       "id": "frontend_package_devdependencies",
@@ -21756,121 +21811,99 @@
       "source_location": "L30"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas",
-      "label": "ayudas.js",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta",
+      "label": "ayudas-sp-registrar-venta.js",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "ayudas.js",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "norm_label": "ayudas-sp-registrar-venta.js",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_carpetabackend",
-      "label": "carpetaBackend",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_archivo_sql",
+      "label": "ARCHIVO_SQL",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "carpetabackend",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L6"
+      "norm_label": "archivo_sql",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L24"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_carpetaraiz",
-      "label": "carpetaRaiz",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_config",
+      "label": "{ config }",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "carpetaraiz",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L7"
+      "norm_label": "{ config }",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L11"
     },
     {
-      "id": "backend_tests_base_de_datos_compose_test",
-      "label": "compose.test.js",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_er_signal_exception",
+      "label": "ER_SIGNAL_EXCEPTION",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "compose.test.js",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L1"
+      "norm_label": "er_signal_exception",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L34"
     },
     {
-      "id": "backend_tests_base_de_datos_compose_test_archivo",
-      "label": "archivo",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_mysql",
+      "label": "mysql",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "archivo",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L7"
+      "norm_label": "mysql",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L9"
     },
     {
-      "id": "backend_tests_base_de_datos_migraciones_test",
-      "label": "migraciones.test.js",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_prefijo_productos",
+      "label": "PREFIJO_PRODUCTOS",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
-      "norm_label": "migraciones.test.js",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L1"
+      "norm_label": "prefijo_productos",
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L21"
     },
     {
-      "id": "backend_tests_base_de_datos_migraciones_test_archivos",
-      "label": "archivos",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "archivos",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_carpetamigraciones",
-      "label": "carpetaMigraciones",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "carpetamigraciones",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_require",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_require",
       "label": "require",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L7"
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L8"
     },
     {
-      "id": "backend_tests_base_de_datos_migraciones_test_sequelize",
+      "id": "backend_tests_base_de_datos_ayudas_sp_registrar_venta_sequelize",
       "label": "sequelize",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L8"
+      "source_file": "backend/tests/base-de-datos/ayudas-sp-registrar-venta.js",
+      "source_location": "L10"
     },
     {
       "id": "backend_tests_base_de_datos_sp_registrar_venta_cliente_mysql_test",
       "label": "sp-registrar-venta-cliente-mysql.test.js",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "sp-registrar-venta-cliente-mysql.test.js",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js",
@@ -21881,7 +21914,7 @@
       "label": "archivoProcedimiento",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "archivoprocedimiento",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js",
@@ -21892,7 +21925,7 @@
       "label": "cliente",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "cliente",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js",
@@ -21903,7 +21936,7 @@
       "label": "contexto",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "contexto",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js",
@@ -21914,7 +21947,7 @@
       "label": "sp-registrar-venta-migracion.test.js",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "sp-registrar-venta-migracion.test.js",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21925,7 +21958,7 @@
       "label": "archivoDetalles",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "archivodetalles",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21936,7 +21969,7 @@
       "label": "archivoProcedimiento",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "archivoprocedimiento",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21947,7 +21980,7 @@
       "label": "archivoVentas",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "archivoventas",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21958,7 +21991,7 @@
       "label": "carpetaMigraciones",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "carpetamigraciones",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21969,7 +22002,7 @@
       "label": "cliente",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "cliente",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21980,7 +22013,7 @@
       "label": "nombres",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "nombres",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -21991,7 +22024,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
@@ -22002,44 +22035,11 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 96,
-      "community_name": "ref_node_path",
+      "community_name": "ayudas-sp-registrar-venta.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js",
       "source_location": "L15"
-    },
-    {
-      "id": "backend_vitest_config",
-      "label": "vitest.config.mjs",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "vitest.config.mjs",
-      "source_file": "backend/vitest.config.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_vitest_config_pordefecto",
-      "label": "porDefecto",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "pordefecto",
-      "source_file": "backend/vitest.config.mjs",
-      "source_location": "L14"
-    },
-    {
-      "id": "ref_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "file_type": "concept",
-      "norm_label": "dotenv",
-      "source_file": "backend/package.json",
-      "source_location": "L31"
     },
     {
       "id": "backend_tests_documentacion_estructura_del_documento_test",
@@ -22634,18 +22634,6 @@
       "source_location": "L54"
     },
     {
-      "id": "ref_src_api_ventas_js",
-      "label": "ref_src_api_ventas_js",
-      "_origin": "semantic",
-      "community": 100,
-      "community_name": "RegistrarVenta.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_src_api_ventas_js",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_src_components_registrarventa_vue",
       "label": "ref_src_components_registrarventa_vue",
       "_origin": "semantic",
@@ -22658,14 +22646,26 @@
       "type": "external"
     },
     {
-      "id": "backend_src_config_config",
-      "label": "backend_src_config_config",
+      "id": "frontend_src_assets_animaciones_venta_registrada",
+      "label": "frontend_src_assets_animaciones_venta_registrada",
       "_origin": "semantic",
-      "community": 113,
-      "community_name": "ayudas-sp-registrar-venta.js",
+      "community": 111,
+      "community_name": "vuetify.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "backend_src_config_config",
+      "norm_label": "frontend_src_assets_animaciones_venta_registrada",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "frontend_src_assets_animaciones_buscando",
+      "label": "frontend_src_assets_animaciones_buscando",
+      "_origin": "semantic",
+      "community": 114,
+      "community_name": "BuscadorProductos.vue",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "frontend_src_assets_animaciones_buscando",
       "source_file": "",
       "type": "external"
     },
@@ -22718,6 +22718,18 @@
       "type": "external"
     },
     {
+      "id": "ref_src_api_ventas_js",
+      "label": "ref_src_api_ventas_js",
+      "_origin": "semantic",
+      "community": 150,
+      "community_name": "VentaActual.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_src_api_ventas_js",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_os",
       "label": "ref_node_os",
       "_origin": "semantic",
@@ -22754,6 +22766,18 @@
       "type": "external"
     },
     {
+      "id": "ref_node_path",
+      "label": "ref_node_path",
+      "_origin": "semantic",
+      "community": 183,
+      "community_name": "ref_node_path",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_path",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_src_assets_animaciones_venta_registrada_json",
       "label": "ref_src_assets_animaciones_venta_registrada_json",
       "_origin": "semantic",
@@ -22762,6 +22786,18 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_src_assets_animaciones_venta_registrada_json",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "backend_src_config_config",
+      "label": "backend_src_config_config",
+      "_origin": "semantic",
+      "community": 44,
+      "community_name": "ref_vitest",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "backend_src_config_config",
       "source_file": "",
       "type": "external"
     },
@@ -22790,18 +22826,6 @@
       "type": "external"
     },
     {
-      "id": "frontend_src_assets_animaciones_buscando",
-      "label": "frontend_src_assets_animaciones_buscando",
-      "_origin": "semantic",
-      "community": 45,
-      "community_name": "BuscadorProductos.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_assets_animaciones_buscando",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "frontend_src_assets_animaciones_producto_creado",
       "label": "frontend_src_assets_animaciones_producto_creado",
       "_origin": "semantic",
@@ -22818,7 +22842,7 @@
       "label": "ref_node_child_process",
       "_origin": "semantic",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_child_process",
@@ -22830,7 +22854,7 @@
       "label": "ref_node_events",
       "_origin": "semantic",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_events",
@@ -22842,7 +22866,7 @@
       "label": "ref_node_net",
       "_origin": "semantic",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_net",
@@ -22854,33 +22878,10 @@
       "label": "ref_node_util",
       "_origin": "semantic",
       "community": 94,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ayudas.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_util",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_path",
-      "label": "ref_node_path",
-      "_origin": "semantic",
-      "community": 96,
-      "community_name": "ref_node_path",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_path",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "frontend_src_assets_animaciones_venta_registrada",
-      "label": "frontend_src_assets_animaciones_venta_registrada",
-      "community": 100,
-      "community_name": "RegistrarVenta.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_assets_animaciones_venta_registrada",
       "source_file": "",
       "type": "external"
     }
@@ -26843,7 +26844,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L66",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -26855,7 +26856,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L66",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -26867,7 +26868,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L365",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -26879,7 +26880,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L250",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -26891,7 +26892,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L253",
+      "source_location": "L255",
       "weight": 1.0
     },
     {
@@ -26903,7 +26904,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -26915,7 +26916,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L412",
+      "source_location": "L414",
       "weight": 1.0
     },
     {
@@ -26927,7 +26928,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -26939,7 +26940,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L90",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -26951,7 +26952,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L84",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -26963,7 +26964,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -29519,7 +29520,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -29531,7 +29532,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -30316,18 +30317,6 @@
     },
     {
       "source": "frontend_tests_componentes_ventaactual_eliminar_test",
-      "target": "frontend_tests_componentes_ventaactual_eliminar_test_venta",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_componentes_ventaactual_eliminar_test",
       "target": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
       "relation": "contains",
       "_origin": "ast",
@@ -30335,7 +30324,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L249",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_ventaactual_eliminar_test",
+      "target": "frontend_tests_componentes_ventaactual_eliminar_test_venta",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -30347,7 +30348,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L318",
+      "source_location": "L320",
       "weight": 1.0
     },
     {
@@ -30359,7 +30360,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L363",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -30371,7 +30372,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L410",
+      "source_location": "L412",
       "weight": 1.0
     },
     {
@@ -30383,7 +30384,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L51",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -30395,7 +30396,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -30407,7 +30408,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L58",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -30419,7 +30420,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -30431,7 +30432,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L60",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -30443,7 +30444,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L61",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -30455,7 +30456,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L65",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -30467,7 +30468,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L67",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -30479,7 +30480,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -30491,7 +30492,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -30503,7 +30504,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L73",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -30515,7 +30516,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -30527,7 +30528,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -30539,7 +30540,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L383",
+      "source_location": "L467",
       "weight": 1.0
     },
     {
@@ -30551,7 +30552,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L64",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -30563,7 +30564,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L70",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -30575,7 +30576,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L71",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -30587,7 +30588,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L72",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -30599,7 +30600,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L74",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -30611,7 +30612,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L75",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -30635,7 +30636,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L31",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -30647,7 +30648,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L37",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -30659,7 +30660,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L72",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -30671,7 +30672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L79",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -30683,7 +30684,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L81",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -30695,7 +30696,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L83",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -30707,7 +30708,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L84",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -30719,7 +30720,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L85",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -30731,7 +30732,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -30743,7 +30744,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L87",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -30755,7 +30756,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L88",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -30767,7 +30768,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L89",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -30779,7 +30780,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L95",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -31280,7 +31281,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L134",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -31293,7 +31294,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L135",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -35497,6 +35498,18 @@
       "context": "import",
       "source_file": "frontend/tests/dinero.test.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "frontend_src_ventaactual_almacenamiento_leerventaactual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -41729,6 +41742,18 @@
     },
     {
       "source": "frontend_tests_componentes_animacionlottie_test",
+      "target": "frontend_src_assets_animaciones_venta_registrada",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_animacionlottie_test",
       "target": "ref_vitest",
       "relation": "imports_from",
       "_origin": "ast",
@@ -42168,7 +42193,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -42180,7 +42205,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -42221,19 +42246,7 @@
     },
     {
       "source": "frontend_tests_componentes_ventaactual_test",
-      "target": "frontend_src_plugins_vuetify",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_componentes_ventaactual_test",
-      "target": "frontend_src_assets_animaciones_venta_vacia",
+      "target": "ref_src_api_ventas_js",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42245,7 +42258,7 @@
     },
     {
       "source": "frontend_tests_componentes_ventaactual_test",
-      "target": "frontend_src_components_ventaactual",
+      "target": "frontend_src_plugins_vuetify",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42253,6 +42266,30 @@
       "context": "import",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_ventaactual_test",
+      "target": "frontend_src_assets_animaciones_venta_vacia",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/componentes/VentaActual.test.js",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_ventaactual_test",
+      "target": "frontend_src_components_ventaactual",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/componentes/VentaActual.test.js",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -42384,24 +42421,12 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_pantalla_venta_actual_test",
-      "target": "frontend_src_plugins_vuetify",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
       "source_location": "L19",
       "weight": 1.0
     },
     {
       "source": "frontend_tests_pantalla_venta_actual_test",
-      "target": "frontend_src_app",
+      "target": "ref_src_api_ventas_js",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42413,7 +42438,7 @@
     },
     {
       "source": "frontend_tests_pantalla_venta_actual_test",
-      "target": "frontend_src_components_buscadorproductos",
+      "target": "frontend_src_ventaactual_almacenamiento",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42425,7 +42450,7 @@
     },
     {
       "source": "frontend_tests_pantalla_venta_actual_test",
-      "target": "frontend_src_components_ventaactual",
+      "target": "frontend_src_plugins_vuetify",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42433,6 +42458,42 @@
       "context": "import",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "frontend_src_app",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "frontend_src_components_buscadorproductos",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "frontend_src_components_ventaactual",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -50936,7 +50997,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -51123,7 +51184,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -51134,7 +51195,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -51145,7 +51206,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -51167,7 +51228,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L27",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -51178,7 +51239,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -51255,7 +51316,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L29",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -51266,7 +51327,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -58322,7 +58383,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L118",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -58334,7 +58395,19 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L158",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "backend_src_config_texto",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L903",
       "weight": 1.0
     },
     {

@@ -65,7 +65,7 @@ de ningún paquete: en varios de estos, `latest` rompe el proyecto (Vue 3, Vueti
 | Backend | `express` | 5.2.1 | La 5 pasa al manejador de errores los errores de las funciones `async`. |
 | Backend | `sequelize` | 6.37.8 | La 7 sigue en alfa. Nunca `@sequelize/*`. |
 | Backend | `mysql2` | 3.24.5 | Nunca el paquete `mysql`: no entra con `caching_sha2_password`. |
-| Backend | `sequelize-cli` | 6.6.5 | Migraciones. |
+| Backend | `sequelize-cli` | 6.6.5 | Migraciones. Va en `dependencies`, no en `devDependencies`: la imagen de producción no instala las de desarrollo y las migraciones corren dentro de ella (spec de despliegue). |
 | Backend | `cors` | 2.8.6 | |
 | Backend | `helmet` | 8.3.0 | Cabeceras de seguridad. |
 | Backend | `dotenv` | 18.0.4 | Lee el `.env` de la raíz. |
@@ -158,6 +158,8 @@ Node 24, CommonJS (`"type"` no se declara, así que los `.js` son CommonJS), Exp
 ```text
 backend/
   package.json  package-lock.json  .sequelizerc  eslint.config.mjs  .prettierrc.json  vitest.config.mjs
+  docs/
+    openapi.yaml              la documentación de la API (OpenAPI 3). La crea la tarjeta A-01 (spec de documentación de la API)
   db/
     config.js                 lee src/config.js y arma development, test y production para sequelize-cli
     migrations/               migraciones, CommonJS
@@ -169,7 +171,8 @@ backend/
     servidor.js               arranca la app en PORT
     config.js                 lee y valida las variables de entorno
     database.js               la instancia de Sequelize
-    routes/                   un router por recurso: salud.js, productos.js, ventas.js, index.js
+    routes/                   un router por recurso: salud.js, productos.js, ventas.js, index.js (A-01 suma docs.js)
+    documentacion.js          lee openapi.yaml para /api/docs (A-01)
     controllers/              un controller por recurso
     services/                 la lógica de negocio: productos.js, ventas.js
     models/                   Producto.js, Venta.js, DetalleVenta.js, index.js
@@ -187,6 +190,9 @@ backend/
 - Los campos del JSON van en `camelCase` (`codigoBarras`, `precioAplicado`). Las columnas de MySQL van en
   `snake_case` (`codigo_barras`, `precio_aplicado`). El modelo de Sequelize hace la traducción con `field`.
 - `app.js` no escucha un puerto: así las pruebas usan `supertest(app)` sin abrir uno. Solo `servidor.js` escucha.
+- `src/routes/index.js` monta cada router de un recurso con su prefijo desde una lista, `montajes`, que también exporta.
+  La tarjeta que crea una ruta agrega su router a esa lista y su entrada a la documentación de la API (spec de
+  documentación de la API): así una ruta sin documentar rompe `npm test`.
 - Los scripts de `package.json` del backend:
 
 | Comando | Qué hace |
@@ -292,7 +298,8 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 ```
 
 - `codigo` es un texto en mayúsculas con guion bajo, estable, que la pantalla puede leer. `mensaje` es una frase en
-  español para el cajero. `detalles` solo aparece en los 400 y lista un elemento por campo con problema.
+  español para el cajero. `detalles` solo aparece en los 400 y en el 409 del código de barras repetido, y lista un
+  elemento por campo con problema.
 - La API responde solo con cinco estados, los de RNF-05:
 
 | Estado | `codigo` | Cuándo |
@@ -420,6 +427,9 @@ esto:
 `[@test] ../backend/tests/base-de-datos/dinero-como-texto.test.js`
 `[@test] ../frontend/tests/dinero.test.js`
 
+`dinero-como-texto.test.js` lo escribe B-03. `tipos-de-dinero.test.js` revisa los tipos de la tabla de arriba y necesita
+las tres tablas (`productos`, `ventas` y `detalles_venta`): lo escribe V-01 (spec de registrar venta), que crea la última.
+
 ## Frontend
 
 Vue 2.7.16, Vuetify 2.7.2 y Vite 7.3.6, con el Options API. Una sola pantalla (RNF-01): el botón "Nuevo producto",
@@ -498,14 +508,15 @@ frontend/
 - Patrón: ninguno del catálogo describe un módulo de estado de la venta; se usan funciones puras. Memento es el más
   cercano para guardar y restaurar la venta actual, y Money para el dinero (ver "Dinero").
 
-`[@test] ../frontend/tests/venta-actual/funciones.test.js`
+`[@test] ../frontend/tests/venta-actual/agregar.test.js`
+`[@test] ../frontend/tests/venta-actual/calculos.test.js`
 `[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
 `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
 
-Los dos archivos de `frontend/tests/venta-actual/` los escribe V-04, junto con la spec de armar la venta actual:
-`funciones.test.js` prueba las funciones puras y los centavos, y `almacenamiento.test.js` prueba restaurar tras
-recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y vaciar solo cuando la API confirmó la
-venta. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
+Los archivos de `frontend/tests/venta-actual/` los escriben V-04 a V-07, y la spec de armar la venta actual da la lista
+completa. `agregar.test.js` y `calculos.test.js` prueban las funciones puras y los centavos, y `almacenamiento.test.js`
+prueba restaurar tras recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y vaciar solo cuando
+la API confirmó la venta. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
 
 ## Diseño de la pantalla
 

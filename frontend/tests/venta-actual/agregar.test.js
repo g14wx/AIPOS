@@ -154,16 +154,21 @@ describe('agregarAVentaActual: los límites devuelven la misma venta', () => {
   });
 
   it('criterio 14 (RN-14): con 100 detalles no agrega un producto que no está y devuelve la misma venta', () => {
+    // ventaConDetalles(100) tiene los productos 1 a 100: el 101 es uno que no está.
     const actual = ventaConDetalles(100);
-    const nueva = agregarAVentaActual(actual, leche);
+    const nueva = agregarAVentaActual(actual, { id: 101, nombre: 'Producto 101', precio: '1.00' });
     expect(nueva).toBe(actual);
     expect(nueva.detalles).toHaveLength(100);
   });
 
   it('con 99 detalles agrega el 100', () => {
-    const nueva = agregarAVentaActual(ventaConDetalles(99), leche);
+    const nueva = agregarAVentaActual(ventaConDetalles(99), {
+      id: 100,
+      nombre: 'Producto 100',
+      precio: '1.00',
+    });
     expect(nueva.detalles).toHaveLength(100);
-    expect(nueva.detalles[99].productoId).toBe(1);
+    expect(nueva.detalles[99].productoId).toBe(100);
   });
 
   it('con 100 detalles sí sube la cantidad de un producto que ya está (no agrega otro detalle)', () => {

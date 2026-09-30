@@ -196,6 +196,66 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L44"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L53"
+    },
+    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -617,7 +677,7 @@
       "node_kind": "heading",
       "norm_label": "hook de claude code",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L96"
+      "source_location": "L118"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
@@ -629,7 +689,7 @@
       "node_kind": "heading",
       "norm_label": "hook de git `pre-commit`",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L76"
+      "source_location": "L88"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
@@ -641,7 +701,7 @@
       "node_kind": "heading",
       "norm_label": "proceso escrito",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L134"
+      "source_location": "L160"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
@@ -653,7 +713,7 @@
       "node_kind": "heading",
       "norm_label": "que entra al grafo",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L60"
+      "source_location": "L72"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
@@ -665,7 +725,7 @@
       "node_kind": "heading",
       "norm_label": "que no se usa",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L126"
+      "source_location": "L152"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
@@ -677,7 +737,7 @@
       "node_kind": "heading",
       "norm_label": "que va a git",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L51"
+      "source_location": "L63"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
@@ -689,7 +749,19 @@
       "node_kind": "heading",
       "norm_label": "regla del tile `grafo-del-proyecto`",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L104"
+      "source_location": "L130"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
+      "label": "Versi\u00f3n de Graphify",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "version de graphify",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L55"
     },
     {
       "id": "tessl_plugins_lenguaje_ubicuo_skills_glosario_lenguaje_ubicuo_skill",
@@ -1589,66 +1661,6 @@
       "norm_label": "version",
       "source_file": "tessl.json",
       "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L44"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L53"
     },
     {
       "id": "tessl_plugins_grafo_del_proyecto_rules_grafo_del_proyecto",
@@ -4963,13 +4975,24 @@
     },
     {
       "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
       "target": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L104",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -4980,7 +5003,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L126",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -4991,7 +5014,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L134",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -5007,13 +5030,24 @@
     },
     {
       "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
       "target": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L51",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -5024,7 +5058,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L60",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -5035,18 +5069,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L76",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L96",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -6525,5 +6548,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "80888168cb5e0f69d0caf47a9c0d016b864d23a4"
+  "built_at_commit": "36f1a79effee7c416ec45ae3310b5968fce69e73"
 }

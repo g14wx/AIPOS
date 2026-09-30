@@ -21,6 +21,8 @@ tags:
     description: Revisar que la API está viva.
   - name: Productos
     description: Los productos que se venden en la tienda, con su nombre, su precio y su código de barras. Se pueden buscar y crear.
+  - name: Ventas
+    description: Lo que se le vendió a un cliente en una sola operación, con sus detalles de venta. Se pueden registrar.
 paths:
   /api/productos:
     get:
@@ -135,6 +137,62 @@ paths:
                 baseDeDatos: 'ok'
         '500':
           $ref: '#/components/responses/ErrorInterno'
+  /api/ventas:
+    post:
+      operationId: registrarVenta
+      tags:
+        - Ventas
+      summary: Registrar una venta con todos sus detalles de venta
+      description: |
+        Registra una venta con todos sus detalles de venta, de una sola vez: o se guarda todo o no se guarda nada. La
+        API revisa los datos antes de guardar y, si algún campo no sirve, responde 400 con un detalle del error por
+        cada campo con problema, en el orden de los detalles de venta. Por ejemplo, para la cantidad del segundo
+        detalle: `{ "campo": "detalles[1].cantidad", "mensaje": "Debe ser un entero de 1 a 999." }`.
+
+        - `detalles` tiene de 1 a 100 detalles de venta, y un producto tiene un solo detalle.
+        - El `productoId` y la `cantidad` viajan como números enteros: un texto (`"2"`) o un decimal (`1.5`) es un 400.
+          La `cantidad` va de 1 a 999.
+        - El `precioAplicado` viaja como texto, por ejemplo `"22.00"`: un número JSON (`22.5`) es un 400. Va de `0` a
+          `99999.99`, con 2 decimales como máximo.
+        - No se manda un total ni un subtotal: los calcula MySQL, y si el cuerpo trae uno se ignora. El `total` de la
+          respuesta es el que vale.
+        - Los campos que sobran se ignoran.
+
+        El 422 llega cuando el procedimiento almacenado rechaza la venta. Su `codigo` es uno de estos:
+        `VENTA_SIN_DETALLES`, `DEMASIADOS_DETALLES`, `DETALLE_INVALIDO`, `CANTIDAD_FUERA_DE_RANGO`,
+        `PRECIO_FUERA_DE_RANGO`, `PRODUCTO_REPETIDO` y `PRODUCTO_NO_EXISTE`. Como la API revisa los datos antes, en la
+        práctica solo llega `PRODUCTO_NO_EXISTE`: un producto que se borró de MySQL después de que el cajero lo agregó
+        a la venta actual. Si hay cualquier error, no se guarda nada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VentaNueva'
+            example:
+              detalles:
+                - productoId: 3
+                  cantidad: 2
+                  precioAplicado: '22.00'
+                - productoId: 7
+                  cantidad: 1
+                  precioAplicado: '3.50'
+      responses:
+        '201':
+          description: La venta y todos sus detalles de venta quedaron guardados. El `total` es el que calculó MySQL.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VentaRegistrada'
+              example:
+                ventaId: 15
+                total: '47.50'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '422':
+          $ref: '#/components/responses/ReglaDeNegocio'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
 components:
   schemas:
     Salud:
@@ -204,6 +262,62 @@ components:
           type: string
           pattern: '^\d{1,5}(\.\d{1,2})?$'
           description: El precio como texto con 2 decimales, por ejemplo `25.00`. Nunca un número.
+    VentaNueva:
+      type: object
+      description: Los datos para registrar una venta. Los campos que sobran se ignoran.
+      required:
+        - detalles
+      properties:
+        detalles:
+          type: array
+          minItems: 1
+          maxItems: 100
+          description: >-
+            Los detalles de venta: de 1 a 100, uno por producto. Una venta sin detalles no se registra, y una con más de
+            100 tampoco: con más, el total se pasaría de lo que guarda la base de datos.
+          items:
+            $ref: '#/components/schemas/DetalleVentaNuevo'
+    DetalleVentaNuevo:
+      type: object
+      description: Un producto dentro de la venta que se registra, con su cantidad y su precio aplicado.
+      required:
+        - productoId
+        - cantidad
+        - precioAplicado
+      properties:
+        productoId:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+          description: El número del producto. Un producto tiene un solo detalle en la venta.
+        cantidad:
+          type: integer
+          minimum: 1
+          maximum: 999
+          description: Cuántas unidades del producto lleva el detalle. Un entero de 1 a 999.
+        precioAplicado:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: >-
+            Lo que se cobra por cada unidad, como texto con punto decimal y hasta 2 decimales, por ejemplo `"22.00"`.
+            De `0` a `99999.99`. Puede ser distinto del precio del producto; el precio del producto no cambia.
+    VentaRegistrada:
+      type: object
+      description: La venta que quedó guardada.
+      required:
+        - ventaId
+        - total
+      additionalProperties: false
+      properties:
+        ventaId:
+          type: integer
+          description: El número de la venta. Lo pone la base de datos.
+        total:
+          type: string
+          pattern: '^\d{1,10}\.\d{2}$'
+          description: >-
+            El total que calculó MySQL: la suma de los subtotales de los detalles de venta, como texto con 2 decimales,
+            por ejemplo `47.50`. Es el que vale.
     RespuestaDeError:
       type: object
       description: El formato de error, igual en todas las rutas.

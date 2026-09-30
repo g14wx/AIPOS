@@ -3503,7 +3503,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L233"
+      "source_location": "L235"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
@@ -3563,7 +3563,7 @@
       "node_kind": "heading",
       "norm_label": "rf-04 ver los detalles de la venta actual",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L82"
+      "source_location": "L84"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_05_editar_el_precio_aplicado",
@@ -3575,7 +3575,7 @@
       "node_kind": "heading",
       "norm_label": "rf-05 editar el precio aplicado",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L103"
+      "source_location": "L105"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_06_cambiar_la_cantidad",
@@ -3587,7 +3587,7 @@
       "node_kind": "heading",
       "norm_label": "rf-06 cambiar la cantidad",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L116"
+      "source_location": "L118"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_07_eliminar_un_producto_de_la_venta_actual",
@@ -3599,7 +3599,7 @@
       "node_kind": "heading",
       "norm_label": "rf-07 eliminar un producto de la venta actual",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L130"
+      "source_location": "L132"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_08_ver_el_total",
@@ -3611,7 +3611,7 @@
       "node_kind": "heading",
       "norm_label": "rf-08 ver el total",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L141"
+      "source_location": "L143"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_09_registrar_venta",
@@ -3623,7 +3623,7 @@
       "node_kind": "heading",
       "norm_label": "rf-09 registrar venta",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L154"
+      "source_location": "L156"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_10_guardar_productos_ventas_y_detalles_con_sus_relaciones",
@@ -3635,7 +3635,7 @@
       "node_kind": "heading",
       "norm_label": "rf-10 guardar productos, ventas y detalles con sus relaciones",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L174"
+      "source_location": "L176"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_11_registrar_venta_con_sp_registrar_venta",
@@ -3647,7 +3647,7 @@
       "node_kind": "heading",
       "norm_label": "rf-11 registrar venta con `sp_registrar_venta`",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L202"
+      "source_location": "L204"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_12_agregar_con_un_c\u00f3digo_de_barras_exacto",
@@ -3659,7 +3659,7 @@
       "node_kind": "heading",
       "norm_label": "rf-12 agregar con un codigo de barras exacto",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L222"
+      "source_location": "L224"
     },
     {
       "id": "tests_hook_de_git_graphify_falla_test",
@@ -7282,7 +7282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L103",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -7293,7 +7293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L116",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -7304,7 +7304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L130",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -7315,7 +7315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L141",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -7326,7 +7326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L154",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -7337,7 +7337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L174",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -7348,7 +7348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L202",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -7359,7 +7359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L222",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -7381,7 +7381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L233",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -7414,7 +7414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L82",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -11440,7 +11440,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L183",
+      "source_location": "L185",
       "weight": 1.0
     },
     {

@@ -1,0 +1,16 @@
+# Qué deja fuera Graphify del grafo del proyecto. Misma sintaxis que .gitignore.
+# Graphify ya respeta el .gitignore: .mcp.json, .codex/config.toml y devdoc/ quedan fuera solos.
+
+# Proyectos de ejemplo de los evals: no son código de AIPOS
+tessl-plugins/*/evals/
+
+# Cambia en cada tarea y no aporta al mapa del código
+docs/bitacora-ia.md
+
+# Configuración y skills de los agentes
+.claude/
+.agents/
+.codex/
+
+# Imágenes: gastarían tokens del modelo, y los flujos ya están escritos en markdown
+*.png

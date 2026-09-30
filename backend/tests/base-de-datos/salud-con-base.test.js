@@ -1,10 +1,11 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import request from 'supertest';
 import net from 'node:net';
-import { execFile, execFileSync } from 'node:child_process';
+import { execFile, execFileSync, spawn } from 'node:child_process';
+import { createInterface } from 'node:readline';
 import { promisify } from 'node:util';
 import { createRequire } from 'node:module';
-import { carpetaBackend } from './ayudas.js';
+import { carpetaBackend, crearProxyCongelable } from './ayudas.js';
 
 const require = createRequire(import.meta.url);
 const sequelize = require('../../src/database.js');
@@ -163,6 +164,74 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
     } finally {
       conexiones.forEach((socket) => socket.destroy());
       callado.close();
+    }
+  }, 30_000);
+
+  // Issue #54: al vencer el tope, la API respondía 500 pero la consulta seguía pendiente y su conexión
+  // ocupada. Aquí la API abre su conexión con MySQL a través de un intermediario que después se congela:
+  // la segunda petición usa esa conexión abierta y MySQL no contesta.
+  it('con la conexión ya abierta y MySQL congelado, corta la consulta y libera la conexión del pool', async () => {
+    const proxy = await crearProxyCongelable(sequelize.config.host, Number(sequelize.config.port));
+    const programa = `
+      const request = require('supertest');
+      const readline = require('node:readline');
+      const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
+      const escribir = (objeto) => console.log(JSON.stringify(objeto));
+      const esperarOrden = () => new Promise((resolve) => {
+        const lector = readline.createInterface({ input: process.stdin });
+        lector.once('line', () => { lector.close(); resolve(); });
+      });
+      (async () => {
+        const primera = await request(app).get('/api/salud');
+        escribir({ fase: 'abierta', estado: primera.status });
+        await esperarOrden();
+        const inicio = Date.now();
+        const segunda = await request(app).get('/api/salud');
+        const milisegundos = Date.now() - inicio;
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        const enUso = sequelize.connectionManager.pool.using;
+        escribir({ fase: 'fin', estado: segunda.status, milisegundos, enUso });
+        await sequelize.close();
+      })();
+    `;
+    const hijo = spawn('node', ['-e', programa], {
+      cwd: carpetaBackend,
+      env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(proxy.puerto) },
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    hijo.stdin.on('error', () => {});
+    const hijoTermino = new Promise((resolve) =>
+      hijo.once('exit', (codigo, senal) => resolve({ codigo, senal })),
+    );
+    const lineas = createInterface({ input: hijo.stdout })[Symbol.asyncIterator]();
+    const siguienteMensaje = async () => {
+      for (;;) {
+        const { value, done } = await lineas.next();
+        if (done) throw new Error('El programa hijo cerró su salida antes de tiempo.');
+        if (value.startsWith('{')) return JSON.parse(value);
+      }
+    };
+    let plazo;
+    try {
+      expect(await siguienteMensaje()).toEqual({ fase: 'abierta', estado: 200 });
+      proxy.congelar();
+      hijo.stdin.write('seguir\n');
+      const resultado = await siguienteMensaje();
+      expect(resultado.estado).toBe(500);
+      // Respondió el tope de 3 s, no un fallo rápido.
+      expect(resultado.milisegundos).toBeGreaterThanOrEqual(2900);
+      // La consulta de salud ya no ocupa una conexión del pool.
+      expect(resultado.enUso).toBe(0);
+      // Sin consultas colgadas, sequelize.close() termina y el programa se cierra solo (sin process.exit).
+      const seColgo = new Promise((resolve) => {
+        plazo = setTimeout(() => resolve('colgado'), 10_000);
+      });
+      expect(await Promise.race([hijoTermino, seColgo])).toEqual({ codigo: 0, senal: null });
+    } finally {
+      clearTimeout(plazo);
+      hijo.kill('SIGKILL');
+      await proxy.cerrar();
     }
   }, 30_000);
 });

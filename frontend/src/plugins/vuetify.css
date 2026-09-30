@@ -180,7 +180,8 @@
   color: var(--v-secondary-base);
   background-color: var(--v-surface-base);
   border: 1px solid var(--v-primary-base) !important;
-  box-shadow: none;
+  /* La sombra de elevación de Vuetify pesa más que una regla normal (#56). */
+  box-shadow: none !important;
 }
 
 .v-application .v-snack__content {

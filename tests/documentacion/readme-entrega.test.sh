@@ -183,6 +183,26 @@ if [ "$total_once" -ge 5 ]; then ok "el punto 11 tiene $total_once decisiones"; 
 if [ "$incompletas" -eq 0 ]; then ok "cada decisión dice su propuesta original (o —) y su motivo"; else falla "$incompletas decisión(es) del punto 11 tienen una celda vacía"; fi
 if [ "$con_propuesta" -ge 1 ]; then ok "hay $con_propuesta propuesta(s) del agente que se cambiaron o descartaron, con su motivo"; else falla "el punto 11 no trae ninguna propuesta del agente que se cambió o descartó"; fi
 
+echo "# tiempo: el punto 8 copia el resumen de la bitácora"
+bitacora=docs/bitacora-ia.md
+# Las filas de la tabla «Por entregable» del Resumen de la bitácora, tal cual.
+filas_bitacora="$(awk '/^### Por entregable/ { en = 1; next } /^### / { en = 0 } en && /^\|/' "$bitacora")"
+if [ -z "$filas_bitacora" ]; then falla "no encontré la tabla «Por entregable» en $bitacora"; fi
+while IFS= read -r fila; do
+  [ -z "$fila" ] && continue
+  if punto 8 | grep -qxF -- "$fila"; then ok "el punto 8 trae la fila «$(celda "$fila" 1)» de la bitácora"; else falla "el punto 8 no trae, tal cual, la fila de la bitácora: $fila"; fi
+done <<<"$filas_bitacora"
+for duracion in '26 h 39 min' '33 h 30 min' '56 h 25 min'; do
+  if grep -qF -- "$duracion" "$bitacora" && punto 8 | grep -qF -- "$duracion"; then ok "$duracion está en la bitácora y en el punto 8"; else falla "$duracion no está en los dos: la bitácora y el punto 8"; fi
+done
+
+echo "# sin marcas pendientes"
+if grep -nE 'se completa con E-01|llegan? con F-01' "$README"; then
+  falla "el README todavía tiene marcas pendientes (están arriba, con su línea)"
+else
+  ok "el README no tiene marcas «se completa con E-01» ni «llega con F-01»"
+fi
+
 echo "# los archivos, los enlaces y los comandos que nombra existen"
 # Se revisan los nombres entre comillas invertidas que empiezan con una carpeta del repositorio (y unos pocos archivos de
 # la raíz). Una línea que dice «llega con F-01» o «llegan con F-01» nombra archivos de una tarjeta que todavía no se integra.

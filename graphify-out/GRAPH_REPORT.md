@@ -1,7 +1,7 @@
 # Graph Report - e-02  (2026-09-30)
 
 ## Corpus Check
-- 282 files · ~254,865 words
+- 282 files · ~255,349 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
@@ -779,9 +779,9 @@ Nodes (25): Negocio, alSalir(), alCambiarCantidad(), alEditarPrecioAplicado(), a
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Lenguaje ubicuo — AIPOS` connect `Despliegue de AIPOS` to `agregarAVentaActual`, `graphify-setup.md`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
 - **Why does `production()` connect `Despliegue de AIPOS` to `AIPOS`, `src/config.js`?**
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Why does `Lenguaje ubicuo — AIPOS` connect `Despliegue de AIPOS` to `agregarAVentaActual`, `graphify-setup.md`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `agregarAVentaActual` to `Despliegue de AIPOS`?**
   _High betweenness centrality (0.048) - this node is a cross-community bridge._

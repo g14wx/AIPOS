@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Spec: specs/grafo-del-proyecto.spec.md, sección "Hook de git pre-commit".
-# Con Graphify instalado, el hook agrega graph.json y GRAPH_REPORT.md al commit, aunque solo se haya
+# Con Graphify instalado, el hook de git agrega graph.json y GRAPH_REPORT.md al commit, aunque solo se haya
 # agregado otro archivo, y no agrega nada más de graphify-out/.
 source "$(dirname "$0")/comun.sh"
 preparar_repo

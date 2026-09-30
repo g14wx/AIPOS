@@ -13,8 +13,8 @@ El grafo del proyecto es el mapa que arma Graphify en `graphify-out/`: qué arch
 ## Al terminar una tarea
 
 - El hook de git `pre-commit` del repo corre `graphify update .` y agrega `graphify-out/graph.json` y `graphify-out/GRAPH_REPORT.md` a cada commit. Revisa que los dos archivos entren al commit.
-- Si el hook no está activo (`git config core.hooksPath` no responde `.githooks`), actívalo con `git config core.hooksPath .githooks`. Si no puedes, corre `graphify update .` antes del commit y agrega los dos archivos.
-- No saltes el hook con `--no-verify`.
+- Si el hook de git no está activo (`git config core.hooksPath` no responde `.githooks`), actívalo con `git config core.hooksPath .githooks`. Si no puedes, corre `graphify update .` antes del commit y agrega los dos archivos.
+- No saltes el hook de git con `--no-verify`.
 - No subas otros archivos de `graphify-out/`: guardan rutas de tu máquina.
 
 ## Cuándo no usarlo

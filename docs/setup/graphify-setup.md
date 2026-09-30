@@ -98,7 +98,7 @@ imágenes.
   propia regla, en inglés, en `CLAUDE.md` y `AGENTS.md`, y crea `.codex/hooks.json`. `AGENTS.md` lo maneja Tessl, y
   `graphify update .` ya alcanza para armar y actualizar el grafo.
 - **`graphify claude install` y `graphify codex install`.** Escriben esa misma regla.
-- **`graphify hook install`.** Instala hooks que corren después del commit y dejan `graph.json` cambiado. Nuestro
+- **`graphify hook install`.** Instala hooks de git que corren después del commit y dejan `graph.json` cambiado. Nuestro
   hook de git corre antes y mete el grafo en el mismo commit.
 - **El "graphify" del registro de Tessl.** No es el oficial de Graphify-Labs.
 

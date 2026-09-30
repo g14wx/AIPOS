@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 102 files · ~99,006 words
+- 102 files · ~99,449 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: (none) 9, .drawio 8, .caddy 2)
 
 ## Summary
-- 657 nodes · 705 edges · 86 communities (42 shown, 44 thin omitted)
+- 659 nodes · 710 edges · 86 communities (42 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -25,7 +25,7 @@
 - Flujo de un entregable
 - desplegar.sh
 - saltos-de-linea.test.sh
-- Entregables y tarjetas
+- Tarjetas
 - Armar la venta actual
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
@@ -98,7 +98,7 @@
 - revisar-etiqueta.sh
 - Despliegue de AIPOS
 - instalar-caddy.sh
-- Flujo 05 · Entregar un entregable
+- Lenguaje ubicuo — AIPOS
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -122,7 +122,7 @@
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
-Nodes (36): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+28 more)
+Nodes (36): AIPOS, Despliegue, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS (+28 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -156,9 +156,9 @@ Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entr
 Cohesion: 0.31
 Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), desplegar(), escribir_estado(), esperar_200(), fallar() (+9 more)
 
-### Community 10 - "Entregables y tarjetas"
-Cohesion: 0.18
-Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
+### Community 10 - "Tarjetas"
+Cohesion: 0.17
+Nodes (12): Definición de terminado, Despliegue, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos (+4 more)
 
 ### Community 11 - "Armar la venta actual"
 Cohesion: 0.06
@@ -284,13 +284,13 @@ Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versi
 Cohesion: 0.60
 Nodes (3): codigos(), fallar(), instalar-caddy.sh script
 
-### Community 85 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+### Community 85 - "Lenguaje ubicuo — AIPOS"
+Cohesion: 0.33
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
 
 ## Knowledge Gaps
-- **369 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+364 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 432 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **371 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+366 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 434 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -301,9 +301,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
-  _369 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _371 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05513784461152882 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05701754385964912 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

@@ -60,78 +60,6 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
-      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "convencion de nombres en codigo",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
-      "label": "Herramientas y proceso",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "herramientas y proceso",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
-      "label": "Historial de cambios",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "historial de cambios",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L108"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "label": "Lenguaje ubicuo \u2014 AIPOS",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lenguaje ubicuo \u2014 aipos",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_negocio",
-      "label": "Negocio",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "negocio",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
-      "label": "Pendientes (por confirmar)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pendientes (por confirmar)",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L97"
-    },
-    {
       "id": "docs_setup_agents_setup",
       "label": "agents-setup.md",
       "_origin": "ast",
@@ -190,6 +118,18 @@
       "norm_label": "aipos",
       "source_file": "README.md",
       "source_location": "L1"
+    },
+    {
+      "id": "readme_despliegue",
+      "label": "Despliegue",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "despliegue",
+      "source_file": "README.md",
+      "source_location": "L45"
     },
     {
       "id": "readme_grafo_del_proyecto",
@@ -576,6 +516,66 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L66"
+    },
+    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -836,55 +836,67 @@
       "label": "Definici\u00f3n de terminado",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "definicion de terminado",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L123"
+      "source_location": "L129"
+    },
+    {
+      "id": "requerimientos_04_entregables_despliegue",
+      "label": "Despliegue",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Tarjetas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "despliegue",
+      "source_file": "requerimientos/04-entregables.md",
+      "source_location": "L84"
     },
     {
       "id": "requerimientos_04_entregables_entrega_final",
       "label": "Entrega final",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entrega final",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L111"
+      "source_location": "L117"
     },
     {
       "id": "requerimientos_04_entregables_entregable_productos",
       "label": "Entregable productos",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregable productos",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L84"
+      "source_location": "L90"
     },
     {
       "id": "requerimientos_04_entregables_entregable_ventas",
       "label": "Entregable ventas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregable ventas",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L96"
+      "source_location": "L102"
     },
     {
       "id": "requerimientos_04_entregables_entregables_y_tarjetas",
       "label": "Entregables y tarjetas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregables y tarjetas",
@@ -896,7 +908,7 @@
       "label": "Ramas de tarjeta",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ramas de tarjeta",
@@ -908,7 +920,7 @@
       "label": "Requerimientos",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requerimientos",
@@ -920,7 +932,7 @@
       "label": "Secuencia de los entregables",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "secuencia de los entregables",
@@ -932,7 +944,7 @@
       "label": "Tablero AIPOS",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tablero aipos",
@@ -944,7 +956,7 @@
       "label": "Tarjetas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tarjetas",
@@ -956,7 +968,7 @@
       "label": "Tiles y entregable base",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tiles y entregable base",
@@ -1925,7 +1937,7 @@
       "node_kind": "heading",
       "norm_label": "aspectos que se evaluaran",
       "source_file": "requerimientos/README.md",
-      "source_location": "L60"
+      "source_location": "L62"
     },
     {
       "id": "requerimientos_readme_c\u00f3mo_leer_esta_carpeta",
@@ -1961,7 +1973,7 @@
       "node_kind": "heading",
       "norm_label": "matriz del pdf",
       "source_file": "requerimientos/README.md",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "requerimientos_readme_preguntas_abiertas",
@@ -1973,7 +1985,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "requerimientos/README.md",
-      "source_location": "L77"
+      "source_location": "L79"
     },
     {
       "id": "requerimientos_readme_requerimientos_de_aipos",
@@ -5599,7 +5611,7 @@
       "node_kind": "heading",
       "norm_label": "restricciones",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
+      "source_location": "L78"
     },
     {
       "id": "requerimientos_01_alcance_riesgos",
@@ -5611,7 +5623,7 @@
       "node_kind": "heading",
       "norm_label": "riesgos",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
+      "source_location": "L84"
     },
     {
       "id": "requerimientos_01_alcance_supuestos",
@@ -5623,7 +5635,7 @@
       "node_kind": "heading",
       "norm_label": "supuestos",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
+      "source_location": "L71"
     },
     {
       "id": "tests_despliegue_comun",
@@ -8448,64 +8460,76 @@
       "source_location": "L40"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
+      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
+      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
       "_origin": "ast",
       "community": 85,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L49"
+      "norm_label": "convencion de nombres en codigo",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L9"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
+      "label": "Herramientas y proceso",
       "_origin": "ast",
       "community": 85,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "norm_label": "herramientas y proceso",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
+      "label": "Historial de cambios",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "historial de cambios",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L108"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "label": "Lenguaje ubicuo \u2014 AIPOS",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lenguaje ubicuo \u2014 aipos",
+      "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
+      "id": "docs_lenguaje_ubicuo_negocio",
+      "label": "Negocio",
       "_origin": "ast",
       "community": 85,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L56"
+      "norm_label": "negocio",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L18"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
+      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
+      "label": "Pendientes (por confirmar)",
       "_origin": "ast",
       "community": 85,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 85,
-      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L66"
+      "norm_label": "pendientes (por confirmar)",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L97"
     },
     {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
@@ -10400,6 +10424,17 @@
       "weight": 1.0
     },
     {
+      "source": "readme_aipos",
+      "target": "readme_despliegue",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_01_alcance",
       "target": "requerimientos_01_alcance_alcance",
       "relation": "contains",
@@ -10462,7 +10497,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -10473,7 +10508,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -10484,7 +10519,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -10825,7 +10860,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L123",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -10874,13 +10909,24 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
+      "target": "requerimientos_04_entregables_entregable_ventas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/04-entregables.md",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_04_entregables_tarjetas",
       "target": "requerimientos_04_entregables_entrega_final",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L111",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -10907,7 +10953,7 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
-      "target": "requerimientos_04_entregables_entregable_productos",
+      "target": "requerimientos_04_entregables_despliegue",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10918,13 +10964,13 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
-      "target": "requerimientos_04_entregables_entregable_ventas",
+      "target": "requerimientos_04_entregables_entregable_productos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L96",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -11287,7 +11333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L60",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -11320,7 +11366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -11331,7 +11377,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L77",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -15922,6 +15968,28 @@
       "weight": 1.0
     },
     {
+      "source": "readme",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_01_alcance",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_01_alcance",
       "target": "requerimientos_03_requerimientos_no_funcionales",
       "relation": "references",
@@ -15929,7 +15997,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L80",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -16077,13 +16145,24 @@
     },
     {
       "source": "requerimientos_flujos_00_mapa_de_procesos",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_00_mapa_de_procesos",
       "target": "requerimientos_readme",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
-      "source_location": "L27",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -16197,17 +16276,6 @@
       "weight": 1.0
     },
     {
-      "source": "requerimientos_flujos_07_desplegar_una_version",
-      "target": "requerimientos_01_alcance",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
       "source": "requerimientos_readme",
       "target": "requerimientos_01_alcance",
       "relation": "references",
@@ -16315,6 +16383,17 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
       "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_readme",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/README.md",
+      "source_location": "L37",
       "weight": 1.0
     },
     {

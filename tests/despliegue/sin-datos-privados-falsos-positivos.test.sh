@@ -14,6 +14,7 @@ CL="cla""ve"
 PASS="PASS""WORD"
 TOK="TO""KEN"
 SECRETO="hunter2""hunter2"
+BT='`' # la comilla invertida: cierra un fragmento de código en un texto y abre una sustitución de comandos
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
@@ -39,8 +40,10 @@ revisar "const $CL = texto(env, 'MYSQL_ROOT_$PASS');
 if ($CL === '') {
 if ($CL === 'example') {
 } else if ($CL === 'examples') {
-const larga = $CL => $CL.length > 8;"
-igual "una comparación, una flecha y una llamada no son una credencial" "0" "$CODIGO"
+const larga = $CL => $CL.length > 8;
+// la prueba tomaba como valor todo lo que sigue a ${BT}$CL =${BT}, y marcaba el código que lee la contraseña
+MYSQL_$PASS=${BT}openssl rand -hex 16${BT}"
+igual "una comparación, una flecha, una llamada, un texto corrido y una sustitución de comandos no son una credencial" "0" "$CODIGO"
 [ "$CODIGO" = 0 ] || echo "$SALIDA"
 tiene "la revisión de credenciales dice ok" "$SALIDA" "ok: sin credenciales"
 

@@ -45,9 +45,10 @@ ASIGNA = [
     re.compile(r"(?i)[\"']" + _NOMBRE + r"[\"']\s*:" + _VALOR),
 ]
 VALOR_BUENO = re.compile(r"^(?:[$<{*]|cambiar-|tu-|clave-de-mentira|ci-clave-de-prueba|secrets\.|[A-Z][A-Z0-9_]*$)")
-# Código que lee un valor y no lo escribe: una comparación (`clave === ''`), una flecha (`clave => ...`) o una llamada
-# (`const clave = texto(env, ...)`). Un valor escrito a mano, con comillas o sin ellas, sigue contando (issue #67).
-NO_ES_UN_VALOR = re.compile(r"^(?:[=>]|[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*\()")
+# Código que lee un valor y no lo escribe: una comparación (`clave === ''`), una flecha (`clave => ...`), una llamada
+# (`const clave = texto(env, ...)`) o una comilla invertida (la que cierra un fragmento de código en un texto, o la que
+# abre una sustitución de comandos). Un valor escrito a mano, con comillas o sin ellas, sigue contando (issue #67).
+NO_ES_UN_VALOR = re.compile(r"^(?:[=>`]|[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*\()")
 
 def revisar_texto(donde, texto, es_commit=False, nombra_alias=False):
     for n, linea in enumerate(texto.split("\n"), 1):

@@ -3388,7 +3388,7 @@
       },
       "norm_label": "resumir()",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L100"
+      "source_location": "L101"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
@@ -4913,7 +4913,7 @@
       },
       "norm_label": "revisar()",
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_falsos_positivos_test_sh__entry",
@@ -16538,7 +16538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -16550,7 +16550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L112",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -31406,7 +31406,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -31417,7 +31417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L100",
+      "source_location": "L101",
       "weight": 1.0
     },
     {

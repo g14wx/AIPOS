@@ -111,12 +111,15 @@ Total estimado: 25 horas, sin contar R-00.
 Una tarjeta pasa a "Hecho" solo si:
 1. Cumple sus criterios de aceptación.
 2. Tiene pruebas y pasan.
-3. La persona desarrolladora validó el cambio y las pruebas.
-4. Usa las palabras del glosario. Si apareció una palabra nueva, ya está en el glosario.
-5. Sus commits siguen Conventional Commits, llevan `Co-Authored-By` si participó el agente y no llevan
+3. Si cambia código, tiene su spec aprobada en `specs/` y pasó `spec-verification` y `work-review`.
+4. La persona desarrolladora validó el cambio y las pruebas.
+5. Usa las palabras del glosario. Si apareció una palabra nueva, ya está en el glosario.
+6. Sus commits siguen Conventional Commits, llevan `Co-Authored-By` si participó el agente y no llevan
    `Claude-Session`.
-6. Tiene su entrada en la bitácora de IA, en el mismo commit que el cambio.
-7. Su PR pasó la revisión del agente revisor, con cada hallazgo corregido o explicado.
-8. Está integrada: en `ProductionEnv` con merge commit, o en `main` si es de requerimientos o de tiles.
-9. Si cambió cómo se instala o se usa AIPOS, el README está al día.
-10. Sus subtareas están marcadas en el tablero AIPOS.
+7. Tiene su entrada en la bitácora de IA, en el mismo commit que el cambio.
+8. Su commit trae el grafo del proyecto al día: `graphify-out/graph.json` y `graphify-out/GRAPH_REPORT.md`, que
+   agrega el hook de git `pre-commit`.
+9. Su PR pasó la revisión del agente revisor, con cada hallazgo corregido o explicado.
+10. Está integrada: en `ProductionEnv` con merge commit, o en `main` si es de requerimientos o de tiles.
+11. Si cambió cómo se instala o se usa AIPOS, el README está al día.
+12. Sus subtareas están marcadas en el tablero AIPOS.

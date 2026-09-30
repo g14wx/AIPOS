@@ -7,7 +7,7 @@ tarjeta apunta a un requerimiento y a un flujo de esta carpeta.
 - **Fuente:** el PDF de la prueba técnica (`devdoc/Prueba_Tecnica_Lead_AI_Native_Software_Engineer.pdf`, fuera
   de git) y las decisiones del 2026-09-29.
 - **Palabras:** las del glosario, [`docs/lenguaje-ubicuo.md`](../docs/lenguaje-ubicuo.md).
-- **Estado:** versión 1, del 2026-09-29. Lo que dice "por confirmar" todavía no está decidido.
+- **Estado:** versión 2, del 2026-09-30. Las preguntas abiertas 1 a 6 se resolvieron ese día. Lo que dice "por confirmar" todavía no está decidido.
 
 ## Cómo leer esta carpeta
 
@@ -76,15 +76,15 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 
 ## Preguntas abiertas
 
-Están por confirmar. Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS.
+Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS. La persona desarrolladora resolvió la 1, la 3, la 4, la 5 y la 6 con la propuesta, y la 2 con una decisión distinta, el 2026-09-30. La 7 sigue abierta y la 8 se resolvió el 2026-09-29.
 
 | # | Pregunta | Propuesta | Qué cambia |
 |---|---|---|---|
-| 1 | ¿Se permite un precio aplicado de 0? | Sí, para regalar un producto. | RN-05 |
-| 2 | ¿La venta actual debe seguir ahí si se recarga la página? | No en la versión 1. | Flujo 03 |
-| 3 | ¿Se busca desde 2 caracteres y se muestran 20 resultados como máximo? | Sí. | RF-02 |
-| 4 | ¿Qué límites tienen el precio y la cantidad? | Precio hasta 99 999.99 y cantidad hasta 999. El subtotal y el total usan `DECIMAL(12,2)` para que no se desborden. | RN-02, RN-06 |
-| 5 | ¿Entra RF-12 (Enter con un código de barras exacto)? | Sí, si sobra tiempo. | RF-12 |
-| 6 | ¿Cómo se muestran los precios? | Con 2 decimales y sin símbolo de moneda. | RNF-01 |
+| 1 | ¿Se permite un precio aplicado de 0? | **Resuelta el 2026-09-30**: sí, para regalar un producto. | RN-05 |
+| 2 | ¿La venta actual debe seguir ahí si se recarga la página? | **Resuelta el 2026-09-30, distinta de la propuesta** (que era "no"): sí. La venta actual se guarda en el navegador (`localStorage`, con `try/catch`) y se vacía al registrar la venta. | Flujo 03, RF-04, RF-09 y el supuesto de `01-alcance.md` |
+| 3 | ¿Se busca desde 2 caracteres y se muestran 20 resultados como máximo? | **Resuelta el 2026-09-30**: sí. | RF-02 |
+| 4 | ¿Qué límites tienen el precio y la cantidad? | **Resuelta el 2026-09-30**: precio hasta 99 999.99 y cantidad de 1 a 999. El precio y el precio aplicado usan `DECIMAL(10,2)`, y el subtotal y el total usan `DECIMAL(12,2)` para que no se desborden. | RN-02, RN-06 |
+| 5 | ¿Entra RF-12 (Enter con un código de barras exacto)? | **Resuelta el 2026-09-30**: sí, si sobra tiempo. | RF-12 |
+| 6 | ¿Cómo se muestran los precios? | **Resuelta el 2026-09-30**: con 2 decimales y sin símbolo de moneda. | RNF-01 |
 | 7 | ¿Cómo llega la versión final a `main` sin perder los merge commits? La regla "Protect main" de GitHub solo deja squash o rebase. | Se evalúa `ProductionEnv`, que guarda los merge commits, y a `main` se lleva con rebase. La otra opción es permitir un merge commit solo en ese PR. | E-03 |
 | 8 | ¿Cerramos los PR #5 y #6 de Dependabot, que suben a Vue 3 y Vuetify 3? | **Resuelta el 2026-09-29**: se cerraron. `.github/dependabot.yml` (PR #8) no alcanzó a frenar los PR de seguridad, así que el PR #12 los apagó en el repositorio; las alertas de Vue 2 y Vuetify 2 se revisan a mano. | B-04 |

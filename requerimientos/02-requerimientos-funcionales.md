@@ -32,7 +32,7 @@ puede buscar y vender.
 Criterios de aceptación:
 1. Dado el formulario vacío, cuando el cajero presiona "Guardar", entonces la pantalla marca los tres campos
    como obligatorios y no llama a la API.
-2. Dado un precio "-5", "abc" o "10.999", cuando guarda, entonces la pantalla lo marca como inválido. Si la API
+2. Dado un precio "-5", "abc", "10.999" o "100000", cuando guarda, entonces la pantalla lo marca como inválido. Si la API
    recibe ese precio igual, responde 400 con el campo y el motivo.
 3. Dado un código de barras que ya existe, cuando guarda, entonces la API responde 409 y la pantalla muestra "Ya
    existe un producto con ese código de barras" junto al campo, sin borrar lo escrito.
@@ -51,7 +51,7 @@ venta actual (RF-03).
 - **Origen:** PDF §2, "Búsqueda de productos". El PDF deja a criterio cómo se muestran y se eligen los
   resultados.
 - **Reglas:** busca por una parte del nombre, sin importar mayúsculas, o por el código de barras exacto. Busca
-  desde 2 caracteres y muestra 20 resultados como máximo (pregunta abierta 3). `%` y `_` se buscan como texto
+  desde 2 caracteres y muestra 20 resultados como máximo (pregunta abierta 3, resuelta el 2026-09-30). `%` y `_` se buscan como texto
   normal.
 
 Criterios de aceptación:
@@ -87,11 +87,18 @@ subtotal, y las acciones de cada detalle.
 - **Origen:** PDF §3. El nombre y el precio aplicado los pide el PDF; la cantidad y el subtotal vienen de la
   decisión de la persona desarrolladora.
 
+La venta actual se guarda en el navegador (`localStorage`), así que no se pierde al recargar la página. Se vacía al
+registrar la venta (pregunta abierta 2, resuelta el 2026-09-30).
+
 Criterios de aceptación:
 1. Dada una venta actual con 2 detalles, entonces se ven los dos con sus 4 datos y sus acciones: editar el
    precio aplicado, cambiar la cantidad y eliminar.
 2. Dada una venta actual vacía, entonces se ve "Busca un producto para empezar la venta" y el botón "Registrar
    venta" está deshabilitado.
+3. Dada una venta actual con detalles, cuando el cajero recarga la página, entonces la venta actual sigue igual, con
+   sus detalles, sus precios aplicados y sus cantidades.
+4. Dado que el navegador no deja guardar (por ejemplo, en una ventana privada), entonces la pantalla sigue
+   funcionando, sin guardar la venta actual.
 
 ## RF-05 Editar el precio aplicado
 
@@ -117,7 +124,7 @@ Criterios de aceptación:
 1. Dada la leche con cantidad 2, cuando el cajero presiona "+", entonces pasa a 3 y el subtotal y el total se
    recalculan.
 2. Dada la cantidad 1, entonces el botón "−" está deshabilitado; para quitar el producto se usa "Eliminar".
-3. Dada una cantidad escrita "0", "1.5" o "abc", entonces el campo muestra el error y "Registrar venta" queda
+3. Dada una cantidad escrita "0", "1000", "1.5" o "abc", entonces el campo muestra el error y "Registrar venta" queda
    deshabilitado.
 
 ## RF-07 Eliminar un producto de la venta actual
@@ -155,8 +162,8 @@ venta actual queda vacía.
 
 Criterios de aceptación:
 1. Dada una venta actual con 2 detalles válidos, cuando el cajero la registra, entonces hay 1 fila nueva en
-   `ventas` y 2 en `detalles_venta`, la pantalla muestra "Venta 15 registrada · Total 47.50" y la venta actual
-   queda vacía.
+   `ventas` y 2 en `detalles_venta`, la pantalla muestra "Venta 15 registrada · Total 47.50", la venta actual
+   queda vacía y el navegador ya no la guarda: si se recarga la página, sigue vacía.
 2. Dada una venta actual vacía o con un dato inválido, entonces "Registrar venta" está deshabilitado. Si la API
    recibe igual una venta sin detalles, responde 400.
 3. Dado un doble clic en "Registrar venta", entonces se registra una sola venta.
@@ -173,7 +180,9 @@ cada venta.
 - **Origen:** PDF §4, "Persistencia de datos": "Se evaluará que el diseño mantenga correctamente la relación
   entre una venta y los productos incluidos en ella".
 - **Reglas:** RN-01 a RN-03, RN-06, RN-07, RN-12, RN-13.
-- **Datos mínimos** (los tipos exactos los fijan las tarjetas P-01 y V-01):
+- **Datos mínimos** (los tipos del dinero los fija la [spec de arquitectura](../specs/arquitectura.spec.md):
+  `DECIMAL(10,2)` para `precio` y `precio_aplicado`, y `DECIMAL(12,2)` para `subtotal` y `total`; el resto de los
+  tipos, las tarjetas P-01 y V-01):
 
 | Tabla | Columnas |
 |---|---|
@@ -215,7 +224,7 @@ Criterios de aceptación:
 Si el cajero escribe o escanea un código de barras completo y presiona Enter, el producto entra directo a la
 venta actual, sin elegirlo en los resultados.
 
-- **Origen:** propuesta del agente. Opcional, por confirmar (pregunta abierta 5).
+- **Origen:** propuesta del agente. Opcional: entra si sobra tiempo (pregunta abierta 5, resuelta el 2026-09-30).
 
 Criterios de aceptación:
 1. Dado "7501055300075" y Enter, entonces la leche entra a la venta actual y el campo de búsqueda se limpia.
@@ -229,11 +238,11 @@ la base de datos la protege.
 | RN | Regla | Origen |
 |---|---|---|
 | RN-01 | Todo producto tiene nombre, precio y código de barras. | PDF §1 |
-| RN-02 | El precio es mayor que 0 y tiene 2 decimales como máximo. La API rechaza 10.999, porque MySQL lo redondearía a 11.00 sin dar error. El máximo está en la pregunta abierta 4. | Propuesta, por confirmar el máximo |
+| RN-02 | El precio es mayor que 0, hasta 99 999.99, y tiene 2 decimales como máximo. La API rechaza 10.999, porque MySQL lo redondearía a 11.00 sin dar error. | Propuesta; el máximo está en la pregunta abierta 4, resuelta el 2026-09-30 |
 | RN-03 | El código de barras es único: no hay dos productos con el mismo. Se guarda como texto (`VARCHAR`) para no perder los ceros de la izquierda. | Propuesta |
 | RN-04 | El nombre y el código de barras se guardan sin espacios en los extremos y no pueden quedar vacíos. Largo máximo: 120 caracteres el nombre y 50 el código de barras. | Propuesta, por confirmar los largos |
-| RN-05 | El precio aplicado empieza igual al precio del producto, y cambiarlo no cambia el precio del producto. Es 0 o más, con 2 decimales como máximo. | Glosario; el 0 está en la pregunta abierta 1 |
-| RN-06 | La cantidad es un número entero, 1 o más. El máximo está en la pregunta abierta 4. | Decisión de la persona desarrolladora |
+| RN-05 | El precio aplicado empieza igual al precio del producto, y cambiarlo no cambia el precio del producto. Es 0 o más, hasta 99 999.99, con 2 decimales como máximo. El 0 se permite, por ejemplo para regalar un producto. | Glosario; el 0 y el máximo están en las preguntas abiertas 1 y 4, resueltas el 2026-09-30 |
+| RN-06 | La cantidad es un número entero de 1 a 999. | Decisión de la persona desarrolladora; el máximo está en la pregunta abierta 4, resuelta el 2026-09-30 |
 | RN-07 | Un producto tiene un solo detalle en la venta actual y en la venta. Si se agrega otra vez, su cantidad sube en 1. | Decisión de la persona desarrolladora |
 | RN-08 | Subtotal = precio aplicado × cantidad. Total = suma de los subtotales. | Glosario |
 | RN-09 | La pantalla muestra el total de la venta actual mientras se arma. El que vale es el que calcula la base de datos al registrar la venta. | Glosario |

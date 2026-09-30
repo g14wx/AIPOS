@@ -429,3 +429,22 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna en esta tarjeta. La regla de `ProductionEnv` es la parte «opcional» de la tarjeta y se hizo porque el plan de la noche la pedía.
 - **Tiempo:** 03:25–03:40 (unos 15 min), sin contar el cambio de configuración de las 01:11.
 - **Commits:** este commit.
+
+### 2026-09-30 03:50 — P-01: spec de crear producto (P-01, P-02 y P-03)
+
+- **Tarea:** escribir `specs/crear-producto.spec.md`, la spec del flujo 01 completo (tabla `productos` y modelo, `POST /api/productos`, botón "Nuevo producto" con su modal), apoyada en la spec de arquitectura. Rama `docs/p-01-spec-crear-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-01 a P-03 con sus checklists, el flujo 01, RF-01, RF-10, RN-01 a RN-04, RNF-03 a RNF-05 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `0381de0`); pasó la revisión de Codex y corrigió un hallazgo (commit `7ed27ec`). El orquestador puso la rama al día con `ProductionEnv` (merge sin choques de contenido, solo el grafo) y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Sin `created_at` ni `updated_at` en `productos`, como fija la arquitectura, aunque el encargo hablaba de timestamps con valor por defecto.
+  - La API quita los espacios de los extremos del nombre y del código de barras (RN-04), en lugar de responder 400. El precio no se recorta y `" 25"` es un 400.
+  - El `CHECK` del precio incluye el máximo 99 999.99, y hay dos `CHECK` más de "no vacío y sin espacios en los extremos" (nombre y código de barras).
+  - El 201 devuelve el precio leído de la fila (`"25.00"`), no el texto que llegó.
+  - El aviso "Producto creado" es un `v-snackbar` con la animación Lottie, no una pausa antes de cerrar el modal.
+  - Los productos de ejemplo quedan como opcionales por confirmar: un seeder necesita carpeta, ruta y script que la arquitectura no lista.
+- **Patrones consultados:** Constraints Enforcer, Active Record y Keyed Idempotency (los más cercanos); para la migración, el formulario y el doble clic, ningún patrón del catálogo encajó.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos (leyó demasiado); la segunda, acotada, dio 1 hallazgo P2 (la pantalla recortaba el precio mientras la API lo rechazaba con espacios) y ningún P0 ni P1. Se corrigió: la pantalla tampoco lo recorta.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 20 minutos para escribir la spec (01:59–02:19). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 anteriores de la rama (`0381de0` la spec y `7ed27ec` el ajuste del precio en la pantalla).

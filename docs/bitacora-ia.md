@@ -5,12 +5,39 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 ## Resumen
 
-| Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
+El tiempo de cada entregable es la suma de sus filas de la tabla por tarea. Varias tareas corrieron a la vez (por ejemplo, V-05, V-06 y V-07 empezaron a las 11:26), así que la suma es mayor que el reloj: del primer commit (2026-09-29 12:46) a la última hora anotada (2026-09-30 15:25) pasaron 26 h 39 min, con pausas.
+
+### Por entregable
+
+| Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas | Qué suma |
+|---|---|---|---|---|
+| Preparación | 11 h 08 min | 34 | 26 | Agentes, tiles y glosario (8 h 37 min), y requerimientos, diagramas BPMN y tablero AIPOS (2 h 31 min) |
+| Specs | 10 h, sin la spec de despliegue (sin medir) | 10 | 14 | S-01 (2 h 58 min), S-02 (4 h 33 min) y las 6 specs de flujo |
+| Base | 18 h 55 min | 7 | 32 | B-01, B-02, B-03, B-04, A-01 y el PR #70 del entregable |
+| D-01 | 5 h 24 min | 1 | 3 | El pipeline de despliegue |
+| Productos | 11 h 22 min | 7 | 34 | P-01 a P-05 y el PR #76 del entregable |
+| Ventas | 10 h 52 min | 10 | 70 | V-01 a V-08 y el PR #96 del entregable |
+| F-01, corrección sin entregable | 1 h 27 min | 1 | 9 | Los issues #58, #59 y #60 del backend |
+| Entrega final | en curso | — | — | E-01, E-02 y E-03: todavía sin entrada |
+| Total | 69 h 08 min | 70 | 188 | |
+
+Correcciones del 2026-09-30 (tarjeta E-01): la fila de S-01 decía 2 h 20 min y sus cuatro rangos de horas suman 2 h 58 min. La de Preparación decía 31 tareas y son 32 (hay 34 entradas hasta el cierre del PR #19, y 2 son de requerimientos), y ya no está en curso: su última entrada termina a las 00:38 del 30. B-01 y las 6 specs de flujo tenían entrada y no fila, y se agregaron. La fila de F-01 suma su cierre, de 15:08 a 15:25. La de la spec de registrar venta dice 36 min, que son sus horas (01:59–02:35); su entrada dice «unos 35». La prueba `tests/documentacion/bitacora-sumas.test.sh` revisa todas estas sumas.
+
+### Por tarea
+
+| Tarea | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 8 h 37 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30), en curso | 31 | 19 |
-| S-01: spec de arquitectura y planificación de la noche | 2 h 20 min (18:04–18:10, 20:29–21:05, 00:40–01:20 y 01:24–03:00 del 30) | 3 | 9 |
+| Preparación: agentes, tiles y glosario | 8 h 37 min (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30) | 32 | 19 |
+| S-01: spec de arquitectura y planificación de la noche | 2 h 58 min (18:04–18:10, 20:29–21:05, 00:40–01:20 y 01:24–03:00 del 30) | 3 | 9 |
+| P-01: spec de crear producto (P-01, P-02 y P-03) | 20 min (01:59–02:19 del 30) | 1 | 0 (por confirmar) |
+| P-04: spec de buscar producto (P-04 y P-05) | 27 min (01:59–02:26 del 30) | 1 | 0 (por confirmar) |
+| V-04: spec de armar la venta actual (V-04 a V-07) | 27 min (01:59–02:26 del 30) | 1 | 1 |
+| V-01: spec de registrar venta (V-01, V-02, V-03 y V-08) | 36 min (01:59–02:35 del 30) | 1 | 1 |
+| A-01: spec de la documentación de la API (A-01) | 39 min (01:59–02:38 del 30) | 1 | 0 (por confirmar) |
+| D-01: spec de despliegue (D-01) | sin medir (primer commit a las 02:24 y corrección de Codex a las 03:22 del 30) | 1 | 0 (por confirmar) |
 | S-02: ajustes de las specs tras la revisión cruzada | 4 h 33 min (04:59–09:32 del 30, con 5 cortes) | 1 | 3 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
+| B-01: preparar GitHub y crear ProductionEnv (tarjeta del entregable base) | 15 min (03:25–03:40 del 30), sin contar el cambio de configuración de las 01:11 | 1 | 0 |
 | B-04: base del frontend con la pantalla única (entregable base) | 3 h 58 min (04:21–08:19 del 30), sin contar los intentos anteriores desde las 03:45 | 1 | 7 |
 | D-01: pipeline de despliegue con etiquetas `release-*` | 5 h 24 min de reloj (04:21–09:45 del 30), con cortes del sistema | 1 | 3 |
 | B-02: base del backend (tarjeta del entregable base) | 4 h 08 min (04:24–08:32 del 30; un intento anterior desde las 03:44) | 1 | 4 |
@@ -32,7 +59,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 | V-03: API para registrar venta (tarjeta del entregable ventas) | 55 min (11:41–12:36 del 30) | 1 | 6 |
 | V-08: botón «Registrar venta» y resultado (tarjeta del entregable ventas) | 1 h 29 min (12:18–13:47 del 30) | 1 | 11 |
 | Entregable ventas: unir con ProductionEnv, probar en local, revisar con Codex e integrar (PR #96) | 59 min (13:53–14:52 del 30), hasta dejar el PR listo para integrar | 2 | 8 |
-| F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 10 min (13:55–15:05 del 30) | 1 | 9 |
+| F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 27 min (13:55–15:05 y 15:08–15:25 del 30) | 1 | 9 |
 
 ## Entradas
 

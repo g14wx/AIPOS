@@ -162,6 +162,63 @@ describe('manejador de errores único', () => {
     expect(respuesta.body.error.codigo).toBe('ERROR_INTERNO');
   });
 
+  it('un cuerpo que dice ir comprimido y no lo está es un 400 DATOS_INVALIDOS, no un 500', async () => {
+    const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const app = appConRuta(async () => {});
+    for (const codificacion of ['gzip', 'deflate', 'br']) {
+      const respuesta = await request(app)
+        .post('/api/prueba/falla')
+        .set('Content-Type', 'application/json')
+        .set('Content-Encoding', codificacion)
+        .send('{"hola":"mundo"}');
+      expect(respuesta.status, codificacion).toBe(400);
+      expect(respuesta.body.error.codigo, codificacion).toBe('DATOS_INVALIDOS');
+      expect(typeof respuesta.body.error.mensaje).toBe('string');
+    }
+    // Es un error del cliente: no se cuenta como error del servidor ni llena el log.
+    expect(registro).not.toHaveBeenCalled();
+  });
+
+  it('un error 4xx con el code de zlib o de brotli, o con el type del lector, es un 400', async () => {
+    const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const delLector = [
+      { code: 'Z_DATA_ERROR' },
+      { code: 'Z_BUF_ERROR' },
+      { code: 'ERR__ERROR_FORMAT_PADDING_2' },
+      { type: 'encoding.unsupported', status: 415 },
+      { type: 'request.aborted' },
+    ];
+    for (const propiedades of delLector) {
+      const app = appConRuta(async () => {
+        throw Object.assign(new Error('x'), { status: 400, ...propiedades });
+      });
+      const respuesta = await request(app).get('/api/prueba/falla');
+      expect(respuesta.status, JSON.stringify(propiedades)).toBe(400);
+      expect(respuesta.body.error.codigo).toBe('DATOS_INVALIDOS');
+    }
+    expect(registro).not.toHaveBeenCalled();
+  });
+
+  it('un error con status 4xx que no trae ninguna señal del lector es un 500 y se escribe en el log', async () => {
+    const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const noEsDelLector = [
+      { status: 400 },
+      { status: 404, expose: true },
+      { status: 400, code: 'ECONNRESET' },
+      { status: 400, type: 'CardError' },
+      { status: 503, code: 'Z_DATA_ERROR' },
+    ];
+    for (const propiedades of noEsDelLector) {
+      const app = appConRuta(async () => {
+        throw Object.assign(new Error('Falló otra cosa'), propiedades);
+      });
+      const respuesta = await request(app).get('/api/prueba/falla');
+      expect(respuesta.status, JSON.stringify(propiedades)).toBe(500);
+      expect(respuesta.body.error.codigo).toBe('ERROR_INTERNO');
+    }
+    expect(registro).toHaveBeenCalledTimes(noEsDelLector.length);
+  });
+
   it('una ruta que no existe es un 404 NO_ENCONTRADO con el mismo formato', async () => {
     const app = appConRuta(async () => {});
     for (const ruta of ['/api/no-existe', '/otra-cosa']) {

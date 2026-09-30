@@ -1,13 +1,13 @@
 'use strict';
 
-const { cargarConfig, cargarArchivoEnv } = require('../src/config');
+const { cargarConfigDeEntorno, cargarArchivoEnv } = require('../src/config');
 
 // Configuración de sequelize-cli. `--env test` no cambia NODE_ENV, así que cada entorno
 // se arma con su propio NODE_ENV. Con getters solo se valida el entorno que se pide.
 cargarArchivoEnv();
 
 function paraElCli(entorno) {
-  const { baseDeDatos } = cargarConfig({ ...process.env, NODE_ENV: entorno });
+  const { baseDeDatos } = cargarConfigDeEntorno(entorno);
   return {
     dialect: 'mysql',
     host: baseDeDatos.host,

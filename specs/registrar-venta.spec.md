@@ -58,7 +58,7 @@ avisa, la API valida y la base de datos la protege.
 | RN-11 | Registrar venta es todo o nada. | Procedimiento con su propia transacción |
 | RN-12 | Cada venta guarda su fecha, y la pone la base de datos. | `DEFAULT CURRENT_TIMESTAMP` |
 | RN-13 | Un producto que está en una venta no se puede borrar. | Llave foránea `ON DELETE RESTRICT` |
-| Propuesta de esta spec | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. | Pantalla (aviso de la venta actual, ver preguntas), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
+| Propuesta de esta spec | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. | Pantalla (el botón y `valida`, ver preguntas), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
 
 ## Tablas y modelos (V-01)
 
@@ -192,10 +192,11 @@ con 2 decimales, por ejemplo `47.50`). No usa parámetros `OUT` ni deja otros `S
 3. Crea la venta (`INSERT INTO ventas (total) VALUES (0)`; la fecha la pone `DEFAULT CURRENT_TIMESTAMP`) y guarda su `id` con
    `LAST_INSERT_ID()`.
 4. Crea los detalles con `INSERT … SELECT … FROM JSON_TABLE(p_detalles, '$[*]' COLUMNS (…)) AS j` y calcula cada subtotal
-   en SQL con `ROUND(precio_aplicado * cantidad, 2)`. Para revisar las reglas del paso 2, `JSON_TABLE` lee `productoId`,
-   `cantidad` y `precioAplicado` como texto (`VARCHAR`), y el procedimiento valida ese texto con `REGEXP` y rango antes de
-   convertirlo. Así un `precioAplicado` de `"10.999"` se rechaza en vez de redondearse en silencio a `11.00`. Al insertar,
-   convierte el texto ya validado (`CAST(… AS DECIMAL(10,2))`, `CAST(… AS UNSIGNED)`).
+   en SQL con `ROUND(precio_aplicado * cantidad, 2)`. Para el paso 2, `JSON_TABLE` tiene además una columna de texto por
+   campo (`VARCHAR`, por ejemplo `precio_texto VARCHAR(50) PATH '$.precioAplicado'`), y el procedimiento valida ese texto
+   con `REGEXP` y rango antes de insertar. Así un `precioAplicado` de `"10.999"` se rechaza en vez de redondearse en
+   silencio a `11.00`. La columna que se inserta sigue siendo `precio_aplicado DECIMAL(10,2) PATH '$.precioAplicado'`,
+   como piden la spec de arquitectura y el tile de MySQL: la columna de texto solo sirve para revisar.
 5. Calcula el total con `SUM(subtotal)` de los detalles recién creados y lo guarda en la venta.
 6. `COMMIT` y el `SELECT` final.
 
@@ -394,7 +395,7 @@ con la paleta y los contrastes de "Diseño de la pantalla" de la spec de arquite
 | | Nombre | Qué es |
 |---|---|---|
 | Propiedad | `detalles` | Los detalles de la venta actual que se van a enviar. Cada uno lleva `productoId`, `cantidad` (entero) y `precioAplicado` (texto con 2 decimales). |
-| Propiedad | `valida` | `true` si la venta actual tiene detalles y todo es válido. Lo calcula la lógica de `src/ventaActual/` (V-04 a V-07), no el componente. |
+| Propiedad | `valida` | `true` si la venta actual tiene de 1 a 100 detalles y todo es válido. Lo calcula la lógica de `src/ventaActual/` (V-04 a V-07), no el componente. |
 | Evento | `registrada` | Se emite con `{ ventaId, total }` cuando la API responde 201. |
 | Evento | `update:enviando` | Se emite con `true` al empezar a enviar y con `false` al terminar. `VentaActual.vue` lo usa con `:enviando.sync` para deshabilitar agregar, editar y eliminar mientras dura el envío. |
 
@@ -405,7 +406,8 @@ borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/alma
 ### Qué hace
 
 - **Botón.** Dice "Registrar venta". Está deshabilitado cuando `valida` es `false` (venta actual vacía o con un dato inválido,
-  RN-10) y mientras se envía. Tiene el color primario y su texto en `#292F36`.
+  RN-10), cuando `detalles` está vacío o tiene más de 100 elementos (en ese caso muestra "Una venta puede tener como máximo
+  100 productos."), y mientras se envía. El componente revisa el máximo por su cuenta, sin depender de `valida`. Tiene el color primario y su texto en `#292F36`.
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
 - **Doble clic.** Al empezar a enviar, una marca `enviando` se pone en `true` antes de llamar a la API, y el método sale sin
   hacer nada si ya está en `true`. Dos clics seguidos, incluso en el mismo instante, mandan una sola petición.
@@ -463,7 +465,8 @@ borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/alma
    a `POST /api/ventas`, la pantalla muestra "Venta 15 registrada · Total 47.50" con los valores de la API, la venta actual
    queda vacía y `aipos.ventaActual` ya no tiene detalles: si se recarga la página, sigue vacía.
    `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
-2. Dada una venta actual vacía o con un dato inválido, entonces "Registrar venta" está deshabilitado.
+2. Dada una venta actual vacía, con un dato inválido o con 101 detalles, entonces "Registrar venta" está deshabilitado (con 101,
+   avisa el máximo de 100 productos).
    `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
 3. Dado un doble clic en "Registrar venta", entonces se registra una sola venta.
    `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
@@ -549,8 +552,8 @@ Si la sesión no tiene el MCP `chrome-devtools`, lo dice y la persona desarrolla
 
 - **Límite de 100 detalles.** Los requerimientos no lo piden. Esta spec lo agrega porque, sin él, 101 productos distintos con
   cantidad 999 y precio 99 999.99 (una venta válida en cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Las opciones son
-  aceptar el límite de 100 (la API y el procedimiento lo rechazan, y las specs de la venta actual (V-04 a V-07) pueden avisar
-  antes) o ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de arquitectura y RN-08. Esta spec sigue la primera.
+  aceptar el límite de 100 (la API, el procedimiento y el botón lo rechazan; las specs de la venta actual, V-04 a V-07, deben
+  incluirlo en `valida` y avisarlo al agregar el producto 101) o ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de arquitectura y RN-08. Esta spec sigue la primera.
 - **Reintento con la respuesta perdida.** Ver "Riesgo conocido" en la sección de la API.
 
 ## Bugs y issues

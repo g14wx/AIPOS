@@ -389,6 +389,21 @@ describe('editar el precio aplicado (V-05, criterios 1 a 5)', () => {
     ]);
   });
 
+  // #85: la franja de abajo (el total y «Registrar venta») es sticky y la barra de arriba es fija, y el navegador lleva el
+  // campo con foco de teclado al borde de la ventana sin contarlas. El margen de desplazamiento lo da una sola regla de
+  // VentaActual.vue, `.detalles input` (#80 y #81, probada en VentaActual-eliminar.test.js y CampoCantidad.test.js), y cubre
+  // el campo del precio aplicado porque es un input dentro de la tabla de detalles. Que el foco queda a la vista con muchas
+  // filas se prueba en el navegador.
+  it('el campo del precio aplicado es un input dentro de la tabla de detalles: lo cubre la regla de desplazamiento de las filas (#85)', async () => {
+    abrir();
+    await elegir(leche);
+    const tabla = zonaVenta().find('.detalles');
+    expect(tabla.exists()).toBe(true);
+    expect(
+      tabla.find('tbody input[aria-label="Precio aplicado de Leche entera 1 L"]').exists(),
+    ).toBe(true);
+  });
+
   it.each(['-1', 'abc'])(
     'criterio 2: con «%s» el campo muestra el error, conserva lo escrito y «Registrar venta» queda deshabilitado',
     async (texto) => {

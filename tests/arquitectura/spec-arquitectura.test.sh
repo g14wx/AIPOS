@@ -107,7 +107,7 @@ ya_no_debe_decir "$A" 'bloquea los estilos en línea'
 debe_decir "$A" "'unsafe-inline'"
 
 # `montajes` lo crea B-02 con `salud`; A-01 suma `docs` fuera de `montajes` (PR de B-02).
-debe_decir "$A" '`crearRouterApi`'
+debe_decir "$A" '`crearRouterApi(lista = montajes)`'
 debe_decir "$A" '{ ruta, router }'
 debe_decir "$DOC" "{ ruta: '/salud', router: salud }"
 ya_no_debe_decir "$DOC" 'prefijo:'

@@ -190,9 +190,16 @@ backend/
 - Los campos del JSON van en `camelCase` (`codigoBarras`, `precioAplicado`). Las columnas de MySQL van en
   `snake_case` (`codigo_barras`, `precio_aplicado`). El modelo de Sequelize hace la traducción con `field`.
 - `app.js` no escucha un puerto: así las pruebas usan `supertest(app)` sin abrir uno. Solo `servidor.js` escucha.
-- `src/routes/index.js` monta cada router de un recurso con su prefijo desde una lista, `montajes`, que también exporta.
-  La tarjeta que crea una ruta agrega su router a esa lista y su entrada a la documentación de la API (spec de
-  documentación de la API): así una ruta sin documentar rompe `npm test`.
+- `src/routes/index.js` lo crea B-02. Exporta `montajes`, una lista de `{ ruta, router }` (al principio solo
+  `{ ruta: '/salud', router: salud }`), y `crearRouterApi(lista = montajes)`, que monta cada router en su ruta y
+  devuelve el router de `/api`. La tarjeta que crea una ruta agrega su router a `montajes` y su entrada a la
+  documentación de la API (spec de documentación de la API): así una ruta sin documentar rompe `npm test`. `/api/docs`
+  (A-01) se monta aparte, fuera de `montajes`.
+- Los archivos que comparten las tarjetas de un mismo recurso (`routes/productos.js`, `controllers/productos.js`,
+  `services/productos.js`, `validators/productos.js` y `validators/comunes.js` con su prueba `validacion-comun.test.js`)
+  los crea la primera de esas tarjetas que se integra en la rama de su entregable. Las demás los juntan: ponen su rama
+  al día con la de su entregable y agregan lo suyo a los mismos archivos, y la que necesita una pieza de `comunes.js`
+  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez.
 - Los scripts de `package.json` del backend:
 
 | Comando | Qué hace |
@@ -271,13 +278,18 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   validación. Las reglas de dinero se validan sobre texto, y las librerías que convierten a número las echarían a
   perder. Además son pocas rutas.
 - `src/validators/comunes.js` tiene las piezas que usan todos los recursos: `validarTexto` (quita espacios de los
-  extremos y revisa que no quede vacío ni pase del largo máximo), `validarDinero` (ver "Dinero") y
-  `validarEnteroEnRango`. Cada validador devuelve los datos limpios o lanza `ErrorApi` de estado 400 con todos los
-  campos con problema, no solo el primero.
+  extremos y revisa que no quede vacío ni pase del largo máximo), `validarDinero` y `validarEnteroEnRango`. Cada
+  validador de un recurso devuelve los datos limpios o lanza `ErrorApi` de estado 400 con todos los campos con
+  problema, no solo el primero. `comunes.js` no es parte de B-02: lo crea la primera tarjeta que lo necesita (ver
+  "Carpetas").
+- `validarDinero(valor, campo, { permiteCero })` revisa un dinero que llega como texto: la forma
+  `^\d{1,5}(\.\d{1,2})?$` y el máximo de 99 999.99 (ver "Dinero"). Sin `permiteCero`, el valor tiene que ser mayor que
+  0: es el precio de un producto (RN-02). Con `permiteCero: true` el 0 se acepta: es el precio aplicado (RN-05).
 - El cuerpo de la petición llega como JSON. Un campo con el tipo equivocado (por ejemplo un número donde va un
   texto) es un 400, no se convierte.
 - Los largos máximos y los límites de los datos salen de `requerimientos/`: nombre de 120 caracteres, código de
-  barras de 50 (RN-04), precio hasta 99 999.99 y cantidad de 1 a 999 (ver "Dinero").
+  barras de 50 (RN-04), precio hasta 99 999.99, cantidad de 1 a 999 (ver "Dinero") y como máximo 100 detalles en una
+  venta (RN-14).
 - Patrón: Input Validation. La API no confía en la pantalla, porque se le puede llamar sin ella.
 
 `[@test] ../backend/tests/validacion-comun.test.js`
@@ -298,8 +310,9 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 ```
 
 - `codigo` es un texto en mayúsculas con guion bajo, estable, que la pantalla puede leer. `mensaje` es una frase en
-  español para el cajero. `detalles` solo aparece en los 400 y en el 409 del código de barras repetido, y lista un
-  elemento por campo con problema.
+  español para el cajero. `detalles` (los «detalles del error», que no son los detalles de una venta) solo aparece en
+  los 400 y en el 409 del código de barras repetido, y lista un elemento por campo con problema. Cuando no hay, la
+  respuesta no trae la propiedad `detalles`.
 - La API responde solo con cinco estados, los de RNF-05:
 
 | Estado | `codigo` | Cuándo |
@@ -326,12 +339,14 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 
 ### Límites, CORS y cabeceras
 
-- El cuerpo JSON tiene un límite: `express.json({ limit: '100kb' })`. Una venta con cientos de detalles cabe de sobra.
-  Lo que pase del límite es un 400 `CUERPO_MUY_GRANDE`.
+- El cuerpo JSON tiene un límite: `express.json({ limit: '100kb' })`. Una venta con 100 detalles (el máximo, RN-14)
+  pesa menos de 10 kb y cabe de sobra. Lo que pase del límite es un 400 `CUERPO_MUY_GRANDE`.
 - CORS: `cors({ origin: <lista de CORS_ORIGIN>, methods: ['GET', 'POST'] })`. Un origen que no está en la lista no
   recibe `Access-Control-Allow-Origin`. Nunca `*`.
-- helmet: sí. Pone las cabeceras de seguridad estándar y quita `X-Powered-By`. Su política de contenido (CSP) bloquea
-  los estilos en línea de Swagger UI, y la tarjeta A-01 la relaja solo en `/api/docs`, no en el resto de la API.
+- helmet: sí. Pone las cabeceras de seguridad estándar y quita `X-Powered-By`. Su política de contenido (CSP) por
+  defecto ya deja los estilos en línea (`style-src` con `'unsafe-inline'`), así que Swagger UI se ve sin cambiarla (lo
+  comprobó la spec de documentación de la API con helmet 8.3.0). Aun así, la tarjeta A-01 pone una política propia y
+  explícita solo en `/api/docs`, y no cambia la del resto de la API.
 - El orden de los middlewares en `app.js` es: helmet, cors, `express.json`, rutas de `/api`, `noEncontrado` y, al
   final, `errorHandler`.
 
@@ -401,13 +416,17 @@ esto:
 | `detalles_venta.precio_aplicado` | `DECIMAL(10,2)` | 0 o más, hasta 99 999.99 |
 | `detalles_venta.cantidad` | `INT` | Entero de 1 a 999 |
 | `detalles_venta.subtotal` | `DECIMAL(12,2)` | Precio aplicado × cantidad |
-| `ventas.total` | `DECIMAL(12,2)` | Suma de los subtotales |
+| `ventas.total` | `DECIMAL(12,2)` | Suma de los subtotales, de 1 a 100 detalles (RN-14) |
 
 - Por qué: la pregunta abierta 4 de `requerimientos/README.md` (resuelta el 2026-09-30) fija el precio en hasta
   99 999.99 y la cantidad de 1 a 999, y pide `DECIMAL(12,2)` para el subtotal y el total. Un subtotal llega a
   99 899 990.01 (99 999.99 × 999), que apenas cabe en `DECIMAL(10,2)` (su máximo es 99 999 999.99), y el total suma
-  varios subtotales: con dos detalles así ya se pasaría. `DECIMAL(12,2)` llega a 9 999 999 999.99 y no se desborda. El
-  precio y el precio aplicado siguen en `DECIMAL(10,2)`, como pide el tile, y sus columnas de `JSON_TABLE` también.
+  varios subtotales: con dos detalles así ya se pasaría. `DECIMAL(12,2)` llega a 9 999 999 999.99. Como una venta tiene
+  como máximo 100 detalles (RN-14, pregunta abierta 9), el total más grande es 100 × 99 899 990.01 = 9 989 999 001.00 y
+  cabe; con 101 detalles se pasaría, y por eso existe el límite. El precio y el precio aplicado siguen en
+  `DECIMAL(10,2)`, como pide el tile, y sus columnas de `JSON_TABLE` también.
+- El límite de 100 detalles lo cumplen las tres capas: la pantalla no agrega el detalle 101, la API responde 400 y el
+  procedimiento almacenado rechaza la venta con `DEMASIADOS_DETALLES` (spec de registrar venta).
 - Nunca `FLOAT` ni `DOUBLE`.
 - En JavaScript el dinero es un texto (`"25.00"`), en la API y en el backend. `mysql2` ya devuelve `DECIMAL` como texto,
   y no se activa `decimalNumbers`. El backend no suma ni multiplica dinero: eso lo hace MySQL.
@@ -420,7 +439,8 @@ esto:
 - La pantalla calcula en centavos (números enteros) solo para mostrar, con `src/dinero.js`: `aCentavos("22.50")` da
   `2250`, y `formatearCentavos(4750)` da `"47.50"`. Nunca suma decimales de JavaScript.
 - Los precios se muestran con 2 decimales y sin símbolo de moneda (pregunta abierta 6, resuelta).
-- Patrón: Money. Aquí no se guarda una moneda, solo el monto, y por eso el "objeto" es un texto con validación.
+- Patrón: Money. Aquí no se guarda una moneda, solo el valor con sus 2 decimales, y por eso el "objeto" es un texto
+  con validación.
 
 `[@test] ../backend/tests/validacion-comun.test.js`
 `[@test] ../backend/tests/base-de-datos/tipos-de-dinero.test.js`
@@ -477,8 +497,11 @@ frontend/
 
 - `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` y un tiempo
   máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error` con `status`, `codigo`,
-  `mensaje` y `detalles`, leídos del formato de error de la API. Si no hubo respuesta, `status` vale 0 y el
-  mensaje dice que no se pudo conectar.
+  `mensaje` y `detalles`, leídos del formato de error de la API; `detalles` es un arreglo vacío si la API no manda
+  ninguno. Si no hubo respuesta (sin red, servidor apagado o pasaron los 10 segundos), `status` vale 0, `codigo`
+  `SIN_CONEXION` y `mensaje` "No se pudo conectar con el servidor. Intenta de nuevo." Si hubo respuesta pero no trae el
+  formato de error (por ejemplo, el HTML de un 502), `codigo` es `ERROR_INTERNO` y `mensaje` "Ocurrió un error
+  inesperado. Intenta de nuevo." El mensaje nunca muestra la dirección del servidor ni el texto de axios.
 - `src/api/productos.js` y `src/api/ventas.js` exportan una función por operación, con nombres del glosario:
   `crearProducto`, `buscarProductos`, `registrarVenta`. Los componentes llaman solo a esas funciones. Ningún
   componente importa `axios` ni escribe una URL.
@@ -496,7 +519,9 @@ frontend/
   `cambiarPrecioAplicado`, `cambiarCantidad`, `eliminarDetalle` y `calcularTotal`. Son funciones que reciben la venta
   actual y devuelven una nueva, sin modificar la anterior. Así el componente reemplaza el valor entero y Vue 2 lo
   detecta.
-- Los importes se calculan en centavos con `src/dinero.js`.
+- El dinero (precios aplicados, subtotales y total) se calcula en centavos con `src/dinero.js`.
+- La venta actual tiene como máximo 100 detalles (RN-14): `agregarAVentaActual` no agrega un producto nuevo cuando ya
+  hay 100, y la pantalla avisa (spec de armar la venta actual).
 - La venta actual se guarda en el navegador con `localStorage` y se vacía al registrar la venta (pregunta abierta 2,
   resuelta el 2026-09-30). Si el cajero recarga la página, la venta actual sigue igual. La llave es
   `aipos.ventaActual`, y el valor es un JSON con `{ version: 1, detalles: [...] }`.
@@ -504,7 +529,8 @@ frontend/
   puede fallar o venir vacío. Si falla, la pantalla funciona igual, sin guardar. Lo guardado se valida al leerlo: si no
   tiene la forma esperada, se ignora y se empieza con la venta actual vacía.
 - La lógica de guardar y leer vive en `src/ventaActual/almacenamiento.js`, y es la única que toca `localStorage`.
-- Un error al registrar la venta no borra la venta actual (RNF-05). Solo se vacía cuando la API confirmó la venta.
+- Un error al registrar la venta no borra la venta actual (RNF-05). Solo se vacía cuando la API confirmó la venta:
+  `VentaActual.vue` emite la venta actual vacía y `App.vue`, el único que la guarda, la guarda con `almacenamiento.js`.
 - Patrón: ninguno del catálogo describe un módulo de estado de la venta; se usan funciones puras. Memento es el más
   cercano para guardar y restaurar la venta actual, y Money para el dinero (ver "Dinero").
 
@@ -564,11 +590,14 @@ Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o má
 
 - Íconos: MDI (`@mdi/font` 7.4.47) con `iconfont: 'mdi'`.
 - Animaciones: Lottie con `lottie-web` 5.13.0, en `AnimacionLottie.vue`, un componente de Vue 2 con Options API. Usa la
-  versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Recibe el
-  JSON de la animación, si se repite y su alto. Crea la animación en `mounted` y la destruye en `beforeDestroy`. Es
-  decorativa (`aria-hidden="true"`): el texto de al lado dice lo mismo.
-- Si el sistema pide menos movimiento (`prefers-reduced-motion: reduce`), no se anima: se muestra un solo cuadro fijo
-  de la animación.
+  versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Tiene un
+  solo elemento raíz, que es el contenedor de la animación, y estas propiedades: `animacion` (el JSON de la animación),
+  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles) y `cuadroFijo` (`'ultimo'` por defecto, o
+  `'primero'`: el cuadro que se muestra con menos movimiento). Crea la animación en `mounted`, la destruye en
+  `beforeDestroy` y, si cambia `animacion`, destruye la anterior y crea la nueva. Es decorativa (`aria-hidden="true"`):
+  el texto de al lado dice lo mismo.
+- Si el sistema pide menos movimiento (`prefers-reduced-motion: reduce`), no se anima: no reproduce ni se repite, y se
+  muestra un solo cuadro fijo, el último de la animación o, con `cuadroFijo="primero"`, el primero.
 - Los archivos JSON van en `frontend/src/assets/animaciones/`, en los colores de la paleta, y pesan menos de 50 KB
   cada uno. Se hacen con el MCP `lottiefiles-creator` o, si la sesión no lo tiene, con la skill `text-to-lottie`.
   Solo hay cuatro, donde aportan: `venta-vacia.json` ("Busca un producto para empezar la venta"),
@@ -591,6 +620,11 @@ en local, sin servicios externos.
   componentes con Vuetify.
 - Los archivos de prueba se llaman `<tema>.test.js` y viven en `backend/tests/` y `frontend/tests/`, con la misma forma
   de carpetas que `src/`. Las pruebas de shell de la raíz viven en `tests/`.
+- Si una tarjeta prueba una operación, su archivo lleva el nombre de esa operación, en minúsculas y con guiones, y va en
+  la carpeta de su recurso: `backend/tests/productos/crear-producto.test.js`, `frontend/tests/api/crear-producto.test.js`.
+  Las pruebas del validador de un recurso van en la carpeta de ese recurso (`backend/tests/ventas/validador-venta.test.js`),
+  no en una carpeta `validators/`, y las de su documentación en la API se llaman `documentacion-<operación>.test.js`.
+  Así dos tarjetas que corren a la vez no escriben el mismo archivo.
 - Los archivos de prueba usan `import` (`import { describe, it, expect } from 'vitest'`), también en el backend. Vitest 5
   no trae funciones globales. Cargan el código CommonJS con `import` o con `require`, y las dos formas funcionan.
 - Dos pruebas mínimas tapan la trampa de la tarjeta S-01: B-02 escribe `backend/tests/vitest-commonjs.test.js`, que
@@ -650,6 +684,8 @@ Todo el trabajo se ve en el historial de git y en la bitácora de IA. Esto ampl�
   `ProductionEnv`, con merge commit y la etiqueta `entregable-<x>`. `docs/entrega-final` va igual, y después
   `ProductionEnv` va a `main`.
 - Las tarjetas sin entregable van directo a su destino. B-01 y D-01 van a `ProductionEnv`. S-01 va a `main`.
+- La rama de D-01 es `chore/despliegue`, el nombre que ya tenía su tarjeta antes de esta convención: es la única
+  excepción a `<tipo>/<id>-<resumen>`. Las demás tarjetas la siguen.
 - Antes de integrar un PR, su rama se pone al día en local con la de destino. Si el hook de git detiene el merge
   porque actualizó el grafo del proyecto, se termina con `git commit --no-edit`.
 - Los mensajes de commit siguen Conventional Commits: prefijo en inglés y descripción en español con las palabras del

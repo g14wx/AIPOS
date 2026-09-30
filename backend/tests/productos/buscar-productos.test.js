@@ -1,6 +1,7 @@
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
 import request from 'supertest';
 import { createRequire } from 'node:module';
+import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
 
 const require = createRequire(import.meta.url);
 const app = require('../../src/app.js');
@@ -16,6 +17,13 @@ const CABLE = { nombre: 'Cable A_B', codigoBarras: '333', precio: '40.00' };
 const EJEMPLOS = [LECHE, JUGO_50, JUGO_500, CABLE];
 
 const idsCreados = [];
+
+// Un servidor atado a 127.0.0.1: con request(app) una petición puede caer en otro programa de la máquina (issue #58).
+let servidor;
+beforeAll(async () => {
+  servidor = await abrirServidorDePrueba(app);
+});
+afterAll(() => cerrarServidorDePrueba(servidor));
 
 async function crear(...productos) {
   const filas = [];
@@ -33,7 +41,7 @@ afterEach(async () => {
 });
 
 function buscar(texto) {
-  return request(app).get('/api/productos').query({ busqueda: texto });
+  return request(servidor).get('/api/productos').query({ busqueda: texto });
 }
 
 const nombresDe = (respuesta) => respuesta.body.map((producto) => producto.nombre);
@@ -42,14 +50,14 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
   it('criterio 1: dado el producto "Leche entera 1 L", cuando se busca "lech", entonces aparece en la lista', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar('lech');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Leche entera 1 L']);
   });
 
   it('criterio 2: dado el código de barras "7501055300075", cuando se busca completo, entonces aparece ese producto', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar('7501055300075');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(1);
     expect(respuesta.body[0]).toMatchObject({
       nombre: 'Leche entera 1 L',
@@ -60,34 +68,34 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
   it('criterio 3: dado un texto sin coincidencias, entonces responde 200 con la lista vacía', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar('zzzz');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toEqual([]);
   });
 
   it('con la tabla vacía también responde 200 con la lista vacía', async () => {
     const respuesta = await buscar('lech');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toEqual([]);
   });
 
   it('criterio 4: dado el texto "50%", entonces solo aparecen productos con "50%" en el nombre, no "Jugo 500 ml"', async () => {
     await crear(JUGO_50, JUGO_500);
     const respuesta = await buscar('50%');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Jugo 50% fruta']);
   });
 
   it('criterio 5: dado el texto "\' OR 1=1 --", entonces no devuelve todos los productos', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar("' OR 1=1 --");
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toEqual([]);
   });
 
   it('el texto del cajero no rompe la consulta: un nombre con comilla se encuentra con su propia comilla', async () => {
     await crear({ nombre: "Pan d'or", codigoBarras: '555', precio: '30.00' }, LECHE);
     const respuesta = await buscar("d'or");
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(["Pan d'or"]);
   });
 });
@@ -96,14 +104,14 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
   it('criterio 6: dado el texto "a_b", entonces solo aparece "Cable A_B", no "Cable AXB"', async () => {
     await crear(CABLE, { nombre: 'Cable AXB', codigoBarras: '334', precio: '41.00' });
     const respuesta = await buscar('a_b');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Cable A_B']);
   });
 
   it('criterio 6: dado el texto a\\ (2 caracteres), entonces responde 200 y no devuelve todos los productos con una "a"', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar('a\\');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toEqual([]);
   });
 
@@ -117,7 +125,7 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
     await crear(...EJEMPLOS);
     for (const texto of ['%%', '__', '%_', '_%', '%'.repeat(120)]) {
       const respuesta = await buscar(texto);
-      expect(respuesta.status, texto).toBe(200);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
       expect(respuesta.body, texto).toEqual([]);
     }
   });
@@ -126,7 +134,7 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
     await crear(...EJEMPLOS);
     for (const texto of ['LÉCH', 'lech', 'LECH', 'léch', 'Lech']) {
       const respuesta = await buscar(texto);
-      expect(respuesta.status, texto).toBe(200);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
       expect(nombresDe(respuesta), texto).toEqual(['Leche entera 1 L']);
     }
   });
@@ -141,7 +149,7 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
   it('criterio 8: dado el texto "  lech  " (con espacios en los extremos), entonces busca "lech"', async () => {
     await crear(...EJEMPLOS);
     const respuesta = await buscar('  lech  ');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Leche entera 1 L']);
   });
 });
@@ -151,7 +159,7 @@ describe('el código de barras se busca exacto', () => {
     await crear(...EJEMPLOS);
     for (const texto of ['750105530007', '75010', '055300075']) {
       const respuesta = await buscar(texto);
-      expect(respuesta.status, texto).toBe(200);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
       expect(respuesta.body, texto).toEqual([]);
     }
   });
@@ -193,7 +201,7 @@ describe('como máximo 20 resultados, siempre en el mismo orden', () => {
       ...alReves.map((nombre, i) => ({ nombre, codigoBarras: `GAL-${i}`, precio: '5.00' })),
     );
     const respuesta = await buscar('galleta');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(20);
     expect(nombresDe(respuesta)).toEqual(nombres.slice(0, 20));
   });
@@ -206,7 +214,7 @@ describe('como máximo 20 resultados, siempre en el mismo orden', () => {
     }));
     await crear(...tornillos, { nombre: 'Zumo', codigoBarras: '222', precio: '12.00' });
     const respuesta = await buscar('222');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(20);
     expect(respuesta.body[0]).toMatchObject({ nombre: 'Zumo', codigoBarras: '222' });
     expect(nombresDe(respuesta).slice(1)).toEqual(tornillos.slice(0, 19).map((t) => t.nombre));
@@ -235,7 +243,7 @@ describe('como máximo 20 resultados, siempre en el mismo orden', () => {
 });
 
 describe('el texto de búsqueda se valida antes de tocar la base de datos (400 DATOS_INVALIDOS)', () => {
-  const pedir = (direccion) => request(app).get(direccion);
+  const pedir = (direccion) => request(servidor).get(direccion);
   const CASOS = [
     ['falta busqueda', () => pedir('/api/productos')],
     ['busqueda vacía', () => pedir('/api/productos?busqueda=')],
@@ -257,7 +265,7 @@ describe('el texto de búsqueda se valida antes de tocar la base de datos (400 D
       const consultas = vi.spyOn(sequelize, 'query');
       const buscarTodo = vi.spyOn(Producto, 'findAll');
       const respuesta = await pedirCaso();
-      expect(respuesta.status).toBe(400);
+      expect(respuesta.status, respuesta.text).toBe(400);
       expect(respuesta.body.error.codigo).toBe('DATOS_INVALIDOS');
       expect(typeof respuesta.body.error.mensaje).toBe('string');
       expect(respuesta.body.error.detalles.map((detalle) => detalle.campo)).toEqual(['busqueda']);
@@ -268,7 +276,7 @@ describe('el texto de búsqueda se valida antes de tocar la base de datos (400 D
 
   it('con 1 carácter el cuerpo es el de la spec', async () => {
     const respuesta = await buscar('a');
-    expect(respuesta.status).toBe(400);
+    expect(respuesta.status, respuesta.text).toBe(400);
     expect(respuesta.body).toEqual({
       error: {
         codigo: 'DATOS_INVALIDOS',
@@ -282,7 +290,7 @@ describe('el texto de búsqueda se valida antes de tocar la base de datos (400 D
     await crear(LECHE);
     expect((await buscar('le')).status).toBe(200);
     const larga = await buscar('a'.repeat(120));
-    expect(larga.status).toBe(200);
+    expect(larga.status, larga.text).toBe(200);
     expect(larga.body).toEqual([]);
   });
 });
@@ -291,7 +299,7 @@ describe('lo que trae cada producto', () => {
   it('criterio 13: trae id (número entero), nombre, codigoBarras y precio (texto con 2 decimales), y ningún campo más', async () => {
     await crear(LECHE);
     const respuesta = await buscar('lech');
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.headers['content-type']).toMatch(/application\/json/);
     expect(respuesta.body).toHaveLength(1);
     const [producto] = respuesta.body;
@@ -313,10 +321,10 @@ describe('lo que trae cada producto', () => {
 
   it('los otros parámetros de la dirección se ignoran', async () => {
     await crear(...EJEMPLOS);
-    const respuesta = await request(app)
+    const respuesta = await request(servidor)
       .get('/api/productos')
       .query({ busqueda: 'lech', pagina: 2, limite: 1, orden: 'desc', nombre: 'zzz' });
-    expect(respuesta.status).toBe(200);
+    expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Leche entera 1 L']);
   });
 });
@@ -337,7 +345,7 @@ describe('cuando MySQL falla', () => {
 
     const respuesta = await buscar('lech');
 
-    expect(respuesta.status).toBe(500);
+    expect(respuesta.status, respuesta.text).toBe(500);
     expect(respuesta.body).toEqual({
       error: { codigo: 'ERROR_INTERNO', mensaje: 'Ocurrió un error inesperado. Intenta de nuevo.' },
     });
@@ -363,7 +371,7 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
     const antes = await foto();
     for (const texto of [...HOSTILES, 'lech', '7501055300075', '50%']) {
       const respuesta = await buscar(texto);
-      expect(respuesta.status, texto).toBe(200);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
     }
     expect(await foto()).toEqual(antes);
   });
@@ -385,7 +393,7 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
     async (texto) => {
       await crear(...EJEMPLOS);
       const respuesta = await buscar(texto);
-      expect(respuesta.status).toBe(200);
+      expect(respuesta.status, respuesta.text).toBe(200);
       expect(respuesta.body).toEqual([]);
     },
   );
@@ -404,7 +412,7 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
     ];
     for (const [texto, nombre] of casos) {
       const respuesta = await buscar(texto);
-      expect(respuesta.status, texto).toBe(200);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
       expect(nombresDe(respuesta), texto).toEqual([nombre]);
     }
   });

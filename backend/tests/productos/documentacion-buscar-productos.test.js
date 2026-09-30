@@ -1,6 +1,7 @@
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
 import request from 'supertest';
 import { createRequire } from 'node:module';
+import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
 import SwaggerParser from '@apidevtools/swagger-parser';
 
 const require = createRequire(import.meta.url);
@@ -21,13 +22,20 @@ const contenidoDelExito = respuestas['200']?.content?.['application/json'];
 
 const idsCreados = [];
 
+// Un servidor atado a 127.0.0.1: con request(app) una petición puede caer en otro programa de la máquina (issue #58).
+let servidor;
+beforeAll(async () => {
+  servidor = await abrirServidorDePrueba(app);
+});
+afterAll(() => cerrarServidorDePrueba(servidor));
+
 afterEach(async () => {
   vi.restoreAllMocks();
   if (idsCreados.length > 0) await Producto.destroy({ where: { id: idsCreados.splice(0) } });
 });
 
 function buscar(texto) {
-  return request(app).get('/api/productos').query({ busqueda: texto });
+  return request(servidor).get('/api/productos').query({ busqueda: texto });
 }
 
 describe('GET /api/productos está documentada', () => {

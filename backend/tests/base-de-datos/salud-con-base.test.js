@@ -1,0 +1,261 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import request from 'supertest';
+import net from 'node:net';
+import { once } from 'node:events';
+import { execFile, execFileSync, spawn } from 'node:child_process';
+import { promisify } from 'node:util';
+import { createRequire } from 'node:module';
+import { carpetaBackend, crearProxyCongelable } from './ayudas.js';
+
+const require = createRequire(import.meta.url);
+const sequelize = require('../../src/database.js');
+const app = require('../../src/app.js');
+
+// GET /api/salud con MySQL arriba (necesita MySQL levantado) y con MySQL abajo.
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
+describe('GET /api/salud con la base de datos arriba', () => {
+  it('responde 200 con { estado: "ok", baseDeDatos: "ok" }', async () => {
+    const respuesta = await request(app).get('/api/salud');
+    expect(respuesta.status).toBe(200);
+    expect(respuesta.headers['content-type']).toMatch(/application\/json/);
+    expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
+  });
+
+  it('pregunta a MySQL con sequelize.authenticate() en cada llamada', async () => {
+    const espia = vi.spyOn(sequelize, 'authenticate');
+    await request(app).get('/api/salud');
+    await request(app).get('/api/salud');
+    expect(espia).toHaveBeenCalledTimes(2);
+  });
+
+  it('no pide nada en la petición: un parámetro de más no cambia la respuesta', async () => {
+    const respuesta = await request(app).get('/api/salud?baseDeDatos=falla&x=1');
+    expect(respuesta.status).toBe(200);
+    expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
+  });
+
+  it('no cambia nada en la base: dos llamadas dan lo mismo y no crean tablas', async () => {
+    const [antes] = await sequelize.query('SHOW TABLES');
+    const primera = await request(app).get('/api/salud');
+    const segunda = await request(app).get('/api/salud');
+    const [despues] = await sequelize.query('SHOW TABLES');
+    expect(segunda.body).toEqual(primera.body);
+    expect(despues).toEqual(antes);
+  });
+});
+
+describe('GET /api/salud con la base de datos abajo', () => {
+  it('si authenticate() falla, responde 500 con el formato de error y sin detalles internos', async () => {
+    const fallo = Object.assign(new Error('connect ECONNREFUSED 127.0.0.1:3306'), {
+      code: 'ECONNREFUSED',
+    });
+    vi.spyOn(sequelize, 'authenticate').mockRejectedValue(fallo);
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const respuesta = await request(app).get('/api/salud');
+    expect(respuesta.status).toBe(500);
+    expect(respuesta.headers['content-type']).toMatch(/application\/json/);
+    expect(respuesta.body).toEqual({
+      error: { codigo: 'ERROR_INTERNO', mensaje: expect.any(String) },
+    });
+    expect(JSON.stringify(respuesta.body)).not.toMatch(/ECONNREFUSED|127\.0\.0\.1|3306/);
+  });
+
+  it('no inventa un estado nuevo: la respuesta caída no lleva estado ni baseDeDatos', async () => {
+    vi.spyOn(sequelize, 'authenticate').mockRejectedValue(new Error('caída'));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const respuesta = await request(app).get('/api/salud');
+    expect(respuesta.body).not.toHaveProperty('estado');
+    expect(respuesta.body).not.toHaveProperty('baseDeDatos');
+  });
+
+  it('con un MySQL que de verdad no está en ese puerto, responde 500 y la API sigue viva', async () => {
+    const puertoLibre = await new Promise((resolve) => {
+      const servidor = net.createServer();
+      servidor.listen(0, '127.0.0.1', () => {
+        const { port } = servidor.address();
+        servidor.close(() => resolve(port));
+      });
+    });
+    // Un proceso aparte, con MYSQL_PORT apuntando a un puerto donde no escucha nadie.
+    const programa = `
+      const request = require('supertest');
+      const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
+      (async () => {
+        const respuesta = await request(app).get('/api/salud');
+        const noExiste = await request(app).get('/api/no-existe');
+        console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, otra: noExiste.status }));
+        await sequelize.close();
+      })();
+    `;
+    const salida = execFileSync('node', ['-e', programa], {
+      cwd: carpetaBackend,
+      env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(puertoLibre) },
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const resultado = JSON.parse(salida.trim().split('\n').pop());
+    expect(resultado.estado).toBe(500);
+    expect(resultado.cuerpo.error.codigo).toBe('ERROR_INTERNO');
+    expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puertoLibre));
+    expect(resultado.otra).toBe(404);
+  }, 30_000);
+});
+
+// Issue #39: con MySQL congelado (acepta la conexión pero no contesta), authenticate() esperaba sin fin
+// y GET /api/salud se quedaba colgada. Ahora espera lo justo y responde 500.
+describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
+  const { consultarSalud } = require('../../src/services/salud.js');
+  const correr = promisify(execFile);
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('consultarSalud rechaza cuando pasa el tiempo que se le da, en vez de esperar sin fin', async () => {
+    vi.spyOn(sequelize, 'authenticate').mockReturnValue(new Promise(() => {}));
+    const inicio = Date.now();
+    await expect(consultarSalud(50)).rejects.toThrow(/no contest/i);
+    expect(Date.now() - inicio).toBeLessThan(2000);
+  }, 5_000);
+
+  it('cuando MySQL contesta a tiempo no deja un temporizador pendiente', async () => {
+    vi.useFakeTimers();
+    vi.spyOn(sequelize, 'authenticate').mockResolvedValue(undefined);
+    await expect(consultarSalud()).resolves.toEqual({ estado: 'ok', baseDeDatos: 'ok' });
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('con un MySQL callado de verdad, responde 500 en pocos segundos y la API sigue viva', async () => {
+    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado, que
+    // deja pendiente el saludo con el que empieza toda conexión (la API todavía no tiene ninguna abierta).
+    const conexiones = [];
+    const callado = net.createServer((socket) => conexiones.push(socket));
+    const puerto = await new Promise((resolve) => {
+      callado.listen(0, '127.0.0.1', () => resolve(callado.address().port));
+    });
+    const programa = `
+      const request = require('supertest');
+      const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
+      (async () => {
+        const inicio = Date.now();
+        const respuesta = await request(app).get('/api/salud');
+        const milisegundos = Date.now() - inicio;
+        const otra = await request(app).get('/api/no-existe');
+        console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, milisegundos, otra: otra.status }));
+        await sequelize.close();
+      })();
+    `;
+    try {
+      // Sin process.exit: si el intento de conexión sigue pendiente, sequelize.close() lo espera y el
+      // programa tarda en cerrarse. Con el intento cortado a los 3 s, se cierra a los pocos segundos.
+      const arranque = Date.now();
+      const { stdout } = await correr('node', ['-e', programa], {
+        cwd: carpetaBackend,
+        env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(puerto) },
+        encoding: 'utf8',
+        timeout: 25_000,
+      });
+      const resultado = JSON.parse(stdout.trim().split('\n').pop());
+      expect(resultado.estado).toBe(500);
+      expect(resultado.cuerpo.error.codigo).toBe('ERROR_INTERNO');
+      expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puerto));
+      expect(resultado.milisegundos).toBeLessThan(6000);
+      expect(resultado.otra).toBe(404);
+      // El intento de conexión con el saludo pendiente se corta junto con el tope de 3 s de la salud.
+      // Sin cortarlo, mysql2 lo deja abierto 10 s (connectTimeout por defecto) y el programa tarda más.
+      expect(Date.now() - arranque).toBeLessThan(8000);
+    } finally {
+      conexiones.forEach((socket) => socket.destroy());
+      callado.close();
+    }
+  }, 30_000);
+
+  // Issue #54: al vencer el tope, la API respondía 500 pero la consulta seguía pendiente y su conexión
+  // ocupada. Aquí la API abre su conexión con MySQL a través de un intermediario que después se congela:
+  // la segunda petición usa esa conexión abierta y MySQL no contesta. El programa hijo y la prueba se
+  // hablan por el canal IPC: el hijo avisa cuando la conexión está abierta y la prueba le dice cuándo seguir.
+  it('con la conexión ya abierta y MySQL congelado, corta la consulta y libera la conexión del pool', async () => {
+    const proxy = await crearProxyCongelable(sequelize.config.host, Number(sequelize.config.port));
+    const programa = `
+      const request = require('supertest');
+      const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
+      const avisar = (mensaje) => new Promise((resolve) => process.send(mensaje, resolve));
+      (async () => {
+        const primera = await request(app).get('/api/salud');
+        const orden = new Promise((resolve) => process.once('message', resolve));
+        await avisar({ fase: 'abierta', estado: primera.status });
+        await orden;
+        const inicio = Date.now();
+        const segunda = await request(app).get('/api/salud');
+        const milisegundos = Date.now() - inicio;
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        const enUso = sequelize.connectionManager.pool.using;
+        await avisar({ fase: 'fin', estado: segunda.status, milisegundos, enUso });
+        process.disconnect();
+        await sequelize.close();
+      })();
+    `;
+    const hijo = spawn('node', ['-e', programa], {
+      cwd: carpetaBackend,
+      env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(proxy.puerto) },
+      stdio: ['ignore', 'ignore', 'ignore', 'ipc'],
+    });
+    const hijoTermino = once(hijo, 'exit');
+    const siguienteMensaje = () =>
+      Promise.race([
+        once(hijo, 'message').then(([mensaje]) => mensaje),
+        hijoTermino.then(() =>
+          Promise.reject(new Error('El programa hijo terminó antes de avisar.')),
+        ),
+      ]);
+    let plazo;
+    try {
+      expect(await siguienteMensaje()).toEqual({ fase: 'abierta', estado: 200 });
+      proxy.congelar();
+      const fin = siguienteMensaje();
+      hijo.send('seguir');
+      const resultado = await fin;
+      expect(resultado.estado).toBe(500);
+      // Respondió el tope de 3 s, no un fallo rápido.
+      expect(resultado.milisegundos).toBeGreaterThanOrEqual(2900);
+      // La consulta de salud ya no ocupa una conexión del pool.
+      expect(resultado.enUso).toBe(0);
+      // Sin consultas colgadas, sequelize.close() termina y el programa se cierra solo (sin process.exit).
+      const seColgo = new Promise((resolve) => {
+        plazo = setTimeout(() => resolve('colgado'), 10_000);
+      });
+      expect(await Promise.race([hijoTermino, seColgo])).toEqual([0, null]);
+    } finally {
+      clearTimeout(plazo);
+      hijo.kill('SIGKILL');
+      await proxy.cerrar();
+    }
+  }, 30_000);
+
+  it('si la consulta esperaba lugar en el pool y llega cuando ya venció el tiempo, no se envía', async () => {
+    const { connectionManager } = sequelize;
+    const { pool } = connectionManager;
+    // Se ocupan todos los lugares del pool: la consulta de salud tiene que esperar el suyo.
+    const ocupadas = [];
+    for (let i = 0; i < pool.maxSize; i += 1)
+      ocupadas.push(await connectionManager.getConnection());
+    const enviar = vi.spyOn(sequelize.dialect.Query.prototype, 'run');
+    try {
+      await expect(consultarSalud(100)).rejects.toThrow(/no contest/i);
+      expect(pool.waiting).toBe(1);
+      // Se libera un lugar: la consulta que esperaba lo toma, ve que ya venció y no envía nada.
+      connectionManager.releaseConnection(ocupadas.pop());
+      await vi.waitFor(() => expect(pool.waiting).toBe(0));
+      await vi.waitFor(() => expect(pool.using).toBe(ocupadas.length));
+      expect(enviar).not.toHaveBeenCalled();
+    } finally {
+      ocupadas.forEach((conexion) => connectionManager.releaseConnection(conexion));
+    }
+  }, 10_000);
+});

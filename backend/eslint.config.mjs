@@ -10,6 +10,10 @@ export default [
     languageOptions: { sourceType: 'commonjs', globals: globals.node },
   },
   {
+    files: ['**/*.mjs'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     files: ['tests/**/*.js'],
     languageOptions: { sourceType: 'module', globals: globals.node },
   },

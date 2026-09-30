@@ -14,8 +14,11 @@ const { loadAnimation } = vi.hoisted(() => ({
 
 vi.mock('lottie-web/build/player/lottie_light', () => ({ default: { loadAnimation } }));
 vi.mock('../src/api/productos.js', () => ({ buscarProductos: vi.fn(), crearProducto: vi.fn() }));
+vi.mock('../src/api/ventas.js', () => ({ registrarVenta: vi.fn() }));
 
 import { buscarProductos, crearProducto } from '../src/api/productos.js';
+import { registrarVenta } from '../src/api/ventas.js';
+import { leerVentaActual } from '../src/ventaActual/almacenamiento.js';
 import vuetify from '../src/plugins/vuetify.js';
 import App from '../src/App.vue';
 import BuscadorProductos from '../src/components/BuscadorProductos.vue';
@@ -58,6 +61,7 @@ beforeEach(() => {
   consola.forEach((espia) => espia.mockImplementation(() => {}));
   buscarProductos.mockReset();
   crearProducto.mockReset();
+  registrarVenta.mockReset();
 });
 
 afterEach(() => {
@@ -926,6 +930,340 @@ describe('temporizadores', () => {
     expect(vi.getTimerCount()).toBeGreaterThan(0);
     wrapper.destroy();
     expect(vi.getTimerCount()).toBe(0);
+  });
+});
+
+// V-08, criterios 1, 3 y 4 de la tarjeta y 1 de la spec registrar-venta: la pantalla entera (App.vue, VentaActual.vue y
+// RegistrarVenta.vue) con la API de ventas sustituida. Registrar con un 201 deja la venta actual vacía también en el
+// navegador; un error, del tipo que sea, no la toca (RNF-05); el doble clic manda una sola venta.
+describe('registrar la venta desde la pantalla (V-08)', () => {
+  const PETICION = [
+    { productoId: 1, cantidad: 2, precioAplicado: '22.00' },
+    { productoId: 2, cantidad: 1, precioAplicado: '3.50' },
+  ];
+  // La venta del ejemplo de la spec: 2 leches a 22.00 y 1 pan a 3.50, que suman 47.50.
+  const armarLaVenta = () => dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
+  const franjaDeEstado = () => zonaVenta().find('[role="status"]');
+  const asentar = async () => {
+    for (let vuelta = 0; vuelta < 6; vuelta += 1) await wrapper.vm.$nextTick();
+  };
+  const registrar = async () => {
+    await botonRegistrar().trigger('click');
+    await asentar();
+  };
+
+  describe('éxito (criterio 1)', () => {
+    beforeEach(() => {
+      registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+    });
+
+    it('manda los detalles de la venta actual y muestra «Venta 15 registrada · Total 47.50»', async () => {
+      armarLaVenta();
+      abrir();
+      expect(total()).toBe('47.50');
+      await registrar();
+      expect(registrarVenta).toHaveBeenCalledTimes(1);
+      expect(registrarVenta).toHaveBeenCalledWith(PETICION);
+      expect(franjaDeEstado().text()).toBe('Venta 15 registrada · Total 47.50');
+    });
+
+    it('la venta actual queda vacía: sin filas, con su mensaje, el total en 0.00 y «Registrar venta» deshabilitado', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      expect(filas()).toHaveLength(0);
+      expect(zonaVenta().text()).toContain('Busca un producto para empezar la venta');
+      expect(total()).toBe('0.00');
+      expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    });
+
+    it('queda vacía también en el navegador: la llave ya no existe y, al recargar, la venta actual sigue vacía', async () => {
+      armarLaVenta();
+      abrir();
+      expect(guardado().detalles).toHaveLength(2);
+      await registrar();
+      expect(localStorage.getItem(LLAVE)).toBeNull();
+      expect(leerVentaActual()).toEqual({ detalles: [], errores: {} });
+      wrapper.destroy();
+      abrir();
+      expect(filas()).toHaveLength(0);
+      expect(total()).toBe('0.00');
+      expect(franjaDeEstado().text()).toBe('');
+    });
+
+    it('el mensaje sigue a la vista con la venta actual ya vacía: vive en la franja de abajo, junto al total', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      const pie = zonaVenta().find('.venta-actual__pie');
+      expect(pie.find('[role="status"]').text()).toBe('Venta 15 registrada · Total 47.50');
+      expect(pie.find('[data-total]').text()).toBe('0.00');
+    });
+
+    it('muestra el total que devolvió la API, no el que calculó la pantalla', async () => {
+      registrarVenta.mockResolvedValue({ ventaId: 16, total: '50.00' });
+      armarLaVenta();
+      abrir();
+      expect(total()).toBe('47.50');
+      await registrar();
+      expect(franjaDeEstado().text()).toBe('Venta 16 registrada · Total 50.00');
+    });
+
+    it('la venta más grande (100 detalles) también se registra, con sus 100 detalles', async () => {
+      registrarVenta.mockResolvedValue({ ventaId: 99, total: '100.00' });
+      dejarGuardado(cienDetalles());
+      abrir();
+      expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+      await registrar();
+      expect(registrarVenta.mock.calls[0][0]).toHaveLength(100);
+      expect(franjaDeEstado().text()).toBe('Venta 99 registrada · Total 100.00');
+      expect(filas()).toHaveLength(0);
+    });
+
+    it('después de registrar se empieza una venta nueva: el producto entra con cantidad 1 y el precio del producto', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      await elegir(leche);
+      expect(celdas(filas()[0]).slice(0, 4)).toEqual(['Leche entera 1 L', '25.00', '1', '25.00']);
+      expect(guardado()).toEqual({ version: 1, detalles: [detalle(leche)] });
+      expect(franjaDeEstado().text()).toBe('Venta 15 registrada · Total 47.50');
+    });
+
+    it('registrar no llama a la búsqueda ni a crear un producto', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      expect(buscarProductos).not.toHaveBeenCalled();
+      expect(crearProducto).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('doble clic (criterio 2)', () => {
+    it('dos clics seguidos registran una sola venta: una petición, una franja y la venta actual vacía', async () => {
+      registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+      armarLaVenta();
+      abrir();
+      const boton = botonRegistrar();
+      boton.trigger('click');
+      boton.trigger('click');
+      await asentar();
+      expect(registrarVenta).toHaveBeenCalledTimes(1);
+      expect(franjaDeEstado().text()).toBe('Venta 15 registrada · Total 47.50');
+      expect(filas()).toHaveLength(0);
+      expect(localStorage.getItem(LLAVE)).toBeNull();
+    });
+  });
+
+  describe('mientras se envía', () => {
+    let resolver;
+    beforeEach(() => {
+      registrarVenta.mockReturnValue(new Promise((alResolver) => (resolver = alResolver)));
+    });
+
+    it('la pantalla sabe que se está enviando (enviando sube hasta App.vue) y el botón queda deshabilitado', async () => {
+      armarLaVenta();
+      abrir();
+      await botonRegistrar().trigger('click');
+      expect(ventaActual().props('enviando')).toBe(true);
+      expect(botonRegistrar().attributes('disabled')).toBeDefined();
+      resolver({ ventaId: 15, total: '47.50' });
+      await asentar();
+      expect(ventaActual().props('enviando')).toBe(false);
+    });
+
+    it('la venta actual no cambia a la mitad del envío: ignora producto-elegido y no toca lo guardado', async () => {
+      armarLaVenta();
+      abrir();
+      const antes = localStorage.getItem(LLAVE);
+      await botonRegistrar().trigger('click');
+      await elegir(leche);
+      await elegir({ id: 3, nombre: 'Huevos', codigoBarras: '3', precio: '4.00' });
+      expect(filas()).toHaveLength(2);
+      expect(localStorage.getItem(LLAVE)).toBe(antes);
+      expect(registrarVenta.mock.calls[0][0]).toEqual(PETICION);
+      resolver({ ventaId: 15, total: '47.50' });
+      await asentar();
+    });
+
+    it('el botón «Eliminar» de cada detalle queda deshabilitado', async () => {
+      armarLaVenta();
+      abrir();
+      await botonRegistrar().trigger('click');
+      const eliminar = zonaVenta().findAll('.detalle__eliminar').wrappers;
+      expect(eliminar).toHaveLength(2);
+      for (const boton of eliminar) expect(boton.attributes('disabled')).toBeDefined();
+      resolver({ ventaId: 15, total: '47.50' });
+      await asentar();
+    });
+
+    it('al terminar, la pantalla vuelve a aceptar productos', async () => {
+      armarLaVenta();
+      abrir();
+      await botonRegistrar().trigger('click');
+      resolver({ ventaId: 15, total: '47.50' });
+      await asentar();
+      await elegir(pan);
+      expect(filas()).toHaveLength(1);
+    });
+  });
+});
+
+// V-08, criterios 3 y 4 de la tarjeta y 4, 5 y 6 de la spec registrar-venta, con la pantalla entera: un error de la API
+// (422, 400 o 500) o la falta de respuesta muestran el motivo y dejan la venta actual como estaba, en pantalla y en el
+// navegador (RNF-05). El botón se habilita otra vez y el cajero puede corregir y volver a intentar.
+describe('registrar la venta: un error no toca la venta actual (V-08)', () => {
+  const armarLaVenta = () => dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
+  const franjaDeEstado = () => zonaVenta().find('[role="status"]');
+  const franjaDeError = () => zonaVenta().find('[role="alert"]');
+  const asentar = async () => {
+    for (let vuelta = 0; vuelta < 6; vuelta += 1) await wrapper.vm.$nextTick();
+  };
+  const registrar = async () => {
+    await botonRegistrar().trigger('click');
+    await asentar();
+  };
+  const errorDeLaApi = (status, codigo, mensaje, detallesDelError = []) =>
+    Object.assign(new Error(mensaje), { status, codigo, mensaje, detalles: detallesDelError });
+  const fallos = [
+    [
+      '422 (un producto que ya no existe)',
+      () =>
+        errorDeLaApi(
+          422,
+          'PRODUCTO_NO_EXISTE',
+          'Un producto de la venta ya no existe. Revisa la venta actual.',
+        ),
+      'Un producto de la venta ya no existe. Revisa la venta actual.',
+    ],
+    [
+      '400',
+      () =>
+        errorDeLaApi(400, 'DATOS_INVALIDOS', 'Los datos de la venta no son válidos.', [
+          { campo: 'detalles[0].cantidad', mensaje: 'Debe ser un entero de 1 a 999.' },
+        ]),
+      'Detalle 1, cantidad: Debe ser un entero de 1 a 999.',
+    ],
+    [
+      '500',
+      () => errorDeLaApi(500, 'ERROR_INTERNO', 'Ocurrió un error inesperado. Intenta de nuevo.'),
+      'Ocurrió un error inesperado. Intenta de nuevo.',
+    ],
+    [
+      'falta de respuesta (la API no responde)',
+      () =>
+        errorDeLaApi(0, 'SIN_CONEXION', 'No se pudo conectar con el servidor. Intenta de nuevo.'),
+      'No se pudo conectar con el servidor. Tu venta sigue aquí: intenta de nuevo.',
+    ],
+  ];
+
+  describe.each(fallos)('con un %s', (_nombre, crear, texto) => {
+    beforeEach(() => {
+      registrarVenta.mockRejectedValue(crear());
+    });
+
+    it('muestra el motivo en una franja de error y no dice que la venta se registró', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      expect(franjaDeError().text()).toContain(texto);
+      expect(franjaDeEstado().text()).toBe('');
+    });
+
+    it('la venta actual conserva todos sus detalles, el total y lo guardado en el navegador', async () => {
+      armarLaVenta();
+      abrir();
+      const antes = localStorage.getItem(LLAVE);
+      await registrar();
+      expect(filas()).toHaveLength(2);
+      expect(celdas(filas()[0]).slice(0, 4)).toEqual(['Leche entera 1 L', '22.00', '2', '44.00']);
+      expect(celdas(filas()[1]).slice(0, 4)).toEqual(['Pan de caja', '3.50', '1', '3.50']);
+      expect(total()).toBe('47.50');
+      expect(localStorage.getItem(LLAVE)).toBe(antes);
+      expect(leerVentaActual().detalles).toHaveLength(2);
+    });
+
+    it('el botón se habilita otra vez y la pantalla vuelve a aceptar cambios', async () => {
+      armarLaVenta();
+      abrir();
+      await registrar();
+      expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+      expect(ventaActual().props('enviando')).toBe(false);
+      await elegir(pan);
+      expect(celdas(filas()[1])[2]).toBe('2');
+    });
+  });
+
+  it('criterio 3: tras el 422 el cajero elimina el detalle que falló y registra el resto', async () => {
+    registrarVenta
+      .mockRejectedValueOnce(
+        errorDeLaApi(
+          422,
+          'PRODUCTO_NO_EXISTE',
+          'Un producto de la venta ya no existe. Revisa la venta actual.',
+        ),
+      )
+      .mockResolvedValueOnce({ ventaId: 16, total: '44.00' });
+    armarLaVenta();
+    abrir();
+    await registrar();
+    await zonaVenta().findAll('.detalle__eliminar').at(1).trigger('click');
+    expect(filas()).toHaveLength(1);
+    await registrar();
+    expect(registrarVenta.mock.calls[1][0]).toEqual([
+      { productoId: 1, cantidad: 2, precioAplicado: '22.00' },
+    ]);
+    expect(franjaDeEstado().text()).toBe('Venta 16 registrada · Total 44.00');
+    expect(franjaDeError().exists()).toBe(false);
+    expect(localStorage.getItem(LLAVE)).toBeNull();
+  });
+
+  it('criterio 4: si la API no responde y luego vuelve, el mismo clic registra la venta con los mismos detalles', async () => {
+    registrarVenta
+      .mockRejectedValueOnce(errorDeLaApi(0, 'SIN_CONEXION', 'No se pudo conectar.'))
+      .mockResolvedValueOnce({ ventaId: 15, total: '47.50' });
+    armarLaVenta();
+    abrir();
+    await registrar();
+    expect(franjaDeError().exists()).toBe(true);
+    await registrar();
+    expect(registrarVenta).toHaveBeenCalledTimes(2);
+    expect(registrarVenta.mock.calls[1][0]).toEqual(registrarVenta.mock.calls[0][0]);
+    expect(franjaDeEstado().text()).toBe('Venta 15 registrada · Total 47.50');
+    expect(franjaDeError().exists()).toBe(false);
+    expect(filas()).toHaveLength(0);
+  });
+
+  it('con un error de un campo del detalle «Registrar venta» está deshabilitado y no manda nada', async () => {
+    armarLaVenta();
+    abrir();
+    const errores = { 2: { cantidad: 'La cantidad debe ser un número entero de 1 a 999.' } };
+    ventaActual().vm.$emit('update:ventaActual', {
+      detalles: [detalle(leche, 2, '22.00'), detalle(pan)],
+      errores,
+    });
+    await wrapper.vm.$nextTick();
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    await botonRegistrar().trigger('click');
+    expect(registrarVenta).not.toHaveBeenCalled();
+  });
+});
+
+describe('quién hace qué al registrar la venta (V-08): RegistrarVenta manda, VentaActual vacía y App guarda', () => {
+  const leerFuente = (ruta) => readFileSync(resolve(import.meta.dirname, ruta), 'utf8');
+
+  it('App.vue no conoce la API de ventas: solo guarda la venta actual que le llega de VentaActual', () => {
+    const fuente = leerFuente('../src/App.vue');
+    expect(fuente).not.toMatch(/api\/ventas|registrarVenta|RegistrarVenta/);
+    expect(fuente).toMatch(/guardarVentaActual/);
+  });
+
+  it('VentaActual.vue no llama a la API: muestra RegistrarVenta y, al registrarse, emite la venta actual vacía', () => {
+    const fuente = leerFuente('../src/components/VentaActual.vue');
+    expect(fuente).not.toMatch(/from\s+['"][^'"]*api\//);
+    expect(fuente).toMatch(/import RegistrarVenta from '\.\/RegistrarVenta\.vue'/);
+    expect(fuente).toMatch(/vaciarVentaActual\(\)/);
+    expect(fuente).not.toMatch(/localStorage|almacenamiento/);
   });
 });
 

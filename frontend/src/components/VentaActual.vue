@@ -86,9 +86,12 @@
         <span class="venta-actual__total" data-total>{{ total }}</span>
       </div>
       <div class="venta-actual__registro">
-        <v-btn color="primary" large depressed block :disabled="!puedeRegistrar">
-          Registrar venta
-        </v-btn>
+        <RegistrarVenta
+          :detalles="detallesParaEnviar"
+          :valida="puedeRegistrar"
+          @registrada="alRegistrarse"
+          @update:enviando="$emit('update:enviando', $event)"
+        />
       </div>
     </div>
   </section>
@@ -102,6 +105,7 @@ import {
   calcularTotal,
   cambiarCantidad,
   cambiarPrecioAplicado,
+  detallesParaRegistrar,
   eliminarDetalle,
   vaciarVentaActual,
   ventaActualEsValida,
@@ -109,6 +113,7 @@ import {
 import AnimacionLottie from './AnimacionLottie.vue';
 import CampoCantidad from './CampoCantidad.vue';
 import CampoPrecioAplicado from './CampoPrecioAplicado.vue';
+import RegistrarVenta from './RegistrarVenta.vue';
 
 // Vuetify apila las filas de una tabla cuando el ancho de la ventana es menor que su punto de apilado. La tarjeta de la
 // venta actual puede ser angosta aunque la ventana no lo sea (desde 960 px hay dos columnas y la tarjeta mide unos
@@ -120,12 +125,12 @@ const NUNCA_APILADAS = 0;
 // Sin medida (todavía no se midió, o el navegador no trae ResizeObserver) rige el punto de apilado que trae Vuetify.
 const APILADO_DE_VUETIFY = 600;
 
-// Muestra la venta actual, su total y el botón «Registrar venta». No la guarda ni la cambia: la recibe de App.vue por
-// propiedad. Cambiar el precio aplicado y la cantidad y eliminar un detalle lo suman V-05, V-06 y V-07, cada uno en la
-// celda de su columna; V-08 reemplaza el botón «Registrar venta» provisional.
+// Muestra la venta actual, su total y el botón «Registrar venta» (RegistrarVenta.vue, con su resultado). No la guarda ni la
+// cambia: la recibe de App.vue por propiedad y emite la nueva. Cambiar el precio aplicado y la cantidad y eliminar un detalle
+// lo suman V-05, V-06 y V-07, cada uno en la celda de su columna.
 export default {
   name: 'VentaActual',
-  components: { AnimacionLottie, CampoCantidad, CampoPrecioAplicado },
+  components: { AnimacionLottie, CampoCantidad, CampoPrecioAplicado, RegistrarVenta },
   props: {
     ventaActual: { type: Object, default: vaciarVentaActual },
     // El productoId del detalle recién agregado: su fila se pinta con el acento unos segundos. Lo decide App.vue.
@@ -155,6 +160,10 @@ export default {
     },
     puedeRegistrar() {
       return ventaActualEsValida(this.ventaActual);
+    },
+    // Lo que RegistrarVenta manda a la API: producto, cantidad y precio aplicado de cada detalle, sin el nombre.
+    detallesParaEnviar() {
+      return detallesParaRegistrar(this.ventaActual);
     },
     puntoDeApilado() {
       if (!this.anchoDeLaTarjeta) return APILADO_DE_VUETIFY;
@@ -249,6 +258,11 @@ export default {
     // La fila recién agregada queda a la vista, sin animación de movimiento, si el navegador sabe hacerlo.
     mostrarFilaResaltada() {
       this.$el.querySelector('.detalle-resaltado')?.scrollIntoView?.({ block: 'nearest' });
+    },
+    // La API confirmó la venta (RegistrarVenta emitió `registrada`) y la venta actual se vacía. Este componente no la guarda:
+    // emite la vacía y App.vue, el único que la guarda, la reemplaza y borra lo guardado en el navegador.
+    alRegistrarse() {
+      this.$emit('update:ventaActual', vaciarVentaActual());
     },
   },
 };

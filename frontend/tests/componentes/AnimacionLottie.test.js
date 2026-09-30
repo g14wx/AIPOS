@@ -27,6 +27,7 @@ vi.mock('lottie-web/build/player/lottie_light', () => ({ default: { loadAnimatio
 
 import AnimacionLottie from '../../src/components/AnimacionLottie.vue';
 import productoCreado from '../../src/assets/animaciones/producto-creado.json';
+import ventaRegistrada from '../../src/assets/animaciones/venta-registrada.json';
 
 Vue.use(Vuetify);
 
@@ -168,6 +169,30 @@ describe('AnimacionLottie: el aviso "Producto creado" con menos movimiento (crit
 
   it('sin la preferencia, el aviso se anima una sola vez', () => {
     montar({ animacion: productoCreado, loop: false, alto: 32 });
+    const opciones = loadAnimation.mock.calls[0][0];
+    expect(opciones.autoplay).toBe(true);
+    expect(opciones.loop).toBe(false);
+    expect(instancias[0].goToAndStop).not.toHaveBeenCalled();
+  });
+});
+
+// Criterio 7 de V-08: con prefers-reduced-motion: reduce, la animación de «Venta registrada» no se mueve y el texto de al
+// lado dice lo mismo (eso lo prueba RegistrarVenta.test.js). Se comprueba con la animación de verdad: se queda quieta en
+// el último cuadro, y ese cuadro es el comprobante completo con su sello.
+describe('AnimacionLottie: el mensaje «Venta registrada» con menos movimiento (criterio 7 de V-08)', () => {
+  it('no se reproduce ni se repite, y muestra el último cuadro', () => {
+    preferirMenosMovimiento(true);
+    montar({ animacion: ventaRegistrada, loop: false, alto: 48 });
+    const opciones = loadAnimation.mock.calls[0][0];
+    expect(opciones.animationData).toEqual(ventaRegistrada);
+    expect(opciones.autoplay).toBe(false);
+    expect(opciones.loop).toBe(false);
+    expect(instancias[0].play).not.toHaveBeenCalled();
+    expect(instancias[0].goToAndStop).toHaveBeenCalledWith(instancias[0].totalFrames - 1, true);
+  });
+
+  it('sin la preferencia, la animación se reproduce una sola vez', () => {
+    montar({ animacion: ventaRegistrada, loop: false, alto: 48 });
     const opciones = loadAnimation.mock.calls[0][0];
     expect(opciones.autoplay).toBe(true);
     expect(opciones.loop).toBe(false);

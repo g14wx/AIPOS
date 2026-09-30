@@ -1,13 +1,13 @@
-# Graph Report - b-02  (2026-09-30)
+# Graph Report - b-03  (2026-09-30)
 
 ## Corpus Check
-- 95 files · ~48,226 words
+- 102 files · ~51,363 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 534 nodes · 613 edges · 65 communities (30 shown, 35 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.91)
+- 573 nodes · 694 edges · 71 communities (36 shown, 35 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -39,7 +39,7 @@
 - Grafo del proyecto
 - comun.sh
 - AIPOS
-- scripts
+- Arquitectura de AIPOS
 - Comandos útiles
 - misma-version.test.sh
 - ignora-lo-local.test.sh
@@ -69,13 +69,19 @@
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
+- ayudas.js
+- migraciones.test.js
+- vitest
+- base-de-prueba.test.js
+- estructura.test.js
+- env-example.test.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `scripts` - 15 edges
-2. `Requerimientos funcionales` - 14 edges
-3. `Requerimientos no funcionales` - 14 edges
-4. `Arquitectura de AIPOS` - 13 edges
-5. `vitest` - 12 edges
+1. `vitest` - 18 edges
+2. `scripts` - 15 edges
+3. `Requerimientos funcionales` - 14 edges
+4. `Requerimientos no funcionales` - 14 edges
+5. `Arquitectura de AIPOS` - 13 edges
 6. `Grafo del proyecto` - 10 edges
 7. `Flujo de un entregable` - 10 edges
 8. `crearApp()` - 9 edges
@@ -97,7 +103,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (65 total, 35 thin omitted)
+## Communities (71 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
@@ -124,8 +130,8 @@ Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
 ### Community 6 - "app.js"
-Cohesion: 0.06
-Nodes (39): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+31 more)
+Cohesion: 0.07
+Nodes (31): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+23 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -140,8 +146,8 @@ Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
 ### Community 11 - "package.json"
-Cohesion: 0.06
-Nodes (31): dependencies, cors, dotenv, express, helmet, mysql2, sequelize, sequelize-cli (+23 more)
+Cohesion: 0.04
+Nodes (46): dependencies, cors, dotenv, express, helmet, mysql2, sequelize, sequelize-cli (+38 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -183,9 +189,9 @@ Nodes (5): Al terminar una tarea, Antes de empezar una tarea, Antes de integrar 
 Cohesion: 0.25
 Nodes (7): Agent Rules <!-- tessl-managed -->, AIPOS, Antes de empezar, Cómo tomar una tarjeta, Decisiones de diseño, Nada depende de una sesión ni de una máquina, Qué es AIPOS
 
-### Community 24 - "scripts"
-Cohesion: 0.13
-Nodes (15): scripts, deshacer, deshacer:prueba, dev, format, format:check, lint, migrar (+7 more)
+### Community 24 - "Arquitectura de AIPOS"
+Cohesion: 0.11
+Nodes (18): Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla, Frontend (+10 more)
 
 ### Community 25 - "Comandos útiles"
 Cohesion: 0.15
@@ -204,12 +210,12 @@ Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 45 - "src/config.js"
-Cohesion: 0.06
-Nodes (42): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+34 more)
+Cohesion: 0.07
+Nodes (32): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+24 more)
 
 ### Community 52 - "database.test.js"
-Cohesion: 0.06
-Nodes (22): { config }, { Sequelize }, sequelize, app, { config }, servidor, { config }, dbConfig (+14 more)
+Cohesion: 0.12
+Nodes (13): { config }, { Sequelize }, sequelize, { DataTypes }, require, sequelize, { config }, dbConfig (+5 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -219,20 +225,44 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
+### Community 65 - "ayudas.js"
+Cohesion: 0.22
+Nodes (6): carpetaBackend, carpetaRaiz, archivo, app, require, sequelize
+
+### Community 66 - "migraciones.test.js"
+Cohesion: 0.22
+Nodes (8): correrCli(), tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro()
+
+### Community 67 - "vitest"
+Cohesion: 0.24
+Nodes (5): require, sequelize, require, supertest, vitest
+
+### Community 68 - "base-de-prueba.test.js"
+Cohesion: 0.31
+Nodes (7): correrNpm(), correrNpmSinFallar(), consultar(), permisosDelUsuario(), require, sequelize, tablasDe()
+
+### Community 69 - "estructura.test.js"
+Cohesion: 0.22
+Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
+
+### Community 70 - "env-example.test.js"
+Cohesion: 0.33
+Nodes (3): archivosJs(), ejemplo, raiz
+
 ## Knowledge Gaps
-- **303 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+298 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 352 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **318 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+313 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 371 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Arquitectura de AIPOS` connect `src/config.js` to `requerimientos/README.md`, `errorHandler.js`?**
-  _High betweenness centrality (0.134) - this node is a cross-community bridge._
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
+  _High betweenness centrality (0.133) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.111) - this node is a cross-community bridge._
+  _High betweenness centrality (0.120) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _303 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _318 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.06207482993197279 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

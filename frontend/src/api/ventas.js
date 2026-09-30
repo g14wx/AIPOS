@@ -4,17 +4,18 @@ import http, { errorInesperado } from './http.js';
 // de rutas ni de axios. Los errores llegan como los deja el interceptor de http.js: un Error con status, codigo,
 // mensaje y detalles del error (status 0 si no hubo respuesta).
 
-// El total que calcula MySQL (DECIMAL(12,2)) llega como texto con 2 decimales (RN-09).
-const FORMA_DEL_TOTAL = /^\d+\.\d{2}$/;
+// El total que calcula MySQL (DECIMAL(12,2)) llega como texto con 2 decimales y hasta 10 enteros (RN-09). Es el patrón de
+// VentaRegistrada.total en backend/docs/openapi.yaml.
+const FORMA_DEL_TOTAL = /^\d{1,10}\.\d{2}$/;
 
-// Lo que fija la spec de registrar venta para una venta guardada: un 201 con ventaId entero de 1 o más y el total como
-// texto con 2 decimales. axios resuelve cualquier 2xx, y un 200, 202 o 204 (un proxy, por ejemplo) o un 201 sin esa forma
-// no dicen qué venta se guardó (#93).
+// Lo que fija el contrato de registrar venta para una venta guardada: un 201 con el ventaId entero (sin mínimo ni máximo,
+// como VentaRegistrada.ventaId de openapi.yaml) y el total con la forma de arriba. axios resuelve cualquier 2xx, y un 200,
+// 202 o 204 (un proxy, por ejemplo) o un 201 sin esa forma no dicen qué venta se guardó (#93). Ni más estricta (#94: daría
+// un error por una venta que la API sí guardó) ni más laxa (#95: daría por guardada una que MySQL no pudo calcular).
 function esUnaVentaRegistrada({ status, data }) {
   return (
     status === 201 &&
     Number.isInteger(data?.ventaId) &&
-    data.ventaId >= 1 &&
     typeof data.total === 'string' &&
     FORMA_DEL_TOTAL.test(data.total)
   );

@@ -3758,7 +3758,7 @@
       "file_type": "code",
       "norm_label": "esunaventaregistrada()",
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
       "id": "frontend_src_api_ventas_registrarventa",
@@ -3770,7 +3770,7 @@
       "file_type": "code",
       "norm_label": "registrarventa()",
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "frontend_tests_api_registrar_venta_test_cargar",
@@ -26549,7 +26549,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -26561,7 +26561,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -52645,7 +52645,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -52656,7 +52656,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/api/ventas.js",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0
     },
     {

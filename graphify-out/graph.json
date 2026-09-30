@@ -157,7 +157,7 @@
       "file_type": "code",
       "norm_label": "formatearcentavos()",
       "source_file": "frontend/src/dinero.js",
-      "source_location": "L17"
+      "source_location": "L19"
     },
     {
       "id": "frontend_src_ventaactual_ventaactual_calcularsubtotal",
@@ -265,7 +265,7 @@
       "file_type": "code",
       "norm_label": "ahex()",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L16"
+      "source_location": "L23"
     },
     {
       "id": "frontend_tests_animaciones_test_coloresde",
@@ -277,7 +277,7 @@
       "file_type": "code",
       "norm_label": "coloresde()",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L31"
+      "source_location": "L38"
     },
     {
       "id": "frontend_tests_animaciones_test_distancia",
@@ -289,7 +289,7 @@
       "file_type": "code",
       "norm_label": "distancia()",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L43"
+      "source_location": "L55"
     },
     {
       "id": "frontend_tests_componentes_animacionlottie_test_montar",
@@ -301,7 +301,7 @@
       "file_type": "code",
       "norm_label": "montar()",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L39"
+      "source_location": "L45"
     },
     {
       "id": "frontend_tests_componentes_animacionlottie_test_preferirmenosmovimiento",
@@ -313,7 +313,7 @@
       "file_type": "code",
       "norm_label": "preferirmenosmovimiento()",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L28"
+      "source_location": "L34"
     },
     {
       "id": "frontend_tests_fixtures_botondeprueba_data",
@@ -448,11 +448,119 @@
       "source_location": "L21"
     },
     {
+      "id": "docs_lenguaje_ubicuo",
+      "label": "docs/lenguaje-ubicuo.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "docs/lenguaje-ubicuo.md",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_agents_setup",
+      "label": "agents-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents-setup.md",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_graphify_setup",
+      "label": "graphify-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "graphify-setup.md",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_tessl_setup",
+      "label": "tessl-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "tessl-setup.md",
+      "source_file": "docs/setup/tessl-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_aipos",
+      "label": "AIPOS",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aipos",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "README.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "readme_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "README.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "readme_tiles_de_tessl",
+      "label": "Tiles de Tessl",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tiles de tessl",
+      "source_file": "README.md",
+      "source_location": "L22"
+    },
+    {
       "id": "requerimientos_02_requerimientos_funcionales",
       "label": "02-requerimientos-funcionales.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "02-requerimientos-funcionales.md",
@@ -464,7 +572,7 @@
       "label": "03-requerimientos-no-funcionales.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "03-requerimientos-no-funcionales.md",
@@ -472,179 +580,11 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_03_requerimientos_no_funcionales_requerimientos_no_funcionales",
-      "label": "Requerimientos no funcionales",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "requerimientos no funcionales",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_01_una_sola_pantalla",
-      "label": "RNF-01 Una sola pantalla",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-01 una sola pantalla",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_02_tecnolog\u00edas_y_versiones",
-      "label": "RNF-02 Tecnolog\u00edas y versiones",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-02 tecnologias y versiones",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L17"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_03_validaci\u00f3n_en_tres_lugares",
-      "label": "RNF-03 Validaci\u00f3n en tres lugares",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-03 validacion en tres lugares",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L45"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_04_seguridad_b\u00e1sica",
-      "label": "RNF-04 Seguridad b\u00e1sica",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-04 seguridad basica",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L55"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_05_manejo_de_errores",
-      "label": "RNF-05 Manejo de errores",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-05 manejo de errores",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L70"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_06_arquitectura_en_capas",
-      "label": "RNF-06 Arquitectura en capas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-06 arquitectura en capas",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L88"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_07_base_de_datos_reproducible",
-      "label": "RNF-07 Base de datos reproducible",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-07 base de datos reproducible",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L99"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_08_pruebas",
-      "label": "RNF-08 Pruebas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-08 pruebas",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L109"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_09_git_y_github",
-      "label": "RNF-09 Git y GitHub",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-09 git y github",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L127"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_10_uso_del_agente",
-      "label": "RNF-10 Uso del agente",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-10 uso del agente",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L144"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_11_readme_de_12_puntos",
-      "label": "RNF-11 README de 12 puntos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-11 readme de 12 puntos",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L154"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_12_entrega",
-      "label": "RNF-12 Entrega",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-12 entrega",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L162"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_13_c\u00f3digo_mantenible",
-      "label": "RNF-13 C\u00f3digo mantenible",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Requerimientos no funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rnf-13 codigo mantenible",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
-      "source_location": "L171"
-    },
-    {
       "id": "requerimientos_04_entregables",
       "label": "04-entregables.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "04-entregables.md",
@@ -656,7 +596,7 @@
       "label": "00-mapa-de-procesos.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "00-mapa-de-procesos.md",
@@ -668,7 +608,7 @@
       "label": "Desarrollo de AIPOS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "desarrollo de aipos",
@@ -680,7 +620,7 @@
       "label": "Flujo 00 \u00b7 Mapa de procesos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 00 \u00b7 mapa de procesos",
@@ -692,7 +632,7 @@
       "label": "Operaci\u00f3n del POS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "operacion del pos",
@@ -704,7 +644,7 @@
       "label": "01-crear-producto.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "01-crear-producto.md",
@@ -716,7 +656,7 @@
       "label": "Flujo 01 \u00b7 Crear producto",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 01 \u00b7 crear producto",
@@ -728,7 +668,7 @@
       "label": "Notas t\u00e9cnicas",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
@@ -740,7 +680,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -752,7 +692,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -764,7 +704,7 @@
       "label": "02-buscar-producto.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "02-buscar-producto.md",
@@ -776,7 +716,7 @@
       "label": "Flujo 02 \u00b7 Buscar producto",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 02 \u00b7 buscar producto",
@@ -788,7 +728,7 @@
       "label": "Notas t\u00e9cnicas",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
@@ -800,7 +740,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -812,7 +752,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -824,7 +764,7 @@
       "label": "03-armar-la-venta-actual.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "03-armar-la-venta-actual.md",
@@ -836,7 +776,7 @@
       "label": "Flujo 03 \u00b7 Armar la venta actual",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 03 \u00b7 armar la venta actual",
@@ -848,7 +788,7 @@
       "label": "Notas t\u00e9cnicas",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
@@ -860,7 +800,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -872,7 +812,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -884,7 +824,7 @@
       "label": "04-registrar-venta.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "04-registrar-venta.md",
@@ -896,7 +836,7 @@
       "label": "Flujo 04 \u00b7 Registrar venta",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 04 \u00b7 registrar venta",
@@ -908,7 +848,7 @@
       "label": "Notas t\u00e9cnicas",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
@@ -920,7 +860,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -932,7 +872,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -944,7 +884,7 @@
       "label": "05-entregar-un-entregable.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "05-entregar-un-entregable.md",
@@ -956,7 +896,7 @@
       "label": "Entrega final",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entrega final",
@@ -968,7 +908,7 @@
       "label": "Flujo 05 \u00b7 Entregar un entregable",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 05 \u00b7 entregar un entregable",
@@ -980,7 +920,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -992,7 +932,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -1004,7 +944,7 @@
       "label": "Qu\u00e9 no se hace",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "que no se hace",
@@ -1016,7 +956,7 @@
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "06-trabajar-una-tarjeta-con-el-agente.md",
@@ -1028,7 +968,7 @@
       "label": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "flujo 06 \u00b7 trabajar una tarjeta con el agente",
@@ -1040,7 +980,7 @@
       "label": "Otros caminos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "otros caminos",
@@ -1052,7 +992,7 @@
       "label": "Pasos",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "pasos",
@@ -1064,7 +1004,7 @@
       "label": "requerimientos/README.md",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Requerimientos no funcionales",
+      "community_name": "requerimientos/README.md",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "requerimientos/readme.md",
@@ -1086,174 +1026,6 @@
       "norm_label": "grafo-del-proyecto.spec.md",
       "source_file": "specs/grafo-del-proyecto.spec.md",
       "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo",
-      "label": "docs/lenguaje-ubicuo.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "docs/lenguaje-ubicuo.md",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
-      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "convencion de nombres en codigo",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
-      "label": "Herramientas y proceso",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "herramientas y proceso",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
-      "label": "Historial de cambios",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "historial de cambios",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L108"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "label": "Lenguaje ubicuo \u2014 AIPOS",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lenguaje ubicuo \u2014 aipos",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
-      "label": "Pendientes (por confirmar)",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pendientes (por confirmar)",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L97"
-    },
-    {
-      "id": "docs_setup_agents_setup",
-      "label": "agents-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "agents-setup.md",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_graphify_setup",
-      "label": "graphify-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "graphify-setup.md",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_tessl_setup",
-      "label": "tessl-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "tessl-setup.md",
-      "source_file": "docs/setup/tessl-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme",
-      "label": "README.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "readme.md",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_aipos",
-      "label": "AIPOS",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aipos",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "README.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "readme_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "README.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "readme_tiles_de_tessl",
-      "label": "Tiles de Tessl",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tiles de tessl",
-      "source_file": "README.md",
-      "source_location": "L22"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
@@ -1506,6 +1278,17 @@
       "norm_label": "tiles y entregable base",
       "source_file": "requerimientos/04-entregables.md",
       "source_location": "L72"
+    },
+    {
+      "id": "frontend_eslint_config",
+      "label": "eslint.config.js",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "eslint.config.js",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L1"
     },
     {
       "id": "frontend_package",
@@ -2193,6 +1976,50 @@
       "source_location": "L38"
     },
     {
+      "id": "frontend_prettierrc",
+      "label": ".prettierrc.json",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": ".prettierrc.json",
+      "file_type": "code",
+      "norm_label": ".prettierrc.json",
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_prettierrc_printwidth",
+      "label": "printWidth",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": ".prettierrc.json",
+      "file_type": "code",
+      "norm_label": "printwidth",
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "frontend_prettierrc_singlequote",
+      "label": "singleQuote",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": ".prettierrc.json",
+      "file_type": "code",
+      "norm_label": "singlequote",
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "frontend_prettierrc_trailingcomma",
+      "label": "trailingComma",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": ".prettierrc.json",
+      "file_type": "code",
+      "norm_label": "trailingcomma",
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L4"
+    },
+    {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_sequelize_call_procedure_skill",
       "label": "sequelize-call-procedure/SKILL.md",
       "_origin": "ast",
@@ -2450,17 +2277,6 @@
       "norm_label": "animacionlottie.vue",
       "source_file": "frontend/src/components/AnimacionLottie.vue",
       "source_location": "L1"
-    },
-    {
-      "id": "ref_lottie_web",
-      "label": "lottie-web",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "AnimacionLottie.vue",
-      "file_type": "concept",
-      "norm_label": "lottie-web",
-      "source_file": "frontend/package.json",
-      "source_location": "L23"
     },
     {
       "id": "tessl_plugins_vue2_vuetify2_vite_skills_vuetify2_components_skill",
@@ -4785,6 +4601,174 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_03_requerimientos_no_funcionales_requerimientos_no_funcionales",
+      "label": "Requerimientos no funcionales",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requerimientos no funcionales",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_01_una_sola_pantalla",
+      "label": "RNF-01 Una sola pantalla",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-01 una sola pantalla",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_02_tecnolog\u00edas_y_versiones",
+      "label": "RNF-02 Tecnolog\u00edas y versiones",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-02 tecnologias y versiones",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_03_validaci\u00f3n_en_tres_lugares",
+      "label": "RNF-03 Validaci\u00f3n en tres lugares",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-03 validacion en tres lugares",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_04_seguridad_b\u00e1sica",
+      "label": "RNF-04 Seguridad b\u00e1sica",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-04 seguridad basica",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L55"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_05_manejo_de_errores",
+      "label": "RNF-05 Manejo de errores",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-05 manejo de errores",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_06_arquitectura_en_capas",
+      "label": "RNF-06 Arquitectura en capas",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-06 arquitectura en capas",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L88"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_07_base_de_datos_reproducible",
+      "label": "RNF-07 Base de datos reproducible",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-07 base de datos reproducible",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L99"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_08_pruebas",
+      "label": "RNF-08 Pruebas",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-08 pruebas",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L109"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_09_git_y_github",
+      "label": "RNF-09 Git y GitHub",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-09 git y github",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L127"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_10_uso_del_agente",
+      "label": "RNF-10 Uso del agente",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-10 uso del agente",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L144"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_11_readme_de_12_puntos",
+      "label": "RNF-11 README de 12 puntos",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-11 readme de 12 puntos",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L154"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_12_entrega",
+      "label": "RNF-12 Entrega",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-12 entrega",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L162"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales_rnf_13_c\u00f3digo_mantenible",
+      "label": "RNF-13 C\u00f3digo mantenible",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requerimientos no funcionales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rnf-13 codigo mantenible",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L171"
+    },
+    {
       "id": "githooks_pre_merge_commit",
       "label": "pre-merge-commit",
       "_origin": "ast",
@@ -5204,7 +5188,7 @@
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
-      "source_location": "L17"
+      "source_location": "L19"
     },
     {
       "id": "frontend_tests_venta_actual_venta_vacia_test_pan",
@@ -5215,7 +5199,7 @@
       "file_type": "code",
       "norm_label": "pan",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
-      "source_location": "L18"
+      "source_location": "L20"
     },
     {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_mysql_stored_procedure_authoring_skill",
@@ -5234,6 +5218,54 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
+      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "convencion de nombres en codigo",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
+      "label": "Herramientas y proceso",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "herramientas y proceso",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
+      "label": "Historial de cambios",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "historial de cambios",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L108"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "label": "Lenguaje ubicuo \u2014 AIPOS",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lenguaje ubicuo \u2014 aipos",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_lenguaje_ubicuo_negocio",
       "label": "Negocio",
       "_origin": "ast",
@@ -5244,6 +5276,18 @@
       "norm_label": "negocio",
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L18"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
+      "label": "Pendientes (por confirmar)",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendientes (por confirmar)",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L97"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_10_guardar_productos_ventas_y_detalles_con_sus_relaciones",
@@ -5437,7 +5481,7 @@
       "file_type": "code",
       "norm_label": "paleta",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L12"
+      "source_location": "L17"
     },
     {
       "id": "frontend_tests_animaciones_test_permitidas",
@@ -5470,7 +5514,7 @@
       "file_type": "code",
       "norm_label": "animacion",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L26"
+      "source_location": "L32"
     },
     {
       "id": "frontend_tests_componentes_animacionlottie_test_loadanimation_instancias",
@@ -5647,6 +5691,17 @@
       "norm_label": "versionesdelfrontend",
       "source_file": "frontend/tests/vitest-vue2.test.js",
       "source_location": "L25"
+    },
+    {
+      "id": "ref_lottie_web",
+      "label": "lottie-web",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "concept",
+      "norm_label": "lottie-web",
+      "source_file": "frontend/package.json",
+      "source_location": "L23"
     },
     {
       "id": "ref_mdi_font",
@@ -6264,7 +6319,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L33",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -6276,7 +6331,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L36",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -6324,7 +6379,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -6504,7 +6559,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L31",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6516,7 +6571,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L43",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -6552,7 +6607,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L28",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -6564,7 +6619,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L39",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6662,7 +6717,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L127",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -6675,7 +6730,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L128",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -6714,7 +6769,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L69",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -7054,6 +7109,54 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_eslint_config",
+      "target": "ref_eslint_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_eslint_config",
+      "target": "ref_globals",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_eslint_config",
+      "target": "ref_eslint_plugin_vue",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_eslint_config",
+      "target": "ref_eslint_config_prettier",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_src_api_http",
       "target": "ref_axios",
       "relation": "imports_from",
@@ -7302,7 +7405,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L22",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -8598,6 +8701,39 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_prettierrc",
+      "target": "frontend_prettierrc_singlequote",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_prettierrc",
+      "target": "frontend_prettierrc_printwidth",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_prettierrc",
+      "target": "frontend_prettierrc_trailingcomma",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/.prettierrc.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_src_api_http",
       "target": "frontend_src_api_http_http",
       "relation": "contains",
@@ -8748,7 +8884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/dinero.js",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -8825,7 +8961,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L12",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -8836,7 +8972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L16",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -8858,7 +8994,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L26",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -8979,7 +9115,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -8990,7 +9126,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0
     },
     {

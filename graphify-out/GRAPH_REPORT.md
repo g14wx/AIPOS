@@ -1,12 +1,12 @@
 # Graph Report - b-04  (2026-09-30)
 
 ## Corpus Check
-- 89 files · ~50,884 words
+- 91 files · ~51,045 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 15 file(s) not represented in the graph (top: .drawio 7, (none) 6, .example 1)
+- Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 501 nodes · 557 edges · 62 communities (28 shown, 34 thin omitted)
+- 506 nodes · 564 edges · 64 communities (30 shown, 34 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
@@ -15,11 +15,12 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Requerimientos no funcionales
+- requerimientos/README.md
 - Grafo del proyecto
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
+- Requerimientos no funcionales
 - vitest-vue2.test.js
 - Flujo de un entregable
 - Configurar el MCP de Trello
@@ -29,6 +30,7 @@
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
 - README de entrega
+- .prettierrc.json
 - Calling a stored procedure from Sequelize
 - Vue 2 + Vuetify 2 + Vite setup
 - Requerimientos de AIPOS
@@ -95,15 +97,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (62 total, 34 thin omitted)
+## Communities (64 total, 34 thin omitted)
 
-### Community 0 - "Requerimientos no funcionales"
-Cohesion: 0.05
-Nodes (41): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+33 more)
+### Community 0 - "requerimientos/README.md"
+Cohesion: 0.06
+Nodes (31): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+23 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.09
-Nodes (19): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Pendientes (por confirmar), AIPOS, Grafo del proyecto, Setup de agents (+11 more)
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -117,9 +119,13 @@ Nodes (14): 1. Instalar Tessl, 2. Instalar los tiles del proyecto, 3. Conectar e
 Cohesion: 0.15
 Nodes (13): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto, RF-02 Buscar producto, RF-03 Agregar a la venta actual, RF-04 Ver los detalles de la venta actual, RF-05 Editar el precio aplicado, RF-06 Cambiar la cantidad (+5 more)
 
+### Community 5 - "Requerimientos no funcionales"
+Cohesion: 0.14
+Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
+
 ### Community 6 - "vitest-vue2.test.js"
 Cohesion: 0.06
-Nodes (26): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+18 more)
+Nodes (27): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+19 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -149,6 +155,10 @@ Nodes (6): Plantilla: docs/bitacora-ia.md, Bitácora de IA, Cuándo escribir, C�
 Cohesion: 0.29
 Nodes (5): Plantilla: README.md de entrega, De dónde sale cada punto, Flujo, README de entrega, Reglas
 
+### Community 15 - ".prettierrc.json"
+Cohesion: 0.50
+Nodes (3): printWidth, singleQuote, trailingComma
+
 ### Community 16 - "Calling a stored procedure from Sequelize"
 Cohesion: 0.29
 Nodes (6): 1. Service, 2. No outer transaction, 3. Validate before calling, 4. Map database errors to HTTP, 5. Search products by name or barcode, Calling a stored procedure from Sequelize
@@ -162,8 +172,8 @@ Cohesion: 0.33
 Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz del PDF, Preguntas abiertas, Requerimientos de AIPOS
 
 ### Community 19 - "AnimacionLottie.vue"
-Cohesion: 0.13
-Nodes (16): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), lottie-web, Diseño de la pantalla (+8 more)
+Cohesion: 0.14
+Nodes (15): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), Diseño de la pantalla, Paleta (+7 more)
 
 ### Community 21 - "Grafo del proyecto"
 Cohesion: 0.33
@@ -202,32 +212,32 @@ Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
 
 ### Community 57 - "venta-vacia.test.js"
-Cohesion: 0.12
-Nodes (18): Negocio, data(), total(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcularTotal(), vaciarVentaActual() (+10 more)
+Cohesion: 0.10
+Nodes (23): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), data(), total() (+15 more)
 
 ### Community 58 - "http.js"
 Cohesion: 0.36
 Nodes (5): crearError(), http, traducirError(), cargarHttp(), axios
 
 ## Knowledge Gaps
-- **279 isolated node(s):** `name`, `version`, `description`, `private`, `type` (+274 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 335 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **278 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+273 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 334 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `vitest` connect `vitest-vue2.test.js` to `venta-vacia.test.js`, `http.js`, `package.json`?**
-  _High betweenness centrality (0.156) - this node is a cross-community bridge._
+  _High betweenness centrality (0.155) - this node is a cross-community bridge._
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `AnimacionLottie.vue`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `description` to the rest of the system?**
-  _279 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Requerimientos no funcionales` be split into smaller, more focused modules?**
-  _Cohesion score 0.05203619909502263 - nodes in this community are weakly interconnected._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._
+  _High betweenness centrality (0.093) - this node is a cross-community bridge._
+- **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
+  _278 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `requerimientos/README.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.06382978723404255 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+- **Should `Requerimientos no funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

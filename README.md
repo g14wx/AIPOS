@@ -469,3 +469,49 @@ borra, registrar una venta responde 500 y no guarda nada, y al crearlo otra vez 
 `backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js` comprueba que, si un detalle falla, no queda ninguna
 venta ni ningún detalle nuevo.
 
+## 8. Tiempo
+
+El tiempo sale de la bitácora de IA, [`docs/bitacora-ia.md`](docs/bitacora-ia.md). Cada entrada dice cuándo empezó y cuándo
+terminó su tarea, y la tabla «Resumen» del principio de la bitácora junta los tiempos por tarea. Las entradas marcadas
+«reconstruido» se armaron después, desde git y GitHub. La estimación inicial, en horas por tarjeta, está en
+`requerimientos/04-entregables.md`.
+
+| Parte del trabajo | Tarjetas | Tiempo |
+|---|---|---|
+| Preparación: agentes, tiles de Tessl, glosario, requerimientos y specs | R-00 a R-04, T-01 a T-03, S-01 y S-02 | (se completa con E-01) |
+| Entregable base | B-01 a B-04 y A-01 | (se completa con E-01) |
+| Despliegue | D-01 | (se completa con E-01) |
+| Entregable productos | P-01 a P-05 | (se completa con E-01) |
+| Entregable ventas | V-01 a V-08 | (se completa con E-01) |
+| Entrega final | E-01 a E-03 | (se completa con E-01) |
+| **Total aproximado** | | (se completa con E-01) |
+
+## 9. Herramientas de IA
+
+Dos agentes trabajaron en el proyecto: Claude Code escribió, y Codex revisó.
+
+| Herramienta | Para qué se usó |
+|---|---|
+| **Claude Code** (Anthropic) | El agente que trabajó sobre el repositorio: escribió el código, las pruebas, las specs, los requerimientos y la documentación. Los modelos salen de la línea `Co-Authored-By` de sus commits: Claude Sonnet 5.5 (las tarjetas de la noche del 2026-09-30, en agentes en segundo plano), Claude Opus 5.5 (planificación, tiles de Tessl, glosario y requerimientos) y Claude Fable 5.1 (la configuración inicial de los agentes, según la bitácora). |
+| **Codex** (OpenAI) | El agente revisor. Con `codex review --base <rama de destino>` revisó los PR de las tarjetas de código y de los entregables, y las specs antes de abrir su PR. En la revisión de V-08, según la bitácora, corrió con el modelo gpt-5.6-sol y razonamiento medium. Sus hallazgos, de P0 (el más grave) a P3, los corrigió Claude Code o los explicó. Codex no firma commits porque no escribe código. |
+| **MCP** (una forma estándar de conectar el agente con herramientas externas) | Trello, para leer y mover las tarjetas del tablero AIPOS; `design-patterns`, un catálogo de patrones de diseño que el agente consulta antes de cada decisión de diseño; y `chrome-devtools`, para probar la pantalla en el navegador. Cuando el navegador de `chrome-devtools` estaba ocupado por otro proceso, el agente usó `puppeteer-core` con un Chrome real. |
+| **Tessl y sus tiles** | Un tile de Tessl es un paquete de reglas y skills para el agente. Están los cinco propios de `tessl-plugins/` y `tessl-labs/spec-driven-development`, que pide las specs antes del código. Se listan abajo. |
+| **Graphify** | Arma el grafo del proyecto, el mapa de archivos y funciones que el agente consulta antes de cada tarea. El hook de git `pre-commit` lo actualiza en cada commit. |
+| **Skills del agente** | `impeccable` (diseño de la pantalla), `drawio-skill` (diagramas BPMN), `spec-writer`, `spec-verification` y `work-review` (del tile de specs), y `bitacora-ia`, `flujo-entregable` y `readme-entrega` (del tile `entrega-trazable`). |
+| **Plugin de Claude Code caveman** | Cambia cómo escribe el agente. En AIPOS está en modo lite, con una configuración local que no va a git. |
+
+Los tiles del proyecto están declarados en `tessl.json`, y `tessl install` los instala para Claude Code y Codex:
+
+| Tile | Qué trae |
+|---|---|
+| `g14wxz/lenguaje-ubicuo` | El glosario, `docs/lenguaje-ubicuo.md`, y la regla de comunicación clara. |
+| `g14wxz/entrega-trazable` | Commits, ramas, PR con merge commit, bitácora de IA y README. |
+| `g14wxz/mysql-sequelize-procedimientos` | Cómo escribir y llamar procedimientos almacenados con Sequelize y MySQL, con sus trampas. |
+| `g14wxz/vue2-vuetify2-vite` | Cómo armar una pantalla con Vue 2, Vuetify 2 y Vite, con las versiones fijas. |
+| `g14wxz/grafo-del-proyecto` | Cómo consultar y mantener el grafo del proyecto. |
+| `tessl-labs/spec-driven-development` | Las specs van antes del código, con sus pruebas enlazadas. |
+
+Las guías de instalación están en [docs/setup/agents-setup.md](docs/setup/agents-setup.md) (el MCP de Trello en Claude Code y
+en Codex), [docs/setup/tessl-setup.md](docs/setup/tessl-setup.md) (Tessl y los tiles) y
+[docs/setup/graphify-setup.md](docs/setup/graphify-setup.md) (Graphify y el hook de git).
+

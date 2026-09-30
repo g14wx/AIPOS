@@ -22,7 +22,7 @@ async function leer(sql) {
 }
 
 const columnas = () =>
-  leer(`SELECT column_name AS nombre, column_type AS tipo, is_nullable AS admiteNulo, extra,
+  leer(`SELECT column_name AS nombre, column_type AS tipo, is_nullable AS admiteNulo, extra AS extra,
                column_key AS llave, character_set_name AS juego, collation_name AS orden
           FROM information_schema.columns
          WHERE table_schema = DATABASE() AND table_name = 'productos'

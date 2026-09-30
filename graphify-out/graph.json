@@ -17,16 +17,28 @@
       "source_location": "L6"
     },
     {
-      "id": "backend_db_config_test",
-      "label": "test()",
+      "id": "backend_db_migrations_20260930133500_crear_productos_down",
+      "label": "down()",
       "_callable": true,
       "_origin": "ast",
       "community": 24,
       "community_name": "Arquitectura de AIPOS",
       "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L26"
+      "norm_label": "down()",
+      "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "backend_db_migrations_20260930133500_crear_productos_up",
+      "label": "up()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "code",
+      "norm_label": "up()",
+      "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L8"
     },
     {
       "id": "backend_src_errors_desdebasededatos_desdebasededatos",
@@ -135,6 +147,18 @@
       "norm_label": "production()",
       "source_file": "backend/db/config.js",
       "source_location": "L29"
+    },
+    {
+      "id": "backend_db_config_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L26"
     },
     {
       "id": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
@@ -693,18 +717,6 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_setup_agents_setup_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
-    },
-    {
       "id": "docs_setup_graphify_setup",
       "label": "graphify-setup.md",
       "_origin": "ast",
@@ -751,6 +763,114 @@
       "norm_label": "01-alcance.md",
       "source_file": "requerimientos/01-alcance.md",
       "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_actores_y_partes",
+      "label": "Actores y partes",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "actores y partes",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "requerimientos_01_alcance_alcance",
+      "label": "Alcance",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_fuera_de_alcance",
+      "label": "Fuera de alcance",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fuera de alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
+      "label": "Lo que agregamos y el PDF no pide",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lo que agregamos y el pdf no pide",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "requerimientos_01_alcance_objetivo",
+      "label": "Objetivo",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "objetivo",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "requerimientos_01_alcance_qu\u00e9_entra",
+      "label": "Qu\u00e9 entra",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_01_alcance_restricciones",
+      "label": "Restricciones",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "restricciones",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "requerimientos_01_alcance_riesgos",
+      "label": "Riesgos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "riesgos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "requerimientos_01_alcance_supuestos",
+      "label": "Supuestos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "supuestos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L70"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -1792,6 +1912,17 @@
       "source_location": "L27"
     },
     {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "backend/package.json",
+      "source_location": "L28"
+    },
+    {
       "id": "ref_eslint",
       "label": "eslint",
       "_origin": "ast",
@@ -1834,17 +1965,6 @@
       "norm_label": "globals",
       "source_file": "backend/package.json",
       "source_location": "L39"
-    },
-    {
-      "id": "ref_helmet",
-      "label": "helmet",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "helmet",
-      "source_file": "backend/package.json",
-      "source_location": "L30"
     },
     {
       "id": "ref_prettier",
@@ -2433,114 +2553,6 @@
       "source_location": "L6"
     },
     {
-      "id": "readme_aipos",
-      "label": "AIPOS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aipos",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_base_de_datos_mysql_y_migraciones",
-      "label": "Base de datos: MySQL y migraciones",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "base de datos: mysql y migraciones",
-      "source_file": "README.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "readme_base_de_prueba",
-      "label": "Base de prueba",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "base de prueba",
-      "source_file": "README.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "readme_comandos_del_backend",
-      "label": "Comandos del backend",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "comandos del backend",
-      "source_file": "README.md",
-      "source_location": "L32"
-    },
-    {
-      "id": "readme_desde_un_clon_limpio",
-      "label": "Desde un clon limpio",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "desde un clon limpio",
-      "source_file": "README.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "readme_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "README.md",
-      "source_location": "L94"
-    },
-    {
-      "id": "readme_puertos_varias_copias_y_empezar_de_cero",
-      "label": "Puertos, varias copias y empezar de cero",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "puertos, varias copias y empezar de cero",
-      "source_file": "README.md",
-      "source_location": "L54"
-    },
-    {
-      "id": "readme_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "README.md",
-      "source_location": "L64"
-    },
-    {
-      "id": "readme_tiles_de_tessl",
-      "label": "Tiles de Tessl",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tiles de tessl",
-      "source_file": "README.md",
-      "source_location": "L83"
-    },
-    {
       "id": "tessl_plugins_vue2_vuetify2_vite_skills_vuetify2_components_skill",
       "label": "vuetify2-components/SKILL.md",
       "_origin": "ast",
@@ -3077,6 +3089,125 @@
       "source_location": "L11"
     },
     {
+      "id": "backend_db_migrations_20260930133500_crear_productos",
+      "label": "20260930133500-crear-productos.js",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "code",
+      "norm_label": "20260930133500-crear-productos.js",
+      "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_aipos",
+      "label": "AIPOS",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aipos",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_base_de_datos_mysql_y_migraciones",
+      "label": "Base de datos: MySQL y migraciones",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "base de datos: mysql y migraciones",
+      "source_file": "README.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "readme_base_de_prueba",
+      "label": "Base de prueba",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "base de prueba",
+      "source_file": "README.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "readme_comandos_del_backend",
+      "label": "Comandos del backend",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "comandos del backend",
+      "source_file": "README.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "readme_desde_un_clon_limpio",
+      "label": "Desde un clon limpio",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "desde un clon limpio",
+      "source_file": "README.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "readme_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "README.md",
+      "source_location": "L94"
+    },
+    {
+      "id": "readme_puertos_varias_copias_y_empezar_de_cero",
+      "label": "Puertos, varias copias y empezar de cero",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "puertos, varias copias y empezar de cero",
+      "source_file": "README.md",
+      "source_location": "L54"
+    },
+    {
+      "id": "readme_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "README.md",
+      "source_location": "L64"
+    },
+    {
+      "id": "readme_tiles_de_tessl",
+      "label": "Tiles de Tessl",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tiles de tessl",
+      "source_file": "README.md",
+      "source_location": "L83"
+    },
+    {
       "id": "specs_arquitectura_spec_arquitectura_de_aipos",
       "label": "Arquitectura de AIPOS",
       "_origin": "ast",
@@ -3171,18 +3302,6 @@
       "norm_label": "frontend",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L433"
-    },
-    {
-      "id": "specs_arquitectura_spec_git_y_entrega",
-      "label": "Git y entrega",
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "git y entrega",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L639"
     },
     {
       "id": "specs_arquitectura_spec_la_venta_actual",
@@ -3291,30 +3410,6 @@
       "norm_label": "iconos y animaciones",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L563"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
-      "label": "entrega-trazable.md",
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "entrega-trazable.md",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
-      "label": "Entrega trazable",
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega trazable",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
     },
     {
       "id": "docs_setup_graphify_setup_1_instalar_graphify",
@@ -4574,114 +4669,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance_actores_y_partes",
-      "label": "Actores y partes",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "actores y partes",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "requerimientos_01_alcance_alcance",
-      "label": "Alcance",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_01_alcance_fuera_de_alcance",
-      "label": "Fuera de alcance",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fuera de alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
-      "label": "Lo que agregamos y el PDF no pide",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lo que agregamos y el pdf no pide",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "requerimientos_01_alcance_objetivo",
-      "label": "Objetivo",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "objetivo",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "requerimientos_01_alcance_qu\u00e9_entra",
-      "label": "Qu\u00e9 entra",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "requerimientos_01_alcance_restricciones",
-      "label": "Restricciones",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "restricciones",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "requerimientos_01_alcance_riesgos",
-      "label": "Riesgos",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "riesgos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "requerimientos_01_alcance_supuestos",
-      "label": "Supuestos",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "supuestos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
-    },
-    {
       "id": "backend_db_config",
       "label": "db/config.js",
       "_origin": "ast",
@@ -4884,6 +4871,42 @@
       "norm_label": "pendientes (por confirmar)",
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L97"
+    },
+    {
+      "id": "specs_arquitectura_spec_git_y_entrega",
+      "label": "Git y entrega",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "git y entrega",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L639"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
+      "label": "entrega-trazable.md",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "entrega-trazable.md",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
+      "label": "Entrega trazable",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega trazable",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
     },
     {
       "id": "tests_hook_de_git_marca_de_commit_test",
@@ -6172,17 +6195,6 @@
       "source_location": "L14"
     },
     {
-      "id": "ref_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "productos-migracion.test.js",
-      "file_type": "concept",
-      "norm_label": "dotenv",
-      "source_file": "backend/package.json",
-      "source_location": "L28"
-    },
-    {
       "id": "backend_src_controllers_salud",
       "label": "controllers/salud.js",
       "_origin": "ast",
@@ -6722,6 +6734,17 @@
       "source_location": "L29"
     },
     {
+      "id": "ref_helmet",
+      "label": "helmet",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "concept",
+      "norm_label": "helmet",
+      "source_file": "backend/package.json",
+      "source_location": "L30"
+    },
+    {
       "id": "ref_supertest",
       "label": "supertest",
       "_origin": "ast",
@@ -7124,6 +7147,18 @@
       "norm_label": "seguridad",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L177"
+    },
+    {
+      "id": "docs_setup_agents_setup_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Configurar el MCP de Trello",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
     },
     {
       "id": "docs_setup_agents_setup_soluci\u00f3n_de_problemas",
@@ -10708,6 +10743,28 @@
       "confidence_score": 1.0,
       "source_file": "backend/db/config.js",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_db_migrations_20260930133500_crear_productos",
+      "target": "backend_db_migrations_20260930133500_crear_productos_down",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_db_migrations_20260930133500_crear_productos",
+      "target": "backend_db_migrations_20260930133500_crear_productos_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -16064,6 +16121,30 @@
       "weight": 1.0
     },
     {
+      "source": "readme_comandos_del_backend",
+      "target": "backend_db_migrations_20260930133500_crear_productos_down",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "down",
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_arquitectura_spec_base_de_datos",
+      "target": "backend_db_migrations_20260930133500_crear_productos_down",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "down",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L376",
+      "weight": 1.0
+    },
+    {
       "source": "specs_arquitectura_spec_carpetas",
       "target": "backend_src_middlewares_errorhandler_errorhandler",
       "relation": "references",
@@ -16145,6 +16226,30 @@
       "context": "test",
       "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_comandos_del_backend",
+      "target": "backend_db_migrations_20260930133500_crear_productos_up",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "up",
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_arquitectura_spec_base_de_datos",
+      "target": "backend_db_migrations_20260930133500_crear_productos_up",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "up",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L376",
       "weight": 1.0
     }
   ],

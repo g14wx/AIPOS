@@ -1,12 +1,12 @@
-# Graph Report - spec-despliegue  (2026-09-30)
+# Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 73 files · ~77,375 words
+- 80 files · ~80,665 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 500 nodes · 493 edges · 57 communities (30 shown, 27 thin omitted)
+- 541 nodes · 541 edges · 66 communities (33 shown, 33 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -37,7 +37,7 @@
 - Vuetify 2 components (Vue 2.7)
 - hook-de-claude-code/graphify-fuera-del-path.test.sh
 - Grafo del proyecto
-- comun.sh
+- hook-de-git/comun.sh
 - AIPOS
 - Requerimientos no funcionales
 - Comandos útiles
@@ -70,6 +70,15 @@
 - agents-md-tarjeta.test.sh
 - Despliegue de AIPOS
 - Alcance
+- despliegue/comun.sh
+- Lenguaje ubicuo — AIPOS
+- Flujo 05 · Entregar un entregable
+- desplegar-migracion-falla.test.sh
+- desplegar-sin-imagen.test.sh
+- volver-si-falla-la-salud.test.sh
+- desplegar-en-fila.test.sh
+- desplegar-ok.test.sh
+- volver-primer-despliegue.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -89,15 +98,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (57 total, 27 thin omitted)
+## Communities (66 total, 33 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
-Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
+Nodes (26): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+18 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.09
-Nodes (20): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+12 more)
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -211,25 +220,37 @@ Nodes (24): Caddy, Casos de error, Configuración del servidor (una sola vez), C
 Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
+### Community 57 - "despliegue/comun.sh"
+Cohesion: 0.12
+Nodes (14): comprobar(), crear_dobles(), crear_version(), estar_corriendo(), falla(), igual(), marcar_imagen(), no_tiene() (+6 more)
+
+### Community 58 - "Lenguaje ubicuo — AIPOS"
+Cohesion: 0.33
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+
+### Community 59 - "Flujo 05 · Entregar un entregable"
+Cohesion: 0.40
+Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+
 ## Knowledge Gaps
-- **339 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+334 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 375 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **349 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+344 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 399 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
   _High betweenness centrality (0.037) - this node is a cross-community bridge._
+- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _339 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _349 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06763285024154589 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

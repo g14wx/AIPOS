@@ -158,7 +158,7 @@
       "file_type": "code",
       "norm_label": "cargarconfig()",
       "source_file": "backend/src/config.js",
-      "source_location": "L76"
+      "source_location": "L84"
     },
     {
       "id": "backend_src_config_cargarconfigdeentorno",
@@ -170,7 +170,7 @@
       "file_type": "code",
       "norm_label": "cargarconfigdeentorno()",
       "source_file": "backend/src/config.js",
-      "source_location": "L98"
+      "source_location": "L106"
     },
     {
       "id": "backend_src_config_entero",
@@ -194,7 +194,7 @@
       "file_type": "code",
       "norm_label": "esunorigen()",
       "source_file": "backend/src/config.js",
-      "source_location": "L34"
+      "source_location": "L35"
     },
     {
       "id": "backend_src_config_leerorigenes",
@@ -206,7 +206,7 @@
       "file_type": "code",
       "norm_label": "leerorigenes()",
       "source_file": "backend/src/config.js",
-      "source_location": "L42"
+      "source_location": "L44"
     },
     {
       "id": "backend_src_config_nombredelabase",
@@ -218,7 +218,7 @@
       "file_type": "code",
       "norm_label": "nombredelabase()",
       "source_file": "backend/src/config.js",
-      "source_location": "L65"
+      "source_location": "L73"
     },
     {
       "id": "backend_src_config_texto",
@@ -6694,7 +6694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L77",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -6706,7 +6706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L84",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -6718,7 +6718,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L85",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -6730,7 +6730,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L89",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -6742,7 +6742,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L99",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -6766,7 +6766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6778,7 +6778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -6790,7 +6790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L66",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -9317,7 +9317,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -9339,7 +9339,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -9350,7 +9350,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L65",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -13531,7 +13531,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L106",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -13543,7 +13543,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L107",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -13555,7 +13555,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L108",
+      "source_location": "L116",
       "weight": 1.0
     },
     {

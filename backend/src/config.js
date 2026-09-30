@@ -28,12 +28,14 @@ function entero(env, nombre, porDefecto, { minimo, maximo }) {
   return numero;
 }
 
-// El navegador manda `Origin` como esquema://servidor[:puerto], en minúsculas y sin el puerto por defecto.
-// Si `new URL` no devuelve el mismo texto (sin esquema, con ruta, con usuario, con mayúsculas o con el
-// puerto por defecto), ese origen nunca coincidiría con el de la pantalla y el navegador la bloquearía.
+// La pantalla se abre con http o https, y el navegador manda `Origin` como esquema://servidor[:puerto],
+// en minúsculas y sin el puerto por defecto. Si `new URL` no devuelve el mismo texto (sin esquema, con
+// ruta, con usuario, con mayúsculas o con el puerto por defecto), o el esquema no es http ni https, ese
+// origen nunca coincidiría con el de la pantalla y el navegador la bloquearía.
 function esUnOrigen(valor) {
   try {
-    return new URL(valor).origin === valor;
+    const url = new URL(valor);
+    return (url.protocol === 'http:' || url.protocol === 'https:') && url.origin === valor;
   } catch {
     return false;
   }
@@ -53,11 +55,17 @@ function leerOrigenes(env) {
     }
     if (!esUnOrigen(origen)) {
       throw new Error(
-        'CORS_ORIGIN debe ser un origen como http://localhost:5173: esquema, servidor y puerto, ' +
-          'en minúsculas, sin ruta y sin escribir el puerto por defecto (80 o 443). ' +
+        'CORS_ORIGIN debe ser un origen como http://localhost:5173: esquema http o https, servidor ' +
+          'y puerto, en minúsculas, sin ruta y sin escribir el puerto por defecto (80 o 443). ' +
           `Vale "${origen}".`,
       );
     }
+  }
+  // Un valor como "," pasa la revisión de variables obligatorias y deja la lista vacía.
+  if (origenes.length === 0) {
+    throw new Error(
+      'CORS_ORIGIN no tiene ningún origen: pon el de la pantalla, como http://localhost:5173.',
+    );
   }
   return origenes;
 }

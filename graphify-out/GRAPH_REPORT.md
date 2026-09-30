@@ -1,12 +1,12 @@
-# Graph Report - s-02  (2026-09-30)
+# Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 73 files · ~82,669 words
+- 102 files · ~104,944 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
+- Unclassified: 22 file(s) not represented in the graph (top: (none) 10, .drawio 8, .caddy 2)
 
 ## Summary
-- 503 nodes · 504 edges · 57 communities (30 shown, 27 thin omitted)
+- 662 nodes · 721 edges · 86 communities (42 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -25,7 +25,7 @@
 - Flujo de un entregable
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
-- Entregables y tarjetas
+- Tarjetas
 - Armar la venta actual
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
@@ -37,7 +37,7 @@
 - Vuetify 2 components (Vue 2.7)
 - hook-de-claude-code/graphify-fuera-del-path.test.sh
 - Grafo del proyecto
-- comun.sh
+- hook-de-git/comun.sh
 - AIPOS
 - Requerimientos no funcionales
 - Comandos útiles
@@ -70,6 +70,35 @@
 - agents-md-tarjeta.test.sh
 - Despliegue de AIPOS
 - Alcance
+- despliegue/comun.sh
+- desplegar.sh
+- revisar-produccion.sh
+- Despliegue de AIPOS
+- arranque-local.test.sh
+- instalar-caddy.test.sh
+- imagenes.test.sh
+- Lenguaje ubicuo — AIPOS
+- instalar-caddy.sh
+- revisar-produccion.test.sh
+- compose-produccion.test.sh
+- crear-env.test.sh
+- crear-env.sh
+- desplegar-migracion-falla.test.sh
+- desplegar-sin-imagen.test.sh
+- documentos.test.sh
+- etiqueta-en-produccionenv.test.sh
+- github-environment-y-etiquetas.test.sh
+- sin-datos-privados.test.sh
+- volver-dos-veces.test.sh
+- volver-si-falla-la-salud.test.sh
+- workflow.test.sh
+- revisar-etiqueta.sh
+- caddy.test.sh
+- desplegar-en-fila.test.sh
+- desplegar-ok.test.sh
+- etiqueta-release.test.sh
+- sin-borrar-datos.test.sh
+- volver-primer-despliegue.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -77,11 +106,11 @@
 3. `Requerimientos no funcionales` - 14 edges
 4. `Armar la venta actual` - 13 edges
 5. `Arquitectura de AIPOS` - 13 edges
-6. `Documentación de la API` - 12 edges
-7. `Buscar producto` - 10 edges
-8. `Grafo del proyecto` - 10 edges
-9. `Registrar venta` - 10 edges
-10. `Flujo de un entregable` - 10 edges
+6. `desplegar()` - 12 edges
+7. `Documentación de la API` - 12 edges
+8. `volver()` - 11 edges
+9. `Buscar producto` - 10 edges
+10. `Grafo del proyecto` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -89,15 +118,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (57 total, 27 thin omitted)
+## Communities (86 total, 44 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.07
-Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
+Cohesion: 0.06
+Nodes (36): AIPOS, Despliegue, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS (+28 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.09
-Nodes (20): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+12 more)
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -127,9 +156,9 @@ Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entr
 Cohesion: 0.18
 Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
 
-### Community 10 - "Entregables y tarjetas"
-Cohesion: 0.18
-Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
+### Community 10 - "Tarjetas"
+Cohesion: 0.17
+Nodes (12): Definición de terminado, Despliegue, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos (+4 more)
 
 ### Community 11 - "Armar la venta actual"
 Cohesion: 0.06
@@ -211,25 +240,73 @@ Nodes (24): Caddy, Casos de error, Configuración del servidor (una sola vez), C
 Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
+### Community 57 - "despliegue/comun.sh"
+Cohesion: 0.10
+Nodes (15): comprobar(), crear_dobles(), crear_repo_de_mentira(), crear_version(), estar_corriendo(), falla(), igual(), marcar_imagen() (+7 more)
+
+### Community 58 - "desplegar.sh"
+Cohesion: 0.31
+Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), desplegar(), escribir_estado(), esperar_200(), fallar() (+9 more)
+
+### Community 59 - "revisar-produccion.sh"
+Cohesion: 0.33
+Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
+
+### Community 60 - "Despliegue de AIPOS"
+Cohesion: 0.22
+Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace, Qué es y para qué sirve (+1 more)
+
+### Community 61 - "arranque-local.test.sh"
+Cohesion: 0.46
+Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto(), arranque-local.test.sh script
+
+### Community 62 - "instalar-caddy.test.sh"
+Cohesion: 0.32
+Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.test.sh script
+
+### Community 63 - "imagenes.test.sh"
+Cohesion: 0.38
+Nodes (3): leer(), imagenes.test.sh script, uso()
+
+### Community 64 - "Lenguaje ubicuo — AIPOS"
+Cohesion: 0.33
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+
+### Community 65 - "instalar-caddy.sh"
+Cohesion: 0.60
+Nodes (3): codigos(), fallar(), instalar-caddy.sh script
+
+### Community 66 - "revisar-produccion.test.sh"
+Cohesion: 0.70
+Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
+
+### Community 67 - "compose-produccion.test.sh"
+Cohesion: 0.83
+Nodes (3): compose_config(), dato(), compose-produccion.test.sh script
+
+### Community 68 - "crear-env.test.sh"
+Cohesion: 0.67
+Nodes (3): AIPOS_RAIZ, crear-env.test.sh script, valor()
+
 ## Knowledge Gaps
-- **339 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+334 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 375 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **371 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+366 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 434 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **What connects `name`, `mode`, `source` to the rest of the system?**
-  _339 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
+  _371 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05701754385964912 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

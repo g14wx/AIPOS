@@ -65,6 +65,7 @@ Se declara en el README para que quien evalúa lo vea.
 | RF-12, si entra | Un lector de código de barras escribe el número y presiona Enter. |
 | Docker Compose para MySQL | Cualquiera levanta la misma base de datos con un comando. |
 | Flujos 05 y 06 | Muestran cómo se entrega cada parte y cómo se trabaja con el agente. |
+| Despliegue con etiquetas `release-*` (flujo 07) | AIPOS se puede ver en `https://aipos.salsalvador.io`: una etiqueta prueba, construye y despliega con Docker en el servidor de producción, y vuelve a la versión anterior si algo falla. |
 | PR final de `ProductionEnv` a `main` | Deja la versión final también en la rama que GitHub muestra primero. |
 
 ## Supuestos
@@ -72,7 +73,7 @@ Se declara en el README para que quien evalúa lo vea.
 - Hay un solo cajero a la vez y una sola venta actual.
 - La venta actual vive en la pantalla y se guarda en el navegador. Si se recarga la página, sigue ahí, y se vacía al registrar la venta (pregunta abierta 2, resuelta el 2026-09-30).
 - Los precios están en una sola moneda y tienen 2 decimales.
-- AIPOS corre en local con los comandos del README. No se publica en internet.
+- AIPOS corre en local con los comandos del README. Además, como agregado, se puede desplegar en producción con una etiqueta `release-*` ([flujo 07](flujos/07-desplegar-una-version.md)).
 
 ## Restricciones
 

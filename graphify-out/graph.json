@@ -4,22 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "id": "specs_documentacion_de_la_api_spec",
-      "label": "documentacion-de-la-api.spec.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Documentaci\u00f3n de la API",
-        "description": "Documento OpenAPI 3 del backend, servido con Swagger UI en GET /api/docs, con el formato de error como esquema compartido y una prueba que falla si una ruta de Express no est\u00e1 documentada"
-      },
-      "node_kind": "page",
-      "norm_label": "documentacion-de-la-api.spec.md",
-      "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L1"
-    },
-    {
       "id": "specs_despliegue_spec",
       "label": "despliegue.spec.md",
       "_origin": "ast",
@@ -50,6 +34,138 @@
       "norm_label": "arquitectura.spec.md",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
+    },
+    {
+      "id": "docs_despliegue",
+      "label": "despliegue.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "despliegue.md",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo",
+      "label": "docs/lenguaje-ubicuo.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "docs/lenguaje-ubicuo.md",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_agents_setup",
+      "label": "agents-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents-setup.md",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_graphify_setup",
+      "label": "graphify-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "graphify-setup.md",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_tessl_setup",
+      "label": "tessl-setup.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "tessl-setup.md",
+      "source_file": "docs/setup/tessl-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_aipos",
+      "label": "AIPOS",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aipos",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_despliegue",
+      "label": "Despliegue",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "despliegue",
+      "source_file": "README.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "readme_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "README.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "readme_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "README.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "readme_tiles_de_tessl",
+      "label": "Tiles de Tessl",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tiles de tessl",
+      "source_file": "README.md",
+      "source_location": "L22"
     },
     {
       "id": "requerimientos_01_alcance",
@@ -508,6 +624,66 @@
       "source_location": "L22"
     },
     {
+      "id": "requerimientos_flujos_07_desplegar_una_version",
+      "label": "07-desplegar-una-version.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "07-desplegar-una-version.md",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "label": "Flujo 07 \u00b7 Desplegar una versi\u00f3n",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 07 \u00b7 desplegar una version",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L46"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L63"
+    },
+    {
       "id": "requerimientos_readme",
       "label": "requerimientos/README.md",
       "_origin": "ast",
@@ -534,186 +710,6 @@
       "norm_label": "grafo-del-proyecto.spec.md",
       "source_file": "specs/grafo-del-proyecto.spec.md",
       "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo",
-      "label": "docs/lenguaje-ubicuo.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "docs/lenguaje-ubicuo.md",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
-      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "convencion de nombres en codigo",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
-      "label": "Herramientas y proceso",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "herramientas y proceso",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L45"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
-      "label": "Historial de cambios",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "historial de cambios",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L115"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "label": "Lenguaje ubicuo \u2014 AIPOS",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lenguaje ubicuo \u2014 aipos",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_negocio",
-      "label": "Negocio",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "negocio",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
-      "label": "Pendientes (por confirmar)",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pendientes (por confirmar)",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L103"
-    },
-    {
-      "id": "docs_setup_agents_setup",
-      "label": "agents-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "agents-setup.md",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_graphify_setup",
-      "label": "graphify-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "graphify-setup.md",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_tessl_setup",
-      "label": "tessl-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "tessl-setup.md",
-      "source_file": "docs/setup/tessl-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme",
-      "label": "README.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "readme.md",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_aipos",
-      "label": "AIPOS",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aipos",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "README.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "readme_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "README.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "readme_tiles_de_tessl",
-      "label": "Tiles de Tessl",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tiles de tessl",
-      "source_file": "README.md",
-      "source_location": "L22"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
@@ -840,55 +836,67 @@
       "label": "Definici\u00f3n de terminado",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "definicion de terminado",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L123"
+      "source_location": "L129"
+    },
+    {
+      "id": "requerimientos_04_entregables_despliegue",
+      "label": "Despliegue",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Tarjetas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "despliegue",
+      "source_file": "requerimientos/04-entregables.md",
+      "source_location": "L84"
     },
     {
       "id": "requerimientos_04_entregables_entrega_final",
       "label": "Entrega final",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entrega final",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L111"
+      "source_location": "L117"
     },
     {
       "id": "requerimientos_04_entregables_entregable_productos",
       "label": "Entregable productos",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregable productos",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L84"
+      "source_location": "L90"
     },
     {
       "id": "requerimientos_04_entregables_entregable_ventas",
       "label": "Entregable ventas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregable ventas",
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L96"
+      "source_location": "L102"
     },
     {
       "id": "requerimientos_04_entregables_entregables_y_tarjetas",
       "label": "Entregables y tarjetas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "entregables y tarjetas",
@@ -900,7 +908,7 @@
       "label": "Ramas de tarjeta",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ramas de tarjeta",
@@ -912,7 +920,7 @@
       "label": "Requerimientos",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requerimientos",
@@ -924,7 +932,7 @@
       "label": "Secuencia de los entregables",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "secuencia de los entregables",
@@ -936,7 +944,7 @@
       "label": "Tablero AIPOS",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tablero aipos",
@@ -948,7 +956,7 @@
       "label": "Tarjetas",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tarjetas",
@@ -960,7 +968,7 @@
       "label": "Tiles y entregable base",
       "_origin": "ast",
       "community": 10,
-      "community_name": "Entregables y tarjetas",
+      "community_name": "Tarjetas",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tiles y entregable base",
@@ -1929,7 +1937,7 @@
       "node_kind": "heading",
       "norm_label": "aspectos que se evaluaran",
       "source_file": "requerimientos/README.md",
-      "source_location": "L60"
+      "source_location": "L62"
     },
     {
       "id": "requerimientos_readme_c\u00f3mo_leer_esta_carpeta",
@@ -1965,7 +1973,7 @@
       "node_kind": "heading",
       "norm_label": "matriz del pdf",
       "source_file": "requerimientos/README.md",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "requerimientos_readme_preguntas_abiertas",
@@ -1977,7 +1985,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "requerimientos/README.md",
-      "source_location": "L77"
+      "source_location": "L79"
     },
     {
       "id": "requerimientos_readme_requerimientos_de_aipos",
@@ -2358,16 +2366,16 @@
     },
     {
       "id": "tests_hook_de_git_comun",
-      "label": "comun.sh",
+      "label": "hook-de-git/comun.sh",
       "_origin": "ast",
       "community": 22,
-      "community_name": "comun.sh",
+      "community_name": "hook-de-git/comun.sh",
       "file_type": "code",
       "metadata": {
         "language": "bash",
         "kind": "file"
       },
-      "norm_label": "comun.sh",
+      "norm_label": "hook-de-git/comun.sh",
       "source_file": "tests/hook-de-git/comun.sh",
       "source_location": "L1"
     },
@@ -2376,7 +2384,7 @@
       "label": "crear_graphify_falso()",
       "_origin": "ast",
       "community": 22,
-      "community_name": "comun.sh",
+      "community_name": "hook-de-git/comun.sh",
       "file_type": "code",
       "metadata": {
         "language": "bash",
@@ -2391,7 +2399,7 @@
       "label": "falla()",
       "_origin": "ast",
       "community": 22,
-      "community_name": "comun.sh",
+      "community_name": "hook-de-git/comun.sh",
       "file_type": "code",
       "metadata": {
         "language": "bash",
@@ -2406,7 +2414,7 @@
       "label": "preparar_repo()",
       "_origin": "ast",
       "community": 22,
-      "community_name": "comun.sh",
+      "community_name": "hook-de-git/comun.sh",
       "file_type": "code",
       "metadata": {
         "language": "bash",
@@ -2421,7 +2429,7 @@
       "label": "comun.sh script",
       "_origin": "ast",
       "community": 22,
-      "community_name": "comun.sh",
+      "community_name": "hook-de-git/comun.sh",
       "file_type": "code",
       "metadata": {
         "language": "bash",
@@ -3779,6 +3787,22 @@
       },
       "norm_label": "otra-version.test.sh script",
       "source_file": "tests/hook-de-git/otra-version.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_documentacion_de_la_api_spec",
+      "label": "documentacion-de-la-api.spec.md",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Documentaci\u00f3n de la API",
+        "description": "Documento OpenAPI 3 del backend, servido con Swagger UI en GET /api/docs, con el formato de error como esquema compartido y una prueba que falla si una ruta de Express no est\u00e1 documentada"
+      },
+      "node_kind": "page",
+      "norm_label": "documentacion-de-la-api.spec.md",
+      "source_file": "specs/documentacion-de-la-api.spec.md",
       "source_location": "L1"
     },
     {
@@ -5632,7 +5656,7 @@
       "node_kind": "heading",
       "norm_label": "restricciones",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
+      "source_location": "L78"
     },
     {
       "id": "requerimientos_01_alcance_riesgos",
@@ -5644,7 +5668,7 @@
       "node_kind": "heading",
       "norm_label": "riesgos",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
+      "source_location": "L84"
     },
     {
       "id": "requerimientos_01_alcance_supuestos",
@@ -5656,7 +5680,862 @@
       "node_kind": "heading",
       "norm_label": "supuestos",
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
+      "source_location": "L71"
+    },
+    {
+      "id": "tests_despliegue_comun",
+      "label": "despliegue/comun.sh",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "despliegue/comun.sh",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_comun_comprobar",
+      "label": "comprobar()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "comprobar()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L29"
+    },
+    {
+      "id": "tests_despliegue_comun_correr",
+      "label": "correr()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "correr()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L231"
+    },
+    {
+      "id": "tests_despliegue_comun_crear_dobles",
+      "label": "crear_dobles()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "crear_dobles()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L107"
+    },
+    {
+      "id": "tests_despliegue_comun_crear_repo_de_mentira",
+      "label": "crear_repo_de_mentira()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "crear_repo_de_mentira()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L254"
+    },
+    {
+      "id": "tests_despliegue_comun_crear_version",
+      "label": "crear_version()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "crear_version()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L203"
+    },
+    {
+      "id": "tests_despliegue_comun_cuantas",
+      "label": "cuantas()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "cuantas()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L215"
+    },
+    {
+      "id": "tests_despliegue_comun_estar_corriendo",
+      "label": "estar_corriendo()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "estar_corriendo()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L208"
+    },
+    {
+      "id": "tests_despliegue_comun_falla",
+      "label": "falla()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "falla()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L23"
+    },
+    {
+      "id": "tests_despliegue_comun_g",
+      "label": "g()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "g()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L256"
+    },
+    {
+      "id": "tests_despliegue_comun_igual",
+      "label": "igual()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "igual()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L46"
+    },
+    {
+      "id": "tests_despliegue_comun_leer_corriendo",
+      "label": "leer_corriendo()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer_corriendo()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L209"
+    },
+    {
+      "id": "tests_despliegue_comun_leer_estado",
+      "label": "leer_estado()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer_estado()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L211"
+    },
+    {
+      "id": "tests_despliegue_comun_linea_de",
+      "label": "linea_de()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "linea_de()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L214"
+    },
+    {
+      "id": "tests_despliegue_comun_llamadas_docker",
+      "label": "llamadas_docker()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "llamadas_docker()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L212"
+    },
+    {
+      "id": "tests_despliegue_comun_marcar_imagen",
+      "label": "marcar_imagen()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "marcar_imagen()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L207"
+    },
+    {
+      "id": "tests_despliegue_comun_no_tiene",
+      "label": "no_tiene()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "no_tiene()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L41"
+    },
+    {
+      "id": "tests_despliegue_comun_ok",
+      "label": "ok()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "ok()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L22"
+    },
+    {
+      "id": "tests_despliegue_comun_omitir",
+      "label": "omitir()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "omitir()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L61"
+    },
+    {
+      "id": "tests_despliegue_comun_permisos",
+      "label": "permisos()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "permisos()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L68"
+    },
+    {
+      "id": "tests_despliegue_comun_preparar_servidor",
+      "label": "preparar_servidor()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "preparar_servidor()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L83"
+    },
+    {
+      "id": "tests_despliegue_comun_regla_curl",
+      "label": "regla_curl()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "regla_curl()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L210"
+    },
+    {
+      "id": "tests_despliegue_comun_revisar_etiqueta",
+      "label": "revisar_etiqueta()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_etiqueta()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L279"
+    },
+    {
+      "id": "tests_despliegue_comun_servidor_con_version",
+      "label": "servidor_con_version()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "servidor_con_version()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L218"
+    },
+    {
+      "id": "tests_despliegue_comun_sh__entry",
+      "label": "comun.sh script",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "comun.sh script",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_comun_sin_borrar",
+      "label": "sin_borrar()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "sin_borrar()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L239"
+    },
+    {
+      "id": "tests_despliegue_comun_suma",
+      "label": "suma()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "suma()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L71"
+    },
+    {
+      "id": "tests_despliegue_comun_terminar",
+      "label": "terminar()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "terminar()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L50"
+    },
+    {
+      "id": "tests_despliegue_comun_tiene",
+      "label": "tiene()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "tiene()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L36"
+    },
+    {
+      "id": "despliegue_desplegar",
+      "label": "desplegar.sh",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "desplegar.sh",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_desplegar_bajar_imagenes",
+      "label": "bajar_imagenes()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "bajar_imagenes()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L99"
+    },
+    {
+      "id": "despliegue_desplegar_comprobar_env",
+      "label": "comprobar_env()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "comprobar_env()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L34"
+    },
+    {
+      "id": "despliegue_desplegar_comprobar_etiqueta",
+      "label": "comprobar_etiqueta()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "comprobar_etiqueta()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L29"
+    },
+    {
+      "id": "despliegue_desplegar_dc",
+      "label": "dc()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "dc()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L51"
+    },
+    {
+      "id": "despliegue_desplegar_desplegar",
+      "label": "desplegar()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "desplegar()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L124"
+    },
+    {
+      "id": "despliegue_desplegar_escribir_estado",
+      "label": "escribir_estado()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "escribir_estado()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L67"
+    },
+    {
+      "id": "despliegue_desplegar_esperar_200",
+      "label": "esperar_200()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "esperar_200()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L73"
+    },
+    {
+      "id": "despliegue_desplegar_fallar",
+      "label": "fallar()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "fallar()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L20"
+    },
+    {
+      "id": "despliegue_desplegar_imagenes_presentes",
+      "label": "imagenes_presentes()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "imagenes_presentes()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L93"
+    },
+    {
+      "id": "despliegue_desplegar_leer_estado",
+      "label": "leer_estado()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer_estado()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L59"
+    },
+    {
+      "id": "despliegue_desplegar_permisos",
+      "label": "permisos()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "permisos()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L26"
+    },
+    {
+      "id": "despliegue_desplegar_revisar_local",
+      "label": "revisar_local()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_local()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L88"
+    },
+    {
+      "id": "despliegue_desplegar_sh__entry",
+      "label": "desplegar.sh script",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "desplegar.sh script",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_desplegar_tomar_candado",
+      "label": "tomar_candado()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "tomar_candado()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L43"
+    },
+    {
+      "id": "despliegue_desplegar_uso",
+      "label": "uso()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "uso()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L187"
+    },
+    {
+      "id": "despliegue_desplegar_volver",
+      "label": "volver()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "volver()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L156"
+    },
+    {
+      "id": "despliegue_desplegar_volver_a_lo_que_corria",
+      "label": "volver_a_lo_que_corria()",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "desplegar.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "volver_a_lo_que_corria()",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L109"
+    },
+    {
+      "id": "despliegue_revisar_produccion",
+      "label": "revisar-produccion.sh",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "revisar-produccion.sh",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_revisar_produccion_cabecera_cors",
+      "label": "cabecera_cors()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "cabecera_cors()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L41"
+    },
+    {
+      "id": "despliegue_revisar_produccion_pedir",
+      "label": "pedir()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "pedir()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L31"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar",
+      "label": "revisar()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L81"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar_cors_otro",
+      "label": "revisar_cors_otro()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_cors_otro()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L71"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar_cors_permitido",
+      "label": "revisar_cors_permitido()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_cors_permitido()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L62"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar_docs",
+      "label": "revisar_docs()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_docs()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L57"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar_pantalla",
+      "label": "revisar_pantalla()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_pantalla()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L52"
+    },
+    {
+      "id": "despliegue_revisar_produccion_revisar_salud",
+      "label": "revisar_salud()",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_salud()",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L46"
+    },
+    {
+      "id": "despliegue_revisar_produccion_sh__entry",
+      "label": "revisar-produccion.sh script",
+      "_origin": "ast",
+      "community": 59,
+      "community_name": "revisar-produccion.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "revisar-produccion.sh script",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L1"
     },
     {
       "id": "specs_crear_producto_spec",
@@ -5975,6 +6854,846 @@
       "source_location": "L204"
     },
     {
+      "id": "docs_despliegue_configuraci\u00f3n_del_servidor_una_sola_vez",
+      "label": "Configuraci\u00f3n del servidor (una sola vez)",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "configuracion del servidor (una sola vez)",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "docs_despliegue_c\u00f3mo_desplegar_una_versi\u00f3n",
+      "label": "C\u00f3mo desplegar una versi\u00f3n",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como desplegar una version",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "docs_despliegue_c\u00f3mo_queda_armado_el_servidor",
+      "label": "C\u00f3mo queda armado el servidor",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como queda armado el servidor",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "docs_despliegue_despliegue_de_aipos",
+      "label": "Despliegue de AIPOS",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "despliegue de aipos",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_despliegue_environment_y_regla_de_etiquetas_github",
+      "label": "Environment y regla de etiquetas (GitHub)",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "environment y regla de etiquetas (github)",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L200"
+    },
+    {
+      "id": "docs_despliegue_errores_frecuentes",
+      "label": "Errores frecuentes",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "errores frecuentes",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L240"
+    },
+    {
+      "id": "docs_despliegue_lo_que_nunca_se_hace",
+      "label": "Lo que nunca se hace",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lo que nunca se hace",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L255"
+    },
+    {
+      "id": "docs_despliegue_qu\u00e9_es_y_para_qu\u00e9_sirve",
+      "label": "Qu\u00e9 es y para qu\u00e9 sirve",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que es y para que sirve",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "docs_despliegue_volver_a_la_versi\u00f3n_anterior",
+      "label": "Volver a la versi\u00f3n anterior",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Despliegue de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "volver a la version anterior",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test",
+      "label": "arranque-local.test.sh",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "arranque-local.test.sh",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_compose",
+      "label": "compose()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "compose()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L59"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_desplegar",
+      "label": "desplegar()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "desplegar()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_limpiar",
+      "label": "limpiar()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "limpiar()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L85"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_mysql_app",
+      "label": "mysql_app()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mysql_app()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L66"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "label": "restos_del_proyecto()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "restos_del_proyecto()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L79"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_sh__entry",
+      "label": "arranque-local.test.sh script",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "arranque-local.test.sh script",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_valor_env",
+      "label": "valor_env()",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "valor_env()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test",
+      "label": "instalar-caddy.test.sh",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "instalar-caddy.test.sh",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_armar",
+      "label": "armar()",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "armar()",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L19"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_caddy_falla",
+      "label": "CADDY_FALLA",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "caddy_falla",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L134"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_cambia_vecino",
+      "label": "CAMBIA_VECINO",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "cambia_vecino",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L151"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_correr_script",
+      "label": "correr_script()",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "correr_script()",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L68"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_linea",
+      "label": "linea()",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "linea()",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L75"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_lista_conf",
+      "label": "lista_conf()",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "lista_conf()",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L76"
+    },
+    {
+      "id": "tests_despliegue_instalar_caddy_test_sh__entry",
+      "label": "instalar-caddy.test.sh script",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "instalar-caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "instalar-caddy.test.sh script",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test",
+      "label": "imagenes.test.sh",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "imagenes.test.sh",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_cuenta",
+      "label": "cuenta()",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "cuenta()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L21"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_en",
+      "label": "en()",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "en()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L104"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_leer",
+      "label": "leer()",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L16"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_limpiar",
+      "label": "limpiar()",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "limpiar()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L96"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_sh__entry",
+      "label": "imagenes.test.sh script",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "imagenes.test.sh script",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_uso",
+      "label": "uso()",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "uso()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L105"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
+      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "convencion de nombres en codigo",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
+      "label": "Herramientas y proceso",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "herramientas y proceso",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
+      "label": "Historial de cambios",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "historial de cambios",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L115"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "label": "Lenguaje ubicuo \u2014 AIPOS",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lenguaje ubicuo \u2014 aipos",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_negocio",
+      "label": "Negocio",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "negocio",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
+      "label": "Pendientes (por confirmar)",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendientes (por confirmar)",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L103"
+    },
+    {
+      "id": "despliegue_instalar_caddy",
+      "label": "instalar-caddy.sh",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "instalar-caddy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "instalar-caddy.sh",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_instalar_caddy_codigos",
+      "label": "codigos()",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "instalar-caddy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "codigos()",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L52"
+    },
+    {
+      "id": "despliegue_instalar_caddy_fallar",
+      "label": "fallar()",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "instalar-caddy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "fallar()",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L25"
+    },
+    {
+      "id": "despliegue_instalar_caddy_sh__entry",
+      "label": "instalar-caddy.sh script",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "instalar-caddy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "instalar-caddy.sh script",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_instalar_caddy_sitios",
+      "label": "sitios()",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "instalar-caddy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "sitios()",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L40"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test",
+      "label": "revisar-produccion.test.sh",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "revisar-produccion.test.sh",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_arrancar",
+      "label": "arrancar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "arrancar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L81"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_parar",
+      "label": "parar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "parar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_revisar",
+      "label": "revisar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L94"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "label": "revisar-produccion.test.sh script",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "revisar-produccion.test.sh script",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test",
+      "label": "compose-produccion.test.sh",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "compose-produccion.test.sh",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_compose_config",
+      "label": "compose_config()",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "compose_config()",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L33"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_dato",
+      "label": "dato()",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "dato()",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L46"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_sh__entry",
+      "label": "compose-produccion.test.sh script",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "compose-produccion.test.sh script",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_crear_env_test",
+      "label": "crear-env.test.sh",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "crear-env.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "crear-env.test.sh",
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_crear_env_test_aipos_raiz",
+      "label": "AIPOS_RAIZ",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "crear-env.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "aipos_raiz",
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L11"
+    },
+    {
+      "id": "tests_despliegue_crear_env_test_sh__entry",
+      "label": "crear-env.test.sh script",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "crear-env.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "crear-env.test.sh script",
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_crear_env_test_valor",
+      "label": "valor()",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "crear-env.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "valor()",
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L14"
+    },
+    {
+      "id": "despliegue_crear_env",
+      "label": "crear-env.sh",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "crear-env.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "crear-env.sh",
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_crear_env_generar_clave",
+      "label": "generar_clave()",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "crear-env.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "generar_clave()",
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L23"
+    },
+    {
+      "id": "despliegue_crear_env_sh__entry",
+      "label": "crear-env.sh script",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "crear-env.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "crear-env.sh script",
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -6111,6 +7830,441 @@
       "source_location": "L110"
     },
     {
+      "id": "tests_despliegue_desplegar_migracion_falla_test",
+      "label": "desplegar-migracion-falla.test.sh",
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "desplegar-migracion-falla.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "desplegar-migracion-falla.test.sh",
+      "source_file": "tests/despliegue/desplegar-migracion-falla.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_migracion_falla_test_docker_falla",
+      "label": "DOCKER_FALLA",
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "desplegar-migracion-falla.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "docker_falla",
+      "source_file": "tests/despliegue/desplegar-migracion-falla.test.sh",
+      "source_location": "L11"
+    },
+    {
+      "id": "tests_despliegue_desplegar_migracion_falla_test_sh__entry",
+      "label": "desplegar-migracion-falla.test.sh script",
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "desplegar-migracion-falla.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "desplegar-migracion-falla.test.sh script",
+      "source_file": "tests/despliegue/desplegar-migracion-falla.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_sin_imagen_test",
+      "label": "desplegar-sin-imagen.test.sh",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "desplegar-sin-imagen.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "desplegar-sin-imagen.test.sh",
+      "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_sin_imagen_test_docker_falla",
+      "label": "DOCKER_FALLA",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "desplegar-sin-imagen.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "docker_falla",
+      "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_despliegue_desplegar_sin_imagen_test_sh__entry",
+      "label": "desplegar-sin-imagen.test.sh script",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "desplegar-sin-imagen.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "desplegar-sin-imagen.test.sh script",
+      "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_documentos_test",
+      "label": "documentos.test.sh",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "documentos.test.sh",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_documentos_test_leer",
+      "label": "leer()",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer()",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_despliegue_documentos_test_sh__entry",
+      "label": "documentos.test.sh script",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "documentos.test.sh script",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "label": "etiqueta-en-produccionenv.test.sh",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "etiqueta-en-produccionenv.test.sh",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "label": "G()",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "g()",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L13"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "label": "etiqueta-en-produccionenv.test.sh script",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "etiqueta-en-produccionenv.test.sh script",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test",
+      "label": "github-environment-y-etiquetas.test.sh",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "github-environment-y-etiquetas.test.sh",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "label": "api()",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "api()",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L12"
+    },
+    {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "label": "github-environment-y-etiquetas.test.sh script",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "github-environment-y-etiquetas.test.sh script",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_sin_datos_privados_test",
+      "label": "sin-datos-privados.test.sh",
+      "_origin": "ast",
+      "community": 75,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "sin-datos-privados.test.sh",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_sin_datos_privados_test_resumir",
+      "label": "resumir()",
+      "_origin": "ast",
+      "community": 75,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "resumir()",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L97"
+    },
+    {
+      "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "label": "sin-datos-privados.test.sh script",
+      "_origin": "ast",
+      "community": 75,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "sin-datos-privados.test.sh script",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test",
+      "label": "volver-dos-veces.test.sh",
+      "_origin": "ast",
+      "community": 76,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "volver-dos-veces.test.sh",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test_docker_falla",
+      "label": "DOCKER_FALLA",
+      "_origin": "ast",
+      "community": 76,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "docker_falla",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test_sh__entry",
+      "label": "volver-dos-veces.test.sh script",
+      "_origin": "ast",
+      "community": 76,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "volver-dos-veces.test.sh script",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_si_falla_la_salud_test",
+      "label": "volver-si-falla-la-salud.test.sh",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "volver-si-falla-la-salud.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "volver-si-falla-la-salud.test.sh",
+      "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_si_falla_la_salud_test_docker_falla",
+      "label": "DOCKER_FALLA",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "volver-si-falla-la-salud.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "docker_falla",
+      "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
+      "source_location": "L44"
+    },
+    {
+      "id": "tests_despliegue_volver_si_falla_la_salud_test_sh__entry",
+      "label": "volver-si-falla-la-salud.test.sh script",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "volver-si-falla-la-salud.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "volver-si-falla-la-salud.test.sh script",
+      "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_workflow_test",
+      "label": "workflow.test.sh",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "workflow.test.sh",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_workflow_test_py",
+      "label": "py()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "py()",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L14"
+    },
+    {
+      "id": "tests_despliegue_workflow_test_sh__entry",
+      "label": "workflow.test.sh script",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "workflow.test.sh script",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_revisar_etiqueta",
+      "label": "revisar-etiqueta.sh",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "revisar-etiqueta.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "revisar-etiqueta.sh",
+      "source_file": "despliegue/revisar-etiqueta.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_revisar_etiqueta_sh__entry",
+      "label": "revisar-etiqueta.sh script",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "revisar-etiqueta.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "revisar-etiqueta.sh script",
+      "source_file": "despliegue/revisar-etiqueta.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -6243,6 +8397,186 @@
       "source_location": "L168"
     },
     {
+      "id": "tests_despliegue_caddy_test",
+      "label": "caddy.test.sh",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "caddy.test.sh",
+      "source_file": "tests/despliegue/caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_caddy_test_sh__entry",
+      "label": "caddy.test.sh script",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "caddy.test.sh script",
+      "source_file": "tests/despliegue/caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_en_fila_test",
+      "label": "desplegar-en-fila.test.sh",
+      "_origin": "ast",
+      "community": 81,
+      "community_name": "desplegar-en-fila.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "desplegar-en-fila.test.sh",
+      "source_file": "tests/despliegue/desplegar-en-fila.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_en_fila_test_sh__entry",
+      "label": "desplegar-en-fila.test.sh script",
+      "_origin": "ast",
+      "community": 81,
+      "community_name": "desplegar-en-fila.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "desplegar-en-fila.test.sh script",
+      "source_file": "tests/despliegue/desplegar-en-fila.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_ok_test",
+      "label": "desplegar-ok.test.sh",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "desplegar-ok.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "desplegar-ok.test.sh",
+      "source_file": "tests/despliegue/desplegar-ok.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_desplegar_ok_test_sh__entry",
+      "label": "desplegar-ok.test.sh script",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "desplegar-ok.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "desplegar-ok.test.sh script",
+      "source_file": "tests/despliegue/desplegar-ok.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_release_test",
+      "label": "etiqueta-release.test.sh",
+      "_origin": "ast",
+      "community": 83,
+      "community_name": "etiqueta-release.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "etiqueta-release.test.sh",
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_release_test_sh__entry",
+      "label": "etiqueta-release.test.sh script",
+      "_origin": "ast",
+      "community": 83,
+      "community_name": "etiqueta-release.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "etiqueta-release.test.sh script",
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_sin_borrar_datos_test",
+      "label": "sin-borrar-datos.test.sh",
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "sin-borrar-datos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "sin-borrar-datos.test.sh",
+      "source_file": "tests/despliegue/sin-borrar-datos.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_sin_borrar_datos_test_sh__entry",
+      "label": "sin-borrar-datos.test.sh script",
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "sin-borrar-datos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "sin-borrar-datos.test.sh script",
+      "source_file": "tests/despliegue/sin-borrar-datos.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_primer_despliegue_test",
+      "label": "volver-primer-despliegue.test.sh",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "volver-primer-despliegue.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "volver-primer-despliegue.test.sh",
+      "source_file": "tests/despliegue/volver-primer-despliegue.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_primer_despliegue_test_sh__entry",
+      "label": "volver-primer-despliegue.test.sh script",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "volver-primer-despliegue.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "volver-primer-despliegue.test.sh script",
+      "source_file": "tests/despliegue/volver-primer-despliegue.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
       "label": "saltos-de-linea.test.sh",
       "_origin": "ast",
@@ -6274,6 +8608,486 @@
     }
   ],
   "links": [
+    {
+      "source": "despliegue_crear_env_sh__entry",
+      "target": "despliegue_crear_env_generar_clave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_bajar_imagenes",
+      "target": "despliegue_desplegar_dc",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_comprobar_env",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_comprobar_env",
+      "target": "despliegue_desplegar_permisos",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_comprobar_etiqueta",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_comprobar_etiqueta",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_comprobar_env",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_tomar_candado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_leer_estado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_bajar_imagenes",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_dc",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_revisar_local",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_volver_a_lo_que_corria",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_desplegar",
+      "target": "despliegue_desplegar_escribir_estado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_leer_estado",
+      "target": "despliegue_desplegar_comprobar_etiqueta",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_revisar_local",
+      "target": "despliegue_desplegar_esperar_200",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_sh__entry",
+      "target": "despliegue_desplegar_desplegar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_sh__entry",
+      "target": "despliegue_desplegar_uso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_sh__entry",
+      "target": "despliegue_desplegar_volver",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_tomar_candado",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_comprobar_env",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_tomar_candado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_leer_estado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_dc",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_imagenes_presentes",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_bajar_imagenes",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_revisar_local",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver",
+      "target": "despliegue_desplegar_escribir_estado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver_a_lo_que_corria",
+      "target": "despliegue_desplegar_dc",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar_volver_a_lo_que_corria",
+      "target": "despliegue_desplegar_revisar_local",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy_sh__entry",
+      "target": "despliegue_instalar_caddy_fallar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy_sh__entry",
+      "target": "despliegue_instalar_caddy_codigos",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_revisar_cors_otro",
+      "target": "despliegue_revisar_produccion_cabecera_cors",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_revisar_cors_permitido",
+      "target": "despliegue_revisar_produccion_cabecera_cors",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_revisar_docs",
+      "target": "despliegue_revisar_produccion_pedir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_revisar_pantalla",
+      "target": "despliegue_revisar_produccion_pedir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_revisar_salud",
+      "target": "despliegue_revisar_produccion_pedir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion_sh__entry",
+      "target": "despliegue_revisar_produccion_revisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L94",
+      "weight": 1.0
+    },
     {
       "source": "githooks_pre_commit__entry",
       "target": "githooks_pre_commit_no_se_pudo",
@@ -6491,6 +9305,426 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_arranque_local_test_limpiar",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_mysql_app",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_desplegar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_mysql_app",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test_sh__entry",
+      "target": "tests_despliegue_compose_produccion_test_compose_config",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test_sh__entry",
+      "target": "tests_despliegue_compose_produccion_test_dato",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_comprobar",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_comprobar",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_igual",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_igual",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_no_tiene",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_no_tiene",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_preparar_servidor",
+      "target": "tests_despliegue_comun_crear_dobles",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_servidor_con_version",
+      "target": "tests_despliegue_comun_crear_version",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_servidor_con_version",
+      "target": "tests_despliegue_comun_marcar_imagen",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_servidor_con_version",
+      "target": "tests_despliegue_comun_estar_corriendo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_sin_borrar",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L241",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_sin_borrar",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_tiene",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_tiene",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_crear_env_test_sh__entry",
+      "target": "tests_despliegue_crear_env_test_valor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_documentos_test_sh__entry",
+      "target": "tests_despliegue_documentos_test_leer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test_sh__entry",
+      "target": "tests_despliegue_imagenes_test_uso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test_sh__entry",
+      "target": "tests_despliegue_imagenes_test_leer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test_sh__entry",
+      "target": "tests_despliegue_instalar_caddy_test_armar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test_sh__entry",
+      "target": "tests_despliegue_instalar_caddy_test_correr_script",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_arrancar",
+      "target": "tests_despliegue_revisar_produccion_test_parar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "target": "tests_despliegue_revisar_produccion_test_arrancar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "target": "tests_despliegue_revisar_produccion_test_revisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "target": "tests_despliegue_sin_datos_privados_test_resumir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_workflow_test_sh__entry",
+      "target": "tests_despliegue_workflow_test_py",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
       "source": "tests_grafo_del_proyecto_ignora_lo_local_test_sh__entry",
       "target": "tests_grafo_del_proyecto_ignora_lo_local_test_debe_ignorar",
       "relation": "calls",
@@ -6524,6 +9758,18 @@
       "context": "call",
       "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_crear_repo_de_mentira",
+      "target": "tests_despliegue_comun_g",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -6612,6 +9858,160 @@
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_crear_env",
+      "target": "despliegue_crear_env_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy",
+      "target": "despliegue_instalar_caddy_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_etiqueta",
+      "target": "despliegue_revisar_etiqueta_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-etiqueta.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "docs_despliegue_despliegue_de_aipos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_configuraci\u00f3n_del_servidor_una_sola_vez",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_environment_y_regla_de_etiquetas_github",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_errores_frecuentes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_lo_que_nunca_se_hace",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_c\u00f3mo_desplegar_una_versi\u00f3n",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_qu\u00e9_es_y_para_qu\u00e9_sirve",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_volver_a_la_versi\u00f3n_anterior",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue_despliegue_de_aipos",
+      "target": "docs_despliegue_c\u00f3mo_queda_armado_el_servidor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -7165,6 +10565,17 @@
       "weight": 1.0
     },
     {
+      "source": "readme_aipos",
+      "target": "readme_despliegue",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_01_alcance",
       "target": "requerimientos_01_alcance_alcance",
       "relation": "contains",
@@ -7227,7 +10638,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -7238,7 +10649,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -7249,7 +10660,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -7590,7 +11001,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L123",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -7639,13 +11050,24 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
+      "target": "requerimientos_04_entregables_entregable_ventas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/04-entregables.md",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_04_entregables_tarjetas",
       "target": "requerimientos_04_entregables_entrega_final",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L111",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -7672,7 +11094,7 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
-      "target": "requerimientos_04_entregables_entregable_productos",
+      "target": "requerimientos_04_entregables_despliegue",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7683,13 +11105,13 @@
     },
     {
       "source": "requerimientos_04_entregables_tarjetas",
-      "target": "requerimientos_04_entregables_entregable_ventas",
+      "target": "requerimientos_04_entregables_entregable_productos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/04-entregables.md",
-      "source_location": "L96",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -7990,6 +11412,50 @@
       "weight": 1.0
     },
     {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_pasos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_otros_caminos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_qu\u00e9_no_se_hace",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_readme",
       "target": "requerimientos_readme_requerimientos_de_aipos",
       "relation": "contains",
@@ -8008,7 +11474,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L60",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -8041,7 +11507,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -8052,7 +11518,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
-      "source_location": "L77",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -10938,6 +14404,248 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_caddy_test",
+      "target": "tests_despliegue_caddy_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/caddy.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_crear_env_test",
+      "target": "tests_despliegue_crear_env_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_en_fila_test",
+      "target": "tests_despliegue_desplegar_en_fila_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-en-fila.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_migracion_falla_test",
+      "target": "tests_despliegue_desplegar_migracion_falla_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-migracion-falla.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_ok_test",
+      "target": "tests_despliegue_desplegar_ok_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-ok.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_sin_imagen_test",
+      "target": "tests_despliegue_desplegar_sin_imagen_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_documentos_test",
+      "target": "tests_despliegue_documentos_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_release_test",
+      "target": "tests_despliegue_etiqueta_release_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_borrar_datos_test",
+      "target": "tests_despliegue_sin_borrar_datos_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-borrar-datos.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_datos_privados_test",
+      "target": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_dos_veces_test",
+      "target": "tests_despliegue_volver_dos_veces_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_primer_despliegue_test",
+      "target": "tests_despliegue_volver_primer_despliegue_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-primer-despliegue.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_si_falla_la_salud_test",
+      "target": "tests_despliegue_volver_si_falla_la_salud_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_workflow_test",
+      "target": "tests_despliegue_workflow_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_grafo_del_proyecto_ignora_lo_local_test",
       "target": "tests_grafo_del_proyecto_ignora_lo_local_test_sh__entry",
       "relation": "contains",
@@ -11136,6 +14844,314 @@
       "weight": 1.0
     },
     {
+      "source": "despliegue_crear_env",
+      "target": "despliegue_crear_env_generar_clave",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/crear-env.sh",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_volver_a_lo_que_corria",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_desplegar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_volver",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_uso",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_fallar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_permisos",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_comprobar_etiqueta",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_comprobar_env",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_tomar_candado",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_dc",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_leer_estado",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_escribir_estado",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_esperar_200",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_revisar_local",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_imagenes_presentes",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_desplegar",
+      "target": "despliegue_desplegar_bajar_imagenes",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/desplegar.sh",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy",
+      "target": "despliegue_instalar_caddy_fallar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy",
+      "target": "despliegue_instalar_caddy_sitios",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_instalar_caddy",
+      "target": "despliegue_instalar_caddy_codigos",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/instalar-caddy.sh",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_pedir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_cabecera_cors",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar_salud",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar_pantalla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar_docs",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar_cors_permitido",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar_cors_otro",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_produccion",
+      "target": "despliegue_revisar_produccion_revisar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-produccion.sh",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
       "source": "githooks_pre_commit",
       "target": "githooks_pre_commit_poner_linea",
       "relation": "defines",
@@ -11246,6 +15262,655 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_valor_env",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_mysql_app",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_desplegar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_limpiar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_compose_config",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_dato",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_crear_dobles",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_crear_version",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_marcar_imagen",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_estar_corriendo",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_leer_corriendo",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L209",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_regla_curl",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_leer_estado",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_llamadas_docker",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L212",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_linea_de",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L214",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_cuantas",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_servidor_con_version",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_ok",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_correr",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_sin_borrar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L239",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_crear_repo_de_mentira",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_revisar_etiqueta",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_comprobar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_tiene",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_no_tiene",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_igual",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_terminar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_omitir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_permisos",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_suma",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_preparar_servidor",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_crear_env_test",
+      "target": "tests_despliegue_crear_env_test_valor",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_crear_env_test",
+      "target": "tests_despliegue_crear_env_test_aipos_raiz",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/crear-env.test.sh",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_migracion_falla_test",
+      "target": "tests_despliegue_desplegar_migracion_falla_test_docker_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-migracion-falla.test.sh",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_desplegar_sin_imagen_test",
+      "target": "tests_despliegue_desplegar_sin_imagen_test_docker_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_documentos_test",
+      "target": "tests_despliegue_documentos_test_leer",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_en",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_uso",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_leer",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_cuenta",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_limpiar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_caddy_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_cambia_vecino",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_armar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_correr_script",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_linea",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_instalar_caddy_test",
+      "target": "tests_despliegue_instalar_caddy_test_lista_conf",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/instalar-caddy.test.sh",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_parar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_arrancar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_revisar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_datos_privados_test",
+      "target": "tests_despliegue_sin_datos_privados_test_resumir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_dos_veces_test",
+      "target": "tests_despliegue_volver_dos_veces_test_docker_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_si_falla_la_salud_test",
+      "target": "tests_despliegue_volver_si_falla_la_salud_test_docker_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_workflow_test",
+      "target": "tests_despliegue_workflow_test_py",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "tests_grafo_del_proyecto_ignora_lo_local_test",
       "target": "tests_grafo_del_proyecto_ignora_lo_local_test_debe_ignorar",
       "relation": "defines",
@@ -11309,6 +15974,61 @@
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/comun.sh",
       "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "docs_lenguaje_ubicuo",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "specs_despliegue_spec",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "requerimientos_flujos_05_entregar_un_entregable",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
+      "target": "readme",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -11422,6 +16142,28 @@
       "weight": 1.0
     },
     {
+      "source": "readme",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_01_alcance",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_01_alcance",
       "target": "requerimientos_03_requerimientos_no_funcionales",
       "relation": "references",
@@ -11429,7 +16171,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L80",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -11577,13 +16319,24 @@
     },
     {
       "source": "requerimientos_flujos_00_mapa_de_procesos",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_00_mapa_de_procesos",
       "target": "requerimientos_readme",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
-      "source_location": "L27",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -11661,6 +16414,39 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_flujos_05_entregar_un_entregable",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_03_requerimientos_no_funcionales",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "specs_despliegue_spec",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -11771,6 +16557,17 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/README.md",
       "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_readme",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/README.md",
+      "source_location": "L37",
       "weight": 1.0
     },
     {

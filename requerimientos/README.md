@@ -34,6 +34,7 @@ van sus tareas, sus decisiones y los puntos de inicio y fin.
 | 04 | [Registrar venta](flujos/04-registrar-venta.md) | RF-09, RF-10, RF-11 |
 | 05 | [Entregar un entregable](flujos/05-entregar-un-entregable.md) | RNF-09, RNF-10 |
 | 06 | [Trabajar una tarjeta con el agente](flujos/06-trabajar-una-tarjeta-con-el-agente.md) | RNF-08, RNF-10 |
+| 07 | [Desplegar una versión](flujos/07-desplegar-una-version.md) | RNF-04, RNF-09 |
 
 ## Matriz del PDF
 
@@ -51,6 +52,7 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 | Alcance: lo que no se hace | [Fuera de alcance](01-alcance.md#fuera-de-alcance) | — | — |
 | Tecnologías requeridas | RNF-02 | — | T-01, T-02, B-02, B-03, B-04 |
 | Requerimientos de Git y GitHub | RNF-09 | 05 | B-01, E-03 |
+| Agregado, el PDF no lo pide: desplegar con etiquetas `release-*` | RNF-04, RNF-09 | 07 | D-01 |
 | Uso de inteligencia artificial | RNF-10 | 05, 06 | R-03, E-01 |
 | README.md obligatorio (12 puntos) | RNF-11 | — | E-02 |
 | Entrega en un repositorio público | RNF-12 | 05 | E-03 |

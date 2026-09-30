@@ -511,4 +511,12 @@ describe('estilos de la venta actual (skill impeccable, jerarquía y total)', ()
   it('un nombre largo pasa a otra línea y no rompe la tabla', () => {
     expect(declara('.detalle__nombre', 'overflow-wrap', 'anywhere')).toBe(true);
   });
+
+  // #74: con una cuadrícula de tres columnas fijas, el subtotal más grande se salía de su columna y se pegaba a la
+  // cantidad (999 y 99899990.01 se leían 99999899990.01). Lo que no cabe pasa a otra línea.
+  it('las filas apiladas pasan a otra línea lo que no cabe: flex con wrap, no una cuadrícula de columnas fijas (#74)', () => {
+    expect(declara('.v-data-table__mobile-table-row', 'display', 'flex')).toBe(true);
+    expect(declara('.v-data-table__mobile-table-row', 'flex-wrap', 'wrap')).toBe(true);
+    expect(css).not.toMatch(/grid-template-columns/);
+  });
 });

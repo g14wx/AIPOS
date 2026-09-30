@@ -297,8 +297,8 @@ Todas siguen el formato de error de la spec de arquitectura (RNF-05).
 | Estado | Cuerpo | Cuándo |
 |---|---|---|
 | 201 | `{ "ventaId": 15, "total": "47.50" }` | La venta y sus detalles quedaron guardados. `total` es el que calculó MySQL, como texto. |
-| 400 | `DATOS_INVALIDOS`, con `detalles` por campo (por ejemplo `{ "campo": "detalles[1].cantidad", "mensaje": "Debe ser un entero de 1 a 999." }`) | El cuerpo no cumple la tabla de arriba, incluida una lista vacía o un cuerpo que no es un objeto JSON. |
-| 400 | `JSON_INVALIDO` o `CUERPO_MUY_GRANDE` | JSON mal escrito, o un cuerpo de más de 100 kb (los da la spec de arquitectura). |
+| 400 | `DATOS_INVALIDOS`, con `detalles` por campo (por ejemplo `{ "campo": "detalles[1].cantidad", "mensaje": "Debe ser un entero de 1 a 999." }`) | El cuerpo no cumple la tabla de arriba, incluida una lista vacía, un cuerpo que falta o un arreglo en vez de un objeto. |
+| 400 | `JSON_INVALIDO` o `CUERPO_MUY_GRANDE` | JSON mal escrito, JSON que no es un objeto ni un arreglo (`null`, `5`, `"x"`: lo rechaza el lector de Express antes del validador) o un cuerpo de más de 100 kb (los da la spec de arquitectura). |
 | 404 | `NO_ENCONTRADO` | `GET /api/ventas` o cualquier otro verbo: la ruta solo acepta `POST`. |
 | 422 | El código del procedimiento, por ejemplo `PRODUCTO_NO_EXISTE` | El procedimiento rechazó la venta con `SQLSTATE 45000`. |
 | 500 | `ERROR_INTERNO` | Cualquier otro error, incluido que el procedimiento no exista. |
@@ -461,7 +461,8 @@ define la spec de armar la venta actual. `RegistrarVenta.vue` no toca `localStor
   de al lado dice lo mismo que la animación.
   `[@test] ../frontend/tests/componentes/AnimacionLottie.test.js`
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
-- En las pruebas, `lottie-web` se sustituye con `vi.mock`, porque jsdom no dibuja.
+- En las pruebas se sustituye con `vi.mock` la ruta exacta que importa `AnimacionLottie`,
+  `lottie-web/build/player/lottie_light`, porque jsdom no dibuja.
 - Patrón: Facade para `src/api/ventas.js` (los componentes no saben de rutas ni de axios), y Adapter para
   `AnimacionLottie.vue`, como en la spec de arquitectura. Para el componente de esta pantalla (deshabilitar el botón
   mientras se envía y mostrar éxito o error) ningún patrón del catálogo encaja: se resuelve con una marca `enviando` y un

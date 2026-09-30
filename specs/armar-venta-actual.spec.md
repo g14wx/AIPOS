@@ -32,7 +32,7 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 
 | Parte | Tarjeta | Qué se entrega |
 |---|---|---|
-| Módulo `src/ventaActual/`: `agregarAVentaActual`, subtotales, `calcularTotal`, `ventaActualEsValida`, `detallesParaRegistrar`, `vaciarVentaActual` | V-04 | Frontend |
+| Módulo `src/ventaActual/`: `agregarAVentaActual`, `ventaActualEsValida` y `detallesParaRegistrar`, más lo que B-04 ya dejó en `ventaActual.js` (`vaciarVentaActual`, `calcularSubtotal` y `calcularTotal`) | V-04 | Frontend |
 | `almacenamiento.js`: guardar la venta actual en el navegador, leerla al abrir y vaciarla | V-04 | Frontend |
 | `VentaActual.vue`: tabla de detalles, total siempre a la vista, venta actual vacía (con `venta-vacia.json`) y un botón provisional «Registrar venta» | V-04 | Frontend |
 | Conectar `producto-elegido` de `BuscadorProductos.vue` con `agregarAVentaActual` en `App.vue` | V-04 | Frontend |
@@ -41,7 +41,13 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 | `eliminarDetalle` y el botón «Eliminar» de cada detalle | V-07 | Frontend |
 
 - V-04 depende de P-05 (`BuscadorProductos.vue`, que emite `producto-elegido`) y de B-04 (`App.vue`, `AnimacionLottie.vue`,
-  `src/dinero.js`). V-05, V-06 y V-07 dependen de V-04.
+  `src/dinero.js`, `VentaActual.vue` y `src/ventaActual/ventaActual.js`). V-05, V-06 y V-07 dependen de V-04.
+- B-04 ya dejó en `src/ventaActual/ventaActual.js` `vaciarVentaActual`, `calcularSubtotal` y `calcularTotal`, con su prueba
+  `frontend/tests/venta-actual/venta-vacia.test.js`. V-04 agrega el resto a ese mismo archivo y no cambia lo que hacen
+  esas tres funciones.
+- B-04 ya dejó `VentaActual.vue` con la propiedad `ventaActual`, el texto «Busca un producto para empezar la venta» con un
+  ícono (`mdi-barcode-scan`) y el total `0.00` (`data-total`, `aria-live="polite"`), sin tabla ni botón. V-04 agrega la
+  tabla y el botón provisional, y cambia el ícono por la animación `venta-vacia.json`.
 - El botón «Registrar venta» de verdad lo hace V-08 (`RegistrarVenta.vue`, spec `registrar-venta`). V-04 deja en su lugar un
   botón provisional con el mismo texto que solo se deshabilita cuando la venta actual no es válida; V-08 lo reemplaza sin
   tocar el módulo (ver "Lo que V-08 espera de esta spec").
@@ -162,8 +168,8 @@ validarCantidad(valor)                             // { valido, valor | mensaje 
 - Un precio aplicado de `0.00` da subtotal `0.00`.
   `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 - El módulo depende de que `aCentavos` entienda cualquier texto con la forma del dinero, también sin decimales (`"22"` da
-  `2200`) y con uno (`"22.5"` da `2250`), y de que `formatearCentavos` complete los 2 decimales. La prueba de V-04 lo
-  comprueba; si `src/dinero.js` de B-04 no lo hace, V-04 lo corrige en el mismo PR y lo anota.
+  `2200`) y con uno (`"22.5"` da `2250`), y de que `formatearCentavos` complete los 2 decimales. `src/dinero.js` de B-04 ya lo
+  hace (lo prueba `dinero.test.js`), y la prueba de V-04 lo comprueba otra vez, por si un cambio lo rompe.
   `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 
 ### Validez, registro y vaciado (V-04)
@@ -428,7 +434,8 @@ cambió. Todo dentro de Vue 2 y Vuetify 2, con la paleta y los contrastes de la 
 - **Estados.** Vacío (con animación y el texto), con detalles, con un campo con error, enviando (campos deshabilitados) y
   el aviso de cantidad máxima. Cada uno se ve distinto sin depender solo del color.
 - **Teclado y foco.** Se llega a todo con Tab, en el orden de lectura de la fila (precio aplicado, «−», cantidad, «+»,
-  «Eliminar»). El foco se ve siempre: un anillo de 2 px en `#292F36` (contraste 13.26 con el fondo `#F7FFF7`; el
+  «Eliminar»). El foco se ve siempre: un anillo de 3 px en `#292F36`, con 2 px de separación, que ya pone `plugins/vuetify.css`
+  (contraste 13.26 con el fondo `#F7FFF7`; el
   turquesa `#4ECDC4` solo tiene 1.90 y no alcanza para un borde de foco, que pide 3 o más).
 - **Móvil.** Con 375 px de ancho no hay scroll horizontal. La tabla de Vuetify pasa a filas apiladas con la etiqueta de cada
   columna, y las zonas táctiles miden al menos 44 × 44 px.

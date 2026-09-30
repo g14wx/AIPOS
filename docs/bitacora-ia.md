@@ -61,6 +61,52 @@ Correcciones del 2026-09-30 (tarjeta E-01): la fila de S-01 decía 2 h 20 min y 
 | Entregable ventas: unir con ProductionEnv, probar en local, revisar con Codex e integrar (PR #96) | 59 min (13:53–14:52 del 30), hasta dejar el PR listo para integrar | 2 | 8 |
 | F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 27 min (13:55–15:05 y 15:08–15:25 del 30) | 1 | 9 |
 
+## Estimación contra tiempo real
+
+La estimación inicial sale de `requerimientos/04-entregables.md` y de la descripción de cada tarjeta en el tablero AIPOS («Estimación inicial», en horas, con el agente). El tiempo real es el que anota la entrada de cada tarjeta; en las de código va desde que el agente empieza hasta dejar el PR listo, con la revisión de Codex, el cierre y los cortes del sistema. La diferencia es el tiempo real menos la estimación: con «+», la tarjeta tardó más.
+
+| Tarjeta | Estimación inicial | Tiempo real | Diferencia | Entregable | Entradas |
+|---|---|---|---|---|---|
+| R-00 | 3 h | 2 h 31 min | -29 min | Preparación | [15:18 del 29](#2026-09-29-1518--requerimientos-diagramas-bpmn-y-tablero-aipos), [17:29 del 29](#2026-09-29-1729--pr-15-y-14-integrados-enlaces-en-el-tablero-aipos-y-cierre-de-r-00) |
+| T-01 y T-02 | 3 h | 39 min | -2 h 21 min | Preparación | [16:32 del 29](#2026-09-29-1632--tiles-mysql-sequelize-procedimientos-y-vue2-vuetify2-vite), [16:48 del 29](#2026-09-29-1648--revisión-de-codex-del-pr-9), [17:11 del 29](#2026-09-29-1711--pr-9-integrado-y-tiles-publicados) |
+| T-03 | 2 h | 2 h 20 min | +20 min | Preparación | [16:34 del 29](#2026-09-29-1634--grafo-del-proyecto-con-graphify-t-03), [22:49 del 29](#2026-09-29-2249--revisión-de-codex-del-pr-19), [23:19 del 29](#2026-09-29-2319--segunda-revisión-de-codex-del-pr-19), [00:36 del 30](#2026-09-30-0036--cierre-del-pr-19) |
+| S-01 | 2 h | 1 h 36 min | -24 min | Specs | [01:24 del 30](#2026-09-30-0124--s-01-spec-de-arquitectura) |
+| S-02 | 30 min | 4 h 33 min | +4 h 03 min | Specs | [04:59 del 30](#2026-09-30-0459--s-02-ajustes-de-las-specs-tras-la-revisión-cruzada) |
+| B-01 | 30 min | 15 min | -15 min | Base | [03:25 del 30](#2026-09-30-0325--b-01-preparar-github-y-crear-productionenv) |
+| B-02 | 1 h | 4 h 08 min | +3 h 08 min | Base | [04:35 del 30](#2026-09-30-0435--b-02-base-del-backend) |
+| B-03 | 1 h | 5 h 14 min | +4 h 14 min | Base | [04:42 del 30](#2026-09-30-0442--b-03-mysql-con-docker-compose-y-migraciones) |
+| B-04 | 1 h 30 min | 3 h 58 min | +2 h 28 min | Base | [04:21 del 30](#2026-09-30-0421--b-04-base-del-frontend-con-la-pantalla-única) |
+| A-01 | 1 h | 4 h 23 min | +3 h 23 min | Base | [04:46 del 30](#2026-09-30-0446--a-01-documentación-de-la-api-con-swagger-ui) |
+| D-01 | 4 h | 5 h 24 min | +1 h 24 min | D-01 | [04:21 del 30](#2026-09-30-0421--d-01-pipeline-de-despliegue-con-etiquetas-release--d-01) |
+| P-01 | 30 min | 3 h 09 min | +2 h 39 min | Productos | [07:00 del 30](#2026-09-30-0700--p-01-tabla-productos) |
+| P-02 | 1 h | 1 h 38 min | +38 min | Productos | [09:08 del 30](#2026-09-30-0908--p-02-api-para-crear-producto) |
+| P-03 | 1 h 30 min | 2 h 51 min | +1 h 21 min | Productos | [07:27 del 30](#2026-09-30-0727--p-03-botón-nuevo-producto-y-formulario) |
+| P-04 | 1 h | 1 h 15 min | +15 min | Productos | [09:08 del 30](#2026-09-30-0908--p-04-api-para-buscar-productos) |
+| P-05 | 1 h 30 min | 1 h 11 min | -19 min | Productos | [09:47 del 30](#2026-09-30-0947--p-05-campo-de-búsqueda-y-resultados) |
+| V-01 | 30 min | 45 min | +15 min | Ventas | [10:28 del 30](#2026-09-30-1028--v-01-tablas-ventas-y-detalles_venta) |
+| V-02 | 2 h | 1 h 06 min | -54 min | Ventas | [10:56 del 30](#2026-09-30-1056--v-02-procedimiento-sp_registrar_venta) |
+| V-03 | 1 h | 55 min | -5 min | Ventas | [11:41 del 30](#2026-09-30-1141--v-03-api-para-registrar-venta) |
+| V-04 | 1 h 30 min | 1 h 19 min | -11 min | Ventas | [10:34 del 30](#2026-09-30-1034--v-04-agregar-productos-a-la-venta-actual-y-ver-el-total) |
+| V-05 | 30 min | 1 h 53 min | +1 h 23 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-05-editar-el-precio-aplicado-de-un-producto-de-la-venta-actual) |
+| V-06 | 30 min | 1 h 24 min | +54 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-06-cambiar-la-cantidad-de-un-producto-de-la-venta-actual) |
+| V-07 | 30 min | 1 h 02 min | +32 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-07-eliminar-un-producto-de-la-venta-actual) |
+| V-08 | 1 h | 1 h 29 min | +29 min | Ventas | [12:18 del 30](#2026-09-30-1218--v-08-botón-registrar-venta-y-resultado) |
+| F-01 | 1 h | 1 h 27 min | +27 min | Sin entregable | [13:55 del 30](#2026-09-30-1355--f-01-corregir-los-issues-58-59-y-60-del-backend) |
+| E-01 | 30 min | en curso | — | Entrega final | — |
+| E-02 | 1 h 30 min | en curso | — | Entrega final | — |
+| E-03 | 1 h | pendiente | — | Entrega final | — |
+| Total (25 filas con tiempo real) | 33 h 30 min | 56 h 25 min | +22 h 55 min | | |
+
+Cómo se contó:
+
+- T-01 y T-02 se hicieron con dos agentes a la vez y comparten entradas, así que van en una fila: 39 min, que son 14, 22 y 3 de sus tres entradas. La versión 0.1.1 del tile de MySQL (12 min, en las entradas de las 20:35 y 20:45) no se suma.
+- T-03 suma la implementación (21:40–22:46), las dos revisiones de Codex del PR #19 y su cierre: 2 h 20 min. La planeación tuvo pausas y no se midió.
+- S-01 es la spec de arquitectura: no cuenta las dos planificaciones (42 min la de S-01 y 40 min la de la noche) ni las otras 6 specs de flujo, que no tienen estimación propia. D-01 tampoco cuenta su spec, que no se midió.
+- R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
+- F-01 es una tarjeta de corrección, sin entregable. E-01 es esta tarjeta y E-02 está en curso; sus tiempos los anotan sus entradas. E-03 está pendiente (estado del 2026-09-30 a las 15:36).
+
+Lo que se aprende: las 25 filas con tiempo real suman 56 h 25 min contra 33 h 30 min estimadas (1,7 veces), y la razón baja con cada entregable que siguió el mismo proceso: base 3,6, productos 1,8 y ventas 1,3. Las estimaciones de 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces, y ninguna tarjeta de backend, pantalla o base de datos tardó menos de 45 min (V-01, estimada en 30 min). La preparación sí tardó menos de lo estimado (0,7 veces).
+
 ## Entradas
 
 

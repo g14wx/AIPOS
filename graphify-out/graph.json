@@ -7638,6 +7638,126 @@
       "source_location": "L168"
     },
     {
+      "id": "tests_despliegue_arranque_local_test",
+      "label": "arranque-local.test.sh",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "arranque-local.test.sh",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_compose",
+      "label": "compose()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "compose()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L59"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_desplegar",
+      "label": "desplegar()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "desplegar()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_limpiar",
+      "label": "limpiar()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "limpiar()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L83"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_mysql_app",
+      "label": "mysql_app()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mysql_app()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L66"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "label": "restos_del_proyecto()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "restos_del_proyecto()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L79"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_sh__entry",
+      "label": "arranque-local.test.sh script",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "arranque-local.test.sh script",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_arranque_local_test_valor_env",
+      "label": "valor_env()",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "arranque-local.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "valor_env()",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L47"
+    },
+    {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
       "label": "saltos-de-linea.test.sh",
       "_origin": "ast",
@@ -7787,6 +7907,78 @@
       "context": "call",
       "source_file": "tests/arranque/agents-md.test.sh",
       "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_limpiar",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_mysql_app",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_desplegar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_mysql_app",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test_sh__entry",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -12585,6 +12777,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_caddy_test",
       "target": "tests_despliegue_caddy_test_sh__entry",
       "relation": "contains",
@@ -13088,6 +13291,72 @@
       "confidence_score": 1.0,
       "source_file": "tests/arranque/agents-md.test.sh",
       "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_valor_env",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_compose",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_mysql_app",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_desplegar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_restos_del_proyecto",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_arranque_local_test",
+      "target": "tests_despliegue_arranque_local_test_limpiar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/arranque-local.test.sh",
+      "source_location": "L83",
       "weight": 1.0
     },
     {

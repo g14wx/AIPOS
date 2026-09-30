@@ -1,7 +1,7 @@
 # Graph Report - spec-arquitectura  (2026-09-30)
 
 ## Corpus Check
-- 67 files · ~42,677 words
+- 67 files · ~42,781 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 

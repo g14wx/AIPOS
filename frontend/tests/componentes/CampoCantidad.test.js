@@ -560,6 +560,16 @@ describe('estilos del campo (skill impeccable, DESIGN.md)', () => {
     expect(declara('.v-input__slot', 'min-height', '2.75rem')).toBe(true);
   });
 
+  // #82: Vuetify fija el alto de un campo outlined compacto en 40 px con cinco clases de especificidad, y jsdom no calcula
+  // estilos para verlo: la regla de 44 px tiene que repetir esas clases o pierde.
+  it('la regla de 44 px repite las clases de los campos compactos de Vuetify para ganarle su 40 px (#82)', () => {
+    const regla = reglas.find(({ cuerpo }) => /min-height\s*:\s*2\.75rem/.test(cuerpo));
+    expect(regla).toBeDefined();
+    for (const clase of ['.v-text-field', '.v-input--dense', '.v-text-field--outlined']) {
+      expect(regla.selectores[0], clase).toContain(clase);
+    }
+  });
+
   it('los botones llevan el borde del campo en reposo: la tinta al 55 % (3.4 de contraste sobre blanco)', () => {
     expect(
       declara(

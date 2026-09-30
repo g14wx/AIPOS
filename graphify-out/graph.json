@@ -221,30 +221,6 @@
       "source_location": "L15"
     },
     {
-      "id": "backend_src_controllers_salud_obtenersalud",
-      "label": "obtenerSalud()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "obtenersalud()",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "backend_src_services_salud_consultarsalud",
-      "label": "consultarSalud()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "consultarsalud()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L8"
-    },
-    {
       "id": "backend_tests_base_de_datos_dinero_como_texto_test_contabladedinero",
       "label": "conTablaDeDinero()",
       "_callable": true,
@@ -485,6 +461,18 @@
       "source_location": "L12"
     },
     {
+      "id": "backend_src_controllers_salud_obtenersalud",
+      "label": "obtenerSalud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "obtenersalud()",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L5"
+    },
+    {
       "id": "backend_src_routes_index_crearrouterapi",
       "label": "crearRouterApi()",
       "_callable": true,
@@ -495,6 +483,18 @@
       "norm_label": "crearrouterapi()",
       "source_file": "backend/src/routes/index.js",
       "source_location": "L9"
+    },
+    {
+      "id": "backend_src_services_salud_consultarsalud",
+      "label": "consultarSalud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "consultarsalud()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L8"
     },
     {
       "id": "backend_tests_base_de_datos_conexion_test_consultar",
@@ -533,19 +533,19 @@
       "source_location": "L11"
     },
     {
-      "id": "specs_grafo_del_proyecto_spec",
-      "label": "grafo-del-proyecto.spec.md",
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
       "_origin": "ast",
       "community": 0,
       "community_name": "requerimientos/README.md",
       "file_type": "document",
       "frontmatter": {
-        "name": "Grafo del proyecto",
-        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
       },
       "node_kind": "page",
-      "norm_label": "grafo-del-proyecto.spec.md",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
     },
     {
@@ -606,6 +606,18 @@
       "node_kind": "page",
       "norm_label": "readme.md",
       "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
       "source_location": "L1"
     },
     {
@@ -1063,126 +1075,6 @@
       "norm_label": "requerimientos/readme.md",
       "source_file": "requerimientos/README.md",
       "source_location": "L1"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
-      "label": "Arranque de un clon nuevo",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "arranque de un clon nuevo",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L24"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
-      "label": "Hook de Claude Code",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hook de claude code",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L138"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
-      "label": "Hook de git `pre-commit`",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hook de git `pre-commit`",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L91"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
-      "label": "Proceso escrito",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "proceso escrito",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L186"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
-      "label": "Qu\u00e9 entra al grafo",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra al grafo",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L75"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
-      "label": "Qu\u00e9 no se usa",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se usa",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L178"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
-      "label": "Qu\u00e9 va a git",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que va a git",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L66"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
-      "label": "Regla del tile `grafo-del-proyecto`",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "regla del tile `grafo-del-proyecto`",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L153"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
-      "label": "Versi\u00f3n de Graphify",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "version de graphify",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L58"
     },
     {
       "id": "readme_aipos",
@@ -3103,22 +2995,6 @@
       "source_location": "L11"
     },
     {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
-    },
-    {
       "id": "specs_arquitectura_spec_arquitectura_de_aipos",
       "label": "Arquitectura de AIPOS",
       "_origin": "ast",
@@ -4616,18 +4492,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
       "id": "requerimientos_01_alcance_actores_y_partes",
       "label": "Actores y partes",
       "_origin": "ast",
@@ -5288,28 +5152,6 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_src_controllers_salud",
-      "label": "controllers/salud.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "controllers/salud.js",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_controllers_salud_consultarsalud",
-      "label": "{ consultarSalud }",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "{ consultarsalud }",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L3"
-    },
-    {
       "id": "backend_src_database",
       "label": "database.js",
       "_origin": "ast",
@@ -5362,28 +5204,6 @@
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/index.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_src_services_salud",
-      "label": "services/salud.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "services/salud.js",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_services_salud_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.test.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/src/services/salud.js",
       "source_location": "L3"
     },
     {
@@ -5727,6 +5547,142 @@
       "source_location": "L4"
     },
     {
+      "id": "specs_grafo_del_proyecto_spec",
+      "label": "grafo-del-proyecto.spec.md",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Grafo del proyecto",
+        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
+      },
+      "node_kind": "page",
+      "norm_label": "grafo-del-proyecto.spec.md",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
+      "label": "Arranque de un clon nuevo",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "arranque de un clon nuevo",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
+      "label": "Hook de Claude Code",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hook de claude code",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L138"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
+      "label": "Hook de git `pre-commit`",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hook de git `pre-commit`",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L91"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
+      "label": "Proceso escrito",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "proceso escrito",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L186"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
+      "label": "Qu\u00e9 entra al grafo",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra al grafo",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
+      "label": "Qu\u00e9 no se usa",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se usa",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L178"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
+      "label": "Qu\u00e9 va a git",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que va a git",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L66"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
+      "label": "Regla del tile `grafo-del-proyecto`",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "regla del tile `grafo-del-proyecto`",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L153"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
+      "label": "Versi\u00f3n de Graphify",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "version de graphify",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L58"
+    },
+    {
       "id": "backend_tests_base_de_datos_ayudas",
       "label": "ayudas.js",
       "_origin": "ast",
@@ -5868,50 +5824,6 @@
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/migraciones.test.js",
       "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_salud_con_base_test",
-      "label": "salud-con-base.test.js",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "salud-con-base.test.js",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L9"
     },
     {
       "id": "backend_tests_env_example_test",
@@ -6156,6 +6068,28 @@
       "source_location": "L7"
     },
     {
+      "id": "backend_src_controllers_salud",
+      "label": "controllers/salud.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "controllers/salud.js",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_controllers_salud_consultarsalud",
+      "label": "{ consultarSalud }",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "{ consultarsalud }",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L3"
+    },
+    {
       "id": "backend_src_routes_index",
       "label": "routes/index.js",
       "_origin": "ast",
@@ -6233,6 +6167,28 @@
       "source_location": "L3"
     },
     {
+      "id": "backend_src_services_salud",
+      "label": "services/salud.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "services/salud.js",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_services_salud_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L3"
+    },
+    {
       "id": "backend_tests_base_de_datos_conexion_test",
       "label": "conexion.test.js",
       "_origin": "ast",
@@ -6264,6 +6220,50 @@
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/conexion.test.js",
       "source_location": "L5"
+    },
+    {
+      "id": "backend_tests_base_de_datos_salud_con_base_test",
+      "label": "salud-con-base.test.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "salud-con-base.test.js",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_salud_con_base_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_base_de_datos_salud_con_base_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L10"
     },
     {
       "id": "backend_tests_cabeceras_test",
@@ -7017,18 +7017,6 @@
       "type": "external"
     },
     {
-      "id": "ref_node_net",
-      "label": "ref_node_net",
-      "_origin": "semantic",
-      "community": 65,
-      "community_name": "migraciones.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_net",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_node_path",
       "label": "ref_node_path",
       "_origin": "semantic",
@@ -7049,6 +7037,29 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_module",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_net",
+      "label": "ref_node_net",
+      "_origin": "semantic",
+      "community": 67,
+      "community_name": "app.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_net",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_util",
+      "label": "ref_node_util",
+      "community": 67,
+      "community_name": "app.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_util",
       "source_file": "",
       "type": "external"
     }
@@ -7703,6 +7714,18 @@
       "weight": 1.0
     },
     {
+      "source": "backend_tests_base_de_datos_salud_con_base_test",
+      "target": "backend_tests_base_de_datos_salud_con_base_test_require",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "backend_tests_config_test",
       "target": "backend_tests_config_test_require",
       "relation": "contains",
@@ -8233,6 +8256,18 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
+      "target": "backend_src_services_salud_consultarsalud",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_salud_con_base_test",
       "target": "backend_tests_base_de_datos_ayudas_carpetabackend",
       "relation": "imports",
       "_origin": "ast",
@@ -8240,7 +8275,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -9001,7 +9036,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_src_app",
+      "target": "backend_src_database",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9009,6 +9044,30 @@
       "context": "import",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_salud_con_base_test",
+      "target": "backend_src_app",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_salud_con_base_test",
+      "target": "backend_src_services_salud",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -9049,7 +9108,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "ref_node_module",
+      "target": "ref_node_util",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9061,7 +9120,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_tests_base_de_datos_ayudas",
+      "target": "ref_node_module",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9073,14 +9132,14 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_src_database",
+      "target": "backend_tests_base_de_datos_ayudas",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L9",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -10931,7 +10990,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_tests_base_de_datos_salud_con_base_test_app",
+      "target": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10942,24 +11001,13 @@
     },
     {
       "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_tests_base_de_datos_salud_con_base_test_require",
+      "target": "backend_tests_base_de_datos_salud_con_base_test_app",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_base_de_datos_salud_con_base_test",
-      "target": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0
     },
     {

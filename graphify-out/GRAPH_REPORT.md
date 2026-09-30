@@ -1,12 +1,12 @@
 # Graph Report - b-03  (2026-09-30)
 
 ## Corpus Check
-- 104 files · ~52,569 words
+- 104 files · ~52,855 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 585 nodes · 712 edges · 66 communities (31 shown, 35 thin omitted)
+- 586 nodes · 715 edges · 67 communities (32 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -21,6 +21,7 @@
 - Trabajar en un tile
 - Requerimientos funcionales
 - Requerimientos no funcionales
+- Grafo del proyecto
 - Flujo de un entregable
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
@@ -98,11 +99,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (66 total, 35 thin omitted)
+## Communities (67 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.05
-Nodes (37): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+29 more)
+Cohesion: 0.07
+Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
 
 ### Community 1 - "AIPOS"
 Cohesion: 0.22
@@ -123,6 +124,10 @@ Nodes (14): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 ### Community 5 - "Requerimientos no funcionales"
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
+
+### Community 6 - "Grafo del proyecto"
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -197,7 +202,7 @@ Cohesion: 0.13
 Nodes (19): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+11 more)
 
 ### Community 44 - "Alcance"
-Cohesion: 0.20
+Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 45 - "src/config.js"
@@ -205,8 +210,8 @@ Cohesion: 0.11
 Nodes (24): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), crearBaseDePrueba(), cargarArchivoEnv(), cargarConfig(), dotenv (+16 more)
 
 ### Community 52 - "database.test.js"
-Cohesion: 0.08
-Nodes (20): { consultarSalud }, obtenerSalud(), { config }, { Sequelize }, sequelize, consultarSalud(), sequelize, app (+12 more)
+Cohesion: 0.10
+Nodes (16): { config }, { Sequelize }, sequelize, app, { config }, servidor, { DataTypes }, require (+8 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -218,28 +223,28 @@ Nodes (3): printWidth, singleQuote, trailingComma
 
 ### Community 65 - "migraciones.test.js"
 Cohesion: 0.06
-Nodes (33): carpetaBackend, carpetaRaiz, correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), consultar(), permisosDelUsuario() (+25 more)
+Nodes (30): carpetaBackend, carpetaRaiz, correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), consultar(), permisosDelUsuario() (+22 more)
 
 ### Community 67 - "app.js"
-Cohesion: 0.06
-Nodes (38): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+30 more)
+Cohesion: 0.05
+Nodes (45): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+37 more)
 
 ## Knowledge Gaps
 - **324 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+319 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 379 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 380 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`?**
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
   _High betweenness centrality (0.131) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
   _High betweenness centrality (0.127) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _324 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.053109713487071976 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0696969696969697 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

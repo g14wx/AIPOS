@@ -1,7 +1,8 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import request from 'supertest';
 import net from 'node:net';
-import { execFileSync } from 'node:child_process';
+import { execFile, execFileSync } from 'node:child_process';
+import { promisify } from 'node:util';
 import { createRequire } from 'node:module';
 import { carpetaBackend } from './ayudas.js';
 
@@ -100,5 +101,68 @@ describe('GET /api/salud con la base de datos abajo', () => {
     expect(resultado.cuerpo.error.codigo).toBe('ERROR_INTERNO');
     expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puertoLibre));
     expect(resultado.otra).toBe(404);
+  }, 30_000);
+});
+
+// Issue #39: con MySQL congelado (acepta la conexión pero no contesta), authenticate() esperaba sin fin
+// y GET /api/salud se quedaba colgada. Ahora espera lo justo y responde 500.
+describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
+  const { consultarSalud } = require('../../src/services/salud.js');
+  const correr = promisify(execFile);
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('consultarSalud rechaza cuando pasa el tiempo que se le da, en vez de esperar sin fin', async () => {
+    vi.spyOn(sequelize, 'authenticate').mockReturnValue(new Promise(() => {}));
+    const inicio = Date.now();
+    await expect(consultarSalud(50)).rejects.toThrow(/no contest/i);
+    expect(Date.now() - inicio).toBeLessThan(2000);
+  }, 5_000);
+
+  it('cuando MySQL contesta a tiempo no deja un temporizador pendiente', async () => {
+    vi.useFakeTimers();
+    vi.spyOn(sequelize, 'authenticate').mockResolvedValue(undefined);
+    await expect(consultarSalud()).resolves.toEqual({ estado: 'ok', baseDeDatos: 'ok' });
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('con un MySQL callado de verdad, responde 500 en pocos segundos y la API sigue viva', async () => {
+    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado.
+    const conexiones = [];
+    const callado = net.createServer((socket) => conexiones.push(socket));
+    const puerto = await new Promise((resolve) => {
+      callado.listen(0, '127.0.0.1', () => resolve(callado.address().port));
+    });
+    const programa = `
+      const request = require('supertest');
+      const app = require('./src/app.js');
+      (async () => {
+        const inicio = Date.now();
+        const respuesta = await request(app).get('/api/salud');
+        const milisegundos = Date.now() - inicio;
+        const otra = await request(app).get('/api/no-existe');
+        console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, milisegundos, otra: otra.status }));
+        process.exit(0);
+      })();
+    `;
+    try {
+      const { stdout } = await correr('node', ['-e', programa], {
+        cwd: carpetaBackend,
+        env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(puerto) },
+        encoding: 'utf8',
+        timeout: 25_000,
+      });
+      const resultado = JSON.parse(stdout.trim().split('\n').pop());
+      expect(resultado.estado).toBe(500);
+      expect(resultado.cuerpo.error.codigo).toBe('ERROR_INTERNO');
+      expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puerto));
+      expect(resultado.milisegundos).toBeLessThan(6000);
+      expect(resultado.otra).toBe(404);
+    } finally {
+      conexiones.forEach((socket) => socket.destroy());
+      callado.close();
+    }
   }, 30_000);
 });

@@ -410,7 +410,7 @@
       "file_type": "code",
       "norm_label": "botoneliminar()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L65"
+      "source_location": "L70"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_botones",
@@ -422,7 +422,7 @@
       "file_type": "code",
       "norm_label": "botones()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L61"
+      "source_location": "L66"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_botonregistrar",
@@ -434,7 +434,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L67"
+      "source_location": "L72"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_celdas",
@@ -446,7 +446,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L58"
+      "source_location": "L59"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_clic",
@@ -458,7 +458,7 @@
       "file_type": "code",
       "norm_label": "clic()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L363"
+      "source_location": "L368"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
@@ -470,7 +470,7 @@
       "file_type": "code",
       "norm_label": "eliminarconelfocoenelboton()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L249"
+      "source_location": "L254"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_emitidas",
@@ -482,7 +482,7 @@
       "file_type": "code",
       "norm_label": "emitidas()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L70"
+      "source_location": "L75"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_estadeshabilitado",
@@ -494,7 +494,7 @@
       "file_type": "code",
       "norm_label": "estadeshabilitado()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L69"
+      "source_location": "L74"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_etiqueta",
@@ -506,7 +506,7 @@
       "file_type": "code",
       "norm_label": "etiqueta()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L60"
+      "source_location": "L65"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_filas",
@@ -542,7 +542,7 @@
       "file_type": "code",
       "norm_label": "observadorfalso()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L318"
+      "source_location": "L323"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_reemplazarconlaemitida",
@@ -554,7 +554,7 @@
       "file_type": "code",
       "norm_label": "reemplazarconlaemitida()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L73"
+      "source_location": "L78"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_teclear",
@@ -566,7 +566,7 @@
       "file_type": "code",
       "norm_label": "teclear()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L410"
+      "source_location": "L415"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_total",
@@ -578,7 +578,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L59"
+      "source_location": "L64"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_venta",
@@ -21563,6 +21563,18 @@
       "type": "external"
     },
     {
+      "id": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
+      "label": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
+      "_origin": "semantic",
+      "community": 103,
+      "community_name": "App.vue",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "frontend_src_assets_animaciones_buscando",
       "label": "frontend_src_assets_animaciones_buscando",
       "_origin": "semantic",
@@ -21751,17 +21763,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_util",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
-      "label": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
-      "community": 103,
-      "community_name": "App.vue",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_ventaactual_ventaactual_cantidad_maxima",
       "source_file": "",
       "type": "external"
     }
@@ -25292,7 +25293,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L66",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -25304,7 +25305,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L66",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -25316,7 +25317,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L365",
+      "source_location": "L370",
       "weight": 1.0
     },
     {
@@ -25328,7 +25329,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L250",
+      "source_location": "L255",
       "weight": 1.0
     },
     {
@@ -25340,7 +25341,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L253",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -25352,7 +25353,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L74",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -25364,7 +25365,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L412",
+      "source_location": "L417",
       "weight": 1.0
     },
     {
@@ -28520,7 +28521,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L249",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -28532,7 +28533,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L318",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -28544,7 +28545,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L363",
+      "source_location": "L368",
       "weight": 1.0
     },
     {
@@ -28556,7 +28557,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L410",
+      "source_location": "L415",
       "weight": 1.0
     },
     {
@@ -28592,7 +28593,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -28604,7 +28605,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L59",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -28616,7 +28617,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L60",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -28628,7 +28629,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L61",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -28640,7 +28641,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L65",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -28652,7 +28653,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L67",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -28664,7 +28665,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L69",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -28676,7 +28677,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L70",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -28688,7 +28689,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -54755,7 +54756,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L185",
+      "source_location": "L190",
       "weight": 1.0
     },
     {

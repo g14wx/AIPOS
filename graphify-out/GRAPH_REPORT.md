@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 102 files · ~99,650 words
+- 102 files · ~104,944 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 22 file(s) not represented in the graph (top: (none) 10, .drawio 8, .caddy 2)
 
 ## Summary
-- 659 nodes · 710 edges · 86 communities (42 shown, 44 thin omitted)
+- 662 nodes · 721 edges · 86 communities (42 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -23,7 +23,7 @@
 - Buscar producto
 - Crear producto
 - Flujo de un entregable
-- desplegar.sh
+- Configurar el MCP de Trello
 - saltos-de-linea.test.sh
 - Tarjetas
 - Armar la venta actual
@@ -71,34 +71,34 @@
 - Despliegue de AIPOS
 - Alcance
 - despliegue/comun.sh
-- crear-env.test.sh
+- desplegar.sh
+- revisar-produccion.sh
+- Despliegue de AIPOS
+- arranque-local.test.sh
 - instalar-caddy.test.sh
+- imagenes.test.sh
+- Lenguaje ubicuo — AIPOS
+- instalar-caddy.sh
+- revisar-produccion.test.sh
+- compose-produccion.test.sh
+- crear-env.test.sh
+- crear-env.sh
 - desplegar-migracion-falla.test.sh
 - desplegar-sin-imagen.test.sh
+- documentos.test.sh
+- etiqueta-en-produccionenv.test.sh
+- github-environment-y-etiquetas.test.sh
+- sin-datos-privados.test.sh
+- volver-dos-veces.test.sh
 - volver-si-falla-la-salud.test.sh
+- workflow.test.sh
+- revisar-etiqueta.sh
+- caddy.test.sh
 - desplegar-en-fila.test.sh
 - desplegar-ok.test.sh
-- volver-primer-despliegue.test.sh
-- revisar-produccion.test.sh
-- volver-dos-veces.test.sh
-- caddy.test.sh
-- etiqueta-en-produccionenv.test.sh
 - etiqueta-release.test.sh
-- workflow.test.sh
-- sin-datos-privados.test.sh
-- github-environment-y-etiquetas.test.sh
-- compose-produccion.test.sh
-- revisar-produccion.sh
-- Configurar el MCP de Trello
 - sin-borrar-datos.test.sh
-- imagenes.test.sh
-- documentos.test.sh
-- arranque-local.test.sh
-- crear-env.sh
-- revisar-etiqueta.sh
-- Despliegue de AIPOS
-- instalar-caddy.sh
-- Lenguaje ubicuo — AIPOS
+- volver-primer-despliegue.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -152,9 +152,9 @@ Nodes (25): Al crear el producto, Bugs, Contrato, Crear producto, Criterios de a
 Cohesion: 0.18
 Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entregable, 2. Trabajar, 3. Abrir el PR, 4. Revisar antes de integrar, 5. Integrar, 6. Etiquetar, 7. Entrega final (+2 more)
 
-### Community 8 - "desplegar.sh"
-Cohesion: 0.31
-Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), desplegar(), escribir_estado(), esperar_200(), fallar() (+9 more)
+### Community 8 - "Configurar el MCP de Trello"
+Cohesion: 0.18
+Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
 
 ### Community 10 - "Tarjetas"
 Cohesion: 0.17
@@ -229,8 +229,8 @@ Cohesion: 0.07
 Nodes (26): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Archivos, Bugs y issues, Contrato del componente, Criterios de aceptación de V-02, Criterios de aceptación de V-03 (+18 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
-Cohesion: 0.90
-Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
+Cohesion: 0.71
+Nodes (7): debe_decir(), falla(), ok(), revisar(), spec-arquitectura.test.sh script, unido(), ya_no_debe_decir()
 
 ### Community 55 - "Despliegue de AIPOS"
 Cohesion: 0.08
@@ -244,49 +244,49 @@ Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PD
 Cohesion: 0.10
 Nodes (15): comprobar(), crear_dobles(), crear_repo_de_mentira(), crear_version(), estar_corriendo(), falla(), igual(), marcar_imagen() (+7 more)
 
-### Community 58 - "crear-env.test.sh"
-Cohesion: 0.67
-Nodes (3): AIPOS_RAIZ, crear-env.test.sh script, valor()
+### Community 58 - "desplegar.sh"
+Cohesion: 0.31
+Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), desplegar(), escribir_estado(), esperar_200(), fallar() (+9 more)
 
-### Community 59 - "instalar-caddy.test.sh"
+### Community 59 - "revisar-produccion.sh"
+Cohesion: 0.33
+Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
+
+### Community 60 - "Despliegue de AIPOS"
+Cohesion: 0.22
+Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace, Qué es y para qué sirve (+1 more)
+
+### Community 61 - "arranque-local.test.sh"
+Cohesion: 0.46
+Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto(), arranque-local.test.sh script
+
+### Community 62 - "instalar-caddy.test.sh"
 Cohesion: 0.32
 Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.test.sh script
+
+### Community 63 - "imagenes.test.sh"
+Cohesion: 0.38
+Nodes (3): leer(), imagenes.test.sh script, uso()
+
+### Community 64 - "Lenguaje ubicuo — AIPOS"
+Cohesion: 0.33
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+
+### Community 65 - "instalar-caddy.sh"
+Cohesion: 0.60
+Nodes (3): codigos(), fallar(), instalar-caddy.sh script
 
 ### Community 66 - "revisar-produccion.test.sh"
 Cohesion: 0.70
 Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 
-### Community 74 - "compose-produccion.test.sh"
+### Community 67 - "compose-produccion.test.sh"
 Cohesion: 0.83
 Nodes (3): compose_config(), dato(), compose-produccion.test.sh script
 
-### Community 75 - "revisar-produccion.sh"
-Cohesion: 0.33
-Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
-
-### Community 76 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
-
-### Community 78 - "imagenes.test.sh"
-Cohesion: 0.38
-Nodes (3): leer(), imagenes.test.sh script, uso()
-
-### Community 80 - "arranque-local.test.sh"
-Cohesion: 0.46
-Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto(), arranque-local.test.sh script
-
-### Community 83 - "Despliegue de AIPOS"
-Cohesion: 0.22
-Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace, Qué es y para qué sirve (+1 more)
-
-### Community 84 - "instalar-caddy.sh"
-Cohesion: 0.60
-Nodes (3): codigos(), fallar(), instalar-caddy.sh script
-
-### Community 85 - "Lenguaje ubicuo — AIPOS"
-Cohesion: 0.33
-Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+### Community 68 - "crear-env.test.sh"
+Cohesion: 0.67
+Nodes (3): AIPOS_RAIZ, crear-env.test.sh script, valor()
 
 ## Knowledge Gaps
 - **371 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+366 more)

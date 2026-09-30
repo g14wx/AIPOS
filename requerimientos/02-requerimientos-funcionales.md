@@ -71,13 +71,15 @@ precio. Si ya estaba, su cantidad sube en 1.
 
 - **Origen:** PDF §3, "los productos agregados a la venta actual". La cantidad es decisión de la persona
   desarrolladora (2026-09-29).
-- **Reglas:** RN-05, RN-07.
+- **Reglas:** RN-05, RN-07, RN-14.
 
 Criterios de aceptación:
 1. Dada una venta actual vacía, cuando el cajero agrega la leche (precio 25.00), entonces aparece un detalle:
    leche, precio aplicado 25.00, cantidad 1, subtotal 25.00.
 2. Dada la leche ya en la venta actual, cuando la agrega otra vez, entonces sigue habiendo un solo detalle de
    leche, ahora con cantidad 2.
+3. Dada una venta actual con 100 detalles, cuando el cajero elige un producto que no está en ella, entonces no se
+   agrega y la pantalla avisa que una venta puede tener como máximo 100 productos (RN-14).
 
 ## RF-04 Ver los detalles de la venta actual
 
@@ -158,7 +160,7 @@ procedimiento almacenado (RF-11). La pantalla muestra el número de la venta y e
 venta actual queda vacía.
 
 - **Origen:** PDF §3, "La venta debe poder guardarse y persistirse en la base de datos".
-- **Reglas:** RN-08 a RN-12.
+- **Reglas:** RN-08 a RN-12 y RN-14.
 
 Criterios de aceptación:
 1. Dada una venta actual con 2 detalles válidos, cuando el cajero la registra, entonces hay 1 fila nueva en
@@ -208,7 +210,7 @@ y devuelve el número de la venta y el total. Si algo falla, deshace todo (`ROLL
 
 - **Origen:** PDF §5, "Procedimiento almacenado MySQL - obligatorio", y "Tecnologías requeridas": "Al menos un
   procedimiento almacenado MySQL utilizado realmente por la solución".
-- **Reglas:** RN-08, RN-10, RN-11, RN-12.
+- **Reglas:** RN-08, RN-10, RN-11, RN-12, RN-14.
 
 Criterios de aceptación:
 1. El script SQL está en el repositorio. Se crea con una migración y también con el cliente `mysql`, siguiendo
@@ -250,3 +252,4 @@ la base de datos la protege.
 | RN-11 | Registrar venta es todo o nada: si falla un detalle, no se guarda nada de esa venta. | Glosario |
 | RN-12 | Cada venta guarda su fecha, y la pone la base de datos. | Propuesta |
 | RN-13 | Un producto que está en una venta no se puede borrar. | Propuesta; AIPOS no borra productos, pero la base lo protege igual |
+| RN-14 | Una venta tiene como máximo 100 detalles. Con 100 detalles de 999 unidades a 99 999.99, el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. La pantalla no agrega el detalle 101, la API responde 400 y el procedimiento almacenado rechaza la venta con `DEMASIADOS_DETALLES`. | Propuesta de la spec de registrar venta; resuelta el 2026-09-30 por el orquestador (pregunta abierta 9 de `README.md`), y la persona desarrolladora puede confirmarla o revertirla |

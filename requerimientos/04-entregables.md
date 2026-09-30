@@ -35,7 +35,7 @@ Cada tarjeta trae:
 1. **Requerimientos** (esta carpeta), en la rama `docs/requerimientos` hacia `main`.
 2. **Tiles de Tessl** que faltan, en la rama `chore/tiles-mysql-vue2` hacia `main` (PR #9), antes del código.
 3. **ProductionEnv**: se crea desde `main` cuando ya tiene los tiles y los requerimientos.
-4. **Entregable base**: backend, base de datos y frontend vacíos, en `feature/base`.
+4. **Entregable base**: backend, base de datos y frontend vacíos, y la documentación de la API (A-01), en `feature/base`.
 5. **Entregable productos**, en `feature/productos`.
 6. **Entregable ventas**, en `feature/ventas`.
 7. **Entrega final**: bitácora, README y prueba desde cero, en `docs/entrega-final`, y después el PR de

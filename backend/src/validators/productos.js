@@ -9,8 +9,10 @@ const LARGO_DEL_NOMBRE = 120;
 const LARGO_DEL_CODIGO_DE_BARRAS = 50;
 
 // Un cuerpo que falta (petición sin Content-Type: application/json: en Express 5, req.body llega undefined) o que
-// no es un objeto se trata como un cuerpo vacío: el 400 sale con los tres campos obligatorios y no como un error de
-// JavaScript, que sería un 500. Un arreglo tampoco es un cuerpo de producto.
+// es un arreglo se trata como un cuerpo vacío: el 400 sale con los tres campos obligatorios y no como un error de
+// JavaScript, que sería un 500. Por la API no llega un JSON que no sea objeto ni arreglo (null, 5, "x"): el lector de
+// Express lo rechaza antes como 400 JSON_INVALIDO (spec crear-producto, "Contrato"). Si otro código llama al
+// validador con uno, también se trata como un cuerpo vacío.
 function comoObjeto(cuerpo) {
   return cuerpo !== null && typeof cuerpo === 'object' && !Array.isArray(cuerpo) ? cuerpo : {};
 }

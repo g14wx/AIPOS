@@ -1,7 +1,7 @@
 # Graph Report - p-02  (2026-09-30)
 
 ## Corpus Check
-- 201 files · ~145,081 words
+- 201 files · ~145,118 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
@@ -618,7 +618,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `production()` connect `production` to `Despliegue de AIPOS`, `AIPOS`, `Lenguaje ubicuo — AIPOS`, `Flujo 07 · Desplegar una versión`, `src/config.js`?**
   _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **Why does `total()` connect `total` to `Lenguaje ubicuo — AIPOS`, `down`, `Armar la venta actual`, `MySQL stored procedure authoring`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+  _High betweenness centrality (0.056) - this node is a cross-community bridge._
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `down`, `errorHandler.js`?**
   _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**

@@ -91,9 +91,10 @@ de ningún paquete: en varios de estos, `latest` rompe el proyecto (Vue 3, Vueti
 
 Comprobado en local (2026-09-30, con Node 26.9): Vitest 5.0.2 corre pruebas de un backend en CommonJS, sea con
 `import` o con `require`; y corre pruebas de componentes de Vue 2 con `@vitejs/plugin-vue2` 2.3.4, `@vue/test-utils`
-1.3.6, jsdom 30.1.1 y Vuetify 2.7.2, sin configuración extra. `lottie-web` no carga en jsdom (falla al pedir un
-lienzo), por eso las pruebas lo sustituyen con `vi.mock`. Las pruebas mínimas de B-02 y de B-04 dejan eso escrito
-como prueba, para que un cambio de versión lo avise.
+1.3.6, jsdom 30.1.1 y Vuetify 2.7.2, con un alias solo para las pruebas (ver "Frontend"). `lottie-web` no carga en
+jsdom (falla al pedir un lienzo), por eso las pruebas sustituyen con `vi.mock` la ruta exacta que importa
+`AnimacionLottie`, `lottie-web/build/player/lottie_light`: `vi.mock('lottie-web')` no la cubre. Las pruebas mínimas de
+B-02 y de B-04 dejan eso escrito como prueba, para que un cambio de versión lo avise.
 
 - Si una tarjeta necesita otro paquete, primero lo consulta con `npm view`, lo fija exacto y lo anota en su PR.
 - `express-validator`, `joi`, `zod`, `morgan`, `winston` y `pinia` o `vuex` no entran: no hacen falta (ver
@@ -479,9 +480,9 @@ de producto se abre en un modal (una ventana encima de la pantalla). No hay `vue
 frontend/
   package.json  package-lock.json  index.html  vite.config.js  eslint.config.js  .prettierrc.json
   src/
-    main.js                   Vue.use(Vuetify) y new Vue(...).$mount('#app')
+    main.js                   new Vue({ vuetify, ... }).$mount('#app'), con el tema de plugins/vuetify.js
     App.vue                   <v-app> con <v-main>: es la única pantalla
-    plugins/vuetify.js        el tema: la paleta
+    plugins/vuetify.js        Vue.use(Vuetify) y el tema: la paleta, los íconos MDI y el español (vuetify.css afina el resto)
     api/                      http.js y un archivo por recurso: productos.js, ventas.js
     ventaActual/              la lógica de la venta actual, sin componentes
     components/               los componentes de Vue, en PascalCase
@@ -496,9 +497,13 @@ frontend/
   configuración usan `import`.
 - `vite.config.js` usa `@vitejs/plugin-vue2`, el alias `vue` → `vue/dist/vue.esm.js`, `dedupe: ['vue']`,
   `envDir: '..'` y `server.port` con `FRONTEND_PORT` (con `strictPort: true`, para que el puerto que ve `CORS_ORIGIN`
-  sea el real). El bloque `test` pone `environment: 'jsdom'`.
-- El arranque es `Vue.use(Vuetify)` y `new Vue({ vuetify, render: (h) => h(App) }).$mount('#app')`. Nunca
-  `createApp`, ni `createVuetify`, ni `vite-plugin-vuetify`.
+  sea el real). El bloque `test` pone `environment: 'jsdom'`, `include: ['tests/**/*.test.js']` y un alias solo para las
+  pruebas, `vue` → `vue/dist/vue.runtime.common.js`: Vuetify y `@vue/test-utils` piden `vue` con `require`, y sin ese alias
+  las pruebas cargarían dos copias de Vue y Vuetify avisaría "Multiple instances of Vue detected" (lo vigila
+  `vitest-vue2.test.js`).
+- El arranque es `Vue.use(Vuetify)`, que vive en `plugins/vuetify.js` junto con el tema (ese archivo exporta la instancia
+  de Vuetify), y `new Vue({ vuetify, render: (h) => h(App) }).$mount('#app')`, en `main.js`. Nunca `createApp`, ni
+  `createVuetify`, ni `vite-plugin-vuetify`.
 - Vuetify 2: las columnas de tabla son `{ text, value }`, las ranuras son `#item.<value>="{ item }"`, y los
   activadores `#activator="{ on, attrs }"`. Las propiedades de Vuetify 3 (`variant`, `density`, `item-title`) no
   hacen nada.
@@ -506,18 +511,22 @@ frontend/
   nuevo. Un componente tiene un solo elemento raíz. Nada de `v-html` con datos del cajero (RNF-04).
 - Los scripts de `package.json` del frontend: `dev` (`vite`), `build` (`vite build`), `preview` (`vite preview`),
   `test` (`vitest run`), `test:vigilar` (`vitest`), `lint`, `format` y `format:check`, como en el backend.
+- Las tres zonas de `App.vue` llevan `data-zona="nuevo-producto"`, `"busqueda"` y `"venta-actual"`, y el total de
+  `VentaActual.vue` lleva `data-total`. `pantalla-unica.test.js` exige esas zonas, en ese orden: quien agregue o mueva una
+  zona actualiza esa prueba.
 
 `[@test] ../frontend/tests/pantalla-unica.test.js`
 `[@test] ../frontend/tests/vitest-vue2.test.js`
 
 ### Servicio de API
 
-- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` y un tiempo
-  máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error` con `status`, `codigo`,
+- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` (sin barras al final de
+  `VITE_API_URL`) y un tiempo máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error` con `status`, `codigo`,
   `mensaje` y `detalles`, leídos del formato de error de la API; `detalles` es un arreglo vacío si la API no manda
   ninguno. Si no hubo respuesta (sin red, servidor apagado o pasaron los 10 segundos), `status` vale 0, `codigo`
   `SIN_CONEXION` y `mensaje` "No se pudo conectar con el servidor. Intenta de nuevo." Si hubo respuesta pero no trae el
-  formato de error (por ejemplo, el HTML de un 502), `codigo` es `ERROR_INTERNO` y `mensaje` "Ocurrió un error
+  formato de error (por ejemplo, el HTML de un 502), el `status` es el de la respuesta (un 502 queda 502), `codigo` es
+  `ERROR_INTERNO` y `mensaje` "Ocurrió un error
   inesperado. Intenta de nuevo." El mensaje nunca muestra la dirección del servidor ni el texto de axios.
 - `src/api/productos.js` y `src/api/ventas.js` exportan una función por operación, con nombres del glosario:
   `crearProducto`, `buscarProductos`, `registrarVenta`. Los componentes llaman solo a esas funciones. Ningún
@@ -566,7 +575,9 @@ la API confirmó la venta. Esta spec solo fija dónde vive el módulo y que ning
 La pantalla se diseña con la skill `impeccable`. Antes de construir cada parte de la pantalla, el agente carga la
 skill y sigue lo que indica: jerarquía, espacios, estados vacío, cargando, error y éxito, textos claros, contraste,
 teclado, foco visible y diseño para móvil. Al revisar, la corre en modo auditoría sobre lo que cambió. Todo dentro de
-las reglas de Vue 2 y Vuetify 2 de esta spec.
+las reglas de Vue 2 y Vuetify 2 de esta spec. El sistema visual (colores, tipografía, espacios y componentes) está en
+`frontend/DESIGN.md`, y el contexto de producto que pide la skill, en `PRODUCT.md` (en la raíz): quien cambie la pantalla
+los actualiza.
 
 ### Paleta
 
@@ -577,10 +588,17 @@ cambia en `src/plugins/vuetify.js` y aquí.
 | Color | Uso | En el tema de Vuetify |
 |---|---|---|
 | `#292F36` | Barra superior y todo el texto | `secondary` |
-| `#4ECDC4` | Acciones principales (botones, foco, selección) | `primary` |
+| `#4ECDC4` | Acciones principales (botones y selección), y la marca y el foco sobre la barra oscura | `primary` |
 | `#F7FFF7` | Fondo de la pantalla | `background` (`surface` con `#FFFFFF`) |
 | `#FF6B6B` | Errores y acciones que borran | `error` |
 | `#FFE66D` | Acento: resaltar el total y lo recién agregado. Es un supuesto | `accent` |
+
+El tema también pone `info` y `success` en `#4ECDC4` y `warning` en `#FFE66D`, para que ningún componente de Vuetify pinte
+un azul o un verde ajenos. Es un solo tema, el claro (`dark: false`), con `customProperties: true`: crea `--v-primary-base`
+y las demás, que `plugins/vuetify.css` usa para lo que el tema no cambia solo. Vuetify va en español
+(`lang.current: 'es'`), con «Borrar lo escrito en {0}» y «Cargando...» donde su traducción deja el inglés. El foco de
+teclado es un contorno de 3 px en `#292F36` con 2 px de separación (turquesa sobre la barra oscura); los campos ya marcan
+su borde.
 
 Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o más para texto normal:
 
@@ -609,7 +627,7 @@ Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o má
 - Animaciones: Lottie con `lottie-web` 5.13.0, en `AnimacionLottie.vue`, un componente de Vue 2 con Options API. Usa la
   versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Tiene un
   solo elemento raíz, que es el contenedor de la animación, y estas propiedades: `animacion` (el JSON de la animación),
-  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles) y `cuadroFijo` (`'ultimo'` por defecto, o
+  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles, 120 por defecto; el ancho lo da el contenedor) y `cuadroFijo` (`'ultimo'` por defecto, o
   `'primero'`: el cuadro que se muestra con menos movimiento). Crea la animación en `mounted`, la destruye en
   `beforeDestroy` y, si cambia `animacion`, destruye la anterior y crea la nueva. Es decorativa (`aria-hidden="true"`):
   el texto de al lado dice lo mismo.
@@ -647,7 +665,9 @@ en local, sin servicios externos.
 - Dos pruebas mínimas tapan la trampa de la tarjeta S-01: B-02 escribe `backend/tests/vitest-commonjs.test.js`, que
   levanta la app en CommonJS con `supertest` y pide `/api/salud`. B-04 escribe `frontend/tests/vitest-vue2.test.js`,
   que monta un componente `.vue` con `@vitejs/plugin-vue2` y un `v-btn` de Vuetify.
-- `lottie-web` se sustituye en las pruebas con `vi.mock`, porque jsdom no dibuja.
+- En las pruebas se sustituye con `vi.mock` la ruta exacta que importa `AnimacionLottie`,
+  `lottie-web/build/player/lottie_light`, porque jsdom no dibuja: `vi.mock('lottie-web')` no la cubre. Toda prueba que
+  monte un componente con `AnimacionLottie` la sustituye igual.
 - Antes de decir que una tarjeta está lista, el agente corre `npm test`, `npm run lint` y `npm run format:check` en el
   proyecto que cambió, y `npm run build` en el frontend.
 
@@ -680,7 +700,8 @@ flujo 06.
   `globals.browser` y `eslint-plugin-vue` con `pluginVue.configs['flat/vue2-recommended']`. Desde la versión 10 de
   `eslint-plugin-vue`, `recommended` a secas es de Vue 3.
 - En el frontend se agrega la regla `'vue/valid-v-slot': ['error', { allowModifiers: true }]`, para las ranuras
-  `#item.<value>` de Vuetify 2.
+  `#item.<value>` de Vuetify 2. También se ajusta la regla `vue/multi-word-component-names` (con `ignores: ['App']`): pide
+  nombres de dos palabras, y `App.vue` es la única excepción.
 - Prettier, en los dos proyectos: `singleQuote: true`, `printWidth: 100` y `trailingComma: 'all'`.
   `.prettierignore` deja fuera `package-lock.json`, `dist/`, `coverage/` y `src/assets/animaciones/`.
 - `npm run lint` y `npm run format:check` pasan sin errores. `npm run format` arregla el formato.

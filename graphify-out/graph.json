@@ -134,7 +134,7 @@
       "file_type": "code",
       "norm_label": "cargararchivoenv()",
       "source_file": "backend/src/config.js",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "backend_src_config_cargarconfig",
@@ -146,7 +146,7 @@
       "file_type": "code",
       "norm_label": "cargarconfig()",
       "source_file": "backend/src/config.js",
-      "source_location": "L75"
+      "source_location": "L76"
     },
     {
       "id": "backend_src_config_entero",
@@ -158,7 +158,7 @@
       "file_type": "code",
       "norm_label": "entero()",
       "source_file": "backend/src/config.js",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "backend_src_config_esunorigen",
@@ -170,7 +170,7 @@
       "file_type": "code",
       "norm_label": "esunorigen()",
       "source_file": "backend/src/config.js",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "backend_src_config_leerorigenes",
@@ -182,7 +182,7 @@
       "file_type": "code",
       "norm_label": "leerorigenes()",
       "source_file": "backend/src/config.js",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "backend_src_config_nombredelabase",
@@ -194,7 +194,7 @@
       "file_type": "code",
       "norm_label": "nombredelabase()",
       "source_file": "backend/src/config.js",
-      "source_location": "L64"
+      "source_location": "L65"
     },
     {
       "id": "backend_src_config_texto",
@@ -206,7 +206,7 @@
       "file_type": "code",
       "norm_label": "texto()",
       "source_file": "backend/src/config.js",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "backend_src_app_crearapp",
@@ -6552,6 +6552,18 @@
       "type": "external"
     },
     {
+      "id": "ref_node_os",
+      "label": "ref_node_os",
+      "_origin": "semantic",
+      "community": 66,
+      "community_name": "estructura.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_os",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_path",
       "label": "ref_node_path",
       "_origin": "semantic",
@@ -6560,17 +6572,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_path",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_os",
-      "label": "ref_node_os",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_os",
       "source_file": "",
       "type": "external"
     }
@@ -6681,7 +6682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -6693,7 +6694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -6705,7 +6706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -6717,7 +6718,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -6729,7 +6730,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -6741,7 +6742,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -6753,7 +6754,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -6765,7 +6766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -9259,7 +9260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -9270,7 +9271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -9292,7 +9293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -9314,7 +9315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -9325,7 +9326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -13506,7 +13507,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -13518,7 +13519,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0
     },
     {

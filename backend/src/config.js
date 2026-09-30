@@ -8,8 +8,9 @@ const dotenv = require('dotenv');
 const OBLIGATORIAS = ['MYSQL_DATABASE', 'MYSQL_USER', 'MYSQL_PASSWORD', 'CORS_ORIGIN'];
 
 // El .env vive en la raíz del proyecto. Una variable que ya está en el entorno gana sobre el archivo.
-function cargarArchivoEnv() {
-  dotenv.config({ path: path.resolve(__dirname, '../../.env'), override: false, quiet: true });
+// La ruta se puede cambiar para probarlo con un .env de mentira.
+function cargarArchivoEnv(ruta = path.resolve(__dirname, '../../.env')) {
+  dotenv.config({ path: ruta, override: false, quiet: true });
 }
 
 function texto(env, nombre) {

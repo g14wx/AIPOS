@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import request from 'supertest';
+import { pedir } from './servidor-de-prueba.js';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -98,7 +98,7 @@ describe('manejador de errores único', () => {
     const app = appConRuta(async () => {
       throw new ErrorApi(400, 'DATOS_INVALIDOS', 'Faltan datos.', detalles);
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(400);
     expect(respuesta.body).toEqual({
       error: { codigo: 'DATOS_INVALIDOS', mensaje: 'Faltan datos.', detalles },
@@ -109,7 +109,7 @@ describe('manejador de errores único', () => {
     const app = appConRuta(async () => {
       throw new ErrorApi(409, 'CONFLICTO', 'Ya existe.');
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(409);
     expect(respuesta.body.error).not.toHaveProperty('detalles');
   });
@@ -119,7 +119,7 @@ describe('manejador de errores único', () => {
       await Promise.resolve();
       throw new ErrorApi(422, 'VENTA_SIN_DETALLES', 'La venta no tiene detalles.');
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(422);
     expect(respuesta.body.error.codigo).toBe('VENTA_SIN_DETALLES');
   });
@@ -128,7 +128,7 @@ describe('manejador de errores único', () => {
     const app = appConRuta(async () => {
       throw errorDeMysql(1644, 'VENTA_SIN_DETALLES');
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(422);
     expect(respuesta.body.error.codigo).toBe('VENTA_SIN_DETALLES');
   });
@@ -139,7 +139,7 @@ describe('manejador de errores único', () => {
     const app = appConRuta(async () => {
       throw original;
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(500);
     expect(respuesta.body).toEqual({
       error: {
@@ -157,7 +157,7 @@ describe('manejador de errores único', () => {
     const app = appConRuta(() => {
       throw 'texto suelto';
     });
-    const respuesta = await request(app).get('/api/prueba/falla');
+    const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
     expect(respuesta.status).toBe(500);
     expect(respuesta.body.error.codigo).toBe('ERROR_INTERNO');
   });
@@ -166,11 +166,13 @@ describe('manejador de errores único', () => {
     const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
     const app = appConRuta(async () => {});
     for (const codificacion of ['gzip', 'deflate', 'br']) {
-      const respuesta = await request(app)
-        .post('/api/prueba/falla')
-        .set('Content-Type', 'application/json')
-        .set('Content-Encoding', codificacion)
-        .send('{"hola":"mundo"}');
+      const respuesta = await pedir(app, (api) =>
+        api
+          .post('/api/prueba/falla')
+          .set('Content-Type', 'application/json')
+          .set('Content-Encoding', codificacion)
+          .send('{"hola":"mundo"}'),
+      );
       expect(respuesta.status, codificacion).toBe(400);
       expect(respuesta.body.error.codigo, codificacion).toBe('DATOS_INVALIDOS');
       expect(typeof respuesta.body.error.mensaje).toBe('string');
@@ -192,7 +194,7 @@ describe('manejador de errores único', () => {
       const app = appConRuta(async () => {
         throw Object.assign(new Error('x'), { status: 400, ...propiedades });
       });
-      const respuesta = await request(app).get('/api/prueba/falla');
+      const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
       expect(respuesta.status, JSON.stringify(propiedades)).toBe(400);
       expect(respuesta.body.error.codigo).toBe('DATOS_INVALIDOS');
     }
@@ -212,7 +214,7 @@ describe('manejador de errores único', () => {
       const app = appConRuta(async () => {
         throw Object.assign(new Error('Falló otra cosa'), propiedades);
       });
-      const respuesta = await request(app).get('/api/prueba/falla');
+      const respuesta = await pedir(app, (api) => api.get('/api/prueba/falla'));
       expect(respuesta.status, JSON.stringify(propiedades)).toBe(500);
       expect(respuesta.body.error.codigo).toBe('ERROR_INTERNO');
     }
@@ -222,7 +224,7 @@ describe('manejador de errores único', () => {
   it('una ruta que no existe es un 404 NO_ENCONTRADO con el mismo formato', async () => {
     const app = appConRuta(async () => {});
     for (const ruta of ['/api/no-existe', '/otra-cosa']) {
-      const respuesta = await request(app).get(ruta);
+      const respuesta = await pedir(app, (api) => api.get(ruta));
       expect(respuesta.status).toBe(404);
       expect(respuesta.body.error.codigo).toBe('NO_ENCONTRADO');
       expect(typeof respuesta.body.error.mensaje).toBe('string');
@@ -242,7 +244,7 @@ describe('manejador de errores único', () => {
       const app = appConRuta(async () => {
         throw err;
       });
-      expect((await request(app).get('/api/prueba/falla')).status).toBe(estado);
+      expect((await pedir(app, (api) => api.get('/api/prueba/falla'))).status).toBe(estado);
     }
   });
 });

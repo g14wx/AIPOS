@@ -1,12 +1,12 @@
 # Graph Report - p-03  (2026-09-30)
 
 ## Corpus Check
-- 101 files · ~60,867 words
+- 101 files · ~60,862 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 605 nodes · 750 edges · 72 communities (32 shown, 40 thin omitted)
+- 605 nodes · 751 edges · 72 communities (32 shown, 40 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -239,9 +239,9 @@ Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PD
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `crearProducto()` connect `FormularioProducto.vue` to `Grafo del proyecto`, `NuevoProducto.test.js`, `FormularioProducto.test.js`, `Arquitectura de AIPOS`, `http.js`?**
-  _High betweenness centrality (0.182) - this node is a cross-community bridge._
+  _High betweenness centrality (0.180) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `Grafo del proyecto` to `vitest`, `FormularioProducto.vue`?**
-  _High betweenness centrality (0.155) - this node is a cross-community bridge._
+  _High betweenness centrality (0.153) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _292 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**

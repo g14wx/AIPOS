@@ -673,7 +673,7 @@
       "file_type": "code",
       "norm_label": "data()",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L53"
+      "source_location": "L49"
     },
     {
       "id": "frontend_src_components_buscadorproductos_data",
@@ -7370,7 +7370,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L54",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -9166,7 +9166,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L46",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -9610,7 +9610,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L44",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_nuevoproducto",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/App.vue",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -9622,7 +9634,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L45",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -9634,7 +9646,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L46",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -11594,7 +11606,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.vue",
-      "source_location": "L53",
+      "source_location": "L49",
       "weight": 1.0
     },
     {

@@ -202,9 +202,13 @@ export default {
     // RF-12: Enter salta la espera de 300 ms y busca de inmediato, porque un lector de código de barras escribe y
     // presiona Enter más rápido que la espera. Con menos de 2 caracteres no hace nada.
     buscarAlPresionarEnter() {
-      if (largoEnCaracteres(this.textoLimpio) < MINIMO_CARACTERES) return;
-      this.cancelarEspera();
-      this.buscar(this.textoLimpio, { alEntrar: true });
+      // En nextTick, para que el watcher del texto (que arma la espera y cambia el número de búsqueda) corra antes de
+      // esta búsqueda y no la invalide, aunque Enter llegue en el mismo turno que el último carácter (#69).
+      this.$nextTick(() => {
+        if (largoEnCaracteres(this.textoLimpio) < MINIMO_CARACTERES) return;
+        this.cancelarEspera();
+        this.buscar(this.textoLimpio, { alEntrar: true });
+      });
     },
     // Retry manual: repite la misma búsqueda, sin esperar, cuando el cajero lo pide.
     reintentar() {

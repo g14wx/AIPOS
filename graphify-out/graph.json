@@ -361,7 +361,7 @@
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47"
+      "source_location": "L50"
     },
     {
       "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
@@ -373,7 +373,7 @@
       "node_kind": "heading",
       "norm_label": "otros caminos",
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37"
+      "source_location": "L40"
     },
     {
       "id": "requerimientos_flujos_04_registrar_venta_pasos",
@@ -385,7 +385,7 @@
       "node_kind": "heading",
       "norm_label": "pasos",
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19"
+      "source_location": "L22"
     },
     {
       "id": "requerimientos_flujos_05_entregar_un_entregable",
@@ -7876,7 +7876,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -7887,7 +7887,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -7898,7 +7898,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -11649,7 +11649,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {

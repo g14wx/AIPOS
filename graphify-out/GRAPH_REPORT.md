@@ -1,7 +1,7 @@
 # Graph Report - b-03  (2026-09-30)
 
 ## Corpus Check
-- 150 files · ~106,052 words
+- 150 files · ~106,228 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 22 file(s) not represented in the graph (top: (none) 12, .drawio 7, .example 2)
 
@@ -436,7 +436,7 @@ Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `total()` connect `Requerimientos funcionales` to `Armar la venta actual`, `Despliegue de AIPOS`?**
-  _High betweenness centrality (0.105) - this node is a cross-community bridge._
+  _High betweenness centrality (0.104) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `Despliegue de AIPOS` to `graphify-setup.md`?**
   _High betweenness centrality (0.083) - this node is a cross-community bridge._
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`, `arquitectura.spec.md`?**

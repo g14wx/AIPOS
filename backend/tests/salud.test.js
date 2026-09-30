@@ -3,11 +3,12 @@ import request from 'supertest';
 import app from '../src/app.js';
 
 describe('GET /api/salud', () => {
-  it('responde 200 con { estado: "ok" }', async () => {
+  // Desde B-03 la respuesta suma baseDeDatos: "ok" (ver base-de-datos/salud-con-base.test.js) y npm test necesita MySQL.
+  it('responde 200 con { estado: "ok", baseDeDatos: "ok" }', async () => {
     const respuesta = await request(app).get('/api/salud');
     expect(respuesta.status).toBe(200);
     expect(respuesta.headers['content-type']).toMatch(/application\/json/);
-    expect(respuesta.body).toEqual({ estado: 'ok' });
+    expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
   });
 
   it('no cambia nada: dos llamadas dan lo mismo', async () => {

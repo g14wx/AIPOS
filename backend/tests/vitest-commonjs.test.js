@@ -11,7 +11,7 @@ describe('Vitest con el backend en CommonJS', () => {
   it('carga la app con import y pide /api/salud', async () => {
     const respuesta = await request(app).get('/api/salud');
     expect(respuesta.status).toBe(200);
-    expect(respuesta.body).toEqual({ estado: 'ok' });
+    expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
   });
 
   it('carga la app con require y pide /api/salud', async () => {

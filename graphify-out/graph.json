@@ -9,8 +9,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community": 130,
+      "community_name": "Backend",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/src/errors/ErrorApi.js",
@@ -137,16 +137,100 @@
       "source_location": "L12"
     },
     {
-      "id": "backend_src_documentacion_cargardocumentacionapi",
-      "label": "cargarDocumentacionApi()",
+      "id": "backend_src_errors_errorapi_errorapi_constructor",
+      "label": ".constructor()",
       "_callable": true,
       "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
+      "community": 130,
+      "community_name": "Backend",
       "file_type": "code",
-      "norm_label": "cargardocumentacionapi()",
-      "source_file": "backend/src/documentacion.js",
-      "source_location": "L14"
+      "norm_label": ".constructor()",
+      "source_file": "backend/src/errors/ErrorApi.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_db_config_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L26"
+    },
+    {
+      "id": "backend_src_middlewares_noencontrado_noencontrado",
+      "label": "noEncontrado()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "code",
+      "norm_label": "noencontrado()",
+      "source_file": "backend/src/middlewares/noEncontrado.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_destroy",
+      "label": "destroy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "destroy()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_gotoandstop",
+      "label": "goToAndStop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "gotoandstop()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_leer",
+      "label": "leer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "leer()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_play",
+      "label": "play()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "play()",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test_consultar",
+      "label": "consultar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 136,
+      "community_name": "conexion.test.js",
+      "file_type": "code",
+      "norm_label": "consultar()",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L9"
     },
     {
       "id": "backend_tests_documentacion_ejemplos_reales_test_ejemplode",
@@ -154,7 +238,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "ejemplode()",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -166,215 +250,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "problemas()",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
       "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_documentacion_openapi_valido_test_copiarota",
-      "label": "copiaRota()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "copiarota()",
-      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
-      "source_location": "L26"
-    },
-    {
-      "id": "backend_db_config_development",
-      "label": "development()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "development()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "backend_db_config_paraelcli",
-      "label": "paraElCli()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "paraelcli()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
-      "label": "crearBaseDePrueba()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "crearbasedeprueba()",
-      "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_src_config_cargararchivoenv",
-      "label": "cargarArchivoEnv()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "cargararchivoenv()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "backend_src_config_cargarclaveroot",
-      "label": "cargarClaveRoot()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "cargarclaveroot()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L112"
-    },
-    {
-      "id": "backend_src_config_cargarconfig",
-      "label": "cargarConfig()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "cargarconfig()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L84"
-    },
-    {
-      "id": "backend_src_config_cargarconfigdeentorno",
-      "label": "cargarConfigDeEntorno()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "cargarconfigdeentorno()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L106"
-    },
-    {
-      "id": "backend_src_config_entero",
-      "label": "entero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "entero()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "backend_src_config_esunorigen",
-      "label": "esUnOrigen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "esunorigen()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L35"
-    },
-    {
-      "id": "backend_src_config_leerorigenes",
-      "label": "leerOrigenes()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "leerorigenes()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L44"
-    },
-    {
-      "id": "backend_src_config_nombredelabase",
-      "label": "nombreDeLaBase()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "nombredelabase()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L73"
-    },
-    {
-      "id": "backend_src_config_texto",
-      "label": "texto()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "texto()",
-      "source_file": "backend/src/config.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_archivosde",
-      "label": "archivosDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "archivosde()",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L147"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_consultar",
-      "label": "consultar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "consultar()",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L18"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_permisosdelusuario",
-      "label": "permisosDelUsuario()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "permisosdelusuario()",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_tablasde",
-      "label": "tablasDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "tablasde()",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L28"
     },
     {
       "id": "backend_tests_base_de_datos_dinero_como_texto_test_contabladedinero",
@@ -382,7 +262,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "contabladedinero()",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
@@ -437,40 +317,16 @@
       "source_location": "L11"
     },
     {
-      "id": "backend_db_config_test",
-      "label": "test()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L26"
-    },
-    {
       "id": "backend_src_errors_desdebasededatos_desdebasededatos",
       "label": "desdeBaseDeDatos()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "desdebasededatos()",
       "source_file": "backend/src/errors/desdeBaseDeDatos.js",
       "source_location": "L9"
-    },
-    {
-      "id": "backend_src_errors_errorapi_errorapi_constructor",
-      "label": ".constructor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": ".constructor()",
-      "source_file": "backend/src/errors/ErrorApi.js",
-      "source_location": "L7"
     },
     {
       "id": "backend_src_middlewares_errorhandler_aerrorapi",
@@ -478,7 +334,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "aerrorapi()",
       "source_file": "backend/src/middlewares/errorHandler.js",
@@ -490,7 +346,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "desdeelcuerpo()",
       "source_file": "backend/src/middlewares/errorHandler.js",
@@ -502,7 +358,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "errorhandler()",
       "source_file": "backend/src/middlewares/errorHandler.js",
@@ -514,23 +370,59 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "esdellector()",
       "source_file": "backend/src/middlewares/errorHandler.js",
       "source_location": "L14"
     },
     {
-      "id": "backend_src_middlewares_noencontrado_noencontrado",
-      "label": "noEncontrado()",
+      "id": "backend_src_controllers_salud_obtenersalud",
+      "label": "obtenerSalud()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
       "file_type": "code",
-      "norm_label": "noencontrado()",
-      "source_file": "backend/src/middlewares/noEncontrado.js",
-      "source_location": "L6"
+      "norm_label": "obtenersalud()",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_src_services_salud_conlimitedetiempo",
+      "label": "conLimiteDeTiempo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "conlimitedetiempo()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "backend_src_services_salud_consultarsalud",
+      "label": "consultarSalud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "consultarsalud()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L45"
+    },
+    {
+      "id": "backend_src_services_salud_cortarconexion",
+      "label": "cortarConexion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "cortarconexion()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L24"
     },
     {
       "id": "frontend_src_components_ventaactual_total",
@@ -543,18 +435,6 @@
       "norm_label": "total()",
       "source_file": "frontend/src/components/VentaActual.vue",
       "source_location": "L36"
-    },
-    {
-      "id": "backend_tests_base_de_datos_conexion_test_consultar",
-      "label": "consultar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "consultar()",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L9"
     },
     {
       "id": "backend_tests_documentacion_comparar_rutas_test_routercon",
@@ -591,18 +471,6 @@
       "norm_label": "describircapa()",
       "source_file": "backend/tests/documentacion/rutas.js",
       "source_location": "L61"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_routerdelaapi",
-      "label": "routerDeLaApi()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "routerdelaapi()",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L24"
     },
     {
       "id": "backend_tests_documentacion_rutas_encontrarrutasfuerademontajes",
@@ -809,54 +677,6 @@
       "source_location": "L9"
     },
     {
-      "id": "frontend_tests_pantalla_unica_test_destroy",
-      "label": "destroy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "destroy()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_gotoandstop",
-      "label": "goToAndStop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "gotoandstop()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_leer",
-      "label": "leer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "leer()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_play",
-      "label": "play()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "play()",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L113"
-    },
-    {
       "id": "backend_tests_base_de_datos_ayudas_corrercli",
       "label": "correrCli()",
       "_callable": true,
@@ -953,6 +773,18 @@
       "source_location": "L13"
     },
     {
+      "id": "backend_src_documentacion_cargardocumentacionapi",
+      "label": "cargarDocumentacionApi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "cargardocumentacionapi()",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L14"
+    },
+    {
       "id": "backend_tests_documentacion_ejemplos_de_error_test_detallesinternos",
       "label": "detallesInternos()",
       "_callable": true,
@@ -987,6 +819,18 @@
       "norm_label": "verlaforma()",
       "source_file": "backend/tests/documentacion/ejemplos-de-error.test.js",
       "source_location": "L95"
+    },
+    {
+      "id": "backend_tests_documentacion_openapi_valido_test_copiarota",
+      "label": "copiaRota()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "copiarota()",
+      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
+      "source_location": "L26"
     },
     {
       "id": "backend_tests_documentacion_csp_docs_test_directivas",
@@ -1222,47 +1066,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "leerjson()",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
       "source_location": "L6"
-    },
-    {
-      "id": "backend_tests_globalsetup_setup",
-      "label": "setup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 81,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "setup()",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_corrernpm",
-      "label": "correrNpm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 85,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "corrernpm()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_corrernpmsinfallar",
-      "label": "correrNpmSinFallar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 85,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "corrernpmsinfallar()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L31"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
@@ -1270,7 +1078,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "crearproxycongelable()",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
@@ -1282,67 +1090,31 @@
       "_callable": true,
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "leerconfiguracion()",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
       "source_location": "L13"
     },
     {
-      "id": "backend_src_controllers_salud_obtenersalud",
-      "label": "obtenerSalud()",
+      "id": "backend_tests_globalsetup_setup",
+      "label": "setup()",
       "_callable": true,
       "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
+      "community": 85,
+      "community_name": "ref_node_path",
       "file_type": "code",
-      "norm_label": "obtenersalud()",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "backend_src_services_salud_conlimitedetiempo",
-      "label": "conLimiteDeTiempo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
-      "file_type": "code",
-      "norm_label": "conlimitedetiempo()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L31"
-    },
-    {
-      "id": "backend_src_services_salud_consultarsalud",
-      "label": "consultarSalud()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
-      "file_type": "code",
-      "norm_label": "consultarsalud()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L45"
-    },
-    {
-      "id": "backend_src_services_salud_cortarconexion",
-      "label": "cortarConexion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
-      "file_type": "code",
-      "norm_label": "cortarconexion()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L24"
+      "norm_label": "setup()",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L9"
     },
     {
       "id": "backend_tests_servidor_test_abrirunpuerto",
       "label": "abrirUnPuerto()",
       "_callable": true,
       "_origin": "ast",
-      "community": 88,
-      "community_name": "servidor.test.js",
+      "community": 85,
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "abrirunpuerto()",
       "source_file": "backend/tests/servidor.test.js",
@@ -1353,8 +1125,8 @@
       "label": "arrancarServidor()",
       "_callable": true,
       "_origin": "ast",
-      "community": 88,
-      "community_name": "servidor.test.js",
+      "community": 85,
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "arrancarservidor()",
       "source_file": "backend/tests/servidor.test.js",
@@ -1365,8 +1137,8 @@
       "label": "buscarPuertoLibre()",
       "_callable": true,
       "_origin": "ast",
-      "community": 88,
-      "community_name": "servidor.test.js",
+      "community": 85,
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "buscarpuertolibre()",
       "source_file": "backend/tests/servidor.test.js",
@@ -1377,12 +1149,228 @@
       "label": "conPlazo()",
       "_callable": true,
       "_origin": "ast",
-      "community": 88,
-      "community_name": "servidor.test.js",
+      "community": 85,
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "conplazo()",
       "source_file": "backend/tests/servidor.test.js",
       "source_location": "L50"
+    },
+    {
+      "id": "backend_db_config_development",
+      "label": "development()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "development()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "backend_db_config_paraelcli",
+      "label": "paraElCli()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "paraelcli()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
+      "label": "crearBaseDePrueba()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "crearbasedeprueba()",
+      "source_file": "backend/scripts/crear-base-de-prueba.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_src_config_cargararchivoenv",
+      "label": "cargarArchivoEnv()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargararchivoenv()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_src_config_cargarclaveroot",
+      "label": "cargarClaveRoot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargarclaveroot()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L112"
+    },
+    {
+      "id": "backend_src_config_cargarconfig",
+      "label": "cargarConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargarconfig()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L84"
+    },
+    {
+      "id": "backend_src_config_cargarconfigdeentorno",
+      "label": "cargarConfigDeEntorno()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargarconfigdeentorno()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L106"
+    },
+    {
+      "id": "backend_src_config_entero",
+      "label": "entero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "entero()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L21"
+    },
+    {
+      "id": "backend_src_config_esunorigen",
+      "label": "esUnOrigen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "esunorigen()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L35"
+    },
+    {
+      "id": "backend_src_config_leerorigenes",
+      "label": "leerOrigenes()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "leerorigenes()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L44"
+    },
+    {
+      "id": "backend_src_config_nombredelabase",
+      "label": "nombreDeLaBase()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "nombredelabase()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L73"
+    },
+    {
+      "id": "backend_src_config_texto",
+      "label": "texto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "texto()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_corrernpm",
+      "label": "correrNpm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "corrernpm()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_corrernpmsinfallar",
+      "label": "correrNpmSinFallar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "corrernpmsinfallar()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_archivosde",
+      "label": "archivosDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "archivosde()",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L147"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_consultar",
+      "label": "consultar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "consultar()",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_permisosdelusuario",
+      "label": "permisosDelUsuario()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "permisosdelusuario()",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_tablasde",
+      "label": "tablasDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "tablasde()",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L28"
     },
     {
       "id": "frontend_tests_tema_test_contraste",
@@ -1421,16 +1409,16 @@
       "source_location": "L21"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
+      "id": "backend_tests_documentacion_rutas_documentadas_test_routerdelaapi",
+      "label": "routerDeLaApi()",
+      "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "routerdelaapi()",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L24"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -1442,18 +1430,6 @@
       "node_kind": "page",
       "norm_label": "02-requerimientos-funcionales.md",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_03_requerimientos_no_funcionales",
-      "label": "03-requerimientos-no-funcionales.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "03-requerimientos-no-funcionales.md",
-      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
       "source_location": "L1"
     },
     {
@@ -1529,18 +1505,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable",
-      "label": "05-entregar-un-entregable.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "05-entregar-un-entregable.md",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -1550,18 +1514,6 @@
       "node_kind": "page",
       "norm_label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_07_desplegar_una_version",
-      "label": "07-desplegar-una-version.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "07-desplegar-una-version.md",
-      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
       "source_location": "L1"
     },
     {
@@ -3157,7 +3109,7 @@
       "node_kind": "heading",
       "norm_label": "imagen de la pantalla (`frontend/dockerfile`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L141"
+      "source_location": "L143"
     },
     {
       "id": "specs_despliegue_spec_imagen_del_backend_backend_dockerfile",
@@ -3169,7 +3121,7 @@
       "node_kind": "heading",
       "norm_label": "imagen del backend (`backend/dockerfile`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L126"
+      "source_location": "L128"
     },
     {
       "id": "specs_despliegue_spec_im\u00e1genes",
@@ -3181,7 +3133,7 @@
       "node_kind": "heading",
       "norm_label": "imagenes",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L103"
+      "source_location": "L105"
     },
     {
       "id": "tests_despliegue_desplegar_migracion_falla_test",
@@ -3436,7 +3388,7 @@
       },
       "norm_label": "resumir()",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L97"
+      "source_location": "L100"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
@@ -3911,6 +3863,236 @@
       "source_location": "L1"
     },
     {
+      "id": "backend_src_documentacion",
+      "label": "documentacion.js",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "documentacion.js",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_documentacion_fs",
+      "label": "fs",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "fs",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_documentacion_parse",
+      "label": "{ parse }",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "{ parse }",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_src_documentacion_path",
+      "label": "path",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "path",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_documentacion_ruta_del_documento",
+      "label": "RUTA_DEL_DOCUMENTO",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "ruta_del_documento",
+      "source_file": "backend/src/documentacion.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_documentacion_swagger_ui_test",
+      "label": "swagger-ui.test.js",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "swagger-ui.test.js",
+      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_documentacion_swagger_ui_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_documentacion_swagger_ui_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_documentacion_swagger_ui_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "ref_yaml",
+      "label": "yaml",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "file_type": "concept",
+      "norm_label": "yaml",
+      "source_file": "backend/package.json",
+      "source_location": "L39"
+    },
+    {
+      "id": "specs_arquitectura_spec_arquitectura_de_aipos",
+      "label": "Arquitectura de AIPOS",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "arquitectura de aipos",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "specs_arquitectura_spec_base_de_datos",
+      "label": "Base de datos",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "base de datos",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L395"
+    },
+    {
+      "id": "specs_arquitectura_spec_calidad",
+      "label": "Calidad",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "calidad",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L702"
+    },
+    {
+      "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
+      "label": "C\u00f3mo se decide un dise\u00f1o",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como se decide un diseno",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L750"
+    },
+    {
+      "id": "specs_arquitectura_spec_dinero",
+      "label": "Dinero",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dinero",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L432"
+    },
+    {
+      "id": "specs_arquitectura_spec_monorepo",
+      "label": "Monorepo",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "monorepo",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "specs_arquitectura_spec_pruebas",
+      "label": "Pruebas",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pruebas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L656"
+    },
+    {
+      "id": "specs_arquitectura_spec_pruebas_en_local",
+      "label": "Pruebas en local",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pruebas en local",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L683"
+    },
+    {
+      "id": "specs_arquitectura_spec_variables_de_entorno",
+      "label": "Variables de entorno",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "variables de entorno",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L107"
+    },
+    {
+      "id": "specs_arquitectura_spec_versiones",
+      "label": "Versiones",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "versiones",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L57"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_bitacora_ia_skill",
       "label": "bitacora-ia/SKILL.md",
       "_origin": "ast",
@@ -4011,6 +4193,611 @@
       "source_location": "L28"
     },
     {
+      "id": "specs_arquitectura_spec_backend",
+      "label": "Backend",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "backend",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L156"
+    },
+    {
+      "id": "specs_arquitectura_spec_capas",
+      "label": "Capas",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "capas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L243"
+    },
+    {
+      "id": "specs_arquitectura_spec_carpetas",
+      "label": "Carpetas",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "carpetas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L162"
+    },
+    {
+      "id": "specs_arquitectura_spec_errores",
+      "label": "Errores",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "errores",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L314"
+    },
+    {
+      "id": "specs_arquitectura_spec_procedimientos_almacenados",
+      "label": "Procedimientos almacenados",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "procedimientos almacenados",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L269"
+    },
+    {
+      "id": "specs_arquitectura_spec_validaci\u00f3n",
+      "label": "Validaci\u00f3n",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "validacion",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L292"
+    },
+    {
+      "id": "specs_buscar_producto_spec_validaci\u00f3n_del_texto",
+      "label": "Validaci\u00f3n del texto",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "Backend",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "validacion del texto",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L118"
+    },
+    {
+      "id": "specs_arquitectura_spec_carpetas_484",
+      "label": "Carpetas",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "carpetas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L484"
+    },
+    {
+      "id": "specs_arquitectura_spec_frontend",
+      "label": "Frontend",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "frontend",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L478"
+    },
+    {
+      "id": "specs_arquitectura_spec_git_y_entrega",
+      "label": "Git y entrega",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "git y entrega",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L720"
+    },
+    {
+      "id": "specs_arquitectura_spec_la_venta_actual",
+      "label": "La venta actual",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "la venta actual",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L549"
+    },
+    {
+      "id": "specs_arquitectura_spec_servicio_de_api",
+      "label": "Servicio de API",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "servicio de api",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L528"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
+      "label": "entrega-trazable.md",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "entrega-trazable.md",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
+      "label": "Entrega trazable",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "test",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega trazable",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_documentacion_de_la_api_spec",
+      "label": "documentacion-de-la-api.spec.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Documentaci\u00f3n de la API",
+        "description": "Documento OpenAPI 3 del backend, servido con Swagger UI en GET /api/docs, con el formato de error como esquema compartido y una prueba que falla si una ruta de Express no est\u00e1 documentada"
+      },
+      "node_kind": "page",
+      "norm_label": "documentacion-de-la-api.spec.md",
+      "source_file": "specs/documentacion-de-la-api.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_despliegue_spec",
+      "label": "despliegue.spec.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Despliegue de AIPOS",
+        "description": "Flujo 07 - una etiqueta release-* prueba, construye y despliega AIPOS con Docker en el servidor de producci\u00f3n de aipos.salsalvador.io (pantalla y backend en dos dominios, MySQL solo dentro del servidor), y vuelve a la versi\u00f3n anterior si algo falla"
+      },
+      "node_kind": "page",
+      "norm_label": "despliegue.spec.md",
+      "source_file": "specs/despliegue.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_despliegue",
+      "label": "despliegue.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "despliegue.md",
+      "source_file": "docs/despliegue.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_03_requerimientos_no_funcionales",
+      "label": "03-requerimientos-no-funcionales.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "03-requerimientos-no-funcionales.md",
+      "source_file": "requerimientos/03-requerimientos-no-funcionales.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable",
+      "label": "05-entregar-un-entregable.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "05-entregar-un-entregable.md",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version",
+      "label": "07-desplegar-una-version.md",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "05-entregar-un-entregable.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "07-desplegar-una-version.md",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_middlewares_noencontrado",
+      "label": "noEncontrado.js",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "code",
+      "norm_label": "noencontrado.js",
+      "source_file": "backend/src/middlewares/noEncontrado.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_middlewares_noencontrado_errorapi",
+      "label": "ErrorApi",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "code",
+      "norm_label": "errorapi",
+      "source_file": "backend/src/middlewares/noEncontrado.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "specs_arquitectura_spec_l\u00edmites_cors_y_cabeceras",
+      "label": "L\u00edmites, CORS y cabeceras",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "limites, cors y cabeceras",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L363"
+    },
+    {
+      "id": "specs_documentacion_de_la_api_spec_la_pol\u00edtica_de_contenido_solo_en_api_docs",
+      "label": "La pol\u00edtica de contenido solo en `/api/docs`",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "la politica de contenido solo en `/api/docs`",
+      "source_file": "specs/documentacion-de-la-api.spec.md",
+      "source_location": "L229"
+    },
+    {
+      "id": "specs_documentacion_de_la_api_spec_swagger_ui_en_get_api_docs",
+      "label": "Swagger UI en `GET /api/docs`",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "noEncontrado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "swagger ui en `get /api/docs`",
+      "source_file": "specs/documentacion-de-la-api.spec.md",
+      "source_location": "L204"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test",
+      "label": "pantalla-unica.test.js",
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "pantalla-unica.test.js",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_pantalla_unica_test_paquete",
+      "label": "paquete",
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "pantalla-unica.test.js",
+      "file_type": "code",
+      "norm_label": "paquete",
+      "source_file": "frontend/tests/pantalla-unica.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "specs_crear_producto_spec_contrato",
+      "label": "Contrato",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "contrato",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L152"
+    },
+    {
+      "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_02",
+      "label": "Criterios de aceptaci\u00f3n de P-02",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "criterios de aceptacion de p-02",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L242"
+    },
+    {
+      "id": "specs_crear_producto_spec_documentaci\u00f3n_de_la_api_tarjeta_a_01",
+      "label": "Documentaci\u00f3n de la API (tarjeta A-01)",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "documentacion de la api (tarjeta a-01)",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L233"
+    },
+    {
+      "id": "specs_crear_producto_spec_p_02_post_api_productos",
+      "label": "P-02 \u00b7 `POST /api/productos`",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "p-02 \u00b7 `post /api/productos`",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L141"
+    },
+    {
+      "id": "specs_crear_producto_spec_servicio_409_y_peticiones_al_mismo_tiempo",
+      "label": "Servicio, 409 y peticiones al mismo tiempo",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "servicio, 409 y peticiones al mismo tiempo",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L218"
+    },
+    {
+      "id": "specs_crear_producto_spec_validaci\u00f3n",
+      "label": "Validaci\u00f3n",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "P-02 \u00b7 `POST /api/productos`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "validacion",
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L204"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test",
+      "label": "conexion.test.js",
+      "_origin": "ast",
+      "community": 136,
+      "community_name": "conexion.test.js",
+      "file_type": "code",
+      "norm_label": "conexion.test.js",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 136,
+      "community_name": "conexion.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 136,
+      "community_name": "conexion.test.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
+      "label": "Flujo 04 \u00b7 Registrar venta",
+      "_origin": "ast",
+      "community": 137,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 04 \u00b7 registrar venta",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 137,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L50"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 137,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 137,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "specs_buscar_producto_spec_api_get_api_productos_busqueda_texto",
+      "label": "API: `GET /api/productos?busqueda=<texto>`",
+      "_origin": "ast",
+      "community": 138,
+      "community_name": "API: `GET /api/productos?busqueda=<texto>`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "api: `get /api/productos?busqueda=<texto>`",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L74"
+    },
+    {
+      "id": "specs_buscar_producto_spec_c\u00f3mo_busca_el_servicio",
+      "label": "C\u00f3mo busca el servicio",
+      "_origin": "ast",
+      "community": 138,
+      "community_name": "API: `GET /api/productos?busqueda=<texto>`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como busca el servicio",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L131"
+    },
+    {
+      "id": "specs_buscar_producto_spec_documentaci\u00f3n_de_la_api",
+      "label": "Documentaci\u00f3n de la API",
+      "_origin": "ast",
+      "community": 138,
+      "community_name": "API: `GET /api/productos?busqueda=<texto>`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "documentacion de la api",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L148"
+    },
+    {
+      "id": "specs_buscar_producto_spec_pruebas_en_local_la_api_con_curl",
+      "label": "Pruebas en local: la API con `curl`",
+      "_origin": "ast",
+      "community": 138,
+      "community_name": "API: `GET /api/productos?busqueda=<texto>`",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pruebas en local: la api con `curl`",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L157"
+    },
+    {
+      "id": "specs_buscar_producto_spec_c\u00f3mo_se_ve_y_se_comporta",
+      "label": "C\u00f3mo se ve y se comporta",
+      "_origin": "ast",
+      "community": 139,
+      "community_name": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como se ve y se comporta",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L225"
+    },
+    {
+      "id": "specs_buscar_producto_spec_dise\u00f1o_skill_impeccable",
+      "label": "Dise\u00f1o (skill `impeccable`)",
+      "_origin": "ast",
+      "community": 139,
+      "community_name": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "diseno (skill `impeccable`)",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L295"
+    },
+    {
+      "id": "specs_buscar_producto_spec_estados_de_la_zona_de_resultados",
+      "label": "Estados de la zona de resultados",
+      "_origin": "ast",
+      "community": 139,
+      "community_name": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "estados de la zona de resultados",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L280"
+    },
+    {
+      "id": "specs_buscar_producto_spec_pantalla_campo_de_b\u00fasqueda_y_resultados_p_05",
+      "label": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
+      "_origin": "ast",
+      "community": 139,
+      "community_name": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pantalla: campo de busqueda y resultados (p-05)",
+      "source_file": "specs/buscar-producto.spec.md",
+      "source_location": "L223"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_readme_entrega_skill",
       "label": "readme-entrega/SKILL.md",
       "_origin": "ast",
@@ -4099,66 +4886,56 @@
       "source_location": "L38"
     },
     {
-      "id": "backend_src_documentacion",
-      "label": "documentacion.js",
+      "id": "tests_despliegue_sin_datos_privados_falsos_positivos_test",
+      "label": "sin-datos-privados-falsos-positivos.test.sh",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
+      "community": 140,
+      "community_name": "sin-datos-privados-falsos-positivos.test.sh",
       "file_type": "code",
-      "norm_label": "documentacion.js",
-      "source_file": "backend/src/documentacion.js",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "sin-datos-privados-falsos-positivos.test.sh",
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
       "source_location": "L1"
     },
     {
-      "id": "backend_src_documentacion_fs",
-      "label": "fs",
+      "id": "tests_despliegue_sin_datos_privados_falsos_positivos_test_revisar",
+      "label": "revisar()",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
+      "community": 140,
+      "community_name": "sin-datos-privados-falsos-positivos.test.sh",
       "file_type": "code",
-      "norm_label": "fs",
-      "source_file": "backend/src/documentacion.js",
-      "source_location": "L3"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar()",
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
+      "source_location": "L24"
     },
     {
-      "id": "backend_src_documentacion_parse",
-      "label": "{ parse }",
+      "id": "tests_despliegue_sin_datos_privados_falsos_positivos_test_sh__entry",
+      "label": "sin-datos-privados-falsos-positivos.test.sh script",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
+      "community": 140,
+      "community_name": "sin-datos-privados-falsos-positivos.test.sh",
       "file_type": "code",
-      "norm_label": "{ parse }",
-      "source_file": "backend/src/documentacion.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "backend_src_documentacion_path",
-      "label": "path",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "path",
-      "source_file": "backend/src/documentacion.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_src_documentacion_ruta_del_documento",
-      "label": "RUTA_DEL_DOCUMENTO",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "ruta_del_documento",
-      "source_file": "backend/src/documentacion.js",
-      "source_location": "L10"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "sin-datos-privados-falsos-positivos.test.sh script",
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
+      "source_location": "L1"
     },
     {
       "id": "backend_tests_documentacion_ejemplos_reales_test",
       "label": "ejemplos-reales.test.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "ejemplos-reales.test.js",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -4169,7 +4946,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -4180,7 +4957,7 @@
       "label": "{ cargarDocumentacionApi }",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "{ cargardocumentacionapi }",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -4191,7 +4968,7 @@
       "label": "documento",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "documento",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -4202,7 +4979,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
@@ -4213,77 +4990,11 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 15,
-      "community_name": "documentacion.js",
+      "community_name": "ejemplos-reales.test.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
       "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_documentacion_openapi_valido_test",
-      "label": "openapi-valido.test.js",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "openapi-valido.test.js",
-      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_documentacion_openapi_valido_test_archivo",
-      "label": "archivo",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "archivo",
-      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_documentacion_openapi_valido_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_documentacion_openapi_valido_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "ref_apidevtools_swagger_parser",
-      "label": "@apidevtools/swagger-parser",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "concept",
-      "norm_label": "@apidevtools/swagger-parser",
-      "source_file": "backend/package.json",
-      "source_location": "L42"
-    },
-    {
-      "id": "ref_yaml",
-      "label": "yaml",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "documentacion.js",
-      "file_type": "concept",
-      "norm_label": "yaml",
-      "source_file": "backend/package.json",
-      "source_location": "L39"
     },
     {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_sequelize_call_procedure_skill",
@@ -5940,88 +6651,11 @@
       "source_location": "L18"
     },
     {
-      "id": "backend_db_config",
-      "label": "db/config.js",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "db/config.js",
-      "source_file": "backend/db/config.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_db_config_cargarconfigdeentorno_cargararchivoenv",
-      "label": "{ cargarConfigDeEntorno, cargarArchivoEnv }",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "{ cargarconfigdeentorno, cargararchivoenv }",
-      "source_file": "backend/db/config.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_scripts_crear_base_de_prueba",
-      "label": "crear-base-de-prueba.js",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "crear-base-de-prueba.js",
-      "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_config",
-      "label": "src/config.js",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "src/config.js",
-      "source_file": "backend/src/config.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_config_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "dotenv",
-      "source_file": "backend/src/config.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_src_config_obligatorias",
-      "label": "OBLIGATORIAS",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "obligatorias",
-      "source_file": "backend/src/config.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_src_config_path",
-      "label": "path",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "path",
-      "source_file": "backend/src/config.js",
-      "source_location": "L3"
-    },
-    {
       "id": "backend_src_database",
       "label": "database.js",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "database.js",
       "source_file": "backend/src/database.js",
@@ -6032,7 +6666,7 @@
       "label": "{ config }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ config }",
       "source_file": "backend/src/database.js",
@@ -6043,7 +6677,7 @@
       "label": "{ Sequelize }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ sequelize }",
       "source_file": "backend/src/database.js",
@@ -6054,7 +6688,7 @@
       "label": "models/index.js",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "models/index.js",
       "source_file": "backend/src/models/index.js",
@@ -6065,7 +6699,7 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/src/models/index.js",
@@ -6076,7 +6710,7 @@
       "label": "servidor.js",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "servidor.js",
       "source_file": "backend/src/servidor.js",
@@ -6087,7 +6721,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/src/servidor.js",
@@ -6098,7 +6732,7 @@
       "label": "{ config }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ config }",
       "source_file": "backend/src/servidor.js",
@@ -6109,65 +6743,10 @@
       "label": "servidor",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "servidor",
       "source_file": "backend/src/servidor.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test",
-      "label": "base-de-prueba.test.js",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "base-de-prueba.test.js",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_cargarclaveroot_cargarconfig_cargarconfigdeentorno",
-      "label": "{ cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "{ cargarclaveroot, cargarconfig, cargarconfigdeentorno }",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_mysql",
-      "label": "mysql",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "mysql",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_base_de_datos_base_de_prueba_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
       "source_location": "L8"
     },
     {
@@ -6175,7 +6754,7 @@
       "label": "dinero-como-texto.test.js",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "dinero-como-texto.test.js",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
@@ -6186,7 +6765,7 @@
       "label": "{ DataTypes }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ datatypes }",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
@@ -6197,7 +6776,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
@@ -6208,62 +6787,18 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
       "source_location": "L6"
     },
     {
-      "id": "backend_tests_config_test",
-      "label": "config.test.js",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "config.test.js",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_config_test_base",
-      "label": "base",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "base",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_config_test_cargarconfig_cargararchivoenv",
-      "label": "{ cargarConfig, cargarArchivoEnv }",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "{ cargarconfig, cargararchivoenv }",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_config_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L7"
-    },
-    {
       "id": "backend_tests_database_test",
       "label": "database.test.js",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "database.test.js",
       "source_file": "backend/tests/database.test.js",
@@ -6274,7 +6809,7 @@
       "label": "{ config }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ config }",
       "source_file": "backend/tests/database.test.js",
@@ -6285,7 +6820,7 @@
       "label": "dbConfig",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "dbconfig",
       "source_file": "backend/tests/database.test.js",
@@ -6296,7 +6831,7 @@
       "label": "modelos",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "modelos",
       "source_file": "backend/tests/database.test.js",
@@ -6307,7 +6842,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/database.test.js",
@@ -6318,7 +6853,7 @@
       "label": "{ Sequelize }",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "{ sequelize }",
       "source_file": "backend/tests/database.test.js",
@@ -6329,29 +6864,18 @@
       "label": "sequelizerc",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "code",
       "norm_label": "sequelizerc",
       "source_file": "backend/tests/database.test.js",
       "source_location": "L12"
     },
     {
-      "id": "ref_mysql2",
-      "label": "mysql2",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "src/config.js",
-      "file_type": "concept",
-      "norm_label": "mysql2",
-      "source_file": "backend/package.json",
-      "source_location": "L34"
-    },
-    {
       "id": "ref_sequelize",
       "label": "sequelize",
       "_origin": "ast",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "file_type": "concept",
       "norm_label": "sequelize",
       "source_file": "backend/package.json",
@@ -6595,30 +7119,6 @@
       "source_location": "L30"
     },
     {
-      "id": "specs_documentacion_de_la_api_spec_la_pol\u00edtica_de_contenido_solo_en_api_docs",
-      "label": "La pol\u00edtica de contenido solo en `/api/docs`",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "app.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "la politica de contenido solo en `/api/docs`",
-      "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L229"
-    },
-    {
-      "id": "specs_documentacion_de_la_api_spec_swagger_ui_en_get_api_docs",
-      "label": "Swagger UI en `GET /api/docs`",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "app.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "swagger ui en `get /api/docs`",
-      "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L204"
-    },
-    {
       "id": "tests_grafo_del_proyecto_sin_rutas_ni_evals_test",
       "label": "sin-rutas-ni-evals.test.sh",
       "_origin": "ast",
@@ -6743,7 +7243,7 @@
       "label": "desdeBaseDeDatos.js",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "desdebasededatos.js",
       "source_file": "backend/src/errors/desdeBaseDeDatos.js",
@@ -6754,7 +7254,7 @@
       "label": "ErrorApi",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/src/errors/desdeBaseDeDatos.js",
@@ -6765,7 +7265,7 @@
       "label": "ErrorApi.js",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "errorapi.js",
       "source_file": "backend/src/errors/ErrorApi.js",
@@ -6776,7 +7276,7 @@
       "label": "ESTADOS",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "estados",
       "source_file": "backend/src/errors/ErrorApi.js",
@@ -6787,7 +7287,7 @@
       "label": "errorHandler.js",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "errorhandler.js",
       "source_file": "backend/src/middlewares/errorHandler.js",
@@ -6798,7 +7298,7 @@
       "label": "desdeBaseDeDatos",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "desdebasededatos",
       "source_file": "backend/src/middlewares/errorHandler.js",
@@ -6809,393 +7309,11 @@
       "label": "ErrorApi",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Arquitectura de AIPOS",
+      "community_name": "errorHandler.js",
       "file_type": "code",
       "norm_label": "errorapi",
       "source_file": "backend/src/middlewares/errorHandler.js",
       "source_location": "L3"
-    },
-    {
-      "id": "backend_src_middlewares_noencontrado",
-      "label": "noEncontrado.js",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": "noencontrado.js",
-      "source_file": "backend/src/middlewares/noEncontrado.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_middlewares_noencontrado_errorapi",
-      "label": "ErrorApi",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": "errorapi",
-      "source_file": "backend/src/middlewares/noEncontrado.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "specs_arquitectura_spec_arquitectura_de_aipos",
-      "label": "Arquitectura de AIPOS",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "arquitectura de aipos",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "specs_arquitectura_spec_backend",
-      "label": "Backend",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "backend",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L156"
-    },
-    {
-      "id": "specs_arquitectura_spec_base_de_datos",
-      "label": "Base de datos",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "base de datos",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L395"
-    },
-    {
-      "id": "specs_arquitectura_spec_calidad",
-      "label": "Calidad",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "calidad",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L702"
-    },
-    {
-      "id": "specs_arquitectura_spec_capas",
-      "label": "Capas",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "capas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L243"
-    },
-    {
-      "id": "specs_arquitectura_spec_carpetas",
-      "label": "Carpetas",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "carpetas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L162"
-    },
-    {
-      "id": "specs_arquitectura_spec_carpetas_484",
-      "label": "Carpetas",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "carpetas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L484"
-    },
-    {
-      "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
-      "label": "C\u00f3mo se decide un dise\u00f1o",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como se decide un diseno",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L750"
-    },
-    {
-      "id": "specs_arquitectura_spec_dinero",
-      "label": "Dinero",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dinero",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L432"
-    },
-    {
-      "id": "specs_arquitectura_spec_errores",
-      "label": "Errores",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "errores",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L314"
-    },
-    {
-      "id": "specs_arquitectura_spec_frontend",
-      "label": "Frontend",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "frontend",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L478"
-    },
-    {
-      "id": "specs_arquitectura_spec_git_y_entrega",
-      "label": "Git y entrega",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "git y entrega",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L720"
-    },
-    {
-      "id": "specs_arquitectura_spec_la_venta_actual",
-      "label": "La venta actual",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "la venta actual",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L549"
-    },
-    {
-      "id": "specs_arquitectura_spec_l\u00edmites_cors_y_cabeceras",
-      "label": "L\u00edmites, CORS y cabeceras",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "limites, cors y cabeceras",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L363"
-    },
-    {
-      "id": "specs_arquitectura_spec_monorepo",
-      "label": "Monorepo",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "monorepo",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "specs_arquitectura_spec_procedimientos_almacenados",
-      "label": "Procedimientos almacenados",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "procedimientos almacenados",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L269"
-    },
-    {
-      "id": "specs_arquitectura_spec_pruebas",
-      "label": "Pruebas",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pruebas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L656"
-    },
-    {
-      "id": "specs_arquitectura_spec_pruebas_en_local",
-      "label": "Pruebas en local",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pruebas en local",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L683"
-    },
-    {
-      "id": "specs_arquitectura_spec_servicio_de_api",
-      "label": "Servicio de API",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "servicio de api",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L528"
-    },
-    {
-      "id": "specs_arquitectura_spec_validaci\u00f3n",
-      "label": "Validaci\u00f3n",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "validacion",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L292"
-    },
-    {
-      "id": "specs_arquitectura_spec_variables_de_entorno",
-      "label": "Variables de entorno",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "variables de entorno",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L107"
-    },
-    {
-      "id": "specs_arquitectura_spec_versiones",
-      "label": "Versiones",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "versiones",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L57"
-    },
-    {
-      "id": "specs_crear_producto_spec_contrato",
-      "label": "Contrato",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "contrato",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L152"
-    },
-    {
-      "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_02",
-      "label": "Criterios de aceptaci\u00f3n de P-02",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "criterios de aceptacion de p-02",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L242"
-    },
-    {
-      "id": "specs_crear_producto_spec_documentaci\u00f3n_de_la_api_tarjeta_a_01",
-      "label": "Documentaci\u00f3n de la API (tarjeta A-01)",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "documentacion de la api (tarjeta a-01)",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L233"
-    },
-    {
-      "id": "specs_crear_producto_spec_p_02_post_api_productos",
-      "label": "P-02 \u00b7 `POST /api/productos`",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "p-02 \u00b7 `post /api/productos`",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L141"
-    },
-    {
-      "id": "specs_crear_producto_spec_servicio_409_y_peticiones_al_mismo_tiempo",
-      "label": "Servicio, 409 y peticiones al mismo tiempo",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "servicio, 409 y peticiones al mismo tiempo",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L218"
-    },
-    {
-      "id": "specs_crear_producto_spec_validaci\u00f3n",
-      "label": "Validaci\u00f3n",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "validacion",
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L204"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
-      "label": "entrega-trazable.md",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "entrega-trazable.md",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
-      "label": "Entrega trazable",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega trazable",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
     },
     {
       "id": "tests_hook_de_git_graphify_falla_test",
@@ -7316,6 +7434,62 @@
       "norm_label": "otra-version.test.sh script",
       "source_file": "tests/hook-de-git/otra-version.test.sh",
       "source_location": "L1"
+    },
+    {
+      "id": "backend_src_controllers_salud",
+      "label": "controllers/salud.js",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "controllers/salud.js",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_controllers_salud_consultarsalud",
+      "label": "{ consultarSalud }",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "{ consultarsalud }",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_services_salud",
+      "label": "services/salud.js",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "services/salud.js",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_services_salud_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "specs_arquitectura_spec_salud",
+      "label": "Salud",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Documentaci\u00f3n de la API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "salud",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L380"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_archivos",
@@ -8117,18 +8291,6 @@
       "source_location": "L1"
     },
     {
-      "id": "specs_buscar_producto_spec_api_get_api_productos_busqueda_texto",
-      "label": "API: `GET /api/productos?busqueda=<texto>`",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "api: `get /api/productos?busqueda=<texto>`",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L74"
-    },
-    {
       "id": "specs_buscar_producto_spec_buscar_producto",
       "label": "Buscar producto",
       "_origin": "ast",
@@ -8165,18 +8327,6 @@
       "source_location": "L319"
     },
     {
-      "id": "specs_buscar_producto_spec_c\u00f3mo_busca_el_servicio",
-      "label": "C\u00f3mo busca el servicio",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como busca el servicio",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L131"
-    },
-    {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
       "label": "C\u00f3mo se decidi\u00f3 el dise\u00f1o",
       "_origin": "ast",
@@ -8189,54 +8339,6 @@
       "source_location": "L409"
     },
     {
-      "id": "specs_buscar_producto_spec_c\u00f3mo_se_ve_y_se_comporta",
-      "label": "C\u00f3mo se ve y se comporta",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como se ve y se comporta",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L225"
-    },
-    {
-      "id": "specs_buscar_producto_spec_dise\u00f1o_skill_impeccable",
-      "label": "Dise\u00f1o (skill `impeccable`)",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "diseno (skill `impeccable`)",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L295"
-    },
-    {
-      "id": "specs_buscar_producto_spec_documentaci\u00f3n_de_la_api",
-      "label": "Documentaci\u00f3n de la API",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "documentacion de la api",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L148"
-    },
-    {
-      "id": "specs_buscar_producto_spec_estados_de_la_zona_de_resultados",
-      "label": "Estados de la zona de resultados",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "estados de la zona de resultados",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L280"
-    },
-    {
       "id": "specs_buscar_producto_spec_lo_que_esta_spec_no_cubre",
       "label": "Lo que esta spec no cubre",
       "_origin": "ast",
@@ -8247,30 +8349,6 @@
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/buscar-producto.spec.md",
       "source_location": "L402"
-    },
-    {
-      "id": "specs_buscar_producto_spec_pantalla_campo_de_b\u00fasqueda_y_resultados_p_05",
-      "label": "Pantalla: campo de b\u00fasqueda y resultados (P-05)",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pantalla: campo de busqueda y resultados (p-05)",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L223"
-    },
-    {
-      "id": "specs_buscar_producto_spec_pruebas_en_local_la_api_con_curl",
-      "label": "Pruebas en local: la API con `curl`",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pruebas en local: la api con `curl`",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L157"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_pantalla_en_el_navegador",
@@ -8319,18 +8397,6 @@
       "norm_label": "rf-12 opcional: enter con un codigo de barras exacto",
       "source_file": "specs/buscar-producto.spec.md",
       "source_location": "L374"
-    },
-    {
-      "id": "specs_buscar_producto_spec_validaci\u00f3n_del_texto",
-      "label": "Validaci\u00f3n del texto",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "validacion del texto",
-      "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L118"
     },
     {
       "id": "githooks_pre_merge_commit",
@@ -9091,7 +9157,7 @@
       "node_kind": "heading",
       "norm_label": "caddy",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L224"
+      "source_location": "L226"
     },
     {
       "id": "specs_despliegue_spec_casos_de_error",
@@ -9103,7 +9169,7 @@
       "node_kind": "heading",
       "norm_label": "casos de error",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L480"
+      "source_location": "L482"
     },
     {
       "id": "specs_despliegue_spec_configuraci\u00f3n_del_servidor_una_sola_vez",
@@ -9115,7 +9181,7 @@
       "node_kind": "heading",
       "norm_label": "configuracion del servidor (una sola vez)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L427"
+      "source_location": "L429"
     },
     {
       "id": "specs_despliegue_spec_criterios_de_aceptaci\u00f3n",
@@ -9127,7 +9193,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L501"
+      "source_location": "L503"
     },
     {
       "id": "specs_despliegue_spec_c\u00f3mo_queda_armado_el_servidor",
@@ -9139,7 +9205,7 @@
       "node_kind": "heading",
       "norm_label": "como queda armado el servidor",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "specs_despliegue_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -9151,7 +9217,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L657"
+      "source_location": "L664"
     },
     {
       "id": "specs_despliegue_spec_despliegue_de_aipos",
@@ -9175,7 +9241,7 @@
       "node_kind": "heading",
       "norm_label": "docker compose de produccion (`docker-compose.produccion.yml`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L162"
+      "source_location": "L164"
     },
     {
       "id": "specs_despliegue_spec_el_env_de_producci\u00f3n",
@@ -9187,7 +9253,7 @@
       "node_kind": "heading",
       "norm_label": "el .env de produccion",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L196"
+      "source_location": "L198"
     },
     {
       "id": "specs_despliegue_spec_fuera_de_alcance",
@@ -9199,7 +9265,7 @@
       "node_kind": "heading",
       "norm_label": "fuera de alcance",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L671"
+      "source_location": "L678"
     },
     {
       "id": "specs_despliegue_spec_la_etiqueta_release",
@@ -9211,7 +9277,7 @@
       "node_kind": "heading",
       "norm_label": "la etiqueta release-*",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L78"
+      "source_location": "L80"
     },
     {
       "id": "specs_despliegue_spec_los_scripts_del_servidor",
@@ -9223,7 +9289,7 @@
       "node_kind": "heading",
       "norm_label": "los scripts del servidor",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L331"
+      "source_location": "L333"
     },
     {
       "id": "specs_despliegue_spec_palabras_nuevas_para_el_glosario",
@@ -9235,7 +9301,7 @@
       "node_kind": "heading",
       "norm_label": "palabras nuevas para el glosario",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L689"
+      "source_location": "L696"
     },
     {
       "id": "specs_despliegue_spec_preguntas_abiertas",
@@ -9247,7 +9313,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L681"
+      "source_location": "L688"
     },
     {
       "id": "specs_despliegue_spec_pruebas_en_local",
@@ -9259,7 +9325,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L556"
+      "source_location": "L559"
     },
     {
       "id": "specs_despliegue_spec_revisi\u00f3n_desde_internet_despliegue_revisar_produccion_sh",
@@ -9271,7 +9337,7 @@
       "node_kind": "heading",
       "norm_label": "revision desde internet (`despliegue/revisar-produccion.sh`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L406"
+      "source_location": "L408"
     },
     {
       "id": "specs_despliegue_spec_volver_a_la_versi\u00f3n_anterior",
@@ -9283,7 +9349,7 @@
       "node_kind": "heading",
       "norm_label": "volver a la version anterior",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L377"
+      "source_location": "L379"
     },
     {
       "id": "requerimientos_01_alcance_actores_y_partes",
@@ -9394,39 +9460,6 @@
       "source_location": "L72"
     },
     {
-      "id": "backend_tests_base_de_datos_conexion_test",
-      "label": "conexion.test.js",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "conexion.test.js",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_conexion_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_tests_base_de_datos_conexion_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L5"
-    },
-    {
       "id": "backend_tests_cabeceras_test",
       "label": "cabeceras.test.js",
       "_origin": "ast",
@@ -9502,50 +9535,6 @@
       "norm_label": "require",
       "source_file": "backend/tests/cors.test.js",
       "source_location": "L5"
-    },
-    {
-      "id": "backend_tests_documentacion_swagger_ui_test",
-      "label": "swagger-ui.test.js",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "swagger-ui.test.js",
-      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_documentacion_swagger_ui_test_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_documentacion_swagger_ui_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_documentacion_swagger_ui_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
-      "source_location": "L8"
     },
     {
       "id": "backend_tests_limite_del_cuerpo_test",
@@ -9766,94 +9755,6 @@
       "norm_label": "rutas.js",
       "source_file": "backend/tests/documentacion/rutas.js",
       "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test",
-      "label": "rutas-documentadas.test.js",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "rutas-documentadas.test.js",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_carpetaderutas",
-      "label": "carpetaDeRutas",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "carpetaderutas",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_docs",
-      "label": "docs",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "docs",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L18"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_montajes",
-      "label": "{ montajes }",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "{ montajes }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L17"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_router",
-      "label": "{ Router }",
-      "_origin": "ast",
-      "community": 58,
-      "community_name": "comparar-rutas.test.js",
-      "file_type": "code",
-      "norm_label": "{ router }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L15"
     },
     {
       "id": "backend_tests_documentacion_rutas_metodos_de_openapi",
@@ -10086,6 +9987,17 @@
       "norm_label": "animacionlottie.vue",
       "source_file": "frontend/src/components/AnimacionLottie.vue",
       "source_location": "L1"
+    },
+    {
+      "id": "ref_lottie_web",
+      "label": "lottie-web",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "AnimacionLottie.vue",
+      "file_type": "concept",
+      "norm_label": "lottie-web",
+      "source_file": "frontend/package.json",
+      "source_location": "L23"
     },
     {
       "id": "tessl_plugins_vue2_vuetify2_vite_skills_vuetify2_components_skill",
@@ -10804,6 +10716,50 @@
       "source_location": "L36"
     },
     {
+      "id": "backend_tests_config_test",
+      "label": "config.test.js",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "config.test.js",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_config_test_base",
+      "label": "base",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "base",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_config_test_cargarconfig_cargararchivoenv",
+      "label": "{ cargarConfig, cargarArchivoEnv }",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "{ cargarconfig, cargararchivoenv }",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_tests_config_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L7"
+    },
+    {
       "id": "backend_tests_env_example_test",
       "label": "env-example.test.js",
       "_origin": "ast",
@@ -10835,28 +10791,6 @@
       "norm_label": "raiz",
       "source_file": "backend/tests/env-example.test.js",
       "source_location": "L6"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test",
-      "label": "pantalla-unica.test.js",
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "pantalla-unica.test.js",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_pantalla_unica_test_paquete",
-      "label": "paquete",
-      "_origin": "ast",
-      "community": 62,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "paquete",
-      "source_file": "frontend/tests/pantalla-unica.test.js",
-      "source_location": "L12"
     },
     {
       "id": "frontend_package_devdependencies",
@@ -11688,17 +11622,6 @@
       "source_location": "L25"
     },
     {
-      "id": "ref_lottie_web",
-      "label": "lottie-web",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "vitest-vue2.test.js",
-      "file_type": "concept",
-      "norm_label": "lottie-web",
-      "source_file": "frontend/package.json",
-      "source_location": "L23"
-    },
-    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -12270,6 +12193,61 @@
       "source_location": "L86"
     },
     {
+      "id": "backend_tests_documentacion_openapi_valido_test",
+      "label": "openapi-valido.test.js",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "openapi-valido.test.js",
+      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_documentacion_openapi_valido_test_archivo",
+      "label": "archivo",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "archivo",
+      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_documentacion_openapi_valido_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_documentacion_openapi_valido_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/documentacion/openapi-valido.test.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "ref_apidevtools_swagger_parser",
+      "label": "@apidevtools/swagger-parser",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "ejemplos-de-error.test.js",
+      "file_type": "concept",
+      "norm_label": "@apidevtools/swagger-parser",
+      "source_file": "backend/package.json",
+      "source_location": "L42"
+    },
+    {
       "id": "backend_src_routes_docs",
       "label": "docs.js",
       "_origin": "ast",
@@ -12552,7 +12530,7 @@
       "node_kind": "heading",
       "norm_label": "el workflow (`.github/workflows/despliegue.yml`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L275"
+      "source_location": "L277"
     },
     {
       "id": "specs_despliegue_spec_environment_y_regla_de_etiquetas_github",
@@ -12564,7 +12542,7 @@
       "node_kind": "heading",
       "norm_label": "environment y regla de etiquetas (github)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L462"
+      "source_location": "L464"
     },
     {
       "id": "specs_despliegue_spec_qu\u00e9_se_decidi\u00f3",
@@ -12576,7 +12554,7 @@
       "node_kind": "heading",
       "norm_label": "que se decidio",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L43"
+      "source_location": "L45"
     },
     {
       "id": "specs_despliegue_spec_qu\u00e9_tarjeta_implementa_cada_parte",
@@ -12588,7 +12566,7 @@
       "node_kind": "heading",
       "norm_label": "que tarjeta implementa cada parte",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L645"
+      "source_location": "L652"
     },
     {
       "id": "backend_tests_estructura_test",
@@ -13090,7 +13068,7 @@
       "label": "dependencias.test.js",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "dependencias.test.js",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
@@ -13101,7 +13079,7 @@
       "label": "backend",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "backend",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
@@ -13112,7 +13090,7 @@
       "label": "EN_DEPENDENCIES",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "en_dependencies",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
@@ -13123,7 +13101,7 @@
       "label": "EN_DEV_DEPENDENCIES",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "en_dev_dependencies",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
@@ -13134,7 +13112,7 @@
       "label": "lock",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "lock",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
@@ -13145,93 +13123,11 @@
       "label": "paquete",
       "_origin": "ast",
       "community": 81,
-      "community_name": "ref_node_path",
+      "community_name": "dependencias.test.js",
       "file_type": "code",
       "norm_label": "paquete",
       "source_file": "backend/tests/documentacion/dependencias.test.js",
       "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_globalsetup",
-      "label": "globalSetup.js",
-      "_origin": "ast",
-      "community": 81,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "globalsetup.js",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_globalsetup_carpetabackend",
-      "label": "carpetaBackend",
-      "_origin": "ast",
-      "community": 81,
-      "community_name": "ref_node_path",
-      "file_type": "code",
-      "norm_label": "carpetabackend",
-      "source_file": "backend/tests/globalSetup.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "specs_documentacion_de_la_api_spec",
-      "label": "documentacion-de-la-api.spec.md",
-      "_origin": "ast",
-      "community": 82,
-      "community_name": "graphify-setup.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Documentaci\u00f3n de la API",
-        "description": "Documento OpenAPI 3 del backend, servido con Swagger UI en GET /api/docs, con el formato de error como esquema compartido y una prueba que falla si una ruta de Express no est\u00e1 documentada"
-      },
-      "node_kind": "page",
-      "norm_label": "documentacion-de-la-api.spec.md",
-      "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "specs_despliegue_spec",
-      "label": "despliegue.spec.md",
-      "_origin": "ast",
-      "community": 82,
-      "community_name": "graphify-setup.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Despliegue de AIPOS",
-        "description": "Flujo 07 - una etiqueta release-* prueba, construye y despliega AIPOS con Docker en el servidor de producci\u00f3n de aipos.salsalvador.io (pantalla y backend en dos dominios, MySQL solo dentro del servidor), y vuelve a la versi\u00f3n anterior si algo falla"
-      },
-      "node_kind": "page",
-      "norm_label": "despliegue.spec.md",
-      "source_file": "specs/despliegue.spec.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 82,
-      "community_name": "graphify-setup.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_despliegue",
-      "label": "despliegue.md",
-      "_origin": "ast",
-      "community": 82,
-      "community_name": "graphify-setup.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "despliegue.md",
-      "source_file": "docs/despliegue.md",
-      "source_location": "L1"
     },
     {
       "id": "docs_lenguaje_ubicuo",
@@ -13481,7 +13377,7 @@
       "label": "ayudas.js",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "ayudas.js",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
@@ -13492,7 +13388,7 @@
       "label": "carpetaBackend",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "carpetabackend",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
@@ -13503,7 +13399,7 @@
       "label": "carpetaRaiz",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "carpetaraiz",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
@@ -13514,7 +13410,7 @@
       "label": "compose.test.js",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "compose.test.js",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
@@ -13525,7 +13421,7 @@
       "label": "archivo",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "archivo",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
@@ -13536,7 +13432,7 @@
       "label": "salud-con-base.test.js",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "salud-con-base.test.js",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -13547,7 +13443,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -13558,7 +13454,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
@@ -13569,11 +13465,55 @@
       "label": "sequelize",
       "_origin": "ast",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "file_type": "code",
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
       "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_globalsetup",
+      "label": "globalSetup.js",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "globalsetup.js",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_globalsetup_carpetabackend",
+      "label": "carpetaBackend",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "carpetabackend",
+      "source_file": "backend/tests/globalSetup.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_servidor_test",
+      "label": "servidor.test.js",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "servidor.test.js",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_servidor_test_backend",
+      "label": "backend",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "file_type": "code",
+      "norm_label": "backend",
+      "source_file": "backend/tests/servidor.test.js",
+      "source_location": "L10"
     },
     {
       "id": "frontend_package_dependencies",
@@ -13642,82 +13582,147 @@
       "source_location": "L25"
     },
     {
-      "id": "backend_src_controllers_salud",
-      "label": "controllers/salud.js",
+      "id": "backend_db_config",
+      "label": "db/config.js",
       "_origin": "ast",
       "community": 87,
-      "community_name": "consultarSalud",
+      "community_name": "src/config.js",
       "file_type": "code",
-      "norm_label": "controllers/salud.js",
-      "source_file": "backend/src/controllers/salud.js",
+      "norm_label": "db/config.js",
+      "source_file": "backend/db/config.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_src_controllers_salud_consultarsalud",
-      "label": "{ consultarSalud }",
+      "id": "backend_db_config_cargarconfigdeentorno_cargararchivoenv",
+      "label": "{ cargarConfigDeEntorno, cargarArchivoEnv }",
       "_origin": "ast",
       "community": 87,
-      "community_name": "consultarSalud",
+      "community_name": "src/config.js",
       "file_type": "code",
-      "norm_label": "{ consultarsalud }",
-      "source_file": "backend/src/controllers/salud.js",
+      "norm_label": "{ cargarconfigdeentorno, cargararchivoenv }",
+      "source_file": "backend/db/config.js",
       "source_location": "L3"
     },
     {
-      "id": "backend_src_services_salud",
-      "label": "services/salud.js",
+      "id": "backend_scripts_crear_base_de_prueba",
+      "label": "crear-base-de-prueba.js",
       "_origin": "ast",
       "community": 87,
-      "community_name": "consultarSalud",
+      "community_name": "src/config.js",
       "file_type": "code",
-      "norm_label": "services/salud.js",
-      "source_file": "backend/src/services/salud.js",
+      "norm_label": "crear-base-de-prueba.js",
+      "source_file": "backend/scripts/crear-base-de-prueba.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_src_services_salud_sequelize",
+      "id": "backend_src_config",
+      "label": "src/config.js",
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "src/config.js",
+      "source_file": "backend/src/config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_config_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "dotenv",
+      "source_file": "backend/src/config.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_config_obligatorias",
+      "label": "OBLIGATORIAS",
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "obligatorias",
+      "source_file": "backend/src/config.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_src_config_path",
+      "label": "path",
+      "_origin": "ast",
+      "community": 87,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "path",
+      "source_file": "backend/src/config.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test",
+      "label": "base-de-prueba.test.js",
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "base-de-prueba.test.js",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_cargarclaveroot_cargarconfig_cargarconfigdeentorno",
+      "label": "{ cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }",
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "{ cargarclaveroot, cargarconfig, cargarconfigdeentorno }",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_mysql",
+      "label": "mysql",
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "mysql",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_base_de_datos_base_de_prueba_test_sequelize",
       "label": "sequelize",
       "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
+      "community": 88,
+      "community_name": "base-de-prueba.test.js",
       "file_type": "code",
       "norm_label": "sequelize",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L3"
+      "source_file": "backend/tests/base-de-datos/base-de-prueba.test.js",
+      "source_location": "L8"
     },
     {
-      "id": "specs_arquitectura_spec_salud",
-      "label": "Salud",
-      "_origin": "ast",
-      "community": 87,
-      "community_name": "consultarSalud",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "salud",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L380"
-    },
-    {
-      "id": "backend_tests_servidor_test",
-      "label": "servidor.test.js",
+      "id": "ref_mysql2",
+      "label": "mysql2",
       "_origin": "ast",
       "community": 88,
-      "community_name": "servidor.test.js",
-      "file_type": "code",
-      "norm_label": "servidor.test.js",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_servidor_test_backend",
-      "label": "backend",
-      "_origin": "ast",
-      "community": 88,
-      "community_name": "servidor.test.js",
-      "file_type": "code",
-      "norm_label": "backend",
-      "source_file": "backend/tests/servidor.test.js",
-      "source_location": "L10"
+      "community_name": "base-de-prueba.test.js",
+      "file_type": "concept",
+      "norm_label": "mysql2",
+      "source_file": "backend/package.json",
+      "source_location": "L34"
     },
     {
       "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
@@ -14200,54 +14205,6 @@
       "source_location": "L18"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
-      "label": "Flujo 04 \u00b7 Registrar venta",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 04 \u00b7 registrar venta",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L50"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L40"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 96,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L22"
-    },
-    {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
       "label": "Flujo 03 \u00b7 Armar la venta actual",
       "_origin": "ast",
@@ -14300,7 +14257,7 @@
       "label": "routes/index.js",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "routes/index.js",
       "source_file": "backend/src/routes/index.js",
@@ -14311,7 +14268,7 @@
       "label": "docs",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "docs",
       "source_file": "backend/src/routes/index.js",
@@ -14322,7 +14279,7 @@
       "label": "montajes",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "montajes",
       "source_file": "backend/src/routes/index.js",
@@ -14333,7 +14290,7 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/src/routes/index.js",
@@ -14344,7 +14301,7 @@
       "label": "salud",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "salud",
       "source_file": "backend/src/routes/index.js",
@@ -14355,7 +14312,7 @@
       "label": "routes/salud.js",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "routes/salud.js",
       "source_file": "backend/src/routes/salud.js",
@@ -14366,7 +14323,7 @@
       "label": "{ obtenerSalud }",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "{ obtenersalud }",
       "source_file": "backend/src/routes/salud.js",
@@ -14377,18 +14334,106 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/src/routes/salud.js",
       "source_location": "L3"
     },
     {
+      "id": "backend_tests_documentacion_rutas_documentadas_test",
+      "label": "rutas-documentadas.test.js",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "rutas-documentadas.test.js",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_carpetaderutas",
+      "label": "carpetaDeRutas",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "carpetaderutas",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_docs",
+      "label": "docs",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "docs",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_montajes",
+      "label": "{ montajes }",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "{ montajes }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_router",
+      "label": "{ Router }",
+      "_origin": "ast",
+      "community": 98,
+      "community_name": "rutas-documentadas.test.js",
+      "file_type": "code",
+      "norm_label": "{ router }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L15"
+    },
+    {
       "id": "ref_express",
       "label": "express",
       "_origin": "ast",
       "community": 98,
-      "community_name": "routes/index.js",
+      "community_name": "rutas-documentadas.test.js",
       "file_type": "concept",
       "norm_label": "express",
       "source_file": "backend/package.json",
@@ -14431,11 +14476,23 @@
       "source_location": "L11"
     },
     {
+      "id": "ref_node_os",
+      "label": "ref_node_os",
+      "_origin": "semantic",
+      "community": 128,
+      "community_name": "documentacion.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_os",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "backend_sequelizerc",
       "label": "backend_sequelizerc",
       "_origin": "semantic",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "backend_sequelizerc",
@@ -14447,7 +14504,7 @@
       "label": "backend_src_config_config",
       "_origin": "semantic",
       "community": 31,
-      "community_name": "src/config.js",
+      "community_name": "database.test.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "backend_src_config_config",
@@ -14463,18 +14520,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_module",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_os",
-      "label": "ref_node_os",
-      "_origin": "semantic",
-      "community": 57,
-      "community_name": "ref_vitest",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_os",
       "source_file": "",
       "type": "external"
     },
@@ -14499,18 +14544,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_fs",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_path",
-      "label": "ref_node_path",
-      "_origin": "semantic",
-      "community": 81,
-      "community_name": "ref_node_path",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_path",
       "source_file": "",
       "type": "external"
     },
@@ -14555,7 +14588,7 @@
       "label": "ref_node_child_process",
       "_origin": "semantic",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_child_process",
@@ -14567,10 +14600,34 @@
       "label": "ref_node_events",
       "_origin": "semantic",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_events",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_net",
+      "label": "ref_node_net",
+      "_origin": "semantic",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_net",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_path",
+      "label": "ref_node_path",
+      "_origin": "semantic",
+      "community": 85,
+      "community_name": "ref_node_path",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_path",
       "source_file": "",
       "type": "external"
     },
@@ -14579,22 +14636,10 @@
       "label": "ref_node_util",
       "_origin": "semantic",
       "community": 85,
-      "community_name": "salud-con-base.test.js",
+      "community_name": "ref_node_path",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_util",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_net",
-      "label": "ref_node_net",
-      "_origin": "semantic",
-      "community": 88,
-      "community_name": "servidor.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_net",
       "source_file": "",
       "type": "external"
     }
@@ -16485,6 +16530,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_sin_datos_privados_falsos_positivos_test_sh__entry",
+      "target": "tests_despliegue_sin_datos_privados_falsos_positivos_test_revisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_sin_datos_privados_test_sh__entry",
       "target": "tests_despliegue_sin_datos_privados_test_resumir",
       "relation": "calls",
@@ -16493,7 +16550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L109",
+      "source_location": "L112",
       "weight": 1.0
     },
     {
@@ -28093,7 +28150,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L103",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -28104,7 +28161,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L162",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -28115,7 +28172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L196",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -28126,7 +28183,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L224",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -28137,7 +28194,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L275",
+      "source_location": "L277",
       "weight": 1.0
     },
     {
@@ -28148,7 +28205,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L331",
+      "source_location": "L333",
       "weight": 1.0
     },
     {
@@ -28159,7 +28216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L377",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -28170,7 +28227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L406",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -28181,7 +28238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L427",
+      "source_location": "L429",
       "weight": 1.0
     },
     {
@@ -28192,7 +28249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -28203,7 +28260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L462",
+      "source_location": "L464",
       "weight": 1.0
     },
     {
@@ -28214,7 +28271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L480",
+      "source_location": "L482",
       "weight": 1.0
     },
     {
@@ -28225,7 +28282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L501",
+      "source_location": "L503",
       "weight": 1.0
     },
     {
@@ -28236,7 +28293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L556",
+      "source_location": "L559",
       "weight": 1.0
     },
     {
@@ -28247,7 +28304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -28258,7 +28315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L645",
+      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -28269,7 +28326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L657",
+      "source_location": "L664",
       "weight": 1.0
     },
     {
@@ -28280,7 +28337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L671",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -28291,7 +28348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L681",
+      "source_location": "L688",
       "weight": 1.0
     },
     {
@@ -28302,7 +28359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L689",
+      "source_location": "L696",
       "weight": 1.0
     },
     {
@@ -28313,7 +28370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L78",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -28324,7 +28381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L126",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -28335,7 +28392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L141",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -30044,6 +30101,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_sin_datos_privados_falsos_positivos_test",
+      "target": "tests_despliegue_sin_datos_privados_falsos_positivos_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_sin_datos_privados_test",
       "target": "tests_despliegue_sin_datos_privados_test_sh__entry",
       "relation": "contains",
@@ -31331,6 +31399,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_sin_datos_privados_falsos_positivos_test",
+      "target": "tests_despliegue_sin_datos_privados_falsos_positivos_test_revisar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_sin_datos_privados_test",
       "target": "tests_despliegue_sin_datos_privados_test_resumir",
       "relation": "defines",
@@ -31338,7 +31417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L97",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -32828,7 +32907,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L292",
+      "source_location": "L294",
       "weight": 1.0
     },
     {
@@ -32840,7 +32919,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L464",
+      "source_location": "L466",
       "weight": 1.0
     },
     {
@@ -32852,7 +32931,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -32864,7 +32943,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L650",
+      "source_location": "L657",
       "weight": 1.0
     },
     {

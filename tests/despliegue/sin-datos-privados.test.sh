@@ -45,6 +45,9 @@ ASIGNA = [
     re.compile(r"(?i)[\"']" + _NOMBRE + r"[\"']\s*:" + _VALOR),
 ]
 VALOR_BUENO = re.compile(r"^(?:[$<{*]|cambiar-|tu-|clave-de-mentira|ci-clave-de-prueba|secrets\.|[A-Z][A-Z0-9_]*$)")
+# Código que lee un valor y no lo escribe: una comparación (`clave === ''`), una flecha (`clave => ...`) o una llamada
+# (`const clave = texto(env, ...)`). Un valor escrito a mano, con comillas o sin ellas, sigue contando (issue #67).
+NO_ES_UN_VALOR = re.compile(r"^(?:[=>]|[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*\()")
 
 def revisar_texto(donde, texto, es_commit=False, nombra_alias=False):
     for n, linea in enumerate(texto.split("\n"), 1):
@@ -69,7 +72,7 @@ def revisar_texto(donde, texto, es_commit=False, nombra_alias=False):
             avisar("credencial")
         for patron in ASIGNA:
             for m in patron.finditer(linea):
-                if not VALOR_BUENO.match(m.group(1)):
+                if not VALOR_BUENO.match(m.group(1)) and not NO_ES_UN_VALOR.match(m.group(1)):
                     avisar("credencial")
 
 archivos = subprocess.run(["git", "ls-files", "-co", "--exclude-standard", "-z"], capture_output=True, check=True).stdout

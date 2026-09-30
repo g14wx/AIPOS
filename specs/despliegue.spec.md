@@ -36,9 +36,11 @@ glosario"). Hasta que la persona las apruebe, la spec las explica donde aparecen
 
 Todo lo que corre en el servidor de producción se nombra por su dominio, `aipos.salsalvador.io`. Ni la spec, ni los
 documentos, ni el workflow, ni las tarjetas, ni los commits llevan una dirección IP, el alias de acceso al servidor,
-un usuario del sistema ni una credencial.
+un usuario del sistema ni una credencial. Una credencial es un valor escrito a mano: el código que solo lee una
+contraseña del entorno por su nombre (`clave === ''`, `texto(env, 'MYSQL_ROOT_PASSWORD')`) no lo es.
 
 `[@test] ../tests/despliegue/sin-datos-privados.test.sh`
+`[@test] ../tests/despliegue/sin-datos-privados-falsos-positivos.test.sh`
 
 ## Qué se decidió
 
@@ -550,8 +552,9 @@ otros se prueban en local (ver "Pruebas en local").
     espera 200.
     `[@test] ../tests/despliegue/revisar-produccion.test.sh`
 15. Dado el repositorio, entonces no contiene direcciones IP, el alias de acceso, usuarios del sistema, credenciales ni
-    rutas de una máquina.
+    rutas de una máquina. Leer una contraseña del entorno por su nombre no cuenta como escribir una credencial.
     `[@test] ../tests/despliegue/sin-datos-privados.test.sh`
+    `[@test] ../tests/despliegue/sin-datos-privados-falsos-positivos.test.sh`
 
 ## Pruebas en local
 
@@ -591,7 +594,11 @@ imprime `ok:` o `FALLA:` y termina con `todo bien` o con error). Se corren una p
   caddy validate` sobre un `Caddyfile` que importa `conf.d`, y `instalar-caddy.sh` con `caddy`, `systemctl` y `curl` de
   mentira (válido, inválido y un vecino que cambia de código).
 - `sin-datos-privados.test.sh`: busca en lo que sube git direcciones IP (menos `127.0.0.1` y `0.0.0.0`), `/Users/`, `/private/`, alias, `Claude-Session`
-  y contraseñas.
+  y contraseñas. Una contraseña es un valor escrito a mano: una comparación (`clave === ''`), una flecha o una llamada
+  (`const clave = texto(env, ...)`) no cuenta.
+- `sin-datos-privados-falsos-positivos.test.sh` (issue #67): corre esa misma revisión sobre repositorios de mentira. Con
+  una comparación, una flecha o una llamada que lee una contraseña pasa, y con una credencial escrita a mano (con
+  comillas o sin ellas, en una variable, en un `.env` o en JSON) falla.
 - `documentos.test.sh`: revisa que existan `requerimientos/flujos/07-desplegar-una-version.md` con su diagrama,
   `docs/despliegue.md`, la sección del README, «Lo que agregamos» en `01-alcance.md`, la fila de D-01 en
   `04-entregables.md` y las cuatro palabras nuevas en el glosario.

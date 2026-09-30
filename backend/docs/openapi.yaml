@@ -19,7 +19,103 @@ tags:
   # Una etiqueta por recurso en uso. Las de Productos y Ventas las agregan las tarjetas que crean esas rutas.
   - name: Salud
     description: Revisar que la API está viva.
+  - name: Productos
+    description: Los productos que se venden en la tienda, con su nombre, su precio y su código de barras. Se pueden buscar y crear.
 paths:
+  /api/productos:
+    get:
+      operationId: buscarProductos
+      tags:
+        - Productos
+      summary: Buscar productos por una parte del nombre o por su código de barras
+      description: |
+        Busca por una parte del nombre, sin importar mayúsculas ni tildes, o por el código de barras exacto (un pedazo
+        del código de barras no cuenta). Trae 20 productos como máximo: primero el que tiene ese código de barras y
+        después los demás por nombre, de la A a la Z. Si nada coincide, responde 200 con la lista vacía.
+
+        `%`, `_` y `\` se buscan como texto normal: buscar `50%` solo encuentra nombres que tengan `50%`.
+        Solo lee: no cambia nada.
+
+        Responde 400 (`DATOS_INVALIDOS`, con el campo `busqueda` en los detalles del error) si falta el texto, si
+        queda con menos de 2 o con más de 120 caracteres, o si `busqueda` se repite. Por ejemplo, con `?busqueda=a`
+        el detalle del error dice "Escribe al menos 2 caracteres.".
+      parameters:
+        - name: busqueda
+          in: query
+          required: true
+          description: >-
+            El texto que escribió el cajero. Se recortan los espacios de los extremos y debe quedar de 2 a 120
+            caracteres. No puede repetirse (`?busqueda=a&busqueda=b` es un 400).
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 120
+          example: lech
+      responses:
+        '200':
+          description: >-
+            Los productos que coinciden, con 20 como máximo. Es una lista vacía si nada coincide.
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 20
+                items:
+                  $ref: '#/components/schemas/Producto'
+              example:
+                - id: 1
+                  nombre: 'Leche entera 1 L'
+                  codigoBarras: '7501055300075'
+                  precio: '25.00'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    post:
+      operationId: crearProducto
+      tags:
+        - Productos
+      summary: Crear un producto
+      description: |
+        Guarda un producto nuevo. La API revisa todos los datos antes de guardar y, si algún campo no sirve,
+        responde 400 con un elemento en `detalles` por cada campo con problema, en el orden `nombre`, `precio` y
+        `codigoBarras`.
+
+        - El `precio` viaja como texto, por ejemplo `"25.50"`: un número JSON (`25.5`) es un 400. Tiene que ser mayor
+          que 0, con 2 decimales como máximo y hasta `99999.99`.
+        - El `nombre` y el `codigoBarras` se guardan sin los espacios de los extremos. Un texto que solo tenía espacios
+          es un 400. El largo se cuenta en caracteres: un emoji cuenta 1.
+        - El código de barras es único. Si ya existe, responde 409 y el producto que ya estaba no cambia. Sale del
+          índice único de la base de datos, así que dos peticiones iguales al mismo tiempo crean un solo producto.
+        - Los campos que sobran (por ejemplo `id`) se ignoran: el `id` lo pone la base de datos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductoNuevo'
+            example:
+              nombre: 'Leche entera 1 L'
+              precio: '25.00'
+              codigoBarras: '7501055300075'
+      responses:
+        '201':
+          description: El producto se creó. El `precio` vuelve con 2 decimales, aunque se mandara `"25"`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+              example:
+                id: 1
+                nombre: 'Leche entera 1 L'
+                precio: '25.00'
+                codigoBarras: '7501055300075'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '409':
+          $ref: '#/components/responses/Conflicto'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
   /api/salud:
     get:
       operationId: consultarSalud
@@ -56,6 +152,58 @@ components:
           type: string
           enum: ['ok']
           description: Solo aparece cuando la API comprueba MySQL (tarjeta B-03). Siempre `ok`.
+    ProductoNuevo:
+      type: object
+      description: Los datos para crear un producto. Los campos que sobran se ignoran.
+      required:
+        - nombre
+        - precio
+        - codigoBarras
+      properties:
+        nombre:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Cómo se llama el producto. De 1 a 120 caracteres, sin espacios en los extremos.
+        precio:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: >-
+            Lo que cuesta el producto, como texto con punto decimal y hasta 2 decimales, por ejemplo `"25.50"`.
+            Mayor que 0 y hasta `99999.99`.
+        codigoBarras:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: >-
+            El número impreso en el producto, como texto para no perder los ceros de la izquierda. De 1 a 50
+            caracteres, sin espacios en los extremos. No se puede repetir.
+    Producto:
+      type: object
+      description: Algo que se vende en la tienda, con lo que la pantalla necesita para mostrarlo y elegirlo.
+      required:
+        - id
+        - nombre
+        - codigoBarras
+        - precio
+      additionalProperties: false
+      properties:
+        id:
+          type: integer
+          description: El número del producto. Lo pone la base de datos.
+        nombre:
+          type: string
+          maxLength: 120
+          description: Cómo se llama el producto.
+        codigoBarras:
+          type: string
+          maxLength: 50
+          description: >-
+            El código de barras, como texto para no perder los ceros de la izquierda.
+        precio:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: El precio como texto con 2 decimales, por ejemplo `25.00`. Nunca un número.
     RespuestaDeError:
       type: object
       description: El formato de error, igual en todas las rutas.

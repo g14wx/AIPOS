@@ -402,6 +402,18 @@ describe('editar el precio aplicado (V-05, criterios 1 a 5)', () => {
     },
   );
 
+  // El campo es de texto y no type="number", que aceptaría 1e3 y cambiaría el valor con la rueda del ratón: el «1e3» se
+  // escribe como texto y lo rechaza la regla RN-05.
+  it('«1e3» (notación científica) es un error: se escribe como texto, se conserva y «Registrar venta» queda deshabilitado', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '1e3');
+    expect(mensajeDe(leche).text()).toBe(FORMATO);
+    expect(campoDe(leche).element.value).toBe('1e3');
+    expect(subtotalDe(0)).toBe('25.00');
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+  });
+
   it('mientras el texto no sirve, el detalle conserva su último precio aplicado válido: subtotal y total no cambian', async () => {
     dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
     abrir();

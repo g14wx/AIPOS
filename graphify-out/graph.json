@@ -2330,7 +2330,7 @@
       "file_type": "code",
       "norm_label": "estilosde()",
       "source_file": "frontend/tests/componentes/CampoPrecioAplicado.test.js",
-      "source_location": "L364"
+      "source_location": "L366"
     },
     {
       "id": "frontend_tests_componentes_campoprecioaplicado_test_mensaje",
@@ -30832,7 +30832,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/CampoPrecioAplicado.test.js",
-      "source_location": "L364",
+      "source_location": "L366",
       "weight": 1.0
     },
     {

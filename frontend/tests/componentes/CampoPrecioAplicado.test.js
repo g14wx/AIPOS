@@ -70,7 +70,9 @@ describe('el campo de texto', () => {
     expect(wrapper.element.classList.contains('v-input')).toBe(true);
   });
 
-  it('es de texto con inputmode decimal y no type number: 1e3 y la rueda del ratón no entran', () => {
+  // Con type="number" el navegador aceptaría 1e3 y cambiaría el valor con la rueda del ratón. Esta prueba solo revisa los
+  // atributos; que «1e3» se rechaza se prueba en precio-aplicado.test.js (la regla) y en pantalla-venta-actual.test.js.
+  it('es un campo de texto con inputmode decimal y autocomplete off, y no type number', () => {
     montar();
     expect(campo().attributes('type')).toBe('text');
     expect(campo().attributes('inputmode')).toBe('decimal');

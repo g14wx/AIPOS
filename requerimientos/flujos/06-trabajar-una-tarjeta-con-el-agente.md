@@ -11,7 +11,7 @@ Fuente editable: [`06-trabajar-una-tarjeta-con-el-agente.drawio`](../diagramas/0
 - **Carriles:** Persona desarrolladora · Agente (Claude Code) · Tablero AIPOS.
 - **Empieza:** hay una tarjeta en "Por hacer".
 - **Termina bien:** el cambio está en un commit con su entrada en la bitácora y el grafo del proyecto al día, y
-  la tarjeta está lista para el PR de su entregable ([flujo 05](05-entregar-un-entregable.md)).
+  la tarjeta está lista para su PR a la rama de su entregable ([flujo 05](05-entregar-un-entregable.md)).
 - **Requerimientos:** [RNF-08](../03-requerimientos-no-funcionales.md#rnf-08-pruebas),
   [RNF-10](../03-requerimientos-no-funcionales.md#rnf-10-uso-del-agente).
 - **Tarjetas:** R-03 (definición de terminado) y todas las del tablero.
@@ -34,7 +34,8 @@ Fuente editable: [`06-trabajar-una-tarjeta-con-el-agente.drawio`](../diagramas/0
 10. **Agente:** verifica la spec y revisa el trabajo contra ella (skills `spec-verification` y `work-review`).
 11. **Persona desarrolladora:** valida el código y las pruebas, y lo prueba en la pantalla.
 12. **Agente:** escribe la entrada en la bitácora de IA.
-13. **Agente:** hace el commit con Conventional Commits y `Co-Authored-By`, sin `Claude-Session`, y lo sube. El
+13. **Agente:** hace el commit con Conventional Commits y `Co-Authored-By`, sin `Claude-Session`, y lo sube a su rama de
+    tarjeta (`<tipo>/<id>-<resumen>`, que sale de la rama de su entregable). El
     hook de git `pre-commit` actualiza el grafo del proyecto y lo agrega al commit.
 14. **Tablero AIPOS:** se marcan las subtareas de la tarjeta.
 

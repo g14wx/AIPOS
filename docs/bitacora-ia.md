@@ -8,6 +8,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
 | Preparación: agentes, tiles y glosario | 8 h 37 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30), en curso | 31 | 19 |
+| S-01: spec de arquitectura y planificación de la noche | 2 h 20 min (18:04–18:10, 20:29–21:05, 00:40–01:20 y 01:24–03:00 del 30) | 3 | 9 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -388,3 +389,110 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** repetir la revisión de Codex sin `graphify-out/` y con 60 minutos → no se repite → la persona prefirió ese tiempo para empezar a desarrollar.
 - **Tiempo:** 00:36–00:38 del 30.
 - **Commits:** este commit, en el PR #19.
+
+### 2026-09-29 18:04 — Planificación de S-01 (sin commit)
+
+- **Tarea:** la persona preguntó cómo darle al proyecto su «constitución» con el tile de SDD, y después pidió empezar la spec de arquitectura con ayuda de otra sesión del agente.
+- **Agente:** Claude Code (modelo por confirmar).
+- **Qué hizo el agente:** 18:04–18:10: explicó que el tile no trae constitución y que eso se reparte entre las reglas y una spec de arquitectura; dos respuestas salieron en inglés y la persona pidió «en español» y «en pocas palabras». 20:29–20:57: juntó lo ya decidido y encontró 4 choques con los tiles (Express 4 o 5, 400/409 o 422, `DELIMITER`, y `procedures` o `procedimientos`); la otra sesión aceptó que mandan los requerimientos y abrió el PR #17, integrado a las 20:58. 20:57–21:05: puso en B-01 que depende de S-01.
+- **Revisión de la persona:** eligió las entradas «spec» y «SDD» y Vitest, aprobó la tarjeta S-01 y el punto «Su spec está aprobada» de la definición de terminado, y aprobó la subtarea de la spec en P-01, P-04, V-01 y V-04. Recordó que esa sesión solo planifica y la detuvo («stop») cuando empezó a escribir la spec. Decidió que las specs las escriben las sesiones que toman las tarjetas, y que las ramas extra las decide la sesión que toma la tarjeta.
+- **Propuestas cambiadas o descartadas:** escribir la spec en la sesión de planificación → la persona la detuvo y el agente borró su borrador, que no tenía commit → esa sesión solo planifica. Después, la persona pidió que nada dependa de una sesión ni de una máquina y S-01 sumó cuatro reglas para `AGENTS.md`.
+- **Tiempo:** 18:04–18:10, 20:29–21:05.
+- **Commits:** ninguno; PR #17 para el tile.
+
+### 2026-09-30 00:40 — Planificación de la noche: una tarjeta por workflow (sin commit)
+
+- **Tarea:** la persona pidió avanzar todo lo posible del tablero AIPOS con poco tiempo: tomar las tarjetas de "Por hacer" y después las del "Backlog", con un workflow por tarjeta, probando todo, abriendo PR sin borrar ramas y siguiendo SDD. También pidió documentar la API con Swagger.
+- **Agente:** Claude Code en la sesión de planificación (modelo por confirmar).
+- **Qué hizo el agente:** revisó GitHub, el repo, las herramientas y el tablero (solo lectura), y armó el plan de la noche: orden de las tarjetas, un workflow por tarjeta con tres agentes, worktrees separados, la tarjeta nueva A-01 (Swagger) y el alcance de D-01 con servidor.
+- **Revisión de la persona:** decidió, entre las 00:40 y las 01:20: las 7 specs se escriben primero y las aprueba en un solo lote; el agente integra los PR solo, si las pruebas pasan y los hallazgos de Codex quedan corregidos o explicados, y el PR de `ProductionEnv` a `main` lo integra ella; D-01 completo, con backend, pantalla y MySQL en Docker en el servidor de aipos.salsalvador.io y el backend en `aipos-back.salsalvador.io`; de las preguntas abiertas se adoptan las propuestas 1, 3, 4, 5 y 6, y la 2 cambia (la venta actual se guarda en el navegador y se vacía al registrar); una rama y un PR por tarjeta (01:12); comentarios "Update" cortos con la hora en cada cosa importante (01:05); Sonnet 5.5 en todos los agentes de los workflows (01:14); la pantalla con la skill `impeccable`, animaciones Lottie y su paleta.
+- **Propuestas cambiadas o descartadas:** «la venta actual se pierde al recargar en la versión 1» → se guarda en el navegador (`localStorage`) → lo decidió la persona el 2026-09-30. Workflows con Opus → Sonnet 5.5 → lo pidió la persona a las 01:14. Un solo PR por entregable → un PR por tarjeta hacia la rama del entregable, y otro PR del entregable hacia `ProductionEnv` → lo pidió la persona a las 01:12.
+- **Tiempo:** 00:40–01:20.
+- **Commits:** ninguno.
+
+### 2026-09-30 01:24 — S-01: spec de arquitectura
+
+- **Tarea:** tomar la tarjeta S-01 y escribir la spec de arquitectura y los documentos que pide la tarjeta, en la rama `docs/spec-arquitectura`, sin abrir PR: la persona aprueba las 7 specs de la noche en un solo lote.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la tarjeta, `requerimientos/`, el glosario, los tiles y consultó el grafo del proyecto. Comprobó las versiones con `npm view` y probó en local, en dos proyectos temporales, que Vitest 5.0.2 corre un backend en CommonJS (con `import` y con `require`) y componentes de Vue 2 con `@vitejs/plugin-vue2`, `@vue/test-utils` 1 y Vuetify 2.7.2; que `lottie-web` no carga en jsdom (se sustituye con `vi.mock`); y que ESLint 10 funciona con `flat/vue2-recommended` y con una configuración `.mjs` para el backend en CommonJS. Consultó el MCP `design-patterns` para las capas, los errores, la validación, la fachada de la API, el dinero, la venta actual, Lottie y la salud, y anotó el patrón de cada decisión (Front Controller y Memento como «el más cercano»; Repository y Data Mapper descartados). Escribió `specs/arquitectura.spec.md` (versiones fijas, carpetas, capas, formato de error, límites, CORS, helmet, `/api/salud`, MySQL 8.4 con puerto y base de prueba, dinero, frontend, paleta con contraste, Lottie, pruebas, Git). Agregó «SDD», «rama de tarjeta», «issue de GitHub», «prueba en local» y «base de prueba» al glosario, y cambió «venta actual». Puso al día RNF-02, RNF-08, RNF-09 y RNF-13, la definición de terminado, las preguntas abiertas 1 a 6 con su «qué cambia» (RN-02, RN-05, RN-06, RF-02, RF-04, RF-09, RF-10, RF-12, flujos 03 y 04), el flujo 05 (ramas de tarjeta) y `AGENTS.md`. Exportó los PNG de los flujos 03, 05 y 06. Escribió dos pruebas de shell, `tests/arquitectura/spec-arquitectura.test.sh` y `tests/arranque/agents-md-tarjeta.test.sh`; pasan, y también las 18 pruebas de shell anteriores.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas cambiadas o descartadas:** el agente decidió lo siguiente y la persona debe confirmarlo: `DECIMAL(12,2)` solo para subtotal y total, en vez de `DECIMAL(10,2)` en todo como pide el tile → mandan los requerimientos (pregunta abierta 4). Un 413 para el cuerpo muy grande → se responde 400 `CUERPO_MUY_GRANDE` → así la API usa solo los cinco estados de RNF-05. Una librería de validación (`zod`, `joi`) → funciones propias → las reglas de dinero se validan sobre texto y son pocas rutas. El quinto color de la paleta, `#FFE66D`, es un supuesto: la persona mandó `#FF6B6B` repetido. Codex se cortó dos veces a los 9 minutos sin dar hallazgos, la segunda con instrucciones más acotadas; el agente revisó la spec él mismo y corrigió lo que encontró (ESLint del backend en CommonJS, `vue-eslint-parser`, `"type": "module"` del frontend). Después, otra corrida de Codex (la primera de esta se cortó a los 9 minutos), acotada a la spec y a `AGENTS.md`, dio 2 hallazgos P2 y ninguno P0, P1 ni P3, y el agente los corrigió: la spec no enlazaba pruebas `[@test]` para guardar la venta actual en el navegador (se agregaron `funciones.test.js` y `almacenamiento.test.js`, que escribe V-04), y el último paso de «Cómo tomar una tarjeta» decía que el PR va siempre a la rama del entregable (ahora dice que S-01 va a `main` y B-01 y D-01 a `ProductionEnv`).
+- **Tiempo:** 01:24–03:00 (1 h 36 min), sin contar la planificación. Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 11 anteriores de la rama `docs/spec-arquitectura` (la spec, el glosario, RNF y flujos, preguntas abiertas, `AGENTS.md`, las dos pruebas de shell, el ajuste de ESLint, el enlace de las pruebas de la venta actual, el destino de las tarjetas sin entregable, la alineación con las specs de documentación de la API, despliegue y armar la venta actual, y los términos nuevos del glosario).
+
+### 2026-09-30 03:25 — B-01: preparar GitHub y crear ProductionEnv
+
+- **Tarea:** tomar la tarjeta B-01 del tablero AIPOS: dejar GitHub listo para integrar cada entregable con merge commit sin borrar su rama, y crear la rama de integración `ProductionEnv` desde el `main` que ya trae S-01.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow.
+- **Qué hizo el agente:** comprobó con `gh repo view` que el repositorio ya tenía `mergeCommitAllowed=true` y `deleteBranchOnMerge=false`; esos dos valores los cambió el orquestador del workflow a las 01:11, con el permiso que la persona dio en su plan de la noche. `ProductionEnv` se creó desde `main` con `git push origin origin/main:refs/heads/ProductionEnv` (parte del commit 820211c, el de S-01). Se protegió con la regla «Protect ProductionEnv» (id 24237637): sin borrar la rama, sin force push y con PR obligatorio, solo con merge commit. Se comprobó con `gh api repos/g14wx/AIPOS/rules/branches/ProductionEnv` que no exige historial lineal, y que la rama por defecto sigue siendo `main`. B-01 no cambia código: es configuración de GitHub y esta entrada.
+- **Revisión de la persona:** por confirmar. A las 01:40 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir; no leyó lo que hizo este workflow. Dio el permiso de cambiar la configuración de GitHub en su plan, no en esta tarjeta.
+- **Propuestas cambiadas o descartadas:** ninguna en esta tarjeta. La regla de `ProductionEnv` es la parte «opcional» de la tarjeta y se hizo porque el plan de la noche la pedía.
+- **Tiempo:** 03:25–03:40 (unos 15 min), sin contar el cambio de configuración de las 01:11.
+- **Commits:** este commit.
+
+### 2026-09-30 03:50 — P-01: spec de crear producto (P-01, P-02 y P-03)
+
+- **Tarea:** escribir `specs/crear-producto.spec.md`, la spec del flujo 01 completo (tabla `productos` y modelo, `POST /api/productos`, botón "Nuevo producto" con su modal), apoyada en la spec de arquitectura. Rama `docs/p-01-spec-crear-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-01 a P-03 con sus checklists, el flujo 01, RF-01, RF-10, RN-01 a RN-04, RNF-03 a RNF-05 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `0381de0`); pasó la revisión de Codex y corrigió un hallazgo (commit `7ed27ec`). El orquestador puso la rama al día con `ProductionEnv` (merge sin choques de contenido, solo el grafo) y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Sin `created_at` ni `updated_at` en `productos`, como fija la arquitectura, aunque el encargo hablaba de timestamps con valor por defecto.
+  - La API quita los espacios de los extremos del nombre y del código de barras (RN-04), en lugar de responder 400. El precio no se recorta y `" 25"` es un 400.
+  - El `CHECK` del precio incluye el máximo 99 999.99, y hay dos `CHECK` más de "no vacío y sin espacios en los extremos" (nombre y código de barras).
+  - El 201 devuelve el precio leído de la fila (`"25.00"`), no el texto que llegó.
+  - El aviso "Producto creado" es un `v-snackbar` con la animación Lottie, no una pausa antes de cerrar el modal.
+  - Los productos de ejemplo quedan como opcionales por confirmar: un seeder necesita carpeta, ruta y script que la arquitectura no lista.
+- **Patrones consultados:** Constraints Enforcer, Active Record y Keyed Idempotency (los más cercanos); para la migración, el formulario y el doble clic, ningún patrón del catálogo encajó.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos (leyó demasiado); la segunda, acotada, dio 1 hallazgo P2 (la pantalla recortaba el precio mientras la API lo rechazaba con espacios) y ningún P0 ni P1. Se corrigió: la pantalla tampoco lo recorta.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 20 minutos para escribir la spec (01:59–02:19). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 anteriores de la rama (`0381de0` la spec y `7ed27ec` el ajuste del precio en la pantalla).
+
+### 2026-09-30 03:53 — P-04: spec de buscar producto (P-04 y P-05)
+
+- **Tarea:** escribir `specs/buscar-producto.spec.md`, la spec del flujo 02 (`GET /api/productos?busqueda=` y el campo de búsqueda con sus resultados), con RF-12 como opcional, apoyada en la spec de arquitectura. Rama `docs/p-04-spec-buscar-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-04 y P-05 con sus checklists, el flujo 02, RF-02, RF-12, RNF-04 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `ee8dcdf`); pasó la revisión de Codex y corrigió los hallazgos (commit `8503976`). El orquestador puso la rama al día con `ProductionEnv` y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Se busca desde 2 caracteres y como máximo 20 resultados. El texto se recorta y tiene de 2 a 120 caracteres.
+  - Un código de barras exacto va siempre primero en la lista; después se ordena por nombre y por `id`.
+  - Sin coincidencias, la API responde 200 con la lista vacía. Un `busqueda` repetido, ausente o de menos de 2 caracteres es un 400 `DATOS_INVALIDOS`.
+  - `%`, `_` y `\` se escapan antes de `Op.like`. La prueba del escape de la barra invertida usa `a\` (2 caracteres).
+  - La pantalla espera 300 ms al escribir, ignora las respuestas viejas con un contador (sin `AbortController`) y muestra 6 estados: inicial, pocos caracteres, buscando, con resultados, sin resultados y error con "Reintentar". Con 20 resultados avisa que solo muestra los primeros 20.
+  - RF-12 queda opcional, con su propio archivo de pruebas. Sin código exacto, Enter muestra "No hay un producto con ese código de barras".
+  - La documentación de la ruta apunta a `backend/docs/openapi.yaml` como ruta propuesta; si la spec de A-01 fija otra, manda esa.
+- **Patrones consultados:** Input Validation, Layered Architecture con Service Layer, Debounce, SwitchMap (el más cercano) y Facade; Query Object descartado.
+- **Revisión de Codex:** 3 hallazgos P2 y 1 P3. Corregidos: la prueba de la barra invertida usaba un solo carácter, que la validación rechaza con 400; RF-12 no mostraba el error cuando el texto coincidía con nombres pero no con un código exacto; el texto decía que RF-12 esperaba una confirmación ya resuelta. El cuarto, la falta de esta entrada de la bitácora, se resolvió con este commit.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los de la rama (`ee8dcdf` la spec y `8503976` la corrección de Codex).
+
+### 2026-09-30 03:54 — V-04: spec de armar la venta actual (V-04 a V-07)
+
+- **Tarea:** escribir `specs/armar-venta-actual.spec.md`, la spec del flujo 03 (tarjetas V-04, V-05, V-06 y V-07). Rama `docs/v-04-spec-armar-venta-actual`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** escribió la spec con las reglas de negocio RN-05 a RN-09, el módulo `src/ventaActual/` (funciones puras: agregar, precio aplicado, cantidad, eliminar, subtotales y total en centavos), guardar la venta actual en `localStorage`, los componentes `VentaActual.vue`, `CampoPrecioAplicado.vue` y `CampoCantidad.vue`, los casos de error, los criterios de aceptación de las 4 tarjetas y las pruebas en local con `curl` y el MCP `chrome-devtools`. Una primera pasada escribió el borrador y una segunda lo revisó contra las tarjetas, `requerimientos/`, el glosario y la spec de arquitectura, y agregó el caso de un producto guardado que ya no existe. Patrones consultados en el MCP `design-patterns`: Pure Functions e Immutability para el módulo, Memento (el más cercano) para guardar en el navegador, Null Object para la venta vacía, Mediator para `App.vue`; sin patrón para los componentes de Vue 2. Escribió la spec (commit `9fe4819`), corrigió a Codex (commit `ca6cdf0`), el orquestador puso la rama al día con `ProductionEnv` y agregó esta entrada.
+- **Revisión de Codex:** 3 hallazgos P2, sin P0 ni P1. Corregidos: la spec decía que `App.vue` era el único que llama al módulo, pero `VentaActual.vue` también lo usa (ahora `App.vue` es el único que guarda la venta actual, y el componente calcula y emite); y permitía "404 o 422" para un producto que ya no existe, cuando RF-09 pide 422 (ahora dice 422). El tercero, la falta de esta entrada de la bitácora, se resolvió con este commit.
+- **Decisiones que vienen de la persona (2026-09-30):** el precio aplicado puede ser 0; la cantidad es un entero de 1 a 999 y el precio aplicado llega hasta 99 999.99; los precios se muestran con 2 decimales y sin símbolo de moneda; la venta actual no se pierde al recargar (se guarda en el navegador y se vacía al registrar la venta).
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó `vuex`, `pinia` y un bus de eventos (son solo dos componentes y un estado en `App.vue`).
+- **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`9fe4819` la spec y `ca6cdf0` las correcciones de Codex).
+
+### 2026-09-30 03:59 — V-01: spec de registrar venta (V-01, V-02, V-03 y V-08)
+
+- **Tarea:** escribir `specs/registrar-venta.spec.md`, la spec del flujo 04: las tablas `ventas` y `detalles_venta` con sus modelos, el procedimiento almacenado `sp_registrar_venta`, `POST /api/ventas` y el botón "Registrar venta" (tarjetas V-01, V-02, V-03 y V-08). Rama `docs/v-01-spec-registrar-venta`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la spec de arquitectura, las 4 tarjetas con sus checklists, el flujo 04, RF-09 a RF-11, RNF-05 y RNF-07 y las skills de MySQL y Sequelize; consultó el grafo del proyecto y los patrones de diseño; escribió la spec y corrigió los hallazgos de Codex.
+- **Decisiones del agente (por confirmar por la persona):**
+  - El procedimiento devuelve un solo `SELECT` con `ventaId` y `total`. Sus rechazos usan `SIGNAL SQLSTATE '45000'` con un código en `MESSAGE_TEXT` (`VENTA_SIN_DETALLES`, `PRODUCTO_NO_EXISTE`, etc.), que la API traduce a un 422 con mensaje en español.
+  - Máximo de 100 detalles por venta (API, procedimiento y botón), porque con 101 detalles de 999 × 99 999.99 el total pasa de `DECIMAL(12,2)`. No está en los requerimientos. La otra opción es ampliar el total a `DECIMAL(14,2)`.
+  - El procedimiento revisa el precio como texto para rechazar decimales de más; la columna que inserta sigue en `DECIMAL(10,2)`, como pide la arquitectura.
+  - No se incluye idempotencia por llave (reintento cuando la respuesta se pierde): queda como pregunta abierta.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos. La segunda dio 1 P1 y 4 P2: el procedimiento redondeaba `"10.999"` a `11.00`, una venta válida desbordaba el total (límite de 100), faltaban las llaves foráneas de las relaciones y dos archivos en los `targets`, y faltaba esta entrada. Una tercera pasada dio 1 P1 (la columna de `JSON_TABLE` debía alinearse con la arquitectura) y 1 P2 (el máximo de 100 debía entrar en `valida` del botón). Todo quedó corregido en la rama (commits `adb6a95` y `0dddbea`).
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó los patrones Repository y Data Mapper, porque los modelos solo consultan y la venta se escribe en el procedimiento.
+- **Tiempo:** unos 35 minutos para escribir la spec (01:59–02:35). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 3 de la rama (`379099b` la spec, `adb6a95` y `0dddbea` las correcciones de Codex).

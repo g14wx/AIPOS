@@ -3,13 +3,19 @@
 // Vuetify 2 en jsdom, y lottie-web no puede cargarse en jsdom sin sustituirlo con vi.mock.
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import { mount } from '@vue/test-utils';
 import BotonDePrueba from './fixtures/BotonDePrueba.vue';
 
+// Con dos copias de Vue, Vuetify lo avisa con console.error al instalarse. Se guarda el aviso para revisarlo abajo.
+const avisosAlInstalar = [];
+const espia = vi
+  .spyOn(console, 'error')
+  .mockImplementation((...partes) => avisosAlInstalar.push(partes.join(' ')));
 Vue.use(Vuetify);
+espia.mockRestore();
 
 // Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y readFileSync falla.
 const paquete = JSON.parse(readFileSync(resolve(import.meta.dirname, '../package.json'), 'utf8'));
@@ -55,6 +61,8 @@ describe('Vitest con Vue 2 y Vuetify 2', () => {
   it('usa una sola copia de Vue 2.7.16 y Vuetify 2.7.2', () => {
     expect(Vue.version).toBe('2.7.16');
     expect(Vuetify.version).toBe('2.7.2');
+    // Dos copias de Vue dan "Multiple instances of Vue detected" y después "$attrs is readonly" en los componentes.
+    expect(avisosAlInstalar.join('\n')).not.toMatch(/Multiple instances of Vue/);
   });
 
   it('lottie-web no carga en jsdom: por eso las pruebas lo sustituyen con vi.mock', async () => {

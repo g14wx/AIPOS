@@ -1,6 +1,9 @@
 <template>
   <section class="venta-actual" aria-labelledby="venta-actual-titulo">
-    <h2 id="venta-actual-titulo" class="venta-actual__titulo">Venta actual</h2>
+    <!-- Con tabindex -1 recibe el foco con código al eliminar el último detalle, sin entrar en el orden de Tab. -->
+    <h2 id="venta-actual-titulo" ref="titulo" class="venta-actual__titulo" tabindex="-1">
+      Venta actual
+    </h2>
 
     <div class="venta-actual__cuerpo">
       <div v-if="!hayDetalles" class="venta-actual__vacia">
@@ -44,8 +47,20 @@
           <span class="solo-lectores">Acciones</span>
         </template>
 
-        <template #item.acciones>
-          <div class="detalle__acciones"></div>
+        <template #item.acciones="{ item }">
+          <div class="detalle__acciones">
+            <v-btn
+              class="detalle__eliminar"
+              icon
+              large
+              color="error"
+              :aria-label="`Eliminar ${item.nombre} de la venta actual`"
+              :disabled="enviando"
+              @click="alEliminar(item)"
+            >
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </div>
         </template>
       </v-data-table>
     </div>
@@ -70,6 +85,7 @@ import { formatearCentavos } from '../dinero.js';
 import {
   calcularSubtotal,
   calcularTotal,
+  eliminarDetalle,
   vaciarVentaActual,
   ventaActualEsValida,
 } from '../ventaActual/ventaActual.js';
@@ -127,9 +143,22 @@ export default {
     },
   },
   watch: {
+    // V-07: cuando llega la venta actual sin el detalle que se eliminó, el foco pasa a un lugar con sentido. Si el detalle
+    // sigue ahí (la propiedad cambió por otra cosa), el pedido se descarta y el foco no se mueve.
+    ventaActual(nueva) {
+      const pedido = this.focoPorEliminar;
+      this.focoPorEliminar = null;
+      if (!pedido) return;
+      const sigueAhi = nueva.detalles.some((detalle) => detalle.productoId === pedido.productoId);
+      if (!sigueAhi) this.$nextTick(() => this.enfocarTrasEliminar(pedido.indice));
+    },
     resaltarId(productoId) {
       if (productoId !== null) this.$nextTick(this.mostrarFilaResaltada);
     },
+  },
+  created() {
+    // Qué fila se pidió eliminar (V-07). No es reactivo, porque no se dibuja: no va en data.
+    this.focoPorEliminar = null;
   },
   mounted() {
     this.anchoDeLaTarjeta = this.$el.clientWidth || null;
@@ -144,6 +173,23 @@ export default {
     this.observador?.disconnect();
   },
   methods: {
+    // El cajero presionó «Eliminar» en la fila de un detalle: se emite la venta actual sin él y App.vue la reemplaza. No pide
+    // confirmación: el producto se puede volver a agregar desde la búsqueda. Antes de emitir se anota qué fila era, para
+    // llevar el foco a la que ocupe su lugar cuando la venta nueva llegue.
+    alEliminar(detalle) {
+      const indice = this.ventaActual.detalles.findIndex(
+        (d) => d.productoId === detalle.productoId,
+      );
+      this.focoPorEliminar = { productoId: detalle.productoId, indice };
+      this.$emit('update:ventaActual', eliminarDetalle(this.ventaActual, detalle.productoId));
+    },
+    // El botón que tenía el foco ya no está: el foco pasa al «Eliminar» de la fila que ocupó su lugar (o al de la anterior,
+    // si era la última) y, si no quedó ninguna, al título «Venta actual», para que quien usa el teclado no pierda su lugar.
+    enfocarTrasEliminar(indice) {
+      const botones = this.$el.querySelectorAll('.detalle__eliminar');
+      if (botones.length === 0) this.$refs.titulo.focus();
+      else botones[Math.min(indice, botones.length - 1)].focus();
+    },
     subtotalDe(detalle) {
       return formatearCentavos(calcularSubtotal(detalle));
     },

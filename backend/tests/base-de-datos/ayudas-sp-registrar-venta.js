@@ -1,5 +1,6 @@
 import { afterAll, afterEach, beforeAll } from 'vitest';
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { carpetaBackend, carpetaRaiz } from './ayudas.js';
@@ -164,6 +165,7 @@ export function prepararPrueba({ productos = 3 } = {}) {
     },
   };
   beforeAll(async () => {
+    await verificarProcedimientoDelSql();
     await borrarDatosDePrueba();
     contexto.productoIds = await crearProductos(productos);
     contexto.llamador = await crearLlamador((ventaId) => ventasCreadas.push(ventaId));
@@ -176,16 +178,20 @@ export function prepararPrueba({ productos = 3 } = {}) {
   return contexto;
 }
 
-// Lo que MySQL sabe del procedimiento que hay ahora en la base de prueba, o undefined si no existe:
-// `cuerpo` (de BEGIN a END) y `definidor` (la cuenta que lo creó, por ejemplo aipos@%).
+// Lo que MySQL sabe del procedimiento que hay ahora en la base de prueba, o undefined si no existe: `cuerpo` (el
+// CREATE PROCEDURE completo, como lo devuelve SHOW CREATE PROCEDURE, que es lo que usa mysqldump) y `definidor` (la
+// cuenta que lo creó, por ejemplo aipos@%). El cuerpo NO se lee de information_schema.routines: esa vista muestra las
+// barras invertidas ya interpretadas (\\z se ve como \z), aunque MySQL ejecuta y respalda el texto original.
 export async function leerProcedimiento() {
   const [fila] = await consultar(
-    `SELECT routine_definition AS cuerpo, definer AS definidor, security_type AS seguridad
+    `SELECT definer AS definidor, security_type AS seguridad
        FROM information_schema.routines
       WHERE routine_schema = DATABASE() AND routine_type = 'PROCEDURE'
         AND routine_name = 'sp_registrar_venta'`,
   );
-  return fila;
+  if (!fila) return undefined;
+  const [creacion] = await consultar('SHOW CREATE PROCEDURE sp_registrar_venta');
+  return { ...fila, cuerpo: creacion['Create Procedure'] };
 }
 
 // El texto sin comentarios y con los espacios juntos, para comparar dos cuerpos: el cliente mysql quita los
@@ -196,6 +202,22 @@ export function sinComentariosNiEspacios(texto) {
     .replace(/--[^\n]*/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// El procedimiento de la base de prueba tiene que ser el del .sql. Una migración que ya corrió no se repite: si
+// alguien cambia el .sql, la base de prueba sigue con el cuerpo de antes y las pruebas fallarían sin decir por qué.
+export async function verificarProcedimientoDelSql() {
+  const texto = fs.readFileSync(ARCHIVO_SQL, 'utf8');
+  const bloque = texto.match(/^DELIMITER \$\$\r?\n([\s\S]*?)\$\$\r?\nDELIMITER ;/m)?.[1];
+  const procedimiento = await leerProcedimiento();
+  // Se compara desde el primer BEGIN: antes de él, MySQL escribe DEFINER=... y el nombre entre comillas.
+  const desdeBegin = (cuerpo) => sinComentariosNiEspacios(cuerpo.slice(cuerpo.indexOf('BEGIN')));
+  if (!bloque || !procedimiento || desdeBegin(procedimiento.cuerpo) !== desdeBegin(bloque)) {
+    throw new Error(
+      'El procedimiento sp_registrar_venta de la base de prueba no existe o no es el de ' +
+        'db/procedimientos/sp_registrar_venta.sql. Si cambiaste el .sql, vuelve a crearlo: npm run rehacer:prueba.',
+    );
+  }
 }
 
 // Busca un cliente `mysql` que entre a la base de prueba con el usuario de la app (nunca con root): primero el

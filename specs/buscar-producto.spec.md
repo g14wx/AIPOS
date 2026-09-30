@@ -34,13 +34,21 @@ enlazan los `[@test]`.
 | Ruta `GET /api/productos?busqueda=`, controller, validación, servicio `buscarProductos` y escape de `%`, `_` y `\` | P-04 | Backend |
 | Documentar la ruta en la documentación de la API (subtarea de P-04) | P-04, sobre lo que crea A-01 | Backend |
 | Función `buscarProductos` de `frontend/src/api/productos.js` | P-05 | Frontend |
-| `BuscadorProductos.vue`, su animación `buscando.json` y su lugar en `App.vue` | P-05 | Frontend |
+| `BuscadorProductos.vue` (B-04 deja el campo con el foco al abrir y su lugar en `App.vue`; P-05 le suma la espera, los resultados y `producto-elegido`) y su animación `buscando.json` | P-05 | Frontend |
 | Conectar el evento `producto-elegido` con `agregarAVentaActual` | V-04 | Frontend |
 | RF-12 (Enter con un código de barras exacto), opcional | P-05, si sobra tiempo | Frontend |
 
-P-04 depende de P-01 (la tabla `productos`, el modelo `Producto` y el router de `productos`). P-05 depende de P-04 y
-de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js` y `App.vue`). Si A-01 todavía no está integrada cuando
-P-04 termina, la subtarea de documentar la ruta espera y se hace en cuanto A-01 esté integrada.
+P-04 depende de P-01 (la tabla `productos` y el modelo `Producto`). P-02 y P-04 corren a la vez y comparten los archivos
+de `productos` del backend (`routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
+`validators/productos.js` y `validators/comunes.js`): los crea la primera de las dos que se integra en
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). Las dos también escriben la ruta
+`/api/productos` de `backend/docs/openapi.yaml`: P-02 agrega `post` y P-04 `get`, y la que se integra después conserva las
+dos operaciones al juntar. P-05 depende de P-04 y
+de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js`, `App.vue` y el campo inicial de
+`BuscadorProductos.vue`). P-03 y P-05 corren a la vez y comparten `frontend/src/api/productos.js`: P-05 agrega
+`buscarProductos` y P-03 `crearProducto`. La que se integra primero lo crea, y la otra conserva las dos funciones al
+poner su rama al día. Si A-01 todavía no está integrada cuando P-04 termina, la subtarea de documentar la ruta espera y
+se hace en cuanto A-01 esté integrada.
 
 ## Reglas de negocio
 
@@ -51,9 +59,9 @@ Salen de RF-02, RN-01, RN-03 y RN-04, y de las decisiones de la persona desarrol
   de un nombre (RN-04), y un código de barras (máximo 50) cabe dentro.
 - Por nombre: el producto aparece si su nombre contiene el texto, sin importar mayúsculas ni tildes ("lech" y "LÉCH"
   encuentran "Leche entera 1 L"). Eso lo da la comparación por defecto de MySQL (`utf8mb4_0900_ai_ci`), sin código extra.
-- Por código de barras: el producto aparece si su código de barras es igual al texto completo. Un pedazo del código no
-  cuenta ("750105530007" no encuentra el código "7501055300075"). MySQL lo compara con la misma regla del `UNIQUE` de
-  RN-03, así que no distingue mayúsculas.
+- Por código de barras: el producto aparece si su código de barras es igual al texto completo. Un pedazo del código de
+  barras no cuenta ("750105530007" no encuentra el código de barras "7501055300075"). MySQL lo compara con la misma
+  regla del `UNIQUE` de RN-03, así que no distingue mayúsculas.
 - `%`, `_` y `\` son texto normal: buscar "50%" solo encuentra nombres que tengan "50%". Se escapan antes de armar el
   patrón de `LIKE` (RNF-04).
 - Como máximo 20 resultados. Van primero el producto cuyo código de barras es igual al texto, y después los demás por
@@ -65,7 +73,8 @@ Salen de RF-02, RN-01, RN-03 y RN-04, y de las decisiones de la persona desarrol
 
 ## API: `GET /api/productos?busqueda=<texto>`
 
-La ruta vive en `src/routes/productos.js` (P-01 crea el router y P-04 le suma el `GET`), y el controller, el servicio y
+La ruta vive en `src/routes/productos.js` (lo crea la primera de P-02 y P-04 que se integra, y la otra le suma su ruta;
+P-04 le suma el `GET`), y el controller, el servicio y
 el validador son `src/controllers/productos.js`, `src/services/productos.js` y `src/validators/productos.js`, cada uno
 con una función `buscarProductos` (el controller y el servicio) y `validarBusqueda` (el validador). El controller lee
 `req.query.busqueda`, llama a `validarBusqueda`, llama al servicio y responde con `res.json`.
@@ -138,8 +147,8 @@ con una función `buscarProductos` (el controller y el servicio) y `validarBusqu
 
 ### Documentación de la API
 
-- La ruta se documenta en el documento OpenAPI de A-01 (ruta propuesta `backend/docs/openapi.yaml`; si la spec de A-01
-  fija otra, manda esa): `GET /api/productos` con el parámetro `busqueda` (obligatorio, de 2 a 120 caracteres), la
+- La ruta se documenta en el documento OpenAPI de A-01 (`backend/docs/openapi.yaml`, el archivo que fija la spec de la
+  documentación de la API): `GET /api/productos` con el parámetro `busqueda` (obligatorio, de 2 a 120 caracteres), la
   respuesta 200 con la lista de productos, y las respuestas 400 y 500 con el esquema de error que A-01 define. Los
   ejemplos de error no muestran el SQL ni el stack.
   `[@test] ../backend/tests/productos/documentacion-buscar-productos.test.js`
@@ -148,9 +157,9 @@ con una función `buscarProductos` (el controller y el servicio) y `validarBusqu
 ### Pruebas en local: la API con `curl`
 
 Con MySQL levantado y migrado y el backend corriendo (`npm run dev`), y los productos de ejemplo creados con
-`POST /api/productos` (P-01): "Leche entera 1 L" con código "7501055300075" y precio "25.00", "Jugo 50% fruta" con código
-"111" y precio "18.50", "Jugo 500 ml" con código "222" y precio "12.00", y "Cable A_B" con código "333" y precio
-"40.00". Los `curl` usan `-G` y `--data-urlencode` para que el texto viaje bien codificado. Se corren con `PORT` en
+`POST /api/productos` (P-01): "Leche entera 1 L" con código de barras "7501055300075" y precio "25.00", "Jugo 50% fruta"
+con código de barras "111" y precio "18.50", "Jugo 500 ml" con código de barras "222" y precio "12.00", y "Cable A_B" con
+código de barras "333" y precio "40.00". Los `curl` usan `-G` y `--data-urlencode` para que el texto viaje bien codificado. Se corren con `PORT` en
 lugar de 3000 si el `.env` lo cambió:
 
 | Comando | Respuesta esperada |
@@ -199,7 +208,7 @@ Los cinco primeros son los de la tarjeta P-04; el resto completan la spec.
     por nombre de la A a la Z.
     `[@test] ../backend/tests/productos/buscar-productos.test.js`
 11. Dado un producto cuyo código de barras es "222" y 25 productos con "222" en el nombre, cuando se busca "222", entonces
-    el producto de ese código va primero.
+    el producto de ese código de barras va primero.
     `[@test] ../backend/tests/productos/buscar-productos.test.js`
 12. Dado un texto de 1 carácter, o sin `busqueda`, o de más de 120, entonces responde 400 `DATOS_INVALIDOS` con el campo
     `busqueda` en `detalles`.
@@ -217,7 +226,9 @@ Los cinco primeros son los de la tarjeta P-04; el resto completan la spec.
 
 `BuscadorProductos.vue` (`src/components/`, Options API, un solo elemento raíz) es el campo de búsqueda con su lista de
 resultados. Se pone en `App.vue`, en la pantalla principal (RNF-01), y cabe en un componente: no hace falta partirlo. No
-guarda nada en `localStorage`.
+guarda nada en `localStorage`. B-04 deja `BuscadorProductos.vue` con el campo «Buscar producto», su ayuda, la lupa, el
+botón de borrar y el foco al abrir (en `mounted`), y ya lo pone en `App.vue` (`data-zona="busqueda"`): P-05 le suma lo
+demás sin quitar nada de eso.
 
 - Un campo de texto de Vuetify 2 (`v-text-field`) con etiqueta visible "Buscar producto", ayuda "Nombre o código de
   barras", ícono de lupa MDI, botón para borrar y foco al abrir la pantalla. Debajo, la zona de resultados.
@@ -293,12 +304,13 @@ Vue 2 y Vuetify 2:
 - Los mensajes de estado ("Escribe al menos 2 caracteres", "Sin resultados", "Buscando…" y el error) van en una región
   con `role="status"` y `aria-live="polite"`, para que un lector de pantalla los anuncie. La lista es una lista de
   verdad, y cada fila se alcanza con Tab, se elige con Enter o espacio y muestra un foco visible.
-- Cada fila mide al menos 48 px de alto (se usa con el dedo en una tableta) y el nombre, el código y el precio se leen con
-  contraste 4.5 o más.
+- Cada fila mide al menos 48 px de alto (se usa con el dedo en una tableta) y el nombre, el código de barras y el precio se
+  leen con contraste 4.5 o más.
 - Con 375 px de ancho (móvil) no hay scroll horizontal: el nombre pasa a otra línea y el precio no se corta.
 - La animación `buscando.json` la hace P-05 (con el MCP `lottiefiles-creator` o, si no está, con la skill
   `text-to-lottie`), en los colores de la paleta y con menos de 50 KB. Con `prefers-reduced-motion: reduce`,
-  `AnimacionLottie` muestra un cuadro fijo, como dice la arquitectura.
+  `AnimacionLottie` muestra un cuadro fijo (el último por defecto, según su propiedad `cuadroFijo`), como dice la
+  arquitectura.
   `[@test] ../frontend/tests/animaciones.test.js`
 - Los textos de la pantalla son los de esta spec, en español, con las palabras del glosario.
 
@@ -308,7 +320,7 @@ Vue 2 y Vuetify 2:
 
 Los cuatro primeros son los de la tarjeta P-05; el resto completan la spec. Las pruebas automáticas usan Vitest,
 `@vue/test-utils` 1 y jsdom, con `vi.useFakeTimers()` para la espera y `vi.mock` para `src/api/productos.js` y para
-`lottie-web`.
+la ruta exacta que importa `AnimacionLottie`, `lottie-web/build/player/lottie_light`.
 
 1. Dado que el cajero escribe rápido "le", "lec" y "lech", entonces solo se ven los resultados de "lech" (una sola
    llamada a la API, con "lech"). Y dado que la respuesta de "le" llega después que la de "lech", entonces sigue la

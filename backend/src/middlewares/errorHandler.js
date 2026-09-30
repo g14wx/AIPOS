@@ -2,6 +2,7 @@
 
 const ErrorApi = require('../errors/ErrorApi');
 const desdeBaseDeDatos = require('../errors/desdeBaseDeDatos');
+const aFormatoDeError = require('../errors/aFormatoDeError');
 
 // Señales propias del lector de JSON de Express (body-parser). Los errores que él lanza traen `status` 4xx
 // y un `type` como entity.parse.failed. Un cuerpo comprimido que no se puede descomprimir no trae `type`:
@@ -39,10 +40,8 @@ function aErrorApi(err) {
 // Express reconoce un manejador de errores por sus cuatro parámetros: no quitar `next`.
 function errorHandler(err, req, res, next) {
   if (res.headersSent) return next(err);
-  const { estado, codigo, message, detalles } = aErrorApi(err);
-  const cuerpo = { codigo, mensaje: message };
-  if (detalles !== undefined) cuerpo.detalles = detalles;
-  return res.status(estado).json({ error: cuerpo });
+  const errorApi = aErrorApi(err);
+  return res.status(errorApi.estado).json(aFormatoDeError(errorApi));
 }
 
 module.exports = errorHandler;

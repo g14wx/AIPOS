@@ -594,3 +594,35 @@ describe('estilos del campo (skill impeccable, DESIGN.md)', () => {
     expect(css).not.toMatch(/rgba?\(/);
   });
 });
+
+// #81: la franja de abajo de VentaActual.vue es sticky y tapaba el foco de los controles de las filas de abajo cuando se
+// llega con Tab. jsdom no calcula estilos ni desplaza la página: se revisa el texto de los estilos de VentaActual.vue, y la
+// prueba con Chrome real (recorrer con Tab 20 filas y mirar qué queda encima de cada control) está en el issue.
+describe('el foco de los controles de la tabla no queda tapado por la franja de abajo (#81)', () => {
+  const fuente = readFileSync(
+    resolve(import.meta.dirname, '../../src/components/VentaActual.vue'),
+    'utf8',
+  );
+  const css = [...fuente.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
+    .map(([, bloque]) => bloque)
+    .join('\n')
+    .replace(/\/\*[\s\S]*?\*\//g, '');
+  const reglas = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(([, selectores, cuerpo]) => ({
+    selectores: selectores.split(',').map((s) => s.trim().replace(/\s+/g, ' ')),
+    cuerpo,
+  }));
+
+  it('los botones y los campos de la tabla dejan 12 rem libres debajo: la franja mide unos 150 px, y 190 con un total de dos líneas', () => {
+    const margen = reglas.filter(({ cuerpo }) =>
+      /scroll-margin-bottom\s*:\s*12rem\s*(;|$)/.test(cuerpo),
+    );
+    const selectores = margen.flatMap((regla) => regla.selectores);
+    expect(selectores.some((s) => /^\.detalles ::v-deep button$/.test(s))).toBe(true);
+    expect(selectores.some((s) => /^\.detalles ::v-deep input$/.test(s))).toBe(true);
+  });
+
+  it('la franja de abajo sigue pegada al borde: es lo que tapa el foco, y no se quita', () => {
+    const pie = reglas.find(({ selectores }) => selectores.includes('.venta-actual__pie'));
+    expect(pie.cuerpo).toMatch(/position\s*:\s*sticky/);
+  });
+});

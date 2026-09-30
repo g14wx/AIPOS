@@ -19,11 +19,17 @@ function abrirUnPuerto() {
   });
 }
 
-async function buscarPuertoLibre() {
-  const ocupante = await abrirUnPuerto();
-  const { port } = ocupante.address();
-  await new Promise((resolver) => ocupante.close(resolver));
-  return port;
+// Un puerto que nadie usa en 127.0.0.1, que es por donde las pruebas le hablan a la API. Con listen(0) a secas, el sistema
+// puede dar un puerto que otro programa ya usa en 127.0.0.1, y la petición caería en él (issues #58 y #59).
+function buscarPuertoLibre() {
+  return new Promise((resolver, rechazar) => {
+    const ocupante = net.createServer();
+    ocupante.once('error', rechazar);
+    ocupante.listen(0, '127.0.0.1', () => {
+      const { port } = ocupante.address();
+      ocupante.close(() => resolver(port));
+    });
+  });
 }
 
 // Variables de mentira: la prueba no depende del .env de nadie ni de MySQL (la API no lo usa al arrancar).

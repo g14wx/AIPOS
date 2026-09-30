@@ -426,4 +426,21 @@ describe('estilos de los controles de las filas y del foco (skill impeccable)', 
       expect(enRem(abajo), `${selector}: abajo`).toBeGreaterThanOrEqual(9.5);
     }
   });
+
+  it('el título, que recibe el foco con código al eliminar el último detalle, muestra el contorno por dentro de la tarjeta', () => {
+    expect(cuerpoDe('.venta-actual__titulo:focus-visible')).toMatch(/outline-offset\s*:\s*-3px/);
+  });
+
+  it('el botón «Eliminar» se corre 10 px sobre el margen de la fila: el ícono queda alineado con el borde de las cifras', () => {
+    expect(cuerpoDe('.detalle__eliminar')).toMatch(/margin-right\s*:\s*-0\.625rem/);
+  });
+
+  it('con las filas apiladas, el nombre se centra con el botón «Eliminar» y no queda en el fondo de su línea', () => {
+    const selector = '.detalles ::v-deep .v-data-table__mobile-row:nth-child(1)';
+    expect(cuerpoDe(selector)).toMatch(/align-self\s*:\s*center/);
+  });
+
+  it('nada del botón se anima: sin transition ni animation en los estilos del componente', () => {
+    expect(css).not.toMatch(/@keyframes|animation\s*:|transition\s*:/);
+  });
 });

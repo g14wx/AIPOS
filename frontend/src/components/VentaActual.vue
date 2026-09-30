@@ -316,6 +316,22 @@ export default {
   line-height: 1.5rem;
 }
 
+/* V-07: el botón «Eliminar» de cada detalle mide 44 px para el dedo y se corre 10 px a la derecha, sobre el margen de la
+   fila, para que el ícono y no su zona táctil quede alineado con el borde de las cifras. */
+.detalle__eliminar {
+  margin-right: -0.625rem;
+}
+
+/* Con las filas apiladas, el nombre se centra con el botón «Eliminar» en vez de quedar en el fondo de su línea. */
+.detalles ::v-deep .v-data-table__mobile-row:nth-child(1) {
+  align-self: center;
+}
+
+/* El título recibe el foco con código al eliminar el último detalle: su contorno va por dentro de la tarjeta. */
+.venta-actual__titulo:focus-visible {
+  outline-offset: -3px;
+}
+
 /* La franja de abajo es sticky y la barra de arriba es fija: un control de una fila que recibe el foco con Tab no debe
    quedar debajo de ellas. Con este margen el navegador lo deja a la vista al llevarle el foco (#80). */
 .detalles ::v-deep button,

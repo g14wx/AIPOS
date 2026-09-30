@@ -1,12 +1,12 @@
 # Graph Report - p-03  (2026-09-30)
 
 ## Corpus Check
-- 98 files · ~59,001 words
+- 99 files · ~59,681 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 583 nodes · 701 edges · 77 communities (40 shown, 37 thin omitted)
+- 584 nodes · 701 edges · 69 communities (32 shown, 37 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
@@ -68,17 +68,9 @@
 - agents-md-tarjeta.test.sh
 - reglasProducto.js
 - devDependencies
+- venta-vacia.test.js
 - vitest
-- http.js
 - Alcance
-- animaciones.test.js
-- Flujo 05 · Entregar un entregable
-- Flujo 01 · Crear producto
-- Flujo 02 · Buscar producto
-- Flujo 03 · Armar la venta actual
-- Flujo 04 · Registrar venta
-- Flujo 00 · Mapa de procesos
-- Flujo 06 · Trabajar una tarjeta con el agente
 
 ## God Nodes (most connected - your core abstractions)
 1. `vitest` - 14 edges
@@ -95,19 +87,19 @@
 ## Surprising Connections (you probably didn't know these)
 - `Íconos y animaciones` --references--> `beforeDestroy()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/components/AnimacionLottie.vue
-- `RF-10 Guardar productos, ventas y detalles con sus relaciones` --references--> `total()`  [INFERRED]
-  requerimientos/02-requerimientos-funcionales.md → frontend/src/components/VentaActual.vue
 - `La venta actual` --references--> `calcularTotal()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/ventaActual/ventaActual.js
 - `Carpetas` --references--> `crearProducto()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/api/productos.js
 - `Servicio de API` --references--> `crearProducto()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/api/productos.js
+- `Vue 2 + Vuetify 2 + Vite` --references--> `beforeDestroy()`  [INFERRED]
+  tessl-plugins/vue2-vuetify2-vite/rules/vue2-vuetify2.md → frontend/src/components/AnimacionLottie.vue
 
 ## Import Cycles
 - None detected.
 
-## Communities (77 total, 37 thin omitted)
+## Communities (69 total, 37 thin omitted)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.07
@@ -122,16 +114,16 @@ Cohesion: 0.14
 Nodes (14): 1. Instalar Tessl, 2. Instalar los tiles del proyecto, 3. Conectar el MCP de Tessl (opcional), 4. Verificar, 5. Cambiar un tile, 6. Medir un tile con evals (necesita cuenta), 7. Publicar un tile (necesita cuenta), Qué va a git y qué no (+6 more)
 
 ### Community 4 - "Requerimientos funcionales"
-Cohesion: 0.14
-Nodes (14): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto, RF-02 Buscar producto, RF-03 Agregar a la venta actual, RF-04 Ver los detalles de la venta actual, RF-05 Editar el precio aplicado, RF-06 Cambiar la cantidad (+6 more)
+Cohesion: 0.15
+Nodes (13): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto, RF-02 Buscar producto, RF-03 Agregar a la venta actual, RF-04 Ver los detalles de la venta actual, RF-05 Editar el precio aplicado, RF-06 Cambiar la cantidad (+5 more)
 
 ### Community 5 - "Requerimientos no funcionales"
-Cohesion: 0.14
-Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
+Cohesion: 0.05
+Nodes (41): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+33 more)
 
 ### Community 6 - "vitest-vue2.test.js"
 Cohesion: 0.06
-Nodes (22): es, animacion, { loadAnimation, instancias }, paquete, archivosDe(), componentes, enSrc(), fueraDeApi (+14 more)
+Nodes (22): es, aHex(), buscar(), carpeta, coloresDe(), paleta, permitidas, animacion (+14 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -225,64 +217,32 @@ Nodes (17): CAMPOS, LARGO_MAXIMO_CODIGO_BARRAS, LARGO_MAXIMO_NOMBRE, largoEnCara
 Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
 
-### Community 57 - "vitest"
+### Community 57 - "venta-vacia.test.js"
 Cohesion: 0.12
 Nodes (17): data(), total(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcularTotal(), vaciarVentaActual(), congelar() (+9 more)
 
-### Community 58 - "http.js"
-Cohesion: 0.26
-Nodes (7): crearError(), http, traducirError(), cargarHttp(), cargar(), producto, axios
+### Community 58 - "vitest"
+Cohesion: 0.13
+Nodes (14): crearError(), http, traducirError(), cargarHttp(), cargar(), producto, archivosDe(), componentes (+6 more)
 
 ### Community 61 - "Alcance"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
-
-### Community 62 - "animaciones.test.js"
-Cohesion: 0.29
-Nodes (6): aHex(), buscar(), carpeta, coloresDe(), paleta, permitidas
-
-### Community 63 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
-
-### Community 65 - "Flujo 01 · Crear producto"
-Cohesion: 0.50
-Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
-
-### Community 66 - "Flujo 02 · Buscar producto"
-Cohesion: 0.50
-Nodes (4): Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos
-
-### Community 67 - "Flujo 03 · Armar la venta actual"
-Cohesion: 0.50
-Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
-
-### Community 72 - "Flujo 04 · Registrar venta"
-Cohesion: 0.50
-Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
-
-### Community 73 - "Flujo 00 · Mapa de procesos"
-Cohesion: 0.67
-Nodes (3): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS
-
-### Community 74 - "Flujo 06 · Trabajar una tarjeta con el agente"
-Cohesion: 0.67
-Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 
 ## Knowledge Gaps
 - **290 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+285 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 361 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 362 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **37 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `crearProducto()` connect `Arquitectura de AIPOS` to `NuevoProducto.test.js`, `http.js`, `FormularioProducto.test.js`?**
-  _High betweenness centrality (0.149) - this node is a cross-community bridge._
-- **Why does `vitest` connect `vitest` to `vitest-vue2.test.js`, `NuevoProducto.test.js`, `package.json`, `FormularioProducto.test.js`, `reglasProducto.js`, `http.js`, `animaciones.test.js`?**
+- **Why does `crearProducto()` connect `Arquitectura de AIPOS` to `NuevoProducto.test.js`, `vitest`, `FormularioProducto.test.js`?**
+  _High betweenness centrality (0.148) - this node is a cross-community bridge._
+- **Why does `vitest` connect `vitest` to `vitest-vue2.test.js`, `NuevoProducto.test.js`, `package.json`, `FormularioProducto.test.js`, `reglasProducto.js`, `venta-vacia.test.js`?**
   _High betweenness centrality (0.143) - this node is a cross-community bridge._
-- **Why does `Negocio` connect `Arquitectura de AIPOS` to `vitest`?**
-  _High betweenness centrality (0.140) - this node is a cross-community bridge._
+- **Why does `Negocio` connect `Arquitectura de AIPOS` to `venta-vacia.test.js`?**
+  _High betweenness centrality (0.139) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _290 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**

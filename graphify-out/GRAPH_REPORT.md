@@ -1,17 +1,17 @@
 # Graph Report - AIPOS  (2026-09-29)
 
 ## Corpus Check
-- 55 files · ~30,022 words
+- 57 files · ~30,490 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: .drawio 7, (none) 3, .example 1)
 
 ## Summary
-- 285 nodes · 281 edges · 43 communities (26 shown, 17 thin omitted)
+- 290 nodes · 285 edges · 44 communities (25 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a198a401`
+- Built from commit: `b9595966`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,7 +42,7 @@
 - AGENTS.md
 - Flujo 01 · Crear producto
 - Flujo 03 · Armar la venta actual
-- Flujo 04 · Registrar venta
+- misma-version.test.sh
 - ignora-lo-local.test.sh
 - agents-md.test.sh
 - CLAUDE.md
@@ -58,6 +58,7 @@
 - graphify-falla.test.sh
 - hook-de-git/sin-graphify.test.sh
 - hook-de-git/graphify-fuera-del-path.test.sh
+- otra-version.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -77,11 +78,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (43 total, 17 thin omitted)
+## Communities (44 total, 19 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.18
-Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
+Cohesion: 0.14
+Nodes (14): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos, Flujo 04 · Registrar venta (+6 more)
 
 ### Community 1 - "Lenguaje ubicuo — AIPOS"
 Cohesion: 0.08
@@ -175,33 +176,29 @@ Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
 Cohesion: 0.50
 Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
 
-### Community 26 - "Flujo 04 · Registrar venta"
-Cohesion: 0.50
-Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
-
 ### Community 27 - "ignora-lo-local.test.sh"
 Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
 ## Knowledge Gaps
-- **183 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+178 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 208 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **184 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+179 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 210 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Lenguaje ubicuo — AIPOS`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _183 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _184 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `requerimientos/README.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.14 - nodes in this community are weakly interconnected._
 - **Should `Lenguaje ubicuo — AIPOS` be split into smaller, more focused modules?**
   _Cohesion score 0.08262108262108261 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

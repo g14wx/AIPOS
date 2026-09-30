@@ -6545,6 +6545,126 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_revisar_produccion_test",
+      "label": "revisar-produccion.test.sh",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "revisar-produccion.test.sh",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_arrancar",
+      "label": "arrancar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "arrancar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L81"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_parar",
+      "label": "parar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "parar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_revisar",
+      "label": "revisar()",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar()",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L94"
+    },
+    {
+      "id": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "label": "revisar-produccion.test.sh script",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "revisar-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "revisar-produccion.test.sh script",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test",
+      "label": "volver-dos-veces.test.sh",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "volver-dos-veces.test.sh",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test_docker_falla",
+      "label": "DOCKER_FALLA",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "docker_falla",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_despliegue_volver_dos_veces_test_sh__entry",
+      "label": "volver-dos-veces.test.sh script",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "volver-dos-veces.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "volver-dos-veces.test.sh script",
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -7130,6 +7250,42 @@
       "context": "call",
       "source_file": "tests/despliegue/comun.sh",
       "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_arrancar",
+      "target": "tests_despliegue_revisar_produccion_test_parar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "target": "tests_despliegue_revisar_produccion_test_arrancar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "target": "tests_despliegue_revisar_produccion_test_revisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L112",
       "weight": 1.0
     },
     {
@@ -11635,6 +11791,28 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_dos_veces_test",
+      "target": "tests_despliegue_volver_dos_veces_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_volver_primer_despliegue_test",
       "target": "tests_despliegue_volver_primer_despliegue_test_sh__entry",
       "relation": "contains",
@@ -12215,6 +12393,50 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_parar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_arrancar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_revisar_produccion_test",
+      "target": "tests_despliegue_revisar_produccion_test_revisar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/revisar-produccion.test.sh",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_volver_dos_veces_test",
+      "target": "tests_despliegue_volver_dos_veces_test_docker_falla",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/volver-dos-veces.test.sh",
+      "source_location": "L47",
       "weight": 1.0
     },
     {

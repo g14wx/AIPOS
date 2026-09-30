@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 80 files · ~80,665 words
+- 82 files · ~81,776 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 541 nodes · 541 edges · 66 communities (33 shown, 33 thin omitted)
+- 549 nodes · 550 edges · 68 communities (34 shown, 34 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -79,6 +79,8 @@
 - desplegar-en-fila.test.sh
 - desplegar-ok.test.sh
 - volver-primer-despliegue.test.sh
+- revisar-produccion.test.sh
+- volver-dos-veces.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -98,7 +100,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (66 total, 33 thin omitted)
+## Communities (68 total, 34 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -232,22 +234,26 @@ Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial 
 Cohesion: 0.40
 Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
 
+### Community 66 - "revisar-produccion.test.sh"
+Cohesion: 0.70
+Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
+
 ## Knowledge Gaps
-- **349 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+344 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 399 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **351 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+346 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 401 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _349 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _351 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.06763285024154589 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

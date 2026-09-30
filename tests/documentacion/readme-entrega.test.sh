@@ -87,7 +87,7 @@ done
 echo "# versiones: las instaladas, no las de memoria"
 # La versión instalada de un paquete en un package-lock.json (lockfileVersion 3): la línea "version" que sigue a su llave.
 version_en_lock() { # archivo, paquete
-  awk -v clave="\"node_modules/$2\": {" 'index($0, clave) { dentro = 1; next } dentro && /"version":/ { gsub(/[",]/, "", $2); print $2; exit }' "$1"
+  awk -v llave="\"node_modules/$2\": {" 'index($0, llave) { dentro = 1; next } dentro && /"version":/ { gsub(/[",]/, "", $2); print $2; exit }' "$1"
 }
 # La versión que el README pone en la tabla del punto 2: la fila cuya celda «Tecnología» es $1, y su celda «Versión».
 version_del_readme() { # tecnología

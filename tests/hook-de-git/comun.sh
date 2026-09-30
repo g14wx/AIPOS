@@ -37,6 +37,7 @@ preparar_repo() {
 #       archivo local
 #   falla: `graphify update` termina con error
 #   otra-version: `graphify --version` responde otra versión
+#   crlf: como ok, pero `graphify --version` termina con CRLF, como en Windows
 crear_graphify_falso() {
   local modo="$1"
   local dir="${2:-$BIN}"
@@ -45,7 +46,11 @@ crear_graphify_falso() {
 #!/bin/sh
 case "\$1" in
   --version)
-    if [ "$modo" = "otra-version" ]; then echo "graphify 0.9.11"; else echo "graphify 0.9.72"; fi
+    case "$modo" in
+      otra-version) echo "graphify 0.9.11" ;;
+      crlf) printf 'graphify 0.9.72\r\n' ;;
+      *) echo "graphify 0.9.72" ;;
+    esac
     exit 0 ;;
   update) ;;
   *) exit 0 ;;

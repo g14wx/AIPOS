@@ -68,13 +68,14 @@ BEGIN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'DETALLE_INVALIDO';
   END IF;
 
-  -- RN-06: la cantidad es un entero de 1 a 999, escrito con solo dígitos, como texto o como número JSON.
+  -- RN-06: la cantidad es un entero de 1 a 999, escrito con solo dígitos (puede llevar ceros a la izquierda), como
+  -- texto o como número JSON.
   SELECT COUNT(*) INTO v_con_problema
   FROM JSON_TABLE(p_detalles, '$[*]' COLUMNS (
     cantidad_texto VARCHAR(50) PATH '$.cantidad'
   )) AS j
   WHERE NOT COALESCE(
-    CASE WHEN j.cantidad_texto REGEXP '^[0-9]{1,3}\\z'
+    CASE WHEN j.cantidad_texto REGEXP '^0*[0-9]{1,3}\\z'
          THEN CAST(j.cantidad_texto AS UNSIGNED) BETWEEN 1 AND 999
     END, 0);
   IF v_con_problema > 0 THEN

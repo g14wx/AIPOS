@@ -16,114 +16,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance_actores_y_partes",
-      "label": "Actores y partes",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "actores y partes",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "requerimientos_01_alcance_alcance",
-      "label": "Alcance",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_01_alcance_fuera_de_alcance",
-      "label": "Fuera de alcance",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fuera de alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
-      "label": "Lo que agregamos y el PDF no pide",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lo que agregamos y el pdf no pide",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "requerimientos_01_alcance_objetivo",
-      "label": "Objetivo",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "objetivo",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "requerimientos_01_alcance_qu\u00e9_entra",
-      "label": "Qu\u00e9 entra",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "requerimientos_01_alcance_restricciones",
-      "label": "Restricciones",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "restricciones",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "requerimientos_01_alcance_riesgos",
-      "label": "Riesgos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "riesgos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "requerimientos_01_alcance_supuestos",
-      "label": "Supuestos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "supuestos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
-    },
-    {
       "id": "requerimientos_02_requerimientos_funcionales",
       "label": "02-requerimientos-funcionales.md",
       "_origin": "ast",
@@ -230,6 +122,54 @@
       "norm_label": "02-buscar-producto.md",
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
       "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
+      "label": "Flujo 02 \u00b7 Buscar producto",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 02 \u00b7 buscar producto",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L17"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual",
@@ -1780,7 +1720,7 @@
       },
       "norm_label": "crear_graphify_falso()",
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "tests_hook_de_git_comun_falla",
@@ -1795,7 +1735,7 @@
       },
       "norm_label": "falla()",
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L65"
+      "source_location": "L70"
     },
     {
       "id": "tests_hook_de_git_comun_preparar_repo",
@@ -2968,52 +2908,112 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
-      "label": "Flujo 02 \u00b7 Buscar producto",
+      "id": "requerimientos_01_alcance_actores_y_partes",
+      "label": "Actores y partes",
       "_origin": "ast",
       "community": 44,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "community_name": "Alcance",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "flujo 02 \u00b7 buscar producto",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "norm_label": "actores y partes",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "requerimientos_01_alcance_alcance",
+      "label": "Alcance",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "alcance",
+      "source_file": "requerimientos/01-alcance.md",
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
+      "id": "requerimientos_01_alcance_fuera_de_alcance",
+      "label": "Fuera de alcance",
       "_origin": "ast",
       "community": 44,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "community_name": "Alcance",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L43"
+      "norm_label": "fuera de alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L41"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
-      "label": "Otros caminos",
+      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
+      "label": "Lo que agregamos y el PDF no pide",
       "_origin": "ast",
       "community": 44,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "community_name": "Alcance",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L33"
+      "norm_label": "lo que agregamos y el pdf no pide",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L58"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_pasos",
-      "label": "Pasos",
+      "id": "requerimientos_01_alcance_objetivo",
+      "label": "Objetivo",
       "_origin": "ast",
       "community": 44,
-      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "community_name": "Alcance",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L17"
+      "norm_label": "objetivo",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "requerimientos_01_alcance_qu\u00e9_entra",
+      "label": "Qu\u00e9 entra",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_01_alcance_restricciones",
+      "label": "Restricciones",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "restricciones",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "requerimientos_01_alcance_riesgos",
+      "label": "Riesgos",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "riesgos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "requerimientos_01_alcance_supuestos",
+      "label": "Supuestos",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "supuestos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L70"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
@@ -3139,6 +3139,36 @@
       },
       "norm_label": "marca-de-commit.test.sh script",
       "source_file": "tests/hook-de-git/marca-de-commit.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_git_version_con_crlf_test",
+      "label": "version-con-crlf.test.sh",
+      "_origin": "ast",
+      "community": 47,
+      "community_name": "version-con-crlf.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "version-con-crlf.test.sh",
+      "source_file": "tests/hook-de-git/version-con-crlf.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_git_version_con_crlf_test_sh__entry",
+      "label": "version-con-crlf.test.sh script",
+      "_origin": "ast",
+      "community": 47,
+      "community_name": "version-con-crlf.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "version-con-crlf.test.sh script",
+      "source_file": "tests/hook-de-git/version-con-crlf.test.sh",
       "source_location": "L1"
     },
     {
@@ -6281,6 +6311,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_hook_de_git_version_con_crlf_test",
+      "target": "tests_hook_de_git_version_con_crlf_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/hook-de-git/version-con-crlf.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_arranque_agents_md_test",
       "target": "tests_arranque_agents_md_test_revisar",
       "relation": "defines",
@@ -6343,7 +6384,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -6354,7 +6395,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L65",
+      "source_location": "L70",
       "weight": 1.0
     },
     {

@@ -4503,7 +4503,7 @@
       "node_kind": "heading",
       "norm_label": "api: `get /api/productos?busqueda=<texto>`",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L66"
+      "source_location": "L69"
     },
     {
       "id": "specs_buscar_producto_spec_buscar_producto",
@@ -4527,7 +4527,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la api (p-04)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L172"
+      "source_location": "L176"
     },
     {
       "id": "specs_buscar_producto_spec_criterios_de_aceptaci\u00f3n_de_la_pantalla_p_05",
@@ -4539,7 +4539,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la pantalla (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L307"
+      "source_location": "L312"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_busca_el_servicio",
@@ -4551,7 +4551,7 @@
       "node_kind": "heading",
       "norm_label": "como busca el servicio",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L122"
+      "source_location": "L126"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -4563,7 +4563,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L397"
+      "source_location": "L402"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_ve_y_se_comporta",
@@ -4575,7 +4575,7 @@
       "node_kind": "heading",
       "norm_label": "como se ve y se comporta",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L216"
+      "source_location": "L220"
     },
     {
       "id": "specs_buscar_producto_spec_dise\u00f1o_skill_impeccable",
@@ -4587,7 +4587,7 @@
       "node_kind": "heading",
       "norm_label": "diseno (skill `impeccable`)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L284"
+      "source_location": "L288"
     },
     {
       "id": "specs_buscar_producto_spec_documentaci\u00f3n_de_la_api",
@@ -4599,7 +4599,7 @@
       "node_kind": "heading",
       "norm_label": "documentacion de la api",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L139"
+      "source_location": "L143"
     },
     {
       "id": "specs_buscar_producto_spec_estados_de_la_zona_de_resultados",
@@ -4611,7 +4611,7 @@
       "node_kind": "heading",
       "norm_label": "estados de la zona de resultados",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L269"
+      "source_location": "L273"
     },
     {
       "id": "specs_buscar_producto_spec_lo_que_esta_spec_no_cubre",
@@ -4623,7 +4623,7 @@
       "node_kind": "heading",
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L390"
+      "source_location": "L395"
     },
     {
       "id": "specs_buscar_producto_spec_pantalla_campo_de_b\u00fasqueda_y_resultados_p_05",
@@ -4635,7 +4635,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla: campo de busqueda y resultados (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L214"
+      "source_location": "L218"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_api_con_curl",
@@ -4647,7 +4647,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local: la api con `curl`",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L148"
+      "source_location": "L152"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_pantalla_en_el_navegador",
@@ -4659,7 +4659,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local: la pantalla en el navegador",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L340"
+      "source_location": "L345"
     },
     {
       "id": "specs_buscar_producto_spec_qui\u00e9n_implementa_qu\u00e9",
@@ -4683,7 +4683,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L45"
+      "source_location": "L48"
     },
     {
       "id": "specs_buscar_producto_spec_rf_12_opcional_enter_con_un_c\u00f3digo_de_barras_exacto",
@@ -4695,7 +4695,7 @@
       "node_kind": "heading",
       "norm_label": "rf-12 opcional: enter con un codigo de barras exacto",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L362"
+      "source_location": "L367"
     },
     {
       "id": "specs_buscar_producto_spec_validaci\u00f3n_del_texto",
@@ -4707,7 +4707,7 @@
       "node_kind": "heading",
       "norm_label": "validacion del texto",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L109"
+      "source_location": "L113"
     },
     {
       "id": "githooks_pre_merge_commit",
@@ -8701,7 +8701,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L109",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -8712,7 +8712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L122",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -8723,7 +8723,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L139",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -8734,7 +8734,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L148",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -8745,7 +8745,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L172",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -8756,7 +8756,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L214",
+      "source_location": "L218",
       "weight": 1.0
     },
     {
@@ -8778,7 +8778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L307",
+      "source_location": "L312",
       "weight": 1.0
     },
     {
@@ -8789,7 +8789,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L362",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -8800,7 +8800,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L390",
+      "source_location": "L395",
       "weight": 1.0
     },
     {
@@ -8811,7 +8811,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L397",
+      "source_location": "L402",
       "weight": 1.0
     },
     {
@@ -8822,7 +8822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L45",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -8833,7 +8833,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L66",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -8844,7 +8844,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L340",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -8855,7 +8855,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L216",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -8866,7 +8866,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L269",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -8877,7 +8877,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L284",
+      "source_location": "L288",
       "weight": 1.0
     },
     {

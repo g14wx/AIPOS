@@ -38,7 +38,10 @@ enlazan los `[@test]`.
 | Conectar el evento `producto-elegido` con `agregarAVentaActual` | V-04 | Frontend |
 | RF-12 (Enter con un código de barras exacto), opcional | P-05, si sobra tiempo | Frontend |
 
-P-04 depende de P-01 (la tabla `productos`, el modelo `Producto` y el router de `productos`). P-05 depende de P-04 y
+P-04 depende de P-01 (la tabla `productos` y el modelo `Producto`). P-02 y P-04 corren a la vez y comparten los archivos
+de `productos` del backend (`routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
+`validators/productos.js` y `validators/comunes.js`): los crea la primera de las dos que se integra en
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-05 depende de P-04 y
 de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js` y `App.vue`). Si A-01 todavía no está integrada cuando
 P-04 termina, la subtarea de documentar la ruta espera y se hace en cuanto A-01 esté integrada.
 
@@ -65,7 +68,8 @@ Salen de RF-02, RN-01, RN-03 y RN-04, y de las decisiones de la persona desarrol
 
 ## API: `GET /api/productos?busqueda=<texto>`
 
-La ruta vive en `src/routes/productos.js` (P-01 crea el router y P-04 le suma el `GET`), y el controller, el servicio y
+La ruta vive en `src/routes/productos.js` (lo crea la primera de P-02 y P-04 que se integra, y la otra le suma su ruta;
+P-04 le suma el `GET`), y el controller, el servicio y
 el validador son `src/controllers/productos.js`, `src/services/productos.js` y `src/validators/productos.js`, cada uno
 con una función `buscarProductos` (el controller y el servicio) y `validarBusqueda` (el validador). El controller lee
 `req.query.busqueda`, llama a `validarBusqueda`, llama al servicio y responde con `res.json`.
@@ -138,8 +142,8 @@ con una función `buscarProductos` (el controller y el servicio) y `validarBusqu
 
 ### Documentación de la API
 
-- La ruta se documenta en el documento OpenAPI de A-01 (ruta propuesta `backend/docs/openapi.yaml`; si la spec de A-01
-  fija otra, manda esa): `GET /api/productos` con el parámetro `busqueda` (obligatorio, de 2 a 120 caracteres), la
+- La ruta se documenta en el documento OpenAPI de A-01 (`backend/docs/openapi.yaml`, el archivo que fija la spec de la
+  documentación de la API): `GET /api/productos` con el parámetro `busqueda` (obligatorio, de 2 a 120 caracteres), la
   respuesta 200 con la lista de productos, y las respuestas 400 y 500 con el esquema de error que A-01 define. Los
   ejemplos de error no muestran el SQL ni el stack.
   `[@test] ../backend/tests/productos/documentacion-buscar-productos.test.js`
@@ -298,7 +302,8 @@ Vue 2 y Vuetify 2:
 - Con 375 px de ancho (móvil) no hay scroll horizontal: el nombre pasa a otra línea y el precio no se corta.
 - La animación `buscando.json` la hace P-05 (con el MCP `lottiefiles-creator` o, si no está, con la skill
   `text-to-lottie`), en los colores de la paleta y con menos de 50 KB. Con `prefers-reduced-motion: reduce`,
-  `AnimacionLottie` muestra un cuadro fijo, como dice la arquitectura.
+  `AnimacionLottie` muestra un cuadro fijo (el último por defecto, según su propiedad `cuadroFijo`), como dice la
+  arquitectura.
   `[@test] ../frontend/tests/animaciones.test.js`
 - Los textos de la pantalla son los de esta spec, en español, con las palabras del glosario.
 

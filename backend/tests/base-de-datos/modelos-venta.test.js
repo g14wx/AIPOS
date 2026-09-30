@@ -94,8 +94,8 @@ describe('las relaciones entre Venta, DetalleVenta y Producto (no necesita MySQL
     expect(relacion.options.onDelete).toBe('RESTRICT');
   });
 
-  it('cada detalle es de una venta: DetalleVenta.Venta, con la llave foránea ventaId', () => {
-    const relacion = DetalleVenta.associations.Venta;
+  it('cada detalle es de una venta: DetalleVenta.venta, con la llave foránea ventaId (sin alias Sequelize la llamaría Ventum)', () => {
+    const relacion = DetalleVenta.associations.venta;
     expect(relacion.associationType).toBe('BelongsTo');
     expect(relacion.target).toBe(Venta);
     expect(relacion.foreignKey).toBe('ventaId');
@@ -126,7 +126,7 @@ describe('las relaciones entre Venta, DetalleVenta y Producto (no necesita MySQL
     expect(queApuntanA('venta_id')).toEqual(['ventaId']);
     expect(queApuntanA('producto_id')).toEqual(['productoId']);
     expect(Object.keys(Venta.associations).sort()).toEqual(['detalles']);
-    expect(Object.keys(DetalleVenta.associations).sort()).toEqual(['Venta', 'producto']);
+    expect(Object.keys(DetalleVenta.associations).sort()).toEqual(['producto', 'venta']);
     expect(Object.keys(Producto.associations)).toEqual(['detalles']);
   });
 

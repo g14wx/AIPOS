@@ -7608,7 +7608,7 @@
       },
       "norm_label": "en()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L93"
+      "source_location": "L94"
     },
     {
       "id": "tests_despliegue_imagenes_test_leer",
@@ -7638,7 +7638,7 @@
       },
       "norm_label": "limpiar()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "tests_despliegue_imagenes_test_sh__entry",
@@ -7668,7 +7668,7 @@
       },
       "norm_label": "uso()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L94"
+      "source_location": "L95"
     },
     {
       "id": "tests_despliegue_documentos_test",
@@ -9268,7 +9268,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L114",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -15187,7 +15187,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -15198,7 +15198,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -15209,7 +15209,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0
     },
     {

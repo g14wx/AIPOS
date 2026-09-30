@@ -1,9 +1,9 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 100 files · ~94,849 words
+- 100 files · ~94,860 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 15 file(s) not represented in the graph (top: .drawio 7, (none) 5, .caddy 2)
+- Unclassified: 19 file(s) not represented in the graph (top: (none) 9, .drawio 7, .caddy 2)
 
 ## Summary
 - 642 nodes · 682 edges · 85 communities (40 shown, 45 thin omitted)

@@ -31,7 +31,7 @@ tiene "el HEALTHCHECK usa el fetch de Node (sin instalar curl)" "$B" "fetch("
 tiene "arranca con node src/servidor.js" "$B" "src/servidor.js"
 tiene "copia node_modules de la primera etapa" "$B" "--from="
 for parte in package.json .sequelizerc db src docs; do
-  igual "copia $parte" "1" "$(cuenta "$B" "^COPY .*[ /]$parte( |/|$)")"
+  igual "copia $parte" "1" "$(cuenta "$B" "^COPY( .*)?[ /]${parte//./\\.}( |/|\$)")"
 done
 no_tiene "no copia todo el contexto (COPY . .)" "$B" "COPY . ."
 no_tiene "no copia un .env" "$B" "COPY .env"
@@ -47,6 +47,7 @@ tiene "la construcción falla si VITE_API_URL está vacío" "$F" 'test -n "$VITE
 tiene "corre npm ci y npm run build" "$F" "npm run build"
 tiene "copia dist/ a la etapa final" "$F" "/app/dist"
 tiene "nginx escucha en el puerto 8080" "$F" "EXPOSE 8080"
+tiene "tiene HEALTHCHECK (Compose espera esa señal con --wait)" "$F" "HEALTHCHECK"
 tiene "usa frontend/nginx.conf" "$F" "nginx.conf"
 tiene "la etiqueta org.opencontainers.image.source une el paquete con el repositorio" "$F" "org.opencontainers.image.source"
 no_tiene "no corre como root (USER root)" "$F" "USER root"

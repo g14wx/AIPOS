@@ -275,7 +275,10 @@ describe('registrarVenta: una respuesta 2xx que no es la de la spec es un error 
 });
 
 // Un 201 es la venta guardada, pero la pantalla muestra el número y el total que trae: sin ellos no hay qué mostrar. La
-// spec fija el cuerpo: ventaId entero y total como texto con 2 decimales (DECIMAL(12,2), RN-09).
+// spec fija el cuerpo: ventaId entero y total como texto con 2 decimales (DECIMAL(12,2), RN-09). La forma exacta es la de
+// VentaRegistrada en backend/docs/openapi.yaml: ventaId entero, sin mínimo ni máximo, y total con ^\d{1,10}\.\d{2}$ (hasta 10
+// enteros y 2 decimales). Ni más estricta (rechazaría una venta que la API sí guardó) ni más laxa (daría por guardada una que
+// MySQL no pudo calcular).
 describe('registrarVenta: un 201 sin { ventaId, total } con esa forma es un error (#93)', () => {
   it.each([
     ['sin cuerpo', undefined],
@@ -285,10 +288,13 @@ describe('registrarVenta: un 201 sin { ventaId, total } con esa forma es un erro
     ['sin ventaId', { total: '47.50' }],
     ['sin total', { ventaId: 15 }],
     ['con el ventaId como texto', { ventaId: '15', total: '47.50' }],
-    ['con el ventaId en 0', { ventaId: 0, total: '47.50' }],
     ['con el ventaId con decimales', { ventaId: 1.5, total: '47.50' }],
     ['con el total como número', { ventaId: 15, total: 47.5 }],
     ['con el total sin 2 decimales', { ventaId: 15, total: '47.5' }],
+    [
+      'con un total de 11 enteros, que no cabe en DECIMAL(12,2)',
+      { ventaId: 15, total: '99999999999.00' },
+    ],
     ['con el total vacío', { ventaId: 15, total: '' }],
     ['con un total que no es un número', { ventaId: 15, total: 'mucho' }],
   ])('%s', async (_caso, datos) => {
@@ -324,5 +330,11 @@ describe('registrarVenta: el error de una respuesta que no es la de la spec (#93
     await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 2147483647, total: '0.00' });
     responderCon(http, { estado: 201, datos: { ventaId: 1, total: '9999999999.99' } });
     await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 1, total: '9999999999.99' });
+  });
+
+  it('el contrato pide un ventaId entero y nada más: un 0 es una venta registrada, no un error', async () => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 201, datos: { ventaId: 0, total: '47.50' } });
+    await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 0, total: '47.50' });
   });
 });

@@ -88,6 +88,11 @@ describe('RegistrarVenta con la fachada real y una respuesta 2xx (#93)', () => {
     ['un 200 con el HTML de un proxy', 200, '<html><body>Bienvenido a nginx/1.27</body></html>'],
     ['un 200 con otro JSON', 200, { ok: true }],
     ['un 201 sin total', 201, { ventaId: 15 }],
+    [
+      'un 201 con un total de 11 enteros, que no cabe en DECIMAL(12,2)',
+      201,
+      { ventaId: 15, total: '99999999999.00' },
+    ],
   ])(
     '%s: muestra el error inesperado, no emite registrada y deja el botón habilitado',
     async (_caso, estado, datos) => {

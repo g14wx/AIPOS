@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 95 files · ~91,446 words
+- 96 files · ~92,646 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 604 nodes · 609 edges · 81 communities (38 shown, 43 thin omitted)
+- 622 nodes · 657 edges · 79 communities (36 shown, 43 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -23,7 +23,7 @@
 - Buscar producto
 - Crear producto
 - Flujo de un entregable
-- Configurar el MCP de Trello
+- desplegar.sh
 - saltos-de-linea.test.sh
 - Entregables y tarjetas
 - Armar la venta actual
@@ -88,8 +88,6 @@
 - sin-datos-privados.test.sh
 - github-environment-y-etiquetas.test.sh
 - compose-produccion.test.sh
-- Lenguaje ubicuo — AIPOS
-- Flujo 05 · Entregar un entregable
 - sin-borrar-datos.test.sh
 - imagenes.test.sh
 - documentos.test.sh
@@ -101,11 +99,11 @@
 3. `Requerimientos no funcionales` - 14 edges
 4. `Armar la venta actual` - 13 edges
 5. `Arquitectura de AIPOS` - 13 edges
-6. `Documentación de la API` - 12 edges
-7. `Buscar producto` - 10 edges
-8. `Grafo del proyecto` - 10 edges
-9. `Registrar venta` - 10 edges
-10. `Flujo de un entregable` - 10 edges
+6. `desplegar()` - 12 edges
+7. `Documentación de la API` - 12 edges
+8. `volver()` - 11 edges
+9. `Buscar producto` - 10 edges
+10. `Grafo del proyecto` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -113,15 +111,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (81 total, 43 thin omitted)
+## Communities (79 total, 43 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
-Nodes (26): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+18 more)
+Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.18
-Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+Cohesion: 0.06
+Nodes (31): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), 1. Crear el board en Trello, 2. Obtener el API key (+23 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -147,9 +145,9 @@ Nodes (25): Al crear el producto, Bugs, Contrato, Crear producto, Criterios de a
 Cohesion: 0.18
 Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entregable, 2. Trabajar, 3. Abrir el PR, 4. Revisar antes de integrar, 5. Integrar, 6. Etiquetar, 7. Entrega final (+2 more)
 
-### Community 8 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+### Community 8 - "desplegar.sh"
+Cohesion: 0.31
+Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), desplegar(), escribir_estado(), esperar_200(), fallar() (+9 more)
 
 ### Community 10 - "Entregables y tarjetas"
 Cohesion: 0.18
@@ -251,14 +249,6 @@ Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.
 Cohesion: 0.70
 Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 
-### Community 75 - "Lenguaje ubicuo — AIPOS"
-Cohesion: 0.33
-Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
-
-### Community 76 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
-
 ### Community 78 - "imagenes.test.sh"
 Cohesion: 0.38
 Nodes (3): leer(), imagenes.test.sh script, uso()
@@ -276,16 +266,16 @@ Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
   _357 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.06763285024154589 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
+- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
+  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

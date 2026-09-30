@@ -1,12 +1,12 @@
 # Graph Report - a-01  (2026-09-30)
 
 ## Corpus Check
-- 103 files · ~52,178 words
+- 104 files · ~53,425 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 601 nodes · 743 edges · 78 communities (43 shown, 35 thin omitted)
+- 614 nodes · 762 edges · 75 communities (40 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -21,9 +21,9 @@
 - Trabajar en un tile
 - Requerimientos funcionales
 - Requerimientos no funcionales
-- app.js
+- estructura-del-documento.test.js
 - Flujo de un entregable
-- rutas-documentadas.test.js
+- app.js
 - saltos-de-linea.test.sh
 - Entregables y tarjetas
 - package.json
@@ -70,9 +70,6 @@
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
 - Grafo del proyecto
-- comparar-rutas.test.js
-- express
-- errores.test.js
 - limite-del-cuerpo.test.js
 - Requerimientos de AIPOS
 - Arquitectura de AIPOS
@@ -84,7 +81,7 @@
 - swagger-ui.test.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `vitest` - 19 edges
+1. `vitest` - 20 edges
 2. `scripts` - 15 edges
 3. `Requerimientos funcionales` - 14 edges
 4. `Requerimientos no funcionales` - 14 edges
@@ -110,7 +107,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (78 total, 35 thin omitted)
+## Communities (75 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
@@ -136,17 +133,17 @@ Nodes (14): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
-### Community 6 - "app.js"
-Cohesion: 0.17
-Nodes (14): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+6 more)
+### Community 6 - "estructura-del-documento.test.js"
+Cohesion: 0.18
+Nodes (11): { cargarDocumentacionApi }, DINERO, documento, ESTADOS_PERMITIDOS, METODOS, nombresDeCampos(), problemasDeDinero(), recorrer() (+3 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
 Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entregable, 2. Trabajar, 3. Abrir el PR, 4. Revisar antes de integrar, 5. Integrar, 6. Etiquetar, 7. Entrega final (+2 more)
 
-### Community 8 - "rutas-documentadas.test.js"
-Cohesion: 0.16
-Nodes (14): compararRutas(), describirCapa(), app, { cargarDocumentacionApi }, carpetaDeRutas, docs, { montajes }, require (+6 more)
+### Community 8 - "app.js"
+Cohesion: 0.05
+Nodes (47): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+39 more)
 
 ### Community 10 - "Entregables y tarjetas"
 Cohesion: 0.18
@@ -236,18 +233,6 @@ Nodes (3): printWidth, singleQuote, trailingComma
 Cohesion: 0.18
 Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
-### Community 66 - "comparar-rutas.test.js"
-Cohesion: 0.20
-Nodes (8): { cargarDocumentacionApi }, { crearApp }, docs, documentadas, documento, { montajes }, require, { Router }
-
-### Community 67 - "express"
-Cohesion: 0.31
-Nodes (6): { consultarSalud }, obtenerSalud(), { obtenerSalud }, { Router }, consultarSalud(), express
-
-### Community 68 - "errores.test.js"
-Cohesion: 0.29
-Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
-
 ### Community 69 - "limite-del-cuerpo.test.js"
 Cohesion: 0.33
 Nodes (5): app, { crearApp }, eco, express, require
@@ -285,8 +270,8 @@ Cohesion: 0.33
 Nodes (3): app, { cargarDocumentacionApi }, require
 
 ## Knowledge Gaps
-- **338 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+333 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 395 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **346 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+341 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 404 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -295,9 +280,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
   _High betweenness centrality (0.133) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+  _High betweenness centrality (0.124) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _338 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _346 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.06207482993197279 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

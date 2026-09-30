@@ -11152,7 +11152,7 @@
       "node_kind": "heading",
       "norm_label": "11. decisiones tecnicas",
       "source_file": "README.md",
-      "source_location": "L422"
+      "source_location": "L427"
     },
     {
       "id": "readme_12_consideraciones",
@@ -11164,7 +11164,7 @@
       "node_kind": "heading",
       "norm_label": "12. consideraciones",
       "source_file": "README.md",
-      "source_location": "L441"
+      "source_location": "L446"
     },
     {
       "id": "readme_1_tecnolog\u00edas_y_versiones",
@@ -11296,7 +11296,7 @@
       "node_kind": "heading",
       "norm_label": "buenas practicas y lo que hariamos distinto",
       "source_file": "README.md",
-      "source_location": "L388"
+      "source_location": "L393"
     },
     {
       "id": "readme_c\u00f3mo_funciona",
@@ -11332,7 +11332,7 @@
       "node_kind": "heading",
       "norm_label": "ejemplos de la bitacora",
       "source_file": "README.md",
-      "source_location": "L409"
+      "source_location": "L414"
     },
     {
       "id": "readme_inicio_r\u00e1pido_con_docker",
@@ -11356,7 +11356,7 @@
       "node_kind": "heading",
       "norm_label": "limitaciones y lo que falta",
       "source_file": "README.md",
-      "source_location": "L456"
+      "source_location": "L461"
     },
     {
       "id": "readme_lo_que_agregamos_y_la_prueba_t\u00e9cnica_no_pide",
@@ -11392,7 +11392,7 @@
       "node_kind": "heading",
       "norm_label": "para ejecutar",
       "source_file": "README.md",
-      "source_location": "L443"
+      "source_location": "L448"
     },
     {
       "id": "readme_pruebas",
@@ -11416,7 +11416,7 @@
       "node_kind": "heading",
       "norm_label": "que reviso, corrigio o decidio la persona",
       "source_file": "README.md",
-      "source_location": "L416"
+      "source_location": "L421"
     },
     {
       "id": "readme_qu\u00e9_se_le_deleg\u00f3",
@@ -11428,7 +11428,7 @@
       "node_kind": "heading",
       "norm_label": "que se le delego",
       "source_file": "README.md",
-      "source_location": "L402"
+      "source_location": "L407"
     },
     {
       "id": "readme_sin_docker_paso_a_paso",
@@ -11452,7 +11452,7 @@
       "node_kind": "heading",
       "norm_label": "trampas conocidas",
       "source_file": "README.md",
-      "source_location": "L450"
+      "source_location": "L455"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_readme_entrega_skill",
@@ -57489,7 +57489,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L388",
+      "source_location": "L393",
       "weight": 1.0
     },
     {
@@ -57500,7 +57500,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L402",
+      "source_location": "L407",
       "weight": 1.0
     },
     {
@@ -57511,7 +57511,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L409",
+      "source_location": "L414",
       "weight": 1.0
     },
     {
@@ -57522,7 +57522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L416",
+      "source_location": "L421",
       "weight": 1.0
     },
     {
@@ -57533,7 +57533,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L443",
+      "source_location": "L448",
       "weight": 1.0
     },
     {
@@ -57544,7 +57544,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L450",
+      "source_location": "L455",
       "weight": 1.0
     },
     {
@@ -57555,7 +57555,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L456",
+      "source_location": "L461",
       "weight": 1.0
     },
     {
@@ -57742,7 +57742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L422",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -57764,7 +57764,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L441",
+      "source_location": "L446",
       "weight": 1.0
     },
     {
@@ -63730,7 +63730,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L386",
+      "source_location": "L391",
       "weight": 1.0
     },
     {

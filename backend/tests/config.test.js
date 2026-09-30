@@ -92,6 +92,25 @@ describe('src/config.js', () => {
     );
   });
 
+  it('rechaza un esquema que no es http ni https: la pantalla se abre con uno de los dos', () => {
+    const invalidos = [
+      'ftp://example.com',
+      'ws://example.com',
+      'wss://example.com:8443',
+      'file:///pantalla',
+      'chrome-extension://abcdef',
+    ];
+    for (const origen of invalidos) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: origen }), origen).toThrow('CORS_ORIGIN');
+    }
+  });
+
+  it('rechaza una lista sin ningún origen, como "," o " , ,"', () => {
+    for (const lista of [',', ',,,', ' , , ']) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: lista }), lista).toThrow('CORS_ORIGIN');
+    }
+  });
+
   it('rechaza un PORT que no es un puerto', () => {
     expect(() => cargarConfig({ ...base, PORT: 'abc' })).toThrow('PORT');
     expect(() => cargarConfig({ ...base, PORT: '70000' })).toThrow('PORT');

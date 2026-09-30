@@ -1,12 +1,12 @@
-# Graph Report - AIPOS  (2026-09-30)
+# Graph Report - spec-registrar-venta  (2026-09-30)
 
 ## Corpus Check
-- 64 files · ~32,752 words
+- 65 files · ~38,378 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 12 file(s) not represented in the graph (top: .drawio 7, (none) 4, .example 1)
+- Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 308 nodes · 300 edges · 52 communities (26 shown, 26 thin omitted)
+- 334 nodes · 325 edges · 53 communities (27 shown, 26 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Grafo del proyecto
+- graphify-setup.md
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -39,7 +39,7 @@
 - Grafo del proyecto
 - comun.sh
 - AGENTS.md
-- Flujo 04 · Registrar venta
+- Registrar venta
 - Comandos útiles
 - misma-version.test.sh
 - ignora-lo-local.test.sh
@@ -59,12 +59,13 @@
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
 - Alcance
-- Flujo 03 · Armar la venta actual
+- Grafo del proyecto
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
 - desactualizado-tras-falla.test.sh
 - merge-sin-choques.test.sh
 - merge-sin-cambios-en-el-grafo.test.sh
+- Flujo 01 · Crear producto
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -73,10 +74,10 @@
 4. `Flujo de un entregable` - 10 edges
 5. `Configurar el MCP de Trello` - 9 edges
 6. `Alcance` - 9 edges
-7. `Trabajar en un tile` - 7 edges
-8. `Lenguaje ubicuo — AIPOS` - 6 edges
-9. `Usar los tiles del proyecto` - 6 edges
-10. `Tarjetas` - 6 edges
+7. `Registrar venta` - 9 edges
+8. `Trabajar en un tile` - 7 edges
+9. `Lenguaje ubicuo — AIPOS` - 6 edges
+10. `Usar los tiles del proyecto` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -84,15 +85,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (52 total, 26 thin omitted)
+## Communities (53 total, 26 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.17
-Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
+Cohesion: 0.14
+Nodes (14): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos, Flujo 04 · Registrar venta (+6 more)
 
-### Community 1 - "Grafo del proyecto"
-Cohesion: 0.09
-Nodes (20): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+12 more)
+### Community 1 - "graphify-setup.md"
+Cohesion: 0.16
+Nodes (10): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -170,9 +171,9 @@ Nodes (5): Al terminar una tarea, Antes de empezar una tarea, Antes de integrar 
 Cohesion: 0.50
 Nodes (3): Agent Rules <!-- tessl-managed -->, AIPOS, Antes de empezar
 
-### Community 24 - "Flujo 04 · Registrar venta"
-Cohesion: 0.50
-Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
+### Community 24 - "Registrar venta"
+Cohesion: 0.08
+Nodes (25): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Archivos, Bugs y issues, Contrato del componente, Criterios de aceptación de V-02, Criterios de aceptación de V-03 (+17 more)
 
 ### Community 25 - "Comandos útiles"
 Cohesion: 0.15
@@ -186,28 +187,32 @@ Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
-### Community 45 - "Flujo 03 · Armar la venta actual"
+### Community 45 - "Grafo del proyecto"
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+
+### Community 52 - "Flujo 01 · Crear producto"
 Cohesion: 0.50
-Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
+Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
 
 ## Knowledge Gaps
-- **192 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+187 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 224 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **212 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+207 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 245 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Grafo del proyecto`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `Setup de Tessl` connect `Trabajar en un tile` to `graphify-setup.md`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _192 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
+  _212 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `requerimientos/README.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.13538461538461538 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

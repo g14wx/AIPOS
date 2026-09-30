@@ -124,7 +124,7 @@ describe('registrarVenta: lo que devuelve', () => {
     await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 16, total: '51.00' });
   });
 
-  it('devuelve solo ventaId y total, aunque la API agregue otra cosa', async () => {
+  it('devuelve solo ventaId y total: un campo de más en el 201 se ignora y no vuelve error a una venta guardada', async () => {
     const { http, registrarVenta } = await cargar();
     responderCon(http, { estado: 201, datos: { ventaId: 15, total: '47.50', fecha: 'hoy' } });
     const venta = await registrarVenta(detalles);

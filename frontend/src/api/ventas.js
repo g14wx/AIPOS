@@ -12,6 +12,9 @@ const FORMA_DEL_TOTAL = /^\d{1,10}\.\d{2}$/;
 // como VentaRegistrada.ventaId de openapi.yaml) y el total con la forma de arriba. axios resuelve cualquier 2xx, y un 200,
 // 202 o 204 (un proxy, por ejemplo) o un 201 sin esa forma no dicen qué venta se guardó (#93). Ni más estricta (#94: daría
 // un error por una venta que la API sí guardó) ni más laxa (#95: daría por guardada una que MySQL no pudo calcular).
+// Una propiedad de más en el 201 se ignora: «additionalProperties: false» y «el cuerpo tiene solo ventaId y total» dicen lo
+// que manda el servidor, y lo prueba el backend. Una de más no cambia lo que la pantalla muestra, y tratarla como error
+// daría un error por una venta que la API sí guardó (Tolerant Reader).
 function esUnaVentaRegistrada({ status, data }) {
   return (
     status === 201 &&

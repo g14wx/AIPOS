@@ -117,6 +117,20 @@ describe('las formas de entrada', () => {
     expect(resultado.total).toBe('53.75');
   });
 
+  it.each([
+    ['"0001"', '0001', 1],
+    ['"007"', '007', 7],
+    ['"0999"', '0999', 999],
+  ])(
+    'acepta la cantidad %s: es un entero escrito con solo dígitos, entre 1 y 999, aunque lleve ceros a la izquierda',
+    async (_texto, cantidad, guardada) => {
+      const [leche] = contexto.productoIds;
+      const resultado = await contexto.llamador.llamar([detalle(leche, cantidad, '1.00')]);
+      const [guardado] = await leerDetalles(resultado.ventaId);
+      expect(guardado.cantidad).toBe(guardada);
+    },
+  );
+
   it('calcula el subtotal y el total en MySQL: ignora los que vengan en el JSON (RN-08 y RN-09)', async () => {
     const [leche, pan] = contexto.productoIds;
     const resultado = await contexto.llamador.llamar([

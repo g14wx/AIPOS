@@ -115,6 +115,8 @@ rechaza('CANTIDAD_FUERA_DE_RANGO', [
   ['cantidad "abc"', conCantidad('abc')],
   ['cantidad vacía', conCantidad('')],
   ['cantidad "1000" como texto', conCantidad('1000')],
+  ['cantidad "0000" como texto', conCantidad('0000')],
+  ['cantidad "01000" como texto', conCantidad('01000')],
   ['cantidad "1e2" como texto', conCantidad('1e2')],
   ['cantidad "2.0" como texto', conCantidad('2.0')],
   ['cantidad con un espacio antes', conCantidad(' 2')],

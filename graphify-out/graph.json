@@ -43134,7 +43134,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "backend/tests/base-de-datos/sp-registrar-venta-reglas.test.js",
-      "source_location": "L242",
+      "source_location": "L244",
       "weight": 1.0
     },
     {

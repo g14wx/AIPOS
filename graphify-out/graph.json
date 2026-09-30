@@ -97,7 +97,7 @@
       "file_type": "code",
       "norm_label": "data()",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L51"
+      "source_location": "L53"
     },
     {
       "id": "frontend_src_components_buscadorproductos_data",
@@ -110,6 +110,18 @@
       "norm_label": "data()",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
       "source_location": "L24"
+    },
+    {
+      "id": "frontend_src_components_buscadorproductos_mounted",
+      "label": "mounted()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "mounted()",
+      "source_file": "frontend/src/components/BuscadorProductos.vue",
+      "source_location": "L27"
     },
     {
       "id": "frontend_src_components_ventaactual_haydetalles",
@@ -448,6 +460,22 @@
       "source_location": "L21"
     },
     {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_lenguaje_ubicuo",
       "label": "docs/lenguaje-ubicuo.md",
       "_origin": "ast",
@@ -554,6 +582,18 @@
       "norm_label": "tiles de tessl",
       "source_file": "README.md",
       "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -890,66 +930,6 @@
       "norm_label": "05-entregar-un-entregable.md",
       "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L66"
     },
     {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
@@ -3673,6 +3653,78 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
+      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "convencion de nombres en codigo",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
+      "label": "Herramientas y proceso",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "herramientas y proceso",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
+      "label": "Historial de cambios",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "historial de cambios",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L108"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "label": "Lenguaje ubicuo \u2014 AIPOS",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lenguaje ubicuo \u2014 aipos",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_negocio",
+      "label": "Negocio",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "negocio",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
+      "label": "Pendientes (por confirmar)",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendientes (por confirmar)",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L97"
+    },
+    {
       "id": "tests_grafo_del_proyecto_sin_rutas_ni_evals_test",
       "label": "sin-rutas-ni-evals.test.sh",
       "_origin": "ast",
@@ -4069,18 +4121,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
       "id": "requerimientos_01_alcance_actores_y_partes",
       "label": "Actores y partes",
       "_origin": "ast",
@@ -4187,22 +4227,6 @@
       "norm_label": "supuestos",
       "source_file": "requerimientos/01-alcance.md",
       "source_location": "L70"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
     },
     {
       "id": "specs_arquitectura_spec_arquitectura_de_aipos",
@@ -4949,6 +4973,66 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L66"
+    },
+    {
       "id": "frontend_package_devdependencies",
       "label": "devDependencies",
       "_origin": "ast",
@@ -5216,78 +5300,6 @@
       "norm_label": "mysql-stored-procedure-authoring/skill.md",
       "source_file": "tessl-plugins/mysql-sequelize-procedimientos/skills/mysql-stored-procedure-authoring/SKILL.md",
       "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
-      "label": "Convenci\u00f3n de nombres en c\u00f3digo",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "convencion de nombres en codigo",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
-      "label": "Herramientas y proceso",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "herramientas y proceso",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_historial_de_cambios",
-      "label": "Historial de cambios",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "historial de cambios",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L108"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "label": "Lenguaje ubicuo \u2014 AIPOS",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lenguaje ubicuo \u2014 aipos",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_negocio",
-      "label": "Negocio",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "negocio",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
-      "label": "Pendientes (por confirmar)",
-      "_origin": "ast",
-      "community": 57,
-      "community_name": "venta-vacia.test.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pendientes (por confirmar)",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L97"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_10_guardar_productos_ventas_y_detalles_con_sus_relaciones",
@@ -6199,7 +6211,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L52",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -6997,7 +7009,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -7177,7 +7189,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -7189,7 +7201,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -7201,7 +7213,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/App.vue",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -8763,7 +8775,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.vue",
-      "source_location": "L51",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -8852,6 +8864,17 @@
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/BuscadorProductos.vue",
       "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_buscadorproductos",
+      "target": "frontend_src_components_buscadorproductos_mounted",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/BuscadorProductos.vue",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -12473,18 +12496,6 @@
       "context": "calcularTotal",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L496",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_arquitectura_spec_\u00edconos_y_animaciones",
-      "target": "frontend_src_components_animacionlottie_mounted",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "mounted",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L568",
       "weight": 1.0
     },
     {

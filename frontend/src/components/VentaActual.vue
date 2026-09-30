@@ -84,10 +84,11 @@ export default {
 }
 
 .venta-actual__mensaje {
-  max-width: 16rem;
+  max-width: 18rem;
   margin: 1rem 0 0;
   font-size: 1rem;
   line-height: 1.5rem;
+  text-wrap: balance;
 }
 
 .venta-actual__total {

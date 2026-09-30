@@ -10,8 +10,9 @@ Fuente editable: [`02-buscar-producto.drawio`](../diagramas/02-buscar-producto.d
 - **Carriles:** Cajero · Pantalla (Vue) · API (Express) · MySQL.
 - **Empieza:** el cajero necesita un producto para la venta actual.
 - **Termina bien:** el producto elegido entra a la venta actual ([flujo 03](03-armar-la-venta-actual.md)).
-- **Requerimientos:** [RF-02](../02-requerimientos-funcionales.md#rf-02-buscar-producto) y, si se confirma,
-  [RF-12](../02-requerimientos-funcionales.md#rf-12-agregar-con-un-código-de-barras-exacto).
+- **Requerimientos:** [RF-02](../02-requerimientos-funcionales.md#rf-02-buscar-producto) y, si sobra tiempo,
+  [RF-12](../02-requerimientos-funcionales.md#rf-12-agregar-con-un-código-de-barras-exacto) (pregunta abierta 5,
+  resuelta el 2026-09-30).
 - **Tarjetas:** P-04 (API), P-05 (pantalla).
 
 ## Pasos
@@ -38,7 +39,7 @@ Fuente editable: [`02-buscar-producto.drawio`](../diagramas/02-buscar-producto.d
 | 9 | La respuesta es de una búsqueda anterior (llegó tarde). | La pantalla la ignora. |
 | 10 | No hay coincidencias. | La pantalla muestra "Sin resultados". |
 | 4 a 8 | La API no responde. | La pantalla muestra "No se pudo buscar. Intenta de nuevo." |
-| 1 | Opcional (RF-12, por confirmar): el cajero escribe o escanea un código de barras completo y presiona Enter. | El producto entra directo a la venta actual. No está en el diagrama hasta que se confirme. |
+| 1 | Opcional (RF-12, entra si sobra tiempo): el cajero escribe o escanea un código de barras completo y presiona Enter. | El producto entra directo a la venta actual. No está en el diagrama: manda el texto del flujo. |
 
 ## Notas técnicas
 

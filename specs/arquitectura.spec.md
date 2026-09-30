@@ -91,15 +91,17 @@ de ningún paquete: en varios de estos, `latest` rompe el proyecto (Vue 3, Vueti
 
 Comprobado en local (2026-09-30, con Node 26.9): Vitest 5.0.2 corre pruebas de un backend en CommonJS, sea con
 `import` o con `require`; y corre pruebas de componentes de Vue 2 con `@vitejs/plugin-vue2` 2.3.4, `@vue/test-utils`
-1.3.6, jsdom 30.1.1 y Vuetify 2.7.2, sin configuración extra. `lottie-web` no carga en jsdom (falla al pedir un
-lienzo), por eso las pruebas lo sustituyen con `vi.mock`. Las pruebas mínimas de B-02 y de B-04 dejan eso escrito
-como prueba, para que un cambio de versión lo avise.
+1.3.6, jsdom 30.1.1 y Vuetify 2.7.2, con un alias solo para las pruebas (ver "Frontend"). `lottie-web` no carga en
+jsdom (falla al pedir un lienzo), por eso las pruebas sustituyen con `vi.mock` la ruta exacta que importa
+`AnimacionLottie`, `lottie-web/build/player/lottie_light`: `vi.mock('lottie-web')` no la cubre. Las pruebas mínimas de
+B-02 y de B-04 dejan eso escrito como prueba, para que un cambio de versión lo avise.
 
 - Si una tarjeta necesita otro paquete, primero lo consulta con `npm view`, lo fija exacto y lo anota en su PR.
 - `express-validator`, `joi`, `zod`, `morgan`, `winston` y `pinia` o `vuex` no entran: no hacen falta (ver
   "Validación", "Errores" y "Frontend").
 
 `[@test] ../backend/tests/estructura.test.js`
+`[@test] ../backend/tests/vitest-commonjs.test.js`
 `[@test] ../frontend/tests/vitest-vue2.test.js`
 
 ## Variables de entorno
@@ -129,8 +131,10 @@ FRONTEND_PORT=5173
 VITE_API_URL=http://localhost:3000
 ```
 
-- `CORS_ORIGIN` es el origen de la pantalla, con esquema y puerto y sin barra final. Puede llevar varios separados
-  por coma. Nunca `*`.
+- `CORS_ORIGIN` es el origen de la pantalla como lo manda el navegador en la cabecera `Origin`: `http` o `https`, el
+  servidor y, si no es el puerto por defecto, el puerto (`http://localhost:5173`, `https://aipos.salsalvador.io`). Va en
+  minúsculas, sin ruta, sin barra final y sin escribir el puerto 80 ni el 443. Puede llevar varios separados por coma.
+  Nunca `*`. Si un origen no cumple, el arranque falla con un mensaje que nombra la variable.
 - `VITE_API_URL` es la dirección del backend, sin `/api` al final. El servicio de API de la pantalla le agrega
   `/api`. La ruta base de producción la fija la spec de despliegue.
 - `MYSQL_ROOT_PASSWORD` solo lo usan Docker Compose y el script que crea la base de prueba. La API nunca entra a
@@ -140,7 +144,8 @@ VITE_API_URL=http://localhost:3000
   entorno gana sobre el archivo. Vite lee el mismo archivo con `envDir: '..'` en `vite.config.js`.
 - `src/config.js` es el único lugar donde el backend lee `process.env`. Si falta una variable obligatoria
   (`MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD` y `CORS_ORIGIN`), el arranque falla con un mensaje que nombra la
-  variable. `PORT`, `MYSQL_HOST` y `MYSQL_PORT` tienen valor por defecto (3000, `127.0.0.1` y 3306).
+  variable. `PORT`, `MYSQL_HOST` y `MYSQL_PORT` tienen valor por defecto (3000, `127.0.0.1` y 3306). `PORT` y
+  `MYSQL_PORT` son enteros de 1 a 65535: con otro valor el arranque falla.
 - Cada variable que lee `src/config.js` está en `.env.example`, y ninguna lleva un valor que parezca un secreto real.
 - El patrón de diseño: ninguno del catálogo describe un archivo `.env`; se sigue la práctica de configuración por
   entorno, con un solo lugar de lectura.
@@ -151,7 +156,8 @@ VITE_API_URL=http://localhost:3000
 ## Backend
 
 Node 24, CommonJS (`"type"` no se declara, así que los `.js` son CommonJS), Express 5.2.1, Sequelize 6.37.8 y mysql2
-3.24.5. Cada archivo empieza con `'use strict';`.
+3.24.5. Cada archivo CommonJS (`src/`, `db/` y `.sequelizerc`) empieza con `'use strict';`. Las pruebas y los `.mjs`
+son ESM.
 
 ### Carpetas
 
@@ -168,13 +174,13 @@ backend/
     crear-base-de-prueba.js   crea la base de prueba y le da permiso al usuario de la app
   src/
     app.js                    arma la app Express y no escucha ningún puerto
-    servidor.js               arranca la app en PORT
+    servidor.js               arranca la app en PORT (con el puerto ocupado, avisa y sale con código 1)
     config.js                 lee y valida las variables de entorno
     database.js               la instancia de Sequelize
     routes/                   un router por recurso: salud.js, productos.js, ventas.js, index.js (A-01 suma docs.js)
     documentacion.js          lee openapi.yaml para /api/docs (A-01)
     controllers/              un controller por recurso
-    services/                 la lógica de negocio: productos.js, ventas.js
+    services/                 la lógica de negocio: salud.js, productos.js, ventas.js
     models/                   Producto.js, Venta.js, DetalleVenta.js, index.js
     validators/               comunes.js y un archivo por recurso
     errors/                   ErrorApi.js y desdeBaseDeDatos.js
@@ -190,16 +196,31 @@ backend/
 - Los campos del JSON van en `camelCase` (`codigoBarras`, `precioAplicado`). Las columnas de MySQL van en
   `snake_case` (`codigo_barras`, `precio_aplicado`). El modelo de Sequelize hace la traducción con `field`.
 - `app.js` no escucha un puerto: así las pruebas usan `supertest(app)` sin abrir uno. Solo `servidor.js` escucha.
-- `src/routes/index.js` monta cada router de un recurso con su prefijo desde una lista, `montajes`, que también exporta.
-  La tarjeta que crea una ruta agrega su router a esa lista y su entrada a la documentación de la API (spec de
-  documentación de la API): así una ruta sin documentar rompe `npm test`.
+  `app.js` exporta la app ya armada y, en `app.crearApp(config, { montajes })`, la fábrica para armar otra con otra
+  configuración u otros `montajes`. Si el puerto está ocupado, `servidor.js` escribe `EADDRINUSE` y sale con código 1; con
+  `SIGINT` o `SIGTERM` (Docker manda `SIGTERM`) deja terminar las peticiones en curso y sale con 0.
+- `src/routes/index.js` lo crea B-02. Exporta `montajes`, una lista de `{ ruta, router }` (al principio solo
+  `{ ruta: '/salud', router: salud }`), y `crearRouterApi(lista = montajes)`, que monta cada router en su ruta y
+  devuelve el router de `/api`. La tarjeta que crea una ruta agrega su router a `montajes` y su entrada a la
+  documentación de la API (spec de documentación de la API): así una ruta sin documentar rompe `npm test`. `/api/docs`
+  (A-01) se monta aparte, fuera de `montajes`.
+- Los archivos que comparten las tarjetas de un mismo recurso (`routes/productos.js`, `controllers/productos.js`,
+  `services/productos.js`, `validators/productos.js` y `validators/comunes.js` con su prueba `validacion-comun.test.js`)
+  los crea la primera de esas tarjetas que se integra en la rama de su entregable. Las demás los juntan: ponen su rama
+  al día con la de su entregable y agregan lo suyo a los mismos archivos, y la que necesita una pieza de `comunes.js`
+  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez y comparten también la ruta `/api/productos`
+  de `backend/docs/openapi.yaml` (P-02 agrega `post` y P-04 `get`: la que se integra primero crea la ruta y la otra conserva
+  las dos operaciones), y P-03 y P-05 corren a la vez: comparten `frontend/src/api/productos.js` (P-03 agrega
+  `crearProducto` y P-05 `buscarProductos`), y la que se integra primero lo crea y la otra conserva las dos funciones. En ventas, V-05, V-06 y V-07 corren a la vez y comparten `VentaActual.vue`,
+  `src/ventaActual/ventaActual.js`, `src/ventaActual/validaciones.js` y `frontend/tests/pantalla-venta-actual.test.js`
+  (spec de armar la venta actual).
 - Los scripts de `package.json` del backend:
 
 | Comando | Qué hace |
 |---|---|
 | `npm run dev` | `node --watch src/servidor.js` |
 | `npm start` | `node src/servidor.js` |
-| `npm test` | `vitest run`. Necesita MySQL levantado (ver "Base de datos"). |
+| `npm test` | `vitest run`. Desde B-03 necesita MySQL levantado (ver "Base de datos"): el de B-02 no. |
 | `npm run test:vigilar` | `vitest`, se vuelve a correr al guardar. |
 | `npm run migrar` | `sequelize-cli db:migrate` |
 | `npm run deshacer` | `sequelize-cli db:migrate:undo` (la última migración) |
@@ -207,7 +228,7 @@ backend/
 | `npm run migrar:prueba` | lo mismo que `migrar`, con `--env test` |
 | `npm run deshacer:prueba` | lo mismo que `deshacer`, con `--env test` |
 | `npm run rehacer:prueba` | lo mismo que `rehacer`, con `--env test` |
-| `npm run preparar-prueba` | `node scripts/crear-base-de-prueba.js` |
+| `npm run preparar-prueba` | `node scripts/crear-base-de-prueba.js`. B-02 deja el comando; el script y `docker-compose.yml` los crea B-03. |
 | `npm run lint` | `eslint .` |
 | `npm run format` | `prettier --write .` |
 | `npm run format:check` | `prettier --check .` |
@@ -217,6 +238,7 @@ backend/
   capas y con tres recursos no hace falta más.
 
 `[@test] ../backend/tests/estructura.test.js`
+`[@test] ../backend/tests/servidor.test.js`
 
 ### Capas
 
@@ -241,7 +263,8 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   con tres tablas serían archivos que solo reenvían llamadas al modelo.
 
 `[@test] ../backend/tests/estructura.test.js`
-`[@test] ../backend/tests/base-de-datos/modelos.test.js`
+`[@test] ../backend/tests/base-de-datos/modelo-producto.test.js`
+`[@test] ../backend/tests/base-de-datos/modelos-venta.test.js`
 
 ### Procedimientos almacenados
 
@@ -263,7 +286,8 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   Nunca se edita una migración que ya corrió.
 - Patrón: Transaction Script. Cada procedimiento resuelve una petición completa, de principio a fin, dentro de MySQL.
 
-`[@test] ../backend/tests/base-de-datos/procedimientos.test.js`
+`[@test] ../backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js`
+`[@test] ../backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js`
 
 ### Validación
 
@@ -271,13 +295,18 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   validación. Las reglas de dinero se validan sobre texto, y las librerías que convierten a número las echarían a
   perder. Además son pocas rutas.
 - `src/validators/comunes.js` tiene las piezas que usan todos los recursos: `validarTexto` (quita espacios de los
-  extremos y revisa que no quede vacío ni pase del largo máximo), `validarDinero` (ver "Dinero") y
-  `validarEnteroEnRango`. Cada validador devuelve los datos limpios o lanza `ErrorApi` de estado 400 con todos los
-  campos con problema, no solo el primero.
+  extremos y revisa que no quede vacío ni pase del largo máximo), `validarDinero` y `validarEnteroEnRango`. Cada
+  validador de un recurso devuelve los datos limpios o lanza `ErrorApi` de estado 400 con todos los campos con
+  problema, no solo el primero. `comunes.js` no es parte de B-02: lo crea la primera tarjeta que lo necesita (ver
+  "Carpetas").
+- `validarDinero(valor, campo, { permiteCero })` revisa un dinero que llega como texto: la forma
+  `^\d{1,5}(\.\d{1,2})?$` y el máximo de 99 999.99 (ver "Dinero"). Sin `permiteCero`, el valor tiene que ser mayor que
+  0: es el precio de un producto (RN-02). Con `permiteCero: true` el 0 se acepta: es el precio aplicado (RN-05).
 - El cuerpo de la petición llega como JSON. Un campo con el tipo equivocado (por ejemplo un número donde va un
   texto) es un 400, no se convierte.
 - Los largos máximos y los límites de los datos salen de `requerimientos/`: nombre de 120 caracteres, código de
-  barras de 50 (RN-04), precio hasta 99 999.99 y cantidad de 1 a 999 (ver "Dinero").
+  barras de 50 (RN-04), precio hasta 99 999.99, cantidad de 1 a 999 (ver "Dinero") y como máximo 100 detalles en una
+  venta (RN-14).
 - Patrón: Input Validation. La API no confía en la pantalla, porque se le puede llamar sin ella.
 
 `[@test] ../backend/tests/validacion-comun.test.js`
@@ -298,8 +327,9 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 ```
 
 - `codigo` es un texto en mayúsculas con guion bajo, estable, que la pantalla puede leer. `mensaje` es una frase en
-  español para el cajero. `detalles` solo aparece en los 400 y en el 409 del código de barras repetido, y lista un
-  elemento por campo con problema.
+  español para el cajero. `detalles` (los «detalles del error», que no son los detalles de una venta) solo aparece en
+  los 400 y en el 409 del código de barras repetido, y lista un elemento por campo con problema. Cuando no hay, la
+  respuesta no trae la propiedad `detalles`.
 - La API responde solo con cinco estados, los de RNF-05:
 
 | Estado | `codigo` | Cuándo |
@@ -311,13 +341,19 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 | 500 | `ERROR_INTERNO` | Cualquier otro error. El mensaje es "Ocurrió un error inesperado. Intenta de nuevo." |
 
 - `src/errors/ErrorApi.js` es la clase que lanzan validadores y servicios: `new ErrorApi(estado, codigo, mensaje,
-  detalles)`.
+  detalles)`. Lanza un `Error` si el estado no es uno de los cinco de arriba.
 - `src/errors/desdeBaseDeDatos.js` traduce el error de Sequelize por `err.parent.errno`: 1644 (`SIGNAL`) → 422, con
-  el código de `MESSAGE_TEXT` solo si son mayúsculas y guion bajo, y si no `REGLA_DE_NEGOCIO`; 1062 (duplicado) →
+  el código de `MESSAGE_TEXT` solo si son mayúsculas, dígitos y guion bajo y empieza con una letra
+  (`^[A-Z][A-Z0-9_]*$`), y si no `REGLA_DE_NEGOCIO`; 1062 (duplicado) →
   409; 1452 (llave foránea que no existe) → 404; 3140 (JSON inválido) y 3819 (restricción `CHECK`) → 400. Todo lo
   demás no se traduce y sigue como 500.
 - El 500 nunca muestra al cliente el stack, el texto del SQL ni el mensaje original. El manejador lo escribe entero,
   con su stack, en el log del servidor con `console.error`. No se usa una librería de logs.
+- Los errores del lector del cuerpo de Express también salen con este formato. Un JSON que no es un objeto ni un arreglo
+  (`null`, `5`, `"x"`) lo rechaza el lector en modo estricto, antes de llegar al validador: es un 400 `JSON_INVALIDO`. Un
+  cuerpo comprimido que no se puede descomprimir, o con una codificación o un `charset` que no admite, es un 400
+  `DATOS_INVALIDOS` con el mensaje "La petición no se pudo leer.". Un error con estado 4xx que no viene de ese lector no
+  se traduce: sigue como 500.
 - Una ruta que no existe cae en `src/middlewares/noEncontrado.js`, que lanza el 404 con el mismo formato.
 - Patrón: Front Controller es el más cercano. Centraliza en un solo punto el comportamiento común (aquí, los errores)
   para que ninguna ruta lo repita. El catálogo no trae un patrón exacto para "un manejador de errores de Express".
@@ -326,12 +362,14 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 
 ### Límites, CORS y cabeceras
 
-- El cuerpo JSON tiene un límite: `express.json({ limit: '100kb' })`. Una venta con cientos de detalles cabe de sobra.
-  Lo que pase del límite es un 400 `CUERPO_MUY_GRANDE`.
+- El cuerpo JSON tiene un límite: `express.json({ limit: '100kb' })`. Una venta con 100 detalles (el máximo, RN-14)
+  pesa menos de 10 kb y cabe de sobra. Lo que pase del límite es un 400 `CUERPO_MUY_GRANDE`.
 - CORS: `cors({ origin: <lista de CORS_ORIGIN>, methods: ['GET', 'POST'] })`. Un origen que no está en la lista no
   recibe `Access-Control-Allow-Origin`. Nunca `*`.
-- helmet: sí. Pone las cabeceras de seguridad estándar y quita `X-Powered-By`. Su política de contenido (CSP) bloquea
-  los estilos en línea de Swagger UI, y la tarjeta A-01 la relaja solo en `/api/docs`, no en el resto de la API.
+- helmet: sí. Pone las cabeceras de seguridad estándar y quita `X-Powered-By`. Su política de contenido (CSP) por
+  defecto ya deja los estilos en línea (`style-src` con `'unsafe-inline'`), así que Swagger UI se ve sin cambiarla (lo
+  comprobó la spec de documentación de la API con helmet 8.3.0). Aun así, la tarjeta A-01 pone una política propia y
+  explícita solo en `/api/docs`, y no cambia la del resto de la API.
 - El orden de los middlewares en `app.js` es: helmet, cors, `express.json`, rutas de `/api`, `noEncontrado` y, al
   final, `errorHandler`.
 
@@ -343,8 +381,9 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 
 `GET /api/salud` dice si la API está viva. Sirve para el despliegue y para probar con `curl`.
 
-- B-02 la crea: responde 200 con `{ "estado": "ok" }`.
-- B-03 le suma la base de datos: corre `sequelize.authenticate()`. Si MySQL responde, 200 con
+- B-02 la crea con `routes/salud.js`, `controllers/salud.js` (`obtenerSalud`) y `services/salud.js`
+  (`consultarSalud`): responde 200 con `{ "estado": "ok" }`.
+- B-03 le suma la base de datos en `consultarSalud`: corre `sequelize.authenticate()`. Si MySQL responde, 200 con
   `{ "estado": "ok", "baseDeDatos": "ok" }`. Si no, responde 500 con el formato de error de arriba: no se suma un
   estado nuevo.
 - No pide nada en la petición y no cambia nada en la base.
@@ -384,6 +423,7 @@ MySQL 8.4 con Docker Compose. Nunca `mysql:latest` ni una 9.x: Sequelize 6 sopor
 - Los `CHECK`, `NOT NULL`, `UNIQUE` y las llaves foráneas (`ON DELETE RESTRICT`) son de las specs de cada tabla.
 - Un test de B-03 revisa que MySQL sea 8.4, que use `utf8mb4` y que `mysql2` devuelva el dinero como texto.
 
+`[@test] ../backend/tests/database.test.js`
 `[@test] ../backend/tests/base-de-datos/compose.test.js`
 `[@test] ../backend/tests/base-de-datos/conexion.test.js`
 `[@test] ../backend/tests/base-de-datos/base-de-prueba.test.js`
@@ -401,13 +441,17 @@ esto:
 | `detalles_venta.precio_aplicado` | `DECIMAL(10,2)` | 0 o más, hasta 99 999.99 |
 | `detalles_venta.cantidad` | `INT` | Entero de 1 a 999 |
 | `detalles_venta.subtotal` | `DECIMAL(12,2)` | Precio aplicado × cantidad |
-| `ventas.total` | `DECIMAL(12,2)` | Suma de los subtotales |
+| `ventas.total` | `DECIMAL(12,2)` | Suma de los subtotales, de 1 a 100 detalles (RN-14) |
 
 - Por qué: la pregunta abierta 4 de `requerimientos/README.md` (resuelta el 2026-09-30) fija el precio en hasta
   99 999.99 y la cantidad de 1 a 999, y pide `DECIMAL(12,2)` para el subtotal y el total. Un subtotal llega a
   99 899 990.01 (99 999.99 × 999), que apenas cabe en `DECIMAL(10,2)` (su máximo es 99 999 999.99), y el total suma
-  varios subtotales: con dos detalles así ya se pasaría. `DECIMAL(12,2)` llega a 9 999 999 999.99 y no se desborda. El
-  precio y el precio aplicado siguen en `DECIMAL(10,2)`, como pide el tile, y sus columnas de `JSON_TABLE` también.
+  varios subtotales: con dos detalles así ya se pasaría. `DECIMAL(12,2)` llega a 9 999 999 999.99. Como una venta tiene
+  como máximo 100 detalles (RN-14, pregunta abierta 9), el total más grande es 100 × 99 899 990.01 = 9 989 999 001.00 y
+  cabe; con 101 detalles se pasaría, y por eso existe el límite. El precio y el precio aplicado siguen en
+  `DECIMAL(10,2)`, como pide el tile, y sus columnas de `JSON_TABLE` también.
+- El límite de 100 detalles lo cumplen las tres capas: la pantalla no agrega el detalle 101, la API responde 400 y el
+  procedimiento almacenado rechaza la venta con `DEMASIADOS_DETALLES` (spec de registrar venta).
 - Nunca `FLOAT` ni `DOUBLE`.
 - En JavaScript el dinero es un texto (`"25.00"`), en la API y en el backend. `mysql2` ya devuelve `DECIMAL` como texto,
   y no se activa `decimalNumbers`. El backend no suma ni multiplica dinero: eso lo hace MySQL.
@@ -420,7 +464,8 @@ esto:
 - La pantalla calcula en centavos (números enteros) solo para mostrar, con `src/dinero.js`: `aCentavos("22.50")` da
   `2250`, y `formatearCentavos(4750)` da `"47.50"`. Nunca suma decimales de JavaScript.
 - Los precios se muestran con 2 decimales y sin símbolo de moneda (pregunta abierta 6, resuelta).
-- Patrón: Money. Aquí no se guarda una moneda, solo el monto, y por eso el "objeto" es un texto con validación.
+- Patrón: Money. Aquí no se guarda una moneda, solo el valor con sus 2 decimales, y por eso el "objeto" es un texto
+  con validación.
 
 `[@test] ../backend/tests/validacion-comun.test.js`
 `[@test] ../backend/tests/base-de-datos/tipos-de-dinero.test.js`
@@ -442,9 +487,9 @@ de producto se abre en un modal (una ventana encima de la pantalla). No hay `vue
 frontend/
   package.json  package-lock.json  index.html  vite.config.js  eslint.config.js  .prettierrc.json
   src/
-    main.js                   Vue.use(Vuetify) y new Vue(...).$mount('#app')
+    main.js                   new Vue({ vuetify, ... }).$mount('#app'), con el tema de plugins/vuetify.js
     App.vue                   <v-app> con <v-main>: es la única pantalla
-    plugins/vuetify.js        el tema: la paleta
+    plugins/vuetify.js        Vue.use(Vuetify) y el tema: la paleta, los íconos MDI y el español (vuetify.css afina el resto)
     api/                      http.js y un archivo por recurso: productos.js, ventas.js
     ventaActual/              la lógica de la venta actual, sin componentes
     components/               los componentes de Vue, en PascalCase
@@ -459,9 +504,13 @@ frontend/
   configuración usan `import`.
 - `vite.config.js` usa `@vitejs/plugin-vue2`, el alias `vue` → `vue/dist/vue.esm.js`, `dedupe: ['vue']`,
   `envDir: '..'` y `server.port` con `FRONTEND_PORT` (con `strictPort: true`, para que el puerto que ve `CORS_ORIGIN`
-  sea el real). El bloque `test` pone `environment: 'jsdom'`.
-- El arranque es `Vue.use(Vuetify)` y `new Vue({ vuetify, render: (h) => h(App) }).$mount('#app')`. Nunca
-  `createApp`, ni `createVuetify`, ni `vite-plugin-vuetify`.
+  sea el real). El bloque `test` pone `environment: 'jsdom'`, `include: ['tests/**/*.test.js']` y un alias solo para las
+  pruebas, `vue` → `vue/dist/vue.runtime.common.js`: Vuetify y `@vue/test-utils` piden `vue` con `require`, y sin ese alias
+  las pruebas cargarían dos copias de Vue y Vuetify avisaría "Multiple instances of Vue detected" (lo vigila
+  `vitest-vue2.test.js`).
+- El arranque es `Vue.use(Vuetify)`, que vive en `plugins/vuetify.js` junto con el tema (ese archivo exporta la instancia
+  de Vuetify), y `new Vue({ vuetify, render: (h) => h(App) }).$mount('#app')`, en `main.js`. Nunca `createApp`, ni
+  `createVuetify`, ni `vite-plugin-vuetify`.
 - Vuetify 2: las columnas de tabla son `{ text, value }`, las ranuras son `#item.<value>="{ item }"`, y los
   activadores `#activator="{ on, attrs }"`. Las propiedades de Vuetify 3 (`variant`, `density`, `item-title`) no
   hacen nada.
@@ -469,16 +518,23 @@ frontend/
   nuevo. Un componente tiene un solo elemento raíz. Nada de `v-html` con datos del cajero (RNF-04).
 - Los scripts de `package.json` del frontend: `dev` (`vite`), `build` (`vite build`), `preview` (`vite preview`),
   `test` (`vitest run`), `test:vigilar` (`vitest`), `lint`, `format` y `format:check`, como en el backend.
+- Las tres zonas de `App.vue` llevan `data-zona="nuevo-producto"`, `"busqueda"` y `"venta-actual"`, y el total de
+  `VentaActual.vue` lleva `data-total`. `pantalla-unica.test.js` exige esas zonas, en ese orden: quien agregue o mueva una
+  zona actualiza esa prueba.
 
 `[@test] ../frontend/tests/pantalla-unica.test.js`
 `[@test] ../frontend/tests/vitest-vue2.test.js`
 
 ### Servicio de API
 
-- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` y un tiempo
-  máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error` con `status`, `codigo`,
-  `mensaje` y `detalles`, leídos del formato de error de la API. Si no hubo respuesta, `status` vale 0 y el
-  mensaje dice que no se pudo conectar.
+- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` (sin barras al final
+  de `VITE_API_URL`) y un tiempo máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error`
+  con `status`, `codigo`, `mensaje` y `detalles`, leídos del formato de error de la API; `detalles` es un arreglo vacío
+  si la API no manda ninguno. Si no hubo respuesta (sin red, servidor apagado o pasaron los 10 segundos), `status` vale
+  0, `codigo` `SIN_CONEXION` y `mensaje` "No se pudo conectar con el servidor. Intenta de nuevo." Si hubo respuesta pero
+  no trae el formato de error (por ejemplo, el HTML de un 502), el `status` es el de la respuesta (un 502 queda 502),
+  `codigo` es `ERROR_INTERNO` y `mensaje` "Ocurrió un error inesperado. Intenta de nuevo." El mensaje nunca muestra la
+  dirección del servidor ni el texto de axios.
 - `src/api/productos.js` y `src/api/ventas.js` exportan una función por operación, con nombres del glosario:
   `crearProducto`, `buscarProductos`, `registrarVenta`. Los componentes llaman solo a esas funciones. Ningún
   componente importa `axios` ni escribe una URL.
@@ -496,7 +552,9 @@ frontend/
   `cambiarPrecioAplicado`, `cambiarCantidad`, `eliminarDetalle` y `calcularTotal`. Son funciones que reciben la venta
   actual y devuelven una nueva, sin modificar la anterior. Así el componente reemplaza el valor entero y Vue 2 lo
   detecta.
-- Los importes se calculan en centavos con `src/dinero.js`.
+- El dinero (precios aplicados, subtotales y total) se calcula en centavos con `src/dinero.js`.
+- La venta actual tiene como máximo 100 detalles (RN-14): `agregarAVentaActual` no agrega un producto nuevo cuando ya
+  hay 100, y la pantalla avisa (spec de armar la venta actual).
 - La venta actual se guarda en el navegador con `localStorage` y se vacía al registrar la venta (pregunta abierta 2,
   resuelta el 2026-09-30). Si el cajero recarga la página, la venta actual sigue igual. La llave es
   `aipos.ventaActual`, y el valor es un JSON con `{ version: 1, detalles: [...] }`.
@@ -504,26 +562,31 @@ frontend/
   puede fallar o venir vacío. Si falla, la pantalla funciona igual, sin guardar. Lo guardado se valida al leerlo: si no
   tiene la forma esperada, se ignora y se empieza con la venta actual vacía.
 - La lógica de guardar y leer vive en `src/ventaActual/almacenamiento.js`, y es la única que toca `localStorage`.
-- Un error al registrar la venta no borra la venta actual (RNF-05). Solo se vacía cuando la API confirmó la venta.
+- Un error al registrar la venta no borra la venta actual (RNF-05). Solo se vacía cuando la API confirmó la venta:
+  `VentaActual.vue` emite la venta actual vacía y `App.vue`, el único que la guarda, la guarda con `almacenamiento.js`.
 - Patrón: ninguno del catálogo describe un módulo de estado de la venta; se usan funciones puras. Memento es el más
   cercano para guardar y restaurar la venta actual, y Money para el dinero (ver "Dinero").
 
 `[@test] ../frontend/tests/venta-actual/agregar.test.js`
 `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 `[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
+`[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
 
 Los archivos de `frontend/tests/venta-actual/` los escriben V-04 a V-07, y la spec de armar la venta actual da la lista
 completa. `agregar.test.js` y `calculos.test.js` prueban las funciones puras y los centavos, y `almacenamiento.test.js`
-prueba restaurar tras recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y vaciar solo cuando
-la API confirmó la venta. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
+prueba restaurar tras recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y guardar la venta
+actual vacía. Que la venta actual solo se vacíe cuando la API confirmó la venta lo prueba `pantalla-venta-actual.test.js`,
+la prueba de `App.vue`. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
 
 ## Diseño de la pantalla
 
 La pantalla se diseña con la skill `impeccable`. Antes de construir cada parte de la pantalla, el agente carga la
 skill y sigue lo que indica: jerarquía, espacios, estados vacío, cargando, error y éxito, textos claros, contraste,
 teclado, foco visible y diseño para móvil. Al revisar, la corre en modo auditoría sobre lo que cambió. Todo dentro de
-las reglas de Vue 2 y Vuetify 2 de esta spec.
+las reglas de Vue 2 y Vuetify 2 de esta spec. El sistema visual (colores, tipografía, espacios y componentes) está en
+`frontend/DESIGN.md`, y el contexto de producto que pide la skill, en `PRODUCT.md` (en la raíz): quien cambie la pantalla
+los actualiza.
 
 ### Paleta
 
@@ -534,10 +597,17 @@ cambia en `src/plugins/vuetify.js` y aquí.
 | Color | Uso | En el tema de Vuetify |
 |---|---|---|
 | `#292F36` | Barra superior y todo el texto | `secondary` |
-| `#4ECDC4` | Acciones principales (botones, foco, selección) | `primary` |
+| `#4ECDC4` | Acciones principales (botones y selección), y la marca y el foco sobre la barra oscura | `primary` |
 | `#F7FFF7` | Fondo de la pantalla | `background` (`surface` con `#FFFFFF`) |
 | `#FF6B6B` | Errores y acciones que borran | `error` |
 | `#FFE66D` | Acento: resaltar el total y lo recién agregado. Es un supuesto | `accent` |
+
+El tema también pone `info` y `success` en `#4ECDC4` y `warning` en `#FFE66D`, para que ningún componente de Vuetify pinte
+un azul o un verde ajenos. Es un solo tema, el claro (`dark: false`), con `customProperties: true`: crea `--v-primary-base`
+y las demás, que `plugins/vuetify.css` usa para lo que el tema no cambia solo. Vuetify va en español
+(`lang.current: 'es'`), con «Borrar lo escrito en {0}» y «Cargando...» donde su traducción deja el inglés. El foco de
+teclado es un contorno de 3 px en `#292F36` con 2 px de separación (turquesa sobre la barra oscura); los campos ya marcan
+su borde.
 
 Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o más para texto normal:
 
@@ -564,11 +634,14 @@ Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o má
 
 - Íconos: MDI (`@mdi/font` 7.4.47) con `iconfont: 'mdi'`.
 - Animaciones: Lottie con `lottie-web` 5.13.0, en `AnimacionLottie.vue`, un componente de Vue 2 con Options API. Usa la
-  versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Recibe el
-  JSON de la animación, si se repite y su alto. Crea la animación en `mounted` y la destruye en `beforeDestroy`. Es
-  decorativa (`aria-hidden="true"`): el texto de al lado dice lo mismo.
-- Si el sistema pide menos movimiento (`prefers-reduced-motion: reduce`), no se anima: se muestra un solo cuadro fijo
-  de la animación.
+  versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Tiene un
+  solo elemento raíz, que es el contenedor de la animación, y estas propiedades: `animacion` (el JSON de la animación),
+  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles, 120 por defecto; el ancho lo da el contenedor)
+  y `cuadroFijo` (`'ultimo'` por defecto, o `'primero'`: el cuadro que se muestra con menos movimiento). Crea la
+  animación en `mounted`, la destruye en `beforeDestroy` y, si cambia `animacion`, destruye la anterior y crea la
+  nueva. Es decorativa (`aria-hidden="true"`): el texto de al lado dice lo mismo.
+- Si el sistema pide menos movimiento (`prefers-reduced-motion: reduce`), no se anima: no reproduce ni se repite, y se
+  muestra un solo cuadro fijo, el último de la animación o, con `cuadroFijo="primero"`, el primero.
 - Los archivos JSON van en `frontend/src/assets/animaciones/`, en los colores de la paleta, y pesan menos de 50 KB
   cada uno. Se hacen con el MCP `lottiefiles-creator` o, si la sesión no lo tiene, con la skill `text-to-lottie`.
   Solo hay cuatro, donde aportan: `venta-vacia.json` ("Busca un producto para empezar la venta"),
@@ -591,12 +664,19 @@ en local, sin servicios externos.
   componentes con Vuetify.
 - Los archivos de prueba se llaman `<tema>.test.js` y viven en `backend/tests/` y `frontend/tests/`, con la misma forma
   de carpetas que `src/`. Las pruebas de shell de la raíz viven en `tests/`.
+- Si una tarjeta prueba una operación, su archivo lleva el nombre de esa operación, en minúsculas y con guiones, y va en
+  la carpeta de su recurso: `backend/tests/productos/crear-producto.test.js`, `frontend/tests/api/crear-producto.test.js`.
+  Las pruebas del validador de un recurso van en la carpeta de ese recurso (`backend/tests/ventas/validador-venta.test.js`),
+  no en una carpeta `validators/`, y las de su documentación en la API se llaman `documentacion-<operación>.test.js`.
+  Así dos tarjetas que corren a la vez no escriben el mismo archivo.
 - Los archivos de prueba usan `import` (`import { describe, it, expect } from 'vitest'`), también en el backend. Vitest 5
   no trae funciones globales. Cargan el código CommonJS con `import` o con `require`, y las dos formas funcionan.
 - Dos pruebas mínimas tapan la trampa de la tarjeta S-01: B-02 escribe `backend/tests/vitest-commonjs.test.js`, que
   levanta la app en CommonJS con `supertest` y pide `/api/salud`. B-04 escribe `frontend/tests/vitest-vue2.test.js`,
   que monta un componente `.vue` con `@vitejs/plugin-vue2` y un `v-btn` de Vuetify.
-- `lottie-web` se sustituye en las pruebas con `vi.mock`, porque jsdom no dibuja.
+- En las pruebas se sustituye con `vi.mock` la ruta exacta que importa `AnimacionLottie`,
+  `lottie-web/build/player/lottie_light`, porque jsdom no dibuja: `vi.mock('lottie-web')` no la cubre. Toda prueba que
+  monte un componente con `AnimacionLottie` la sustituye igual.
 - Antes de decir que una tarjeta está lista, el agente corre `npm test`, `npm run lint` y `npm run format:check` en el
   proyecto que cambió, y `npm run build` en el frontend.
 
@@ -629,7 +709,8 @@ flujo 06.
   `globals.browser` y `eslint-plugin-vue` con `pluginVue.configs['flat/vue2-recommended']`. Desde la versión 10 de
   `eslint-plugin-vue`, `recommended` a secas es de Vue 3.
 - En el frontend se agrega la regla `'vue/valid-v-slot': ['error', { allowModifiers: true }]`, para las ranuras
-  `#item.<value>` de Vuetify 2.
+  `#item.<value>` de Vuetify 2. También se ajusta la regla `vue/multi-word-component-names` (con `ignores: ['App']`): pide
+  nombres de dos palabras, y `App.vue` es la única excepción.
 - Prettier, en los dos proyectos: `singleQuote: true`, `printWidth: 100` y `trailingComma: 'all'`.
   `.prettierignore` deja fuera `package-lock.json`, `dist/`, `coverage/` y `src/assets/animaciones/`.
 - `npm run lint` y `npm run format:check` pasan sin errores. `npm run format` arregla el formato.
@@ -650,6 +731,8 @@ Todo el trabajo se ve en el historial de git y en la bitácora de IA. Esto ampl�
   `ProductionEnv`, con merge commit y la etiqueta `entregable-<x>`. `docs/entrega-final` va igual, y después
   `ProductionEnv` va a `main`.
 - Las tarjetas sin entregable van directo a su destino. B-01 y D-01 van a `ProductionEnv`. S-01 va a `main`.
+- La rama de D-01 es `chore/despliegue`, el nombre que ya tenía su tarjeta antes de esta convención: es la única
+  excepción a `<tipo>/<id>-<resumen>`. Las demás tarjetas la siguen.
 - Antes de integrar un PR, su rama se pone al día en local con la de destino. Si el hook de git detiene el merge
   porque actualizó el grafo del proyecto, se termina con `git commit --no-edit`.
 - Los mensajes de commit siguen Conventional Commits: prefijo en inglés y descripción en español con las palabras del

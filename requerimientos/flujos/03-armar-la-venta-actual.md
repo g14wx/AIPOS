@@ -1,8 +1,9 @@
 # Flujo 03 · Armar la venta actual
 
 El cajero arma la venta actual en la pantalla: agrega productos, edita el precio aplicado, cambia la cantidad o
-elimina un producto, y siempre ve el total. Nada llega a la API ni a MySQL hasta registrar la venta. La venta actual
-se guarda en el navegador, así que sigue ahí si se recarga la página, y se vacía al registrar la venta.
+elimina un producto, y siempre ve el total. Una venta tiene como máximo 100 detalles (RN-14): la pantalla no deja
+agregar el 101. Nada llega a la API ni a MySQL hasta registrar la venta. La venta actual se guarda en el navegador,
+así que sigue ahí si se recarga la página, y se vacía al registrar la venta.
 
 ![Diagrama BPMN del flujo 03](../diagramas/03-armar-la-venta-actual.png)
 
@@ -12,14 +13,18 @@ Fuente editable: [`03-armar-la-venta-actual.drawio`](../diagramas/03-armar-la-ve
 - **Empieza:** el cajero eligió un producto en la búsqueda ([flujo 02](02-buscar-producto.md)).
 - **Termina:** el cajero presiona "Registrar venta" ([flujo 04](04-registrar-venta.md)).
 - **Requerimientos:** [RF-03](../02-requerimientos-funcionales.md#rf-03-agregar-a-la-venta-actual) a
-  [RF-08](../02-requerimientos-funcionales.md#rf-08-ver-el-total); RN-05 a RN-09.
+  [RF-08](../02-requerimientos-funcionales.md#rf-08-ver-el-total); RN-05 a RN-09 y RN-14.
 - **Tarjetas:** V-04 (agregar y total), V-05 (precio aplicado), V-06 (cantidad), V-07 (eliminar).
+- **Diagrama:** no muestra todavía el máximo de 100 detalles (RN-14). Manda el texto de este flujo, y el diagrama se
+  actualiza en otra tarea.
 
 ## Pasos
 
 1. **Pantalla:** revisa si el producto elegido ya está en la venta actual.
-2. **Pantalla:** si ya está, sube su cantidad en 1. Si no, crea un detalle con cantidad 1 y con un precio
-   aplicado igual al precio del producto.
+2. **Pantalla:** si ya está, sube su cantidad en 1. Si no está y la venta actual ya tiene 100 detalles (RN-14), no
+   lo agrega y avisa «Una venta puede tener como máximo 100 productos.»; la venta actual queda igual y el flujo
+   sigue en el paso 4. Si no está y hay lugar, crea un detalle con cantidad 1 y con un precio aplicado igual al
+   precio del producto.
 3. **Pantalla:** recalcula los subtotales y el total, y muestra los detalles y el total.
 4. **Cajero:** elige qué hacer:
    - **Buscar otro producto:** sigue el flujo 02 y vuelve al paso 1.
@@ -33,6 +38,7 @@ Fuente editable: [`03-armar-la-venta-actual.drawio`](../diagramas/03-armar-la-ve
 
 | En el paso | Qué pasa | Resultado |
 |---|---|---|
+| 2 | La venta actual ya tiene 100 detalles y el producto elegido no está en ella. | La pantalla no lo agrega y avisa «Una venta puede tener como máximo 100 productos.» (RN-14). La venta actual queda igual. |
 | 4 | El precio aplicado o la cantidad no son válidos. | La pantalla marca el campo y deshabilita "Registrar venta" hasta que se corrija. |
 | 4 | El cajero elimina el último detalle. | La venta actual queda vacía: se ve "Busca un producto para empezar la venta" y "Registrar venta" queda deshabilitado. |
 | Cualquiera | El cajero recarga la página. | La venta actual sigue igual: la pantalla la lee del navegador (pregunta abierta 2, resuelta el 2026-09-30). |
@@ -45,3 +51,6 @@ Fuente editable: [`03-armar-la-venta-actual.drawio`](../diagramas/03-armar-la-ve
 - La venta actual se guarda en `localStorage`, con `try/catch` en cada acceso, después de cada cambio. Se vacía cuando
   la API confirma la venta (flujo 04), no antes: si registrar falla, la venta actual se conserva.
 - El total de la pantalla es solo para mostrar. El que vale lo calcula MySQL al registrar la venta (RN-09).
+- El máximo de 100 detalles (RN-14) evita que el total pase de `DECIMAL(12,2)`: con 101 detalles de 999 unidades a
+  99 999.99 se desbordaría. La pantalla lo aplica al agregar; la API y el procedimiento almacenado lo vuelven a
+  revisar al registrar la venta (flujo 04).

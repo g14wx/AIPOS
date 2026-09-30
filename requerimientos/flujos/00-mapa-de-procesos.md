@@ -23,6 +23,9 @@ Fuente editable: [`00-mapa-de-procesos.drawio`](../diagramas/00-mapa-de-procesos
 |---|---|---|
 | [05 Entregar un entregable](05-entregar-un-entregable.md) | Rama, tarjetas, PR, revisión, merge commit y etiqueta en `ProductionEnv`. | El siguiente entregable o la entrega final. |
 | [06 Trabajar una tarjeta con el agente](06-trabajar-una-tarjeta-con-el-agente.md) | Grafo del proyecto, requisitos y spec, implementación, pruebas, revisión contra la spec, revisión de la persona desarrolladora, bitácora y commit con el grafo al día. Se repite por cada tarjeta dentro del flujo 05. | 05 |
+| [07 Desplegar una versión](07-desplegar-una-version.md) | Una etiqueta `release-*` en `ProductionEnv` prueba, construye y despliega AIPOS en producción. Espera la aprobación de la persona desarrolladora y vuelve a la versión anterior si algo falla. | 05, con el siguiente entregable. |
+
+El dibujo del mapa todavía no trae el flujo 07 como caja; su diagrama propio está en el enlace de la tabla.
 
 - **Requerimientos:** todos. La matriz está en el [README](../README.md#matriz-del-pdf).
 - **Tarjetas:** R-01.

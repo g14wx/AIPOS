@@ -496,3 +496,20 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó los patrones Repository y Data Mapper, porque los modelos solo consultan y la venta se escribe en el procedimiento.
 - **Tiempo:** unos 35 minutos para escribir la spec (01:59–02:35). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
 - **Commits:** este commit y los 3 de la rama (`379099b` la spec, `adb6a95` y `0dddbea` las correcciones de Codex).
+
+### 2026-09-30 04:06 — A-01: spec de la documentación de la API (A-01)
+
+- **Tarea:** escribir `specs/documentacion-de-la-api.spec.md`: el documento OpenAPI 3 del backend (`backend/docs/openapi.yaml`), Swagger UI en `GET /api/docs`, el formato de error como esquema compartido y una prueba que falla si una ruta de Express no está documentada. Rama `docs/a-01-spec-documentacion-de-la-api`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, los requerimientos y la tarjeta A-01 con sus checklists; comprobó en local el montaje con Express 5.2.1, helmet 8.3.0 y swagger-ui-express 5.0.1; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `066093c`) y enlazó la prueba de la autoverificación de rutas (commit `e8703ee`). Su borrador de bitácora se cortó: esta entrada se armó desde el historial de git, la salida de Codex y la tarjeta.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Cinco respuestas de error reusables (400, 404, 409, 422 y 500) desde A-01, con los mensajes que de verdad devuelve la API, para que P-02, P-04 y V-03 solo escriban `$ref`.
+  - `routes/index.js` expone los `montajes` (prefijo y router de cada ruta), porque Express 5 ya no guarda el prefijo, y la prueba de rutas documentadas los consulta.
+  - Helmet queda estricto en todo el backend y solo `/api/docs` tiene una CSP propia para los estilos de Swagger UI.
+  - Los ejemplos de error no llevan `stack` ni SQL (RNF-04), y el esquema de error los prohíbe.
+- **Patrones consultados:** Registry y Layer-Specific Logic Testing (los más cercanos); para el documento OpenAPI, el esquema de error compartido y la CSP propia, ningún patrón del catálogo encajó. Sin capa nueva: `docs.js` es una ruta más.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos; la segunda dio 1 P2 (faltaba el enlace `[@test]` del requisito de autoverificación de `sinDocumentar` y `sinRuta`) y ningún P0 ni P1. Se corrigió en `e8703ee`.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar. La subtarea de aprobar «documentación de la API» en el glosario sigue por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 39 minutos para escribir la spec (01:59–02:38). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`066093c` la spec y `e8703ee` la corrección de Codex).

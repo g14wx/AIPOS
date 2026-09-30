@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 100 files · ~94,860 words
+- 100 files · ~94,901 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 19 file(s) not represented in the graph (top: (none) 9, .drawio 7, .caddy 2)
+- Unclassified: 20 file(s) not represented in the graph (top: (none) 9, .drawio 7, .caddy 2)
 
 ## Summary
-- 642 nodes · 682 edges · 85 communities (40 shown, 45 thin omitted)
+- 642 nodes · 683 edges · 85 communities (41 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -117,7 +117,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (85 total, 45 thin omitted)
+## Communities (85 total, 44 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
@@ -255,6 +255,10 @@ Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.
 Cohesion: 0.70
 Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 
+### Community 74 - "compose-produccion.test.sh"
+Cohesion: 0.83
+Nodes (3): compose_config(), dato(), compose-produccion.test.sh script
+
 ### Community 75 - "revisar-produccion.sh"
 Cohesion: 0.33
 Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
@@ -281,8 +285,8 @@ Nodes (3): codigos(), fallar(), instalar-caddy.sh script
 
 ## Knowledge Gaps
 - **358 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+353 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 422 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 421 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

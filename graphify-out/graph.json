@@ -9044,6 +9044,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_compose_produccion_test_sh__entry",
+      "target": "tests_despliegue_compose_produccion_test_dato",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_comun_comprobar",
       "target": "tests_despliegue_comun_falla",
       "relation": "calls",

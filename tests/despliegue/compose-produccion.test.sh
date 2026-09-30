@@ -61,6 +61,7 @@ elif q == "salud": print(" ".join(s.get("healthcheck", {}).get("test", [])))
 elif q == "volumen-declarado": print(c.get("volumes", {}).get("mysql_datos", {}).get("name", "(no está)"))
 elif q == "volumen-de": print(",".join(v["source"] + ":" + v["target"] for v in s.get("volumes", [])))
 elif q == "usuario": print(s.get("user", ""))
+elif q == "comando": print(" ".join(s.get("command") or []))
 PY
 }
 J="$TMP/config.json"
@@ -80,6 +81,10 @@ igual "el volumen de MySQL se llama aipos_mysql_datos en el proyecto aipos" "aip
 igual "mysql guarda sus datos en ese volumen" "mysql_datos:/var/lib/mysql" "$(dato "$J" volumen-de mysql)"
 tiene "mysql tiene healthcheck con mysqladmin ping" "$(dato "$J" salud mysql)" "mysqladmin ping"
 igual "backend espera a que mysql esté sano" "mysql:service_healthy" "$(dato "$J" depende backend)"
+COMANDO_MYSQL="$(dato "$J" comando mysql)"
+tiene "mysql usa utf8mb4 (como el compose de desarrollo)" "$COMANDO_MYSQL" "--character-set-server=utf8mb4"
+tiene "mysql usa el orden utf8mb4_0900_ai_ci" "$COMANDO_MYSQL" "--collation-server=utf8mb4_0900_ai_ci"
+tiene "mysql guarda la hora en UTC (RN-12)" "$COMANDO_MYSQL" "--default-time-zone=+00:00"
 
 echo "# límites, reinicio y registros"
 igual "mysql tiene mem_limit de 1g" "1073741824" "$(dato "$J" memoria mysql)"

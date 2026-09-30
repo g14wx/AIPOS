@@ -1,12 +1,12 @@
 # Graph Report - AIPOS  (2026-09-29)
 
 ## Corpus Check
-- 60 files · ~31,346 words
+- 61 files · ~31,721 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 12 file(s) not represented in the graph (top: .drawio 7, (none) 4, .example 1)
 
 ## Summary
-- 296 nodes · 288 edges · 48 communities (26 shown, 22 thin omitted)
+- 300 nodes · 294 edges · 49 communities (26 shown, 23 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Lenguaje ubicuo — AIPOS
+- Grafo del proyecto
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -26,7 +26,7 @@
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
 - Tarjetas
-- Grafo del proyecto
+- Flujo 02 · Buscar producto
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
 - README de entrega
@@ -39,7 +39,7 @@
 - Grafo del proyecto
 - comun.sh
 - AGENTS.md
-- Flujo 01 · Crear producto
+- Flujo 04 · Registrar venta
 - Comandos útiles
 - misma-version.test.sh
 - ignora-lo-local.test.sh
@@ -62,6 +62,7 @@
 - Flujo 03 · Armar la venta actual
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
+- desactualizado-tras-falla.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -81,15 +82,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (48 total, 22 thin omitted)
+## Communities (49 total, 23 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.17
-Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
+Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
 
-### Community 1 - "Lenguaje ubicuo — AIPOS"
-Cohesion: 0.16
-Nodes (10): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+2 more)
+### Community 1 - "Grafo del proyecto"
+Cohesion: 0.08
+Nodes (21): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), Setup de agents, AIPOS (+13 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -116,16 +117,16 @@ Cohesion: 0.18
 Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entregable, 2. Trabajar, 3. Abrir el PR, 4. Revisar antes de integrar, 5. Integrar, 6. Etiquetar, 7. Entrega final (+2 more)
 
 ### Community 8 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+Cohesion: 0.20
+Nodes (10): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+2 more)
 
 ### Community 10 - "Tarjetas"
 Cohesion: 0.20
 Nodes (10): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Requerimientos, Secuencia de los entregables, Tablero AIPOS (+2 more)
 
-### Community 11 - "Grafo del proyecto"
-Cohesion: 0.18
-Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+### Community 11 - "Flujo 02 · Buscar producto"
+Cohesion: 0.50
+Nodes (4): Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -167,9 +168,9 @@ Nodes (4): Al terminar una tarea, Antes de empezar una tarea, Cuándo no usarlo,
 Cohesion: 0.50
 Nodes (3): Agent Rules <!-- tessl-managed -->, AIPOS, Antes de empezar
 
-### Community 24 - "Flujo 01 · Crear producto"
+### Community 24 - "Flujo 04 · Registrar venta"
 Cohesion: 0.50
-Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
+Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
 
 ### Community 25 - "Comandos útiles"
 Cohesion: 0.17
@@ -184,28 +185,28 @@ Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 45 - "Flujo 03 · Armar la venta actual"
-Cohesion: 0.21
-Nodes (8): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos, Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
+Cohesion: 0.50
+Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
 
 ## Knowledge Gaps
-- **187 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+182 more)
+- **188 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+183 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 216 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Lenguaje ubicuo — AIPOS`?**
   _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Grafo del proyecto`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _187 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _188 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
+  _Cohesion score 0.08262108262108261 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

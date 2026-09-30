@@ -402,7 +402,7 @@ con la paleta y los contrastes de "Diseño de la pantalla" de la spec de arquite
 | Propiedad | `detalles` | Los detalles de la venta actual que se van a enviar. Cada uno lleva `productoId`, `cantidad` (entero) y `precioAplicado` (texto con 2 decimales). |
 | Propiedad | `valida` | `true` si la venta actual tiene de 1 a 100 detalles y todo es válido. Lo calcula la lógica de `src/ventaActual/` (V-04 a V-07), no el componente. |
 | Evento | `registrada` | Se emite con `{ ventaId, total }` cuando la API responde 201. |
-| Evento | `update:enviando` | Se emite con `true` al empezar a enviar y con `false` al terminar. `VentaActual.vue` lo usa con `:enviando.sync` para deshabilitar agregar, editar y eliminar mientras dura el envío. |
+| Evento | `update:enviando` | Se emite con `true` al empezar a enviar y con `false` al terminar. `VentaActual.vue` lo reemite y `App.vue` lo usa con `:enviando.sync` para deshabilitar agregar, editar y eliminar mientras dura el envío. |
 
 Al recibir `registrada`, `VentaActual.vue` emite `update:ventaActual` con la venta actual vacía (`vaciarVentaActual()`, de
 `src/ventaActual/`), y `App.vue` la guarda con `guardarVentaActual` (de `src/ventaActual/almacenamiento.js`, el único
@@ -419,8 +419,9 @@ define la spec de armar la venta actual. `RegistrarVenta.vue` no toca `localStor
 - **Doble clic.** Al empezar a enviar, una marca `enviando` se pone en `true` antes de llamar a la API, y el método sale sin
   hacer nada si ya está en `true`. Dos clics seguidos, incluso en el mismo instante, mandan una sola petición.
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
-- **Envío.** Llama a `registrarVenta(detalles)` de `src/api/ventas.js`, que manda `POST /api/ventas` con
-  `{ detalles: [{ productoId, cantidad, precioAplicado }] }` y solo esos tres campos de cada detalle. La función devuelve
+- **Envío.** Llama a `registrarVenta(detalles)` de `src/api/ventas.js`, que manda `POST /api/ventas` (en el código,
+  `POST /ventas`: `http` ya antepone `/api`) con `{ detalles: [{ productoId, cantidad, precioAplicado }] }` y solo esos
+  tres campos de cada detalle. La función devuelve
   `{ ventaId, total }` o lanza el `Error` con `status`, `codigo`, `mensaje` y `detalles` que arma `src/api/http.js`.
   `[@test] ../frontend/tests/api/registrar-venta.test.js`
 - **Éxito (201).** Muestra una franja con `role="status"` (se anuncia a los lectores de pantalla) que dice
@@ -435,8 +436,9 @@ define la spec de armar la venta actual. `RegistrarVenta.vue` no toca `localStor
   borde e ícono `#FF6B6B` y el texto en `#292F36`, con `role="alert"`. La venta actual queda intacta y el botón se habilita
   otra vez.
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
-- **Error 500.** Muestra el mensaje de la API ("Ocurrió un error inesperado. Intenta de nuevo."). La venta actual queda
-  intacta y el botón se habilita otra vez.
+- **Error 500 u otro estado** (por ejemplo, un 502 de un proxy, sin el formato de error de la API: `http.js` deja el
+  `status` de la respuesta y pone `codigo` `ERROR_INTERNO`). Muestra el mensaje ("Ocurrió un error inesperado. Intenta de
+  nuevo."). La venta actual queda intacta y el botón se habilita otra vez.
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
 - **Sin respuesta** (`status` 0 y `codigo` `SIN_CONEXION`: la API está caída o pasó el tiempo máximo). Muestra "No se pudo conectar con el servidor.
   Tu venta sigue aquí: intenta de nuevo." La venta actual queda intacta y el botón se habilita otra vez. Ver el riesgo
@@ -474,6 +476,7 @@ define la spec de armar la venta actual. `RegistrarVenta.vue` no toca `localStor
    a `POST /api/ventas`, la pantalla muestra "Venta 15 registrada · Total 47.50" con los valores de la API, la venta actual
    queda vacía y `aipos.ventaActual` ya no tiene detalles: si se recarga la página, sigue vacía.
    `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
+   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 2. Dada una venta actual vacía, con un dato inválido o con 101 detalles, entonces "Registrar venta" está deshabilitado (con 101,
    avisa el máximo de 100 productos).
    `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`

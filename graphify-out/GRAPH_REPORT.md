@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 93 files · ~89,043 words
+- 93 files · ~89,693 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 590 nodes · 589 edges · 79 communities (36 shown, 43 thin omitted)
+- 593 nodes · 593 edges · 79 communities (37 shown, 42 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -111,7 +111,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (79 total, 43 thin omitted)
+## Communities (79 total, 42 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -257,10 +257,14 @@ Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial 
 Cohesion: 0.40
 Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
 
+### Community 78 - "imagenes.test.sh"
+Cohesion: 0.38
+Nodes (3): leer(), imagenes.test.sh script, uso()
+
 ## Knowledge Gaps
 - **357 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+352 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 416 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **43 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 418 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

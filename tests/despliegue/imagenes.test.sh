@@ -69,9 +69,74 @@ for x in node_modules dist .env .git; do tiene "frontend/.dockerignore deja fuer
 
 echo "# backend/package.json"
 if [ -f "$RAIZ/backend/package.json" ]; then
-  python3 -c 'import json,sys; sys.exit(0 if "sequelize-cli" in json.load(open(sys.argv[1])).get("dependencies", {}) else 1)' "$RAIZ/backend/package.json" &&
-    ok "sequelize-cli va en dependencies (la imagen no instala las de desarrollo)" ||
-    falla "sequelize-cli debe ir en dependencies de backend/package.json"
+  if python3 -c 'import json,sys; sys.exit(0 if "sequelize-cli" in json.load(open(sys.argv[1])).get("dependencies", {}) else 1)' "$RAIZ/backend/package.json"; then
+    ok "sequelize-cli va en dependencies (la imagen no instala las de desarrollo)"
+  else falla "sequelize-cli debe ir en dependencies de backend/package.json"; fi
 else echo "OMITIDA: falta backend/package.json (lo trae B-02)"; fi
 
-# La parte 2 (Docker) sigue en el mismo archivo.
+echo "# imágenes construidas (Docker)"
+docker info >/dev/null 2>&1 || { echo "OMITIDA: Docker no está corriendo; no se construyen las imágenes"; terminar; }
+if [ ! -f "$RAIZ/backend/package.json" ] || [ ! -f "$RAIZ/frontend/package.json" ]; then
+  echo "OMITIDA: faltan backend/package.json o frontend/package.json (B-02, B-03 y B-04); no se construyen las imágenes"
+  terminar
+fi
+TMP="$(mktemp -d)"
+IMG_B="aipos-prueba-imagenes-backend:prueba"
+IMG_F="aipos-prueba-imagenes-frontend:prueba"
+CONTENEDOR=""
+limpiar() {
+  if [ -n "$CONTENEDOR" ]; then docker rm -f "$CONTENEDOR" >/dev/null 2>&1 || true; fi
+  docker rmi -f "$IMG_B" "$IMG_F" >/dev/null 2>&1 || true
+  rm -rf "$TMP"
+}
+trap limpiar EXIT
+en() { docker run --rm --entrypoint "$@"; } # en <programa> <imagen> <argumentos>: corre un programa de la imagen
+uso() { docker run --rm --entrypoint "$1" "$2" "${@:3}" 2>&1; }
+
+if docker build --progress=plain -t "$IMG_B" "$RAIZ/backend" >"$TMP/backend.log" 2>&1; then ok "se construye la imagen del backend"; else
+  falla "no se construyó la imagen del backend"; tail -15 "$TMP/backend.log" | sed 's/^/    /'
+fi
+if docker build --progress=plain -t "$IMG_F-sin-url" "$RAIZ/frontend" >"$TMP/sin-url.log" 2>&1; then
+  falla "la pantalla se construyó sin VITE_API_URL (debe fallar)"; docker rmi -f "$IMG_F-sin-url" >/dev/null 2>&1 || true
+else
+  tiene "la construcción de la pantalla falla sin VITE_API_URL y nombra la variable" "$(cat "$TMP/sin-url.log")" "VITE_API_URL"
+fi
+if docker build --progress=plain --build-arg VITE_API_URL=http://127.0.0.1:8140 -t "$IMG_F" "$RAIZ/frontend" >"$TMP/frontend.log" 2>&1; then
+  ok "se construye la imagen de la pantalla con VITE_API_URL"
+else
+  falla "no se construyó la imagen de la pantalla"; tail -15 "$TMP/frontend.log" | sed 's/^/    /'
+fi
+
+echo "# usuario, Node y contenido"
+igual "backend: el proceso corre como node" "node" "$(uso id "$IMG_B" -un)"
+igual "frontend: el proceso corre como nginx" "nginx" "$(uso id "$IMG_F" -un)"
+for i in "$IMG_B" "$IMG_F"; do
+  uid="$(uso id "$i" -u)"
+  if [ -n "$uid" ] && [ "$uid" != 0 ]; then ok "${i%%:*}: el uid del proceso no es 0 ($uid)"; else falla "${i%%:*}: el proceso corre como root"; fi
+done
+tiene "backend: usa Node $NODO (la versión de .nvmrc)" "$(uso node "$IMG_B" -v)" "v$NODO."
+comprobar "backend: no trae un .env" en sh "$IMG_B" -c 'test ! -e /app/.env'
+comprobar "backend: trae sequelize-cli para las migraciones" en sh "$IMG_B" -c 'test -x /app/node_modules/.bin/sequelize-cli'
+comprobar "backend: trae db/, src/ y .sequelizerc" en sh "$IMG_B" -c 'test -d /app/db && test -d /app/src && test -f /app/.sequelizerc'
+comprobar "backend: no trae tests/ ni coverage/" en sh "$IMG_B" -c 'test ! -e /app/tests && test ! -e /app/coverage'
+if [ -d "$RAIZ/backend/docs" ]; then comprobar "backend: trae docs/ (A-01 lee openapi.yaml al arrancar)" en sh "$IMG_B" -c 'test -d /app/docs'; fi
+tiene "backend: la imagen declara un HEALTHCHECK" "$(docker image inspect --format '{{json .Config.Healthcheck}}' "$IMG_B")" "/api/salud"
+tiene "backend: la imagen declara su origen (org.opencontainers.image.source)" "$(docker image inspect --format '{{json .Config.Labels}}' "$IMG_B")" "github.com/g14wx/AIPOS"
+tiene "frontend: la imagen declara su origen (org.opencontainers.image.source)" "$(docker image inspect --format '{{json .Config.Labels}}' "$IMG_F")" "github.com/g14wx/AIPOS"
+tiene "frontend: VITE_API_URL quedó grabado en el JavaScript" "$(uso sh "$IMG_F" -c 'cat /usr/share/nginx/html/assets/*.js')" "127.0.0.1:8140"
+
+echo "# nginx de la pantalla (contenedor en un puerto libre de 127.0.0.1)"
+CONTENEDOR="$(docker run -d --rm -p 127.0.0.1::8080 "$IMG_F" 2>/dev/null || true)"
+if [ -z "$CONTENEDOR" ]; then falla "no arrancó el contenedor de la pantalla"; terminar; fi
+PUERTO="$(docker port "$CONTENEDOR" 8080/tcp | head -1 | sed 's/.*://')"
+for _ in $(seq 1 30); do curl -s -o /dev/null "http://127.0.0.1:$PUERTO/" && break; sleep 1; done
+RAIZ_HTTP="$(curl -si -H 'Accept-Encoding: gzip' "http://127.0.0.1:$PUERTO/" || true)"
+tiene "GET / da 200" "$(head -1 <<<"$RAIZ_HTTP")" "200"
+tiene "index.html sale con Cache-Control: no-store" "$(tr '[:upper:]' '[:lower:]' <<<"$RAIZ_HTTP")" "cache-control: no-store"
+no_tiene "no se manda el número de versión de nginx" "$(grep -i '^server:' <<<"$RAIZ_HTTP")" "nginx/"
+no_tiene "nginx no comprime (comprime Caddy)" "$(tr '[:upper:]' '[:lower:]' <<<"$RAIZ_HTTP")" "content-encoding"
+tiene "una ruta que no es un archivo da 404 (una sola pantalla, sin vue-router)" "$(curl -si "http://127.0.0.1:$PUERTO/no-existe" | head -1)" "404"
+ARCHIVO="$(uso sh "$IMG_F" -c 'ls /usr/share/nginx/html/assets' | grep '\.js$' | head -1)"
+tiene "un archivo de /assets/ sale con Cache-Control immutable" "$(curl -si "http://127.0.0.1:$PUERTO/assets/$ARCHIVO" | tr '[:upper:]' '[:lower:]')" "cache-control: public, max-age=31536000, immutable"
+
+terminar

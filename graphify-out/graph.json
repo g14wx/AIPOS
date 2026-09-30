@@ -7386,6 +7386,21 @@
       "source_location": "L19"
     },
     {
+      "id": "tests_despliegue_imagenes_test_en",
+      "label": "en()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "en()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L93"
+    },
+    {
       "id": "tests_despliegue_imagenes_test_leer",
       "label": "leer()",
       "_origin": "ast",
@@ -7401,6 +7416,21 @@
       "source_location": "L16"
     },
     {
+      "id": "tests_despliegue_imagenes_test_limpiar",
+      "label": "limpiar()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "limpiar()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L87"
+    },
+    {
       "id": "tests_despliegue_imagenes_test_sh__entry",
       "label": "imagenes.test.sh script",
       "_origin": "ast",
@@ -7414,6 +7444,21 @@
       "norm_label": "imagenes.test.sh script",
       "source_file": "tests/despliegue/imagenes.test.sh",
       "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_uso",
+      "label": "uso()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "uso()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L94"
     },
     {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
@@ -7913,6 +7958,18 @@
       "context": "call",
       "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test_sh__entry",
+      "target": "tests_despliegue_imagenes_test_uso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -13359,6 +13416,39 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/imagenes.test.sh",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_limpiar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_en",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_uso",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L94",
       "weight": 1.0
     },
     {

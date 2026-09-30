@@ -1,12 +1,12 @@
 # Graph Report - a-01  (2026-09-30)
 
 ## Corpus Check
-- 106 files · ~54,057 words
+- 107 files · ~54,755 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 628 nodes · 788 edges · 78 communities (43 shown, 35 thin omitted)
+- 633 nodes · 797 edges · 78 communities (43 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Configurar el MCP de Trello
+- Grafo del proyecto
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -69,15 +69,15 @@
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
-- Grafo del proyecto
+- Alcance
 - app.js
 - comparar-rutas.test.js
 - routes/salud.js
 - errores.test.js
-- Requerimientos de AIPOS
+- glosario-y-alcance.test.sh
 - ejemplos-de-error.test.js
 - ejemplos-reales.test.js
-- estructura.test.js
+- ref_node_module
 - archivos.test.js
 - dependencias.test.js
 - env-example.test.js
@@ -113,12 +113,12 @@
 ## Communities (78 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.05
-Nodes (40): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide (+32 more)
+Cohesion: 0.06
+Nodes (33): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+25 more)
 
-### Community 1 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+### Community 1 - "Grafo del proyecto"
+Cohesion: 0.06
+Nodes (31): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), 1. Crear el board en Trello, 2. Obtener el API key (+23 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -213,16 +213,16 @@ Cohesion: 0.06
 Nodes (37): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+29 more)
 
 ### Community 44 - "csp-docs.test.js"
-Cohesion: 0.27
+Cohesion: 0.24
 Nodes (8): app, docs, express, helmet, politicaDe(), politicaDeHelmet(), require, helmet
 
 ### Community 45 - "src/config.js"
 Cohesion: 0.06
-Nodes (37): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+29 more)
+Nodes (36): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+28 more)
 
 ### Community 52 - "vitest"
-Cohesion: 0.19
-Nodes (8): app, { cargarConfig }, config, { crearApp }, require, require, supertest, vitest
+Cohesion: 0.38
+Nodes (3): require, supertest, vitest
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -232,13 +232,13 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
-### Community 65 - "Grafo del proyecto"
-Cohesion: 0.18
-Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+### Community 65 - "Alcance"
+Cohesion: 0.22
+Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 66 - "app.js"
-Cohesion: 0.18
-Nodes (14): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+6 more)
+Cohesion: 0.21
+Nodes (12): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+4 more)
 
 ### Community 67 - "comparar-rutas.test.js"
 Cohesion: 0.20
@@ -249,12 +249,12 @@ Cohesion: 0.36
 Nodes (5): { consultarSalud }, obtenerSalud(), { obtenerSalud }, { Router }, consultarSalud()
 
 ### Community 69 - "errores.test.js"
-Cohesion: 0.29
-Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
+Cohesion: 0.25
+Nodes (6): appConRuta(), { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
 
-### Community 70 - "Requerimientos de AIPOS"
-Cohesion: 0.33
-Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz del PDF, Preguntas abiertas, Requerimientos de AIPOS
+### Community 70 - "glosario-y-alcance.test.sh"
+Cohesion: 0.90
+Nodes (4): falla(), fila_dice(), ok(), glosario-y-alcance.test.sh script
 
 ### Community 71 - "ejemplos-de-error.test.js"
 Cohesion: 0.22
@@ -264,12 +264,12 @@ Nodes (6): { cargarDocumentacionApi }, documento, PROHIBIDO, recogerEjemplos(), 
 Cohesion: 0.22
 Nodes (6): app, { cargarDocumentacionApi }, documento, problemas(), require, { Router }
 
-### Community 73 - "estructura.test.js"
-Cohesion: 0.22
+### Community 73 - "ref_node_module"
+Cohesion: 0.20
 Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
 
 ### Community 74 - "archivos.test.js"
-Cohesion: 0.25
+Cohesion: 0.29
 Nodes (5): archivosJs(), backend, raiz, require, src
 
 ### Community 75 - "dependencias.test.js"
@@ -281,8 +281,8 @@ Cohesion: 0.33
 Nodes (3): archivosJs(), ejemplo, raiz
 
 ### Community 77 - "limite-del-cuerpo.test.js"
-Cohesion: 0.33
-Nodes (5): app, { crearApp }, eco, express, require
+Cohesion: 0.29
+Nodes (6): app, { crearApp }, eco, express, require, express
 
 ## Knowledge Gaps
 - **355 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+350 more)
@@ -292,17 +292,17 @@ Nodes (5): app, { crearApp }, eco, express, require
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.126) - this node is a cross-community bridge._
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+- **Why does `production()` connect `src/config.js` to `Grafo del proyecto`?**
+  _High betweenness centrality (0.122) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _355 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05012531328320802 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06280193236714976 - nodes in this community are weakly interconnected._
+- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
+  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos no funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

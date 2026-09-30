@@ -266,6 +266,21 @@ describe('doble clic (criterio 3)', () => {
     expect(emitidos('registrada')).toHaveLength(1);
   });
 
+  it('mantener presionado Enter no repite el envío: el teclado trae repeat en true y se cancela', async () => {
+    montar();
+    const repeticion = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      repeat: true,
+      bubbles: true,
+      cancelable: true,
+    });
+    boton().element.dispatchEvent(repeticion);
+    expect(repeticion.defaultPrevented).toBe(true);
+    const primera = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true });
+    boton().element.dispatchEvent(primera);
+    expect(primera.defaultPrevented).toBe(false);
+  });
+
   it('un clic mientras la petición sigue en curso no manda otra', async () => {
     const { resolver } = peticionPendiente();
     montar();
@@ -706,7 +721,11 @@ describe('estructura y seguridad (RNF-04, RNF-06 y criterio 8)', () => {
 
   it('no toca el navegador ni la venta actual: quien la vacía es VentaActual.vue, y quien la guarda, App.vue', () => {
     expect(fuente).not.toMatch(/localStorage|sessionStorage|almacenamiento|vaciarVentaActual/);
-    expect(guion).not.toMatch(/ventaActual\//);
+    // De src/ventaActual/ solo toma la constante del máximo (RN-14): así el 100 tiene una sola fuente.
+    const importados = [
+      ...guion.matchAll(/import \{([^}]*)\} from '\.\.\/ventaActual\/[^']*'/g),
+    ].flatMap(([, nombres]) => nombres.split(',').map((nombre) => nombre.trim()));
+    expect(importados).toEqual(['MAXIMO_DETALLES']);
   });
 
   it('no consulta prefers-reduced-motion ni llama a lottie: del movimiento se ocupa AnimacionLottie', () => {

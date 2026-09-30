@@ -10,26 +10,35 @@ Todo pasa en una sola pantalla: el botón "Nuevo producto", el campo de búsqued
 actual con su total y el botón "Registrar venta".
 
 - **Origen:** PDF, "Objetivo" y §1 a §3.
+- Los precios se ven con 2 decimales y sin símbolo de moneda (pregunta abierta 6, resuelta el 2026-09-30).
 - **Se comprueba:** no hay rutas ni páginas aparte; el formulario de producto se abre en un modal encima de la
   pantalla.
 
 ## RNF-02 Tecnologías y versiones
 
-Las tecnologías las fija el PDF. Las versiones se comprobaron con `npm view` el 2026-09-29 y se fijan en las
-tarjetas B-02, B-03 y B-04.
+Las tecnologías las fija el PDF. Las versiones se comprobaron con `npm view` el 2026-09-29 y se volvieron a
+comprobar el 2026-09-30, al escribir la [spec de arquitectura](../specs/arquitectura.spec.md), que tiene la lista
+completa y dónde se instala cada paquete. Todas van fijas, sin `^` ni `~`.
 
 | Parte | Tecnología | Versión | Nota |
 |---|---|---|---|
 | Frontend | Vue | 2.7.16 | La última de Vue 2. |
 | Frontend | Vuetify | 2.7.2 | `npm i vuetify` instala la 4.2.2, que no funciona con Vue 2. Se instala `vuetify@2.7.2` y se usa su CSS ya compilado. |
-| Frontend | Axios | 1.20.0 | |
-| Frontend | Vite | 7.3 | Decisión del 2026-09-29: Vite en vez de Vue CLI. `@vitejs/plugin-vue2` 2.3.4 acepta hasta Vite 7, y `npm i vite` instala la 8.3.1. |
-| Backend | Node.js | ^20.19 o ≥ 22.12 | Lo pide Vite 7. |
-| Backend | Express | 5.2.1 (por confirmar en B-02) | La 5 pasa al manejador de errores los errores de funciones `async`. |
+| Frontend | Axios | 1.20.0 | Nunca la 1.14.1 ni la 0.30.4 (versiones maliciosas). |
+| Frontend | Vite | 7.3.6 | Decisión del 2026-09-29: Vite en vez de Vue CLI. `@vitejs/plugin-vue2` 2.3.4 acepta hasta Vite 7, y `npm i vite` instala la 8.3.1. |
+| Frontend | lottie-web | 5.13.0 | Animaciones Lottie, con la versión fija. |
+| Frontend | @mdi/font | 7.4.47 | Íconos MDI. |
+| Los dos | Node.js | 24 (`.nvmrc`) | Es la LTS. Vite 7 pide 22.12 o más, Vitest 5 pide 22.12 o 24, y jsdom 30 pide 24.15 o más. |
+| Backend | Express | 5.2.1 | Confirmada el 2026-09-30. La 5 pasa al manejador de errores los errores de funciones `async`. |
 | Backend | Sequelize | 6.37.8, con `sequelize-cli` 6.6.5 | La 7 sigue en alfa. |
 | Backend | mysql2 | 3.24.5 | Devuelve `DECIMAL` como texto: "25.00" + "22.00" pega los textos en vez de sumar. |
-| Base de datos | MySQL | 8.x (se fija en B-03) | Hace falta 8.0.16 o más para que MySQL aplique las restricciones `CHECK`. |
+| Base de datos | MySQL | 8.4, con la imagen `mysql:8.4` de Docker | Hace falta 8.0.16 o más para que MySQL aplique las restricciones `CHECK`. Nunca `mysql:latest` ni una 9.x: Sequelize 6 soporta MySQL 5.7 y 8. |
+| Pruebas | Vitest | 5.0.2 | En el backend, con `supertest` 7.3.0, y en el frontend, con `@vue/test-utils` 1.3.6 y jsdom 30.1.1. |
+| Calidad | ESLint y Prettier | 10.11.0 y 3.9.9 | En el frontend, con `eslint-plugin-vue` 10.11.1 y su configuración `flat/vue2-recommended`. |
 
+- **Diseño de la pantalla:** con la skill `impeccable`, con la paleta de la persona desarrolladora: `#292F36`,
+  `#4ECDC4`, `#F7FFF7`, `#FF6B6B` y `#FFE66D`. El quinto color es un supuesto: la persona mandó `#FF6B6B` repetido
+  y se asumió `#FFE66D`, el de la paleta clásica. El texto es `#292F36` y nunca blanco sobre `#4ECDC4` (contraste AA).
 - **Origen:** PDF, "Tecnologías requeridas".
 - **Se comprueba:** `package.json` fija las versiones y el README las lista (punto 2).
 
@@ -60,7 +69,8 @@ tarjetas B-02, B-03 y B-04.
 
 ## RNF-05 Manejo de errores
 
-Un solo manejador de errores en Express y un solo formato de respuesta de error (se define en B-02).
+Un solo manejador de errores en Express y un solo formato de respuesta de error. El formato está en la
+[spec de arquitectura](../specs/arquitectura.spec.md) y lo construye B-02.
 
 | Código | Cuándo |
 |---|---|
@@ -98,26 +108,38 @@ La pantalla muestra mensajes claros en español y nunca pierde lo escrito ni la 
 
 ## RNF-08 Pruebas
 
-- **Backend:** pruebas de la API de productos y de ventas contra una base de prueba, incluido el caso "todo o
-  nada" del procedimiento.
-- **Frontend:** pruebas de la lógica de la venta actual: agregar, cantidad, precio aplicado, eliminar y total.
+- **Backend:** Vitest y `supertest` contra una base de prueba separada de la de desarrollo. Cubren la API de productos
+  y de ventas, cada código de RNF-05, y el caso "todo o nada" del procedimiento.
+- **Frontend:** Vitest, `@vue/test-utils` 1 y jsdom. Cubren la lógica de la venta actual (agregar, cantidad, precio
+  aplicado, eliminar, total y su guardado en el navegador) y los componentes.
+- **Pruebas en local:** todo se prueba también con el sistema corriendo en local. La API, con `curl` contra el backend
+  corriendo. La pantalla, en el navegador, con el MCP `chrome-devtools`.
+- **Bugs:** cada bug relevante se abre como un issue de GitHub, con los pasos para reproducirlo, y se cierra con un
+  comentario que nombra el commit que lo corrige.
 - La persona desarrolladora valida el resultado. El PDF la hace responsable de las pruebas.
 
 - **Origen:** PDF, "Uso de inteligencia artificial": el candidato sigue siendo responsable de "la validación del
-  código generado, la depuración, las pruebas y el resultado final".
-- **Se comprueba:** `npm test` pasa en el backend y en el frontend.
+  código generado, la depuración, las pruebas y el resultado final". La forma de correr las pruebas está en la
+  [spec de arquitectura](../specs/arquitectura.spec.md).
+- **Se comprueba:** `npm test` pasa en el backend y en el frontend, y cada tarjeta deja en su "Update" el resultado de
+  sus pruebas en local.
 
 ## RNF-09 Git y GitHub
 
 - Una rama de entregable por entregable, que sale de `ProductionEnv`: `feature/base`, `feature/productos` y
   `feature/ventas`.
-- Cada entregable entra con un PR, la revisión del agente revisor y el visto bueno de la persona desarrolladora.
-- Se integra con merge commit, sin borrar la rama, y se marca con una etiqueta.
+- Cada tarjeta trabaja en su propia rama de tarjeta, `<tipo>/<id>-<resumen>` en minúsculas (por ejemplo
+  `feature/b-02-base-del-backend`). Sale de la rama de su entregable y entra a ella con un PR, con merge commit y sin
+  borrar la rama. Las tarjetas sin entregable van directo a su destino: B-01 y D-01 a `ProductionEnv`, y S-01 a `main`.
+- Cada entregable entra a `ProductionEnv` con un PR, la revisión del agente revisor y el visto bueno de la persona
+  desarrolladora. Se integra con merge commit, sin borrar la rama, y se marca con una etiqueta `entregable-<x>`.
+- Cada PR, el de la tarjeta y el del entregable, pasa la revisión del agente revisor antes de integrarse.
 - Mensajes con Conventional Commits en español.
 - Nunca hay commits directos en `main` ni en `ProductionEnv`.
 
 - **Origen:** PDF, "Requerimientos de Git y GitHub". Detalle en el [flujo 05](flujos/05-entregar-un-entregable.md).
-- **Se comprueba:** `git log --graph` en `ProductionEnv` muestra un merge commit por entregable.
+- **Se comprueba:** `git log --graph` en `ProductionEnv` muestra un merge commit por entregable, y dentro de cada uno,
+  los merge commits de sus tarjetas.
 
 ## RNF-10 Uso del agente
 
@@ -148,9 +170,11 @@ los entregables claros.
 
 ## RNF-13 Código mantenible
 
-- Un estilo uniforme con ESLint (revisa el código) y Prettier (le da formato), por confirmar en B-02 y B-04.
+- Un estilo uniforme con ESLint (revisa el código, en configuración plana; en el frontend, con la configuración
+  `flat/vue2-recommended` de `eslint-plugin-vue`) y Prettier (le da formato). Confirmados en la
+  [spec de arquitectura](../specs/arquitectura.spec.md).
 - Sin nombres vagos: `Manager`, `Helper`, `Processor`, `Data`, `Info`, `Util`.
 - Funciones cortas y comentarios solo donde el porqué no es obvio.
 
 - **Origen:** PDF, "Aspectos que se evaluarán": "Calidad, claridad y mantenibilidad del código".
-- **Se comprueba:** `npm run lint` pasa sin errores.
+- **Se comprueba:** `npm run lint` y `npm run format:check` pasan sin errores, en el backend y en el frontend.

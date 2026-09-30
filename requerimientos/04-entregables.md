@@ -41,6 +41,20 @@ Cada tarjeta trae:
 7. **Entrega final**: bitácora, README y prueba desde cero, en `docs/entrega-final`, y después el PR de
    `ProductionEnv` a `main`.
 
+## Ramas de tarjeta
+
+Cada tarjeta trabaja en su propia rama de tarjeta, `<tipo>/<id>-<resumen>` en minúsculas y con guiones, por ejemplo
+`feature/b-02-base-del-backend` o `docs/e-01-bitacora-y-tiempos`. Hay dos niveles de PR:
+
+1. **De tarjeta:** la rama de tarjeta sale de la rama de su entregable y su PR va a esa rama, con merge commit y sin
+   borrar la rama. Antes de integrarlo pasa la revisión del agente revisor.
+2. **De entregable:** cuando todas las tarjetas del entregable están integradas, la rama del entregable
+   (`feature/base`, `feature/productos`, `feature/ventas` o `docs/entrega-final`) va a `ProductionEnv` con merge
+   commit y la etiqueta `entregable-<x>` ([flujo 05](flujos/05-entregar-un-entregable.md)).
+
+Las tarjetas sin entregable van directo a su destino: B-01 y D-01 a `ProductionEnv`, y S-01 a `main`. La columna "Rama"
+de las tablas de abajo es la rama del entregable, de donde sale la rama de tarjeta.
+
 ## Tarjetas
 
 Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo real de la bitácora.
@@ -62,7 +76,7 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 | T-01 | Tile mysql-sequelize-procedimientos | Agente y tiles | `chore/tiles-mysql-vue2` (PR #9, en revisión) | — | — | 1.5 |
 | T-02 | Tile vue2-vuetify2-vite | Agente y tiles | `chore/tiles-mysql-vue2` (PR #9, en revisión) | — | — | 1.5 |
 | T-03 | Grafo del proyecto con Graphify | Agente y tiles | `chore/grafo-del-proyecto` | — | 06 | 2 |
-| B-01 | Preparar GitHub y crear ProductionEnv | DevOps | sin rama: configuración de GitHub | R-00, T-01 y T-02 en `main` | 05 | 0.5 |
+| B-01 | Preparar GitHub y crear ProductionEnv | DevOps | `chore/b-01-preparar-github` → `ProductionEnv` (la configuración de GitHub no está en git; la rama lleva la entrada de la bitácora) | R-00, T-01 y T-02 en `main` | 05 | 0.5 |
 | B-02 | Base del backend | Backend | `feature/base` | B-01, T-01 | — | 1 |
 | B-03 | MySQL con Docker Compose y migraciones | Base de datos, DevOps | `feature/base` | B-01, T-01 | — | 1 |
 | B-04 | Base del frontend con la pantalla única | Frontend | `feature/base` | B-01, T-02 | — | 1.5 |
@@ -111,7 +125,8 @@ Total estimado: 25 horas, sin contar R-00.
 Una tarjeta pasa a "Hecho" solo si:
 1. Cumple sus criterios de aceptación.
 2. Tiene pruebas y pasan.
-3. Si cambia código, tiene su spec aprobada en `specs/` y pasó `spec-verification` y `work-review`.
+3. Si cambia código, su spec está aprobada en `specs/` antes de escribir el código, y pasó `spec-verification` y
+   `work-review`.
 4. La persona desarrolladora validó el cambio y las pruebas.
 5. Usa las palabras del glosario. Si apareció una palabra nueva, ya está en el glosario.
 6. Sus commits siguen Conventional Commits, llevan `Co-Authored-By` si participó el agente y no llevan
@@ -120,6 +135,8 @@ Una tarjeta pasa a "Hecho" solo si:
 8. Su commit trae el grafo del proyecto al día: `graphify-out/graph.json` y `graphify-out/GRAPH_REPORT.md`, que
    agrega el hook de git `pre-commit`.
 9. Su PR pasó la revisión del agente revisor, con cada hallazgo corregido o explicado.
-10. Está integrada: en `ProductionEnv` con merge commit, o en `main` si es de requerimientos o de tiles.
+10. Está integrada: su rama de tarjeta entró a la rama de su entregable, y el entregable entró a `ProductionEnv` con
+    merge commit; o entró a `main` si es de requerimientos o de tiles. La tarjeta pasa a "Hecho" cuando el
+    entregable entra a `ProductionEnv`.
 11. Si cambió cómo se instala o se usa AIPOS, el README está al día.
 12. Sus subtareas están marcadas en el tablero AIPOS.

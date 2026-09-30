@@ -14,6 +14,8 @@ const { loadAnimation } = vi.hoisted(() => ({
 }));
 
 vi.mock('lottie-web/build/player/lottie_light', () => ({ default: { loadAnimation } }));
+// VentaActual muestra RegistrarVenta, que importa la API de ventas: aquí no se usa, y sin esto cargaría http.js.
+vi.mock('../../src/api/ventas.js', () => ({ registrarVenta: vi.fn() }));
 
 import vuetify from '../../src/plugins/vuetify.js';
 import VentaActual from '../../src/components/VentaActual.vue';

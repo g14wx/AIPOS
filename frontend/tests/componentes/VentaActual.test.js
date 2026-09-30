@@ -1,6 +1,6 @@
 // Spec armar-venta-actual, "VentaActual.vue (V-04)" y criterios 1, 3, 4 y 5 de V-04: el componente recibe la venta actual
 // y la muestra. Con detalles, una tabla de Vuetify con el nombre, el precio aplicado, la cantidad, el subtotal y las
-// acciones, y siempre el total a la vista con 2 decimales y el botón «Registrar venta» (provisional hasta V-08). Sin
+// acciones, y siempre el total a la vista con 2 decimales y el botón «Registrar venta» (RegistrarVenta.vue, de V-08). Sin
 // detalles, la animación venta-vacia y «Busca un producto para empezar la venta». lottie-web no dibuja en jsdom: se
 // sustituye con la ruta exacta que importa AnimacionLottie.
 import { readFileSync } from 'node:fs';
@@ -19,7 +19,9 @@ const { loadAnimation, instancias } = vi.hoisted(() => {
 });
 
 vi.mock('lottie-web/build/player/lottie_light', () => ({ default: { loadAnimation } }));
+vi.mock('../../src/api/ventas.js', () => ({ registrarVenta: vi.fn() }));
 
+import { registrarVenta } from '../../src/api/ventas.js';
 import vuetify from '../../src/plugins/vuetify.js';
 import ventaVacia from '../../src/assets/animaciones/venta-vacia.json';
 import VentaActual from '../../src/components/VentaActual.vue';
@@ -49,6 +51,7 @@ beforeEach(() => {
   consola.forEach((espia) => espia.mockImplementation(() => {}));
   loadAnimation.mockClear();
   instancias.length = 0;
+  registrarVenta.mockReset();
 });
 
 afterEach(() => {
@@ -209,7 +212,17 @@ describe('con detalles (criterios 1, 3 y 5)', () => {
   });
 });
 
-describe('«Registrar venta» provisional (V-08 lo reemplaza)', () => {
+describe('«Registrar venta» (V-08: RegistrarVenta.vue en la franja de abajo)', () => {
+  const componente = () => wrapper.findComponent({ name: 'RegistrarVenta' });
+  const franjaDeEstado = () => wrapper.find('[role="status"]');
+  const asentar = async () => {
+    for (let vuelta = 0; vuelta < 6; vuelta += 1) await wrapper.vm.$nextTick();
+  };
+  const PETICION = [
+    { productoId: 1, cantidad: 2, precioAplicado: '22.00' },
+    { productoId: 2, cantidad: 1, precioAplicado: '3.50' },
+  ];
+
   it('con una venta actual válida está habilitado', () => {
     montar({ ventaActual: venta(leche, pan) });
     expect(estaDeshabilitado(botonRegistrar())).toBe(false);
@@ -241,13 +254,84 @@ describe('«Registrar venta» provisional (V-08 lo reemplaza)', () => {
     expect(total()).toBe('47.50');
   });
 
-  it('todavía no manda nada a ningún lado: no emite eventos al presionarlo', async () => {
-    montar({ ventaActual: venta(leche) });
+  it('le pasa a RegistrarVenta los detalles para registrar (producto, cantidad y precio aplicado, sin el nombre)', () => {
+    montar({ ventaActual: venta(leche, pan) });
+    expect(componente().props('detalles')).toEqual(PETICION);
+    expect(componente().props('valida')).toBe(true);
+  });
+
+  it('con un error de un campo del detalle o con la venta actual vacía, valida es false', async () => {
+    const errores = { 2: { cantidad: 'La cantidad debe ser un número entero de 1 a 999.' } };
+    montar({ ventaActual: { detalles: [leche, pan], errores } });
+    expect(componente().props('valida')).toBe(false);
+    await wrapper.setProps({ ventaActual: venta() });
+    expect(componente().props('detalles')).toEqual([]);
+    expect(componente().props('valida')).toBe(false);
+  });
+
+  it('el botón y el resultado viven en la franja de abajo, junto al total, también con la venta actual vacía', () => {
+    for (const actual of [venta(), venta(leche)]) {
+      montar({ ventaActual: actual });
+      const pie = wrapper.find('.venta-actual__pie');
+      expect(pie.find('[data-total]').exists()).toBe(true);
+      expect(pie.findComponent({ name: 'RegistrarVenta' }).exists()).toBe(true);
+      expect(pie.find('[role="status"]').exists()).toBe(true);
+      wrapper.destroy();
+    }
+  });
+
+  it('presionarlo manda la venta con esos detalles', async () => {
+    registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+    montar({ ventaActual: venta(leche, pan) });
     await botonRegistrar().trigger('click');
-    // Vue Test Utils también anota los eventos internos del ciclo de vida (hook:created y demás).
-    expect(Object.keys(wrapper.emitted()).filter((nombre) => !nombre.startsWith('hook:'))).toEqual(
-      [],
+    await asentar();
+    expect(registrarVenta).toHaveBeenCalledTimes(1);
+    expect(registrarVenta).toHaveBeenCalledWith(PETICION);
+  });
+
+  it('reemite update:enviando con true y con false, para que App.vue lo use con :enviando.sync', async () => {
+    registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+    montar({ ventaActual: venta(leche, pan) });
+    await botonRegistrar().trigger('click');
+    await asentar();
+    expect(wrapper.emitted('update:enviando')).toEqual([[true], [false]]);
+  });
+
+  it('cuando la venta se registra emite update:ventaActual con una venta actual vacía, una distinta cada vez', async () => {
+    registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+    montar({ ventaActual: venta(leche, pan) });
+    await botonRegistrar().trigger('click');
+    await asentar();
+    await botonRegistrar().trigger('click');
+    await asentar();
+    const emitidas = wrapper.emitted('update:ventaActual');
+    expect(emitidas).toHaveLength(2);
+    expect(emitidas[0][0]).toEqual({ detalles: [], errores: {} });
+    expect(emitidas[1][0]).toEqual({ detalles: [], errores: {} });
+    expect(emitidas[0][0]).not.toBe(emitidas[1][0]);
+  });
+
+  it('si la API falla no emite update:ventaActual: la venta actual no se toca (RNF-05)', async () => {
+    registrarVenta.mockRejectedValue(
+      Object.assign(new Error('No se pudo conectar.'), { status: 0, codigo: 'SIN_CONEXION' }),
     );
+    montar({ ventaActual: venta(leche, pan) });
+    await botonRegistrar().trigger('click');
+    await asentar();
+    expect(wrapper.emitted('update:ventaActual')).toBeUndefined();
+    expect(filas()).toHaveLength(2);
+  });
+
+  it('el mensaje de la venta registrada sigue a la vista cuando la venta actual ya quedó vacía', async () => {
+    registrarVenta.mockResolvedValue({ ventaId: 15, total: '47.50' });
+    montar({ ventaActual: venta(leche, pan) });
+    await botonRegistrar().trigger('click');
+    await asentar();
+    // App.vue reemplaza la venta actual por la vacía que emitió VentaActual.
+    await wrapper.setProps({ ventaActual: venta() });
+    expect(franjaDeEstado().text()).toBe('Venta 15 registrada · Total 47.50');
+    expect(total()).toBe('0.00');
+    expect(estaDeshabilitado(botonRegistrar())).toBe(true);
   });
 });
 

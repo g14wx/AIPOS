@@ -402,6 +402,36 @@ describe('un doble clic no elimina dos detalles (#79)', () => {
   });
 });
 
+// #83: mantener presionado Enter repite la tecla, y Chrome hace un clic por cada repetición sobre el botón que tiene el foco.
+// Tras eliminar, el foco pasa al botón de la fila siguiente y la repetición la elimina también, y así con todas. El keydown de
+// una repetición trae repeat true: se cancela ahí y no llega a hacer clic. jsdom no hace clic al presionar Enter, así que aquí
+// se revisa que el evento se cancele; que no se eliminen todos se comprueba en el navegador (prueba en local).
+describe('mantener presionado Enter no elimina más de un detalle (#83)', () => {
+  function teclear(nombre, init) {
+    const evento = new KeyboardEvent('keydown', { bubbles: true, cancelable: true, ...init });
+    botonEliminar(nombre).element.dispatchEvent(evento);
+    return evento;
+  }
+
+  it('la repetición automática de Enter (repeat true) se cancela y no llega a hacer clic', () => {
+    montar({ ventaActual: venta(leche, pan) });
+    expect(teclear(leche.nombre, { key: 'Enter', repeat: true }).defaultPrevented).toBe(true);
+    expect(emitidas()).toHaveLength(0);
+  });
+
+  it('el primer Enter (repeat false) no se cancela: sigue eliminando con el teclado', () => {
+    montar({ ventaActual: venta(leche, pan) });
+    expect(teclear(leche.nombre, { key: 'Enter', repeat: false }).defaultPrevented).toBe(false);
+  });
+
+  it('la repetición de otras teclas no se cancela: Tab, flechas y Espacio siguen igual', () => {
+    montar({ ventaActual: venta(leche, pan) });
+    for (const key of ['Tab', 'ArrowDown', ' ']) {
+      expect(teclear(leche.nombre, { key, repeat: true }).defaultPrevented, key).toBe(false);
+    }
+  });
+});
+
 // jsdom no calcula estilos ni reparte el espacio de la ventana: como hace VentaActual.test.js, se revisa el texto de los
 // estilos del componente. Que el foco quede a la vista con muchas filas se prueba en el navegador (prueba en local).
 describe('estilos de los controles de las filas y del foco (skill impeccable)', () => {

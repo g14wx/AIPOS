@@ -38,6 +38,7 @@ paths:
                 $ref: '#/components/schemas/Salud'
               example:
                 estado: 'ok'
+                baseDeDatos: 'ok'
         '500':
           $ref: '#/components/responses/ErrorInterno'
   /api/productos:

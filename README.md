@@ -102,3 +102,28 @@ e incluye:
 - El flujo de una tarea con el grafo y las specs
 - Qué va a git y qué no
 - Solución de problemas
+
+## Despliegue
+
+AIPOS se despliega en producción con Docker: la pantalla en `https://aipos.salsalvador.io` y el backend en
+`https://aipos-back.salsalvador.io`. Es un agregado: el PDF no pide desplegar. Desplegar es poner en producción una
+versión que ya pasó las pruebas, y lo hace un pipeline de GitHub Actions cuando la persona desarrolladora sube una
+etiqueta `release-*`.
+
+- **Cómo desplegar:** pon una etiqueta `release-MAYOR.MENOR.PARCHE` (por ejemplo `release-0.1.0`) en un commit de
+  `ProductionEnv` y súbela: `git tag release-0.1.0 origin/ProductionEnv && git push origin release-0.1.0`. El pipeline
+  revisa la etiqueta, prueba el backend y la pantalla, construye las imágenes y espera tu aprobación en GitHub
+  (**Review deployments**). Después despliega por SSH y revisa desde internet.
+- **Cómo volver atrás:** si algo falla al desplegar, el servidor vuelve solo a la versión anterior. Para volver a mano,
+  corre otra vez el workflow de una etiqueta anterior (**Re-run all jobs**) o corre `desplegar.sh volver` en el servidor.
+  Las migraciones no se deshacen: una migración de un release solo agrega.
+- **Nunca** se borran los datos de producción: el volumen de MySQL se conserva entre despliegues.
+
+La guía está en [docs/despliegue.md](docs/despliegue.md) y el flujo dibujado en
+[requerimientos/flujos/07-desplegar-una-version.md](requerimientos/flujos/07-desplegar-una-version.md). Incluye:
+
+- Cómo desplegar y cómo volver a la versión anterior
+- Cómo queda armado el servidor
+- La configuración del servidor, que se hace una sola vez
+- El environment `production` y la regla de etiquetas de GitHub
+- Errores frecuentes y lo que nunca se hace

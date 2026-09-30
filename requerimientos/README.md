@@ -7,7 +7,7 @@ tarjeta apunta a un requerimiento y a un flujo de esta carpeta.
 - **Fuente:** el PDF de la prueba técnica (`devdoc/Prueba_Tecnica_Lead_AI_Native_Software_Engineer.pdf`, fuera
   de git) y las decisiones del 2026-09-29.
 - **Palabras:** las del glosario, [`docs/lenguaje-ubicuo.md`](../docs/lenguaje-ubicuo.md).
-- **Estado:** versión 2, del 2026-09-30. Las preguntas abiertas 1 a 6 se resolvieron ese día. Lo que dice "por confirmar" todavía no está decidido.
+- **Estado:** versión 2, del 2026-09-30. Las preguntas abiertas 1 a 6 se resolvieron ese día, y la 9 la resolvió el orquestador (la persona desarrolladora puede confirmarla o revertirla). Lo que dice "por confirmar" todavía no está decidido.
 
 ## Cómo leer esta carpeta
 
@@ -34,6 +34,7 @@ van sus tareas, sus decisiones y los puntos de inicio y fin.
 | 04 | [Registrar venta](flujos/04-registrar-venta.md) | RF-09, RF-10, RF-11 |
 | 05 | [Entregar un entregable](flujos/05-entregar-un-entregable.md) | RNF-09, RNF-10 |
 | 06 | [Trabajar una tarjeta con el agente](flujos/06-trabajar-una-tarjeta-con-el-agente.md) | RNF-08, RNF-10 |
+| 07 | [Desplegar una versión](flujos/07-desplegar-una-version.md) | RNF-04, RNF-09 |
 
 ## Matriz del PDF
 
@@ -51,6 +52,7 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 | Alcance: lo que no se hace | [Fuera de alcance](01-alcance.md#fuera-de-alcance) | — | — |
 | Tecnologías requeridas | RNF-02 | — | T-01, T-02, B-02, B-03, B-04 |
 | Requerimientos de Git y GitHub | RNF-09 | 05 | B-01, E-03 |
+| Agregado, el PDF no lo pide: desplegar con etiquetas `release-*` | RNF-04, RNF-09 | 07 | D-01 |
 | Uso de inteligencia artificial | RNF-10 | 05, 06 | R-03, E-01 |
 | README.md obligatorio (12 puntos) | RNF-11 | — | E-02 |
 | Entrega en un repositorio público | RNF-12 | 05 | E-03 |
@@ -76,7 +78,7 @@ Cada parte del PDF, el requerimiento que la cubre, su flujo y sus tarjetas.
 
 ## Preguntas abiertas
 
-Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS. La persona desarrolladora resolvió la 1, la 3, la 4, la 5 y la 6 con la propuesta, y la 2 con una decisión distinta, el 2026-09-30. La 7 sigue abierta y la 8 se resolvió el 2026-09-29.
+Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS. La persona desarrolladora resolvió la 1, la 3, la 4, la 5 y la 6 con la propuesta, y la 2 con una decisión distinta, el 2026-09-30. La 7 sigue abierta y la 8 se resolvió el 2026-09-29. La 9 la resolvió el orquestador el 2026-09-30, con el consentimiento general de la persona desarrolladora; ella puede confirmarla o revertirla.
 
 | # | Pregunta | Propuesta | Qué cambia |
 |---|---|---|---|
@@ -88,3 +90,4 @@ Cada una es una subtarea de la tarjeta R-04 del tablero AIPOS. La persona desarr
 | 6 | ¿Cómo se muestran los precios? | **Resuelta el 2026-09-30**: con 2 decimales y sin símbolo de moneda. | RNF-01 |
 | 7 | ¿Cómo llega la versión final a `main` sin perder los merge commits? La regla "Protect main" de GitHub solo deja squash o rebase. | Se evalúa `ProductionEnv`, que guarda los merge commits, y a `main` se lleva con rebase. La otra opción es permitir un merge commit solo en ese PR. | E-03 |
 | 8 | ¿Cerramos los PR #5 y #6 de Dependabot, que suben a Vue 3 y Vuetify 3? | **Resuelta el 2026-09-29**: se cerraron. `.github/dependabot.yml` (PR #8) no alcanzó a frenar los PR de seguridad, así que el PR #12 los apagó en el repositorio; las alertas de Vue 2 y Vuetify 2 se revisan a mano. | B-04 |
+| 9 | ¿Se limita a 100 los detalles de una venta? | **Resuelta el 2026-09-30 por el orquestador**: sí, con el consentimiento general que la persona desarrolladora dio para todo el proceso (01:40 y 01:45). La persona desarrolladora puede confirmarla o revertirla. Con 101 detalles de 999 unidades a 99 999.99 el total pasaría de `DECIMAL(12,2)` y daría un error 500. La otra opción era ampliar `ventas.total` a `DECIMAL(14,2)`. | RN-14, RF-03, RF-09, RF-11, flujos 03 y 04 |

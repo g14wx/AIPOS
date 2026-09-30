@@ -24,7 +24,7 @@
       </p>
 
       <div v-else-if="estado === 'buscando'" class="mensaje mensaje--buscando">
-        <AnimacionLottie :animacion="buscando" :alto="48" class="mensaje__animacion" />
+        <AnimacionLottie :animacion="animacionBuscando" :alto="48" class="mensaje__animacion" />
         <span>{{ textos.buscando }}</span>
       </div>
 
@@ -72,7 +72,7 @@
 
 <script>
 import { buscarProductos } from '../api/productos.js';
-import buscando from '../assets/animaciones/buscando.json';
+import animacionBuscando from '../assets/animaciones/buscando.json';
 import AnimacionLottie from './AnimacionLottie.vue';
 
 // La espera y el mínimo de caracteres de la spec de buscar producto (RF-02), con nombre para no repetir los números.
@@ -107,7 +107,7 @@ export default {
       // RF-12: con Enter no hubo un producto con ese código de barras exacto. Se ve junto a la lista, si la hay.
       codigoNoEncontrado: false,
       // La animación de la espera, para pasársela a AnimacionLottie.
-      buscando,
+      animacionBuscando,
       textos: TEXTOS,
       // Cada búsqueda lleva un número que crece: la respuesta solo cuenta si su número es el último (SwitchMap).
       numeroDeBusqueda: 0,

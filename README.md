@@ -9,7 +9,7 @@ app llama por su nombre). Es la solución de una prueba técnica y se construyó
 | Pantalla | <https://aipos.salsalvador.io> |
 | API (el backend) | <https://aipos-back.salsalvador.io> |
 | Documentación de la API (Swagger UI) | <https://aipos-back.salsalvador.io/api/docs> |
-| Versión desplegada | la etiqueta `release-1.0.0` |
+| Versión desplegada | la etiqueta `release-*` más reciente (al escribir este README, `release-1.0.1`) |
 | Código | <https://github.com/g14wx/AIPOS>, rama `ProductionEnv` |
 
 Este README tiene los 12 puntos que pide la prueba. Cada dato se puede comprobar en el repositorio, y la prueba
@@ -313,4 +313,159 @@ for prueba in $(find tests -name '*.test.sh'); do bash "$prueba" || echo "FALLÓ
 
 `tests/despliegue/arranque-local.test.sh` construye las imágenes de Docker y necesita Docker libre: si Docker no está
 corriendo, se omite y lo dice.
+
+npm puede mostrar avisos al instalar (`npm warn install-scripts` y el resumen de `npm audit`). No son errores: la
+instalación termina bien. Lo de `npm audit` está en el punto 12.
+
+### Despliegue (agregado: la prueba no lo pide)
+
+AIPOS se despliega en producción con Docker: la pantalla en <https://aipos.salsalvador.io> y el backend en
+<https://aipos-back.salsalvador.io>. Desplegar es poner en producción una versión que ya pasó las pruebas, y lo hace un
+pipeline de GitHub Actions (una cadena de pasos automáticos) cuando la persona desarrolladora sube una etiqueta
+`release-*`. Las etiquetas `release-0.1.0`, `release-0.2.0`, `release-1.0.0` y `release-1.0.1` desplegaron el entregable
+base, el de productos, el de ventas y las correcciones de la tarjeta F-01 (issues #58, #59 y #60).
+
+- **Cómo desplegar:** pon una etiqueta `release-MAYOR.MENOR.PARCHE` (por ejemplo `release-0.1.0`) en un commit de
+  `ProductionEnv` y súbela: `git tag release-0.1.0 origin/ProductionEnv && git push origin release-0.1.0`. El pipeline
+  revisa la etiqueta, prueba el backend y la pantalla, construye las imágenes y espera la aprobación de la persona
+  desarrolladora en GitHub (**Review deployments**). Después despliega por SSH (una conexión segura al servidor) y revisa
+  desde internet.
+- **Volver a la versión anterior:** si algo falla al desplegar, el servidor vuelve solo a la versión anterior. Para volver
+  a mano, corre otra vez el workflow de una etiqueta anterior (**Re-run all jobs**) o corre `desplegar.sh volver` en el
+  servidor. Las migraciones no se deshacen: una migración de un release solo agrega.
+- **Nunca** se borran los datos de producción: el volumen de MySQL se conserva entre despliegues.
+
+La guía está en [docs/despliegue.md](docs/despliegue.md) y el flujo dibujado en
+[requerimientos/flujos/07-desplegar-una-version.md](requerimientos/flujos/07-desplegar-una-version.md). Incluye cómo queda
+armado el servidor, su configuración (que se hace una sola vez), el environment `production` y la regla de etiquetas de
+GitHub, los errores frecuentes y lo que nunca se hace.
+
+## 6. Base de datos MySQL
+
+AIPOS guarda sus datos en MySQL 8.4, que corre con Docker Compose. Las tablas y el procedimiento almacenado se crean solo
+con migraciones de Sequelize (archivos que cambian la base de datos paso a paso): Docker no crea nada, solo levanta
+MySQL. Hace falta MySQL 8.0.16 o más para que aplique las restricciones `CHECK`; por eso el Compose usa la imagen
+`mysql:8.4` y nunca `latest`.
+
+### Las tablas
+
+| Tabla | Columnas | Lo que protege MySQL |
+|---|---|---|
+| `productos` | `id`, `nombre` (hasta 120 caracteres), `precio` `DECIMAL(10,2)` y `codigo_barras` (texto de hasta 50 caracteres, para no perder los ceros de la izquierda) | `codigo_barras` único. `CHECK`: precio mayor que 0 y hasta 99999.99, y nombre y código de barras no vacíos y sin espacios en los extremos. |
+| `ventas` | `id`, `fecha` (la pone MySQL) y `total` `DECIMAL(12,2)` | — |
+| `detalles_venta` | `id`, `venta_id` → `ventas`, `producto_id` → `productos`, `cantidad`, `precio_aplicado` `DECIMAL(10,2)` y `subtotal` `DECIMAL(12,2)` | Un solo detalle por producto en cada venta (único `venta_id` y `producto_id`). Llaves foráneas con `ON DELETE RESTRICT`: un producto que está en una venta no se borra. `CHECK`: cantidad de 1 a 999 y precio aplicado de 0 a 99999.99. |
+
+El dinero es `DECIMAL`, nunca `FLOAT`. mysql2 lo devuelve como texto (`"25.00"`), y así viaja hasta la pantalla. Los
+subtotales y el total los calcula MySQL, no JavaScript.
+
+### Las migraciones
+
+Corren en este orden, y cada una lleva `up` y `down`, para poder deshacerla:
+
+1. `backend/db/migrations/20260930133500-crear-productos.js` crea `productos`.
+2. `backend/db/migrations/20260930164200-crear-ventas.js` crea `ventas`.
+3. `backend/db/migrations/20260930164300-crear-detalles-venta.js` crea `detalles_venta`, con sus llaves foráneas.
+4. `backend/db/migrations/20260930172100-crear-sp-registrar-venta.js` crea el procedimiento almacenado (punto 7).
+
+Nunca se edita una migración que ya se aplicó: se crea otra.
+
+### Variables de entorno
+
+Están en `.env.example`, en la raíz. El `.env` que se copia de ahí no va a git, y las claves que empiezan con «cambiar-»
+son de ejemplo. Los puertos están en el punto 5.
+
+| Variable | Para qué |
+|---|---|
+| `MYSQL_HOST`, `MYSQL_PORT` | Dónde está MySQL: `127.0.0.1` y `3306` por defecto. Docker Compose solo abre el puerto en `127.0.0.1`. |
+| `MYSQL_DATABASE` | La base de desarrollo (`aipos`). |
+| `MYSQL_TEST_DATABASE` | La base de prueba (`aipos_prueba`), aparte de la de desarrollo. |
+| `MYSQL_USER`, `MYSQL_PASSWORD` | El usuario de la app. La API entra a MySQL siempre con este usuario. |
+| `MYSQL_ROOT_PASSWORD` | La clave de root. Solo la usan Docker Compose y `npm run preparar-prueba`: la API nunca entra como root. |
+
+### Comandos del backend
+
+Se corren dentro de `backend/`.
+
+| Comando | Qué hace |
+|---|---|
+| `npm run migrar` | Aplica las migraciones que faltan. Si no falta ninguna, no cambia nada. |
+| `npm run deshacer` | Deshace la última migración. |
+| `npm run rehacer` | Deshace todas las migraciones y las aplica otra vez. Borra los datos de las tablas. |
+| `npm run migrar:prueba`, `deshacer:prueba`, `rehacer:prueba` | Lo mismo, pero en la base de prueba. |
+| `npm run preparar-prueba` | Crea la base de prueba y le da permisos al usuario de la app. Se puede correr más de una vez. |
+
+### Base de prueba
+
+Las pruebas automáticas del backend usan una base aparte, `aipos_prueba`, y nunca tocan la de desarrollo (`aipos`). La
+primera vez, con MySQL levantado, se crea con `npm run preparar-prueba`. Después, `npm test` la migra solo antes de
+correr las pruebas. `preparar-prueba` es lo único que entra a MySQL como `root`, con `MYSQL_ROOT_PASSWORD`.
+
+### Apagar MySQL y empezar de cero
+
+- `docker compose stop mysql` apaga MySQL y los datos se quedan.
+- `docker compose down` borra el contenedor, pero los datos se quedan en el volumen.
+- `docker compose down -v` borra también los datos de esa copia. Después de eso, los pasos del punto 5 dejan la base
+  como en un clon limpio.
+
+## 7. Procedimiento almacenado
+
+- **Nombre:** `sp_registrar_venta`
+- **Objetivo:** guardar una venta con todos sus detalles de una sola vez. Calcula los subtotales y el total, y devuelve
+  el número de la venta y su total. Es todo o nada: si algo falla, no queda nada guardado.
+- **Archivo SQL:** `backend/db/procedimientos/sp_registrar_venta.sql`
+- **Cómo se crea:** con la migración `backend/db/migrations/20260930172100-crear-sp-registrar-venta.js`, que corre con
+  `npm run migrar` (punto 5). También se puede crear con el cliente `mysql`, como se ve abajo.
+- **Dónde se usa:** `backend/src/services/ventas.js`, función `registrarVenta`, que la llama con
+  `CALL sp_registrar_venta(:detalles)`. La llama `backend/src/controllers/ventas.js`, función `registrarVenta`, desde la
+  ruta `POST /api/ventas` (`backend/src/routes/ventas.js`). La pantalla la pide desde `frontend/src/api/ventas.js`,
+  función `registrarVenta`, cuando el cajero presiona «Registrar venta» (`frontend/src/components/RegistrarVenta.vue`).
+
+### Cómo funciona
+
+- Recibe un solo parámetro, `p_detalles`: un arreglo JSON (texto con formato JSON) de 1 a 100 objetos, uno por detalle de
+  venta, como `[{ "productoId": 1, "cantidad": 2, "precioAplicado": "22.00" }]`.
+- Revisa las reglas de negocio en este orden, y gana la primera que falle: `VENTA_SIN_DETALLES`,
+  `DEMASIADOS_DETALLES`, `DETALLE_INVALIDO`, `CANTIDAD_FUERA_DE_RANGO`, `PRECIO_FUERA_DE_RANGO`, `PRODUCTO_REPETIDO` y
+  `PRODUCTO_NO_EXISTE`. Cada una se rechaza con `SIGNAL SQLSTATE '45000'` y su código en el mensaje, y la API la
+  responde como un 422 con un mensaje en español.
+- Si todo está bien, abre `START TRANSACTION`, inserta la venta y sus detalles con `JSON_TABLE` (que lee el JSON como una
+  tabla), calcula cada subtotal con `ROUND(precio_aplicado * cantidad, 2)`, suma el total y hace `COMMIT`.
+- Un `EXIT HANDLER` atrapa cualquier error: hace `ROLLBACK` y lo vuelve a lanzar con `RESIGNAL`, para que llegue a la API
+  con su número original.
+- Devuelve un solo `SELECT` con `ventaId` y `total`. No usa parámetros `OUT`.
+- La API no abre una transacción por su cuenta: MySQL no anida transacciones, y el `START TRANSACTION` del procedimiento
+  confirmaría sin avisar lo que la API tuviera abierto. Por eso `registrarVenta` llama al procedimiento con
+  `sequelize.query` y sin `sequelize.transaction()`, y pasa la lista como un solo parámetro con `JSON.stringify`.
+
+### Crearlo con el cliente mysql
+
+El `.sql` está escrito con `DELIMITER $$`, que es un comando del cliente `mysql` y no de MySQL: por Sequelize daría el
+error 1064. Por eso la migración lee el mismo archivo y manda el `DROP` y solo el bloque `CREATE PROCEDURE … END`, en dos
+llamadas separadas. Con el cliente `mysql` se corre el archivo entero, con el usuario de la app y nunca con root: si root
+crea el procedimiento, la app ya no puede cambiarlo ni borrarlo. Desde la raíz, con MySQL levantado:
+
+```bash
+docker compose exec -T mysql sh -c 'mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE"' < backend/db/procedimientos/sp_registrar_venta.sql
+```
+
+El cliente avisa que poner la clave en la línea de comandos es inseguro: es un aviso de `mysql` y no un error.
+
+### Probarlo
+
+Con la API corriendo, y con un producto creado (el paso 1 de «Probarlo en la pantalla» crea el producto 1):
+
+```bash
+# Registrar una venta con dos unidades del producto 1 a 22.00. Responde 201 con el número de la venta y el total.
+curl -s -X POST http://localhost:3000/api/ventas -H 'Content-Type: application/json' \
+  -d '{"detalles":[{"productoId":1,"cantidad":2,"precioAplicado":"22.00"}]}'
+
+# Con un producto que no existe, el procedimiento rechaza la venta: responde 422 con PRODUCTO_NO_EXISTE.
+curl -s -X POST http://localhost:3000/api/ventas -H 'Content-Type: application/json' \
+  -d '{"detalles":[{"productoId":9999,"cantidad":1,"precioAplicado":"1.00"}]}'
+```
+
+La prueba `backend/tests/ventas/usa-el-procedimiento.test.js` comprueba que la API usa el procedimiento de verdad: si se
+borra, registrar una venta responde 500 y no guarda nada, y al crearlo otra vez responde 201. La prueba
+`backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js` comprueba que, si un detalle falla, no queda ninguna
+venta ni ningún detalle nuevo.
 

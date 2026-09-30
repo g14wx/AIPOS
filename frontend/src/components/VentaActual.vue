@@ -446,11 +446,13 @@ export default {
 /* Filas apiladas (el modo móvil de Vuetify, ver puntoDeApilado): arriba el nombre y las acciones, y debajo el precio
    aplicado, la cantidad y el subtotal, cada uno con su etiqueta encima. Las celdas de abajo pasan a otra línea cuando
    no caben (por ejemplo, con las cifras más grandes en una pantalla de 320 px) en vez de montarse unas sobre otras.
-   V-05 a V-07 ponen sus campos en estas mismas celdas. */
+   V-05 a V-07 ponen sus campos en estas mismas celdas. El espacio entre celdas es de 12 px: a 1280 px de ventana la
+   tarjeta mide 395 px, la fila 353 px, y el precio aplicado (120), la cantidad (152) y el subtotal (54) con dos
+   espacios de 12 px suman 350 y caben en una línea (#92). */
 .detalles ::v-deep .v-data-table__mobile-table-row {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1rem;
+  column-gap: 0.75rem;
   align-items: flex-start;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--filete);

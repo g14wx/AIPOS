@@ -431,6 +431,13 @@ describe('estilos de la fila de VentaActual que dependen del campo (alineación)
     expect(declara('.detalle__subtotal', 'align-items', 'center')).toBe(true);
   });
 
+  // #92: a 1280 px de ventana la tarjeta mide unos 395 px y la fila apilada tiene 353 px. El precio aplicado (120 px), la cantidad
+  // (152 px) y el subtotal (54 px) suman 326 px, y con dos espacios de 16 px el subtotal pasaba a una tercera línea. Con 12 px
+  // suman 350 px y caben. jsdom no calcula medidas: el ancho real se comprobó en el navegador.
+  it('el espacio entre las celdas de una fila apilada es de 0.75 rem: precio aplicado, cantidad y subtotal caben en una línea a 1280 px (#92)', () => {
+    expect(declara('.v-data-table__mobile-table-row', 'column-gap', '0.75rem')).toBe(true);
+  });
+
   // La cantidad (V-06) es CampoCantidad: sus botones y su campo ya miden 44 px, y su raíz es una columna en línea que se
   // alinea con la celda (a la derecha en la tabla, a la izquierda en las filas apiladas) y le da al mensaje de error el ancho
   // de los tres controles. Con display flex se volvería un bloque del ancho de la celda y sus controles quedarían centrados.

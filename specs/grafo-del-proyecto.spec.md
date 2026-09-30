@@ -96,9 +96,12 @@ que lo hace el agente en el arranque. Nunca bloquea un commit: siempre termina c
 - Los scripts de shell (`.githooks/*` y `*.sh`) van con saltos de línea LF en cualquier sistema, por
   `.gitattributes`. Con CRLF, `#!/bin/sh` no corre en Windows.
   `[@test] ../tests/grafo-del-proyecto/saltos-de-linea.test.sh`
-- `.githooks/pre-merge-commit` hace lo mismo en los merges sin choques, porque git no corre `pre-commit` en ellos.
-  En un merge con choques, el commit que los resuelve sí corre `pre-commit`.
+- En los merges sin choques, git no corre `pre-commit` sino `pre-merge-commit`, y no mete en el merge commit lo que
+  ese hook agregue. Por eso `.githooks/pre-merge-commit` actualiza el grafo y, si cambió, detiene el merge con un
+  aviso: se termina con `git commit --no-edit`, que sí corre `pre-commit` y mete el grafo en el merge commit. Si el
+  grafo no cambió, el merge sigue normal. En un merge con choques, el commit que los resuelve corre `pre-commit`.
   `[@test] ../tests/hook-de-git/merge-sin-choques.test.sh`
+  `[@test] ../tests/hook-de-git/merge-sin-cambios-en-el-grafo.test.sh`
 
 - Busca `graphify` en el `PATH` y, si no está, en `~/.local/bin/graphify`, donde lo pone `uv tool install`. Así
   funciona también en los commits desde WebStorm u otra app, que a veces no ven `~/.local/bin`.

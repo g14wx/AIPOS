@@ -1,12 +1,12 @@
-# Graph Report - AIPOS  (2026-09-29)
+# Graph Report - AIPOS  (2026-09-30)
 
 ## Corpus Check
-- 61 files · ~31,721 words
+- 64 files · ~32,406 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 12 file(s) not represented in the graph (top: .drawio 7, (none) 4, .example 1)
 
 ## Summary
-- 300 nodes · 294 edges · 49 communities (26 shown, 23 thin omitted)
+- 306 nodes · 297 edges · 52 communities (26 shown, 26 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -63,6 +63,8 @@
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
 - desactualizado-tras-falla.test.sh
+- merge-sin-choques.test.sh
+- merge-sin-cambios-en-el-grafo.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -82,7 +84,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (49 total, 23 thin omitted)
+## Communities (52 total, 26 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.17
@@ -189,21 +191,21 @@ Cohesion: 0.50
 Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
 
 ## Knowledge Gaps
-- **188 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+183 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 216 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **190 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+185 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 222 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Grafo del proyecto`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _188 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _190 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
   _Cohesion score 0.08262108262108261 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

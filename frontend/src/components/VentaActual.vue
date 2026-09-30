@@ -57,6 +57,7 @@
               :aria-label="`Eliminar ${item.nombre} de la venta actual`"
               :disabled="enviando"
               @click="alEliminar(item, $event)"
+              @keydown="ignorarRepeticionDeEnter"
             >
               <v-icon>mdi-delete</v-icon>
             </v-btn>
@@ -191,6 +192,12 @@ export default {
       );
       this.ultimoEliminado = { productoId: detalle.productoId, indice };
       this.$emit('update:ventaActual', nueva);
+    },
+    // Mantener presionado Enter repite la tecla, y el navegador hace un clic por cada repetición sobre el botón con foco. Tras
+    // eliminar, el foco pasa al «Eliminar» de la fila siguiente y la repetición lo presionaría también, hasta vaciar la venta
+    // actual (#83). El keydown de una repetición trae repeat true: se cancela y no llega a hacer clic.
+    ignorarRepeticionDeEnter(evento) {
+      if (evento.key === 'Enter' && evento.repeat) evento.preventDefault();
     },
     // El botón que tenía el foco ya no está: el foco pasa al «Eliminar» de la fila que ocupó su lugar (o al de la anterior,
     // si era la última) y, si no quedó ninguna, al título «Venta actual», para que quien usa el teclado no pierda su lugar.

@@ -1,13 +1,13 @@
 # Graph Report - p-02  (2026-09-30)
 
 ## Corpus Check
-- 159 files · ~79,677 words
+- 160 files · ~80,129 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 22 file(s) not represented in the graph (top: (none) 12, .drawio 7, .example 2)
 
 ## Summary
-- 977 nodes · 1386 edges · 117 communities (76 shown, 41 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.9)
+- 984 nodes · 1408 edges · 119 communities (79 shown, 40 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -57,7 +57,7 @@
 - hook-de-git/sin-graphify.test.sh
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
-- docs.js
+- ayudas-productos.js
 - src/config.js
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
@@ -68,13 +68,13 @@
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - backend/.prettierrc.json
-- env-example.test.js
+- ref_node_fs
 - ref_node_path
 - app.js
 - base-de-prueba.test.js
 - documentacion.js
 - productos-migracion.test.js
-- vuetify.js
+- AnimacionLottie.test.js
 - Requerimientos de AIPOS
 - estructura.test.js
 - frontend/package.json
@@ -101,23 +101,25 @@
 - errores.test.js
 - Flujo 05 · Entregar un entregable
 - pantalla-unica.test.js
-- scarfSettings
+- database.test.js
 - Flujo 01 · Crear producto
 - Flujo 02 · Buscar producto
 - glosario-y-alcance.test.sh
 - frontend/.prettierrc.json
 - dependencies
 - Flujo 03 · Armar la venta actual
-- ref_node_fs
+- documentacion-crear-producto.test.js
 - Flujo 00 · Mapa de procesos
-- routes/index.js
+- docs.js
 - Flujo 06 · Trabajar una tarjeta con el agente
-- salud-con-base.test.js
+- services/salud.js
 - devDependencies
 - limite-del-cuerpo.test.js
-- AnimacionLottie.test.js
+- modelo-producto.test.js
 - conexion.test.js
 - Flujo 04 · Registrar venta
+- cors.test.js
+- servidor.js
 - tema.test.js
 
 ## God Nodes (most connected - your core abstractions)
@@ -127,27 +129,27 @@
 4. `Requerimientos no funcionales` - 14 edges
 5. `Arquitectura de AIPOS` - 13 edges
 6. `texto()` - 12 edges
-7. `express` - 11 edges
-8. `crearApp()` - 11 edges
-9. `cargarDocumentacionApi()` - 11 edges
+7. `cargarDocumentacionApi()` - 12 edges
+8. `express` - 11 edges
+9. `crearApp()` - 11 edges
 10. `Product` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Carpetas` --references--> `test()`  [INFERRED]
-  specs/arquitectura.spec.md → backend/db/config.js
-- `Git y entrega` --references--> `test()`  [INFERRED]
-  specs/arquitectura.spec.md → backend/db/config.js
 - `Íconos y animaciones` --references--> `beforeDestroy()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/components/AnimacionLottie.vue
 - `La venta actual` --references--> `calcularTotal()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/ventaActual/ventaActual.js
+- `Carpetas` --references--> `test()`  [INFERRED]
+  specs/arquitectura.spec.md → backend/db/config.js
+- `Git y entrega` --references--> `test()`  [INFERRED]
+  specs/arquitectura.spec.md → backend/db/config.js
 - `Entrega trazable` --references--> `test()`  [INFERRED]
   tessl-plugins/entrega-trazable/rules/entrega-trazable.md → backend/db/config.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (117 total, 41 thin omitted)
+## Communities (119 total, 40 thin omitted)
 
 ### Community 1 - "scripts"
 Cohesion: 0.13
@@ -162,8 +164,8 @@ Cohesion: 0.14
 Nodes (14): 1. Instalar Tessl, 2. Instalar los tiles del proyecto, 3. Conectar el MCP de Tessl (opcional), 4. Verificar, 5. Cambiar un tile, 6. Medir un tile con evals (necesita cuenta), 7. Publicar un tile (necesita cuenta), Qué va a git y qué no (+6 more)
 
 ### Community 4 - "Requerimientos funcionales"
-Cohesion: 0.07
-Nodes (31): Negocio, data(), total(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcularTotal(), vaciarVentaActual() (+23 more)
+Cohesion: 0.06
+Nodes (36): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), data(), total() (+28 more)
 
 ### Community 5 - "Requerimientos no funcionales"
 Cohesion: 0.14
@@ -186,8 +188,8 @@ Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
 ### Community 11 - "backend/package.json"
-Cohesion: 0.12
-Nodes (16): description, engines, node, eslint, eslint-config-prettier, @eslint/js, globals, prettier (+8 more)
+Cohesion: 0.11
+Nodes (17): description, engines, node, eslint, eslint-config-prettier, @eslint/js, globals, prettier (+9 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -202,8 +204,8 @@ Cohesion: 0.29
 Nodes (5): Plantilla: README.md de entrega, De dónde sale cada punto, Flujo, README de entrega, Reglas
 
 ### Community 15 - "rutas-documentadas.test.js"
-Cohesion: 0.22
-Nodes (7): app, { cargarDocumentacionApi }, carpetaDeRutas, docs, { montajes }, require, { Router }
+Cohesion: 0.17
+Nodes (13): compararRutas(), describirCapa(), app, { cargarDocumentacionApi }, carpetaDeRutas, docs, { montajes }, require (+5 more)
 
 ### Community 16 - "Calling a stored procedure from Sequelize"
 Cohesion: 0.29
@@ -214,12 +216,12 @@ Cohesion: 0.29
 Nodes (6): 1. Versions, 2. Project files, 3. Environment and API client, 4. ESLint (optional), 5. Check, Vue 2 + Vuetify 2 + Vite setup
 
 ### Community 18 - "comparar-rutas.test.js"
-Cohesion: 0.15
-Nodes (15): { cargarDocumentacionApi }, { crearApp }, docs, documentadas, documento, { montajes }, require, { Router } (+7 more)
+Cohesion: 0.20
+Nodes (8): { cargarDocumentacionApi }, { crearApp }, docs, documentadas, documento, { montajes }, require, { Router }
 
 ### Community 19 - "Arquitectura de AIPOS"
 Cohesion: 0.07
-Nodes (29): down(), up(), AIPOS, Base de datos: MySQL y migraciones, Base de prueba, Comandos del backend, Desde un clon limpio, Grafo del proyecto (+21 more)
+Nodes (31): test(), down(), up(), AIPOS, Base de datos: MySQL y migraciones, Base de prueba, Comandos del backend, Desde un clon limpio (+23 more)
 
 ### Community 21 - "Grafo del proyecto"
 Cohesion: 0.33
@@ -249,17 +251,17 @@ Nodes (30): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeB
 Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
-### Community 44 - "docs.js"
-Cohesion: 0.25
-Nodes (7): { cargarDocumentacionApi }, DE_DEMOSTRACION, documento, helmet, { Router }, swaggerUi, swagger-ui-express
+### Community 44 - "ayudas-productos.js"
+Cohesion: 0.31
+Nodes (8): conTransaccionDescartada(), errorDeMySQL(), insertarProducto(), require, sequelize, guardar(), textosInvalidos, valido
 
 ### Community 45 - "src/config.js"
-Cohesion: 0.10
-Nodes (27): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), production(), test(), crearBaseDePrueba(), cargarArchivoEnv(), cargarConfig() (+19 more)
+Cohesion: 0.14
+Nodes (20): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), production(), crearBaseDePrueba(), cargarArchivoEnv(), cargarConfig(), cargarConfigDeEntorno() (+12 more)
 
 ### Community 52 - "database.js"
-Cohesion: 0.05
-Nodes (38): { consultarSalud }, obtenerSalud(), { config }, { Sequelize }, Producto, sequelize, { DataTypes }, Producto (+30 more)
+Cohesion: 0.18
+Nodes (9): { config }, { Sequelize }, { DataTypes }, Producto, sequelize, { DataTypes }, require, sequelize (+1 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -269,33 +271,33 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
-### Community 65 - "env-example.test.js"
-Cohesion: 0.22
-Nodes (4): archivosJs(), ejemplo, raiz, carpetaBackend
+### Community 65 - "ref_node_fs"
+Cohesion: 0.15
+Nodes (6): carpetaRaiz, archivo, archivosJs(), ejemplo, raiz, carpetaBackend
 
 ### Community 66 - "ref_node_path"
-Cohesion: 0.21
-Nodes (8): tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro(), porDefecto
+Cohesion: 0.18
+Nodes (10): correrCli(), tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro() (+2 more)
 
 ### Community 67 - "app.js"
-Cohesion: 0.25
-Nodes (10): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+2 more)
+Cohesion: 0.23
+Nodes (11): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+3 more)
 
 ### Community 68 - "base-de-prueba.test.js"
-Cohesion: 0.31
-Nodes (7): correrNpm(), correrNpmSinFallar(), consultar(), permisosDelUsuario(), require, sequelize, tablasDe()
+Cohesion: 0.18
+Nodes (11): carpetaBackend, correrNpm(), correrNpmSinFallar(), consultar(), permisosDelUsuario(), require, sequelize, tablasDe() (+3 more)
 
 ### Community 69 - "documentacion.js"
-Cohesion: 0.18
-Nodes (11): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivo, { cargarDocumentacionApi }, copiaRota() (+3 more)
+Cohesion: 0.20
+Nodes (10): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivo, { cargarDocumentacionApi }, copiaRota() (+2 more)
 
 ### Community 70 - "productos-migracion.test.js"
 Cohesion: 0.29
 Nodes (9): archivo, carpetaMigraciones, columnas(), indices(), leer(), require, restriccionesCheck(), sequelize (+1 more)
 
-### Community 71 - "vuetify.js"
-Cohesion: 0.47
-Nodes (4): es, @mdi/font, vue, vuetify
+### Community 71 - "AnimacionLottie.test.js"
+Cohesion: 0.21
+Nodes (7): es, animacion, { loadAnimation, instancias }, @mdi/font, vue, @vue/test-utils, vuetify
 
 ### Community 72 - "Requerimientos de AIPOS"
 Cohesion: 0.33
@@ -326,8 +328,8 @@ Cohesion: 0.17
 Nodes (11): Accessibility & Inclusion, Brand Commitments, Capabilities and Constraints, Evidence on Hand, Operating Context, Platform, Positioning, Product (+3 more)
 
 ### Community 79 - "modelos.test.js"
-Cohesion: 0.29
-Nodes (5): carpetaModelos, modelos, registrados, require, tablasDelGlosario
+Cohesion: 0.20
+Nodes (7): Producto, sequelize, carpetaModelos, modelos, registrados, require, tablasDelGlosario
 
 ### Community 80 - "Design System: AIPOS"
 Cohesion: 0.20
@@ -346,8 +348,8 @@ Cohesion: 0.22
 Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 more)
 
 ### Community 84 - "ref_vitest"
-Cohesion: 0.15
-Nodes (10): app, { cargarConfig }, config, { crearApp }, require, app, { cargarDocumentacionApi }, require (+2 more)
+Cohesion: 0.23
+Nodes (5): app, { cargarDocumentacionApi }, require, require, supertest
 
 ### Community 85 - "csp-docs.test.js"
 Cohesion: 0.27
@@ -378,20 +380,24 @@ Cohesion: 0.33
 Nodes (5): aHex(), carpeta, coloresDe(), paleta, permitidas
 
 ### Community 93 - "ejemplos-reales.test.js"
-Cohesion: 0.25
-Nodes (6): app, { cargarDocumentacionApi }, documento, problemas(), require, { Router }
+Cohesion: 0.22
+Nodes (7): app, { cargarDocumentacionApi }, documento, problemas(), require, { Router }, @apidevtools/swagger-parser
 
 ### Community 94 - "dependencies"
 Cohesion: 0.33
 Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
 
 ### Community 95 - "errores.test.js"
-Cohesion: 0.25
-Nodes (6): appConRuta(), { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
+Cohesion: 0.29
+Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
 
 ### Community 96 - "Flujo 05 · Entregar un entregable"
 Cohesion: 0.40
 Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+
+### Community 98 - "database.test.js"
+Cohesion: 0.25
+Nodes (6): { config }, dbConfig, modelos, require, { Sequelize }, sequelizerc
 
 ### Community 99 - "Flujo 01 · Crear producto"
 Cohesion: 0.50
@@ -417,25 +423,25 @@ Nodes (11): dependencies, cors, dotenv, express, helmet, mysql2, sequelize, sequ
 Cohesion: 0.50
 Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
 
-### Community 106 - "ref_node_fs"
-Cohesion: 0.33
-Nodes (3): carpetaRaiz, correrCli(), archivo
+### Community 106 - "documentacion-crear-producto.test.js"
+Cohesion: 0.25
+Nodes (6): listarRutasDocumentadas(), { cargarDocumentacionApi }, documento, { montajes }, require, { validarProductoNuevo }
 
 ### Community 107 - "Flujo 00 · Mapa de procesos"
 Cohesion: 0.67
 Nodes (3): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS
 
-### Community 108 - "routes/index.js"
-Cohesion: 0.25
-Nodes (7): docs, montajes, { Router }, salud, { obtenerSalud }, { Router }, express
+### Community 108 - "docs.js"
+Cohesion: 0.13
+Nodes (14): { cargarDocumentacionApi }, DE_DEMOSTRACION, documento, helmet, { Router }, swaggerUi, docs, montajes (+6 more)
 
 ### Community 109 - "Flujo 06 · Trabajar una tarjeta con el agente"
 Cohesion: 0.67
 Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 
-### Community 110 - "salud-con-base.test.js"
-Cohesion: 0.33
-Nodes (4): carpetaBackend, app, require, sequelize
+### Community 110 - "services/salud.js"
+Cohesion: 0.43
+Nodes (5): { consultarSalud }, obtenerSalud(), conLimiteDeTiempo(), consultarSalud(), sequelize
 
 ### Community 111 - "devDependencies"
 Cohesion: 0.22
@@ -445,28 +451,36 @@ Nodes (9): devDependencies, @apidevtools/swagger-parser, eslint, eslint-config-p
 Cohesion: 0.33
 Nodes (5): app, { crearApp }, eco, express, require
 
-### Community 113 - "AnimacionLottie.test.js"
+### Community 113 - "modelo-producto.test.js"
 Cohesion: 0.33
-Nodes (3): animacion, { loadAnimation, instancias }, @vue/test-utils
+Nodes (5): carpetaSrc, leche, modelos, require, sequelize
 
 ### Community 115 - "Flujo 04 · Registrar venta"
 Cohesion: 0.50
 Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
 
+### Community 116 - "cors.test.js"
+Cohesion: 0.33
+Nodes (5): app, { cargarConfig }, config, { crearApp }, require
+
+### Community 117 - "servidor.js"
+Cohesion: 0.40
+Nodes (3): app, { config }, servidor
+
 ## Knowledge Gaps
-- **516 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+511 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 610 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **521 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+516 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 614 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **40 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `graphify-setup.md`, `Requerimientos funcionales`?**
+- **Why does `Lenguaje ubicuo — AIPOS` connect `Requerimientos funcionales` to `graphify-setup.md`?**
   _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `validador-producto.test.js`?**
-  _High betweenness centrality (0.081) - this node is a cross-community bridge._
+  _High betweenness centrality (0.080) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _516 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _521 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
@@ -474,4 +488,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
-  _Cohesion score 0.06968641114982578 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.060129509713228495 - nodes in this community are weakly interconnected._

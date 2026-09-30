@@ -46,12 +46,12 @@ describe('.env.example', () => {
     }
   });
 
-  it('solo src/config.js lee process.env en el backend', () => {
-    const src = path.join(raiz, 'backend/src');
-    const otros = archivosJs(src).filter(
-      (ruta) =>
-        path.basename(ruta) !== 'config.js' && /process\.env/.test(fs.readFileSync(ruta, 'utf8')),
-    );
+  it('solo src/config.js lee process.env en el backend (src/ y db/)', () => {
+    const unico = path.join(raiz, 'backend/src/config.js');
+    const otros = ['backend/src', 'backend/db']
+      .flatMap((carpeta) => archivosJs(path.join(raiz, carpeta)))
+      .filter((ruta) => ruta !== unico && /process\.env/.test(fs.readFileSync(ruta, 'utf8')))
+      .map((ruta) => path.relative(raiz, ruta));
     expect(otros).toEqual([]);
   });
 

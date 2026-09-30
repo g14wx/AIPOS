@@ -3245,28 +3245,16 @@
       "source_location": "L24"
     },
     {
-      "id": "backend_tests_documentacion_archivos_test_archivosjs",
-      "label": "archivosJs()",
+      "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
+      "label": "crearProxyCongelable()",
       "_callable": true,
       "_origin": "ast",
       "community": 147,
-      "community_name": "archivos.test.js",
+      "community_name": "salud-con-base.test.js",
       "file_type": "code",
-      "norm_label": "archivosjs()",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
-      "source_location": "L15"
-    },
-    {
-      "id": "backend_tests_documentacion_archivos_test_leer",
-      "label": "leer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 147,
-      "community_name": "archivos.test.js",
-      "file_type": "code",
-      "norm_label": "leer()",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
-      "source_location": "L13"
+      "norm_label": "crearproxycongelable()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L53"
     },
     {
       "id": "frontend_tests_sin_axios_en_componentes_test_archivosde",
@@ -6401,18 +6389,6 @@
       "source_location": "L132"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
-      "label": "crearProxyCongelable()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 88,
-      "community_name": "ref_node_module",
-      "file_type": "code",
-      "norm_label": "crearproxycongelable()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L53"
-    },
-    {
       "id": "backend_tests_base_de_datos_conexion_test_consultar",
       "label": "consultar()",
       "_callable": true,
@@ -6423,6 +6399,30 @@
       "norm_label": "consultar()",
       "source_file": "backend/tests/base-de-datos/conexion.test.js",
       "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_documentacion_archivos_test_archivosjs",
+      "label": "archivosJs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "ref_node_module",
+      "file_type": "code",
+      "norm_label": "archivosjs()",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "source_location": "L15"
+    },
+    {
+      "id": "backend_tests_documentacion_archivos_test_leer",
+      "label": "leer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "ref_node_module",
+      "file_type": "code",
+      "norm_label": "leer()",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "source_location": "L13"
     },
     {
       "id": "backend_tests_documentacion_csp_docs_test_directivas",
@@ -12162,59 +12162,59 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_documentacion_archivos_test",
-      "label": "archivos.test.js",
+      "id": "backend_tests_base_de_datos_salud_con_base_test",
+      "label": "salud-con-base.test.js",
       "_origin": "ast",
       "community": 147,
-      "community_name": "archivos.test.js",
+      "community_name": "salud-con-base.test.js",
       "file_type": "code",
-      "norm_label": "archivos.test.js",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "norm_label": "salud-con-base.test.js",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_documentacion_archivos_test_backend",
-      "label": "backend",
+      "id": "backend_tests_base_de_datos_salud_con_base_test_app",
+      "label": "app",
       "_origin": "ast",
       "community": 147,
-      "community_name": "archivos.test.js",
+      "community_name": "salud-con-base.test.js",
       "file_type": "code",
-      "norm_label": "backend",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
-      "source_location": "L10"
+      "norm_label": "app",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L12"
     },
     {
-      "id": "backend_tests_documentacion_archivos_test_raiz",
-      "label": "raiz",
-      "_origin": "ast",
-      "community": 147,
-      "community_name": "archivos.test.js",
-      "file_type": "code",
-      "norm_label": "raiz",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_documentacion_archivos_test_require",
+      "id": "backend_tests_base_de_datos_salud_con_base_test_require",
       "label": "require",
       "_origin": "ast",
       "community": 147,
-      "community_name": "archivos.test.js",
+      "community_name": "salud-con-base.test.js",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
-      "source_location": "L8"
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "source_location": "L10"
     },
     {
-      "id": "backend_tests_documentacion_archivos_test_src",
-      "label": "src",
+      "id": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
+      "label": "sequelize",
       "_origin": "ast",
       "community": 147,
-      "community_name": "archivos.test.js",
+      "community_name": "salud-con-base.test.js",
       "file_type": "code",
-      "norm_label": "src",
-      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
       "source_location": "L11"
+    },
+    {
+      "id": "ref_supertest",
+      "label": "supertest",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "salud-con-base.test.js",
+      "file_type": "concept",
+      "norm_label": "supertest",
+      "source_file": "backend/package.json",
+      "source_location": "L48"
     },
     {
       "id": "frontend_tests_sin_axios_en_componentes_test",
@@ -21712,47 +21712,58 @@
       "source_location": "L5"
     },
     {
-      "id": "backend_tests_base_de_datos_salud_con_base_test",
-      "label": "salud-con-base.test.js",
+      "id": "backend_tests_documentacion_archivos_test",
+      "label": "archivos.test.js",
       "_origin": "ast",
       "community": 88,
       "community_name": "ref_node_module",
       "file_type": "code",
-      "norm_label": "salud-con-base.test.js",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "norm_label": "archivos.test.js",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_app",
-      "label": "app",
+      "id": "backend_tests_documentacion_archivos_test_backend",
+      "label": "backend",
       "_origin": "ast",
       "community": 88,
       "community_name": "ref_node_module",
       "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L12"
+      "norm_label": "backend",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "source_location": "L10"
     },
     {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_require",
+      "id": "backend_tests_documentacion_archivos_test_raiz",
+      "label": "raiz",
+      "_origin": "ast",
+      "community": 88,
+      "community_name": "ref_node_module",
+      "file_type": "code",
+      "norm_label": "raiz",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_documentacion_archivos_test_require",
       "label": "require",
       "_origin": "ast",
       "community": 88,
       "community_name": "ref_node_module",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
-      "source_location": "L10"
+      "source_file": "backend/tests/documentacion/archivos.test.js",
+      "source_location": "L8"
     },
     {
-      "id": "backend_tests_base_de_datos_salud_con_base_test_sequelize",
-      "label": "sequelize",
+      "id": "backend_tests_documentacion_archivos_test_src",
+      "label": "src",
       "_origin": "ast",
       "community": 88,
       "community_name": "ref_node_module",
       "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/salud-con-base.test.js",
+      "norm_label": "src",
+      "source_file": "backend/tests/documentacion/archivos.test.js",
       "source_location": "L11"
     },
     {
@@ -21798,17 +21809,6 @@
       "norm_label": "require",
       "source_file": "backend/tests/documentacion/swagger-ui.test.js",
       "source_location": "L8"
-    },
-    {
-      "id": "ref_supertest",
-      "label": "supertest",
-      "_origin": "ast",
-      "community": 88,
-      "community_name": "ref_node_module",
-      "file_type": "concept",
-      "norm_label": "supertest",
-      "source_file": "backend/package.json",
-      "source_location": "L48"
     },
     {
       "id": "backend_package",
@@ -23968,14 +23968,26 @@
       "type": "external"
     },
     {
-      "id": "ref_node_os",
-      "label": "ref_node_os",
+      "id": "ref_node_events",
+      "label": "ref_node_events",
       "_origin": "semantic",
-      "community": 135,
-      "community_name": "src/config.js",
+      "community": 147,
+      "community_name": "salud-con-base.test.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_node_os",
+      "norm_label": "ref_node_events",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_util",
+      "label": "ref_node_util",
+      "_origin": "semantic",
+      "community": 147,
+      "community_name": "salud-con-base.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_util",
       "source_file": "",
       "type": "external"
     },
@@ -24076,18 +24088,6 @@
       "type": "external"
     },
     {
-      "id": "ref_node_events",
-      "label": "ref_node_events",
-      "_origin": "semantic",
-      "community": 88,
-      "community_name": "ref_node_module",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_events",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_node_module",
       "label": "ref_node_module",
       "_origin": "semantic",
@@ -24100,14 +24100,14 @@
       "type": "external"
     },
     {
-      "id": "ref_node_util",
-      "label": "ref_node_util",
+      "id": "ref_node_os",
+      "label": "ref_node_os",
       "_origin": "semantic",
       "community": 88,
       "community_name": "ref_node_module",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_node_util",
+      "norm_label": "ref_node_os",
       "source_file": "",
       "type": "external"
     }
@@ -35722,6 +35722,18 @@
       "weight": 1.0
     },
     {
+      "source": "backend_tests_documentacion_swagger_ui_test",
+      "target": "backend_tests_servidor_de_prueba_pedir",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/documentacion/swagger-ui.test.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "backend_tests_errores_test",
       "target": "backend_tests_servidor_de_prueba_pedir",
       "relation": "imports",
@@ -42035,7 +42047,7 @@
     },
     {
       "source": "backend_tests_documentacion_swagger_ui_test",
-      "target": "ref_supertest",
+      "target": "backend_tests_servidor_de_prueba",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",

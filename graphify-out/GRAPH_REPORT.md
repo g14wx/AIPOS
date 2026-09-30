@@ -1,12 +1,12 @@
 # Graph Report - f-01  (2026-09-30)
 
 ## Corpus Check
-- 276 files · ~240,400 words
+- 276 files · ~240,447 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
 ## Summary
-- 2012 nodes · 3453 edges · 187 communities (135 shown, 52 thin omitted)
+- 2012 nodes · 3454 edges · 187 communities (135 shown, 52 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 160 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -158,7 +158,7 @@
 - VentaActual.vue
 - Registrar venta
 - tema.test.js
-- archivos.test.js
+- salud-con-base.test.js
 - sin-axios-en-componentes.test.js
 - Despliegue de AIPOS
 - VentaActual.test.js
@@ -201,11 +201,11 @@
 3. `texto()` - 20 edges
 4. `consultar()` - 20 edges
 5. `calcularTotal()` - 17 edges
-6. `vaciarVentaActual()` - 16 edges
-7. `agregarAVentaActual()` - 16 edges
-8. `scripts` - 15 edges
-9. `cargarDocumentacionApi()` - 15 edges
-10. `pedir()` - 15 edges
+6. `pedir()` - 16 edges
+7. `vaciarVentaActual()` - 16 edges
+8. `agregarAVentaActual()` - 16 edges
+9. `scripts` - 15 edges
+10. `cargarDocumentacionApi()` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Configuración del servidor (una sola vez)` --references--> `production()`  [INFERRED]
@@ -406,7 +406,7 @@ Nodes (18): description, engines, node, eslint, eslint-config-prettier, @eslint/
 
 ### Community 88 - "ref_node_module"
 Cohesion: 0.12
-Nodes (10): crearProxyCongelable(), require, sequelize, app, require, sequelize, app, { cargarDocumentacionApi } (+2 more)
+Nodes (10): require, sequelize, archivosJs(), backend, raiz, require, src, app (+2 more)
 
 ### Community 89 - "backend/package.json"
 Cohesion: 0.11
@@ -628,9 +628,9 @@ Nodes (20): Negocio, alCambiarCantidad(), alEditarPrecioAplicado(), alEliminar()
 Cohesion: 0.10
 Nodes (19): Animación, API, con `curl` (V-03), Archivos, Bugs y issues, Criterios de aceptación de V-02, Criterios de aceptación de V-08, Cómo se decidió el diseño, Pantalla: botón "Registrar venta" (V-08) (+11 more)
 
-### Community 147 - "archivos.test.js"
-Cohesion: 0.29
-Nodes (5): archivosJs(), backend, raiz, require, src
+### Community 147 - "salud-con-base.test.js"
+Cohesion: 0.25
+Nodes (5): crearProxyCongelable(), app, require, sequelize, supertest
 
 ### Community 148 - "sin-axios-en-componentes.test.js"
 Cohesion: 0.29

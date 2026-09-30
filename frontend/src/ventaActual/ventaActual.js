@@ -67,6 +67,25 @@ function sinErrorDeCantidad(errores, productoId) {
   return nuevos;
 }
 
+// Quita todos los errores de un detalle (los de su precio aplicado y los de su cantidad). Si no tenía, devuelve los mismos.
+function sinErroresDelDetalle(errores, productoId) {
+  if (!Object.hasOwn(errores, productoId)) return errores;
+  const restantes = { ...errores };
+  delete restantes[productoId];
+  return restantes;
+}
+
+// Eliminar detalle (V-07): quita de la venta actual el detalle de ese producto y sus errores, y deja los demás en su
+// orden. Si era el último, la venta actual queda vacía: sin detalles no hay errores. Si el producto no está (el cajero
+// pudo eliminarlo un instante antes), devuelve LA MISMA venta actual: no hay nada que cambiar ni que guardar.
+export function eliminarDetalle(ventaActual, productoId) {
+  const { detalles, errores } = ventaActual;
+  if (!detalles.some((detalle) => detalle.productoId === productoId)) return ventaActual;
+  const restantes = detalles.filter((detalle) => detalle.productoId !== productoId);
+  if (restantes.length === 0) return vaciarVentaActual();
+  return { detalles: restantes, errores: sinErroresDelDetalle(errores, productoId) };
+}
+
 // Agregar a la venta actual un producto de la búsqueda. Si ya está, su cantidad sube en 1 (RN-07) y su precio aplicado
 // se queda como esté. Con la cantidad en 999 o con 100 detalles (RN-14) devuelve LA MISMA venta actual, y quien la
 // llama lo nota con `nueva === anterior` para avisar al cajero.

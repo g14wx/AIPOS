@@ -607,7 +607,8 @@ describe('estilos del campo (skill impeccable, DESIGN.md)', () => {
 
 // #81: la franja de abajo de VentaActual.vue es sticky y tapaba el foco de los controles de las filas de abajo cuando se
 // llega con Tab. jsdom no calcula estilos ni desplaza la página: se revisa el texto de los estilos de VentaActual.vue, y la
-// prueba con Chrome real (recorrer con Tab 20 filas y mirar qué queda encima de cada control) está en el issue.
+// prueba con Chrome real (recorrer con Tab 20 filas y mirar qué queda encima de cada control) está en el issue. Es la misma
+// regla que cubre #80 (V-07, la barra de arriba): arriba 4 rem, y abajo 12 rem, que alcanzan para el peor caso de la franja.
 describe('el foco de los controles de la tabla no queda tapado por la franja de abajo (#81)', () => {
   const fuente = readFileSync(
     resolve(import.meta.dirname, '../../src/components/VentaActual.vue'),
@@ -622,10 +623,16 @@ describe('el foco de los controles de la tabla no queda tapado por la franja de 
     cuerpo,
   }));
 
+  // El margen de abajo de una regla: scroll-margin-bottom, o el tercer valor de la forma corta (arriba, lados, abajo).
+  const margenDeAbajo = (cuerpo) =>
+    cuerpo.match(/scroll-margin-bottom\s*:\s*([^;\s]+)/)?.[1] ??
+    cuerpo
+      .match(/scroll-margin\s*:\s*([^;]+)/)?.[1]
+      .trim()
+      .split(/\s+/)[2];
+
   it('los botones y los campos de la tabla dejan 12 rem libres debajo: la franja mide unos 150 px, y 190 con un total de dos líneas', () => {
-    const margen = reglas.filter(({ cuerpo }) =>
-      /scroll-margin-bottom\s*:\s*12rem\s*(;|$)/.test(cuerpo),
-    );
+    const margen = reglas.filter(({ cuerpo }) => margenDeAbajo(cuerpo) === '12rem');
     const selectores = margen.flatMap((regla) => regla.selectores);
     expect(selectores.some((s) => /^\.detalles ::v-deep button$/.test(s))).toBe(true);
     expect(selectores.some((s) => /^\.detalles ::v-deep input$/.test(s))).toBe(true);

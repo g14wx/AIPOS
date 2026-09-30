@@ -362,11 +362,12 @@ export default {
   outline-offset: -3px;
 }
 
-/* La franja de abajo es sticky y la barra de arriba es fija: un control de una fila que recibe el foco con Tab no debe
-   quedar debajo de ellas. Con este margen el navegador lo deja a la vista al llevarle el foco (#80). */
+/* La franja de abajo es sticky (mide unos 150 px, y unos 190 con un total de dos líneas) y la barra de arriba es fija: un
+   botón o un campo de una fila que recibe el foco con Tab no debe quedar debajo de ellas. Con este margen el navegador lo
+   deja a la vista al llevarle el foco (#80 y #81). */
 .detalles ::v-deep button,
 .detalles ::v-deep input {
-  scroll-margin: 4rem 0 10rem;
+  scroll-margin: 4rem 0 12rem;
 }
 
 .solo-lectores {
@@ -414,14 +415,6 @@ export default {
   background: var(--v-accent-base) !important;
   /* El total queda pegado abajo: al dejar la fila a la vista, no debe quedar debajo de él. */
   scroll-margin-bottom: 10rem;
-}
-
-/* La franja de abajo es sticky y tapa lo que queda detrás de ella. Al llegar con el teclado a un botón o a un campo de la
-   tabla, el navegador lo deja con este margen libre debajo, para que su foco no quede tapado (#81). La franja mide unos
-   150 px, y unos 190 con un total de dos líneas. */
-.detalles ::v-deep button,
-.detalles ::v-deep input {
-  scroll-margin-bottom: 12rem;
 }
 
 /* Filas apiladas (el modo móvil de Vuetify, ver puntoDeApilado): arriba el nombre y las acciones, y debajo el precio

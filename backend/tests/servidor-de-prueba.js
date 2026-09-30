@@ -1,4 +1,5 @@
 import http from 'node:http';
+import net from 'node:net';
 import { once } from 'node:events';
 import request from 'supertest';
 
@@ -39,6 +40,32 @@ export async function pedir(app, peticion) {
   } finally {
     await cerrarServidorDePrueba(servidor);
   }
+}
+
+// Escribe una petición HTTP a mano en un socket y devuelve, como texto, todo lo que el servidor contesta hasta que
+// cierra la conexión. Sirve para lo que supertest no puede mandar: una petición mal formada, o una que Node contesta
+// antes de que llegue a Express (issue #60). `destino` es un servidor abierto o un puerto de 127.0.0.1. La petición
+// tiene que llevar `Connection: close`, para que el servidor cierre al contestar.
+export function enviarCrudo(destino, peticion) {
+  const puerto = typeof destino === 'number' ? destino : destino.address().port;
+  return new Promise((resolver, rechazar) => {
+    const socket = net.connect({ host: '127.0.0.1', port: puerto });
+    let respuesta = '';
+    let error;
+    socket.setEncoding('utf8');
+    socket.setTimeout(5000, () => {
+      socket.destroy(new Error('El servidor no cerró la conexión en 5 segundos.'));
+    });
+    socket.on('data', (trozo) => {
+      respuesta += trozo;
+    });
+    // Un servidor que cierra con datos sin leer puede terminar con ECONNRESET después de contestar.
+    socket.on('error', (err) => {
+      error = err;
+    });
+    socket.on('close', () => (respuesta === '' && error ? rechazar(error) : resolver(respuesta)));
+    socket.write(peticion);
+  });
 }
 
 // El mismo pedir(app, ...) como texto de CommonJS, para los programas que una prueba arranca con `node -e`: no pueden

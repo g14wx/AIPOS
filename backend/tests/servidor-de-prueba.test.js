@@ -11,6 +11,7 @@ import { promisify } from 'node:util';
 import {
   abrirServidorDePrueba,
   cerrarServidorDePrueba,
+  enviarCrudo,
   pedir,
   PEDIR_DESDE_UN_PROGRAMA,
 } from './servidor-de-prueba.js';
@@ -135,6 +136,24 @@ describe('pedir', () => {
         throw new Error('se rompió al armar la petición');
       }),
     ).rejects.toThrow('se rompió al armar la petición');
+  });
+});
+
+describe('enviarCrudo', () => {
+  it('manda la petición tal cual y devuelve la respuesta completa, con la línea de estado', async () => {
+    const servidor = await abrirServidorDePrueba(appDeMentira());
+    try {
+      const pedida = 'GET /donde HTTP/1.1\r\nHost: prueba\r\nConnection: close\r\n\r\n';
+      const respuesta = await enviarCrudo(servidor, pedida);
+      expect(respuesta).toMatch(/^HTTP\/1\.1 200 OK\r\n/);
+      expect(JSON.parse(respuesta.split('\r\n\r\n')[1])).toMatchObject({
+        origen: 'app de mentira',
+      });
+      // Con el puerto en lugar del servidor habla con el mismo.
+      expect(await enviarCrudo(servidor.address().port, pedida)).toMatch(/^HTTP\/1\.1 200 OK/);
+    } finally {
+      await cerrarServidorDePrueba(servidor);
+    }
   });
 });
 

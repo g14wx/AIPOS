@@ -28,7 +28,7 @@ los `[@test]`.
 
 ## Quién implementa qué
 
-Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
+Una sola pantalla, cuatro tarjetas: V-04 va primero, y V-05, V-06 y V-07 dependen de V-04 y pueden correr a la vez.
 
 | Parte | Tarjeta | Qué se entrega |
 |---|---|---|
@@ -42,6 +42,10 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 
 - V-04 depende de P-05 (`BuscadorProductos.vue`, que emite `producto-elegido`) y de B-04 (`App.vue`, `AnimacionLottie.vue`,
   `src/dinero.js`, `VentaActual.vue` y `src/ventaActual/ventaActual.js`). V-05, V-06 y V-07 dependen de V-04.
+- V-05, V-06 y V-07 comparten `VentaActual.vue`, `src/ventaActual/ventaActual.js`, `src/ventaActual/validaciones.js` y
+  `frontend/tests/pantalla-venta-actual.test.js`. V-04 deja creados `VentaActual.vue`, `ventaActual.js` y la prueba;
+  `validaciones.js` lo crea la primera de V-05 y V-06 que se integra. Cada una agrega lo suyo, y la que se integra
+  después pone su rama al día con `feature/ventas` y junta lo de las otras (spec de arquitectura, "Carpetas").
 - B-04 ya dejó en `src/ventaActual/ventaActual.js` `vaciarVentaActual`, `calcularSubtotal` y `calcularTotal`, con su prueba
   `frontend/tests/venta-actual/venta-vacia.test.js`. V-04 agrega el resto a ese mismo archivo y no cambia lo que hacen
   esas tres funciones.

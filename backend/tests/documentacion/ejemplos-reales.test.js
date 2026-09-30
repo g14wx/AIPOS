@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import request from 'supertest';
+import { pedir } from '../servidor-de-prueba.js';
 import { createRequire } from 'node:module';
 import SwaggerParser from '@apidevtools/swagger-parser';
 
@@ -66,7 +66,7 @@ describe('GET /api/salud dice lo mismo que su documentación', () => {
   const contenido = documento.paths['/api/salud'].get.responses['200'].content['application/json'];
 
   it('el ejemplo del 200 tiene la misma forma que la respuesta real', async () => {
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(respuesta.status).toBe(200);
     const ejemplo = ejemploDe(contenido);
     expect(Object.keys(respuesta.body).sort()).toEqual(Object.keys(ejemplo).sort());
@@ -75,7 +75,7 @@ describe('GET /api/salud dice lo mismo que su documentación', () => {
 
   it('la respuesta real y el ejemplo cumplen el esquema Salud', async () => {
     const { Salud } = resuelto.components.schemas;
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(problemas(respuesta.body, Salud)).toEqual([]);
     expect(problemas(ejemploDe(contenido), Salud)).toEqual([]);
   });
@@ -86,7 +86,7 @@ describe('los errores reales dicen lo que documentan', () => {
   const respuestas = documento.components.responses;
 
   it('el 404 de una ruta que no existe usa el código de NoEncontrado y cumple RespuestaDeError', async () => {
-    const respuesta = await request(app).get('/api/no-existe');
+    const respuesta = await pedir(app, (api) => api.get('/api/no-existe'));
     const ejemplo = ejemploDe(respuestas.NoEncontrado.content['application/json']);
     expect(respuesta.status).toBe(404);
     expect(respuesta.body.error.codigo).toBe(ejemplo.error.codigo);
@@ -101,7 +101,7 @@ describe('los errores reales dicen lo que documentan', () => {
       throw new Error('SELECT * FROM productos falló: errno 1146 en /app/src/x.js:3:9');
     });
     const laApp = app.crearApp(undefined, { montajes: [{ ruta: '/roto', router: roto }] });
-    const respuesta = await request(laApp).get('/api/roto');
+    const respuesta = await pedir(laApp, (api) => api.get('/api/roto'));
     const ejemplo = ejemploDe(respuestas.ErrorInterno.content['application/json']);
     expect(respuesta.status).toBe(500);
     expect(respuesta.body).toEqual(ejemplo);

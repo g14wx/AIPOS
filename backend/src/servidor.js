@@ -2,18 +2,24 @@
 
 const { config } = require('./config');
 const app = require('./app');
+const crearServidor = require('./crearServidor');
 
-// En Express 5, app.listen llama al callback también cuando el arranque falla (por ejemplo, con el
-// puerto ocupado) y le pasa el error. Si no se mira, el servidor dice que escucha sin escuchar.
-const servidor = app.listen(config.puerto, (err) => {
-  if (err) {
-    const motivo =
-      err.code === 'EADDRINUSE'
-        ? `el puerto ${config.puerto} ya está ocupado (EADDRINUSE). Cierra el otro proceso o cambia PORT en el .env`
-        : err.message;
-    console.error(`No se pudo arrancar la API de AIPOS: ${motivo}.`);
-    process.exit(1);
-  }
+const servidor = crearServidor(app);
+
+// Si el arranque falla (por ejemplo, con el puerto ocupado), listen() emite 'error' y nunca 'listening'. Sin este
+// aviso, Node escribiría un stack y no diría qué puerto falló.
+function alFallarElArranque(err) {
+  const motivo =
+    err.code === 'EADDRINUSE'
+      ? `el puerto ${config.puerto} ya está ocupado (EADDRINUSE). Cierra el otro proceso o cambia PORT en el .env`
+      : err.message;
+  console.error(`No se pudo arrancar la API de AIPOS: ${motivo}.`);
+  process.exit(1);
+}
+servidor.once('error', alFallarElArranque);
+
+servidor.listen(config.puerto, () => {
+  servidor.off('error', alFallarElArranque);
   console.log(`API de AIPOS escuchando en el puerto ${config.puerto}`);
 });
 

@@ -26,8 +26,11 @@ afterAll(() => cerrarServidorDePrueba(servidor));
 export const api = () => request(servidor);
 
 // Test Fixture: la API confirma cada producto (no hay transacción que descartar), así que cada prueba usa
-// códigos de barras propios y los borra al terminar, aunque falle. `productos` queda como estaba.
+// códigos de barras propios y borra al terminar lo que creó, aunque falle. `productos` queda como estaba.
+// Se borra por código de barras y también por el id de cada 201: si un error guardara el código de barras distinto
+// de como lo mandó la prueba (por ejemplo, sin recortarlo), el borrado por código no lo encontraría.
 const codigosUsados = new Set();
+const idsCreados = new Set();
 let contador = 0;
 
 // Anota un código de barras para borrarlo al terminar. Devuelve el mismo código.
@@ -63,12 +66,24 @@ export async function borrarProductosDePrueba() {
       replacements: { codigo },
     });
   }
+  if (idsCreados.size > 0) {
+    await sequelize.query('DELETE FROM productos WHERE id IN (:ids)', {
+      replacements: { ids: [...idsCreados] },
+    });
+  }
   codigosUsados.clear();
+  idsCreados.clear();
 }
 
 // Lo que hace la pantalla: un POST con un cuerpo JSON. Sin `cuerpo`, manda la petición sin cuerpo.
 export function crearProductoPorApi(cuerpo) {
-  const peticion = api().post(RUTA);
+  const peticion = api()
+    .post(RUTA)
+    .on('response', (respuesta) => {
+      if (respuesta.status === 201 && Number.isInteger(respuesta.body?.id)) {
+        idsCreados.add(respuesta.body.id);
+      }
+    });
   return cuerpo === undefined ? peticion : peticion.send(cuerpo);
 }
 

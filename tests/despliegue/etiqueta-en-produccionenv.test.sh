@@ -39,7 +39,7 @@ revisar_etiqueta release-0.0.4
 
 echo "# caso: un commit nuevo de ProductionEnv sigue valiendo, y el que se integró después también"
 (
-  cd "$REPO_MENTIRA"
+  cd "$REPO_MENTIRA" || exit 1
   G switch -q ProductionEnv
   echo tres >otro.txt
   G add otro.txt
@@ -60,7 +60,7 @@ tiene "el mensaje nombra la etiqueta" "$SALIDA" "release-9.9.9"
 
 echo "# caso: la rama se integró con un merge commit desde otra rama"
 (
-  cd "$REPO_MENTIRA"
+  cd "$REPO_MENTIRA" || exit 1
   G switch -q ProductionEnv
   G merge -q --no-ff feature/otra -m "Merge: feature/otra"
   G push -q origin ProductionEnv

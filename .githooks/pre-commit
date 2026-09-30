@@ -4,12 +4,18 @@
 # Nunca bloquea un commit: si algo falla, avisa y deja pasar el commit con el grafo anterior.
 # El agente lo activa en el arranque (AGENTS.md) con: git config core.hooksPath .githooks
 
-if ! command -v graphify >/dev/null 2>&1; then
+# Las apps de git, como WebStorm, a veces no ven ~/.local/bin, donde `uv tool install` pone graphify.
+graphify_bin=$(command -v graphify 2>/dev/null)
+if [ -z "$graphify_bin" ] && [ -x "$HOME/.local/bin/graphify" ]; then
+  graphify_bin="$HOME/.local/bin/graphify"
+fi
+
+if [ -z "$graphify_bin" ]; then
   echo "pre-commit: Graphify no está instalado; el grafo del proyecto no se actualizó. Guía: docs/setup/graphify-setup.md" >&2
   exit 0
 fi
 
-if ! salida=$(graphify update . 2>&1); then
+if ! salida=$("$graphify_bin" update . 2>&1); then
   echo "pre-commit: 'graphify update .' falló; el commit sigue con el grafo anterior." >&2
   printf '%s\n' "$salida" | tail -n 3 >&2
   echo "pre-commit: si borraste código a propósito, corre 'graphify update . --force' y agrega el grafo en otro commit." >&2

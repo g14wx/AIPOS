@@ -62,10 +62,10 @@ if [ -f "$RAIZ/.env.example" ]; then
   for v in COMPOSE_PROJECT_NAME CORS_ORIGIN MYSQL_PORT MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD MYSQL_ROOT_PASSWORD; do
     comprobar ".env.example trae $v" grep -q "^$v=" "$RAIZ/.env.example"
   done
-elif [ -d "$RAIZ/backend" ]; then
+elif [ -f "$RAIZ/backend/package.json" ]; then
   falla "falta .env.example"
 else
-  echo "OMITIDA esta parte: todavía no está el entregable base (sin backend/ ni .env.example)"
+  echo "OMITIDA esta parte: todavía no está el entregable base (sin backend/package.json ni .env.example)"
 fi
 comprobar "el script pasa shellcheck" shellcheck "$SCRIPT"
 comprobar "el script usa umask 077" grep -q 'umask 077' "$SCRIPT"

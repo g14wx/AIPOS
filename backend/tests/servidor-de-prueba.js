@@ -1,7 +1,7 @@
-import http from 'node:http';
 import net from 'node:net';
 import { once } from 'node:events';
 import request from 'supertest';
+import crearServidor from '../src/crearServidor.js';
 
 // Servidor de las pruebas que llaman a la API con supertest. No es un archivo de pruebas: Vitest solo corre *.test.js.
 //
@@ -11,11 +11,12 @@ import request from 'supertest';
 // no puede compartir el puerto con otro que escuche en esa misma dirección. Ninguna prueba usa request(app): pide con
 // pedir(app, ...), o abre un servidor con abrirServidorDePrueba y le pasa ese servidor a request().
 
-// Abre la app en un puerto al azar de 127.0.0.1 y devuelve el servidor, para usarlo como request(servidor).
+// Abre la app en un puerto al azar de 127.0.0.1 y devuelve el servidor, para usarlo como request(servidor). El servidor
+// es el de crearServidor, el mismo que arranca servidor.js: las pruebas hablan con lo que corre en producción.
 // Con un host, listen() se ata de forma asíncrona: hay que esperar 'listening'. Si no, supertest ve que el servidor
 // todavía no tiene dirección y abre el suyo en todas las interfaces, y no se arregla nada.
 export async function abrirServidorDePrueba(app) {
-  const servidor = http.createServer(app).listen(0, '127.0.0.1');
+  const servidor = crearServidor(app).listen(0, '127.0.0.1');
   await once(servidor, 'listening');
   return servidor;
 }
@@ -69,14 +70,14 @@ export function enviarCrudo(destino, peticion) {
 }
 
 // El mismo pedir(app, ...) como texto de CommonJS, para los programas que una prueba arranca con `node -e`: no pueden
-// importar este módulo, que es de Vitest. Se pega al principio del programa y define `http`, `once`, `request` y
-// `pedir`. Como en el módulo, pedir cierra su servidor al terminar: si quedara abierto, el programa no terminaría.
+// importar este módulo, que es de Vitest. Se pega al principio del programa, que corre en la carpeta del backend, y
+// define `once`, `request`, `crearServidor` y `pedir`. Como en el módulo, pedir cierra su servidor al terminar: si quedara abierto, el programa no terminaría.
 export const PEDIR_DESDE_UN_PROGRAMA = `
-  const http = require('node:http');
   const { once } = require('node:events');
   const request = require('supertest');
+  const crearServidor = require('./src/crearServidor.js');
   async function pedir(app, peticion) {
-    const servidor = http.createServer(app).listen(0, '127.0.0.1');
+    const servidor = crearServidor(app).listen(0, '127.0.0.1');
     await once(servidor, 'listening');
     try {
       return await peticion(request(servidor));

@@ -1,5 +1,8 @@
 -- Registers a sale and all its items in one call.
 -- p_items is a JSON array, for example [{"productId": 3, "quantity": 2, "unitPrice": "19.90"}]
+DROP PROCEDURE IF EXISTS sp_register_sale;
+
+DELIMITER $$
 CREATE PROCEDURE sp_register_sale(IN p_items JSON)
 BEGIN
   DECLARE v_sale_id INT;
@@ -33,4 +36,5 @@ BEGIN
   COMMIT;
 
   SELECT id AS saleId, total FROM sales WHERE id = v_sale_id;
-END
+END$$
+DELIMITER ;

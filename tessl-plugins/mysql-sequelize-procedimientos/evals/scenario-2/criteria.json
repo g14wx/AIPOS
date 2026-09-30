@@ -1,10 +1,10 @@
 {
-  "context": "Point-of-sale backend with Express 4, Sequelize 6 and mysql2 on MySQL 8.4. The stored procedure sp_register_sale already exists (db/procedures/sp_register_sale.sql plus its migration): it receives the items as one JSON parameter, rejects an empty list with SIGNAL SQLSTATE '45000' 'SALE_WITHOUT_ITEMS', runs its own START TRANSACTION ... COMMIT with an EXIT HANDLER (ROLLBACK; RESIGNAL), and ends with SELECT saleId, total. sale_items has foreign keys to products and a unique index on (sale_id, product_id). The existing products service uses sequelize.transaction() for bulk price updates. The agent must add POST /api/sales that calls the procedure and answers with proper HTTP status codes. Review the new and changed files under src/.",
+  "context": "Point-of-sale backend with Express 5, Sequelize 6 and mysql2 on MySQL 8.4. The stored procedure sp_register_sale already exists (db/procedures/sp_register_sale.sql plus its migration): it receives the items as one JSON parameter, rejects an empty list with SIGNAL SQLSTATE '45000' 'SALE_WITHOUT_ITEMS', runs its own START TRANSACTION ... COMMIT with an EXIT HANDLER (ROLLBACK; RESIGNAL), and ends with SELECT saleId, total. sale_items has foreign keys to products and a unique index on (sale_id, product_id). The existing products service uses sequelize.transaction() for bulk price updates. The agent must add POST /api/sales that calls the procedure and answers with proper HTTP status codes. Review the new and changed files under src/.",
   "type": "weighted_checklist",
   "checklist": [
     {
       "name": "call_with_replacements",
-      "description": "The code runs sequelize.query('CALL sp_register_sale(:items)', { replacements: { items: JSON.stringify(items) } }) or an equivalent with a positional replacement. The list goes through JSON.stringify, nothing (not even a comment) comes before CALL in the SQL string, and request data is never concatenated into the SQL. The route is mounted in src/app.js under /api/sales, and async errors reach Express 4 through try/catch with next(err) or an equivalent.",
+      "description": "The code runs sequelize.query('CALL sp_register_sale(:items)', { replacements: { items: JSON.stringify(items) } }) or an equivalent with a positional replacement. The list goes through JSON.stringify, nothing (not even a comment) comes before CALL in the SQL string, and request data is never concatenated into the SQL. The route is mounted in src/app.js under /api/sales, and async errors reach the error middleware (Express 5 forwards rejected promises by itself; try/catch with next(err) is also fine).",
       "max_score": 2,
       "category": "INTEGRATION"
     },
@@ -28,7 +28,7 @@
     },
     {
       "name": "maps_signal_and_foreign_key",
-      "description": "Database errors are mapped using err.parent.errno (or err.original, err.parent.code or the Sequelize error class). errno 1644 from the SIGNAL (SALE_WITHOUT_ITEMS) becomes 400 or 409, and 1452 / ForeignKeyConstraintError for an unknown product becomes 400 or 404. Any other error goes to a 500 path without sending SQL text to the client.",
+      "description": "Database errors are mapped using err.parent.errno (or err.original, err.parent.code or the Sequelize error class). errno 1644 from the SIGNAL (SALE_WITHOUT_ITEMS) becomes 422 (400 or 409 are also accepted), and 1452 / ForeignKeyConstraintError for an unknown product becomes 400 or 404. Any other error goes to a 500 path without sending SQL text to the client.",
       "max_score": 2,
       "category": "INTENT"
     },

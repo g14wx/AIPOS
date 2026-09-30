@@ -1,6 +1,6 @@
 ---
 name: mysql-stored-procedure-authoring
-description: "Writes MySQL 8.4 stored procedures and the sequelize-cli migration that creates them, for Node backends on Sequelize 6 and mysql2. Covers one CREATE PROCEDURE statement without DELIMITER, DROP and CREATE in separate queries, a JSON parameter read with JSON_TABLE for header-plus-lines data such as a sale and its items, an EXIT HANDLER with ROLLBACK and RESIGNAL, SIGNAL SQLSTATE 45000 for business rules, totals computed in SQL as DECIMAL(10,2), and exactly one final SELECT. Use when asked to create or change a stored procedure, to save a sale with its items (or any header with lines) in one call, when a migration fails with ER_PARSE_ERROR 1064 near DELIMITER, when deciding between docker-entrypoint-initdb.d and migrations, or when a procedure must validate input and roll back."
+description: "Writes MySQL 8.4 stored procedures and the sequelize-cli migration that creates them, for Node backends on Sequelize 6 and mysql2. Covers a .sql script that also runs with the mysql client through DELIMITER, a migration that sends DROP and only the CREATE PROCEDURE block in separate queries, a JSON parameter read with JSON_TABLE for header-plus-lines data such as a sale and its items, an EXIT HANDLER with ROLLBACK and RESIGNAL, SIGNAL SQLSTATE 45000 for business rules, totals computed in SQL as DECIMAL(10,2), and exactly one final SELECT. Use when asked to create or change a stored procedure, to save a sale with its items (or any header with lines) in one call, when a migration fails with ER_PARSE_ERROR 1064 near DELIMITER, when deciding between docker-entrypoint-initdb.d and migrations, or when a procedure must validate input and roll back."
 ---
 
 # MySQL stored procedure authoring
@@ -9,10 +9,10 @@ Write MySQL 8.4 stored procedures that Node can create through sequelize-cli and
 
 ## 1. Files
 
-- `db/procedures/sp_<name>.sql`: the reproducible copy. One `CREATE PROCEDURE` statement, no `DELIMITER`.
-- `migrations/<timestamp>-create-sp-<name>.js`: the only place that creates it. CommonJS like the other migrations (`.cjs` if `package.json` has `"type": "module"`).
+- `db/procedures/sp_<name>.sql` (or the folder the project's glossary names, such as `db/procedimientos/`): the reproducible script. `DROP PROCEDURE IF EXISTS`, then the `CREATE PROCEDURE … END` block wrapped in `DELIMITER $$ … $$`, so it also runs with the `mysql` client.
+- `migrations/<timestamp>-create-sp-<name>.js`: how the app creates it. It sends `DROP` and only the `CREATE PROCEDURE … END` block, never `DELIMITER`. CommonJS like the other migrations (`.cjs` if `package.json` has `"type": "module"`).
 
-Do not also create it from `docker-entrypoint-initdb.d`. Those scripts run as `root`, which has `SYSTEM_USER`, so `root` becomes the definer and the app user can no longer drop or replace the procedure. Never write `DEFINER=`: the definer is whoever runs the migration.
+Whoever runs the script with the client must use the app's database user, never `root`. `root` has `SYSTEM_USER`, so a procedure defined by `root` can no longer be dropped or replaced by the app user, and the migration fails. For the same reason, do not create it from `docker-entrypoint-initdb.d` (those scripts run as `root`). Never write `DEFINER=`: the definer is whoever creates it.
 
 ## 2. Migration
 
@@ -21,12 +21,15 @@ Do not also create it from `docker-entrypoint-initdb.d`. Those scripts run as `r
 const fs = require('fs');
 const path = require('path');
 
-const sql = fs.readFileSync(path.join(__dirname, '../db/procedures/sp_register_sale.sql'), 'utf8');
+const file = path.join(__dirname, '../db/procedures/sp_register_sale.sql');
+// Only the CREATE PROCEDURE … END block: DELIMITER is a command of the mysql client, not SQL.
+const create = fs.readFileSync(file, 'utf8').match(/CREATE PROCEDURE[\s\S]*?\bEND(?=\s*\$\$)/i);
+if (!create) throw new Error(`${file} has no CREATE PROCEDURE … END$$ block`);
 
 module.exports = {
   async up(queryInterface) {
     await queryInterface.sequelize.query('DROP PROCEDURE IF EXISTS sp_register_sale');
-    await queryInterface.sequelize.query(sql);
+    await queryInterface.sequelize.query(create[0]);
   },
   async down(queryInterface) {
     await queryInterface.sequelize.query('DROP PROCEDURE IF EXISTS sp_register_sale');
@@ -34,15 +37,18 @@ module.exports = {
 };
 ```
 
-- `DROP` and `CREATE` go in two separate `query()` calls. No `DELIMITER` and no `multipleStatements`: `CREATE PROCEDURE … BEGIN … END` is one statement. `DELIMITER` sent through mysql2 fails with `ER_PARSE_ERROR` (1064).
+- `DROP` and `CREATE` go in two separate `query()` calls. Never send `DELIMITER` and do not enable `multipleStatements`: `CREATE PROCEDURE … BEGIN … END` is one statement. `DELIMITER` sent through mysql2 fails with `ER_PARSE_ERROR` (1064).
 - Pass no `replacements` and no `type` to the CREATE call: a `:name` inside the body would be replaced.
 - MySQL has no `CREATE OR REPLACE PROCEDURE` (that is MariaDB). `CREATE PROCEDURE IF NOT EXISTS` (8.0.29+) skips an existing procedure, so it never updates the body.
 - To change a procedure that already shipped, add a new migration that drops and creates it again. Do not edit a migration that already ran.
-- Do not try the file with `mysql < file.sql`: the client splits at every `;`. Run the migration (`npx sequelize-cli db:migrate`).
+- The app runs `npx sequelize-cli db:migrate`. With the client, run the script as the app user: `mysql -u <app_user> -p <database> < db/procedures/sp_<name>.sql`. Without the `DELIMITER` wrapper the client would split the body at every `;`.
 
 ## 3. Template: a sale with its items
 
 ```sql
+DROP PROCEDURE IF EXISTS sp_register_sale;
+
+DELIMITER $$
 CREATE PROCEDURE sp_register_sale(IN p_items JSON)
 BEGIN
   DECLARE v_sale_id INT;
@@ -76,7 +82,8 @@ BEGIN
   COMMIT;
 
   SELECT id AS saleId, total FROM sales WHERE id = v_sale_id;
-END
+END$$
+DELIMITER ;
 ```
 
 The caller sends `[{"productId": 3, "quantity": 2, "unitPrice": "19.90"}]` and gets one row: `{ saleId, total }`.
@@ -95,7 +102,7 @@ The caller sends `[{"productId": 3, "quantity": 2, "unitPrice": "19.90"}]` and g
 
 ## 5. Final check
 
-- [ ] `grep -rn DELIMITER db migrations` finds nothing.
+- [ ] `grep -rn DELIMITER migrations` finds nothing: `DELIMITER` lives only in the `.sql` script, for the client.
 - [ ] No `DEFINER=`, no `CREATE OR REPLACE`, no copy in `docker-entrypoint-initdb.d`.
 - [ ] The handler runs `ROLLBACK` and then `RESIGNAL`.
 - [ ] Empty or invalid input raises `SIGNAL SQLSTATE '45000'` before anything is inserted.

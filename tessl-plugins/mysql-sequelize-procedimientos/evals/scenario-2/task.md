@@ -1,6 +1,6 @@
 # Sale endpoint
 
-This is the backend of a small point of sale (Express 4, Sequelize 6 and MySQL 8.4). The stored procedure `sp_register_sale` already exists: see `db/procedures/sp_register_sale.sql` and the migration that creates it.
+This is the backend of a small point of sale (Express 5, Sequelize 6 and MySQL 8.4). The stored procedure `sp_register_sale` already exists: see `db/procedures/sp_register_sale.sql` and the migration that creates it.
 
 The user asked:
 

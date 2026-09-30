@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 4 h 35 min hasta ahora (12:46–17:17), en curso | 23 | 8 |
+| Preparación: agentes, tiles y glosario | 4 h 50 min hasta ahora (12:46–17:33 y 20:35–20:45), en curso | 25 | 9 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -308,3 +308,23 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna: la persona eligió las opciones que proponía el agente.
 - **Tiempo:** 17:29–17:49.
 - **Commits:** este commit y los 2 anteriores de la rama `docs/cierre-requerimientos`: las filas de la matriz y la aclaración del glosario.
+
+### 2026-09-29 17:28 — Caveman en modo lite en AIPOS
+
+- **Tarea:** dejar el plugin de Claude Code caveman en modo lite, como eligió la persona al crear el tile `lenguaje-ubicuo` ("adelante").
+- **Agente:** Claude Code (Opus 5.5), con la skill de configuración de Claude Code.
+- **Qué hizo el agente:** agregó `CAVEMAN_DEFAULT_MODE=lite` en `.claude/settings.local.json`, la configuración local del proyecto, que no va a git. Comprobó que Claude Code pasa la variable y que el hook de arranque del caveman responde `level: lite`. En los demás proyectos sigue en `full`.
+- **Revisión de la persona:** eligió aplicarlo solo en AIPOS.
+- **Propuestas cambiadas o descartadas:** ninguna.
+- **Tiempo:** 17:28–17:33.
+- **Commits:** este commit (solo la entrada; la configuración es local).
+
+### 2026-09-29 20:35 — Tile mysql-sequelize-procedimientos 0.1.1
+
+- **Tarea:** la otra sesión, que escribe `specs/arquitectura.spec.md`, encontró 4 choques entre el tile y `requerimientos/`, y la persona decidió actualizar el tile antes de empezar la app.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** le explicó a la otra sesión el porqué de cada elección del tile. Express 4 y la carpeta `db/procedures/` fueron costumbre, y los códigos 400/409 no tenían una razón de fondo. El `.sql` sin `DELIMITER` sí era a propósito: un procedimiento creado por root no lo puede reemplazar después el usuario de la app. Actualizó el tile a la versión 0.1.1: Express 5, 422 para el `SIGNAL 45000`, un `.sql` con `DELIMITER $$` que también corre con el cliente `mysql`, una migración que manda solo el bloque `CREATE PROCEDURE … END`, el aviso de usar el usuario de la app y no root, y la carpeta según el glosario del proyecto. Probó con node que la migración extrae bien el bloque.
+- **Revisión de la persona:** decidió actualizar el tile antes de la app.
+- **Propuestas cambiadas o descartadas:** el tile asumía Express 4, respuestas 400/409, un `.sql` sin `DELIMITER` y la carpeta `db/procedures/` → se alineó con los requerimientos → mandan la spec y los requerimientos, y el riesgo del definidor queda cubierto con la instrucción de usar el usuario de la app.
+- **Tiempo:** 20:35–20:45.
+- **Commits:** este commit.

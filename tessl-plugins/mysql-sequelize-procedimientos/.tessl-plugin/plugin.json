@@ -1,6 +1,6 @@
 {
   "name": "g14wxz/mysql-sequelize-procedimientos",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MySQL 8.4 stored procedures with Sequelize 6 and mysql2: procedures created by sequelize-cli migrations without DELIMITER, multi-line data passed as JSON and read with JSON_TABLE, transactions owned by the procedure, CALL from Express with correct result reading and HTTP error mapping, and money kept as DECIMAL(10,2).",
   "private": false,
   "rules": "rules",

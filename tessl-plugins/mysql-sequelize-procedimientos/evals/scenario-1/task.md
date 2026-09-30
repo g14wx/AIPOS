@@ -1,6 +1,6 @@
 # Register a sale in one call
 
-This is the backend of a small point of sale (Express 4, Sequelize 6, sequelize-cli and MySQL 8.4). The tables `products`, `sales` and `sale_items` already exist; see `migrations/`.
+This is the backend of a small point of sale (Express 5, Sequelize 6, sequelize-cli and MySQL 8.4). The tables `products`, `sales` and `sale_items` already exist; see `migrations/`.
 
 The user asked:
 

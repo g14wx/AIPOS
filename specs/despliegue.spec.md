@@ -595,10 +595,13 @@ imprime `ok:` o `FALLA:` y termina con `todo bien` o con error). Se corren una p
   mentira (válido, inválido y un vecino que cambia de código).
 - `sin-datos-privados.test.sh`: busca en lo que sube git direcciones IP (menos `127.0.0.1` y `0.0.0.0`), `/Users/`, `/private/`, alias, `Claude-Session`
   y contraseñas. Una contraseña es un valor escrito a mano: una comparación (`clave === ''`), una flecha o una llamada
-  (`const clave = texto(env, ...)`) no cuenta.
-- `sin-datos-privados-falsos-positivos.test.sh` (issue #67): corre esa misma revisión sobre repositorios de mentira. Con
-  una comparación, una flecha o una llamada que lee una contraseña pasa, y con una credencial escrita a mano (con
-  comillas o sin ellas, en una variable, en un `.env` o en JSON) falla.
+  (`const clave = texto(env, ...)`) no cuenta. Un texto entre comillas simples, dobles o invertidas (una plantilla
+  literal de JavaScript) sí cuenta. Solo se deja pasar una comilla invertida que no se cierra en el mismo valor: la que
+  cierra un fragmento de código dentro de un texto y la que abre una sustitución de comandos.
+- `sin-datos-privados-falsos-positivos.test.sh` (issues #67 y #72): corre esa misma revisión sobre repositorios de
+  mentira. Con una comparación, una flecha, una llamada, un fragmento de código o una sustitución de comandos que lee
+  una contraseña pasa, y con una credencial escrita a mano (con comillas simples, dobles o invertidas, o sin comillas,
+  en una variable, en un `.env` o en JSON) falla.
 - `documentos.test.sh`: revisa que existan `requerimientos/flujos/07-desplegar-una-version.md` con su diagrama,
   `docs/despliegue.md`, la sección del README, «Lo que agregamos» en `01-alcance.md`, la fila de D-01 en
   `04-entregables.md` y las cuatro palabras nuevas en el glosario.

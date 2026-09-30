@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Spec: specs/despliegue.spec.md, criterio de aceptación 15 (el repositorio no trae credenciales).
 # Issue #67: sin-datos-privados.test.sh contaba como credencial una comparación y una llamada que leen una contraseña
-# (el backend llama `clave` a la contraseña que lee del entorno). Esta prueba corre esa misma revisión sobre
-# repositorios de mentira: con código que solo lee una contraseña tiene que pasar, y con una credencial escrita a mano
-# (con comillas o sin ellas, en una variable, en un .env o en JSON) tiene que fallar.
+# (el backend llama `clave` a la contraseña que lee del entorno). Issue #72: el arreglo del #67 dejó pasar una
+# contraseña escrita entre comillas invertidas (una plantilla literal de JavaScript). Esta prueba corre esa misma
+# revisión sobre repositorios de mentira: con código que solo lee una contraseña tiene que pasar, y con una credencial
+# escrita a mano (con comillas simples, dobles o invertidas, o sin ellas, en una variable, en un .env o en JSON) tiene
+# que fallar.
 # Los nombres se arman por partes para que la revisión del repositorio no encuentre esta prueba a sí misma.
 # shellcheck source=comun.sh
 source "$(dirname "${BASH_SOURCE[0]}")/comun.sh"
@@ -12,9 +14,12 @@ command -v python3 >/dev/null || omitir "falta python3"
 
 CL="cla""ve"
 PASS="PASS""WORD"
+PASSMIN="pass""word"
 TOK="TO""KEN"
 SECRETO="hunter2""hunter2"
-BT='`' # la comilla invertida: cierra un fragmento de código en un texto y abre una sustitución de comandos
+# BT es la comilla invertida: cierra un fragmento de código en un texto, abre una sustitución de comandos y abre (y
+# cierra) una plantilla literal.
+BT='`'
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
@@ -59,6 +64,11 @@ una variable de entorno|MYSQL_$PASS=$SECRETO
 una ficha con puntos|$TOK=abc.def.ghi
 un campo de JSON|{ "$CL": "$SECRETO" }
 un valor escrito después de una comparación|if ($CL === 'x') { $CL = '$SECRETO'; }
+una plantilla literal en una variable|const $CL = ${BT}$SECRETO${BT};
+una plantilla literal con el nombre en inglés|const $PASSMIN = ${BT}$SECRETO${BT};
+una plantilla literal en un campo de JSON|{ "$PASSMIN": ${BT}$SECRETO${BT} }
+una plantilla literal en una variable de entorno|MYSQL_$PASS=${BT}$SECRETO${BT}
+una plantilla literal después de una comparación|if ($CL === 'x') { $CL = ${BT}$SECRETO${BT}; }
 CASOS
 
 terminar

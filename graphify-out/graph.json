@@ -3388,7 +3388,7 @@
       },
       "norm_label": "resumir()",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L101"
+      "source_location": "L105"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
@@ -4913,7 +4913,7 @@
       },
       "norm_label": "revisar()",
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L25"
+      "source_location": "L30"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_falsos_positivos_test_sh__entry",
@@ -9217,7 +9217,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L664"
+      "source_location": "L667"
     },
     {
       "id": "specs_despliegue_spec_despliegue_de_aipos",
@@ -9265,7 +9265,7 @@
       "node_kind": "heading",
       "norm_label": "fuera de alcance",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L678"
+      "source_location": "L681"
     },
     {
       "id": "specs_despliegue_spec_la_etiqueta_release",
@@ -9301,7 +9301,7 @@
       "node_kind": "heading",
       "norm_label": "palabras nuevas para el glosario",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L696"
+      "source_location": "L699"
     },
     {
       "id": "specs_despliegue_spec_preguntas_abiertas",
@@ -9313,7 +9313,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L688"
+      "source_location": "L691"
     },
     {
       "id": "specs_despliegue_spec_pruebas_en_local",
@@ -12566,7 +12566,7 @@
       "node_kind": "heading",
       "norm_label": "que tarjeta implementa cada parte",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L652"
+      "source_location": "L655"
     },
     {
       "id": "backend_tests_estructura_test",
@@ -16538,7 +16538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L39",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -16550,7 +16550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L113",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -28315,7 +28315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L652",
+      "source_location": "L655",
       "weight": 1.0
     },
     {
@@ -28326,7 +28326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L664",
+      "source_location": "L667",
       "weight": 1.0
     },
     {
@@ -28337,7 +28337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L678",
+      "source_location": "L681",
       "weight": 1.0
     },
     {
@@ -28348,7 +28348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L688",
+      "source_location": "L691",
       "weight": 1.0
     },
     {
@@ -28359,7 +28359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L696",
+      "source_location": "L699",
       "weight": 1.0
     },
     {
@@ -31406,7 +31406,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados-falsos-positivos.test.sh",
-      "source_location": "L25",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -31417,7 +31417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L101",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -32943,7 +32943,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L657",
+      "source_location": "L660",
       "weight": 1.0
     },
     {

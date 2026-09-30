@@ -1,12 +1,12 @@
 # Graph Report - a-01  (2026-09-30)
 
 ## Corpus Check
-- 99 files · ~50,343 words
+- 100 files · ~50,709 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 569 nodes · 685 edges · 71 communities (36 shown, 35 thin omitted)
+- 578 nodes · 703 edges · 70 communities (35 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Configurar el MCP de Trello
+- Grafo del proyecto
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -58,7 +58,7 @@
 - hook-de-git/sin-graphify.test.sh
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
-- Alcance
+- csp-docs.test.js
 - src/config.js
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
@@ -72,21 +72,20 @@
 - express
 - app.js
 - Arquitectura de AIPOS
-- Grafo del proyecto
+- cors.test.js
 - errores.test.js
-- limite-del-cuerpo.test.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `scripts` - 15 edges
-2. `vitest` - 15 edges
+1. `vitest` - 16 edges
+2. `scripts` - 15 edges
 3. `Requerimientos funcionales` - 14 edges
 4. `Requerimientos no funcionales` - 14 edges
 5. `Arquitectura de AIPOS` - 13 edges
 6. `crearApp()` - 11 edges
-7. `Grafo del proyecto` - 10 edges
-8. `Flujo de un entregable` - 10 edges
-9. `supertest` - 9 edges
-10. `cargarConfig()` - 9 edges
+7. `supertest` - 10 edges
+8. `Grafo del proyecto` - 10 edges
+9. `Flujo de un entregable` - 10 edges
+10. `express` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Carpetas` --references--> `test()`  [INFERRED]
@@ -103,15 +102,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (71 total, 35 thin omitted)
+## Communities (70 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
-Nodes (31): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+23 more)
+Nodes (36): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+28 more)
 
-### Community 1 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+### Community 1 - "Grafo del proyecto"
+Cohesion: 0.06
+Nodes (31): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), 1. Crear el board en Trello, 2. Obtener el API key (+23 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -131,7 +130,7 @@ Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecn
 
 ### Community 6 - "vitest"
 Cohesion: 0.19
-Nodes (8): app, { cargarConfig }, config, { crearApp }, require, require, supertest, vitest
+Nodes (8): app, { crearApp }, eco, express, require, require, supertest, vitest
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -205,13 +204,13 @@ Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 Cohesion: 0.13
 Nodes (19): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+11 more)
 
-### Community 44 - "Alcance"
-Cohesion: 0.22
-Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
+### Community 44 - "csp-docs.test.js"
+Cohesion: 0.27
+Nodes (7): app, docs, express, helmet, politicaDe(), politicaDeHelmet(), require
 
 ### Community 45 - "src/config.js"
 Cohesion: 0.07
-Nodes (35): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), cargarArchivoEnv(), cargarConfig(), dotenv, entero() (+27 more)
+Nodes (31): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+23 more)
 
 ### Community 52 - "estructura.test.js"
 Cohesion: 0.22
@@ -234,40 +233,36 @@ Cohesion: 0.16
 Nodes (15): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+7 more)
 
 ### Community 67 - "Arquitectura de AIPOS"
-Cohesion: 0.10
-Nodes (20): test(), Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla (+12 more)
+Cohesion: 0.11
+Nodes (18): Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla, Frontend (+10 more)
 
-### Community 68 - "Grafo del proyecto"
-Cohesion: 0.18
-Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+### Community 68 - "cors.test.js"
+Cohesion: 0.33
+Nodes (5): app, { cargarConfig }, config, { crearApp }, require
 
 ### Community 69 - "errores.test.js"
 Cohesion: 0.29
 Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
 
-### Community 70 - "limite-del-cuerpo.test.js"
-Cohesion: 0.33
-Nodes (5): app, { crearApp }, eco, express, require
-
 ## Knowledge Gaps
-- **322 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+317 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 374 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **325 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+320 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 378 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`?**
   _High betweenness centrality (0.134) - this node is a cross-community bridge._
-- **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.118) - this node is a cross-community bridge._
+- **Why does `production()` connect `src/config.js` to `Grafo del proyecto`?**
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _322 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _325 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.06207482993197279 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05851063829787234 - nodes in this community are weakly interconnected._
+- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
+  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

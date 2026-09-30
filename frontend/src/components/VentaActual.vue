@@ -316,6 +316,13 @@ export default {
   line-height: 1.5rem;
 }
 
+/* La franja de abajo es sticky y la barra de arriba es fija: un control de una fila que recibe el foco con Tab no debe
+   quedar debajo de ellas. Con este margen el navegador lo deja a la vista al llevarle el foco (#80). */
+.detalles ::v-deep button,
+.detalles ::v-deep input {
+  scroll-margin: 4rem 0 10rem;
+}
+
 .solo-lectores {
   position: absolute;
   width: 1px;

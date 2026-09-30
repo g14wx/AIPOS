@@ -204,3 +204,18 @@
     animation: none !important;
   }
 }
+
+/*
+ * V-04: la tabla de la venta actual. Vuetify pinta el texto de la tabla en negro con transparencia (.87 en las celdas y
+ * .6 en los encabezados) y la spec pide tinta en todo el texto. Los encabezados miden 14 px y van en 600, como las
+ * etiquetas de los campos. El tamaño y el peso de lo que va dentro de las celdas lo decide cada componente.
+ */
+.v-application .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr > td,
+.v-application .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+  color: var(--v-secondary-base);
+}
+
+.v-application .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+  font-size: 0.875rem;
+  font-weight: 600;
+}

@@ -4,6 +4,7 @@ const sequelize = require('../database');
 
 // Cuánto espera la salud a que MySQL conteste. Si MySQL acepta la conexión y no contesta (por ejemplo,
 // congelado), authenticate() esperaría sin fin y GET /api/salud se quedaría colgada (issue #39).
+// Es el mismo tiempo que src/database.js espera el saludo de MySQL al abrir una conexión (issue #63).
 const ESPERA_MAXIMA_MS = 3000;
 
 // Cada consulta de salud lleva en las opciones de authenticate() un objeto `seguimientoDeSalud`, y este

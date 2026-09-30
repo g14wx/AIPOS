@@ -494,7 +494,7 @@
       "file_type": "code",
       "norm_label": "conlimitedetiempo()",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "backend_src_services_salud_consultarsalud",
@@ -506,7 +506,7 @@
       "file_type": "code",
       "norm_label": "consultarsalud()",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L44"
+      "source_location": "L45"
     },
     {
       "id": "backend_src_services_salud_cortarconexion",
@@ -518,7 +518,7 @@
       "file_type": "code",
       "norm_label": "cortarconexion()",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "backend_db_config_test",
@@ -12554,7 +12554,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -12566,7 +12566,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -19448,7 +19448,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -19470,7 +19470,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -27353,7 +27353,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/services/salud.js",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {

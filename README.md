@@ -313,8 +313,9 @@ npm run lint
 npm run format:check
 npm run build
 
-# Pruebas de shell, desde la raíz. Una falla imprime FALLÓ con el nombre del archivo.
-for prueba in $(find tests -name '*.test.sh'); do bash "$prueba" || echo "FALLÓ: $prueba"; done
+# Pruebas de shell, desde la raíz. Una falla imprime FALLÓ con el nombre del archivo, y el comando termina con
+# código 1 si alguna falló.
+fallas=0; for prueba in $(find tests -name '*.test.sh' | sort); do bash "$prueba" || { echo "FALLÓ: $prueba"; fallas=$((fallas + 1)); }; done; echo "Fallaron: $fallas"; [ "$fallas" -eq 0 ]
 ```
 
 `tests/despliegue/arranque-local.test.sh` construye las imágenes de Docker y necesita Docker libre: si Docker no está
@@ -491,17 +492,17 @@ tarjeta E-01, y `tests/documentacion/readme-entrega.test.sh` revisa que siga igu
 | Productos | 11 h 22 min | 7 | 34 | P-01 a P-05 y el PR #76 del entregable |
 | Ventas | 10 h 52 min | 10 | 70 | V-01 a V-08 y el PR #96 del entregable |
 | F-01, corrección sin entregable | 1 h 27 min | 1 | 9 | Los issues #58, #59 y #60 del backend |
-| Entrega final | en curso | — | — | E-01, E-02 y E-03: todavía sin entrada |
-| Total | 69 h 08 min | 70 | 188 | |
+| Entrega final | 1 h 48 min | 3 | 6 | E-01 (46 min), E-02 (39 min) y E-03 (23 min) |
+| Total | 70 h 56 min | 73 | 194 | |
 
 - **Suma y reloj.** El tiempo de cada entregable es la suma de sus tareas. Varias tareas corrieron a la vez (por ejemplo,
-  V-05, V-06 y V-07 empezaron a las 11:26), así que la suma, 69 h 08 min, es mayor que el reloj: del primer commit
-  (2026-09-29 12:46) a la última hora anotada (2026-09-30 15:25) pasaron 26 h 39 min, con pausas.
-- **Estimación.** La estimación inicial, en horas por tarjeta, está en `requerimientos/04-entregables.md`. En las 25 filas
-  con tiempo real de la sección «Estimación contra tiempo real» de la bitácora, la estimación suma 33 h 30 min y el tiempo
-  real 56 h 25 min: 1,7 veces lo estimado.
-- **Entrega final.** Su fila está en curso: los tiempos de E-01, E-02 y E-03 se suman en la bitácora cuando se cierre la
-  entrega.
+  V-05, V-06 y V-07 empezaron a las 11:26), así que la suma, 70 h 56 min, es mayor que el reloj: del primer commit
+  (2026-09-29 12:46) a la última hora anotada (2026-09-30 16:15) pasaron 27 h 29 min, con pausas.
+- **Estimación.** La estimación inicial, en horas por tarjeta, está en `requerimientos/04-entregables.md`. En las 28 filas
+  con tiempo real de la sección «Estimación contra tiempo real» de la bitácora, la estimación suma 36 h 30 min y el tiempo
+  real 58 h 13 min: 1,6 veces lo estimado.
+- **Entrega final.** E-01, E-02 y E-03 suman 1 h 48 min: a las 15:50 la persona avisó que le quedaba una hora para
+  entregar, y el proceso de esas tres tarjetas se recortó (lo cuenta la entrada de E-03 en la bitácora).
 
 ## 9. Herramientas de IA
 
@@ -538,6 +539,78 @@ Claude Code escribió el código, las pruebas, las specs y la documentación del
 dirigió el trabajo: decidió el alcance y las reglas, y revisó lo que se detalla más abajo. Codex revisó los PR. Cada tarea
 quedó en la bitácora de IA, [`docs/bitacora-ia.md`](docs/bitacora-ia.md): qué se le pidió al agente, qué hizo, qué revisó
 o corrigió la persona, qué propuestas se cambiaron o descartaron, cuánto tardó y qué commits dejó.
+
+### El proceso de trabajo con agentes
+
+Cada tarjeta del tablero AIPOS siguió este camino. El orquestador es Claude Code (Opus 5.5): reparte el trabajo y
+decide qué sigue. Los agentes en segundo plano son Claude Code (Sonnet 5.5): implementan, verifican y cierran cada
+tarjeta. Codex es el agente revisor de cada PR. Los tiles de Tessl ponen las reglas y las skills que el agente sigue.
+
+```mermaid
+flowchart TD
+  T["1 · Tarjeta en el tablero AIPOS<br/>(Trello MCP): subtareas,<br/>criterios y estimación"]
+  O["2 · Orquestador (Claude Code)<br/>lee la tarjeta y consulta<br/>el grafo del proyecto (Graphify)"]
+  S["3 · Spec antes del código<br/>specs/*.spec.md con criterios<br/>y enlaces a sus pruebas"]
+  A{"¿La persona<br/>aprueba la spec?"}
+  R[["Tiles de Tessl: reglas y skills<br/>mysql-sequelize · vue2-vuetify2<br/>entrega-trazable · lenguaje-ubicuo<br/>spec-driven-development"]]
+  I["4 · Agente en segundo plano<br/>pruebas primero (en rojo)<br/>y después el código (en verde)"]
+  V["5 · Verificación del agente<br/>spec-verification, work-review<br/>y revisión adversarial"]
+  LA["6A · API en local<br/>curl contra MySQL real"]
+  LP["6B · Pantalla en local<br/>Chrome DevTools MCP<br/>o puppeteer"]
+  B["Issue de GitHub<br/>con su prueba y el commit<br/>que lo corrige"]
+  C["7 · Codex revisa el PR<br/>(hallazgos P0 a P3)"]
+  K["8 · Cierre: correcciones,<br/>bitácora de IA, Update en la<br/>tarjeta y merge commit a la<br/>rama del entregable"]
+  E["9 · PR del entregable<br/>a ProductionEnv y etiqueta<br/>entregable-x"]
+  D["10 · Etiqueta release-x.y.z<br/>GitHub Actions: revisar,<br/>probar y construir imágenes"]
+  P{"Aprobación del<br/>environment production"}
+  F["aipos.salsalvador.io<br/>aipos-back.salsalvador.io"]
+
+  T --> O --> S --> A
+  A -- no --> S
+  A -- sí --> I --> V
+  V --> LA
+  V --> LP
+  R -.->|guían| S
+  R -.->|guían| I
+  R -.->|guían| C
+  LA -->|bug relevante| B
+  LP -->|bug relevante| B
+  B --> C
+  LA --> C
+  LP --> C
+  C --> K --> E --> D --> P --> F
+  K -.->|Update HH:MM| T
+```
+
+### Buenas prácticas y lo que haríamos distinto
+
+Lo que sí seguimos:
+
+- **Spec antes del código.** Cada tarjeta de código tuvo una spec con criterios que se pueden comprobar y enlaces a sus
+  pruebas, antes de implementar (tile `spec-driven-development`).
+- **Reglas en el repositorio.** Los tiles de Tessl fijan las versiones (Vue 2.7, Vuetify 2, Sequelize 6, MySQL 8.4) y
+  los patrones (el procedimiento con su propia transacción, el dinero como texto y `DECIMAL(10,2)`), para que el agente
+  no use la última versión de npm ni invente nombres.
+- **Contexto antes de actuar.** El grafo del proyecto (Graphify) le dice al agente qué archivos tocar antes de abrirlos.
+- **Pruebas primero y revisión en capas.** Las pruebas van en rojo antes del código. Después vienen la verificación del
+  propio agente, la prueba en local de la API y de la pantalla, y una segunda IA, Codex, que revisa cada PR.
+- **Una persona en el circuito.** La persona aprueba las specs y el despliegue a producción: el environment
+  `production` de GitHub pide un revisor.
+- **Todo se puede seguir.** Hay una rama y un PR por tarjeta, merge commits, una etiqueta por entregable, un issue por
+  cada bug y la bitácora de IA con tiempos, decisiones y propuestas descartadas.
+- **Despliegue repetible.** Cada etiqueta `release-*` construye imágenes con su versión, revisa la salud después de
+  desplegar y vuelve a la versión anterior si algo falla.
+
+Lo que haríamos distinto:
+
+- **Ajustar el proceso al tamaño y al plazo.** Para una prueba de este tamaño, 25 tarjetas con spec, PR, Codex y bitácora
+  cada una fueron demasiado: el proceso costó más que el código (70 h 56 min de suma de tareas). Preguntaríamos el plazo
+  al empezar y juntaríamos las tarjetas chicas.
+- **Revisar antes de integrar.** La persona dio su OK general a la 01:40 y se fue a dormir, y el orquestador integró PR y
+  aprobó despliegues en su nombre. Por eso muchas entradas de la bitácora dicen «por confirmar». Lo correcto es que la
+  persona revise antes de integrar.
+- **Menos agentes a la vez.** Con muchos agentes en paralelo se perdieron horas por caídas y cortes. Funcionó mejor tener
+  pocos agentes en segundo plano, cada uno con un archivo de avance para retomar donde quedó.
 
 ### Qué se le delegó
 

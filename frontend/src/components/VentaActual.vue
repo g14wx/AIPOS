@@ -29,7 +29,14 @@
         </template>
 
         <template #item.precioAplicado="{ item }">
-          <span class="detalle__precio-aplicado">{{ item.precioAplicado }}</span>
+          <CampoPrecioAplicado
+            class="detalle__precio-aplicado"
+            :value="item.precioAplicado"
+            :error="errorDelPrecioAplicado(item)"
+            :nombre="item.nombre"
+            :disabled="enviando"
+            @input="alEditarPrecioAplicado(item.productoId, $event)"
+          />
         </template>
 
         <template #item.cantidad="{ item }">
@@ -70,10 +77,12 @@ import { formatearCentavos } from '../dinero.js';
 import {
   calcularSubtotal,
   calcularTotal,
+  cambiarPrecioAplicado,
   vaciarVentaActual,
   ventaActualEsValida,
 } from '../ventaActual/ventaActual.js';
 import AnimacionLottie from './AnimacionLottie.vue';
+import CampoPrecioAplicado from './CampoPrecioAplicado.vue';
 
 // Vuetify apila las filas de una tabla cuando el ancho de la ventana es menor que su punto de apilado. La tarjeta de la
 // venta actual puede ser angosta aunque la ventana no lo sea (desde 960 px hay dos columnas y la tarjeta mide unos
@@ -90,7 +99,7 @@ const APILADO_DE_VUETIFY = 600;
 // celda de su columna; V-08 reemplaza el botón «Registrar venta» provisional.
 export default {
   name: 'VentaActual',
-  components: { AnimacionLottie },
+  components: { AnimacionLottie, CampoPrecioAplicado },
   props: {
     ventaActual: { type: Object, default: vaciarVentaActual },
     // El productoId del detalle recién agregado: su fila se pinta con el acento unos segundos. Lo decide App.vue.
@@ -149,6 +158,14 @@ export default {
     },
     claseDeFila(detalle) {
       return detalle.productoId === this.resaltarId ? 'detalle-resaltado' : '';
+    },
+    // El mensaje del error de precio aplicado de un detalle, o '' si no tiene (un error de un campo del detalle).
+    errorDelPrecioAplicado(detalle) {
+      return this.ventaActual.errores[detalle.productoId]?.precioAplicado ?? '';
+    },
+    // El cajero escribió en el campo del precio aplicado: la venta actual nueva que devuelve el módulo sube a App.vue.
+    alEditarPrecioAplicado(productoId, texto) {
+      this.$emit('update:ventaActual', cambiarPrecioAplicado(this.ventaActual, productoId, texto));
     },
     // La fila recién agregada queda a la vista, sin animación de movimiento, si el navegador sabe hacerlo.
     mostrarFilaResaltada() {

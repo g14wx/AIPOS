@@ -4,6 +4,9 @@
 # Nunca bloquea un commit: si algo falla, avisa y deja pasar el commit con el grafo anterior.
 # El agente lo activa en el arranque (AGENTS.md) con: git config core.hooksPath .githooks
 
+# Con otra versión el grafo puede salir distinto, y dos personas se pisarían el grafo en cada commit.
+version_esperada="0.9.72"
+
 # Las apps de git, como WebStorm, a veces no ven ~/.local/bin, donde `uv tool install` pone graphify.
 graphify_bin=$(command -v graphify 2>/dev/null)
 if [ -z "$graphify_bin" ] && [ -x "$HOME/.local/bin/graphify" ]; then
@@ -12,6 +15,12 @@ fi
 
 if [ -z "$graphify_bin" ]; then
   echo "pre-commit: Graphify no está instalado; el grafo del proyecto no se actualizó. Guía: docs/setup/graphify-setup.md" >&2
+  exit 0
+fi
+
+version=$("$graphify_bin" --version 2>/dev/null | awk '{print $NF}')
+if [ "$version" != "$version_esperada" ]; then
+  echo "pre-commit: Graphify ${version:-sin versión} no es la versión del proyecto ($version_esperada); el grafo del proyecto no se actualizó. Instálala con: uv tool install \"graphifyy[sql]==$version_esperada\"" >&2
   exit 0
 fi
 

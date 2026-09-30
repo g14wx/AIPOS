@@ -8,7 +8,7 @@ El grafo del proyecto es el mapa que arma Graphify en `graphify-out/`: qué arch
 - Usa la respuesta para encontrar las specs y el código relacionados, y para elegir los `targets` de la spec.
 - Al implementar, lee primero los archivos que salen en la respuesta. Busca a mano solo si el grafo no tiene lo que necesitas.
 - Si falta `graphify-out/graph.json`, ármalo con `graphify update .`.
-- Si el comando `graphify` no está instalado, pregúntale a la persona si lo instalas. Si dice que sí, corre `uv tool install "graphifyy[sql]==0.9.72"`. Nunca lo instales sin preguntar. Mientras tanto, lee `graphify-out/GRAPH_REPORT.md`.
+- Si el comando `graphify` no está instalado, o `graphify --version` no responde `graphify 0.9.72`, pregúntale a la persona si lo instalas. Si dice que sí, corre `uv tool install "graphifyy[sql]==0.9.72"`. Nunca lo instales sin preguntar. Mientras tanto, lee `graphify-out/GRAPH_REPORT.md`.
 
 ## Al terminar una tarea
 

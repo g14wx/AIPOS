@@ -184,6 +184,54 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
+      "label": "Flujo 04 \u00b7 Registrar venta",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 04 \u00b7 registrar venta",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L19"
+    },
+    {
       "id": "requerimientos_flujos_05_entregar_un_entregable",
       "label": "05-entregar-un-entregable.md",
       "_origin": "ast",
@@ -409,7 +457,7 @@
       "node_kind": "heading",
       "norm_label": "comandos utiles",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L75"
+      "source_location": "L76"
     },
     {
       "id": "docs_setup_graphify_setup_flujo_de_una_tarea",
@@ -421,7 +469,7 @@
       "node_kind": "heading",
       "norm_label": "flujo de una tarea",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L63"
+      "source_location": "L64"
     },
     {
       "id": "docs_setup_graphify_setup_privacidad",
@@ -433,7 +481,7 @@
       "node_kind": "heading",
       "norm_label": "privacidad",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L117"
+      "source_location": "L119"
     },
     {
       "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
@@ -457,7 +505,7 @@
       "node_kind": "heading",
       "norm_label": "que no usamos, y por que",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L95"
+      "source_location": "L96"
     },
     {
       "id": "docs_setup_graphify_setup_qu\u00e9_va_a_git_y_qu\u00e9_no",
@@ -469,7 +517,7 @@
       "node_kind": "heading",
       "norm_label": "que va a git y que no",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L86"
+      "source_location": "L87"
     },
     {
       "id": "docs_setup_graphify_setup_requisitos",
@@ -505,7 +553,7 @@
       "node_kind": "heading",
       "norm_label": "solucion de problemas",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L105"
+      "source_location": "L106"
     },
     {
       "id": "docs_setup_tessl_setup",
@@ -2044,52 +2092,49 @@
       "source_location": "L17"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
-      "label": "Flujo 04 \u00b7 Registrar venta",
+      "id": "tests_grafo_del_proyecto_misma_version_test",
+      "label": "misma-version.test.sh",
       "_origin": "ast",
       "community": 26,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 04 \u00b7 registrar venta",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "community_name": "misma-version.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "misma-version.test.sh",
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
+      "id": "tests_grafo_del_proyecto_misma_version_test_revisar",
+      "label": "revisar()",
       "_origin": "ast",
       "community": 26,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47"
+      "community_name": "misma-version.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar()",
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
+      "source_location": "L13"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
-      "label": "Otros caminos",
+      "id": "tests_grafo_del_proyecto_misma_version_test_sh__entry",
+      "label": "misma-version.test.sh script",
       "_origin": "ast",
       "community": 26,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19"
+      "community_name": "misma-version.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "misma-version.test.sh script",
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
+      "source_location": "L1"
     },
     {
       "id": "tests_grafo_del_proyecto_ignora_lo_local_test",
@@ -2917,6 +2962,36 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_hook_de_git_otra_version_test",
+      "label": "otra-version.test.sh",
+      "_origin": "ast",
+      "community": 43,
+      "community_name": "otra-version.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "otra-version.test.sh",
+      "source_file": "tests/hook-de-git/otra-version.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_git_otra_version_test_sh__entry",
+      "label": "otra-version.test.sh script",
+      "_origin": "ast",
+      "community": 43,
+      "community_name": "otra-version.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "otra-version.test.sh script",
+      "source_file": "tests/hook-de-git/otra-version.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "requerimientos_03_requerimientos_no_funcionales_requerimientos_no_funcionales",
       "label": "Requerimientos no funcionales",
       "_origin": "ast",
@@ -3571,6 +3646,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_grafo_del_proyecto_misma_version_test_sh__entry",
+      "target": "tests_grafo_del_proyecto_misma_version_test_revisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "agents",
       "target": "agents_aipos",
       "relation": "contains",
@@ -3820,7 +3907,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -3831,7 +3918,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L117",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -3842,7 +3929,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L86",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -3853,7 +3940,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L95",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -3919,7 +4006,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -3930,7 +4017,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -5991,6 +6078,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_grafo_del_proyecto_misma_version_test",
+      "target": "tests_grafo_del_proyecto_misma_version_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_grafo_del_proyecto_sin_rutas_ni_evals_test",
       "target": "tests_grafo_del_proyecto_sin_rutas_ni_evals_test_sh__entry",
       "relation": "contains",
@@ -6079,6 +6177,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_hook_de_git_otra_version_test",
+      "target": "tests_hook_de_git_otra_version_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/hook-de-git/otra-version.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_hook_de_git_sin_graphify_test",
       "target": "tests_hook_de_git_sin_graphify_test_sh__entry",
       "relation": "contains",
@@ -6120,6 +6229,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/grafo-del-proyecto/ignora-lo-local.test.sh",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_grafo_del_proyecto_misma_version_test",
+      "target": "tests_grafo_del_proyecto_misma_version_test_revisar",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -6207,7 +6327,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -6630,5 +6750,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a198a401f7cb70bba7a99926972c5054575b12ae"
+  "built_at_commit": "b9595966e7e0c05d7480285ddcc89178caa9e813"
 }

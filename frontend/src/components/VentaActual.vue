@@ -309,20 +309,28 @@ export default {
 }
 
 /* Filas apiladas (el modo móvil de Vuetify, ver puntoDeApilado): arriba el nombre y las acciones, y debajo el precio
-   aplicado, la cantidad y el subtotal, cada uno con su etiqueta encima. Los valores no se alinean a la derecha: cada uno
-   va bajo su etiqueta. V-05 a V-07 ponen sus campos en estas mismas celdas. */
+   aplicado, la cantidad y el subtotal, cada uno con su etiqueta encima. Las celdas de abajo pasan a otra línea cuando
+   no caben (por ejemplo, con las cifras más grandes en una pantalla de 320 px) en vez de montarse unas sobre otras.
+   V-05 a V-07 ponen sus campos en estas mismas celdas. */
 .detalles ::v-deep .v-data-table__mobile-table-row {
-  display: grid;
-  grid-template-columns: auto auto minmax(0, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   column-gap: 1rem;
-  row-gap: 0.25rem;
-  align-items: end;
+  align-items: flex-end;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--filete);
 }
 
 .detalles ::v-deep .v-data-table__mobile-table-row:last-child {
   border-bottom: 0;
+}
+
+/* Un corte de línea entre el nombre con las acciones y los tres valores de abajo. */
+.detalles ::v-deep .v-data-table__mobile-table-row::before {
+  order: 3;
+  flex-basis: 100%;
+  height: 0;
+  content: '';
 }
 
 .detalles ::v-deep .v-data-table__mobile-row {
@@ -344,33 +352,34 @@ export default {
   text-align: left !important;
 }
 
+/* El orden de las celdas: el nombre, las acciones, el corte de línea, y el precio aplicado, la cantidad y el subtotal. */
 .detalles ::v-deep .v-data-table__mobile-row:nth-child(1) {
-  grid-column: 1 / 3;
-  grid-row: 1;
+  order: 1;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.detalles ::v-deep .v-data-table__mobile-row:nth-child(5) {
+  order: 2;
+  align-items: flex-end;
+  align-self: flex-start;
 }
 
 .detalles ::v-deep .v-data-table__mobile-row:nth-child(2) {
-  grid-column: 1;
-  grid-row: 2;
+  order: 4;
+  margin-top: 0.25rem;
 }
 
 .detalles ::v-deep .v-data-table__mobile-row:nth-child(3) {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.detalles ::v-deep .v-data-table__mobile-row:nth-child(4),
-.detalles ::v-deep .v-data-table__mobile-row:nth-child(5) {
-  align-items: flex-end;
-  grid-column: 3;
+  order: 5;
+  margin-top: 0.25rem;
 }
 
 .detalles ::v-deep .v-data-table__mobile-row:nth-child(4) {
-  grid-row: 2;
-}
-
-.detalles ::v-deep .v-data-table__mobile-row:nth-child(5) {
-  grid-row: 1;
+  order: 6;
+  align-items: flex-end;
+  margin-top: 0.25rem;
+  margin-left: auto;
 }
 
 /* El nombre y las acciones no llevan etiqueta: el nombre se explica solo y cada acción tiene su aria-label. */

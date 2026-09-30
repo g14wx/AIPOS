@@ -21,7 +21,6 @@ export const MENSAJES = Object.freeze({
 });
 
 const MENSAJE_INESPERADO = 'Ocurrió un error inesperado. Intenta de nuevo.';
-const PRECIO_MAXIMO_EN_CENTAVOS = 9999999; // 99999.99
 
 const recortar = (valor) => (typeof valor === 'string' ? valor.trim() : '');
 // Los largos se cuentan en caracteres, como los cuenta MySQL, y no en unidades de UTF-16: un emoji cuenta 1.
@@ -55,13 +54,15 @@ export const reglasPrecio = [
     const partes = partesDelPrecio(valor);
     return !partes || partes.decimales.length <= 2 || MENSAJES.precioConDemasiadosDecimales;
   },
-  // El máximo se compara en centavos, sin decimales de JavaScript. aCentavos solo acepta hasta 5 enteros y 2 decimales.
+  // El máximo se revisa con la forma del texto, igual que en la API: más de 5 dígitos enteros pasa de 99999.99. Así no se
+  // comparan ni se suman decimales de JavaScript.
   (valor) => {
     const partes = partesDelPrecio(valor);
     if (!partes || partes.decimales.length > 2) return true;
-    if (partes.enteros.length > 5) return MENSAJES.precioMayorQueElMaximo;
-    return aCentavos(valor) <= PRECIO_MAXIMO_EN_CENTAVOS || MENSAJES.precioMayorQueElMaximo;
+    return partes.enteros.length <= 5 || MENSAJES.precioMayorQueElMaximo;
   },
+  // aCentavos solo se llama con un texto que ya tiene la forma del dinero (hasta 5 enteros y 2 decimales): con otro
+  // lanza un Error.
   (valor) => {
     const partes = partesDelPrecio(valor);
     if (!partes || partes.decimales.length > 2 || partes.enteros.length > 5) return true;

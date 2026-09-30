@@ -520,14 +520,14 @@ frontend/
 
 ### Servicio de API
 
-- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` (sin barras al final de
-  `VITE_API_URL`) y un tiempo máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error` con `status`, `codigo`,
-  `mensaje` y `detalles`, leídos del formato de error de la API; `detalles` es un arreglo vacío si la API no manda
-  ninguno. Si no hubo respuesta (sin red, servidor apagado o pasaron los 10 segundos), `status` vale 0, `codigo`
-  `SIN_CONEXION` y `mensaje` "No se pudo conectar con el servidor. Intenta de nuevo." Si hubo respuesta pero no trae el
-  formato de error (por ejemplo, el HTML de un 502), el `status` es el de la respuesta (un 502 queda 502), `codigo` es
-  `ERROR_INTERNO` y `mensaje` "Ocurrió un error
-  inesperado. Intenta de nuevo." El mensaje nunca muestra la dirección del servidor ni el texto de axios.
+- `src/api/http.js` crea la instancia de axios con `baseURL` `${import.meta.env.VITE_API_URL}/api` (sin barras al final
+  de `VITE_API_URL`) y un tiempo máximo de 10 segundos. Un interceptor de respuesta convierte todo error en un `Error`
+  con `status`, `codigo`, `mensaje` y `detalles`, leídos del formato de error de la API; `detalles` es un arreglo vacío
+  si la API no manda ninguno. Si no hubo respuesta (sin red, servidor apagado o pasaron los 10 segundos), `status` vale
+  0, `codigo` `SIN_CONEXION` y `mensaje` "No se pudo conectar con el servidor. Intenta de nuevo." Si hubo respuesta pero
+  no trae el formato de error (por ejemplo, el HTML de un 502), el `status` es el de la respuesta (un 502 queda 502),
+  `codigo` es `ERROR_INTERNO` y `mensaje` "Ocurrió un error inesperado. Intenta de nuevo." El mensaje nunca muestra la
+  dirección del servidor ni el texto de axios.
 - `src/api/productos.js` y `src/api/ventas.js` exportan una función por operación, con nombres del glosario:
   `crearProducto`, `buscarProductos`, `registrarVenta`. Los componentes llaman solo a esas funciones. Ningún
   componente importa `axios` ni escribe una URL.
@@ -627,10 +627,10 @@ Contraste (relación entre el color del texto y el del fondo). AA pide 4.5 o má
 - Animaciones: Lottie con `lottie-web` 5.13.0, en `AnimacionLottie.vue`, un componente de Vue 2 con Options API. Usa la
   versión ligera, `lottie-web/build/player/lottie_light`, que solo dibuja con SVG y no evalúa expresiones. Tiene un
   solo elemento raíz, que es el contenedor de la animación, y estas propiedades: `animacion` (el JSON de la animación),
-  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles, 120 por defecto; el ancho lo da el contenedor) y `cuadroFijo` (`'ultimo'` por defecto, o
-  `'primero'`: el cuadro que se muestra con menos movimiento). Crea la animación en `mounted`, la destruye en
-  `beforeDestroy` y, si cambia `animacion`, destruye la anterior y crea la nueva. Es decorativa (`aria-hidden="true"`):
-  el texto de al lado dice lo mismo.
+  `loop` (si se repite; `true` por defecto), `alto` (el alto en píxeles, 120 por defecto; el ancho lo da el contenedor)
+  y `cuadroFijo` (`'ultimo'` por defecto, o `'primero'`: el cuadro que se muestra con menos movimiento). Crea la
+  animación en `mounted`, la destruye en `beforeDestroy` y, si cambia `animacion`, destruye la anterior y crea la
+  nueva. Es decorativa (`aria-hidden="true"`): el texto de al lado dice lo mismo.
 - Si el sistema pide menos movimiento (`prefers-reduced-motion: reduce`), no se anima: no reproduce ni se repite, y se
   muestra un solo cuadro fijo, el último de la animación o, con `cuadroFijo="primero"`, el primero.
 - Los archivos JSON van en `frontend/src/assets/animaciones/`, en los colores de la paleta, y pesan menos de 50 KB

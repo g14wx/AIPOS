@@ -1,6 +1,6 @@
 // Spec crear-producto, "P-03 > Los componentes": crearProducto({ nombre, precio, codigoBarras }) manda POST /productos
 // con esos tres campos y devuelve el producto. Los errores llegan como los deja el interceptor de http.js
-// (status, codigo, mensaje y detalles). Sin red: se sustituye el adaptador de axios, como en http.test.js.
+// (status, codigo, mensaje y detalles del error). Sin red: se sustituye el adaptador de axios, como en http.test.js.
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { AxiosError } from 'axios';
 
@@ -77,7 +77,7 @@ describe('crearProducto', () => {
     await expect(crearProducto(producto)).resolves.toEqual({ id: 7, ...producto });
   });
 
-  it('un 409 llega como Error con status, codigo, mensaje y detalles', async () => {
+  it('un 409 llega como Error con status, codigo, mensaje y detalles del error', async () => {
     const { http, crearProducto } = await cargar();
     const detalles = [
       { campo: 'codigoBarras', mensaje: 'Ya existe un producto con ese código de barras.' },
@@ -95,7 +95,7 @@ describe('crearProducto', () => {
     expect(error.detalles).toEqual(detalles);
   });
 
-  it('un 400 llega con los detalles de cada campo', async () => {
+  it('un 400 llega con los detalles del error de cada campo', async () => {
     const { http, crearProducto } = await cargar();
     const detalles = [{ campo: 'precio', mensaje: 'No puede tener más de 2 decimales.' }];
     responderCon(http, {

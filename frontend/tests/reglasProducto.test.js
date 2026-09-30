@@ -255,7 +255,7 @@ describe('leerErrorDeLaApi (lo que el cajero ve según lo que contesta la API)',
     Object.assign(new Error(mensaje), { status, codigo, mensaje, detalles });
   const inesperado = 'Ocurrió un error inesperado. Intenta de nuevo.';
 
-  it('un 400 pone el mensaje de cada elemento de detalles junto a su campo', () => {
+  it('un 400 pone el mensaje de cada elemento de los detalles del error junto a su campo', () => {
     const error = errorDeLaApi({
       status: 400,
       codigo: 'DATOS_INVALIDOS',
@@ -330,7 +330,7 @@ describe('leerErrorDeLaApi (lo que el cajero ve según lo que contesta la API)',
     });
   });
 
-  it('el 409 no depende de que la API mande detalles', () => {
+  it('el 409 no depende de que la API mande los detalles del error', () => {
     const error = errorDeLaApi({ status: 409, codigo: 'CODIGO_BARRAS_DUPLICADO', mensaje: 'x' });
     expect(leerErrorDeLaApi(error).campos).toEqual({ codigoBarras: TEXTO.codigoRepetido });
   });

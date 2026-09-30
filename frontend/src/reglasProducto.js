@@ -98,7 +98,7 @@ export function limpiarProducto({ nombre, precio, codigoBarras }) {
   return { nombre: recortar(nombre), precio, codigoBarras: recortar(codigoBarras) };
 }
 
-// Anti-Corruption Layer: convierte el error de la API (status, codigo, mensaje y detalles, como los deja http.js) en lo
+// Anti-Corruption Layer: convierte el error de la API (status, codigo, mensaje y los detalles del error, como los deja http.js) en lo
 // que muestra el formulario: el mensaje de cada campo y, si no es de un campo, el de la franja de error del modal.
 export function leerErrorDeLaApi(error) {
   if (!(error instanceof Error) || typeof error.status !== 'number') {

@@ -1,129 +1,95 @@
 # AIPOS
 
-## Base de datos: MySQL y migraciones
+AIPOS es una aplicación web de una sola pantalla para un punto de venta básico. El cajero crea y busca productos, arma
+la venta actual y la registra en MySQL con un procedimiento almacenado (una función guardada dentro de MySQL que la
+app llama por su nombre). Es la solución de una prueba técnica y se construyó con agentes de código.
 
-AIPOS guarda sus datos en MySQL 8.4, que corre con Docker Compose. Las tablas y los procedimientos almacenados
-se crean solo con migraciones de Sequelize: Docker no crea nada, solo levanta MySQL. Necesitas Docker con Compose
-v2 y Node 24 (el archivo `.nvmrc`).
-
-### Desde un clon limpio
-
-```bash
-# 1. Copia las variables de entorno y cambia las claves que empiezan con "cambiar-". El .env no va a git.
-cp .env.example .env
-
-# 2. Levanta MySQL. --wait espera a que responda: sin él, el primer arranque tarda unos segundos
-#    y la migración puede fallar por llegar antes que MySQL.
-docker compose up -d --wait mysql
-
-# 3. Instala el backend y aplica las migraciones.
-cd backend
-npm ci
-npm run migrar
-
-# 4. Arranca la API y, en otra terminal, comprueba que llega a MySQL.
-npm start
-curl http://localhost:3000/api/salud   # {"estado":"ok","baseDeDatos":"ok"}
-```
-
-`GET /api/salud` dice si la API está viva y si MySQL responde. Si MySQL no responde, contesta 500 con el formato
-de error de la API.
-
-### Comandos del backend
-
-Se corren dentro de `backend/`.
-
-| Comando | Qué hace |
+| Qué | Dónde |
 |---|---|
-| `npm run migrar` | Aplica las migraciones que faltan. Si no falta ninguna, no cambia nada. |
-| `npm run deshacer` | Deshace la última migración. |
-| `npm run rehacer` | Deshace todas las migraciones y las aplica otra vez. Borra los datos de las tablas. |
-| `npm run migrar:prueba`, `deshacer:prueba`, `rehacer:prueba` | Lo mismo, pero en la base de prueba. |
-| `npm run preparar-prueba` | Crea la base de prueba y le da permisos al usuario de la app. Se puede correr más de una vez. |
+| Pantalla | <https://aipos.salsalvador.io> |
+| API (el backend) | <https://aipos-back.salsalvador.io> |
+| Documentación de la API (Swagger UI) | <https://aipos-back.salsalvador.io/api/docs> |
+| Versión desplegada | la etiqueta `release-1.0.0` |
+| Código | <https://github.com/g14wx/AIPOS>, rama `ProductionEnv` |
 
-- Nunca se edita una migración que ya se aplicó: se crea otra.
-- Cada migración lleva `up` y `down`, para poder deshacerla.
+Este README tiene los 12 puntos que pide la prueba. Cada dato se puede comprobar en el repositorio, y la prueba
+`tests/documentacion/readme-entrega.test.sh` revisa que estén los 12 puntos, que las versiones sean las instaladas y que
+los archivos y los comandos que se nombran existan.
 
-### Base de prueba
+1. [Funcionalidades](#1-funcionalidades)
+2. [Tecnologías y versiones](#2-tecnologías-y-versiones)
+3. [Estructura](#3-estructura)
+4. [Cumplimiento de requisitos](#4-cumplimiento-de-requisitos)
+5. [Instalación y ejecución](#5-instalación-y-ejecución)
+6. [Base de datos MySQL](#6-base-de-datos-mysql)
+7. [Procedimiento almacenado](#7-procedimiento-almacenado)
+8. [Tiempo](#8-tiempo)
+9. [Herramientas de IA](#9-herramientas-de-ia)
+10. [Cómo se usó el agente](#10-cómo-se-usó-el-agente)
+11. [Decisiones técnicas](#11-decisiones-técnicas)
+12. [Consideraciones](#12-consideraciones)
 
-Las pruebas automáticas usan una base aparte, `aipos_prueba`, y nunca tocan la de desarrollo (`aipos`). La primera
-vez, con MySQL levantado, se crea con `npm run preparar-prueba`. Después, `npm test` la migra solo antes de correr
-las pruebas. `preparar-prueba` es lo único que entra a MySQL como `root`, con `MYSQL_ROOT_PASSWORD`: la API nunca
-lo hace.
+## 1. Funcionalidades
 
-### Puertos, varias copias y empezar de cero
+Todo pasa en una sola pantalla: el botón «Nuevo producto», el campo de búsqueda con sus resultados, la venta actual con
+su total y el botón «Registrar venta».
 
-- MySQL se abre en tu máquina en el puerto `MYSQL_PORT` (3306 si no lo cambias) y solo en `127.0.0.1`. Si ya tienes
-  otro MySQL, o otra copia de AIPOS, cambia `MYSQL_PORT` y `COMPOSE_PROJECT_NAME` en el `.env`: así los contenedores
-  y los volúmenes de las dos copias no chocan.
-- `docker compose stop mysql` apaga MySQL y los datos se quedan.
-- `docker compose down` borra el contenedor, pero los datos se quedan en el volumen.
-- `docker compose down -v` borra también los datos de esa copia. Después de eso, los pasos de arriba dejan la base
-  como en un clon limpio.
+- **Crear producto.** El botón «Nuevo producto» abre un formulario con nombre, precio y código de barras. La pantalla, la
+  API y MySQL validan los datos: el precio es mayor que 0 y llega hasta 99 999.99, con 2 decimales como máximo. Un código
+  de barras repetido da un error 409, y la pantalla lo dice junto al campo sin borrar lo que el cajero escribió.
+- **Buscar producto.** Por una parte del nombre, sin importar mayúsculas, o por el código de barras exacto. Busca desde 2
+  caracteres y muestra 20 resultados como máximo. Si el cajero escribe rápido, solo se ven los resultados de lo último
+  que escribió.
+- **Agregar a la venta actual.** Elegir un resultado lo agrega con cantidad 1 y con un precio aplicado igual al precio del
+  producto. Si ya estaba, su cantidad sube en 1. Si el cajero escribe un código de barras completo y presiona Enter, el
+  producto entra directo, sin elegirlo en la lista.
+- **Ver la venta actual.** Cada detalle de la venta actual muestra su nombre, su precio aplicado, su cantidad y su
+  subtotal, y abajo está el total, con 2 decimales. La venta actual se guarda en el navegador: si se recarga la página,
+  sigue ahí.
+- **Editar el precio aplicado, cambiar la cantidad y eliminar detalle.** Editar el precio aplicado no cambia el precio del
+  producto. La cantidad es un entero de 1 a 999, y una venta tiene como máximo 100 detalles. Un valor que no sirve queda
+  como error de un campo del detalle, y «Registrar venta» se deshabilita hasta corregirlo.
+- **Registrar venta.** El botón manda la venta actual a la API, que llama al procedimiento almacenado
+  `sp_registrar_venta` (punto 7). Guarda la venta con todos sus detalles de una sola vez, o no guarda nada. La pantalla
+  muestra «Venta N registrada · Total X», con el total que calculó MySQL, y deja vacía la venta actual.
 
-## Setup de agents
+### La API
 
-Todo el desarrollo de esta prueba se hizo con [Claude Code](https://claude.com/claude-code)
-como único agente, conectado a Trello mediante un servidor MCP para gestionar
-el board del proyecto.
+| Ruta | Qué hace | Errores |
+|---|---|---|
+| `GET /api/salud` | Dice si la API está viva y si MySQL responde. | 500 si MySQL no responde |
+| `GET /api/productos?busqueda=` | Buscar producto. | 400 |
+| `POST /api/productos` | Crear producto. | 400, 409 |
+| `POST /api/ventas` | Registrar venta. | 400, 422 |
+| `GET /api/docs` | La documentación de la API, con Swagger UI. | — |
 
-El flujo también se puede repartir entre dos agentes: Codex en el rol de PM o PO
-(define y prioriza las cards en Trello) y Claude Code como worker (implementa
-cada card). Para efectos prácticos, y para avanzar más rápido, aquí se usó
-Claude Code en ambos roles.
+Las respuestas de error de la API tienen la misma forma, `{ "error": { "codigo", "mensaje", "detalles" } }`, y usan uno de
+cinco estados: 400 (datos inválidos), 404 (la ruta no existe), 409 (el código de barras ya existe), 422 (el procedimiento
+almacenado rechazó la venta por una regla de negocio) y 500 (error inesperado, sin detalles internos para el cliente). La
+excepción conocida está en el punto 12. El documento `backend/docs/openapi.yaml` describe cada ruta.
 
-La guía de configuración está en [docs/setup/agents-setup.md](docs/setup/agents-setup.md) e incluye:
+## 2. Tecnologías y versiones
 
-- Crear el board `AIPOS` en Trello
-- Obtener el API key y el token de Trello
-- Configurar el MCP de Trello en Claude Code a partir de `.mcp.json.example`
-- Configurar el mismo MCP en Codex CLI a partir de `.codex/config.toml.example` (opcional)
-- Verificación y solución de problemas
+Las versiones van fijas, sin `^` ni `~`, y son las que instala `npm ci` según cada `package-lock.json`. La prueba del
+README las compara con esos archivos.
 
-## Tiles de Tessl
+| Parte | Tecnología | Versión | Dónde se fija |
+|---|---|---|---|
+| Los dos | Node.js | 24 | `.nvmrc` (los dos `package.json` piden 24 o más) |
+| Frontend | Vue | 2.7.16 | `frontend/package-lock.json` |
+| Frontend | Vuetify | 2.7.2 | `frontend/package-lock.json`, con su CSS ya compilado |
+| Frontend | Axios | 1.20.0 | `frontend/package-lock.json` |
+| Frontend | Vite | 7.3.6 | `frontend/package-lock.json`, con `@vitejs/plugin-vue2` 2.3.4 |
+| Frontend | lottie-web | 5.13.0 | `frontend/package-lock.json`, para las animaciones |
+| Backend | Express | 5.2.1 | `backend/package-lock.json` |
+| Backend | Sequelize | 6.37.8 | `backend/package-lock.json`, con `sequelize-cli` 6.6.5 |
+| Backend | mysql2 | 3.24.5 | `backend/package-lock.json` |
+| Backend | swagger-ui-express | 5.0.1 | `backend/package-lock.json`, para la documentación de la API |
+| Base de datos | MySQL | 8.4 | `docker-compose.yml`, imagen `mysql:8.4` |
+| Pruebas | Vitest | 5.0.2 | los dos `package-lock.json`, con `supertest` 7.3.0 en el backend y `@vue/test-utils` 1.3.6 en el frontend |
+| Calidad | ESLint | 10.11.0 | los dos `package-lock.json`, con Prettier 3.9.9 |
 
-Las reglas y skills del agente se reparten con [Tessl](https://tessl.io) en forma de tiles,
-que están en `tessl-plugins/`. La guía está en [docs/setup/tessl-setup.md](docs/setup/tessl-setup.md) e incluye:
-
-- Instalar Tessl y los tiles del proyecto
-- Conectar el MCP de Tessl en Claude Code y Codex (opcional)
-- Cambiar un tile, validarlo y reinstalarlo
-- Medir un tile con evals y publicarlo en el registro de Tessl
-- Solución de problemas
-
-## Grafo del proyecto
-
-El grafo del proyecto es un mapa de los archivos, funciones, documentos y specs de AIPOS, armado con
-[Graphify](https://github.com/Graphify-Labs/graphify). El agente lo consulta antes de empezar cada tarea, y un
-hook de git lo actualiza en cada commit. La guía está en [docs/setup/graphify-setup.md](docs/setup/graphify-setup.md)
-e incluye:
-
-- Instalar Graphify y activar el hook de git
-- El flujo de una tarea con el grafo y las specs
-- Qué va a git y qué no
-- Solución de problemas
-
-## Despliegue
-
-AIPOS se despliega en producción con Docker: la pantalla en `https://aipos.salsalvador.io` y el backend en
-`https://aipos-back.salsalvador.io`. Es un agregado: el PDF no pide desplegar. Desplegar es poner en producción una
-versión que ya pasó las pruebas, y lo hace un pipeline de GitHub Actions cuando la persona desarrolladora sube una
-etiqueta `release-*`.
-
-- **Cómo desplegar:** pon una etiqueta `release-MAYOR.MENOR.PARCHE` (por ejemplo `release-0.1.0`) en un commit de
-  `ProductionEnv` y súbela: `git tag release-0.1.0 origin/ProductionEnv && git push origin release-0.1.0`. El pipeline
-  revisa la etiqueta, prueba el backend y la pantalla, construye las imágenes y espera tu aprobación en GitHub
-  (**Review deployments**). Después despliega por SSH y revisa desde internet.
-- **Cómo volver atrás:** si algo falla al desplegar, el servidor vuelve solo a la versión anterior. Para volver a mano,
-  corre otra vez el workflow de una etiqueta anterior (**Re-run all jobs**) o corre `desplegar.sh volver` en el servidor.
-  Las migraciones no se deshacen: una migración de un release solo agrega.
-- **Nunca** se borran los datos de producción: el volumen de MySQL se conserva entre despliegues.
-
-La guía está en [docs/despliegue.md](docs/despliegue.md) y el flujo dibujado en
-[requerimientos/flujos/07-desplegar-una-version.md](requerimientos/flujos/07-desplegar-una-version.md). Incluye:
-
-- Cómo desplegar y cómo volver a la versión anterior
-- Cómo queda armado el servidor
-- La configuración del servidor, que se hace una sola vez
-- El environment `production` y la regla de etiquetas de GitHub
-- Errores frecuentes y lo que nunca se hace
+- Las imágenes de Docker del backend y de la pantalla se construyen con `node:24-alpine`, y la pantalla se sirve con
+  nginx. MySQL corre con Docker Compose.
+- Vue 2 y Vuetify 2 ya no tienen soporte, pero la prueba los exige. Por eso las versiones están fijas: al escribir los
+  requerimientos (2026-09-30), `npm i vuetify` instalaba la 4.2.2 y `npm i vite` la 8.3.1, y ninguna funciona con Vue 2.

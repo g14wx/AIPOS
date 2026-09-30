@@ -448,3 +448,23 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas descartadas:** por confirmar.
 - **Tiempo:** unos 20 minutos para escribir la spec (01:59–02:19). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
 - **Commits:** este commit y los 2 anteriores de la rama (`0381de0` la spec y `7ed27ec` el ajuste del precio en la pantalla).
+
+### 2026-09-30 03:53 — P-04: spec de buscar producto (P-04 y P-05)
+
+- **Tarea:** escribir `specs/buscar-producto.spec.md`, la spec del flujo 02 (`GET /api/productos?busqueda=` y el campo de búsqueda con sus resultados), con RF-12 como opcional, apoyada en la spec de arquitectura. Rama `docs/p-04-spec-buscar-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-04 y P-05 con sus checklists, el flujo 02, RF-02, RF-12, RNF-04 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `ee8dcdf`); pasó la revisión de Codex y corrigió los hallazgos (commit `8503976`). El orquestador puso la rama al día con `ProductionEnv` y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Se busca desde 2 caracteres y como máximo 20 resultados. El texto se recorta y tiene de 2 a 120 caracteres.
+  - Un código de barras exacto va siempre primero en la lista; después se ordena por nombre y por `id`.
+  - Sin coincidencias, la API responde 200 con la lista vacía. Un `busqueda` repetido, ausente o de menos de 2 caracteres es un 400 `DATOS_INVALIDOS`.
+  - `%`, `_` y `\` se escapan antes de `Op.like`. La prueba del escape de la barra invertida usa `a\` (2 caracteres).
+  - La pantalla espera 300 ms al escribir, ignora las respuestas viejas con un contador (sin `AbortController`) y muestra 6 estados: inicial, pocos caracteres, buscando, con resultados, sin resultados y error con "Reintentar". Con 20 resultados avisa que solo muestra los primeros 20.
+  - RF-12 queda opcional, con su propio archivo de pruebas. Sin código exacto, Enter muestra "No hay un producto con ese código de barras".
+  - La documentación de la ruta apunta a `backend/docs/openapi.yaml` como ruta propuesta; si la spec de A-01 fija otra, manda esa.
+- **Patrones consultados:** Input Validation, Layered Architecture con Service Layer, Debounce, SwitchMap (el más cercano) y Facade; Query Object descartado.
+- **Revisión de Codex:** 3 hallazgos P2 y 1 P3. Corregidos: la prueba de la barra invertida usaba un solo carácter, que la validación rechaza con 400; RF-12 no mostraba el error cuando el texto coincidía con nombres pero no con un código exacto; el texto decía que RF-12 esperaba una confirmación ya resuelta. El cuarto, la falta de esta entrada de la bitácora, se resolvió con este commit.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los de la rama (`ee8dcdf` la spec y `8503976` la corrección de Codex).

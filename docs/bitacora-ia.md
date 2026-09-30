@@ -5,7 +5,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 ## Resumen
 
-El tiempo de cada entregable es la suma de sus filas de la tabla por tarea. Varias tareas corrieron a la vez (por ejemplo, V-05, V-06 y V-07 empezaron a las 11:26), así que la suma es mayor que el reloj: del primer commit (2026-09-29 12:46) a la última hora anotada (2026-09-30 15:25) pasaron 26 h 39 min, con pausas.
+El tiempo de cada entregable es la suma de sus filas de la tabla por tarea. Varias tareas corrieron a la vez (por ejemplo, V-05, V-06 y V-07 empezaron a las 11:26), así que la suma es mayor que el reloj: del primer commit (2026-09-29 12:46) a la última hora anotada (2026-09-30 16:15) pasaron 27 h 29 min, con pausas.
 
 ### Por entregable
 
@@ -18,8 +18,8 @@ El tiempo de cada entregable es la suma de sus filas de la tabla por tarea. Vari
 | Productos | 11 h 22 min | 7 | 34 | P-01 a P-05 y el PR #76 del entregable |
 | Ventas | 10 h 52 min | 10 | 70 | V-01 a V-08 y el PR #96 del entregable |
 | F-01, corrección sin entregable | 1 h 27 min | 1 | 9 | Los issues #58, #59 y #60 del backend |
-| Entrega final | en curso | — | — | E-01, E-02 y E-03: todavía sin entrada |
-| Total | 69 h 08 min | 70 | 188 | |
+| Entrega final | 1 h 48 min | 3 | 6 | E-01 (46 min), E-02 (39 min) y E-03 (23 min) |
+| Total | 70 h 56 min | 73 | 194 | |
 
 Correcciones del 2026-09-30 (tarjeta E-01): la fila de S-01 decía 2 h 20 min y sus cuatro rangos de horas suman 2 h 58 min. La de Preparación decía 31 tareas y son 32 (hay 34 entradas hasta el cierre del PR #19, y 2 son de requerimientos), y ya no está en curso: su última entrada termina a las 00:38 del 30. B-01 y las 6 specs de flujo tenían entrada y no fila, y se agregaron. La fila de F-01 suma su cierre, de 15:08 a 15:25. La de la spec de registrar venta dice 36 min, que son sus horas (01:59–02:35); su entrada dice «unos 35». La prueba `tests/documentacion/bitacora-sumas.test.sh` revisa todas estas sumas.
 
@@ -60,6 +60,9 @@ Correcciones del 2026-09-30 (tarjeta E-01): la fila de S-01 decía 2 h 20 min y 
 | V-08: botón «Registrar venta» y resultado (tarjeta del entregable ventas) | 1 h 29 min (12:18–13:47 del 30) | 1 | 11 |
 | Entregable ventas: unir con ProductionEnv, probar en local, revisar con Codex e integrar (PR #96) | 59 min (13:53–14:52 del 30), hasta dejar el PR listo para integrar | 2 | 8 |
 | F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 27 min (13:55–15:05 y 15:08–15:25 del 30) | 1 | 9 |
+| E-01: cerrar la bitácora y los tiempos (tarjeta de la entrega final) | 46 min (15:06–15:52 del 30) | 1 | 1 |
+| E-02: README de la entrega (tarjeta de la entrega final) | 39 min (15:19–15:58 del 30) | 1 | 2 |
+| E-03: prueba desde cero y entrega final (tarjeta de la entrega final) | 23 min (15:52–16:15 del 30) | 1 | 3 |
 
 ## Estimación contra tiempo real
 
@@ -92,10 +95,10 @@ La estimación inicial sale de `requerimientos/04-entregables.md` y de la descri
 | V-07 | 30 min | 1 h 02 min | +32 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-07-eliminar-un-producto-de-la-venta-actual) |
 | V-08 | 1 h | 1 h 29 min | +29 min | Ventas | [12:18 del 30](#2026-09-30-1218--v-08-botón-registrar-venta-y-resultado) |
 | F-01 | 1 h | 1 h 27 min | +27 min | Sin entregable | [13:55 del 30](#2026-09-30-1355--f-01-corregir-los-issues-58-59-y-60-del-backend) |
-| E-01 | 30 min | en curso | — | Entrega final | — |
-| E-02 | 1 h 30 min | en curso | — | Entrega final | — |
-| E-03 | 1 h | pendiente | — | Entrega final | — |
-| Total (25 filas con tiempo real) | 33 h 30 min | 56 h 25 min | +22 h 55 min | | |
+| E-01 | 30 min | 46 min | +16 min | Entrega final | [15:06 del 30](#2026-09-30-1506--e-01-cerrar-la-bitácora-y-los-tiempos) |
+| E-02 | 1 h 30 min | 39 min | -51 min | Entrega final | [15:19 del 30](#2026-09-30-1519--e-02-readme-de-la-entrega) |
+| E-03 | 1 h | 23 min | -37 min | Entrega final | [15:52 del 30](#2026-09-30-1552--e-03-prueba-desde-cero-y-entrega-final) |
+| Total (28 filas con tiempo real) | 36 h 30 min | 58 h 13 min | +21 h 43 min | | |
 
 Cómo se contó:
 
@@ -103,9 +106,9 @@ Cómo se contó:
 - T-03 suma la implementación (21:40–22:46), las dos revisiones de Codex del PR #19 y su cierre: 2 h 20 min. La planeación tuvo pausas y no se midió.
 - S-01 es la spec de arquitectura: no cuenta las dos planificaciones (42 min la de S-01 y 40 min la de la noche) ni las otras 6 specs de flujo, que no tienen estimación propia. D-01 tampoco cuenta su spec, que no se midió.
 - Las estimaciones de R-00, S-01, S-02 y F-01 salen solo del tablero AIPOS: `requerimientos/04-entregables.md` no las trae. R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
-- F-01 es una tarjeta de corrección, sin entregable. E-01 es esta tarjeta y E-02 está en curso; sus tiempos los anotan sus entradas. E-03 está pendiente (estado del 2026-09-30 a las 15:36).
+- F-01 es una tarjeta de corrección, sin entregable. E-01, E-02 y E-03 son la entrega final: a las 15:50 del 2026-09-30 la persona avisó que le quedaba una hora para entregar, y el proceso de esas tres tarjetas se recortó (ver la entrada de E-03).
 
-Lo que se aprende: el tiempo real fue 1,7 veces el estimado (56 h 25 min contra 33 h 30 min), la razón bajó con cada entregable que siguió el mismo proceso (base 3,6, productos 1,8 y ventas 1,3) y cinco de las siete tarjetas estimadas en 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces.
+Lo que se aprende: el tiempo real fue 1,6 veces el estimado (58 h 13 min contra 36 h 30 min; hasta F-01 eran 56 h 25 min contra 33 h 30 min), la razón bajó con cada entregable que siguió el mismo proceso (base 3,6, productos 1,8, ventas 1,3 y la entrega final, recortada, 0,6) y cinco de las siete tarjetas estimadas en 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces.
 
 ## Por confirmar con la persona
 
@@ -193,6 +196,14 @@ Fuera de la bitácora también quedan por confirmar los términos nuevos de «Pe
 | Entrada | Qué hay que decidir | Estado |
 |---|---|---|
 | [2026-09-30 13:55 — F-01: corregir los issues #58, #59 y #60 del backend](#2026-09-30-1355--f-01-corregir-los-issues-58-59-y-60-del-backend) | Confirmar la revisión y las 4 decisiones: texto nuevo de la spec de arquitectura para `crearServidor` y `pedir`, el arreglo de #60 en el `emit` de una subclase de `http.Server` y no en un oyente, qué estado dar al tiempo agotado y a la petición mal formada (#97, sigue abierto) y un servidor por petición en `pedir`. | por confirmar |
+
+### Entrega final
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 15:06 — E-01: cerrar la bitácora y los tiempos](#2026-09-30-1506--e-01-cerrar-la-bitácora-y-los-tiempos) | Confirmar la revisión y la decisión de integrar el PR #99 con los 3 hallazgos P2 de Codex sin corregir, por el plazo | por confirmar |
+| [2026-09-30 15:19 — E-02: README de la entrega](#2026-09-30-1519--e-02-readme-de-la-entrega) | Confirmar la revisión del README; de los 2 P2 de Codex, uno se corrigió en E-03 y el otro (la prueba revisa solo algunas versiones) queda como mejora | por confirmar |
+| [2026-09-30 15:52 — E-03: prueba desde cero y entrega final](#2026-09-30-1552--e-03-prueba-desde-cero-y-entrega-final) | Confirmar el recorte del proceso por el plazo y decidir cómo entra la versión final a `main` (el PR queda abierto) | por confirmar |
 
 ## Entradas
 
@@ -1110,4 +1121,38 @@ Fuera de la bitácora también quedan por confirmar los términos nuevos de «Pe
 - **Propuestas cambiadas o descartadas:** las decidieron los agentes, y la persona debe confirmarlas. `pedir(app)` que devuelve directo el `request` de supertest, como proponía el issue #59 → `pedir(app, función)` → supertest no envía la petición hasta que se hace `await`, así que con un `pedir(app)` que devuelve el `request` no hay un momento claro para cerrar el servidor; con una función, el servidor vive justo lo que dura la petición. Un servidor por archivo para todas las pruebas, como P-02, P-04 y V-03 (issue #58) → un servidor por petición → `errores.test.js`, `csp-docs.test.js`, `comparar-rutas.test.js` y `ejemplos-reales.test.js` arman una app distinta en cada prueba; los archivos de P-02, P-04 y V-03 conservan el suyo. Un oyente `server.on('clientError', ...)` para #60 → el `emit` de una subclase de `http.Server` → con un oyente hay que copiar las respuestas de Node a los demás errores del cliente. `destroy(err)` como Node → `destroy()` → sin el error no sale un evento `error` del socket que nadie escuche (lo encontró la revisión del agente). Buscar el puerto libre de `servidor.test.js` con `listen(0)` → en `127.0.0.1` → el sistema puede dar un puerto que otro programa ya usa ahí. Probar la respuesta en curso mandando las dos peticiones juntas → mandar la segunda después de recibir el comienzo de la primera → con las dos juntas, hasta el servidor de Node sin arreglo entrega una respuesta vacía: Node guarda las escrituras de un mismo ciclo (`cork`, en `_http_outgoing.js`) y las pierde al destruir el socket. `enviarCrudo` con un plazo de 5 segundos que devolvía lo recibido → un plazo de 2 segundos que rechaza y dice qué llegó → con `destroy` desactivado a propósito, la prueba de `servidor.test.js` seguía en verde porque el plazo vencía con la respuesta ya recibida; lo mostró la mutación. La evidencia «después» con la base de prueba `aipos_prueba_ev` → un MySQL aparte con los nombres normales → `database.test.js` exige `aipos_prueba` y esas 2 pruebas fallaban en las dos corridas que terminaron; se descartó esa primera tanda. Cambiar la frase de la spec (hallazgo de Codex) → no se cambió → está aprobada y la tarjeta prohíbe tocarla.
 - **Tiempo:** 13:55–15:05 (1 h 10 min), desde la hora de inicio del archivo de avance. El último commit de código es de las 14:28; después corrieron la evidencia final de 20 corridas (de 42 a 45 s cada una), Codex (3 min) y la bitácora. El conector de claude.ai de Trello no conectó, y el tablero AIPOS se actualizó con el MCP local de Trello.
 - **Commits:** este commit y los 23 anteriores de la rama `fix/issues-58-59-60`, que el orquestador lleva a `ProductionEnv` en un PR, todavía por abrir. Pruebas primero: `faf9b60` (la ayuda), `9fd6286` (el programa aparte) y `3e380ae` (#60). La ayuda: `fc9c6f1` (`pedir`), `fe4d27f` (`PEDIR_DESDE_UN_PROGRAMA`), `c6ece14` (`enviarCrudo`) y `e9a9d38` (abre el servidor con `crearServidor`). Pruebas que piden con `pedir`: `c77e2d6` (cabeceras), `add18b0` (CORS), `ef8daf7` (salud), `a52929c` (Vitest con CommonJS), `b6347fa` (límite del cuerpo), `13a3082` (errores), `81bd186` (comparar rutas), `9783a11` (política de contenido), `cd2563f` (ejemplos reales), `596a311` (Swagger UI) y `2f1cbfc` (salud con la base de datos). #60: `6c885fd` (`aFormatoDeError`) y `89b9d7e` (`crearServidor`). Revisión del agente: `bb7de45`, `ccae5db` y `02fa25a`.
-- **Actualización (2026-09-30, de 15:08 a 15:25):** el PR #98 (`fix/issues-58-59-60` hacia `ProductionEnv`) se abrió a las 15:24 y se integró a las 15:25 con el merge commit `0c15dc9`, de padres `923005e` y `985ab56`. Los issues #58, #59 y #60 quedaron cerrados a las 15:25, cada uno con un comentario que nombra el commit que lo corrige: `fc9c6f1` y las conversiones hasta `2f1cbfc` (#58 y #59) y `89b9d7e` (#60). El #97, que F-01 dejó a propósito, sigue abierto. El tiempo de la tarjeta suma este cierre: 1 h 27 min (13:55–15:05 y 15:08–15:25). La línea de Commits de arriba decía «todavía por abrir» porque se escribió antes.
+- **Actualización (2026-09-30, de 15:08 a 15:25; las 15:08 son la hora de inicio del archivo de avance del cierre, que no está en git: el primer commit del cierre, `985ab56`, es de las 15:13):** el PR #98 (`fix/issues-58-59-60` hacia `ProductionEnv`) se abrió a las 15:24 y se integró a las 15:25 con el merge commit `0c15dc9`, de padres `923005e` y `985ab56`. Los issues #58, #59 y #60 quedaron cerrados a las 15:25, cada uno con un comentario que nombra el commit que lo corrige: `fc9c6f1` y las conversiones hasta `2f1cbfc` (#58 y #59) y `89b9d7e` (#60). El #97, que F-01 dejó a propósito, sigue abierto. El tiempo de la tarjeta suma este cierre: 1 h 27 min (13:55–15:05 y 15:08–15:25). La línea de Commits de arriba decía «todavía por abrir» porque se escribió antes.
+
+### 2026-09-30 15:06 — E-01: cerrar la bitácora y los tiempos
+
+- **Tarea:** la tarjeta E-01 del tablero AIPOS: dejar completa la bitácora de IA, de donde salen los puntos 8 a 11 del README. La persona había pedido avanzar el tablero tarjeta por tarjeta.
+- **Agente:** Claude Code (Sonnet 5.5) en un agente en segundo plano, que implementó y verificó; Codex como agente revisor, en una pasada. El orquestador, Claude Code (Opus 5.5), integró el PR.
+- **Qué hizo el agente:** escribió primero tres pruebas en `tests/documentacion/`, en rojo. `bitacora-hashes.test.sh` comprueba que cada hash citado existe en origin: 540 de 540. `bitacora-sumas.test.sh` comprueba que las sumas del Resumen y de la estimación cuadran. `bitacora-por-confirmar.test.sh` comprueba que cada entrada «por confirmar» tiene su fila y que los enlaces internos existen. Después completó el Resumen por entregable y el total (69 h 08 min de suma de tareas en 70 tareas, y 26 h 39 min de reloj hasta las 15:25), corrigió tres cuentas (S-01, Preparación y la spec de registrar venta), agregó la comparación de la estimación con el tiempo real y juntó las 44 entradas «por confirmar» en una sección. También dejó en la entrada de F-01 su PR #98.
+- **Revisión de Codex:** (15:48–15:52) 3 hallazgos P2, ningún P0 ni P1. (1) La hora de inicio de las 15:08 del cierre de F-01 sale de un archivo de avance que no está en git. (2) `bitacora-sumas.test.sh:142-144` compara la suma de todos los entregables, no cada uno con sus tareas. (3) `bitacora-por-confirmar.test.sh:75-79` no exige que el enlace esté dentro de una fila con su decisión. El agente revisor comprobó que los tres son ciertos y que la bitácora sí cuadra. El orquestador integró el PR sin corregirlos, porque a las 15:50 la persona avisó que le quedaba una hora para entregar, y los anotó en el comentario del PR. E-03 dejó escrita la fuente de la hora de las 15:08.
+- **Issues:** ninguno.
+- **Revisión de la persona:** por confirmar.
+- **Propuestas cambiadas o descartadas:** Corregir los P2 de Codex antes de integrar, como en las demás tarjetas → integrar con los tres anotados → quedaba una hora para entregar y ninguno cambia un dato de la bitácora.
+- **Tiempo:** 15:06–15:52 (46 min), desde la hora de inicio del archivo de avance hasta la integración.
+- **Commits:** `a48e6a8`, `622b9f3` (merge con F-01), `237fa4d`, `71ec434`, `b68e626`, `7a2add5`, `b38b17f`, `bdbec78`, `260fab2` y `0cda38e`, en el PR #99, integrado en `docs/entrega-final` con el merge commit `9769e8f`.
+
+### 2026-09-30 15:19 — E-02: README de la entrega
+
+- **Tarea:** la tarjeta E-02 del tablero AIPOS: el README de la raíz con los 12 puntos que pide la prueba técnica, con la skill `readme-entrega`.
+- **Agente:** Claude Code (Sonnet 5.5) en un agente en segundo plano, en dos fases para correr al mismo tiempo que E-01. La fase A escribió los 12 puntos y dejó marcas donde iban los números de la bitácora final; la fase B las llenó después de unir E-01. Codex como agente revisor, en una pasada.
+- **Qué hizo el agente:** escribió primero `tests/documentacion/readme-entrega.test.sh` (113 comprobaciones): los 12 títulos, sin «único agente», las versiones iguales a las de `package-lock.json`, `.nvmrc` y `docker-compose.yml`, el archivo SQL del procedimiento con su migración y la función que lo llama, el tiempo igual al de la bitácora y sin marcas pendientes. Después escribió el README: funcionalidades, tecnologías y versiones, estructura, cumplimiento, instalación, MySQL, procedimiento almacenado, tiempo, herramientas de IA, uso del agente, decisiones y consideraciones. Corrigió «único agente», porque Codex también revisó los PR.
+- **Revisión de Codex:** (15:56–15:58) 2 hallazgos P2, ningún P0 ni P1. (1) El comando de las pruebas de shell del README imprimía las fallas pero terminaba bien: E-03 lo corrigió. (2) La prueba del README revisa las versiones de algunas tecnologías y no de todas las que publica la tabla: queda como mejora de la prueba, sin issue.
+- **Issues:** #100, abierto y cerrado por el agente: `sin-datos-privados.test.sh` contaba como credencial un ejemplo con el valor omitido en un mensaje de commit. La prueba vino primero (`5de0027`) y el arreglo después (`b1d0360`).
+- **Revisión de la persona:** por confirmar.
+- **Propuestas cambiadas o descartadas:** (1) E-02 después de E-01 → en paralelo, en dos fases → para ganar tiempo. (2) Seguir el README en un clon limpio dentro de E-02 → lo hizo E-03 al mismo tiempo → quedaba una hora.
+- **Tiempo:** 15:19–15:58 (39 min), desde la hora de inicio del archivo de avance hasta el último commit.
+- **Commits:** `2a69f17` (la prueba, primero), `41f63e7`, `256ac5b`, `141a022`, `b27f4a8`, `6fc30f4`, `15eb1d2`, `6455ca6`, `8c5db83`, `1762541`, `1f71a8a`, `82b2fe0`, `2311c61`, `5de0027` y `b1d0360`, en el PR #101, integrado en `docs/entrega-final` con el merge commit `37e09b3`.
+
+### 2026-09-30 15:52 — E-03: prueba desde cero y entrega final
+
+- **Tarea:** la tarjeta E-03 del tablero AIPOS: probar AIPOS desde un clon limpio siguiendo solo el README, etiquetar la versión final y abrir el PR de `ProductionEnv` a `main`. A las 15:50 la persona avisó que le quedaba una hora para entregar, y pidió en el README un diagrama del proceso de trabajo con agentes y saber si se siguieron las buenas prácticas.
+- **Agente:** Claude Code. El orquestador (Opus 5.5) recortó el plan, integró los PR, escribió esta entrada, el diagrama y la sección de buenas prácticas del README, y pone las etiquetas. Un agente en segundo plano (Sonnet 5.5) siguió el README en un clon limpio. Codex revisó el README en el PR de E-02.
+- **Qué hizo:** a las 15:52 cambió la rama por defecto del repositorio a `ProductionEnv`, como eligió la persona. Así, quien abre el enlace ve el código completo; `main` no cambia. Agregó al punto 10 del README el diagrama del proceso (Mermaid, que GitHub dibuja) y la sección «Buenas prácticas y lo que haríamos distinto». Corrigió el comando de las pruebas de shell del README (hallazgo de Codex en E-02), escribió las entradas de E-01, E-02 y E-03, y actualizó el Resumen, la estimación y el punto 8 del README con sus tiempos. Después de este commit, el orquestador integra este PR en `docs/entrega-final`, integra el PR del entregable en `ProductionEnv`, pone las etiquetas `entregable-entrega-final` y `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
+- **Revisión de la persona:** eligió a las 15:52 que la rama por defecto sea `ProductionEnv` y dejar abierto el PR a `main`. La revisión de lo demás queda por confirmar.
+- **Propuestas cambiadas o descartadas:** (1) Pruebas completas y Codex por partes del entregable de documentación → solo las pruebas de shell de la raíz → no cambia código y quedaba una hora. (2) Una entrada por tarjeta, escrita por el agente que la cierra → las tres entradas las escribe el orquestador al final → para no abrir tres cierres más. (3) Integrar el PR a `main` con squash o rebase → la persona eligió cambiar la rama por defecto a `ProductionEnv` y dejar el PR abierto.
+- **Tiempo:** 15:52–16:15 (23 min), hasta este commit.
+- **Commits:** este commit.

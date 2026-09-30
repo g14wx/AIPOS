@@ -192,7 +192,7 @@ while IFS= read -r fila; do
   [ -z "$fila" ] && continue
   if punto 8 | grep -qxF -- "$fila"; then ok "el punto 8 trae la fila «$(celda "$fila" 1)» de la bitácora"; else falla "el punto 8 no trae, tal cual, la fila de la bitácora: $fila"; fi
 done <<<"$filas_bitacora"
-for duracion in '26 h 39 min' '33 h 30 min' '56 h 25 min'; do
+for duracion in '27 h 29 min' '36 h 30 min' '58 h 13 min'; do
   if grep -qF -- "$duracion" "$bitacora" && punto 8 | grep -qF -- "$duracion"; then ok "$duracion está en la bitácora y en el punto 8"; else falla "$duracion no está en los dos: la bitácora y el punto 8"; fi
 done
 

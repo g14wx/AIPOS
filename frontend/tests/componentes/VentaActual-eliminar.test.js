@@ -4,6 +4,8 @@
 // la emite, y App.vue la reemplaza. No pide confirmación. Con enviando queda deshabilitado. Después de eliminar, el foco pasa a
 // la fila que ocupó su lugar o, si no queda ninguna, al título. Para que el foco sea de verdad, el componente se monta dentro
 // del documento. lottie-web no dibuja en jsdom: se sustituye con la ruta exacta que importa AnimacionLottie.
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 
@@ -386,5 +388,42 @@ describe('un doble clic no elimina dos detalles (#79)', () => {
     await reemplazarConLaEmitida();
     expect(filas()).toHaveLength(1);
     expect(celdas(filas()[0])[0]).toBe('Huevos x 12');
+  });
+});
+
+// jsdom no calcula estilos ni reparte el espacio de la ventana: como hace VentaActual.test.js, se revisa el texto de los
+// estilos del componente. Que el foco quede a la vista con muchas filas se prueba en el navegador (prueba en local).
+describe('estilos de los controles de las filas y del foco (skill impeccable)', () => {
+  const fuente = readFileSync(
+    resolve(import.meta.dirname, '../../src/components/VentaActual.vue'),
+    'utf8',
+  );
+  const css = [...fuente.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
+    .map(([, bloque]) => bloque)
+    .join('\n')
+    .replace(/\/\*[\s\S]*?\*\//g, '');
+  const reglas = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(([, selectores, cuerpo]) => ({
+    selectores: selectores.split(',').map((s) => s.trim().replace(/\s+/g, ' ')),
+    cuerpo,
+  }));
+  const cuerpoDe = (selector) =>
+    reglas
+      .filter(({ selectores }) => selectores.includes(selector))
+      .map(({ cuerpo }) => cuerpo)
+      .join(';');
+  const enRem = (valor) => (valor === '0' ? 0 : parseFloat(valor));
+
+  // #80: la barra de arriba mide 3 rem (48 px) y la franja de abajo, con el total y «Registrar venta», unos 9.3 rem (149 px).
+  it('los botones y los campos de las filas dejan margen de desplazamiento para la barra de arriba y la franja de abajo (#80)', () => {
+    for (const selector of ['.detalles ::v-deep button', '.detalles ::v-deep input']) {
+      const margen = cuerpoDe(selector)
+        .match(/scroll-margin\s*:\s*([^;]+)/)?.[1]
+        .trim()
+        .split(/\s+/);
+      expect(margen, selector).toHaveLength(3);
+      const [arriba, , abajo] = margen;
+      expect(enRem(arriba), `${selector}: arriba`).toBeGreaterThanOrEqual(3);
+      expect(enRem(abajo), `${selector}: abajo`).toBeGreaterThanOrEqual(9.5);
+    }
   });
 });

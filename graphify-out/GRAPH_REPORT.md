@@ -1,12 +1,12 @@
 # Graph Report - p-01  (2026-09-30)
 
 ## Corpus Check
-- 110 files · ~55,873 words
+- 111 files · ~56,206 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 621 nodes · 785 edges · 68 communities (33 shown, 35 thin omitted)
+- 628 nodes · 796 edges · 73 communities (38 shown, 35 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
@@ -69,12 +69,17 @@
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
-- productos-migracion.test.js
+- compose.test.js
+- migraciones.test.js
 - app.js
+- base-de-prueba.test.js
 - Requerimientos de AIPOS
+- productos-migracion.test.js
+- estructura.test.js
+- ref_node_module
 
 ## God Nodes (most connected - your core abstractions)
-1. `vitest` - 21 edges
+1. `vitest` - 22 edges
 2. `scripts` - 15 edges
 3. `Requerimientos funcionales` - 14 edges
 4. `Requerimientos no funcionales` - 14 edges
@@ -100,7 +105,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (68 total, 35 thin omitted)
+## Communities (73 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -222,21 +227,41 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
-### Community 65 - "productos-migracion.test.js"
-Cohesion: 0.06
-Nodes (39): carpetaBackend, carpetaRaiz, correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), consultar(), permisosDelUsuario() (+31 more)
+### Community 65 - "compose.test.js"
+Cohesion: 0.15
+Nodes (6): carpetaRaiz, archivo, archivosJs(), ejemplo, raiz, carpetaBackend
+
+### Community 66 - "migraciones.test.js"
+Cohesion: 0.19
+Nodes (9): tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro(), porDefecto (+1 more)
 
 ### Community 67 - "app.js"
 Cohesion: 0.05
 Nodes (44): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+36 more)
 
+### Community 68 - "base-de-prueba.test.js"
+Cohesion: 0.26
+Nodes (9): carpetaBackend, correrCli(), correrNpm(), correrNpmSinFallar(), consultar(), permisosDelUsuario(), require, sequelize (+1 more)
+
 ### Community 69 - "Requerimientos de AIPOS"
 Cohesion: 0.33
 Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz del PDF, Preguntas abiertas, Requerimientos de AIPOS
 
+### Community 70 - "productos-migracion.test.js"
+Cohesion: 0.29
+Nodes (9): archivo, carpetaMigraciones, columnas(), indices(), leer(), require, restriccionesCheck(), sequelize (+1 more)
+
+### Community 71 - "estructura.test.js"
+Cohesion: 0.22
+Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
+
+### Community 72 - "ref_node_module"
+Cohesion: 0.25
+Nodes (5): carpetaModelos, modelos, registrados, require, tablasDelGlosario
+
 ## Knowledge Gaps
-- **339 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+334 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 395 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **344 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+339 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 401 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -245,9 +270,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
   _High betweenness centrality (0.140) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+  _High betweenness centrality (0.125) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _339 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _344 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.0696969696969697 - nodes in this community are weakly interconnected._
 - **Should `scripts` be split into smaller, more focused modules?**

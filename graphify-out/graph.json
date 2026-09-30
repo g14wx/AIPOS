@@ -1825,7 +1825,7 @@
       "node_kind": "heading",
       "norm_label": "casos de error",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L474"
+      "source_location": "L478"
     },
     {
       "id": "specs_despliegue_spec_configuraci\u00f3n_del_servidor_una_sola_vez",
@@ -1837,7 +1837,7 @@
       "node_kind": "heading",
       "norm_label": "configuracion del servidor (una sola vez)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L421"
+      "source_location": "L425"
     },
     {
       "id": "specs_despliegue_spec_criterios_de_aceptaci\u00f3n",
@@ -1849,7 +1849,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L495"
+      "source_location": "L499"
     },
     {
       "id": "specs_despliegue_spec_c\u00f3mo_queda_armado_el_servidor",
@@ -1873,7 +1873,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L650"
+      "source_location": "L654"
     },
     {
       "id": "specs_despliegue_spec_despliegue_de_aipos",
@@ -1933,7 +1933,7 @@
       "node_kind": "heading",
       "norm_label": "environment y regla de etiquetas (github)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L456"
+      "source_location": "L460"
     },
     {
       "id": "specs_despliegue_spec_fuera_de_alcance",
@@ -1945,7 +1945,7 @@
       "node_kind": "heading",
       "norm_label": "fuera de alcance",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L664"
+      "source_location": "L668"
     },
     {
       "id": "specs_despliegue_spec_imagen_de_la_pantalla_frontend_dockerfile",
@@ -2005,7 +2005,7 @@
       "node_kind": "heading",
       "norm_label": "los scripts del servidor",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L326"
+      "source_location": "L329"
     },
     {
       "id": "specs_despliegue_spec_palabras_nuevas_para_el_glosario",
@@ -2017,7 +2017,7 @@
       "node_kind": "heading",
       "norm_label": "palabras nuevas para el glosario",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L685"
+      "source_location": "L689"
     },
     {
       "id": "specs_despliegue_spec_preguntas_abiertas",
@@ -2029,7 +2029,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas abiertas",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L674"
+      "source_location": "L678"
     },
     {
       "id": "specs_despliegue_spec_pruebas_en_local",
@@ -2041,7 +2041,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L549"
+      "source_location": "L553"
     },
     {
       "id": "specs_despliegue_spec_qu\u00e9_se_decidi\u00f3",
@@ -2065,7 +2065,7 @@
       "node_kind": "heading",
       "norm_label": "que tarjeta implementa cada parte",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L638"
+      "source_location": "L642"
     },
     {
       "id": "specs_despliegue_spec_revisi\u00f3n_desde_internet_despliegue_revisar_produccion_sh",
@@ -2077,7 +2077,7 @@
       "node_kind": "heading",
       "norm_label": "revision desde internet (`despliegue/revisar-produccion.sh`)",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L401"
+      "source_location": "L404"
     },
     {
       "id": "specs_despliegue_spec_volver_a_la_versi\u00f3n_anterior",
@@ -2089,7 +2089,7 @@
       "node_kind": "heading",
       "norm_label": "volver a la version anterior",
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L372"
+      "source_location": "L375"
     },
     {
       "id": "docs_setup_graphify_setup_1_instalar_graphify",
@@ -5809,7 +5809,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L326",
+      "source_location": "L329",
       "weight": 1.0
     },
     {
@@ -5820,7 +5820,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L372",
+      "source_location": "L375",
       "weight": 1.0
     },
     {
@@ -5831,7 +5831,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L401",
+      "source_location": "L404",
       "weight": 1.0
     },
     {
@@ -5853,7 +5853,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L421",
+      "source_location": "L425",
       "weight": 1.0
     },
     {
@@ -5864,7 +5864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L456",
+      "source_location": "L460",
       "weight": 1.0
     },
     {
@@ -5875,7 +5875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L474",
+      "source_location": "L478",
       "weight": 1.0
     },
     {
@@ -5886,18 +5886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L495",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_despliegue_spec_despliegue_de_aipos",
-      "target": "specs_despliegue_spec_pruebas_en_local",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/despliegue.spec.md",
-      "source_location": "L549",
+      "source_location": "L499",
       "weight": 1.0
     },
     {
@@ -5913,13 +5902,24 @@
     },
     {
       "source": "specs_despliegue_spec_despliegue_de_aipos",
+      "target": "specs_despliegue_spec_pruebas_en_local",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/despliegue.spec.md",
+      "source_location": "L553",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_despliegue_spec_despliegue_de_aipos",
       "target": "specs_despliegue_spec_qu\u00e9_tarjeta_implementa_cada_parte",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L638",
+      "source_location": "L642",
       "weight": 1.0
     },
     {
@@ -5930,7 +5930,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L650",
+      "source_location": "L654",
       "weight": 1.0
     },
     {
@@ -5941,7 +5941,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L664",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -5952,7 +5952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L674",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -5963,7 +5963,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/despliegue.spec.md",
-      "source_location": "L685",
+      "source_location": "L689",
       "weight": 1.0
     },
     {

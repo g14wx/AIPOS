@@ -314,7 +314,10 @@ Reglas del workflow:
   2. Entra a `ghcr.io` en el servidor con el `GITHUB_TOKEN` por entrada estándar (`--password-stdin`).
   3. Corre `desplegar.sh desplegar <etiqueta>` en el servidor (ver "Los scripts del servidor").
   4. Corre `despliegue/revisar-produccion.sh` desde el runner de GitHub (ver "Revisión desde internet").
-  5. Si el paso 3 o el 4 fallaron: corre `desplegar.sh volver` en el servidor. El job sigue en rojo.
+  5. Si falló el paso 3, no hace nada más: `desplegar.sh` ya dejó corriendo la versión que estaba activa y no cambió
+     `version-actual` ni `version-anterior`, así que correr `volver` bajaría a una versión todavía más vieja. Si el paso 3
+     terminó bien y falló el paso 4 (la versión nueva ya está activa), corre `desplegar.sh volver` en el servidor. En los
+     dos casos el job sigue en rojo.
   6. Siempre: `docker logout ghcr.io` en el servidor y borra la clave privada del runner.
 - Nada usa root: el workflow entra como el usuario de despliegue, que no tiene `sudo`.
 - Patrón: CI/CD Pipeline. El catálogo lo describe como pruebas, construcción y despliegue automáticos, que es este
@@ -409,6 +412,7 @@ defecto: en el primer despliegue Caddy tarda unos segundos en sacar el certifica
 |---|---|---|
 | El backend está vivo | `curl -fsS https://aipos-back.salsalvador.io/api/salud` | 200 con `{ "estado": "ok", ... }` (spec de arquitectura). |
 | La pantalla responde | `curl -fsS -o /dev/null -w '%{http_code}' https://aipos.salsalvador.io/` | 200. |
+| La documentación de la API responde (A-01) | `curl -fsSL -o /dev/null -w '%{http_code}' https://aipos-back.salsalvador.io/api/docs` | 200, siguiendo la redirección a `/api/docs/`. |
 | El backend deja pasar a la pantalla | `curl -si -H 'Origin: https://aipos.salsalvador.io' https://aipos-back.salsalvador.io/api/salud` | La cabecera `Access-Control-Allow-Origin: https://aipos.salsalvador.io`. Sin ella, la pantalla abre pero no puede llamar a la API. |
 | El backend no deja pasar a otros | `curl -si -H 'Origin: https://otro.example' https://aipos-back.salsalvador.io/api/salud` | Sin `Access-Control-Allow-Origin`. |
 
@@ -498,8 +502,8 @@ Los siete primeros son los de la tarjeta D-01. Los demás salen de esta spec. Lo
 pueden probar con el servidor real y los hace la persona con el agente en la subtarea "Probar con `release-0.1.0`"; los
 otros se prueban en local (ver "Pruebas en local").
 
-1. Dada una etiqueta `release-*` en un commit de `ProductionEnv`, cuando se sube, entonces el workflow prueba,
-   espera la aprobación y despliega. (En producción; en local se prueba el orden de los jobs.)
+1. Dada una etiqueta con la forma exacta `release-MAYOR.MENOR.PARCHE` (`^release-[0-9]+\.[0-9]+\.[0-9]+$`) en un
+   commit de `ProductionEnv`, cuando se sube, entonces el workflow prueba, espera la aprobación y despliega. (En producción; en local se prueba el orden de los jobs.)
    `[@test] ../tests/despliegue/workflow.test.sh`
 2. Dada una etiqueta en un commit que no está en `ProductionEnv`, cuando se sube, entonces el workflow falla sin
    desplegar.
@@ -540,8 +544,8 @@ otros se prueban en local (ver "Pruebas en local").
     orígenes de `127.0.0.1`.)
     `[@test] ../tests/despliegue/revisar-produccion.test.sh`
 14. Dado A-01 integrada, cuando se pide `https://aipos-back.salsalvador.io/api/docs`, entonces responde 200. (En
-    producción, con la versión que incluya A-01.)
-    Sin prueba automática: Caddy manda todo el dominio al backend y no hay una ruta que probar aquí.
+    producción, con la versión que incluya A-01.) `revisar-produccion.sh` pide también `/api/docs` y espera 200.
+    `[@test] ../tests/despliegue/revisar-produccion.test.sh`
 15. Dado el repositorio, entonces no contiene direcciones IP, el alias de acceso, usuarios del sistema, credenciales ni
     rutas de una máquina.
     `[@test] ../tests/despliegue/sin-datos-privados.test.sh`
@@ -583,7 +587,7 @@ imprime `ok:` o `FALLA:` y termina con `todo bien` o con error). Se corren una p
 - `caddy.test.sh` e `instalar-caddy.test.sh`: `docker run --rm -v "$PWD/despliegue/caddy:/etc/caddy/conf.d:ro" caddy:2
   caddy validate` sobre un `Caddyfile` que importa `conf.d`, y `instalar-caddy.sh` con `caddy`, `systemctl` y `curl` de
   mentira (válido, inválido y un vecino que cambia de código).
-- `sin-datos-privados.test.sh`: busca en lo que sube git direcciones IP, `/Users/`, `/private/`, alias, `Claude-Session`
+- `sin-datos-privados.test.sh`: busca en lo que sube git direcciones IP (menos `127.0.0.1` y `0.0.0.0`), `/Users/`, `/private/`, alias, `Claude-Session`
   y contraseñas.
 - `documentos.test.sh`: revisa que existan `requerimientos/flujos/07-desplegar-una-version.md` con su diagrama,
   `docs/despliegue.md`, la sección del README, «Lo que agregamos» en `01-alcance.md`, la fila de D-01 en

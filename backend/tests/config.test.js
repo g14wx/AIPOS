@@ -52,6 +52,43 @@ describe('src/config.js', () => {
     );
   });
 
+  it('acepta un origen con esquema, servidor y puerto, y el que no escribe el puerto por defecto', () => {
+    const validos = [
+      'http://localhost:5173',
+      'https://pos.example.com',
+      'http://127.0.0.1:5191',
+      'http://[::1]:5173',
+    ];
+    for (const origen of validos) {
+      expect(cargarConfig({ ...base, CORS_ORIGIN: origen }).corsOrigenes).toEqual([origen]);
+    }
+  });
+
+  it('rechaza un origen que nunca coincidiría con el Origin que manda el navegador', () => {
+    const invalidos = [
+      'localhost:5173', // sin esquema
+      'pantalla', // texto suelto
+      'http://', // sin servidor
+      'http://localhost:5173/app', // con ruta
+      'http://localhost:5173?x=1', // con parámetros
+      'http://localhost:5173#inicio', // con fragmento
+      'http://usuario@localhost:5173', // con usuario
+      'http://localhost:80', // el puerto por defecto no se escribe
+      'https://pos.example.com:443', // el puerto por defecto no se escribe
+      'HTTP://localhost:5173', // el navegador manda el esquema en minúsculas
+      'http://LOCALHOST:5173', // y el servidor en minúsculas
+    ];
+    for (const origen of invalidos) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: origen }), origen).toThrow('CORS_ORIGIN');
+    }
+  });
+
+  it('con varios orígenes, uno mal escrito hace fallar el arranque y el mensaje lo nombra', () => {
+    expect(() => cargarConfig({ ...base, CORS_ORIGIN: 'http://a.test, b.test:8080' })).toThrow(
+      /CORS_ORIGIN.*"b\.test:8080"/,
+    );
+  });
+
   it('rechaza un PORT que no es un puerto', () => {
     expect(() => cargarConfig({ ...base, PORT: 'abc' })).toThrow('PORT');
     expect(() => cargarConfig({ ...base, PORT: '70000' })).toThrow('PORT');

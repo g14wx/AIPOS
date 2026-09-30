@@ -6290,6 +6290,18 @@
       "source_location": "L1"
     },
     {
+      "id": "backend_sequelizerc",
+      "label": "backend_sequelizerc",
+      "_origin": "semantic",
+      "community": 52,
+      "community_name": "database.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "backend_sequelizerc",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "backend_src_config_config",
       "label": "backend_src_config_config",
       "_origin": "semantic",
@@ -6454,17 +6466,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "users_g14wxz_webstormprojects_aipos_wt_b_02_backend_src_models_index_js",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "backend_sequelizerc",
-      "label": "backend_sequelizerc",
-      "community": 52,
-      "community_name": "database.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "backend_sequelizerc",
       "source_file": "",
       "type": "external"
     }
@@ -7348,6 +7349,18 @@
     },
     {
       "source": "backend_tests_config_test",
+      "target": "backend_src_config_cargararchivoenv",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_config_test",
       "target": "backend_src_config_cargarconfig",
       "relation": "imports",
       "_origin": "ast",
@@ -7356,18 +7369,6 @@
       "context": "import",
       "source_file": "backend/tests/config.test.js",
       "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_config_test",
-      "target": "backend_src_config_cargararchivoenv",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -7792,6 +7793,18 @@
     },
     {
       "source": "backend_tests_config_test",
+      "target": "backend_src_config",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_config_test",
       "target": "ref_node_module",
       "relation": "imports_from",
       "_origin": "ast",
@@ -7800,18 +7813,6 @@
       "context": "import",
       "source_file": "backend/tests/config.test.js",
       "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_config_test",
-      "target": "backend_src_config",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L82",
       "weight": 1.0
     },
     {

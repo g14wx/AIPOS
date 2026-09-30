@@ -1,7 +1,7 @@
-# Graph Report - e-03  (2026-09-30)
+# Graph Report - e-03b  (2026-09-30)
 
 ## Corpus Check
-- 282 files · ~256,092 words
+- 282 files · ~256,199 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 

@@ -7356,6 +7356,66 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_imagenes_test",
+      "label": "imagenes.test.sh",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "imagenes.test.sh",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_cuenta",
+      "label": "cuenta()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "cuenta()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L19"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_leer",
+      "label": "leer()",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer()",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L16"
+    },
+    {
+      "id": "tests_despliegue_imagenes_test_sh__entry",
+      "label": "imagenes.test.sh script",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "imagenes.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "imagenes.test.sh script",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7853,6 +7913,18 @@
       "context": "call",
       "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test_sh__entry",
+      "target": "tests_despliegue_imagenes_test_leer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -12520,6 +12592,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_instalar_caddy_test",
       "target": "tests_despliegue_instalar_caddy_test_sh__entry",
       "relation": "contains",
@@ -13254,6 +13337,28 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
       "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_leer",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_cuenta",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L19",
       "weight": 1.0
     },
     {

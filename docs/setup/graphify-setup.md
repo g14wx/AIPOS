@@ -110,6 +110,7 @@ imágenes.
 | El commit no trae el grafo | El hook de git no está activo. | `git config core.hooksPath` tiene que responder `.githooks`. Si no, corre `git config core.hooksPath .githooks`. |
 | `pre-commit: 'graphify update .' falló` con "Refusing to overwrite" | Se borró código y el grafo nuevo tiene menos nodos, así que Graphify se niega a achicarlo. | Si lo borraste a propósito, corre `graphify update . --force` y agrega el grafo en otro commit. |
 | `graph.json` choca en un merge o un rebase | Dos ramas cambiaron el grafo. | No lo arregles a mano: quédate con la versión de la rama de destino y haz commit. El hook de git lo regenera. |
+| El grafo del commit muestra un archivo que no entró al commit | El hook de git arma el grafo con lo que hay en la carpeta, no solo con lo que agregaste al commit. | Se corrige solo en el commit siguiente. Para evitarlo, haz commit de todo lo de la tarea junto. |
 | Después de `graphify install` cambiaron `CLAUDE.md` o `AGENTS.md` | Graphify escribió su propia regla. | Si no tenías otros cambios en esos archivos, corre `git restore CLAUDE.md AGENTS.md` y borra `.codex/hooks.json`. |
 
 ### Privacidad

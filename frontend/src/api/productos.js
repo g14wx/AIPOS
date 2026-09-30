@@ -10,3 +10,11 @@ export async function crearProducto({ nombre, precio, codigoBarras }) {
   const respuesta = await http.post('/productos', { nombre, precio, codigoBarras });
   return respuesta.data;
 }
+
+// Manda GET /productos?busqueda=<texto> y devuelve la lista de productos, que puede estar vacía: cada uno trae id,
+// nombre, codigoBarras y el precio como texto con 2 decimales. Axios codifica el texto en la dirección. El texto viaja
+// como llega: recortarlo es cosa de la pantalla, y validarlo, de la API.
+export async function buscarProductos(texto) {
+  const respuesta = await http.get('/productos', { params: { busqueda: texto } });
+  return respuesta.data;
+}

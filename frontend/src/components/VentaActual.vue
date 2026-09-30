@@ -183,17 +183,20 @@ export default {
       // El segundo clic de un doble clic (detail 2 o más) cae sobre el botón de la fila que subió a ocupar el lugar del
       // detalle eliminado, y no debe eliminar otro (#79). El clic suelto trae detail 1 y el teclado (Enter o Espacio), 0.
       if (evento?.detail > 1) return;
+      const nueva = eliminarDetalle(this.ventaActual, detalle.productoId);
+      // Si el detalle ya no estaba, la venta actual es la misma: no hay nada que emitir ni a dónde llevar el foco.
+      if (nueva === this.ventaActual) return;
       const indice = this.ventaActual.detalles.findIndex(
         (d) => d.productoId === detalle.productoId,
       );
       this.ultimoEliminado = { productoId: detalle.productoId, indice };
-      this.$emit('update:ventaActual', eliminarDetalle(this.ventaActual, detalle.productoId));
+      this.$emit('update:ventaActual', nueva);
     },
     // El botón que tenía el foco ya no está: el foco pasa al «Eliminar» de la fila que ocupó su lugar (o al de la anterior,
     // si era la última) y, si no quedó ninguna, al título «Venta actual», para que quien usa el teclado no pierda su lugar.
     enfocarTrasEliminar(indice) {
       const botones = this.$el.querySelectorAll('.detalle__eliminar');
-      if (botones.length === 0) this.$refs.titulo.focus();
+      if (botones.length === 0) this.$refs.titulo?.focus();
       else botones[Math.min(indice, botones.length - 1)].focus();
     },
     subtotalDe(detalle) {

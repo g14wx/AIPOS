@@ -164,8 +164,8 @@ DetalleDeError:
 | `ReglaDeNegocio` | 422 | `VENTA_SIN_DETALLES` |
 | `ErrorInterno` | 500 | `ERROR_INTERNO`, con el mensaje "Ocurrió un error inesperado. Intenta de nuevo." |
 
-- Los `mensaje` de los ejemplos son los que de verdad devuelve la API: A-01 los copia de las pruebas de errores de B-02
-  y de las specs de cada ruta. No se inventan textos que la API no dice.
+- Los `mensaje` de los ejemplos son los que de verdad devuelve la API: A-01 los copia del código y de las pruebas de B-02
+  (`src/middlewares/`, `src/errors/` y `errores.test.js`) y de las specs de cada ruta. No se inventan textos que la API no dice.
 - Las cinco respuestas existen desde A-01, aunque hoy solo `ErrorInterno` la use una ruta. Así P-02, P-04 y V-03 solo
   escriben `$ref`.
 

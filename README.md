@@ -1,5 +1,66 @@
 # AIPOS
 
+## Base de datos: MySQL y migraciones
+
+AIPOS guarda sus datos en MySQL 8.4, que corre con Docker Compose. Las tablas y los procedimientos almacenados
+se crean solo con migraciones de Sequelize: Docker no crea nada, solo levanta MySQL. Necesitas Docker con Compose
+v2 y Node 24 (el archivo `.nvmrc`).
+
+### Desde un clon limpio
+
+```bash
+# 1. Copia las variables de entorno y cambia las claves que empiezan con "cambiar-". El .env no va a git.
+cp .env.example .env
+
+# 2. Levanta MySQL. --wait espera a que responda: sin él, el primer arranque tarda unos segundos
+#    y la migración puede fallar por llegar antes que MySQL.
+docker compose up -d --wait mysql
+
+# 3. Instala el backend y aplica las migraciones.
+cd backend
+npm ci
+npm run migrar
+
+# 4. Arranca la API y, en otra terminal, comprueba que llega a MySQL.
+npm start
+curl http://localhost:3000/api/salud   # {"estado":"ok","baseDeDatos":"ok"}
+```
+
+`GET /api/salud` dice si la API está viva y si MySQL responde. Si MySQL no responde, contesta 500 con el formato
+de error de la API.
+
+### Comandos del backend
+
+Se corren dentro de `backend/`.
+
+| Comando | Qué hace |
+|---|---|
+| `npm run migrar` | Aplica las migraciones que faltan. Si no falta ninguna, no cambia nada. |
+| `npm run deshacer` | Deshace la última migración. |
+| `npm run rehacer` | Deshace todas las migraciones y las aplica otra vez. Borra los datos de las tablas. |
+| `npm run migrar:prueba`, `deshacer:prueba`, `rehacer:prueba` | Lo mismo, pero en la base de prueba. |
+| `npm run preparar-prueba` | Crea la base de prueba y le da permisos al usuario de la app. Se puede correr más de una vez. |
+
+- Nunca se edita una migración que ya se aplicó: se crea otra.
+- Cada migración lleva `up` y `down`, para poder deshacerla.
+
+### Base de prueba
+
+Las pruebas automáticas usan una base aparte, `aipos_prueba`, y nunca tocan la de desarrollo (`aipos`). La primera
+vez, con MySQL levantado, se crea con `npm run preparar-prueba`. Después, `npm test` la migra solo antes de correr
+las pruebas. `preparar-prueba` es lo único que entra a MySQL como `root`, con `MYSQL_ROOT_PASSWORD`: la API nunca
+lo hace.
+
+### Puertos, varias copias y empezar de cero
+
+- MySQL se abre en tu máquina en el puerto `MYSQL_PORT` (3306 si no lo cambias) y solo en `127.0.0.1`. Si ya tienes
+  otro MySQL, o otra copia de AIPOS, cambia `MYSQL_PORT` y `COMPOSE_PROJECT_NAME` en el `.env`: así los contenedores
+  y los volúmenes de las dos copias no chocan.
+- `docker compose stop mysql` apaga MySQL y los datos se quedan.
+- `docker compose down` borra el contenedor, pero los datos se quedan en el volumen.
+- `docker compose down -v` borra también los datos de esa copia. Después de eso, los pasos de arriba dejan la base
+  como en un clon limpio.
+
 ## Setup de agents
 
 Todo el desarrollo de esta prueba se hizo con [Claude Code](https://claude.com/claude-code)

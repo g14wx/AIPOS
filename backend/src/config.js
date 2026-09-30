@@ -101,10 +101,22 @@ function cargarConfig(env) {
   };
 }
 
-// La configuración de un entorno concreto, para sequelize-cli (db/config.js): así process.env
-// se sigue leyendo solo en este archivo.
+// La configuración de un entorno concreto, para sequelize-cli (db/config.js) y para el script que crea la
+// base de prueba: así process.env se sigue leyendo solo en este archivo.
 function cargarConfigDeEntorno(entorno) {
   return cargarConfig({ ...process.env, NODE_ENV: entorno });
+}
+
+// La clave de root solo la usa el script que crea la base de prueba (npm run preparar-prueba). La API
+// nunca entra a MySQL como root: la clave no forma parte de `config` y no es obligatoria para arrancar.
+function cargarClaveRoot(env = process.env) {
+  const clave = texto(env, 'MYSQL_ROOT_PASSWORD');
+  if (clave === '') {
+    throw new Error(
+      'Falta la variable de entorno MYSQL_ROOT_PASSWORD: sin ella no se crea la base de prueba.',
+    );
+  }
+  return clave;
 }
 
 cargarArchivoEnv();
@@ -113,5 +125,6 @@ module.exports = {
   config: cargarConfig(process.env),
   cargarConfig,
   cargarConfigDeEntorno,
+  cargarClaveRoot,
   cargarArchivoEnv,
 };

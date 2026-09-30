@@ -2,6 +2,7 @@ import { describe, it, expect, beforeAll, afterAll, afterEach, vi } from 'vitest
 import request from 'supertest';
 import { createRequire } from 'node:module';
 import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
+import { sembrarRestos, borrarRestos } from './ayudas-buscar-productos.js';
 
 const require = createRequire(import.meta.url);
 const app = require('../../src/app.js');
@@ -10,6 +11,8 @@ const { Producto } = require('../../src/models/index.js');
 
 // GET /api/productos?busqueda=<texto> contra MySQL de verdad (base de prueba). Necesita MySQL levantado y migrado.
 // Cada prueba crea sus productos con el modelo Producto y los borra al terminar: deja la tabla como la encontró.
+// La tabla trae filas ajenas mientras corren (los restos de ayudas-buscar-productos.js): las pruebas no pueden
+// suponer que está vacía.
 const LECHE = { nombre: 'Leche entera 1 L', codigoBarras: '7501055300075', precio: '25.00' };
 const JUGO_50 = { nombre: 'Jugo 50% fruta', codigoBarras: '111', precio: '18.50' };
 const JUGO_500 = { nombre: 'Jugo 500 ml', codigoBarras: '222', precio: '12.00' };
@@ -24,6 +27,10 @@ beforeAll(async () => {
   servidor = await abrirServidorDePrueba(app);
 });
 afterAll(() => cerrarServidorDePrueba(servidor));
+
+// Filas ajenas en la tabla, como las que deja una corrida cortada (issue #87).
+beforeAll(sembrarRestos);
+afterAll(borrarRestos);
 
 async function crear(...productos) {
   const filas = [];

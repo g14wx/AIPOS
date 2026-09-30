@@ -3,6 +3,7 @@ import request from 'supertest';
 import { createRequire } from 'node:module';
 import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
 import SwaggerParser from '@apidevtools/swagger-parser';
+import { sembrarRestos, borrarRestos } from './ayudas-buscar-productos.js';
 
 const require = createRequire(import.meta.url);
 const app = require('../../src/app.js');
@@ -28,6 +29,10 @@ beforeAll(async () => {
   servidor = await abrirServidorDePrueba(app);
 });
 afterAll(() => cerrarServidorDePrueba(servidor));
+
+// Filas ajenas en la tabla, como las que deja una corrida cortada (issue #87).
+beforeAll(sembrarRestos);
+afterAll(borrarRestos);
 
 afterEach(async () => {
   vi.restoreAllMocks();

@@ -253,7 +253,8 @@ guardarVentaActual(venta)  // -> true si guardó o borró, false si el navegador
   vaciarla después de registrar la venta deja el navegador sin nada guardado (RF-09, criterio 1).
   `[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
 - Lo guardado se valida entero al leerlo. Se ignora **todo** (y se empieza con la venta actual vacía) si: no es un JSON
-  válido; no es un objeto con `version` igual a 1; `detalles` no es una lista; o algún detalle no cumple: `productoId`
+  válido; no es un objeto con `version` igual a 1; `detalles` no es una lista o tiene más de 100 detalles (RN-14); o
+  algún detalle no cumple: `productoId`
   entero de 1 o más, `nombre` texto no vacío de hasta 120 caracteres, `precioAplicado` texto con la forma del dinero y de 0
   a 99 999.99, `cantidad` entero de 1 a 999, o un `productoId` repetido. Lo que se lee sale con el `precioAplicado` de 2
   decimales.

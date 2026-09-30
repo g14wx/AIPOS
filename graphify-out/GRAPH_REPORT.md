@@ -1,17 +1,17 @@
 # Graph Report - AIPOS  (2026-09-29)
 
 ## Corpus Check
-- 53 files · ~29,161 words
+- 53 files · ~29,435 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: .drawio 7, (none) 3, .example 1)
 
 ## Summary
-- 280 nodes · 278 edges · 42 communities (27 shown, 15 thin omitted)
+- 281 nodes · 279 edges · 41 communities (26 shown, 15 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `80888168`
+- Built from commit: `36f1a79e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,7 +36,6 @@
 - Vue 2 + Vuetify 2 + Vite setup
 - Requerimientos de AIPOS
 - Vuetify 2 components (Vue 2.7)
-- Flujo 05 · Entregar un entregable
 - Grafo del proyecto
 - comun.sh
 - AGENTS.md
@@ -61,10 +60,10 @@
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
 2. `Requerimientos no funcionales` - 14 edges
-3. `Flujo de un entregable` - 10 edges
-4. `Configurar el MCP de Trello` - 9 edges
-5. `Alcance` - 9 edges
-6. `Grafo del proyecto` - 9 edges
+3. `Grafo del proyecto` - 10 edges
+4. `Flujo de un entregable` - 10 edges
+5. `Configurar el MCP de Trello` - 9 edges
+6. `Alcance` - 9 edges
 7. `Trabajar en un tile` - 7 edges
 8. `Lenguaje ubicuo — AIPOS` - 6 edges
 9. `Usar los tiles del proyecto` - 6 edges
@@ -76,11 +75,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (42 total, 15 thin omitted)
+## Communities (41 total, 15 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.18
-Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
+Cohesion: 0.13
+Nodes (15): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos, Entrega final (+7 more)
 
 ### Community 1 - "Lenguaje ubicuo — AIPOS"
 Cohesion: 0.14
@@ -123,8 +122,8 @@ Cohesion: 0.20
 Nodes (10): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Requerimientos, Secuencia de los entregables, Tablero AIPOS (+2 more)
 
 ### Community 11 - "Grafo del proyecto"
-Cohesion: 0.22
-Nodes (9): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+1 more)
+Cohesion: 0.20
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -158,10 +157,6 @@ Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz d
 Cohesion: 0.33
 Nodes (5): Custom v-model, Example: point-of-sale screen, Reactivity, Vue 3 / Vuetify 3 habit and its Vue 2 / Vuetify 2 form, Vuetify 2 components (Vue 2.7)
 
-### Community 20 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
-
 ### Community 21 - "Grafo del proyecto"
 Cohesion: 0.40
 Nodes (4): Al terminar una tarea, Antes de empezar una tarea, Cuándo no usarlo, Grafo del proyecto
@@ -187,8 +182,8 @@ Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
 ## Knowledge Gaps
-- **180 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+175 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 203 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **181 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+176 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 204 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -201,10 +196,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Lenguaje ubicuo — AIPOS`?**
   _High betweenness centrality (0.048) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _180 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _181 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `requerimientos/README.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.13230769230769232 - nodes in this community are weakly interconnected._
 - **Should `Lenguaje ubicuo — AIPOS` be split into smaller, more focused modules?**
   _Cohesion score 0.13970588235294118 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

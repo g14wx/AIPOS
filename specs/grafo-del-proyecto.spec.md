@@ -37,16 +37,28 @@ graphify update .             # armar o actualizar el grafo: código y documento
 `AGENTS.md` se lee siempre, en Claude Code y en Codex, aunque Tessl todavía no esté instalado. Por eso los pasos de
 arranque van al inicio de `AGENTS.md`, fuera de la sección que maneja Tessl:
 
-- Si no existe `.tessl/RULES.md`, el agente corre `tessl install` y le pide a la persona desarrolladora que abra
-  una sesión nueva antes de empezar cualquier tarea. Las reglas y las skills se cargan al abrir la sesión.
+- Si no existe `.tessl/RULES.md`, o si `find tessl.json tessl-plugins -newer .tessl/RULES.md` muestra algún
+  archivo (por ejemplo, después de un `git pull` que trajo un tile nuevo), el agente corre `tessl install`. Después
+  le pide a la persona desarrolladora que abra una sesión nueva antes de empezar cualquier tarea, porque las reglas
+  y las skills se cargan al abrir la sesión. Si no hay una persona que pueda abrirla, por ejemplo en `codex review`
+  o en una ejecución automática, el agente lee `.tessl/RULES.md` y los archivos que enlaza, y sigue con la tarea.
 - Si `git config core.hooksPath` no responde `.githooks`, el agente corre `git config core.hooksPath .githooks`.
-- Si el comando `graphify` no está instalado, el agente le pregunta a la persona desarrolladora y, si dice que sí,
-  lo instala con `uv tool install "graphifyy[sql]==0.9.72"`. Nunca lo instala sin preguntar.
+- Si `graphify --version` no responde `graphify 0.9.72`, porque no está instalado o es otra versión, el agente le
+  pregunta a la persona desarrolladora y, si dice que sí, lo instala con `uv tool install "graphifyy[sql]==0.9.72"`.
+  Nunca lo instala sin preguntar.
 - Si falta `tessl` o `uv`, el agente le indica a la persona desarrolladora la guía que corresponde:
   `docs/setup/tessl-setup.md` o `docs/setup/graphify-setup.md`.
 
 La prueba revisa que `AGENTS.md` tenga los tres pasos, fuera de la sección de Tessl:
 `[@test] ../tests/arranque/agents-md.test.sh`
+
+## Versión de Graphify
+
+El proyecto usa Graphify 0.9.72. Con otra versión el grafo puede salir distinto, y dos personas se pisarían el
+grafo en cada commit. La versión aparece igual en `AGENTS.md`, la regla del tile, la guía, el hook de git y el eval.
+
+La prueba revisa que todos esos archivos pidan la misma versión:
+`[@test] ../tests/grafo-del-proyecto/misma-version.test.sh`
 
 ## Qué va a git
 
@@ -78,6 +90,11 @@ La prueba corre `graphify update .` dos veces y compara los archivos. Si Graphif
 Vive en `.githooks/pre-commit` y entra a git como ejecutable. Se activa con `git config core.hooksPath .githooks`,
 que lo hace el agente en el arranque. Nunca bloquea un commit: siempre termina con código 0.
 
+- Busca `graphify` en el `PATH` y, si no está, en `~/.local/bin/graphify`, donde lo pone `uv tool install`. Así
+  funciona también en los commits desde WebStorm u otra app, que a veces no ven `~/.local/bin`.
+  `[@test] ../tests/hook-de-git/graphify-fuera-del-path.test.sh`
+- Si `graphify --version` no es la 0.9.72, avisa, deja pasar el commit y no toca el grafo.
+  `[@test] ../tests/hook-de-git/otra-version.test.sh`
 - Con Graphify instalado, corre `graphify update .` y agrega `graph.json` y `GRAPH_REPORT.md` al commit, aunque
   la persona desarrolladora o el agente solo hayan agregado otros archivos.
   `[@test] ../tests/hook-de-git/agrega-el-grafo.test.sh`
@@ -87,8 +104,13 @@ que lo hace el agente en el arranque. Nunca bloquea un commit: siempre termina c
   Si Graphify se negó a achicar el grafo porque se borró código a propósito, el aviso dice cómo seguir:
   `graphify update . --force` y el grafo en otro commit.
   `[@test] ../tests/hook-de-git/graphify-falla.test.sh`
+- Vacía la marca de commit que deja Graphify: `built_at_commit` en `graph.json` y la línea "Built from commit" de
+  `GRAPH_REPORT.md`. Graphify anota el commit anterior, porque el nuevo todavía no existe, y el grafo parecería
+  desactualizado en su propio commit. En el reporte queda una línea que dice que el hook de git lo mantiene al día.
+  `[@test] ../tests/hook-de-git/marca-de-commit.test.sh`
 
-Las tres pruebas arman un repo temporal con un `graphify` falso, así que no tocan este repo ni necesitan Graphify.
+Estas pruebas arman un repo temporal con un `graphify` falso y un `HOME` aparte, así que no tocan este repo ni
+necesitan Graphify.
 
 El hook de git arma el grafo con lo que hay en la carpeta del proyecto, no solo con lo que entra al commit. Si
 quedan cambios sin commit, el grafo del commit también los muestra, hasta el commit siguiente.
@@ -96,10 +118,14 @@ quedan cambios sin commit, el grafo del commit también los muestra, hasta el co
 ## Hook de Claude Code
 
 Vive en `.claude/settings.json`. Antes de cada búsqueda o lectura de archivos corre `graphify hook-guard`, que le
-recuerda al agente consultar el grafo. Si Graphify no está instalado, no hace nada y no muestra errores.
+recuerda al agente consultar el grafo. Busca `graphify` en el `PATH` y en `~/.local/bin/graphify`. Si no lo
+encuentra, no hace nada y no muestra errores.
 
-La prueba corre los dos comandos del hook de Claude Code sin Graphify en el `PATH` y revisa que terminen con código 0 y sin salida:
+La prueba corre los dos comandos del hook de Claude Code sin Graphify y revisa que terminen con código 0 y sin salida:
 `[@test] ../tests/hook-de-claude-code/sin-graphify.test.sh`
+
+La otra prueba pone un `graphify` falso solo en `~/.local/bin` y revisa que el hook de Claude Code lo use:
+`[@test] ../tests/hook-de-claude-code/graphify-fuera-del-path.test.sh`
 
 ## Regla del tile `grafo-del-proyecto`
 
@@ -119,8 +145,8 @@ archivos del grafo:
 
 - No usa `--no-verify` y no sube otros archivos de `graphify-out/`.
 - Si falta `graphify-out/graph.json`, lo arma con `graphify update .`.
-- Si `graphify` no está instalado, pregunta antes de instalarlo, igual que en el arranque. Mientras tanto lee
-  `graphify-out/GRAPH_REPORT.md`.
+- Si `graphify` no está instalado, o `graphify --version` no responde `graphify 0.9.72`, pregunta antes de
+  instalarlo, igual que en el arranque. Mientras tanto lee `graphify-out/GRAPH_REPORT.md`.
 - Si la tarea es revisar si el grafo está bien, no usa el grafo como prueba: lee el código.
 
 ## Qué no se usa

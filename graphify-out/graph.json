@@ -1598,7 +1598,7 @@
       "file_type": "code",
       "norm_label": "aleliminar()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L179"
+      "source_location": "L182"
     },
     {
       "id": "frontend_src_components_ventaactual_beforedestroy",
@@ -1610,7 +1610,7 @@
       "file_type": "code",
       "norm_label": "beforedestroy()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L172"
+      "source_location": "L175"
     },
     {
       "id": "frontend_src_components_ventaactual_clasedefila",
@@ -1622,7 +1622,7 @@
       "file_type": "code",
       "norm_label": "clasedefila()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L199"
+      "source_location": "L202"
     },
     {
       "id": "frontend_src_components_ventaactual_created",
@@ -1634,7 +1634,7 @@
       "file_type": "code",
       "norm_label": "created()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L159"
+      "source_location": "L161"
     },
     {
       "id": "frontend_src_components_ventaactual_data",
@@ -1658,7 +1658,7 @@
       "file_type": "code",
       "norm_label": "enfocartraseliminar()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L191"
+      "source_location": "L194"
     },
     {
       "id": "frontend_src_components_ventaactual_haydetalles",
@@ -1682,7 +1682,7 @@
       "file_type": "code",
       "norm_label": "mostrarfilaresaltada()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L203"
+      "source_location": "L206"
     },
     {
       "id": "frontend_src_components_ventaactual_mounted",
@@ -1694,7 +1694,7 @@
       "file_type": "code",
       "norm_label": "mounted()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L163"
+      "source_location": "L166"
     },
     {
       "id": "frontend_src_components_ventaactual_puntodeapilado",
@@ -1910,7 +1910,7 @@
       "file_type": "code",
       "norm_label": "subtotalde()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L196"
+      "source_location": "L199"
     },
     {
       "id": "frontend_src_components_ventaactual_total",
@@ -2582,7 +2582,7 @@
       "file_type": "code",
       "norm_label": "resaltarid()",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L155"
+      "source_location": "L157"
     },
     {
       "id": "frontend_tests_venta_actual_eliminar_test_congelar",
@@ -22574,7 +22574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L187",
+      "source_location": "L190",
       "weight": 1.0
     },
     {
@@ -22598,7 +22598,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L197",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -22610,7 +22610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L197",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -22646,7 +22646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L153",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -41993,7 +41993,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L155",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -42004,7 +42004,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L159",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -42015,7 +42015,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L163",
+      "source_location": "L166",
       "weight": 1.0
     },
     {
@@ -42026,7 +42026,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L172",
+      "source_location": "L175",
       "weight": 1.0
     },
     {
@@ -42037,7 +42037,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L179",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -42048,7 +42048,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L191",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -42059,7 +42059,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L196",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -42070,7 +42070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L199",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -42081,7 +42081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/VentaActual.vue",
-      "source_location": "L203",
+      "source_location": "L206",
       "weight": 1.0
     },
     {

@@ -144,21 +144,24 @@ export default {
   },
   watch: {
     // V-07: cuando llega la venta actual sin el detalle que se eliminó, el foco pasa a un lugar con sentido. Si el detalle
-    // sigue ahí (la propiedad cambió por otra cosa), el pedido se descarta y el foco no se mueve.
+    // sigue ahí (la propiedad cambió por otra cosa), la anotación se descarta y el foco no se mueve.
     ventaActual(nueva) {
-      const pedido = this.focoPorEliminar;
-      this.focoPorEliminar = null;
-      if (!pedido) return;
-      const sigueAhi = nueva.detalles.some((detalle) => detalle.productoId === pedido.productoId);
-      if (!sigueAhi) this.$nextTick(() => this.enfocarTrasEliminar(pedido.indice));
+      const eliminado = this.ultimoEliminado;
+      this.ultimoEliminado = null;
+      if (!eliminado) return;
+      const sigueAhi = nueva.detalles.some(
+        (detalle) => detalle.productoId === eliminado.productoId,
+      );
+      if (!sigueAhi) this.$nextTick(() => this.enfocarTrasEliminar(eliminado.indice));
     },
     resaltarId(productoId) {
       if (productoId !== null) this.$nextTick(this.mostrarFilaResaltada);
     },
   },
   created() {
-    // Qué fila se pidió eliminar (V-07). No es reactivo, porque no se dibuja: no va en data.
-    this.focoPorEliminar = null;
+    // El último detalle que eliminó el cajero (V-07), hasta que llegue la venta actual sin él. No es reactivo, porque no
+    // se dibuja: no va en data.
+    this.ultimoEliminado = null;
   },
   mounted() {
     this.anchoDeLaTarjeta = this.$el.clientWidth || null;
@@ -183,7 +186,7 @@ export default {
       const indice = this.ventaActual.detalles.findIndex(
         (d) => d.productoId === detalle.productoId,
       );
-      this.focoPorEliminar = { productoId: detalle.productoId, indice };
+      this.ultimoEliminado = { productoId: detalle.productoId, indice };
       this.$emit('update:ventaActual', eliminarDetalle(this.ventaActual, detalle.productoId));
     },
     // El botón que tenía el foco ya no está: el foco pasa al «Eliminar» de la fila que ocupó su lugar (o al de la anterior,

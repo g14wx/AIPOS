@@ -277,7 +277,7 @@ debe_decir "$AVA" 'la primera de V-05 y V-06 que se integra'
 for spec in "$A" "$CP" "$BP"; do debe_decir "$spec" 'P-03 y P-05 corren a la vez'; done
 debe_decir "$A" 'V-05, V-06 y V-07 corren a la vez'
 debe_decir "$A" '`frontend/src/api/productos.js`'
-# Tercera revisión de Codex (P2): P-02 y P-04 también comparten backend/docs/openapi.yaml, en la ruta /productos.
+# Tercera revisión de Codex (P2): P-02 y P-04 también comparten backend/docs/openapi.yaml, en la ruta /api/productos.
 for spec in "$A" "$CP" "$BP"; do debe_decir "$spec" 'P-02 agrega `post` y P-04 `get`'; done
 debe_decir "$CP" 'le pasa `animacion`, `loop` en `false` y `alto` en 32'
 ya_no_debe_decir "$CP" 'solo le pasa `animacion` y `loop` en `false`'

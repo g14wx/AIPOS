@@ -41,7 +41,9 @@ enlazan los `[@test]`.
 P-04 depende de P-01 (la tabla `productos` y el modelo `Producto`). P-02 y P-04 corren a la vez y comparten los archivos
 de `productos` del backend (`routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
 `validators/productos.js` y `validators/comunes.js`): los crea la primera de las dos que se integra en
-`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-05 depende de P-04 y
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). Las dos también escriben la ruta
+`/api/productos` de `backend/docs/openapi.yaml`: P-02 agrega `post` y P-04 `get`, y la que se integra después conserva las
+dos operaciones al juntar. P-05 depende de P-04 y
 de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js`, `App.vue` y el campo inicial de
 `BuscadorProductos.vue`). P-03 y P-05 corren a la vez y comparten `frontend/src/api/productos.js`: P-05 agrega
 `buscarProductos` y P-03 `crearProducto`. La que se integra primero lo crea, y la otra conserva las dos funciones al

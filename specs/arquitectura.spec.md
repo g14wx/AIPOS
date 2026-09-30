@@ -208,9 +208,10 @@ backend/
   `services/productos.js`, `validators/productos.js` y `validators/comunes.js` con su prueba `validacion-comun.test.js`)
   los crea la primera de esas tarjetas que se integra en la rama de su entregable. Las demás los juntan: ponen su rama
   al día con la de su entregable y agregan lo suyo a los mismos archivos, y la que necesita una pieza de `comunes.js`
-  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez, y P-03 y P-05 corren a la vez: comparten
-  `frontend/src/api/productos.js` (P-03 agrega `crearProducto` y P-05 `buscarProductos`), y la que se integra primero lo
-  crea y la otra conserva las dos funciones. En ventas, V-05, V-06 y V-07 corren a la vez y comparten `VentaActual.vue`,
+  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez y comparten también la ruta `/api/productos`
+  de `backend/docs/openapi.yaml` (P-02 agrega `post` y P-04 `get`: la que se integra primero crea la ruta y la otra conserva
+  las dos operaciones), y P-03 y P-05 corren a la vez: comparten `frontend/src/api/productos.js` (P-03 agrega
+  `crearProducto` y P-05 `buscarProductos`), y la que se integra primero lo crea y la otra conserva las dos funciones. En ventas, V-05, V-06 y V-07 corren a la vez y comparten `VentaActual.vue`,
   `src/ventaActual/ventaActual.js`, `src/ventaActual/validaciones.js` y `frontend/tests/pantalla-venta-actual.test.js`
   (spec de armar la venta actual).
 - Los scripts de `package.json` del backend:

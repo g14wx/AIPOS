@@ -35,7 +35,9 @@ Se hacen en ese orden: P-02 depende de P-01 y P-03 depende de P-02. Todas depend
 integrado. P-02 y P-04 corren a la vez (P-04 es la ruta de buscar producto, flujo 02) y comparten los archivos de
 `productos` del backend: `routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
 `validators/productos.js` y `validators/comunes.js`. Los crea la primera de las dos que se integra en
-`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-03 y P-05 corren a la vez (P-05 es la
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). Las dos también escriben la ruta
+`/api/productos` de `backend/docs/openapi.yaml`: P-02 agrega `post` y P-04 `get`, y la que se integra después conserva las
+dos operaciones al juntar. P-03 y P-05 corren a la vez (P-05 es la
 pantalla de buscar producto) y comparten `frontend/src/api/productos.js`: P-03 agrega `crearProducto` y P-05
 `buscarProductos`. La que se integra primero lo crea, y la otra conserva las dos funciones al poner su rama al día.
 P-01 solo hace la migración y el modelo.

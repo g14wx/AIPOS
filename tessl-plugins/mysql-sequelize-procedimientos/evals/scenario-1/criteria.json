@@ -9,6 +9,12 @@
       "category": "MUST_NOT"
     },
     {
+      "name": "client_runnable_script",
+      "description": "A .sql script for sp_register_sale is in the repository with DROP PROCEDURE IF EXISTS and the CREATE PROCEDURE ... END block wrapped in DELIMITER $$ ... $$ (then DELIMITER ;), so it runs with the mysql client, and the migration reads that file and sends only the CREATE block, never DELIMITER.",
+      "max_score": 2,
+      "category": "INTEGRATION"
+    },
+    {
       "name": "migration_drop_then_create",
       "description": "The migration's up runs DROP PROCEDURE IF EXISTS sp_register_sale and CREATE PROCEDURE in two separate queryInterface.sequelize.query() calls, passes no replacements and no QueryTypes to the CREATE call, and down drops the procedure. It is CommonJS like the existing migrations and sorts after them.",
       "max_score": 2,

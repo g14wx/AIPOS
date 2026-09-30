@@ -347,9 +347,10 @@ describe('disabled', () => {
   });
 });
 
-describe('estilos (skill impeccable: cifras tabulares y zona táctil)', () => {
+// jsdom no calcula estilos: como hacen VentaActual.test.js y tema.test.js, se revisa el texto de los estilos del componente.
+function estilosDe(archivo) {
   const fuente = readFileSync(
-    resolve(import.meta.dirname, '../../src/components/CampoPrecioAplicado.vue'),
+    resolve(import.meta.dirname, '../../src/components', archivo),
     'utf8',
   );
   const css = [...fuente.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
@@ -367,6 +368,11 @@ describe('estilos (skill impeccable: cifras tabulares y zona táctil)', () => {
         selectores.some((s) => s.includes(fragmento)) &&
         new RegExp(`(^|[;\\s])${propiedad}\\s*:\\s*${escapar(valor)}\\s*(;|$)`).test(cuerpo),
     );
+  return { css, declara };
+}
+
+describe('estilos del campo (skill impeccable: cifras tabulares, zona táctil y alineación)', () => {
+  const { css, declara } = estilosDe('CampoPrecioAplicado.vue');
 
   it('el precio aplicado se escribe en cifras del mismo ancho y alineado a la derecha, para que los decimales queden en columna', () => {
     expect(declara('input', 'font-variant-numeric', 'tabular-nums')).toBe(true);
@@ -377,11 +383,38 @@ describe('estilos (skill impeccable: cifras tabulares y zona táctil)', () => {
     expect(declara('.v-input__slot', 'min-height', '2.75rem')).toBe(true);
   });
 
+  it('el campo mide 7.5 rem y la raíz ocupa el ancho de su celda, para que el mensaje de error use ese ancho', () => {
+    expect(declara('.v-input__slot', 'width', '7.5rem')).toBe(true);
+    expect(declara('.campo-precio-aplicado', 'width', '100%')).toBe(true);
+  });
+
+  it('en la tabla ancha (celda text-end) el campo y su mensaje quedan a la derecha, bajo su encabezado', () => {
+    expect(declara('td.text-end .campo-precio-aplicado ', 'margin-left', 'auto')).toBe(true);
+    expect(
+      declara('td.text-end .campo-precio-aplicado__mensaje', 'justify-content', 'flex-end'),
+    ).toBe(true);
+  });
+
   it('los colores salen de las variables del tema, sin hexadecimales', () => {
     expect(css).not.toMatch(/#[0-9a-fA-F]{3,8}\b/);
   });
 
   it('sin animaciones ni transiciones propias', () => {
     expect(css).not.toMatch(/@keyframes|animation\s*:|transition\s*:/);
+  });
+});
+
+describe('estilos de la fila de VentaActual que dependen del campo (alineación)', () => {
+  const { declara } = estilosDe('VentaActual.vue');
+
+  it('las celdas de una fila apilada se alinean arriba: si el mensaje de error crece hacia abajo, las demás no se mueven', () => {
+    expect(declara('.v-data-table__mobile-table-row', 'align-items', 'flex-start')).toBe(true);
+  });
+
+  it('la cantidad y el subtotal miden 44 px como los campos, con el texto centrado: sus cifras quedan a la altura de las del precio aplicado', () => {
+    for (const clase of ['.detalle__cantidad', '.detalle__subtotal']) {
+      expect(declara(clase, 'min-height', '2.75rem')).toBe(true);
+      expect(declara(clase, 'align-items', 'center')).toBe(true);
+    }
   });
 });

@@ -82,17 +82,29 @@ export default {
 </script>
 
 <style scoped>
-/* Un campo compacto para la celda de la tabla: sin el margen con que Vuetify deja lugar a la etiqueta y a la ayuda. */
+/* La raíz ocupa el ancho de su celda, para que el mensaje de error use ese ancho; el campo mide 7.5 rem. Sin el margen
+   con que Vuetify deja lugar a la etiqueta y a la ayuda: es un campo compacto para la celda de una tabla. */
 .campo-precio-aplicado {
-  width: 7.5rem;
-  max-width: 100%;
+  width: 100%;
   padding-top: 0;
   margin: 0;
 }
 
-/* Al menos 44 px de alto: se usa con el dedo. */
+/* El campo mide al menos 44 px de alto (se usa con el dedo) y lo justo para 99999.99. */
 .campo-precio-aplicado ::v-deep .v-input__control > .v-input__slot {
+  width: 7.5rem;
+  max-width: 100%;
   min-height: 2.75rem;
+}
+
+/* En la tabla ancha, la celda está alineada al final (text-end): el campo queda a la derecha, bajo su encabezado y junto
+   a las demás cifras. En las filas apiladas la celda mide lo que el campo y no hay nada que alinear. */
+td.text-end .campo-precio-aplicado ::v-deep .v-input__slot {
+  margin-left: auto;
+}
+
+td.text-end .campo-precio-aplicado__mensaje {
+  justify-content: flex-end;
 }
 
 /* El precio aplicado va a la derecha y en cifras del mismo ancho, para que los decimales queden en columna. */

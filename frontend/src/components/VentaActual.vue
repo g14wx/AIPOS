@@ -284,6 +284,16 @@ export default {
   line-height: 1.5rem;
 }
 
+/* Las cifras de la cantidad y del subtotal miden lo mismo que los campos de su fila (44 px) y su texto queda centrado: así
+   quedan a la altura de lo que escribe el cajero en el precio aplicado. */
+.detalle__cantidad,
+.detalle__subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 2.75rem;
+}
+
 .solo-lectores {
   position: absolute;
   width: 1px;
@@ -339,7 +349,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   column-gap: 1rem;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--filete);
 }

@@ -1,5 +1,8 @@
 import { afterAll, afterEach, beforeAll } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import path from 'node:path';
+import { carpetaBackend, carpetaRaiz } from './ayudas.js';
 
 const require = createRequire(import.meta.url);
 const mysql = require('mysql2/promise');
@@ -15,6 +18,14 @@ const { config } = require('../../src/config.js');
 
 // Todos los productos de prueba llevan este comienzo en el código de barras, para borrarlos sin tocar otros.
 export const PREFIJO_PRODUCTOS = 'SP-REG-';
+
+// El script del procedimiento: el que corre el cliente mysql y el que lee la migración.
+export const ARCHIVO_SQL = path.join(
+  carpetaBackend,
+  'db',
+  'procedimientos',
+  'sp_registrar_venta.sql',
+);
 
 // Los números de error de MySQL que estas pruebas esperan (los que la API lee en err.parent.errno).
 export const ER_LOCK_WAIT_TIMEOUT = 1205;
@@ -163,4 +174,80 @@ export function prepararPrueba({ productos = 3 } = {}) {
     await borrarDatosDePrueba();
   });
   return contexto;
+}
+
+// Lo que MySQL sabe del procedimiento que hay ahora en la base de prueba, o undefined si no existe:
+// `cuerpo` (de BEGIN a END) y `definidor` (la cuenta que lo creó, por ejemplo aipos@%).
+export async function leerProcedimiento() {
+  const [fila] = await consultar(
+    `SELECT routine_definition AS cuerpo, definer AS definidor, security_type AS seguridad
+       FROM information_schema.routines
+      WHERE routine_schema = DATABASE() AND routine_type = 'PROCEDURE'
+        AND routine_name = 'sp_registrar_venta'`,
+  );
+  return fila;
+}
+
+// El texto sin comentarios y con los espacios juntos, para comparar dos cuerpos: el cliente mysql quita los
+// comentarios antes de mandar el script, y la migración los manda.
+export function sinComentariosNiEspacios(texto) {
+  return texto
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/--[^\n]*/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Busca un cliente `mysql` que entre a la base de prueba con el usuario de la app (nunca con root): primero el
+// del servicio mysql de Docker Compose, como dice la spec (`docker compose exec -T mysql mysql`), y si no, el
+// `mysql` del PATH. Devuelve null si no hay ninguno que sirva. La clave va en MYSQL_PWD, no en la línea de comandos.
+export function buscarClienteMysql() {
+  const { host, puerto, nombre, usuario } = config.baseDeDatos;
+  const candidatos = [
+    {
+      descripcion: 'docker compose exec -T mysql mysql',
+      comando: 'docker',
+      argumentos: [
+        'compose',
+        'exec',
+        '-T',
+        '-e',
+        'MYSQL_PWD',
+        'mysql',
+        'mysql',
+        '-u',
+        usuario,
+        nombre,
+      ],
+      cwd: carpetaRaiz,
+    },
+    {
+      descripcion: 'el cliente mysql del PATH',
+      comando: 'mysql',
+      argumentos: ['-h', host, '-P', String(puerto), '-u', usuario, nombre],
+      cwd: carpetaRaiz,
+    },
+  ];
+  for (const candidato of candidatos) {
+    try {
+      correrSql(candidato, 'SELECT 1');
+      return candidato;
+    } catch {
+      // Ese cliente no está, o no entra a la base de prueba: se prueba el siguiente.
+    }
+  }
+  return null;
+}
+
+// Corre `sql` con el cliente, igual que `mysql ... < archivo.sql`: el texto entra por la entrada estándar.
+// Si el cliente termina con error, lanza una excepción con lo que escribió.
+export function correrSql(cliente, sql) {
+  return execFileSync(cliente.comando, cliente.argumentos, {
+    cwd: cliente.cwd,
+    env: { ...process.env, MYSQL_PWD: config.baseDeDatos.clave },
+    input: sql,
+    encoding: 'utf8',
+    stdio: ['pipe', 'pipe', 'pipe'],
+    timeout: 60_000,
+  });
 }

@@ -68,6 +68,14 @@ describe('GET /api/productos está documentada', () => {
     expect(respuestas['500']).toEqual({ $ref: '#/components/responses/ErrorInterno' });
   });
 
+  it('la descripción dice cuándo responde 400, porque el ejemplo del 400 es el genérico de la documentación', () => {
+    // A-01 exige que el 400 sea un $ref a DatosInvalidos, y su ejemplo habla del precio: aquí se aclara el caso de la búsqueda.
+    expect(operacion.description).toMatch(/400/);
+    expect(operacion.description).toMatch(/DATOS_INVALIDOS/);
+    expect(operacion.description).toMatch(/busqueda/);
+    expect(operacion.description).toMatch(/detalles del error/);
+  });
+
   it('el 200 es una lista de productos de 20 como máximo', () => {
     expect(contenidoDelExito.schema).toMatchObject({ type: 'array', maxItems: 20 });
     expect(contenidoDelExito.schema.items).toEqual({ $ref: '#/components/schemas/Producto' });

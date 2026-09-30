@@ -53,6 +53,10 @@ paths:
 
         `%`, `_` y `\` se buscan como texto normal: buscar `50%` solo encuentra nombres que tengan `50%`.
         Solo lee: no cambia nada.
+
+        Responde 400 (`DATOS_INVALIDOS`, con el campo `busqueda` en los detalles del error) si falta el texto, si
+        queda con menos de 2 o con más de 120 caracteres, o si `busqueda` se repite. Por ejemplo, con `?busqueda=a`
+        el detalle del error dice "Escribe al menos 2 caracteres.".
       parameters:
         - name: busqueda
           in: query

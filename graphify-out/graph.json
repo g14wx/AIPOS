@@ -593,7 +593,7 @@
       "node_kind": "heading",
       "norm_label": "arranque de un clon nuevo",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
@@ -605,7 +605,7 @@
       "node_kind": "heading",
       "norm_label": "grafo del proyecto",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
@@ -617,7 +617,7 @@
       "node_kind": "heading",
       "norm_label": "hook de claude code",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L87"
+      "source_location": "L96"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
@@ -629,7 +629,7 @@
       "node_kind": "heading",
       "norm_label": "hook de git `pre-commit`",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L72"
+      "source_location": "L76"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
@@ -641,7 +641,7 @@
       "node_kind": "heading",
       "norm_label": "proceso escrito",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L124"
+      "source_location": "L134"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
@@ -653,7 +653,7 @@
       "node_kind": "heading",
       "norm_label": "que entra al grafo",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L56"
+      "source_location": "L60"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
@@ -665,7 +665,7 @@
       "node_kind": "heading",
       "norm_label": "que no se usa",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L116"
+      "source_location": "L126"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
@@ -677,7 +677,7 @@
       "node_kind": "heading",
       "norm_label": "que va a git",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L47"
+      "source_location": "L51"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
@@ -689,7 +689,7 @@
       "node_kind": "heading",
       "norm_label": "regla del tile `grafo-del-proyecto`",
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L95"
+      "source_location": "L104"
     },
     {
       "id": "tessl_plugins_lenguaje_ubicuo_skills_glosario_lenguaje_ubicuo_skill",
@@ -3010,7 +3010,7 @@
       "node_kind": "heading",
       "norm_label": "privacidad",
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L115"
+      "source_location": "L116"
     },
     {
       "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
@@ -3759,7 +3759,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L115",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -4958,84 +4958,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L116",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_proceso_escrito",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L124",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L47",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L56",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L72",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "target": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L87",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -5046,7 +4969,84 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L95",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_proceso_escrito",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "target": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -6525,5 +6525,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "aab4bbcdf6cf05cbd7aa894dc8ceb10efd2d0917"
+  "built_at_commit": "80888168cb5e0f69d0caf47a9c0d016b864d23a4"
 }

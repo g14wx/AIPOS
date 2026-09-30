@@ -9,10 +9,12 @@ targets:
   - ../.gitignore
   - ../.graphifyignore
   - ../docs/setup/graphify-setup.md
+  - ../docs/setup/tessl-setup.md
   - ../docs/lenguaje-ubicuo.md
   - ../README.md
   - ../requerimientos/04-entregables.md
   - ../requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md
+  - ../requerimientos/flujos/00-mapa-de-procesos.md
   - ../requerimientos/diagramas/06-trabajar-una-tarjeta-con-el-agente.*
 ---
 
@@ -40,6 +42,8 @@ arranque van al inicio de `AGENTS.md`, fuera de la sección que maneja Tessl:
 - Si `git config core.hooksPath` no responde `.githooks`, el agente corre `git config core.hooksPath .githooks`.
 - Si el comando `graphify` no está instalado, el agente le pregunta a la persona desarrolladora y, si dice que sí,
   lo instala con `uv tool install "graphifyy[sql]==0.9.72"`. Nunca lo instala sin preguntar.
+- Si falta `tessl` o `uv`, el agente le indica a la persona desarrolladora la guía que corresponde:
+  `docs/setup/tessl-setup.md` o `docs/setup/graphify-setup.md`.
 
 La prueba revisa que `AGENTS.md` tenga los tres pasos, fuera de la sección de Tessl:
 `[@test] ../tests/arranque/agents-md.test.sh`
@@ -79,10 +83,15 @@ que lo hace el agente en el arranque. Nunca bloquea un commit: siempre termina c
   `[@test] ../tests/hook-de-git/agrega-el-grafo.test.sh`
 - Sin Graphify, avisa por la salida de error, deja pasar el commit y no toca el grafo.
   `[@test] ../tests/hook-de-git/sin-graphify.test.sh`
-- Si `graphify update .` falla, avisa y deja pasar el commit con el grafo anterior.
+- Si `graphify update .` falla, avisa, muestra el aviso de Graphify y deja pasar el commit con el grafo anterior.
+  Si Graphify se negó a achicar el grafo porque se borró código a propósito, el aviso dice cómo seguir:
+  `graphify update . --force` y el grafo en otro commit.
   `[@test] ../tests/hook-de-git/graphify-falla.test.sh`
 
 Las tres pruebas arman un repo temporal con un `graphify` falso, así que no tocan este repo ni necesitan Graphify.
+
+El hook de git arma el grafo con lo que hay en la carpeta del proyecto, no solo con lo que entra al commit. Si
+quedan cambios sin commit, el grafo del commit también los muestra, hasta el commit siguiente.
 
 ## Hook de Claude Code
 
@@ -97,8 +106,9 @@ La prueba corre los dos comandos del hook de Claude Code sin Graphify en el `PAT
 El agente la lee en cada conversación, en Claude Code y en Codex, junto a las del tile `spec-driven-development`.
 
 - Antes de empezar una tarea, y antes de reunir requisitos o de escribir la spec, corre
-  `graphify query "<la tarea>"` y lee primero los archivos que devuelve. Busca a mano solo si el grafo no tiene
-  lo que necesita.
+  `graphify query "<la tarea>"` y lee primero los archivos que devuelve. Usa la respuesta para encontrar las specs
+  y el código relacionados y para elegir los `targets` de la spec. Busca a mano solo si el grafo no tiene lo que
+  necesita.
 - Si el hook de git no está activo (`git config core.hooksPath` no responde `.githooks`), lo activa. Si no puede,
   corre `graphify update .` antes del commit y agrega los dos archivos del grafo.
 
@@ -127,11 +137,13 @@ El proceso escrito nombra los mismos pasos que sigue el agente, para que nadie s
 
 - El flujo 06 y su diagrama BPMN (`.drawio` y `.png`) siguen este orden: consultar el grafo del proyecto, reunir
   requisitos, escribir la spec, aprobar la spec, implementar, correr las pruebas, `spec-verification` y
-  `work-review`, validar, bitácora, y commit con el hook de git. La tarjeta R-03 del tablero AIPOS muestra la
-  imagen nueva.
+  `work-review`, validar, bitácora, y commit con el hook de git. Si la tarjeta no cambia código, no lleva spec: el
+  agente propone un plan corto y la persona desarrolladora lo aprueba. La tarjeta R-03 del tablero AIPOS muestra la
+  imagen nueva, y el mapa de procesos (`00-mapa-de-procesos.md`) resume el flujo 06 con los mismos pasos.
 - La definición de terminado (`requerimientos/04-entregables.md`) pide dos cosas más. Si la tarjeta cambia
   código, tiene su spec aprobada y pasó `spec-verification` y `work-review`. Y su commit trae el grafo del
   proyecto al día.
 - El glosario tiene "grafo del proyecto", "hook de git", "hook de Claude Code" y "spec". Nunca se dice "hook" a secas.
 - La guía `docs/setup/graphify-setup.md` explica el arranque, el hook de git, el hook de Claude Code y cómo
-  resolver problemas, y el README la enlaza.
+  resolver problemas, y el README la enlaza. La guía de Tessl (`docs/setup/tessl-setup.md`) lista los tiles
+  `grafo-del-proyecto` y `spec-driven-development`.

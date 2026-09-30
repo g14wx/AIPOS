@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 5 h hasta ahora (12:46–17:33 y 20:35–20:47), en curso | 26 | 9 |
+| Preparación: agentes, tiles y glosario | 6 h hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–22:46), en curso | 27 | 15 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -258,6 +258,16 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna.
 - **Tiempo:** 16:32–16:46.
 - **Commits:** este commit y el anterior (tile `mysql-sequelize-procedimientos`).
+
+### 2026-09-29 16:34 — Grafo del proyecto con Graphify (T-03)
+
+- **Tarea:** "necesito agregarle https://github.com/Graphify-Labs/graphify a este proyecto que ya tiene tessl, entonces, necestio saber donde puede encajar" y "como un paso para poder ejecutar x tarea, y actualizarla a la finalizacion de una tarea". Es la tarjeta T-03 del tablero AIPOS.
+- **Agente:** Claude Code (Opus 5.5).
+- **Qué hizo el agente:** leyó el código de Graphify 0.9.72 y armó el plan en modo plan. Pasó la tarea por el flujo del tile `spec-driven-development`: requisitos, `specs/grafo-del-proyecto.spec.md` (la primera spec del proyecto), `spec-verification` y `work-review`. Creó el tile `grafo-del-proyecto` (una regla y un eval con un `graphify` falso), el hook de git `.githooks/pre-commit` y el hook de Claude Code en `.claude/settings.json`, con 8 pruebas en `tests/` que pasan. Sumó a `AGENTS.md` el arranque de un clon nuevo, escribió `docs/setup/graphify-setup.md` y actualizó el flujo 06 con su diagrama BPMN, la definición de terminado, el glosario y la guía de Tessl. Creó la tarjeta T-03 y corrigió el total de horas de `requerimientos/04-entregables.md`: las filas sumaban 23, no 23.5. En la máquina de la persona quitó Spec Kit de GitHub (`specify-cli` 0.12.17.dev0), que ningún proyecto usaba, y actualizó Graphify de la 0.9.11 a la 0.9.72. Quedan pendientes correr el eval, que espera los créditos de Tessl, y subir el diagrama nuevo a la tarjeta R-03 después del merge.
+- **Revisión de la persona:** pidió primero solo un plan ("no toques nada") y esperar a que terminara la otra sesión. Eligió el grafo en git, el nombre "grafo del proyecto", el tile de specs de Tessl en lugar de Spec Kit, la regla más un hook de git `pre-commit`, y sumar el grafo al proceso escrito. Paró al agente cuando la instalación de Graphify escribió en `CLAUDE.md` y `AGENTS.md` ("para, es una spec nueva esto?"), preguntó por la tarjeta ("pero, ya tiene su tarjeta??") y pidió que todo funcione desde un clon: "clonar, y conectarlo a claude code o codex, y empezar a programar con los guardrials". Confirmó los requisitos, el glosario y el texto de T-03, aprobó la spec dos veces y validó el trabajo.
+- **Propuestas cambiadas o descartadas:** dejar el grafo fuera de git → va a git (`graph.json` y `GRAPH_REPORT.md`) → motivo por confirmar. Instalar la skill con `graphify install --project`, que según el agente solo copiaba la skill → también escribió en `CLAUDE.md` y `AGENTS.md`; se deshizo y no se usa la skill → el agente había leído `install()` y no `_project_install` en el código de Graphify. Hook de Claude Code solo en la máquina de la persona → va en git, con un chequeo para cuando falta Graphify → todo tiene que funcionar desde un clon. "No instales Graphify" → "pregunta e instálalo si dice que sí" → la misma razón. Flujo 06 sin los pasos de specs → los nombra → la persona pidió que no se pierda ningún paso del proceso de specs. Empezar sin tarjeta → se creó T-03 → el flujo 06 empieza con una tarjeta.
+- **Tiempo:** 16:34–22:46. La planeación tuvo pausas mientras terminaba la otra sesión (sus horas exactas están por confirmar). La implementación fue de 21:40 a 22:46.
+- **Commits:** este commit y los 12 anteriores de la rama `chore/grafo-del-proyecto`: la spec y su ajuste, la tarjeta T-03, las reglas de ignorar, el hook de git, el hook de Claude Code, el tile, el arranque, la guía, el flujo 06, el grafo y la corrección de "hook" a secas.
 
 ### 2026-09-29 16:48 — Revisión de Codex del PR #9
 

@@ -2,11 +2,12 @@
 // el botón «Nuevo producto», el campo de búsqueda y la venta actual vacía con su total, sobre Vue 2.7 y Vuetify 2.7
 // con Vite. Sin vue-router y sin createApp. Las zonas se marcan con data-zona: nuevo-producto, busqueda y venta-actual.
 import { existsSync, readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { beforeAll, describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 
-const raiz = fileURLToPath(new URL('..', import.meta.url));
+// Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y fileURLToPath falla.
+const raiz = resolve(import.meta.dirname, '..') + '/';
 const leer = (ruta) => readFileSync(raiz + ruta, 'utf8');
 const paquete = JSON.parse(leer('package.json'));
 

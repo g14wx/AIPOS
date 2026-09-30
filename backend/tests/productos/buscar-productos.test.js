@@ -2,6 +2,12 @@ import { describe, it, expect, beforeAll, afterAll, afterEach, vi } from 'vitest
 import request from 'supertest';
 import { createRequire } from 'node:module';
 import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
+import {
+  codigoNuevo,
+  codigoConCerosNuevo,
+  sembrarRestos,
+  borrarRestos,
+} from './ayudas-buscar-productos.js';
 
 const require = createRequire(import.meta.url);
 const app = require('../../src/app.js');
@@ -10,10 +16,15 @@ const { Producto } = require('../../src/models/index.js');
 
 // GET /api/productos?busqueda=<texto> contra MySQL de verdad (base de prueba). Necesita MySQL levantado y migrado.
 // Cada prueba crea sus productos con el modelo Producto y los borra al terminar: deja la tabla como la encontró.
-const LECHE = { nombre: 'Leche entera 1 L', codigoBarras: '7501055300075', precio: '25.00' };
-const JUGO_50 = { nombre: 'Jugo 50% fruta', codigoBarras: '111', precio: '18.50' };
-const JUGO_500 = { nombre: 'Jugo 500 ml', codigoBarras: '222', precio: '12.00' };
-const CABLE = { nombre: 'Cable A_B', codigoBarras: '333', precio: '40.00' };
+//
+// La tabla trae también filas que no son de estas pruebas (los restos de ayudas-buscar-productos.js, como los que deja
+// una corrida cortada), así que ninguna prueba supone que está vacía (issue #87). Los códigos de barras son únicos por
+// corrida, y cada prueba compara solo los productos que ella creó (`propios`). Donde el orden y el máximo de 20
+// resultados dependen del texto (criterio 10 y 11), el nombre lleva algo único de la corrida.
+const LECHE = { nombre: 'Leche entera 1 L', codigoBarras: codigoNuevo(), precio: '25.00' };
+const JUGO_50 = { nombre: 'Jugo 50% fruta', codigoBarras: codigoNuevo(), precio: '18.50' };
+const JUGO_500 = { nombre: 'Jugo 500 ml', codigoBarras: codigoNuevo(), precio: '12.00' };
+const CABLE = { nombre: 'Cable A_B', codigoBarras: codigoNuevo(), precio: '40.00' };
 const EJEMPLOS = [LECHE, JUGO_50, JUGO_500, CABLE];
 
 const idsCreados = [];
@@ -24,6 +35,10 @@ beforeAll(async () => {
   servidor = await abrirServidorDePrueba(app);
 });
 afterAll(() => cerrarServidorDePrueba(servidor));
+
+// Filas ajenas en la tabla, como las que deja una corrida cortada (issue #87).
+beforeAll(sembrarRestos);
+afterAll(borrarRestos);
 
 async function crear(...productos) {
   const filas = [];
@@ -44,7 +59,11 @@ function buscar(texto) {
   return request(servidor).get('/api/productos').query({ busqueda: texto });
 }
 
-const nombresDe = (respuesta) => respuesta.body.map((producto) => producto.nombre);
+// Los productos de la respuesta que creó esta prueba, en el mismo orden. Los restos que coinciden con el texto también
+// salen en la respuesta, pero no son de la prueba.
+const propios = (respuesta) =>
+  respuesta.body.filter((producto) => idsCreados.includes(producto.id));
+const nombresDe = (respuesta) => propios(respuesta).map((producto) => producto.nombre);
 
 describe('buscar por una parte del nombre o por el código de barras exacto', () => {
   it('criterio 1: dado el producto "Leche entera 1 L", cuando se busca "lech", entonces aparece en la lista', async () => {
@@ -54,14 +73,15 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
     expect(nombresDe(respuesta)).toEqual(['Leche entera 1 L']);
   });
 
-  it('criterio 2: dado el código de barras "7501055300075", cuando se busca completo, entonces aparece ese producto', async () => {
+  it('criterio 2: dado el código de barras de "Leche entera 1 L" (en la spec, "7501055300075"), cuando se busca completo, entonces aparece ese producto', async () => {
     await crear(...EJEMPLOS);
-    const respuesta = await buscar('7501055300075');
+    // El código de barras es único de esta corrida: no lo tiene ninguna otra fila, y la respuesta trae solo ese producto.
+    const respuesta = await buscar(LECHE.codigoBarras);
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(1);
     expect(respuesta.body[0]).toMatchObject({
       nombre: 'Leche entera 1 L',
-      codigoBarras: '7501055300075',
+      codigoBarras: LECHE.codigoBarras,
     });
   });
 
@@ -69,11 +89,12 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
     await crear(...EJEMPLOS);
     const respuesta = await buscar('zzzz');
     expect(respuesta.status, respuesta.text).toBe(200);
-    expect(respuesta.body).toEqual([]);
+    expect(propios(respuesta)).toEqual([]);
   });
 
-  it('con la tabla vacía también responde 200 con la lista vacía', async () => {
-    const respuesta = await buscar('lech');
+  it('con un texto que ningún producto tiene, aunque la tabla traiga otros productos, responde 200 con la lista vacía', async () => {
+    // La tabla no está vacía (trae los restos): el texto es único de esta corrida, así que no coincide con ninguna fila.
+    const respuesta = await buscar(`sin-coincidencias-${codigoNuevo()}`);
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toEqual([]);
   });
@@ -89,11 +110,11 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
     await crear(...EJEMPLOS);
     const respuesta = await buscar("' OR 1=1 --");
     expect(respuesta.status, respuesta.text).toBe(200);
-    expect(respuesta.body).toEqual([]);
+    expect(propios(respuesta)).toEqual([]);
   });
 
   it('el texto del cajero no rompe la consulta: un nombre con comilla se encuentra con su propia comilla', async () => {
-    await crear({ nombre: "Pan d'or", codigoBarras: '555', precio: '30.00' }, LECHE);
+    await crear({ nombre: "Pan d'or", codigoBarras: codigoNuevo(), precio: '30.00' }, LECHE);
     const respuesta = await buscar("d'or");
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(["Pan d'or"]);
@@ -102,7 +123,7 @@ describe('buscar por una parte del nombre o por el código de barras exacto', ()
 
 describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes', () => {
   it('criterio 6: dado el texto "a_b", entonces solo aparece "Cable A_B", no "Cable AXB"', async () => {
-    await crear(CABLE, { nombre: 'Cable AXB', codigoBarras: '334', precio: '41.00' });
+    await crear(CABLE, { nombre: 'Cable AXB', codigoBarras: codigoNuevo(), precio: '41.00' });
     const respuesta = await buscar('a_b');
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(nombresDe(respuesta)).toEqual(['Cable A_B']);
@@ -112,11 +133,11 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
     await crear(...EJEMPLOS);
     const respuesta = await buscar('a\\');
     expect(respuesta.status, respuesta.text).toBe(200);
-    expect(respuesta.body).toEqual([]);
+    expect(propios(respuesta)).toEqual([]);
   });
 
   it('la barra invertida se busca como texto: "a\\" encuentra un nombre que la tiene', async () => {
-    await crear(...EJEMPLOS, { nombre: 'Ruta a\\b', codigoBarras: '666', precio: '5.00' });
+    await crear(...EJEMPLOS, { nombre: 'Ruta a\\b', codigoBarras: codigoNuevo(), precio: '5.00' });
     const respuesta = await buscar('a\\');
     expect(nombresDe(respuesta)).toEqual(['Ruta a\\b']);
   });
@@ -126,7 +147,7 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
     for (const texto of ['%%', '__', '%_', '_%', '%'.repeat(120)]) {
       const respuesta = await buscar(texto);
       expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
-      expect(respuesta.body, texto).toEqual([]);
+      expect(propios(respuesta), texto).toEqual([]);
     }
   });
 
@@ -140,7 +161,7 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
   });
 
   it('un nombre con tilde se encuentra sin tilde y en mayúsculas', async () => {
-    await crear({ nombre: 'Café molido', codigoBarras: '777', precio: '60.00' });
+    await crear({ nombre: 'Café molido', codigoBarras: codigoNuevo(), precio: '60.00' });
     for (const texto of ['cafe', 'CAFÉ', 'café']) {
       expect(nombresDe(await buscar(texto)), texto).toEqual(['Café molido']);
     }
@@ -155,89 +176,100 @@ describe('%, _ y \\ son texto normal, y no cuentan las mayúsculas ni las tildes
 });
 
 describe('el código de barras se busca exacto', () => {
-  it('criterio 9: dado un pedazo del código de barras ("750105530007"), entonces no aparece el producto por su código', async () => {
+  it('criterio 9: dado un pedazo del código de barras (en la spec, "750105530007" del "7501055300075"), entonces no aparece el producto por su código', async () => {
     await crear(...EJEMPLOS);
-    for (const texto of ['750105530007', '75010', '055300075']) {
+    const codigo = LECHE.codigoBarras;
+    for (const texto of [codigo.slice(0, -1), codigo.slice(0, 10), codigo.slice(-9)]) {
       const respuesta = await buscar(texto);
       expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
-      expect(respuesta.body, texto).toEqual([]);
+      expect(propios(respuesta), texto).toEqual([]);
     }
   });
 
   it('no distingue mayúsculas, con la misma regla del UNIQUE de RN-03', async () => {
-    await crear({ nombre: 'Cable USB', codigoBarras: 'ab-12', precio: '10.00' });
-    expect(nombresDe(await buscar('AB-12'))).toEqual(['Cable USB']);
+    const codigo = codigoNuevo();
+    await crear({ nombre: 'Cable USB', codigoBarras: codigo.toLowerCase(), precio: '10.00' });
+    expect(nombresDe(await buscar(codigo))).toEqual(['Cable USB']);
   });
 
-  it('conserva los ceros de la izquierda: "0012345" lo encuentra y "12345" no', async () => {
-    await crear({ nombre: 'Sal fina', codigoBarras: '0012345', precio: '8.00' });
-    const completo = await buscar('0012345');
+  it('conserva los ceros de la izquierda: el código ("0012345") lo encuentra y sin los ceros ("12345") no', async () => {
+    const codigo = codigoConCerosNuevo();
+    await crear({ nombre: 'Sal fina', codigoBarras: codigo, precio: '8.00' });
+    const completo = await buscar(codigo);
     expect(completo.body).toHaveLength(1);
-    expect(completo.body[0].codigoBarras).toBe('0012345');
-    expect((await buscar('12345')).body).toEqual([]);
+    expect(completo.body[0].codigoBarras).toBe(codigo);
+    expect((await buscar(codigo.replace(/^0+/, ''))).body).toEqual([]);
   });
 
   it('un producto que coincide por nombre y por código de barras sale una sola vez', async () => {
-    await crear({ nombre: 'Tornillo 999', codigoBarras: '999', precio: '1.00' });
-    expect(nombresDe(await buscar('999'))).toEqual(['Tornillo 999']);
+    const codigo = codigoNuevo();
+    await crear({ nombre: `Tornillo ${codigo}`, codigoBarras: codigo, precio: '1.00' });
+    expect(nombresDe(await buscar(codigo))).toEqual([`Tornillo ${codigo}`]);
   });
 
   it('un texto que es el nombre de uno y el código de barras de otro trae los dos, el del código de barras primero', async () => {
-    await crear({ nombre: 'Tornillo 999', codigoBarras: 'T-1', precio: '1.00' });
-    await crear({ nombre: 'Zapato', codigoBarras: '999', precio: '90.00' });
-    expect(nombresDe(await buscar('999'))).toEqual(['Zapato', 'Tornillo 999']);
+    const codigo = codigoNuevo();
+    await crear({ nombre: `Tornillo ${codigo}`, codigoBarras: codigoNuevo(), precio: '1.00' });
+    await crear({ nombre: 'Zapato', codigoBarras: codigo, precio: '90.00' });
+    expect(nombresDe(await buscar(codigo))).toEqual(['Zapato', `Tornillo ${codigo}`]);
   });
 });
 
 describe('como máximo 20 resultados, siempre en el mismo orden', () => {
   it('criterio 10: dados 25 productos con "Galleta" en el nombre, cuando se busca "galleta", entonces la lista trae los primeros 20 por nombre de la A a la Z', async () => {
+    // El nombre lleva algo único de la corrida ("Galleta BUSCAR-…"): los restos también se llaman "Galleta …" y, con
+    // "galleta" a secas, ocuparían los 20 lugares de la lista antes que estos 25.
+    const galleta = `Galleta ${codigoNuevo()}`;
     const nombres = Array.from(
       { length: 25 },
-      (_, i) => `Galleta ${String(i + 1).padStart(2, '0')}`,
+      (_, i) => `${galleta} ${String(i + 1).padStart(2, '0')}`,
     );
     // Se crean del último al primero: ordenar por nombre da otra lista que ordenar por id.
     const alReves = [...nombres].reverse();
     await crear(
-      ...alReves.map((nombre, i) => ({ nombre, codigoBarras: `GAL-${i}`, precio: '5.00' })),
+      ...alReves.map((nombre) => ({ nombre, codigoBarras: codigoNuevo(), precio: '5.00' })),
     );
-    const respuesta = await buscar('galleta');
+    const respuesta = await buscar(galleta.toLowerCase());
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(20);
     expect(nombresDe(respuesta)).toEqual(nombres.slice(0, 20));
   });
 
-  it('criterio 11: dado un producto con el código de barras "222" y 25 productos con "222" en el nombre, cuando se busca "222", entonces el producto de ese código de barras va primero', async () => {
+  it('criterio 11: dado un producto con el código de barras "222" (aquí, uno único de la corrida) y 25 productos con ese texto en el nombre, cuando se busca, entonces el producto de ese código de barras va primero', async () => {
+    const codigo = codigoNuevo();
     const tornillos = Array.from({ length: 25 }, (_, i) => ({
-      nombre: `Tornillo 222 ${String(i + 1).padStart(2, '0')}`,
-      codigoBarras: `T-${i}`,
+      nombre: `Tornillo ${codigo} ${String(i + 1).padStart(2, '0')}`,
+      codigoBarras: codigoNuevo(),
       precio: '1.00',
     }));
-    await crear(...tornillos, { nombre: 'Zumo', codigoBarras: '222', precio: '12.00' });
-    const respuesta = await buscar('222');
+    await crear(...tornillos, { nombre: 'Zumo', codigoBarras: codigo, precio: '12.00' });
+    const respuesta = await buscar(codigo);
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.body).toHaveLength(20);
-    expect(respuesta.body[0]).toMatchObject({ nombre: 'Zumo', codigoBarras: '222' });
+    expect(respuesta.body[0]).toMatchObject({ nombre: 'Zumo', codigoBarras: codigo });
     expect(nombresDe(respuesta).slice(1)).toEqual(tornillos.slice(0, 19).map((t) => t.nombre));
   });
 
   it('ordena por nombre de la A a la Z sin distinguir mayúsculas ni tildes', async () => {
     await crear(
-      { nombre: 'pan integral', codigoBarras: 'P1', precio: '3.00' },
-      { nombre: 'Pan blanco', codigoBarras: 'P2', precio: '2.00' },
-      { nombre: 'pan Árabe', codigoBarras: 'P3', precio: '4.00' },
+      { nombre: 'pan integral', codigoBarras: codigoNuevo(), precio: '3.00' },
+      { nombre: 'Pan blanco', codigoBarras: codigoNuevo(), precio: '2.00' },
+      { nombre: 'pan Árabe', codigoBarras: codigoNuevo(), precio: '4.00' },
     );
     expect(nombresDe(await buscar('pan'))).toEqual(['pan Árabe', 'Pan blanco', 'pan integral']);
   });
 
   it('con el mismo nombre, ordena por id: el mismo texto siempre da la misma lista', async () => {
+    // Los códigos de barras van en otro orden que los id (C, A, B): ordenar por código de barras daría otra lista.
+    const codigo = codigoNuevo();
     const filas = await crear(
-      { nombre: 'Pan', codigoBarras: 'P3', precio: '3.00' },
-      { nombre: 'Pan', codigoBarras: 'P1', precio: '1.00' },
-      { nombre: 'Pan', codigoBarras: 'P2', precio: '2.00' },
+      { nombre: 'Pan', codigoBarras: `${codigo}-C`, precio: '3.00' },
+      { nombre: 'Pan', codigoBarras: `${codigo}-A`, precio: '1.00' },
+      { nombre: 'Pan', codigoBarras: `${codigo}-B`, precio: '2.00' },
     );
     const ids = filas.map((fila) => fila.id);
     for (let vez = 0; vez < 3; vez += 1) {
-      expect((await buscar('pan')).body.map((producto) => producto.id)).toEqual(ids);
+      expect(propios(await buscar('pan')).map((producto) => producto.id)).toEqual(ids);
     }
   });
 });
@@ -301,8 +333,8 @@ describe('lo que trae cada producto', () => {
     const respuesta = await buscar('lech');
     expect(respuesta.status, respuesta.text).toBe(200);
     expect(respuesta.headers['content-type']).toMatch(/application\/json/);
-    expect(respuesta.body).toHaveLength(1);
-    const [producto] = respuesta.body;
+    expect(propios(respuesta)).toHaveLength(1);
+    const [producto] = propios(respuesta);
     expect(Object.keys(producto).sort()).toEqual(['codigoBarras', 'id', 'nombre', 'precio']);
     expect(Number.isInteger(producto.id)).toBe(true);
     expect(producto).toEqual({ id: producto.id, ...LECHE });
@@ -324,11 +356,11 @@ describe('lo que trae cada producto', () => {
 
   it('el precio sale con 2 decimales aunque se haya guardado sin ellos', async () => {
     await crear(
-      { nombre: 'Pan 1', codigoBarras: 'D1', precio: '25' },
-      { nombre: 'Pan 2', codigoBarras: 'D2', precio: '0.5' },
-      { nombre: 'Pan 3', codigoBarras: 'D3', precio: '99999.99' },
+      { nombre: 'Pan 1', codigoBarras: codigoNuevo(), precio: '25' },
+      { nombre: 'Pan 2', codigoBarras: codigoNuevo(), precio: '0.5' },
+      { nombre: 'Pan 3', codigoBarras: codigoNuevo(), precio: '99999.99' },
     );
-    const precios = (await buscar('pan')).body.map((producto) => producto.precio);
+    const precios = propios(await buscar('pan')).map((producto) => producto.precio);
     expect(precios).toEqual(['25.00', '0.50', '99999.99']);
   });
 
@@ -394,7 +426,7 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
     await crear(...EJEMPLOS);
     const foto = () => Producto.findAll({ raw: true, order: [['id', 'ASC']] });
     const antes = await foto();
-    for (const texto of [...HOSTILES, 'lech', '7501055300075', '50%']) {
+    for (const texto of [...HOSTILES, 'lech', LECHE.codigoBarras, '50%']) {
       const respuesta = await buscar(texto);
       expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
     }
@@ -419,12 +451,15 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
       await crear(...EJEMPLOS);
       const respuesta = await buscar(texto);
       expect(respuesta.status, respuesta.text).toBe(200);
-      expect(respuesta.body).toEqual([]);
+      expect(propios(respuesta)).toEqual([]);
     },
   );
 
   it('un texto con comilla y con el nombre del parámetro (:texto) se busca tal cual y encuentra su producto', async () => {
-    await crear({ nombre: "O'Brien :texto", codigoBarras: 'OB-1', precio: '9.00' }, ...EJEMPLOS);
+    await crear(
+      { nombre: "O'Brien :texto", codigoBarras: codigoNuevo(), precio: '9.00' },
+      ...EJEMPLOS,
+    );
     for (const texto of ["'brien :texto", "O'Brien :texto", 'n :texto']) {
       const respuesta = await buscar(texto);
       expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
@@ -434,9 +469,9 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
 
   it('los símbolos de los parámetros con nombre y de posición se buscan como texto normal', async () => {
     await crear(
-      { nombre: 'Oferta :texto', codigoBarras: 'S1', precio: '1.00' },
-      { nombre: 'Oferta ?', codigoBarras: 'S2', precio: '1.00' },
-      { nombre: 'Oferta $1', codigoBarras: 'S3', precio: '1.00' },
+      { nombre: 'Oferta :texto', codigoBarras: codigoNuevo(), precio: '1.00' },
+      { nombre: 'Oferta ?', codigoBarras: codigoNuevo(), precio: '1.00' },
+      { nombre: 'Oferta $1', codigoBarras: codigoNuevo(), precio: '1.00' },
       LECHE,
     );
     const casos = [

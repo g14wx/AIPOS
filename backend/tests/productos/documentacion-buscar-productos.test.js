@@ -3,6 +3,7 @@ import request from 'supertest';
 import { createRequire } from 'node:module';
 import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
 import SwaggerParser from '@apidevtools/swagger-parser';
+import { codigoNuevo, sembrarRestos, borrarRestos } from './ayudas-buscar-productos.js';
 
 const require = createRequire(import.meta.url);
 const app = require('../../src/app.js');
@@ -13,6 +14,9 @@ const { cargarDocumentacionApi } = require('../../src/documentacion.js');
 // GET /api/productos en la documentación de la API (backend/docs/openapi.yaml, de A-01): lo que dice el documento
 // y que la ruta real responda lo mismo. La prueba de A-01 ya exige que la ruta esté en `montajes` y en el documento;
 // esta revisa cómo está documentada. Necesita MySQL levantado y migrado (llama a la ruta de verdad).
+// La tabla trae también filas que no son de estas pruebas (los restos de ayudas-buscar-productos.js, como los que deja
+// una corrida cortada): el código de barras de cada producto es único de la corrida y cada prueba mira solo el suyo
+// (issue #87).
 const documento = cargarDocumentacionApi();
 // El mismo documento con cada $ref reemplazado por lo que apunta.
 const resuelto = await SwaggerParser.dereference(structuredClone(documento));
@@ -29,6 +33,10 @@ beforeAll(async () => {
 });
 afterAll(() => cerrarServidorDePrueba(servidor));
 
+// Filas ajenas en la tabla, como las que deja una corrida cortada (issue #87).
+beforeAll(sembrarRestos);
+afterAll(borrarRestos);
+
 afterEach(async () => {
   vi.restoreAllMocks();
   if (idsCreados.length > 0) await Producto.destroy({ where: { id: idsCreados.splice(0) } });
@@ -37,6 +45,11 @@ afterEach(async () => {
 function buscar(texto) {
   return request(servidor).get('/api/productos').query({ busqueda: texto });
 }
+
+// Los productos de la respuesta que creó esta prueba. Los restos que coinciden con el texto también salen en la
+// respuesta, pero no son de la prueba.
+const propios = (respuesta) =>
+  respuesta.body.filter((producto) => idsCreados.includes(producto.id));
 
 describe('GET /api/productos está documentada', () => {
   it('la ruta está en montajes y en la documentación de la API', () => {
@@ -114,25 +127,28 @@ describe('GET /api/productos está documentada', () => {
 });
 
 describe('la ruta real dice lo mismo que su documentación', () => {
-  it('el ejemplo del 200 es lo que responde la API para ese producto (salvo el id)', async () => {
+  it('el ejemplo del 200 es lo que responde la API para ese producto (salvo el id y el código de barras)', async () => {
     const ejemplo = contenidoDelExito.example ?? Object.values(contenidoDelExito.examples)[0].value;
     expect(ejemplo.length).toBeGreaterThan(0);
     const { id, ...datos } = ejemplo[0];
     expect(typeof id).toBe('number');
     expect(typeof datos.precio).toBe('string');
-    idsCreados.push((await Producto.create(datos)).id);
+    // Con el código de barras del ejemplo, el UNIQUE de RN-03 rechazaría el producto si la tabla ya trae uno igual
+    // (un resto, o la corrida anterior cortada): se guarda con uno único de la corrida.
+    const producto = { ...datos, codigoBarras: codigoNuevo() };
+    idsCreados.push((await Producto.create(producto)).id);
 
-    const respuesta = await buscar(datos.nombre.slice(0, 4));
+    const respuesta = await buscar(producto.nombre.slice(0, 4));
     expect(respuesta.status).toBe(200);
-    expect(respuesta.body).toEqual([{ ...datos, id: respuesta.body[0].id }]);
+    expect(propios(respuesta)).toEqual([{ ...producto, id: propios(respuesta)[0]?.id }]);
   });
 
   it('la respuesta real cumple el esquema Producto: tipos, pattern y ningún campo de más', async () => {
     const { properties, required } = resuelto.components.schemas.Producto;
     idsCreados.push(
-      (await Producto.create({ nombre: 'Leche', codigoBarras: '1', precio: '25' })).id,
+      (await Producto.create({ nombre: 'Leche', codigoBarras: codigoNuevo(), precio: '25' })).id,
     );
-    const [producto] = (await buscar('lech')).body;
+    const [producto] = propios(await buscar('lech'));
     expect(Object.keys(producto).sort()).toEqual([...required].sort());
     expect(Number.isInteger(producto.id)).toBe(true);
     expect(typeof producto.nombre).toBe('string');

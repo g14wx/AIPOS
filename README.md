@@ -4,16 +4,6 @@ AIPOS es una aplicación web de una sola pantalla para un punto de venta básico
 venta actual y la registra en MySQL con un procedimiento almacenado (una función guardada dentro de MySQL que la app
 llama por su nombre). Es la solución de una prueba técnica y se construyó con agentes de código.
 
-![Cómo trabajamos](docs/diagramas/proceso-de-trabajo.drawio.png)
-
-*Cómo trabajamos: cada tarjeta pasa por una spec (qué debe hacer, con sus pruebas) que la persona aprueba, un agente que la
-implementa y la revisión de Codex (punto 10). [Fuente editable](docs/diagramas/proceso-de-trabajo.drawio).*
-
-![Cómo se despliega](docs/diagramas/proceso-de-despliegue.drawio.png)
-
-*Cómo se despliega: una etiqueta `release-*` prueba, construye y despliega con Docker, pero solo después de que una persona
-aprueba (punto 5). [Fuente editable](docs/diagramas/proceso-de-despliegue.drawio).*
-
 | Qué | Dónde |
 |---|---|
 | Pantalla | <https://aipos.salsalvador.io> |
@@ -22,19 +12,160 @@ aprueba (punto 5). [Fuente editable](docs/diagramas/proceso-de-despliegue.drawio
 | Versión desplegada | la etiqueta `release-*` más reciente (hoy, `release-1.0.1`) |
 | Código | <https://github.com/g14wx/AIPOS>, rama `ProductionEnv` (donde se juntan los entregables terminados) |
 
-Este README tiene los 12 puntos que pide la prueba, y `tests/documentacion/readme-entrega.test.sh` revisa que estén, que
-las versiones sean las instaladas y que los archivos que nombra existan.
+## 1. Tecnologías y versiones
 
-| Puntos 1 a 6 | Puntos 7 a 12 |
-|---|---|
-| 1. [Funcionalidades](#1-funcionalidades) | 7. [Procedimiento almacenado](#7-procedimiento-almacenado) |
-| 2. [Tecnologías y versiones](#2-tecnologías-y-versiones) | 8. [Tiempo](#8-tiempo) |
-| 3. [Estructura](#3-estructura) | 9. [Herramientas de IA](#9-herramientas-de-ia) |
-| 4. [Cumplimiento de requisitos](#4-cumplimiento-de-requisitos) | 10. [Cómo se usó el agente](#10-cómo-se-usó-el-agente) |
-| 5. [Instalación y ejecución](#5-instalación-y-ejecución) | 11. [Decisiones técnicas](#11-decisiones-técnicas) |
-| 6. [Base de datos MySQL](#6-base-de-datos-mysql) | 12. [Consideraciones](#12-consideraciones) |
+Las versiones van fijas: son las que instala `npm ci` según cada `package-lock.json`. Node está en `.nvmrc` y MySQL en
+`docker-compose.yml`. Vue 2 y Vuetify 2 ya no tienen soporte, pero la prueba técnica los pide.
 
-## 1. Funcionalidades
+| Parte | Tecnología | Versión |
+|---|---|---|
+| Backend y pantalla | Node.js | 24 |
+| Backend | Express | 5.2.1 |
+| Backend | Sequelize | 6.37.8 |
+| Backend | sequelize-cli (migraciones) | 6.6.5 |
+| Backend | mysql2 | 3.24.5 |
+| Backend | helmet y cors | 8.3.0 y 2.8.6 |
+| Backend | Swagger UI (swagger-ui-express) | 5.0.1 |
+| Base de datos | MySQL | 8.4 |
+| Frontend | Vue | 2.7.16 |
+| Frontend | Vuetify | 2.7.2 |
+| Frontend | Axios | 1.20.0 |
+| Frontend | Vite | 7.3.6 |
+| Frontend | lottie-web (animaciones) | 5.13.0 |
+| Pruebas | Vitest | 5.0.2 |
+| Pruebas | Supertest y @vue/test-utils | 7.3.0 y 1.3.6 |
+| Calidad | ESLint y Prettier | 10.11.0 y 3.9.9 |
+| Contenedores | Docker con Compose v2 | Compose v2 |
+| Contenedores | Imágenes base | `node:24-alpine`, `nginxinc/nginx-unprivileged:1.28-alpine` y `mysql:8.4` |
+| Producción | Caddy (HTTPS) | 2 |
+| Despliegue | GitHub Actions | workflow `despliegue.yml` |
+
+## 2. Instalación y ejecución
+
+Dos caminos: todo con Docker, en unos minutos, o sin Docker, con Node y MySQL instalados en tu máquina.
+
+### Inicio rápido con Docker
+
+Necesitas Git y Docker con Compose v2 (`docker compose version` tiene que responder).
+
+```bash
+# 1. Clona el repositorio (abre en ProductionEnv, la versión final).
+git clone https://github.com/g14wx/AIPOS.git
+cd AIPOS
+
+# 2. Variables de entorno. La pantalla de Docker queda en 127.0.0.1:8141 y tiene que estar en CORS_ORIGIN.
+cp .env.example .env
+sed -i.bak 's#^CORS_ORIGIN=.*#CORS_ORIGIN=http://127.0.0.1:8141,http://localhost:5173#' .env
+
+# 3. Construye las imágenes de la API y de la pantalla.
+docker build -t ghcr.io/g14wx/aipos-backend:local backend
+docker build --build-arg VITE_API_URL=http://127.0.0.1:8140 -t ghcr.io/g14wx/aipos-frontend:local frontend
+
+# 4. Levanta MySQL, crea las tablas y el procedimiento, y arranca la API y la pantalla.
+export AIPOS_VERSION=local
+docker compose -f docker-compose.produccion.yml up -d --wait mysql
+docker compose -f docker-compose.produccion.yml run --rm backend npm run migrar
+docker compose -f docker-compose.produccion.yml up -d --wait
+```
+
+Listo: la pantalla en <http://127.0.0.1:8141>, la API en <http://127.0.0.1:8140/api/salud> y su documentación en
+<http://127.0.0.1:8140/api/docs>. La base empieza vacía: crea un producto con «Nuevo producto».
+Para apagar: `docker compose -f docker-compose.produccion.yml down` (con `-v` borra también los datos).
+
+### Sin Docker, paso a paso
+
+Necesitas Git, Node.js 24 (`node --version`; con [nvm](https://github.com/nvm-sh/nvm), `nvm install` y `nvm use`) y
+MySQL 8.4 corriendo en tu máquina.
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/g14wx/AIPOS.git
+   cd AIPOS
+   ```
+
+2. Crea las bases y el usuario de la app. Entra con `mysql -u root -p` y corre esto. La clave es la de `.env.example`;
+   si usas otra, cámbiala también en `.env`:
+
+   ```sql
+   CREATE DATABASE aipos CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+   CREATE DATABASE aipos_prueba CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+   CREATE USER 'aipos'@'localhost' IDENTIFIED BY 'cambiar-esta-clave';
+   GRANT ALL PRIVILEGES ON aipos.* TO 'aipos'@'localhost';
+   GRANT ALL PRIVILEGES ON aipos_prueba.* TO 'aipos'@'localhost';
+   ```
+
+3. Copia las variables de entorno. El `.env` no va a git.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Instala la API, crea las tablas y el procedimiento almacenado, y arráncala:
+
+   ```bash
+   cd backend
+   npm ci
+   npm run migrar
+   npm start
+   ```
+
+5. En otra terminal, desde la raíz, instala la pantalla y arráncala:
+
+   ```bash
+   cd frontend
+   npm ci
+   npm run dev
+   ```
+
+6. Abre <http://localhost:5173>. Para comprobar la API: `curl http://localhost:3000/api/salud` responde
+   `{"estado":"ok","baseDeDatos":"ok"}`. La documentación de la API está en <http://localhost:3000/api/docs>.
+
+¿Tienes Docker y solo quieres MySQL en un contenedor? Cambia el paso 2 por `docker compose up -d --wait mysql` y sigue
+igual.
+
+### Pruebas
+
+```bash
+# Backend, desde backend/. La primera vez, con MySQL en Docker, crea la base de prueba (sin Docker ya la creaste en el paso 2).
+npm run preparar-prueba
+npm test
+npm run lint
+
+# Frontend, desde frontend/.
+npm test
+npm run lint
+npm run build
+
+# Pruebas de shell, desde la raíz. Una falla imprime FALLÓ con el nombre del archivo, y el comando termina con código 1.
+fallas=0; for prueba in $(find tests -name '*.test.sh' | sort); do bash "$prueba" || { echo "FALLÓ: $prueba"; fallas=$((fallas + 1)); }; done; echo "Fallaron: $fallas"; [ "$fallas" -eq 0 ]
+```
+
+`tests/despliegue/arranque-local.test.sh` construye las imágenes de Docker: si Docker no está corriendo, se omite y lo dice.
+
+### Despliegue (agregado: la prueba no lo pide)
+
+![Cómo se despliega](docs/diagramas/proceso-de-despliegue.drawio.png)
+
+*Una etiqueta `release-*` prueba, construye y despliega con Docker, pero solo después de que una persona aprueba.
+[Fuente editable](docs/diagramas/proceso-de-despliegue.drawio).*
+
+
+Una etiqueta `release-MAYOR.MENOR.PARCHE` en un commit de `ProductionEnv` arranca un pipeline de GitHub Actions. Revisa la
+etiqueta, prueba el backend y la pantalla, construye las imágenes y espera la aprobación de la persona desarrolladora
+(**Review deployments**). Después despliega por SSH (una conexión segura al servidor) y revisa la salud desde internet.
+
+```bash
+git tag release-0.1.0 origin/ProductionEnv && git push origin release-0.1.0
+```
+
+- **Volver a la versión anterior:** si la salud falla, el servidor vuelve solo. A mano, corre otra vez el workflow de una etiqueta anterior (**Re-run all jobs**) o `desplegar.sh volver` en el servidor.
+- **Los datos de producción nunca se borran:** el volumen de MySQL se conserva entre despliegues.
+
+Las etiquetas `release-0.1.0`, `release-0.2.0`, `release-1.0.0` y `release-1.0.1` desplegaron el entregable base, el de
+productos, el de ventas y las correcciones de la tarjeta F-01. La guía completa está en [docs/despliegue.md](docs/despliegue.md).
+
+## 3. Funcionalidades
 
 Todo pasa en una sola pantalla: el botón «Nuevo producto», el buscador, la venta actual con su total y «Registrar venta».
 
@@ -56,29 +187,7 @@ Los errores tienen siempre la misma forma, `{ "error": { "codigo", "mensaje", "d
 estado 400 (datos inválidos), 404 (la ruta no existe), 409 (código de barras repetido), 422 (el procedimiento rechazó la
 venta por una regla de negocio) o 500 (error inesperado). `backend/docs/openapi.yaml` describe cada ruta.
 
-## 2. Tecnologías y versiones
-
-Las versiones van fijas y son las que instala `npm ci` según cada `package-lock.json`. Node está en `.nvmrc` y MySQL en
-`docker-compose.yml`.
-
-| Parte | Tecnología | Versión |
-|---|---|---|
-| Los dos | Node.js | 24 |
-| Frontend | Vue | 2.7.16 |
-| Frontend | Vuetify | 2.7.2 |
-| Frontend | Axios | 1.20.0 |
-| Frontend | Vite | 7.3.6 |
-| Backend | Express | 5.2.1 |
-| Backend | Sequelize | 6.37.8 |
-| Backend | mysql2 | 3.24.5 |
-| Base de datos | MySQL | 8.4 |
-| Pruebas | Vitest | 5.0.2 |
-
-Vue 2 y Vuetify 2 ya no tienen soporte, pero la prueba los exige. Por eso las versiones están fijas: el 2026-09-30,
-`npm i vuetify` instalaba la 4.2.2 y `npm i vite` la 8.3.1, y ninguna funciona con Vue 2. Las imágenes de Docker se
-construyen con `node:24-alpine`, y la pantalla se sirve con nginx.
-
-## 3. Estructura
+## 4. Estructura
 
 ```text
 AIPOS/
@@ -103,7 +212,7 @@ AIPOS/
 
 Las capas del backend y los patrones de diseño elegidos están en `specs/arquitectura.spec.md`.
 
-## 4. Cumplimiento de requisitos
+## 5. Cumplimiento de requisitos
 
 Cada fila es un requisito de la prueba técnica. Los RF (requerimientos funcionales) y los RNF (no funcionales) están en
 `requerimientos/`, con las tarjetas del [tablero AIPOS](https://trello.com/b/K5mkgcdl/aipos), el tablero de Trello del
@@ -124,11 +233,11 @@ existieron por separado.
 | Un procedimiento almacenado que la app usa de verdad (RF-11) | Cumplido | `sp_registrar_venta`, punto 7 |
 | Validación en tres lugares y seguridad básica (RNF-03, RNF-04) | Cumplido | la pantalla, la API (`backend/src/validators/`) y las restricciones de MySQL (`backend/db/migrations/`) |
 | Manejo de errores con un solo formato (RNF-05) | Parcial | `backend/src/middlewares/errorHandler.js`; la excepción está en el punto 12 |
-| Tecnologías pedidas: Node.js, Express y Sequelize; Vue 2, Vuetify y Axios; MySQL | Cumplido | punto 2 |
+| Tecnologías pedidas: Node.js, Express y Sequelize; Vue 2, Vuetify y Axios; MySQL | Cumplido | punto 1 |
 | Repositorio público, con una rama por entregable integrada en `ProductionEnv` con merge commit | Cumplido | `git log --graph --first-parent origin/ProductionEnv` y las etiquetas `entregable-*` |
 | Uso de inteligencia artificial documentado | Parcial | `docs/bitacora-ia.md` tiene una entrada por tarea, pero lo que la persona revisó de cada una está «por confirmar» |
 | README de 12 puntos (RNF-11) | Cumplido | este archivo y `tests/documentacion/readme-entrega.test.sh` |
-| Instrucciones que funcionan desde un clon limpio (RNF-07) | Cumplido | la tarjeta E-03 siguió el punto 5 en un clon limpio, con Node 24 y con Node 26 (`docs/bitacora-ia.md`) |
+| Instrucciones que funcionan desde un clon limpio (RNF-07) | Cumplido | la tarjeta E-03 siguió el punto 2 en un clon limpio, con Node 24 y con Node 26 (`docs/bitacora-ia.md`) |
 
 ### Lo que agregamos y la prueba técnica no pide
 
@@ -149,86 +258,6 @@ existieron por separado.
 - **Diagramas BPMN de los flujos 03 y 04.** No muestran el máximo de 100 detalles por venta. El texto de los dos flujos sí, y manda el texto.
 - **Bugs abiertos.** Son issues de GitHub: <https://github.com/g14wx/AIPOS/issues?q=is%3Aissue+is%3Aopen+label%3Abug>.
 - **Fuera de alcance, como dice la prueba:** impresión de tickets, generación de documentos, reportes, inventarios, control de caja, métodos de pago, autenticación y CRUD completo (crear, leer, editar y borrar).
-
-## 5. Instalación y ejecución
-
-Necesitas Git, Docker con Compose v2 (`docker compose version` tiene que responder) y Node.js 24, el de `.nvmrc`. Con
-[nvm](https://github.com/nvm-sh/nvm), `nvm install` y `nvm use` lo eligen solos. Sin nvm, instala Node 24 o más nuevo desde
-<https://nodejs.org> y salta el paso 2.
-
-```bash
-# 1. Clona el repositorio y entra a la versión final, la de ProductionEnv.
-git clone https://github.com/g14wx/AIPOS.git
-cd AIPOS
-git checkout ProductionEnv
-
-# 2. Elige Node 24 (con nvm).
-nvm install
-nvm use
-
-# 3. Copia las variables de entorno y cambia las claves que empiezan con "cambiar-". El .env no va a git.
-cp .env.example .env
-
-# 4. Levanta MySQL. --wait espera a que responda: sin él, la migración puede llegar antes que MySQL.
-docker compose up -d --wait mysql
-
-# 5. Instala el backend, crea las tablas y el procedimiento con las migraciones, y arranca la API.
-cd backend
-npm ci
-npm run migrar
-npm start
-```
-
-La API queda en <http://localhost:3000>. Déjala corriendo y, en otra terminal, desde la raíz del repositorio:
-
-```bash
-# 6. Instala la pantalla y arráncala.
-cd frontend
-npm ci
-npm run dev
-```
-
-La pantalla queda en <http://localhost:5173>, y la documentación de la API en <http://localhost:3000/api/docs>. Para
-comprobar que todo responde:
-
-```bash
-curl http://localhost:3000/api/salud   # {"estado":"ok","baseDeDatos":"ok"}
-```
-
-### Pruebas
-
-```bash
-# Backend, desde backend/. La primera vez, con MySQL levantado, crea la base de prueba.
-npm run preparar-prueba
-npm test
-npm run lint
-
-# Frontend, desde frontend/.
-npm test
-npm run lint
-npm run build
-
-# Pruebas de shell, desde la raíz. Una falla imprime FALLÓ con el nombre del archivo, y el comando termina con código 1.
-fallas=0; for prueba in $(find tests -name '*.test.sh' | sort); do bash "$prueba" || { echo "FALLÓ: $prueba"; fallas=$((fallas + 1)); }; done; echo "Fallaron: $fallas"; [ "$fallas" -eq 0 ]
-```
-
-`tests/despliegue/arranque-local.test.sh` construye las imágenes de Docker: si Docker no está corriendo, se omite y lo dice.
-
-### Despliegue (agregado: la prueba no lo pide)
-
-Una etiqueta `release-MAYOR.MENOR.PARCHE` en un commit de `ProductionEnv` arranca un pipeline de GitHub Actions. Revisa la
-etiqueta, prueba el backend y la pantalla, construye las imágenes y espera la aprobación de la persona desarrolladora
-(**Review deployments**). Después despliega por SSH (una conexión segura al servidor) y revisa la salud desde internet.
-
-```bash
-git tag release-0.1.0 origin/ProductionEnv && git push origin release-0.1.0
-```
-
-- **Volver a la versión anterior:** si la salud falla, el servidor vuelve solo. A mano, corre otra vez el workflow de una etiqueta anterior (**Re-run all jobs**) o `desplegar.sh volver` en el servidor.
-- **Los datos de producción nunca se borran:** el volumen de MySQL se conserva entre despliegues.
-
-Las etiquetas `release-0.1.0`, `release-0.2.0`, `release-1.0.0` y `release-1.0.1` desplegaron el entregable base, el de
-productos, el de ventas y las correcciones de la tarjeta F-01. La guía completa está en [docs/despliegue.md](docs/despliegue.md).
 
 ## 6. Base de datos MySQL
 
@@ -265,14 +294,14 @@ Las variables de entorno están en `.env.example`, en la raíz: `MYSQL_HOST`, `M
 app, y root solo lo usan Docker Compose y `npm run preparar-prueba`.
 
 - `docker compose stop mysql` apaga MySQL y los datos se quedan.
-- `docker compose down -v` borra también los datos de esa copia, y los pasos del punto 5 la dejan como un clon limpio.
+- `docker compose down -v` borra también los datos de esa copia, y los pasos del punto 2 la dejan como un clon limpio.
 
 ## 7. Procedimiento almacenado
 
 - **Nombre:** `sp_registrar_venta`
 - **Objetivo:** guardar una venta con todos sus detalles de una sola vez. Calcula los subtotales y el total, y devuelve el número de la venta y su total. Es todo o nada: si algo falla, no queda nada guardado.
 - **Archivo SQL:** `backend/db/procedimientos/sp_registrar_venta.sql`
-- **Cómo se crea:** con la migración `backend/db/migrations/20260930172100-crear-sp-registrar-venta.js`, que corre con `npm run migrar` (punto 5). También con el cliente `mysql`, como se ve abajo.
+- **Cómo se crea:** con la migración `backend/db/migrations/20260930172100-crear-sp-registrar-venta.js`, que corre con `npm run migrar` (punto 2). También con el cliente `mysql`, como se ve abajo.
 - **Dónde se usa:** `backend/src/services/ventas.js`, función `registrarVenta`, con `CALL sp_registrar_venta(:detalles)`. La llama el controlador `backend/src/controllers/ventas.js` desde la ruta `POST /api/ventas`, y la pantalla desde `frontend/src/api/ventas.js` cuando el cajero presiona «Registrar venta».
 
 ### Cómo funciona
@@ -343,6 +372,11 @@ Las guías de instalación están en [docs/setup/agents-setup.md](docs/setup/age
 [docs/setup/graphify-setup.md](docs/setup/graphify-setup.md) (Graphify y el hook de git).
 
 ## 10. Cómo se usó el agente
+
+![Cómo trabajamos](docs/diagramas/proceso-de-trabajo.drawio.png)
+
+*Cada tarjeta pasa por una spec que la persona aprueba, un agente que la implementa con las pruebas primero y la revisión
+de Codex. [Fuente editable](docs/diagramas/proceso-de-trabajo.drawio).*
 
 Claude Code escribió el código, las pruebas, las specs y la documentación, y Codex revisó los PR. La persona desarrolladora
 dirigió el trabajo: decidió el alcance y las reglas, y revisó lo que se detalla más abajo.
@@ -415,7 +449,7 @@ Architecture para las capas del backend y Facade para `frontend/src/api/`: `spec
 
 ### Trampas conocidas
 
-- `npm i vuetify` y `npm i vite` instalan versiones que no funcionan con Vue 2: por eso las versiones van fijas (punto 2).
+- `npm i vuetify` y `npm i vite` instalan versiones que no funcionan con Vue 2: por eso las versiones van fijas (punto 1).
 - `DECIMAL` sin tamaño se vuelve `DECIMAL(10,0)` y pierde los centavos. mysql2 devuelve `DECIMAL` como texto, y «25.00» + «22.00» pega los textos en vez de sumar: por eso el dinero es texto en JavaScript y se calcula en SQL.
 - `DELIMITER` no se puede mandar por Sequelize (error 1064), y un procedimiento que crea root no lo puede cambiar ni borrar el usuario de la app (punto 7).
 

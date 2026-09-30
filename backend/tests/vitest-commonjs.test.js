@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import request from 'supertest';
+import { pedir } from './servidor-de-prueba.js';
 import { createRequire } from 'node:module';
 import app from '../src/app.js';
 
@@ -9,14 +9,14 @@ const require = createRequire(import.meta.url);
 // se cargue con `import` o con `require`.
 describe('Vitest con el backend en CommonJS', () => {
   it('carga la app con import y pide /api/salud', async () => {
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(respuesta.status).toBe(200);
     expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
   });
 
   it('carga la app con require y pide /api/salud', async () => {
     const appConRequire = require('../src/app.js');
-    const respuesta = await request(appConRequire).get('/api/salud');
+    const respuesta = await pedir(appConRequire, (api) => api.get('/api/salud'));
     expect(respuesta.status).toBe(200);
   });
 

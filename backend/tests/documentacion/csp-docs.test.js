@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import request from 'supertest';
+import { pedir } from '../servidor-de-prueba.js';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -23,7 +23,7 @@ function directivas(cabecera) {
 }
 
 async function politicaDe(laApp, ruta) {
-  const respuesta = await request(laApp).get(ruta);
+  const respuesta = await pedir(laApp, (api) => api.get(ruta));
   return respuesta.headers['content-security-policy'];
 }
 

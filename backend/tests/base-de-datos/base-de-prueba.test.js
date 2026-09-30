@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -6,6 +6,8 @@ import { carpetaBackend, correrNpm, correrNpmSinFallar } from './ayudas.js';
 
 const require = createRequire(import.meta.url);
 const sequelize = require('../../src/database.js');
+const { cargarClaveRoot, cargarConfig, cargarConfigDeEntorno } = require('../../src/config.js');
+const mysql = require('mysql2/promise');
 
 // Necesita MySQL levantado. `npm run preparar-prueba` (scripts/crear-base-de-prueba.js) crea la base de prueba
 // con root y le da todos los permisos al usuario de la app. Estas pruebas miran con el usuario de la app.
@@ -107,6 +109,28 @@ describe('npm run preparar-prueba', () => {
   );
 
   it(
+    'MySQL deja entrar a root desde el host (root@%), que es como entra el script',
+    async () => {
+      // La imagen mysql:8.4 crea root@% por defecto (MYSQL_ROOT_HOST vale %): el script corre en el host y
+      // entra por el puerto publicado, que Docker hace llegar al contenedor desde otra dirección.
+      const { baseDeDatos } = cargarConfigDeEntorno('test');
+      const conexion = await mysql.createConnection({
+        host: baseDeDatos.host,
+        port: baseDeDatos.puerto,
+        user: 'root',
+        password: process.env.MYSQL_ROOT_PASSWORD,
+      });
+      try {
+        const [filas] = await conexion.query("SELECT host FROM mysql.user WHERE user = 'root'");
+        expect(filas.map((fila) => fila.host)).toContain('%');
+      } finally {
+        await conexion.end();
+      }
+    },
+    TIEMPO,
+  );
+
+  it(
     'falla y nombra MYSQL_TEST_DATABASE si es igual a MYSQL_DATABASE',
     () => {
       const resultado = correrNpmSinFallar('preparar-prueba', {
@@ -129,14 +153,73 @@ describe('quién usa MYSQL_ROOT_PASSWORD', () => {
       .map((entrada) => path.join(entrada.parentPath, entrada.name));
   }
 
-  it('solo scripts/crear-base-de-prueba.js la lee: ni src/ ni db/ la nombran', () => {
+  // src/config.js es el único lugar donde el backend lee process.env, y por eso le da la clave de root al
+  // script (cargarClaveRoot). La API nunca la usa: no está en `config` y ningún otro archivo de src/ o db/
+  // la nombra.
+  it('solo el script la usa: en src/ y db/ solo la nombra src/config.js, para dársela al script', () => {
+    const unico = path.join(carpetaBackend, 'src', 'config.js');
     for (const archivo of [...archivosDe('src'), ...archivosDe('db')]) {
+      if (archivo === unico) continue;
       expect(fs.readFileSync(archivo, 'utf8'), archivo).not.toContain('MYSQL_ROOT_PASSWORD');
     }
   });
 
+  it('el script no lee process.env: pide la clave de root y la configuración a src/config.js', () => {
+    const script = fs.readFileSync(
+      path.join(carpetaBackend, 'scripts', 'crear-base-de-prueba.js'),
+      'utf8',
+    );
+    expect(script).not.toMatch(/process\.env/);
+    expect(script).toContain('cargarClaveRoot');
+  });
+
   it('la API nunca entra a MySQL como root', () => {
     expect(sequelize.config.username).not.toBe('root');
+  });
+});
+
+describe('cargarClaveRoot (src/config.js)', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it('devuelve la clave de root del entorno que se le da', () => {
+    expect(cargarClaveRoot({ MYSQL_ROOT_PASSWORD: 'clave-de-root' })).toBe('clave-de-root');
+  });
+
+  it('quita los espacios de los lados, como el resto de la configuración', () => {
+    expect(cargarClaveRoot({ MYSQL_ROOT_PASSWORD: '  clave-de-root \n' })).toBe('clave-de-root');
+  });
+
+  it('falla y nombra MYSQL_ROOT_PASSWORD si falta o está vacía', () => {
+    expect(() => cargarClaveRoot({})).toThrow(/MYSQL_ROOT_PASSWORD/);
+    expect(() => cargarClaveRoot({ MYSQL_ROOT_PASSWORD: '   ' })).toThrow(/MYSQL_ROOT_PASSWORD/);
+  });
+
+  it('sin argumentos lee el entorno del proceso', () => {
+    vi.stubEnv('MYSQL_ROOT_PASSWORD', 'clave-del-proceso');
+    expect(cargarClaveRoot()).toBe('clave-del-proceso');
+  });
+
+  it('la configuración de la API no la trae, aunque la variable esté puesta', () => {
+    const entorno = {
+      CORS_ORIGIN: 'http://localhost:5173',
+      MYSQL_DATABASE: 'aipos',
+      MYSQL_USER: 'aipos',
+      MYSQL_PASSWORD: 'clave-de-la-app',
+      MYSQL_ROOT_PASSWORD: 'clave-secreta-de-root',
+    };
+    expect(JSON.stringify(cargarConfig(entorno))).not.toContain('clave-secreta-de-root');
+  });
+
+  it('no es obligatoria para arrancar la API: cargarConfig no la pide', () => {
+    const sinRoot = {
+      CORS_ORIGIN: 'http://localhost:5173',
+      MYSQL_DATABASE: 'aipos',
+      MYSQL_USER: 'aipos',
+      MYSQL_PASSWORD: 'clave-de-la-app',
+    };
+    expect(() => cargarConfig(sinRoot)).not.toThrow();
   });
 });
 

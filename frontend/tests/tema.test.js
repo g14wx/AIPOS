@@ -37,6 +37,30 @@ describe('la paleta del tema de Vuetify', () => {
   it('el tema oscuro no cambia el diseño: la pantalla es de un solo tema claro', () => {
     expect(vuetify.framework.theme.dark).toBe(false);
   });
+
+  it('los colores que la paleta no usa (info, success y warning) también salen de ella', () => {
+    const paleta = ['#292F36', '#4ECDC4', '#F7FFF7', '#FF6B6B', '#FFE66D', '#FFFFFF'];
+    for (const papel of ['info', 'success', 'warning']) {
+      expect(paleta, papel).toContain(mayusculas(claro[papel]));
+    }
+  });
+});
+
+describe('el idioma de Vuetify', () => {
+  const t = (clave, ...parametros) => vuetify.framework.lang.t(clave, ...parametros);
+
+  it('los textos que Vuetify pone solos salen en español', () => {
+    expect(vuetify.framework.lang.current).toBe('es');
+    expect(t('$vuetify.close')).toBe('Cerrar');
+  });
+
+  // La traducción al español de Vuetify deja en inglés estas cadenas: un lector de pantalla diría "Clear".
+  it('el botón de borrar un campo y el texto de carga no se anuncian en inglés', () => {
+    expect(t('$vuetify.input.clear', 'Buscar producto')).toBe(
+      'Borrar lo escrito en Buscar producto',
+    );
+    expect(t('$vuetify.loading')).toBe('Cargando...');
+  });
 });
 
 describe('contraste de los pares que la pantalla usa para texto (mínimo 4.5)', () => {

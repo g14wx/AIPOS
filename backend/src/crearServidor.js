@@ -32,12 +32,13 @@ function respuestaHttp(errorApi) {
 const RESPUESTA_CABECERAS_MUY_GRANDES = respuestaHttp(CABECERAS_MUY_GRANDES);
 
 // Igual que la respuesta por defecto de Node: solo se escribe si el socket se puede escribir y si ninguna respuesta en
-// curso ya mandó sus cabeceras (un 400 en medio de ella la corrompería). Después se destruye el socket.
-function responderCabecerasMuyGrandes(socket, err) {
+// curso ya mandó sus cabeceras (un 400 en medio de ella la corrompería). Después se destruye el socket, sin pasarle el
+// error: así no sale un evento 'error' del socket que nadie escuche.
+function responderCabecerasMuyGrandes(socket) {
   if (socket.writable && !socket._httpMessage?._headerSent) {
     socket.write(RESPUESTA_CABECERAS_MUY_GRANDES);
   }
-  socket.destroy(err);
+  socket.destroy();
 }
 
 // Un servidor de Node que contesta con el formato de error a las cabeceras de más de 16 KB. Node avisa de un error del
@@ -50,7 +51,7 @@ class Servidor extends http.Server {
     if (evento === 'clientError') {
       const [err, socket] = argumentos;
       if (err?.code === 'HPE_HEADER_OVERFLOW') {
-        responderCabecerasMuyGrandes(socket, err);
+        responderCabecerasMuyGrandes(socket);
         return true;
       }
     }

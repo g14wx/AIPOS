@@ -681,6 +681,8 @@ describe('cambiar la cantidad de un detalle (V-06)', () => {
     it('al salir del campo con un texto válido lo normaliza: «007» pasa a «7»', async () => {
       conLecheYPan(2);
       abrir();
+      // El cajero escribe con el foco puesto en el campo: mientras escribe, no se le cambia lo escrito.
+      campoDe(NOMBRE).element.focus();
       await escribir(NOMBRE, '007');
       expect(celdas(filas()[0])[2]).toBe('007');
       await salirDelCampo(NOMBRE);
@@ -811,7 +813,10 @@ describe('cambiar la cantidad de un detalle (V-06)', () => {
       }
       await masDe(NOMBRE).trigger('click');
       await campoDe(NOMBRE).setValue('9');
-      expect(celdas(filas()[0])[2]).toBe('2');
+      // setValue deja el texto en el input aunque esté deshabilitado, pero no dispara el evento: la venta actual sigue igual.
+      expect(celdas(filas()[0])[3]).toBe('44.00');
+      expect(total()).toBe('47.50');
+      expect(guardado().detalles[0].cantidad).toBe(2);
       expect(localStorage.getItem(LLAVE)).toBe(antes);
     });
 

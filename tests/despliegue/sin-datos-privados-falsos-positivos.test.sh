@@ -5,7 +5,7 @@
 # contraseña escrita entre comillas invertidas (una plantilla literal de JavaScript). Esta prueba corre esa misma
 # revisión sobre repositorios de mentira: con código que solo lee una contraseña tiene que pasar, y con una credencial
 # escrita a mano (con comillas simples, dobles o invertidas, o sin ellas, en una variable, en un .env o en JSON) tiene
-# que fallar.
+# que fallar. Issue #100: un ejemplo con el valor omitido (puntos suspensivos) tampoco es una credencial.
 # Los nombres se arman por partes para que la revisión del repositorio no encuentre esta prueba a sí misma.
 # shellcheck source=comun.sh
 source "$(dirname "${BASH_SOURCE[0]}")/comun.sh"
@@ -47,8 +47,9 @@ if ($CL === 'example') {
 } else if ($CL === 'examples') {
 const larga = $CL => $CL.length > 8;
 // la prueba tomaba como valor todo lo que sigue a ${BT}$CL =${BT}, y marcaba el código que lee la contraseña
-MYSQL_$PASS=${BT}openssl rand -hex 16${BT}"
-igual "una comparación, una flecha, una llamada, un texto corrido y una sustitución de comandos no son una credencial" "0" "$CODIGO"
+MYSQL_$PASS=${BT}openssl rand -hex 16${BT}
+// un ejemplo con el valor omitido (issue #100): $CL=\"…\" y MYSQL_$PASS=... no son una credencial"
+igual "una comparación, una flecha, una llamada, un texto corrido, una sustitución de comandos y un valor omitido no son una credencial" "0" "$CODIGO"
 [ "$CODIGO" = 0 ] || echo "$SALIDA"
 tiene "la revisión de credenciales dice ok" "$SALIDA" "ok: sin credenciales"
 

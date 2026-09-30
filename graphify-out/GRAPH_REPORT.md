@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 101 files · ~98,162 words
+- 102 files · ~98,973 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 20 file(s) not represented in the graph (top: (none) 9, .drawio 7, .caddy 2)
+- Unclassified: 21 file(s) not represented in the graph (top: (none) 9, .drawio 8, .caddy 2)
 
 ## Summary
-- 652 nodes · 696 edges · 85 communities (41 shown, 44 thin omitted)
+- 657 nodes · 705 edges · 86 communities (42 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -98,6 +98,7 @@
 - revisar-etiqueta.sh
 - Despliegue de AIPOS
 - instalar-caddy.sh
+- Flujo 05 · Entregar un entregable
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -117,11 +118,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (85 total, 44 thin omitted)
+## Communities (86 total, 44 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.05
-Nodes (37): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+29 more)
+Cohesion: 0.06
+Nodes (36): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+28 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -283,9 +284,13 @@ Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versi
 Cohesion: 0.60
 Nodes (3): codigos(), fallar(), instalar-caddy.sh script
 
+### Community 85 - "Flujo 05 · Entregar un entregable"
+Cohesion: 0.40
+Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+
 ## Knowledge Gaps
-- **366 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+361 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 429 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **369 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+364 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 432 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -296,9 +301,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
-  _366 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _369 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05513784461152882 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

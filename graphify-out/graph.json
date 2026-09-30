@@ -576,66 +576,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L66"
-    },
-    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -682,6 +622,66 @@
       "norm_label": "pasos",
       "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
       "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version",
+      "label": "07-desplegar-una-version.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "07-desplegar-una-version.md",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "label": "Flujo 07 \u00b7 Desplegar una versi\u00f3n",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 07 \u00b7 desplegar una version",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L46"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "requerimientos_flujos_07_desplegar_una_version_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L63"
     },
     {
       "id": "requerimientos_readme",
@@ -8448,6 +8448,66 @@
       "source_location": "L40"
     },
     {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L66"
+    },
+    {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
       "label": "saltos-de-linea.test.sh",
       "_origin": "ast",
@@ -11162,6 +11222,50 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
       "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_pasos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_otros_caminos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version_flujo_07_desplegar_una_versi\u00f3n",
+      "target": "requerimientos_flujos_07_desplegar_una_version_qu\u00e9_no_se_hace",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -15676,6 +15780,17 @@
     },
     {
       "source": "docs_despliegue",
+      "target": "requerimientos_flujos_07_desplegar_una_version",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/despliegue.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_despliegue",
       "target": "requerimientos_flujos_05_entregar_un_entregable",
       "relation": "references",
       "_origin": "ast",
@@ -16046,6 +16161,50 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_flujos_05_entregar_un_entregable",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_03_requerimientos_no_funcionales",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "specs_despliegue_spec",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_flujos_07_desplegar_una_version",
+      "target": "requerimientos_01_alcance",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/flujos/07-desplegar-una-version.md",
+      "source_location": "L7",
       "weight": 1.0
     },
     {

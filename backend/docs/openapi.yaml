@@ -1,0 +1,418 @@
+# Documentación de la API de AIPOS: el documento OpenAPI 3 es la única fuente de lo que dice la documentación.
+# Se muestra con Swagger UI en GET /api/docs. Cada tarjeta que crea una ruta agrega aquí su entrada y su router
+# a `montajes` (src/routes/index.js): si falta una de las dos cosas, `npm test` falla.
+openapi: 3.0.3
+info:
+  title: API de AIPOS
+  version: '1.0.0'
+  description: |
+    AIPOS es un punto de venta de una sola pantalla: el cajero busca productos, arma la venta actual y la registra.
+    Esta es la documentación de la API del backend: cada ruta, lo que recibe, lo que responde y su formato de error.
+
+    - No hay login: quien tiene la pantalla abierta es el cajero.
+    - El dinero va como texto con 2 decimales, por ejemplo `"25.00"`, para no perder centavos.
+    - Toda respuesta de error tiene el mismo formato: `{ "error": { "codigo", "mensaje", "detalles" } }`.
+servers:
+  # Una dirección relativa: "Try it out" llama al mismo servidor que mostró esta página, sea localhost o producción.
+  - url: /
+tags:
+  # Una etiqueta por recurso en uso. Las de Productos y Ventas las agregan las tarjetas que crean esas rutas.
+  - name: Salud
+    description: Revisar que la API está viva.
+  - name: Productos
+    description: Los productos que se venden en la tienda, con su nombre, su precio y su código de barras. Se pueden buscar y crear.
+  - name: Ventas
+    description: Lo que se le vendió a un cliente en una sola operación, con sus detalles de venta. Se pueden registrar.
+paths:
+  /api/productos:
+    get:
+      operationId: buscarProductos
+      tags:
+        - Productos
+      summary: Buscar productos por una parte del nombre o por su código de barras
+      description: |
+        Busca por una parte del nombre, sin importar mayúsculas ni tildes, o por el código de barras exacto (un pedazo
+        del código de barras no cuenta). Trae 20 productos como máximo: primero el que tiene ese código de barras y
+        después los demás por nombre, de la A a la Z. Si nada coincide, responde 200 con la lista vacía.
+
+        `%`, `_` y `\` se buscan como texto normal: buscar `50%` solo encuentra nombres que tengan `50%`.
+        Solo lee: no cambia nada.
+
+        Responde 400 (`DATOS_INVALIDOS`, con el campo `busqueda` en los detalles del error) si falta el texto, si
+        queda con menos de 2 o con más de 120 caracteres, o si `busqueda` se repite. Por ejemplo, con `?busqueda=a`
+        el detalle del error dice "Escribe al menos 2 caracteres.".
+      parameters:
+        - name: busqueda
+          in: query
+          required: true
+          description: >-
+            El texto que escribió el cajero. Se recortan los espacios de los extremos y debe quedar de 2 a 120
+            caracteres. No puede repetirse (`?busqueda=a&busqueda=b` es un 400).
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 120
+          example: lech
+      responses:
+        '200':
+          description: >-
+            Los productos que coinciden, con 20 como máximo. Es una lista vacía si nada coincide.
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 20
+                items:
+                  $ref: '#/components/schemas/Producto'
+              example:
+                - id: 1
+                  nombre: 'Leche entera 1 L'
+                  codigoBarras: '7501055300075'
+                  precio: '25.00'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    post:
+      operationId: crearProducto
+      tags:
+        - Productos
+      summary: Crear un producto
+      description: |
+        Guarda un producto nuevo. La API revisa todos los datos antes de guardar y, si algún campo no sirve,
+        responde 400 con un elemento en `detalles` por cada campo con problema, en el orden `nombre`, `precio` y
+        `codigoBarras`.
+
+        - El `precio` viaja como texto, por ejemplo `"25.50"`: un número JSON (`25.5`) es un 400. Tiene que ser mayor
+          que 0, con 2 decimales como máximo y hasta `99999.99`.
+        - El `nombre` y el `codigoBarras` se guardan sin los espacios de los extremos. Un texto que solo tenía espacios
+          es un 400. El largo se cuenta en caracteres: un emoji cuenta 1.
+        - El código de barras es único. Si ya existe, responde 409 y el producto que ya estaba no cambia. Sale del
+          índice único de la base de datos, así que dos peticiones iguales al mismo tiempo crean un solo producto.
+        - Los campos que sobran (por ejemplo `id`) se ignoran: el `id` lo pone la base de datos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductoNuevo'
+            example:
+              nombre: 'Leche entera 1 L'
+              precio: '25.00'
+              codigoBarras: '7501055300075'
+      responses:
+        '201':
+          description: El producto se creó. El `precio` vuelve con 2 decimales, aunque se mandara `"25"`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+              example:
+                id: 1
+                nombre: 'Leche entera 1 L'
+                precio: '25.00'
+                codigoBarras: '7501055300075'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '409':
+          $ref: '#/components/responses/Conflicto'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /api/salud:
+    get:
+      operationId: consultarSalud
+      tags:
+        - Salud
+      summary: Consultar si la API está viva
+      description: Sirve para saber si el backend responde. No recibe nada y no cambia nada.
+      responses:
+        '200':
+          description: La API está viva.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Salud'
+              example:
+                estado: 'ok'
+                baseDeDatos: 'ok'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /api/ventas:
+    post:
+      operationId: registrarVenta
+      tags:
+        - Ventas
+      summary: Registrar una venta con todos sus detalles de venta
+      description: |
+        Registra una venta con todos sus detalles de venta, de una sola vez: o se guarda todo o no se guarda nada. La
+        API revisa los datos antes de guardar y, si algún campo no sirve, responde 400 con un detalle del error por
+        cada campo con problema, en el orden de los detalles de venta. Por ejemplo, para la cantidad del segundo
+        detalle: `{ "campo": "detalles[1].cantidad", "mensaje": "Debe ser un entero de 1 a 999." }`.
+
+        - `detalles` tiene de 1 a 100 detalles de venta, y un producto tiene un solo detalle.
+        - El `productoId` y la `cantidad` viajan como números enteros: un texto (`"2"`) o un decimal (`1.5`) es un 400.
+          La `cantidad` va de 1 a 999.
+        - El `precioAplicado` viaja como texto, por ejemplo `"22.00"`: un número JSON (`22.5`) es un 400. Va de `0` a
+          `99999.99`, con 2 decimales como máximo.
+        - No se manda un total ni un subtotal: los calcula MySQL, y si el cuerpo trae uno se ignora. El `total` de la
+          respuesta es el que vale.
+        - Los campos que sobran se ignoran.
+
+        El 422 llega cuando el procedimiento almacenado rechaza la venta. Su `codigo` es uno de estos:
+        `VENTA_SIN_DETALLES`, `DEMASIADOS_DETALLES`, `DETALLE_INVALIDO`, `CANTIDAD_FUERA_DE_RANGO`,
+        `PRECIO_FUERA_DE_RANGO`, `PRODUCTO_REPETIDO` y `PRODUCTO_NO_EXISTE`. Como la API revisa los datos antes, en la
+        práctica solo llega `PRODUCTO_NO_EXISTE`: un producto que se borró de MySQL después de que el cajero lo agregó
+        a la venta actual. Si hay cualquier error, no se guarda nada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VentaNueva'
+            example:
+              detalles:
+                - productoId: 3
+                  cantidad: 2
+                  precioAplicado: '22.00'
+                - productoId: 7
+                  cantidad: 1
+                  precioAplicado: '3.50'
+      responses:
+        '201':
+          description: La venta y todos sus detalles de venta quedaron guardados. El `total` es el que calculó MySQL.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VentaRegistrada'
+              example:
+                ventaId: 15
+                total: '47.50'
+        '400':
+          $ref: '#/components/responses/DatosInvalidos'
+        '422':
+          $ref: '#/components/responses/ReglaDeNegocio'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+components:
+  schemas:
+    Salud:
+      type: object
+      description: La respuesta de GET /api/salud.
+      required:
+        - estado
+      additionalProperties: false
+      properties:
+        estado:
+          type: string
+          enum: ['ok']
+          description: Siempre `ok` cuando la API responde.
+        baseDeDatos:
+          type: string
+          enum: ['ok']
+          description: Solo aparece cuando la API comprueba MySQL (tarjeta B-03). Siempre `ok`.
+    ProductoNuevo:
+      type: object
+      description: Los datos para crear un producto. Los campos que sobran se ignoran.
+      required:
+        - nombre
+        - precio
+        - codigoBarras
+      properties:
+        nombre:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Cómo se llama el producto. De 1 a 120 caracteres, sin espacios en los extremos.
+        precio:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: >-
+            Lo que cuesta el producto, como texto con punto decimal y hasta 2 decimales, por ejemplo `"25.50"`.
+            Mayor que 0 y hasta `99999.99`.
+        codigoBarras:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: >-
+            El número impreso en el producto, como texto para no perder los ceros de la izquierda. De 1 a 50
+            caracteres, sin espacios en los extremos. No se puede repetir.
+    Producto:
+      type: object
+      description: Algo que se vende en la tienda, con lo que la pantalla necesita para mostrarlo y elegirlo.
+      required:
+        - id
+        - nombre
+        - codigoBarras
+        - precio
+      additionalProperties: false
+      properties:
+        id:
+          type: integer
+          description: El número del producto. Lo pone la base de datos.
+        nombre:
+          type: string
+          maxLength: 120
+          description: Cómo se llama el producto.
+        codigoBarras:
+          type: string
+          maxLength: 50
+          description: >-
+            El código de barras, como texto para no perder los ceros de la izquierda.
+        precio:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: El precio como texto con 2 decimales, por ejemplo `25.00`. Nunca un número.
+    VentaNueva:
+      type: object
+      description: Los datos para registrar una venta. Los campos que sobran se ignoran.
+      required:
+        - detalles
+      properties:
+        detalles:
+          type: array
+          minItems: 1
+          maxItems: 100
+          description: >-
+            Los detalles de venta: de 1 a 100, uno por producto. Una venta sin detalles no se registra, y una con más de
+            100 tampoco: con más, el total se pasaría de lo que guarda la base de datos.
+          items:
+            $ref: '#/components/schemas/DetalleVentaNuevo'
+    DetalleVentaNuevo:
+      type: object
+      description: Un producto dentro de la venta que se registra, con su cantidad y su precio aplicado.
+      required:
+        - productoId
+        - cantidad
+        - precioAplicado
+      properties:
+        productoId:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+          description: El número del producto. Un producto tiene un solo detalle en la venta.
+        cantidad:
+          type: integer
+          minimum: 1
+          maximum: 999
+          description: Cuántas unidades del producto lleva el detalle. Un entero de 1 a 999.
+        precioAplicado:
+          type: string
+          pattern: '^\d{1,5}(\.\d{1,2})?$'
+          description: >-
+            Lo que se cobra por cada unidad, como texto con punto decimal y hasta 2 decimales, por ejemplo `"22.00"`.
+            De `0` a `99999.99`. Puede ser distinto del precio del producto; el precio del producto no cambia.
+    VentaRegistrada:
+      type: object
+      description: La venta que quedó guardada.
+      required:
+        - ventaId
+        - total
+      additionalProperties: false
+      properties:
+        ventaId:
+          type: integer
+          description: El número de la venta. Lo pone la base de datos.
+        total:
+          type: string
+          pattern: '^\d{1,10}\.\d{2}$'
+          description: >-
+            El total que calculó MySQL: la suma de los subtotales de los detalles de venta, como texto con 2 decimales,
+            por ejemplo `47.50`. Es el que vale.
+    RespuestaDeError:
+      type: object
+      description: El formato de error, igual en todas las rutas.
+      required:
+        - error
+      additionalProperties: false
+      properties:
+        error:
+          type: object
+          required:
+            - codigo
+            - mensaje
+          additionalProperties: false
+          properties:
+            codigo:
+              type: string
+              pattern: '^[A-Z][A-Z0-9_]*$'
+              description: Texto estable, en mayúsculas y con guion bajo, que la pantalla puede leer.
+            mensaje:
+              type: string
+              description: Una frase en español para el cajero.
+            detalles:
+              type: array
+              description: >-
+                Un elemento por campo con problema. Solo lo llevan el 400 y el 409 del código de barras repetido.
+              items:
+                $ref: '#/components/schemas/DetalleDeError'
+    DetalleDeError:
+      type: object
+      description: Un campo con problema.
+      required:
+        - campo
+        - mensaje
+      additionalProperties: false
+      properties:
+        campo:
+          type: string
+          description: El nombre del campo del JSON, por ejemplo `precio`.
+        mensaje:
+          type: string
+          description: Qué tiene mal ese campo.
+  responses:
+    DatosInvalidos:
+      description: La forma o los valores de la petición no cumplen las reglas (400).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'DATOS_INVALIDOS'
+              mensaje: 'El precio no puede tener más de 2 decimales.'
+              detalles:
+                - campo: 'precio'
+                  mensaje: 'No puede tener más de 2 decimales.'
+    NoEncontrado:
+      description: La ruta no existe, o lo pedido no existe (404).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'NO_ENCONTRADO'
+              mensaje: 'La ruta no existe.'
+    Conflicto:
+      description: Un dato único ya existe (409).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'CODIGO_BARRAS_DUPLICADO'
+              mensaje: 'Ya existe un producto con ese código de barras.'
+              detalles:
+                - campo: 'codigoBarras'
+                  mensaje: 'Ya existe un producto con ese código de barras.'
+    ReglaDeNegocio:
+      description: El procedimiento almacenado rechazó la petición por una regla del negocio (422).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'VENTA_SIN_DETALLES'
+              mensaje: 'La venta no tiene productos. Agrega al menos uno.'
+    ErrorInterno:
+      description: Cualquier otro error (500). El mensaje es genérico y nunca cuenta qué falló por dentro.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'ERROR_INTERNO'
+              mensaje: 'Ocurrió un error inesperado. Intenta de nuevo.'

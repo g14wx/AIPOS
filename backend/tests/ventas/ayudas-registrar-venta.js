@@ -66,6 +66,15 @@ export function prepararVentas({ productos = 3 } = {}) {
   return contexto;
 }
 
+// El número de un producto que ya no existe: se crea y se borra, como el producto que el cajero agregó a la venta
+// actual y que alguien borró de MySQL antes de registrarla. MySQL 8 no vuelve a dar un AUTO_INCREMENT ya usado,
+// así que el número queda libre.
+export async function idDeUnProductoBorrado() {
+  const [productoId] = await crearProductos(1, 'BORRADO');
+  await consultar('DELETE FROM productos WHERE id = :productoId', { productoId });
+  return productoId;
+}
+
 // Un detalle de venta como lo manda la pantalla: el producto, la cantidad (entero) y el precio aplicado (texto).
 export const detalle = (productoId, cambios = {}) => ({
   productoId,

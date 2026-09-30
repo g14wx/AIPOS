@@ -28,7 +28,9 @@ Fuente editable: [`05-entregar-un-entregable.drawio`](../diagramas/05-entregar-u
 6. **Agente revisor:** revisa el PR con `codex review --base ProductionEnv`.
 7. **Agente:** corrige cada hallazgo o anota por qué no aplica, y deja el resultado como comentario del PR.
 8. **Persona desarrolladora:** revisa el PR y los hallazgos, y da el visto bueno.
-9. **Agente:** integra con merge commit, sin borrar la rama:
+9. **Agente:** pone la rama al día con `ProductionEnv` en local (`git merge origin/ProductionEnv`; si el merge se
+   detiene porque el hook de git actualizó el grafo del proyecto, lo termina con `git commit --no-edit`) y la sube.
+   Después integra con merge commit, sin borrar la rama:
    `gh pr merge <numero> --merge --subject "Merge: entregable <entregable> (#<numero>)"`.
 10. **GitHub:** `ProductionEnv` queda con el merge commit.
 11. **Agente:** pone la etiqueta `entregable-<entregable>` en el commit del merge y la sube.
@@ -37,7 +39,8 @@ Fuente editable: [`05-entregar-un-entregable.drawio`](../diagramas/05-entregar-u
 
 ## Entrega final
 
-1. **Agente:** pone la etiqueta `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
+1. **Agente:** pone la etiqueta `v1.0.0`, pone `ProductionEnv` al día con `main` en local, como en el paso 9, y abre
+   el PR de `ProductionEnv` a `main`.
 2. **GitHub:** la regla "Protect main" solo deja integrar con squash o rebase (pregunta abierta 7).
 3. No se borran `ProductionEnv` ni las ramas de entregable.
 

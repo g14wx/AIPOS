@@ -25,6 +25,9 @@ hace nada.
 
 - Python 3.10 o más nuevo.
 - [uv](https://docs.astral.sh/uv/), para instalar Graphify en su propio entorno. En macOS: `brew install uv`.
+- En Windows, [Git for Windows](https://git-scm.com/downloads/win). Trae Git Bash, que usa git para correr el hook
+  de git y Claude Code para correr su hook. Sin Git Bash, Claude Code usa PowerShell y el hook de Claude Code no
+  funciona.
 
 ### 1. Instalar Graphify
 
@@ -73,6 +76,18 @@ Es el mismo orden del [flujo 06](../../requerimientos/flujos/06-trabajar-una-tar
 6. `spec-verification` y `work-review`.
 7. La bitácora y el commit. El hook de git actualiza el grafo y lo agrega al commit.
 
+## Antes de integrar un PR
+
+El botón de GitHub no corre el hook de git. Por eso, antes de integrar, la rama se pone al día con su rama de
+destino en local, y así el grafo del PR ya es el del resultado:
+
+- **Con merge** (por ejemplo, `git merge origin/ProductionEnv`): el hook de git actualiza el grafo. Si el merge se
+  detiene con "Not committing merge", el hook de git dejó el grafo actualizado: termínalo con `git commit --no-edit`.
+- **Con rebase** (por ejemplo, `git rebase origin/main`): git no corre el hook de git en un rebase. Al terminar, corre
+  `graphify update .` y, si el grafo cambió, haz commit.
+
+Después sube la rama e integra el PR como dice el [flujo 05](../../requerimientos/flujos/05-entregar-un-entregable.md).
+
 ## Comandos útiles
 
 | Comando | Qué hace |
@@ -113,6 +128,7 @@ imágenes.
 | Un commit desde WebStorm u otra app dice que Graphify no está instalado | La app no ve la carpeta donde está `graphify`. El hook de git lo busca en el `PATH` y en `~/.local/bin`, donde lo pone `uv tool install`. | Si lo instalaste en otro lugar, agrega esa carpeta al `PATH` de la app, o instálalo con `uv tool install`. |
 | `pre-commit: 'graphify update .' falló` con "Refusing to overwrite" | Se borró código y el grafo nuevo tiene menos nodos, así que Graphify se niega a achicarlo. | Si lo borraste a propósito, corre `graphify update . --force` y agrega el grafo en otro commit. |
 | `graph.json` choca en un merge o un rebase | Dos ramas cambiaron el grafo. | No lo arregles a mano: quédate con la versión de la rama de destino y haz commit. El hook de git lo regenera. |
+| Un merge se detiene con "Not committing merge" | El hook de git actualizó el grafo, y git no lo mete solo en un merge commit. | Termina el merge con `git commit --no-edit`. |
 | El grafo del commit muestra un archivo que no entró al commit | El hook de git arma el grafo con lo que hay en la carpeta, no solo con lo que agregaste al commit. | Se corrige solo en el commit siguiente. Para evitarlo, haz commit de todo lo de la tarea junto. |
 | Después de `graphify install` cambiaron `CLAUDE.md` o `AGENTS.md` | Graphify escribió su propia regla. | Si no tenías otros cambios en esos archivos, corre `git restore CLAUDE.md AGENTS.md` y borra `.codex/hooks.json`. |
 

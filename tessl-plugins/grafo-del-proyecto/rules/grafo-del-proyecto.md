@@ -17,6 +17,11 @@ El grafo del proyecto es el mapa que arma Graphify en `graphify-out/`: qué arch
 - No saltes el hook de git con `--no-verify`.
 - No subas otros archivos de `graphify-out/`: guardan rutas de tu máquina.
 
+## Antes de integrar un PR
+
+- Pon la rama al día con su rama de destino en local. Con merge, el hook de git actualiza el grafo en ese merge. Con rebase, corre `graphify update .` al terminar y haz commit si el grafo cambió. El botón de GitHub no corre el hook de git, así que el grafo del PR tiene que ser ya el del resultado.
+- Si un merge se detiene con "Not committing merge", el hook de git dejó el grafo actualizado: termina el merge con `git commit --no-edit`.
+
 ## Cuándo no usarlo
 
 - Si la tarea es revisar si el grafo está bien, no uses el grafo como prueba. Lee el código.

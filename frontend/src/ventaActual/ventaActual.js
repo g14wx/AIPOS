@@ -1,5 +1,5 @@
 import { aCentavos, formatearCentavos } from '../dinero.js';
-import { CANTIDAD_MAXIMA, validarCantidad } from './validaciones.js';
+import { CANTIDAD_MAXIMA, validarCantidad, validarPrecioAplicado } from './validaciones.js';
 
 // La lógica de la venta actual vive aquí y no en los componentes, para probarla sin pantalla (RNF-06).
 // Son funciones puras: reciben la venta actual y devuelven una nueva (o la misma, si nada cambió), sin modificar lo que
@@ -57,16 +57,22 @@ function detalleNuevo(producto) {
   return { productoId: producto.id, nombre: producto.nombre, precioAplicado, cantidad: 1 };
 }
 
-// Quita el error de cantidad de un detalle (el campo vuelve a mostrar el valor válido) y deja los demás errores.
-// Si el detalle se queda sin errores, su clave se va: sin errores, errores es {} y la venta actual puede registrarse.
-function sinErrorDeCantidad(errores, productoId) {
-  if (!errores[productoId] || !('cantidad' in errores[productoId])) return errores;
+// Los errores sin el de un campo de un detalle («precioAplicado» o «cantidad»): el campo vuelve a mostrar su valor válido
+// y los demás errores se quedan. Si el detalle se queda sin errores, su clave se va: sin errores, errores es {} y la venta
+// actual puede registrarse. Si el detalle no tenía ese error devuelve los mismos errores.
+function sinErrorDeCampo(errores, productoId, campo) {
+  if (!errores[productoId] || !(campo in errores[productoId])) return errores;
   const restantes = { ...errores[productoId] };
-  delete restantes.cantidad;
+  delete restantes[campo];
   const nuevos = { ...errores };
   if (Object.keys(restantes).length === 0) delete nuevos[productoId];
   else nuevos[productoId] = restantes;
   return nuevos;
+}
+
+// Los errores con el mensaje de un campo de un detalle, sin tocar sus otros campos ni los otros detalles.
+function conErrorDeCampo(errores, productoId, campo, mensaje) {
+  return { ...errores, [productoId]: { ...errores[productoId], [campo]: mensaje } };
 }
 
 // Quita todos los errores de un detalle (los de su precio aplicado y los de su cantidad). Si no tenía, devuelve los mismos.
@@ -105,7 +111,30 @@ export function agregarAVentaActual(ventaActual, producto) {
     detalles: detalles.map((detalle) =>
       detalle === actual ? { ...detalle, cantidad: detalle.cantidad + 1 } : detalle,
     ),
-    errores: sinErrorDeCantidad(errores, actual.productoId),
+    errores: sinErrorDeCampo(errores, actual.productoId, 'cantidad'),
+  };
+}
+
+// Editar el precio aplicado de un detalle (RF-05, RN-05). `texto` es lo que escribió el cajero. Si es válido, el detalle
+// queda con el valor de 2 decimales y se quita su error de precio aplicado. Si no, el detalle conserva su último valor
+// válido y el mensaje queda en `errores`: «Registrar venta» se deshabilita hasta que se corrija. Un productoId que no
+// está (el cajero pudo eliminar el detalle un instante antes) devuelve LA MISMA venta actual. El precio del producto no
+// se toca: el detalle tiene su propia copia y la pantalla no llama a la API.
+export function cambiarPrecioAplicado(ventaActual, productoId, texto) {
+  const { detalles, errores } = ventaActual;
+  if (!detalles.some((detalle) => detalle.productoId === productoId)) return ventaActual;
+  const resultado = validarPrecioAplicado(texto);
+  if (!resultado.valido) {
+    return {
+      detalles,
+      errores: conErrorDeCampo(errores, productoId, 'precioAplicado', resultado.mensaje),
+    };
+  }
+  return {
+    detalles: detalles.map((detalle) =>
+      detalle.productoId === productoId ? { ...detalle, precioAplicado: resultado.valor } : detalle,
+    ),
+    errores: sinErrorDeCampo(errores, productoId, 'precioAplicado'),
   };
 }
 
@@ -119,14 +148,16 @@ export function cambiarCantidad(ventaActual, productoId, valor) {
   if (!detalles.some((detalle) => detalle.productoId === productoId)) return ventaActual;
   const resultado = validarCantidad(valor);
   if (!resultado.valido) {
-    const delDetalle = { ...errores[productoId], cantidad: resultado.mensaje };
-    return { detalles, errores: { ...errores, [productoId]: delDetalle } };
+    return {
+      detalles,
+      errores: conErrorDeCampo(errores, productoId, 'cantidad', resultado.mensaje),
+    };
   }
   return {
     detalles: detalles.map((detalle) =>
       detalle.productoId === productoId ? { ...detalle, cantidad: resultado.valor } : detalle,
     ),
-    errores: sinErrorDeCantidad(errores, productoId),
+    errores: sinErrorDeCampo(errores, productoId, 'cantidad'),
   };
 }
 

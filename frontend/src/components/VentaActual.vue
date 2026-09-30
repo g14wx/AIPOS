@@ -32,7 +32,14 @@
         </template>
 
         <template #item.precioAplicado="{ item }">
-          <span class="detalle__precio-aplicado">{{ item.precioAplicado }}</span>
+          <CampoPrecioAplicado
+            class="detalle__precio-aplicado"
+            :value="item.precioAplicado"
+            :error="errorDelPrecioAplicado(item)"
+            :nombre="item.nombre"
+            :disabled="enviando"
+            @input="alEditarPrecioAplicado(item.productoId, $event)"
+          />
         </template>
 
         <template #item.cantidad="{ item }">
@@ -97,6 +104,7 @@ import {
   calcularSubtotal,
   calcularTotal,
   cambiarCantidad,
+  cambiarPrecioAplicado,
   detallesParaRegistrar,
   eliminarDetalle,
   vaciarVentaActual,
@@ -104,6 +112,7 @@ import {
 } from '../ventaActual/ventaActual.js';
 import AnimacionLottie from './AnimacionLottie.vue';
 import CampoCantidad from './CampoCantidad.vue';
+import CampoPrecioAplicado from './CampoPrecioAplicado.vue';
 import RegistrarVenta from './RegistrarVenta.vue';
 
 // Vuetify apila las filas de una tabla cuando el ancho de la ventana es menor que su punto de apilado. La tarjeta de la
@@ -121,7 +130,7 @@ const APILADO_DE_VUETIFY = 600;
 // lo suman V-05, V-06 y V-07, cada uno en la celda de su columna.
 export default {
   name: 'VentaActual',
-  components: { AnimacionLottie, CampoCantidad, RegistrarVenta },
+  components: { AnimacionLottie, CampoCantidad, CampoPrecioAplicado, RegistrarVenta },
   props: {
     ventaActual: { type: Object, default: vaciarVentaActual },
     // El productoId del detalle recién agregado: su fila se pinta con el acento unos segundos. Lo decide App.vue.
@@ -237,6 +246,14 @@ export default {
     },
     claseDeFila(detalle) {
       return detalle.productoId === this.resaltarId ? 'detalle-resaltado' : '';
+    },
+    // El mensaje del error de precio aplicado de un detalle, o '' si no tiene (un error de un campo del detalle).
+    errorDelPrecioAplicado(detalle) {
+      return this.ventaActual.errores[detalle.productoId]?.precioAplicado ?? '';
+    },
+    // El cajero escribió en el campo del precio aplicado: la venta actual nueva que devuelve el módulo sube a App.vue.
+    alEditarPrecioAplicado(productoId, texto) {
+      this.$emit('update:ventaActual', cambiarPrecioAplicado(this.ventaActual, productoId, texto));
     },
     // La fila recién agregada queda a la vista, sin animación de movimiento, si el navegador sabe hacerlo.
     mostrarFilaResaltada() {
@@ -360,6 +377,15 @@ export default {
   line-height: 1.5rem;
 }
 
+/* El subtotal mide lo mismo que los campos de su fila (44 px) y su texto queda centrado: así queda a la altura de lo que
+   escribe el cajero en el precio aplicado y de los controles de la cantidad (V-05). */
+.detalle__subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 2.75rem;
+}
+
 /* V-07: el botón «Eliminar» de cada detalle mide 44 px para el dedo y se corre 10 px a la derecha, sobre el margen de la
    fila, para que el ícono y no su zona táctil quede alineado con el borde de las cifras. */
 .detalle__eliminar {
@@ -378,7 +404,7 @@ export default {
 
 /* La franja de abajo es sticky (mide unos 150 px, y unos 190 con un total de dos líneas) y la barra de arriba es fija: un
    botón o un campo de una fila que recibe el foco con Tab no debe quedar debajo de ellas. Con este margen el navegador lo
-   deja a la vista al llevarle el foco (#80 y #81). */
+   deja a la vista al llevarle el foco (#80, #81 y #85). */
 .detalles ::v-deep button,
 .detalles ::v-deep input {
   scroll-margin: 4rem 0 12rem;
@@ -434,12 +460,14 @@ export default {
 /* Filas apiladas (el modo móvil de Vuetify, ver puntoDeApilado): arriba el nombre y las acciones, y debajo el precio
    aplicado, la cantidad y el subtotal, cada uno con su etiqueta encima. Las celdas de abajo pasan a otra línea cuando
    no caben (por ejemplo, con las cifras más grandes en una pantalla de 320 px) en vez de montarse unas sobre otras.
-   V-05 a V-07 ponen sus campos en estas mismas celdas. */
+   V-05 a V-07 ponen sus campos en estas mismas celdas. El espacio entre celdas es de 12 px: a 1280 px de ventana la
+   tarjeta mide 395 px, la fila 353 px, y el precio aplicado (120), la cantidad (152) y el subtotal (54) con dos
+   espacios de 12 px suman 350 y caben en una línea (#92). */
 .detalles ::v-deep .v-data-table__mobile-table-row {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1rem;
-  align-items: flex-end;
+  column-gap: 0.75rem;
+  align-items: flex-start;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--filete);
 }

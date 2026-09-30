@@ -192,7 +192,8 @@ describe('Enter con un código de barras que no es exacto', () => {
     await montar();
     await escribir('222');
     await presionarEnter();
-    expect(textoDeEstado()).toBe(SIN_CODIGO);
+    expect(textoDeEstado()).toContain(SIN_CODIGO);
+    expect(textoDeEstado()).toContain('1 resultado');
     expect(filas()).toHaveLength(1);
     expect(wrapper.text().indexOf(SIN_CODIGO)).toBeLessThan(
       wrapper.text().indexOf('Cable 222 USB'),
@@ -211,7 +212,7 @@ describe('Enter con un código de barras que no es exacto', () => {
     await escribir('750105530007');
     await presionarEnter();
     expect(elegidos()).toHaveLength(0);
-    expect(textoDeEstado()).toBe(SIN_CODIGO);
+    expect(textoDeEstado()).toContain(SIN_CODIGO);
     expect(filas()).toHaveLength(1);
   });
 
@@ -222,7 +223,8 @@ describe('Enter con un código de barras que no es exacto', () => {
     await escribir('abc-1');
     await presionarEnter();
     expect(elegidos()).toHaveLength(0);
-    expect(textoDeEstado()).toBe(SIN_CODIGO);
+    expect(textoDeEstado()).toContain(SIN_CODIGO);
+    expect(filas()).toHaveLength(1);
   });
 
   it('al seguir escribiendo se va el mensaje: vuelve la búsqueda normal', async () => {

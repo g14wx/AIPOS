@@ -1,8 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { createRequire } from 'node:module';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 const require = createRequire(import.meta.url);
-const { cargarConfig } = require('../src/config');
+const { cargarConfig, cargarArchivoEnv } = require('../src/config');
 
 const base = {
   CORS_ORIGIN: 'http://localhost:5173',
@@ -114,11 +117,23 @@ describe('src/config.js', () => {
     expect(() => cargarConfig({ ...base, NODE_ENV: 'test' })).toThrow('MYSQL_TEST_DATABASE');
   });
 
-  it('una variable que ya está en el entorno gana sobre el .env', () => {
-    process.env.AIPOS_PRUEBA_DOTENV = 'del-entorno';
-    const { cargarArchivoEnv } = require('../src/config');
-    cargarArchivoEnv();
-    expect(process.env.AIPOS_PRUEBA_DOTENV).toBe('del-entorno');
-    delete process.env.AIPOS_PRUEBA_DOTENV;
+  it('una variable que ya está en el entorno gana sobre el .env, y las demás salen del .env', () => {
+    // Un .env de prueba con dos variables; una de ellas ya está en el entorno.
+    const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'aipos-env-'));
+    const archivo = path.join(carpeta, '.env');
+    fs.writeFileSync(
+      archivo,
+      'AIPOS_PRUEBA_EN_AMBOS=del-archivo\nAIPOS_PRUEBA_SOLO_ARCHIVO=del-archivo\n',
+    );
+    process.env.AIPOS_PRUEBA_EN_AMBOS = 'del-entorno';
+    try {
+      cargarArchivoEnv(archivo);
+      expect(process.env.AIPOS_PRUEBA_EN_AMBOS).toBe('del-entorno');
+      expect(process.env.AIPOS_PRUEBA_SOLO_ARCHIVO).toBe('del-archivo');
+    } finally {
+      delete process.env.AIPOS_PRUEBA_EN_AMBOS;
+      delete process.env.AIPOS_PRUEBA_SOLO_ARCHIVO;
+      fs.rmSync(carpeta, { recursive: true, force: true });
+    }
   });
 });

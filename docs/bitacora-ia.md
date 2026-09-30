@@ -513,3 +513,20 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas descartadas:** por confirmar.
 - **Tiempo:** unos 39 minutos para escribir la spec (01:59–02:38). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
 - **Commits:** este commit y los 2 de la rama (`066093c` la spec y `e8703ee` la corrección de Codex).
+
+### 2026-09-30 04:08 — D-01: spec de despliegue (D-01)
+
+- **Tarea:** escribir `specs/despliegue.spec.md`, la spec del flujo 07: desplegar a producción con una etiqueta `release-*` (workflow de GitHub, imágenes, Docker Compose de producción, Caddy, scripts del servidor, volver a la versión anterior y revisión desde internet). Rama `docs/d-01-spec-despliegue`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, los requerimientos y la tarjeta D-01 con sus checklists; escribió la spec (commit `85b4540`). Su borrador de bitácora se cortó: esta entrada se armó desde el historial de git, la salida de Codex y la tarjeta. Las correcciones de Codex (commit `65cee01`) las hizo el agente orquestador del workflow.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Los dominios `aipos.salsalvador.io` (pantalla) y `aipos-back.salsalvador.io` (backend) son decisión de la persona del 2026-09-30, según la spec.
+  - Las etiquetas válidas son `release-MAYOR.MENOR.PARCHE`; `release-hoy` falla.
+  - Todo se publica solo en `127.0.0.1` y Caddy es la única entrada desde internet.
+  - `/api/docs` se revisa en producción solo cuando A-01 esté integrada.
+- **Patrones consultados:** por confirmar (la spec tiene su tabla "Cómo se decidió el diseño").
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos. La segunda dio 1 P1 y 2 P2, sin P0: el flujo de error podía retroceder dos veces cuando `desplegar.sh` fallaba antes de activar la versión nueva (P1); el criterio 1 aceptaba cualquier `release-*` y contradecía al criterio 8 con `release-hoy` (P2); el criterio de `/api/docs` no tenía `[@test]` (P2). Los tres se corrigieron en `65cee01`.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar. La subtarea de aprobar los términos del glosario sigue por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** primer commit de la spec a las 02:24 y corrección de Codex a las 03:22; el inicio exacto queda por confirmar. Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`85b4540` la spec y `65cee01` la corrección de Codex).

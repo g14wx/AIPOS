@@ -129,7 +129,7 @@ no_tiene "ningún puerto se publica en [::]" "$PUERTOS" "[::]"
 tiene "MySQL se publica en 127.0.0.1:$PUERTO_MYSQL" "$PUERTOS" "127.0.0.1:$PUERTO_MYSQL->3306"
 for servicio in mysql backend frontend; do
   c="$(compose "$V1" ps -q "$servicio")"
-  uid="$(docker exec "$c" sh -c 'while read -r k v _; do [ "$k" = "Uid:" ] && echo "$v"; done </proc/1/status')"
+  uid="$(docker exec "$c" sh -c 'while read -r k v _; do if [ "$k" = "Uid:" ]; then echo "$v"; fi; done </proc/1/status')"
   if [ -n "$uid" ] && [ "$uid" != 0 ]; then ok "$servicio: el proceso 1 tiene uid $uid (no es root)"; else falla "$servicio: el proceso 1 corre como root o no se pudo leer su uid"; fi
 done
 

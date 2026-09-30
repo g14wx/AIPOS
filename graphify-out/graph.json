@@ -160,6 +160,18 @@
       "source_location": "L22"
     },
     {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
       "id": "requerimientos_02_requerimientos_funcionales",
       "label": "02-requerimientos-funcionales.md",
       "_origin": "ast",
@@ -5418,18 +5430,6 @@
       "source_location": "L375"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
       "id": "requerimientos_01_alcance_actores_y_partes",
       "label": "Actores y partes",
       "_origin": "ast",
@@ -8073,6 +8073,36 @@
       "source_location": "L1"
     },
     {
+      "id": "despliegue_revisar_etiqueta",
+      "label": "revisar-etiqueta.sh",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "revisar-etiqueta.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "revisar-etiqueta.sh",
+      "source_file": "despliegue/revisar-etiqueta.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "despliegue_revisar_etiqueta_sh__entry",
+      "label": "revisar-etiqueta.sh script",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "revisar-etiqueta.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "revisar-etiqueta.sh script",
+      "source_file": "despliegue/revisar-etiqueta.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
       "label": "saltos-de-linea.test.sh",
       "_origin": "ast",
@@ -9171,6 +9201,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "despliegue/desplegar.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "despliegue_revisar_etiqueta",
+      "target": "despliegue_revisar_etiqueta_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "despliegue/revisar-etiqueta.sh",
       "source_location": "L1",
       "weight": 1.0
     },

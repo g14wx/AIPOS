@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 97 files · ~92,908 words
+- 98 files · ~93,183 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 625 nodes · 660 edges · 82 communities (38 shown, 44 thin omitted)
+- 627 nodes · 661 edges · 83 communities (38 shown, 45 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -95,6 +95,7 @@
 - documentos.test.sh
 - arranque-local.test.sh
 - crear-env.sh
+- revisar-etiqueta.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -114,7 +115,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (82 total, 44 thin omitted)
+## Communities (83 total, 45 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
@@ -233,7 +234,7 @@ Cohesion: 0.08
 Nodes (24): Caddy, Casos de error, Configuración del servidor (una sola vez), Criterios de aceptación, Cómo queda armado el servidor, Cómo se decidió el diseño, Despliegue de AIPOS, Docker Compose de producción (`docker-compose.produccion.yml`) (+16 more)
 
 ### Community 56 - "Alcance"
-Cohesion: 0.20
+Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 57 - "despliegue/comun.sh"
@@ -269,9 +270,9 @@ Cohesion: 0.46
 Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto(), arranque-local.test.sh script
 
 ## Knowledge Gaps
-- **357 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+352 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 419 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **358 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+353 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 421 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -281,11 +282,11 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
-- **What connects `name`, `mode`, `source` to the rest of the system?**
-  _357 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
+  _358 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05959183673469388 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

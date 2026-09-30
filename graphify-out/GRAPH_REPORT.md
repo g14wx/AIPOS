@@ -1,12 +1,12 @@
-# Graph Report - spec-documentacion-de-la-api  (2026-09-30)
+# Graph Report - spec-despliegue  (2026-09-30)
 
 ## Corpus Check
-- 72 files · ~70,186 words
+- 73 files · ~77,375 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 475 nodes · 468 edges · 56 communities (29 shown, 27 thin omitted)
+- 500 nodes · 493 edges · 57 communities (30 shown, 27 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -68,19 +68,20 @@
 - Registrar venta
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
-- Flujo 05 · Entregar un entregable
+- Despliegue de AIPOS
+- Alcance
 
 ## God Nodes (most connected - your core abstractions)
-1. `Requerimientos funcionales` - 14 edges
-2. `Requerimientos no funcionales` - 14 edges
-3. `Armar la venta actual` - 13 edges
-4. `Arquitectura de AIPOS` - 13 edges
-5. `Documentación de la API` - 12 edges
-6. `Buscar producto` - 10 edges
-7. `Grafo del proyecto` - 10 edges
-8. `Registrar venta` - 10 edges
-9. `Flujo de un entregable` - 10 edges
-10. `Configurar el MCP de Trello` - 9 edges
+1. `Despliegue de AIPOS` - 22 edges
+2. `Requerimientos funcionales` - 14 edges
+3. `Requerimientos no funcionales` - 14 edges
+4. `Armar la venta actual` - 13 edges
+5. `Arquitectura de AIPOS` - 13 edges
+6. `Documentación de la API` - 12 edges
+7. `Buscar producto` - 10 edges
+8. `Grafo del proyecto` - 10 edges
+9. `Registrar venta` - 10 edges
+10. `Flujo de un entregable` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -88,11 +89,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (56 total, 27 thin omitted)
+## Communities (57 total, 27 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.06
-Nodes (31): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+23 more)
+Cohesion: 0.07
+Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.09
@@ -202,28 +203,32 @@ Nodes (26): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Ar
 Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 
-### Community 55 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+### Community 55 - "Despliegue de AIPOS"
+Cohesion: 0.08
+Nodes (24): Caddy, Casos de error, Configuración del servidor (una sola vez), Criterios de aceptación, Cómo queda armado el servidor, Cómo se decidió el diseño, Despliegue de AIPOS, Docker Compose de producción (`docker-compose.produccion.yml`) (+16 more)
+
+### Community 56 - "Alcance"
+Cohesion: 0.22
+Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ## Knowledge Gaps
-- **317 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+312 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 353 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **339 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+334 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 375 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _317 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _339 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.06464646464646465 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
   _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

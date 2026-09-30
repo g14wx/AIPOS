@@ -1,12 +1,12 @@
 # Graph Report - a-01  (2026-09-30)
 
 ## Corpus Check
-- 96 files · ~48,782 words
+- 97 files · ~49,461 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 542 nodes · 621 edges · 66 communities (31 shown, 35 thin omitted)
+- 555 nodes · 647 edges · 66 communities (31 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -21,7 +21,7 @@
 - Trabajar en un tile
 - Requerimientos funcionales
 - Requerimientos no funcionales
-- app.js
+- comparar-rutas.test.js
 - Flujo de un entregable
 - Arquitectura de AIPOS
 - saltos-de-linea.test.sh
@@ -69,17 +69,17 @@
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
-- rutas.js
+- routes/salud.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `scripts` - 15 edges
 2. `Requerimientos funcionales` - 14 edges
 3. `Requerimientos no funcionales` - 14 edges
-4. `Arquitectura de AIPOS` - 13 edges
-5. `vitest` - 12 edges
-6. `Grafo del proyecto` - 10 edges
-7. `Flujo de un entregable` - 10 edges
-8. `crearApp()` - 9 edges
+4. `vitest` - 13 edges
+5. `Arquitectura de AIPOS` - 13 edges
+6. `crearApp()` - 10 edges
+7. `Grafo del proyecto` - 10 edges
+8. `Flujo de un entregable` - 10 edges
 9. `cargarConfig()` - 9 edges
 10. `Configurar el MCP de Trello` - 9 edges
 
@@ -124,9 +124,9 @@ Nodes (14): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
-### Community 6 - "app.js"
-Cohesion: 0.06
-Nodes (37): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+29 more)
+### Community 6 - "comparar-rutas.test.js"
+Cohesion: 0.05
+Nodes (47): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+39 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -220,24 +220,24 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
-### Community 65 - "rutas.js"
-Cohesion: 0.29
-Nodes (3): describirCapa(), encontrarRutasFueraDeMontajes(), METODOS_DE_OPENAPI
+### Community 65 - "routes/salud.js"
+Cohesion: 0.36
+Nodes (5): { consultarSalud }, obtenerSalud(), { obtenerSalud }, { Router }, consultarSalud()
 
 ## Knowledge Gaps
-- **304 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+299 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 357 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **312 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+307 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 365 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`?**
-  _High betweenness centrality (0.130) - this node is a cross-community bridge._
+  _High betweenness centrality (0.135) - this node is a cross-community bridge._
 - **Why does `production()` connect `src/config.js` to `Grafo del proyecto`?**
-  _High betweenness centrality (0.103) - this node is a cross-community bridge._
+  _High betweenness centrality (0.111) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _304 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _312 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**

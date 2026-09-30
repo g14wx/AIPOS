@@ -56,7 +56,7 @@
               color="error"
               :aria-label="`Eliminar ${item.nombre} de la venta actual`"
               :disabled="enviando"
-              @click="alEliminar(item)"
+              @click="alEliminar(item, $event)"
             >
               <v-icon>mdi-delete</v-icon>
             </v-btn>
@@ -176,7 +176,10 @@ export default {
     // El cajero presionó «Eliminar» en la fila de un detalle: se emite la venta actual sin él y App.vue la reemplaza. No pide
     // confirmación: el producto se puede volver a agregar desde la búsqueda. Antes de emitir se anota qué fila era, para
     // llevar el foco a la que ocupe su lugar cuando la venta nueva llegue.
-    alEliminar(detalle) {
+    alEliminar(detalle, evento) {
+      // El segundo clic de un doble clic (detail 2 o más) cae sobre el botón de la fila que subió a ocupar el lugar del
+      // detalle eliminado, y no debe eliminar otro (#79). El clic suelto trae detail 1 y el teclado (Enter o Espacio), 0.
+      if (evento?.detail > 1) return;
       const indice = this.ventaActual.detalles.findIndex(
         (d) => d.productoId === detalle.productoId,
       );

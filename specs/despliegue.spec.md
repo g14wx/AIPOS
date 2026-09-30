@@ -25,7 +25,8 @@ targets:
 
 Esta spec dice cómo llega AIPOS a producción: qué pasa cuando la persona desarrolladora sube una etiqueta
 `release-*`, cómo queda armado el servidor y cómo se vuelve atrás si algo sale mal. La implementa la tarjeta D-01
-(rama `chore/despliegue`, PR a `ProductionEnv`). Se apoya en la [spec de arquitectura](arquitectura.spec.md) y no
+(rama `chore/despliegue`, PR a `ProductionEnv`; es el nombre que ya traía su tarjeta y la única excepción a
+`<tipo>/<id>-<resumen>`). Se apoya en la [spec de arquitectura](arquitectura.spec.md) y no
 repite lo que ya dice: carpetas, versiones, variables de entorno, formato de error y `GET /api/salud`.
 
 Producción es el servidor real donde el público usa AIPOS. Desplegar es poner en producción una versión ya probada.
@@ -81,7 +82,7 @@ Una etiqueta es una marca con nombre en un commit (en git se llama tag). La que 
 
 | Etiqueta | Cuándo |
 |---|---|
-| `release-0.1.0` | Se integró el entregable base (B-01 a B-04) y D-01. Es el primer despliegue. |
+| `release-0.1.0` | Se integraron el entregable base (B-01 a B-04 y A-01) y D-01. Es el primer despliegue. |
 | `release-0.2.0` | Se integró el entregable productos. |
 | `release-1.0.0` | Se integró el entregable ventas: AIPOS completo. |
 | `release-X.Y.Z` | Un arreglo o un cambio después: sube el tercer número, o el segundo si trae una función nueva. |
@@ -125,10 +126,11 @@ lo que une el paquete con el repositorio y le da al job permiso sobre él.
 ### Imagen del backend (`backend/Dockerfile`)
 
 - Dos etapas, las dos con `node:24-alpine` (la misma versión mayor que `.nvmrc`). La primera corre
-  `npm ci --omit=dev` y la segunda copia solo `node_modules`, `package.json`, `.sequelizerc`, `db/` y `src/`.
+  `npm ci --omit=dev` y la segunda copia solo `node_modules`, `package.json`, `.sequelizerc`, `db/`, `docs/` y `src/`.
+  `docs/` trae `openapi.yaml`, que el backend lee al arrancar para servir `/api/docs`: sin esa carpeta, el arranque
+  falla (spec de documentación de la API).
 - `sequelize-cli` va en `dependencies` de `backend/package.json`, no en `devDependencies`: la imagen no instala las de
-  desarrollo y las migraciones corren dentro de ella (ver "Pregunta para el dueño de la arquitectura" en
-  "Preguntas abiertas").
+  desarrollo y las migraciones corren dentro de ella (lo dice la spec de arquitectura, en "Versiones").
 - Corre como el usuario `node`, no como root: `USER node`. `NODE_ENV=production`. Escucha en el puerto 3000.
 - No trae un archivo `.env`. Las variables llegan del entorno del contenedor (`src/config.js` da prioridad al
   entorno sobre el archivo, y `dotenv` no falla si el archivo no está).
@@ -251,8 +253,8 @@ aipos-back.salsalvador.io {
 
 - Cada dominio tiene su bloque y su certificado HTTPS, que Caddy pide solo. El puerto 80 ya redirige a HTTPS, así
   que el desafío ACME (la comprobación con la que la entidad certificadora ve que el dominio es tuyo) funciona.
-- Todo `aipos-back.salsalvador.io` va al backend, sin lista de rutas: `/api/salud`, `/api/productos`, `/api/ventas` y,
-  cuando exista A-01, `/api/docs`. Las cabeceras del backend (helmet) y el CORS los pone el backend, no Caddy.
+- Todo `aipos-back.salsalvador.io` va al backend, sin lista de rutas: `/api/salud`, `/api/productos`, `/api/ventas` y
+  `/api/docs` (A-01 va en `release-0.1.0`). Las cabeceras del backend (helmet) y el CORS los pone el backend, no Caddy.
 - Un archivo inválido en `conf.d` no rompe solo su sitio: invalida toda la configuración de Caddy, y todos los otros
   sitios caen en el siguiente reinicio del servicio (un reinicio del servidor o un `apt upgrade`). Por eso
   `despliegue/instalar-caddy.sh`, que corre en el servidor con permisos de administrador, hace siempre esto, en orden:
@@ -543,8 +545,9 @@ otros se prueban en local (ver "Pruebas en local").
     no muestra errores de CORS, y otro origen no recibe `Access-Control-Allow-Origin`. (En producción; en local con
     orígenes de `127.0.0.1`.)
     `[@test] ../tests/despliegue/revisar-produccion.test.sh`
-14. Dado A-01 integrada, cuando se pide `https://aipos-back.salsalvador.io/api/docs`, entonces responde 200. (En
-    producción, con la versión que incluya A-01.) `revisar-produccion.sh` pide también `/api/docs` y espera 200.
+14. Dada la versión `release-0.1.0` o una posterior (traen A-01, que va en el entregable base), cuando se pide
+    `https://aipos-back.salsalvador.io/api/docs`, entonces responde 200. `revisar-produccion.sh` pide también `/api/docs` y
+    espera 200.
     `[@test] ../tests/despliegue/revisar-produccion.test.sh`
 15. Dado el repositorio, entonces no contiene direcciones IP, el alias de acceso, usuarios del sistema, credenciales ni
     rutas de una máquina.
@@ -643,12 +646,12 @@ create`) y se cierra con un comentario que nombra el commit que lo corrige (`gh 
 
 | Parte | Tarjeta | Nota |
 |---|---|---|
-| Workflow, Dockerfiles, `nginx.conf`, compose de producción, scripts de `despliegue/`, bloques de Caddy | D-01 | Rama `chore/despliegue`, PR a `ProductionEnv`. |
+| Workflow, Dockerfiles, `nginx.conf`, compose de producción, scripts de `despliegue/`, bloques de Caddy | D-01 | Rama `chore/despliegue` (la única excepción a `<tipo>/<id>-<resumen>`), PR a `ProductionEnv`. |
 | Configuración del servidor, environment `production` y regla de etiquetas | D-01 | Se hace en el servidor y en GitHub, sin commit: queda descrita en `docs/despliegue.md` y en el "Update" de la tarjeta. |
 | Flujo 07, su diagrama, `01-alcance.md`, `04-entregables.md`, glosario y README | D-01 | Subtareas 2, 3 y 14. |
 | `GET /api/salud`, el `Dockerfile` puede correr `node src/servidor.js`, `sequelize-cli` en `dependencies` | B-02 y B-03 | D-01 depende de que estén integradas. |
 | El build de la pantalla con `VITE_API_URL` | B-04 | `frontend/package.json` con `build`, y `http.js` que falla sin `VITE_API_URL`. |
-| `GET /api/docs` | A-01 | Solo aparece en producción cuando A-01 esté integrada. |
+| `GET /api/docs` | A-01 | Va en `release-0.1.0`: A-01 es parte del entregable base, y `revisar-produccion.sh` la pide. |
 | Aprobar cada despliegue y subir las etiquetas `release-*` | La persona desarrolladora | El agente no aprueba. |
 
 ## Cómo se decidió el diseño
@@ -677,23 +680,14 @@ Se consultó el MCP `design-patterns` para cada decisión, como pide la spec de 
 
 ## Preguntas abiertas
 
-1. **Para el dueño de la arquitectura (B-02).** La spec de arquitectura no dice si `sequelize-cli` va en
-   `dependencies` o en `devDependencies`. Esta spec pide `dependencies`, porque la imagen no instala las de
-   desarrollo y las migraciones corren dentro de ella. Conviene decirlo en la spec de arquitectura.
-2. **Respaldos.** ¿Quieres un respaldo periódico del volumen de MySQL (por ejemplo, un `mysqldump` diario a una
+1. **Respaldos.** ¿Quieres un respaldo periódico del volumen de MySQL (por ejemplo, un `mysqldump` diario a una
    carpeta del servidor)? Ahora no hay ninguno.
-3. **`v1.0.0` y `release-1.0.0`.** El flujo 05 pone la etiqueta `v1.0.0` en la entrega final, y aquí `release-1.0.0` es
+2. **`v1.0.0` y `release-1.0.0`.** El flujo 05 pone la etiqueta `v1.0.0` en la entrega final, y aquí `release-1.0.0` es
    el despliegue de ventas. Las dos pueden vivir, pero no son lo mismo: `v1.0.0` marca la entrega, `release-1.0.0`
    despliega. ¿Se dejan las dos?
 
 ## Palabras nuevas para el glosario
 
-Propuestas para la subtarea 2 de D-01, para que la persona desarrolladora las apruebe. Aún no están en
-`docs/lenguaje-ubicuo.md`.
-
-| Término | Qué significa | Nombre en código | No decir | Ejemplo |
-|---|---|---|---|---|
-| Desplegar | Poner en producción una versión que ya pasó las pruebas. | `desplegar` (`despliegue/desplegar.sh`) | deployar, subir a producción | "El workflow despliega `release-0.1.0` en el servidor." |
-| Producción | El servidor real donde el público usa AIPOS: `aipos.salsalvador.io`. | `production` (el environment de GitHub) | prod, servidor en vivo | "La pantalla de producción llama a `aipos-back.salsalvador.io`." |
-| Pipeline | La cadena de pasos automáticos de GitHub Actions que revisa, prueba, construye y despliega. | Workflow `despliegue.yml` | CI, canal | "El pipeline falló en las pruebas del backend y no desplegó." |
-| Etiqueta `release-*` | La etiqueta de git `release-MAYOR.MENOR.PARCHE` que arranca el pipeline. Solo la persona desarrolladora puede crearla. No es la etiqueta `entregable-<x>` ni una etiqueta de Trello. | `release-0.1.0` | tag de despliegue, versión a secas | "Subí la etiqueta `release-0.2.0` con productos." |
+Ya están en `docs/lenguaje-ubicuo.md`, pendientes de que la persona desarrolladora las apruebe con el lote de specs:
+«desplegar», «producción», «pipeline» y «etiqueta `release-*`». Esta spec usa además «volver a la versión anterior»
+(`despliegue/desplegar.sh volver`), que también está en el glosario.

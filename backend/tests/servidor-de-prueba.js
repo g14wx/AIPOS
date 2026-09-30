@@ -40,3 +40,24 @@ export async function pedir(app, peticion) {
     await cerrarServidorDePrueba(servidor);
   }
 }
+
+// El mismo pedir(app, ...) como texto de CommonJS, para los programas que una prueba arranca con `node -e`: no pueden
+// importar este módulo, que es de Vitest. Se pega al principio del programa y define `http`, `once`, `request` y
+// `pedir`. Como en el módulo, pedir cierra su servidor al terminar: si quedara abierto, el programa no terminaría.
+export const PEDIR_DESDE_UN_PROGRAMA = `
+  const http = require('node:http');
+  const { once } = require('node:events');
+  const request = require('supertest');
+  async function pedir(app, peticion) {
+    const servidor = http.createServer(app).listen(0, '127.0.0.1');
+    await once(servidor, 'listening');
+    try {
+      return await peticion(request(servidor));
+    } finally {
+      await new Promise((resolver) => {
+        servidor.close(resolver);
+        servidor.closeAllConnections();
+      });
+    }
+  }
+`;

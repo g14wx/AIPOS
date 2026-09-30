@@ -1,13 +1,13 @@
 # Graph Report - b-03  (2026-09-30)
 
 ## Corpus Check
-- 150 files · ~105,968 words
+- 150 files · ~106,052 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 22 file(s) not represented in the graph (top: (none) 12, .drawio 7, .example 2)
 
 ## Summary
-- 1028 nodes · 1374 edges · 103 communities (70 shown, 33 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.93)
+- 1028 nodes · 1377 edges · 103 communities (71 shown, 32 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 61 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -74,7 +74,7 @@
 - backend/package.json
 - scripts
 - estructura-del-documento.test.js
-- ref_node_path
+- ref_node_fs
 - devDependencies
 - migraciones.test.js
 - vuetify.js
@@ -95,7 +95,7 @@
 - archivos.test.js
 - dependencias.test.js
 - eslint.config.js
-- ref_node_fs
+- ref_node_path
 - salud-con-base.test.js
 - dependencies
 - pantalla-unica.test.js
@@ -141,7 +141,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (103 total, 33 thin omitted)
+## Communities (103 total, 32 thin omitted)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -237,7 +237,7 @@ Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
 ### Community 31 - "src/config.js"
 Cohesion: 0.06
-Nodes (35): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), crearBaseDePrueba(), cargarArchivoEnv(), cargarConfig(), cargarConfigDeEntorno(), dotenv (+27 more)
+Nodes (36): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), crearBaseDePrueba(), cargarArchivoEnv(), cargarClaveRoot(), cargarConfig(), cargarConfigDeEntorno() (+28 more)
 
 ### Community 35 - "app.js"
 Cohesion: 0.11
@@ -287,17 +287,17 @@ Nodes (15): scripts, deshacer, deshacer:prueba, dev, format, format:check, lint,
 Cohesion: 0.18
 Nodes (11): { cargarDocumentacionApi }, DINERO, documento, ESTADOS_PERMITIDOS, METODOS, nombresDeCampos(), problemasDeDinero(), recorrer() (+3 more)
 
-### Community 62 - "ref_node_path"
-Cohesion: 0.22
-Nodes (4): archivosJs(), ejemplo, raiz, carpetaBackend
+### Community 62 - "ref_node_fs"
+Cohesion: 0.15
+Nodes (6): carpetaRaiz, archivo, archivosJs(), ejemplo, raiz, carpetaBackend
 
 ### Community 63 - "devDependencies"
 Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
 
 ### Community 64 - "migraciones.test.js"
-Cohesion: 0.18
-Nodes (10): correrCli(), tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro() (+2 more)
+Cohesion: 0.24
+Nodes (9): correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), archivos, carpetaMigraciones, require, sequelize (+1 more)
 
 ### Community 65 - "vuetify.js"
 Cohesion: 0.47
@@ -324,8 +324,8 @@ Cohesion: 0.22
 Nodes (9): devDependencies, @apidevtools/swagger-parser, eslint, eslint-config-prettier, @eslint/js, globals, prettier, supertest (+1 more)
 
 ### Community 71 - "base-de-prueba.test.js"
-Cohesion: 0.21
-Nodes (9): correrNpm(), correrNpmSinFallar(), { cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }, consultar(), mysql, permisosDelUsuario(), require, sequelize (+1 more)
+Cohesion: 0.28
+Nodes (7): { cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }, consultar(), mysql, permisosDelUsuario(), require, sequelize, tablasDe()
 
 ### Community 72 - "ejemplos-de-error.test.js"
 Cohesion: 0.22
@@ -367,6 +367,10 @@ Nodes (8): archivosJs(), backend, raiz, require, src, app, { cargarDocumentacion
 Cohesion: 0.29
 Nodes (5): backend, EN_DEPENDENCIES, EN_DEV_DEPENDENCIES, lock, paquete
 
+### Community 84 - "ref_node_path"
+Cohesion: 0.40
+Nodes (3): cargarConfiguracion(), porDefecto, dotenv
+
 ### Community 85 - "salud-con-base.test.js"
 Cohesion: 0.25
 Nodes (5): carpetaBackend, crearProxyCongelable(), app, require, sequelize
@@ -376,7 +380,7 @@ Cohesion: 0.33
 Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
 
 ### Community 88 - "servidor.test.js"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (3): abrirUnPuerto(), backend, buscarPuertoLibre()
 
 ### Community 89 - "Flujo 05 · Entregar un entregable"
@@ -425,18 +429,18 @@ Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 
 ## Knowledge Gaps
 - **572 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+567 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 653 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 652 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `total()` connect `Requerimientos funcionales` to `Armar la venta actual`, `Despliegue de AIPOS`?**
-  _High betweenness centrality (0.111) - this node is a cross-community bridge._
+  _High betweenness centrality (0.105) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `Despliegue de AIPOS` to `graphify-setup.md`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
-- **Why does `production()` connect `Despliegue de AIPOS` to `src/config.js`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`, `arquitectura.spec.md`?**
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _572 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**

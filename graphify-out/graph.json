@@ -218,7 +218,7 @@
       "file_type": "code",
       "norm_label": "crearbasedeprueba()",
       "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "backend_src_config_cargararchivoenv",
@@ -231,6 +231,18 @@
       "norm_label": "cargararchivoenv()",
       "source_file": "backend/src/config.js",
       "source_location": "L12"
+    },
+    {
+      "id": "backend_src_config_cargarclaveroot",
+      "label": "cargarClaveRoot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargarclaveroot()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L112"
     },
     {
       "id": "backend_src_config_cargarconfig",
@@ -785,12 +797,24 @@
       "source_location": "L209"
     },
     {
+      "id": "backend_tests_base_de_datos_compose_test_leerconfiguracion",
+      "label": "leerConfiguracion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "leerconfiguracion()",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L13"
+    },
+    {
       "id": "backend_tests_env_example_test_archivosjs",
       "label": "archivosJs()",
       "_callable": true,
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "archivosjs()",
       "source_file": "backend/tests/env-example.test.js",
@@ -802,7 +826,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "variablesdelejemplo()",
       "source_file": "backend/tests/env-example.test.js",
@@ -814,7 +838,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "setup()",
       "source_file": "backend/tests/globalSetup.js",
@@ -833,6 +857,30 @@
       "source_location": "L21"
     },
     {
+      "id": "backend_tests_base_de_datos_ayudas_corrernpm",
+      "label": "correrNpm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "corrernpm()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_corrernpmsinfallar",
+      "label": "correrNpmSinFallar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "corrernpmsinfallar()",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L31"
+    },
+    {
       "id": "backend_tests_base_de_datos_ayudas_tablasdelabase",
       "label": "tablasDeLaBase()",
       "_callable": true,
@@ -843,18 +891,6 @@
       "norm_label": "tablasdelabase()",
       "source_file": "backend/tests/base-de-datos/ayudas.js",
       "source_location": "L43"
-    },
-    {
-      "id": "backend_tests_base_de_datos_migraciones_test_cargarconfiguracion",
-      "label": "cargarConfiguracion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 64,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "cargarconfiguracion()",
-      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
-      "source_location": "L142"
     },
     {
       "id": "backend_tests_base_de_datos_migraciones_test_contarejecutadas",
@@ -891,30 +927,6 @@
       "norm_label": "data()",
       "source_file": "frontend/tests/fixtures/BotonDePrueba.vue",
       "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_corrernpm",
-      "label": "correrNpm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "base-de-prueba.test.js",
-      "file_type": "code",
-      "norm_label": "corrernpm()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_corrernpmsinfallar",
-      "label": "correrNpmSinFallar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "base-de-prueba.test.js",
-      "file_type": "code",
-      "norm_label": "corrernpmsinfallar()",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L31"
     },
     {
       "id": "backend_tests_base_de_datos_base_de_prueba_test_archivosde",
@@ -1253,16 +1265,16 @@
       "source_location": "L6"
     },
     {
-      "id": "backend_tests_base_de_datos_compose_test_leerconfiguracion",
-      "label": "leerConfiguracion()",
+      "id": "backend_tests_base_de_datos_migraciones_test_cargarconfiguracion",
+      "label": "cargarConfiguracion()",
       "_callable": true,
       "_origin": "ast",
       "community": 84,
-      "community_name": "ref_node_fs",
+      "community_name": "ref_node_path",
       "file_type": "code",
-      "norm_label": "leerconfiguracion()",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L13"
+      "norm_label": "cargarconfiguracion()",
+      "source_file": "backend/tests/base-de-datos/migraciones.test.js",
+      "source_location": "L142"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_crearproxycongelable",
@@ -9117,11 +9129,44 @@
       "source_location": "L36"
     },
     {
+      "id": "backend_tests_base_de_datos_ayudas_carpetaraiz",
+      "label": "carpetaRaiz",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "carpetaraiz",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_base_de_datos_compose_test",
+      "label": "compose.test.js",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "compose.test.js",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_compose_test_archivo",
+      "label": "archivo",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "file_type": "code",
+      "norm_label": "archivo",
+      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "source_location": "L7"
+    },
+    {
       "id": "backend_tests_env_example_test",
       "label": "env-example.test.js",
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "env-example.test.js",
       "source_file": "backend/tests/env-example.test.js",
@@ -9132,7 +9177,7 @@
       "label": "ejemplo",
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "ejemplo",
       "source_file": "backend/tests/env-example.test.js",
@@ -9143,7 +9188,7 @@
       "label": "raiz",
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "raiz",
       "source_file": "backend/tests/env-example.test.js",
@@ -9154,7 +9199,7 @@
       "label": "globalSetup.js",
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "globalsetup.js",
       "source_file": "backend/tests/globalSetup.js",
@@ -9165,7 +9210,7 @@
       "label": "carpetaBackend",
       "_origin": "ast",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "file_type": "code",
       "norm_label": "carpetabackend",
       "source_file": "backend/tests/globalSetup.js",
@@ -9326,6 +9371,17 @@
       "source_location": "L30"
     },
     {
+      "id": "backend_tests_base_de_datos_ayudas",
+      "label": "ayudas.js",
+      "_origin": "ast",
+      "community": 64,
+      "community_name": "migraciones.test.js",
+      "file_type": "code",
+      "norm_label": "ayudas.js",
+      "source_file": "backend/tests/base-de-datos/ayudas.js",
+      "source_location": "L1"
+    },
+    {
       "id": "backend_tests_base_de_datos_migraciones_test",
       "label": "migraciones.test.js",
       "_origin": "ast",
@@ -9379,39 +9435,6 @@
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/migraciones.test.js",
       "source_location": "L8"
-    },
-    {
-      "id": "backend_vitest_config",
-      "label": "vitest.config.mjs",
-      "_origin": "ast",
-      "community": 64,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "vitest.config.mjs",
-      "source_file": "backend/vitest.config.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_vitest_config_pordefecto",
-      "label": "porDefecto",
-      "_origin": "ast",
-      "community": 64,
-      "community_name": "migraciones.test.js",
-      "file_type": "code",
-      "norm_label": "pordefecto",
-      "source_file": "backend/vitest.config.mjs",
-      "source_location": "L14"
-    },
-    {
-      "id": "ref_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 64,
-      "community_name": "migraciones.test.js",
-      "file_type": "concept",
-      "norm_label": "dotenv",
-      "source_file": "backend/package.json",
-      "source_location": "L31"
     },
     {
       "id": "frontend_src_main",
@@ -11231,48 +11254,37 @@
       "source_location": "L33"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas_carpetaraiz",
-      "label": "carpetaRaiz",
+      "id": "backend_vitest_config",
+      "label": "vitest.config.mjs",
       "_origin": "ast",
       "community": 84,
-      "community_name": "ref_node_fs",
+      "community_name": "ref_node_path",
       "file_type": "code",
-      "norm_label": "carpetaraiz",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_base_de_datos_compose_test",
-      "label": "compose.test.js",
-      "_origin": "ast",
-      "community": 84,
-      "community_name": "ref_node_fs",
-      "file_type": "code",
-      "norm_label": "compose.test.js",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
+      "norm_label": "vitest.config.mjs",
+      "source_file": "backend/vitest.config.mjs",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_base_de_datos_compose_test_archivo",
-      "label": "archivo",
+      "id": "backend_vitest_config_pordefecto",
+      "label": "porDefecto",
       "_origin": "ast",
       "community": 84,
-      "community_name": "ref_node_fs",
+      "community_name": "ref_node_path",
       "file_type": "code",
-      "norm_label": "archivo",
-      "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L7"
+      "norm_label": "pordefecto",
+      "source_file": "backend/vitest.config.mjs",
+      "source_location": "L14"
     },
     {
-      "id": "backend_tests_base_de_datos_ayudas",
-      "label": "ayudas.js",
+      "id": "ref_dotenv",
+      "label": "dotenv",
       "_origin": "ast",
-      "community": 85,
-      "community_name": "salud-con-base.test.js",
-      "file_type": "code",
-      "norm_label": "ayudas.js",
-      "source_file": "backend/tests/base-de-datos/ayudas.js",
-      "source_location": "L1"
+      "community": 84,
+      "community_name": "ref_node_path",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "backend/package.json",
+      "source_location": "L31"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_carpetabackend",
@@ -12088,14 +12100,26 @@
       "type": "external"
     },
     {
-      "id": "ref_node_path",
-      "label": "ref_node_path",
+      "id": "ref_node_child_process",
+      "label": "ref_node_child_process",
       "_origin": "semantic",
       "community": 62,
-      "community_name": "ref_node_path",
+      "community_name": "ref_node_fs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_node_path",
+      "norm_label": "ref_node_child_process",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_node_fs",
+      "label": "ref_node_fs",
+      "_origin": "semantic",
+      "community": 62,
+      "community_name": "ref_node_fs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_fs",
       "source_file": "",
       "type": "external"
     },
@@ -12148,26 +12172,14 @@
       "type": "external"
     },
     {
-      "id": "ref_node_fs",
-      "label": "ref_node_fs",
+      "id": "ref_node_path",
+      "label": "ref_node_path",
       "_origin": "semantic",
       "community": 84,
-      "community_name": "ref_node_fs",
+      "community_name": "ref_node_path",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_node_fs",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_child_process",
-      "label": "ref_node_child_process",
-      "_origin": "semantic",
-      "community": 85,
-      "community_name": "salud-con-base.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_child_process",
+      "norm_label": "ref_node_path",
       "source_file": "",
       "type": "external"
     },
@@ -12184,18 +12196,6 @@
       "type": "external"
     },
     {
-      "id": "ref_node_net",
-      "label": "ref_node_net",
-      "_origin": "semantic",
-      "community": 85,
-      "community_name": "salud-con-base.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_net",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_node_util",
       "label": "ref_node_util",
       "_origin": "semantic",
@@ -12208,13 +12208,14 @@
       "type": "external"
     },
     {
-      "id": "backend_src_config_cargarclaveroot",
-      "label": "backend_src_config_cargarclaveroot",
-      "community": 71,
-      "community_name": "base-de-prueba.test.js",
+      "id": "ref_node_net",
+      "label": "ref_node_net",
+      "_origin": "semantic",
+      "community": 88,
+      "community_name": "servidor.test.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "backend_src_config_cargarclaveroot",
+      "norm_label": "ref_node_net",
       "source_file": "",
       "type": "external"
     }
@@ -12314,6 +12315,18 @@
       "context": "call",
       "source_file": "backend/src/app.js",
       "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config_cargarclaveroot",
+      "target": "backend_src_config_texto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/config.js",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -14269,14 +14282,26 @@
     },
     {
       "source": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
-      "target": "backend_src_config_cargarconfig",
+      "target": "backend_src_config_cargarclaveroot",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L8",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
+      "target": "backend_src_config_cargarconfigdeentorno",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/scripts/crear-base-de-prueba.js",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -15253,19 +15278,19 @@
     },
     {
       "source": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
-      "target": "backend_src_config",
+      "target": "ref_mysql2",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
       "source": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
-      "target": "ref_mysql2",
+      "target": "backend_src_config",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -18884,7 +18909,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/scripts/crear-base-de-prueba.js",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -27244,7 +27269,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L114",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -27256,7 +27281,19 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L115",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config",
+      "target": "backend_src_config_cargarclaveroot",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "backend/src/config.js",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -27268,7 +27305,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L116",
+      "source_location": "L129",
       "weight": 1.0
     },
     {

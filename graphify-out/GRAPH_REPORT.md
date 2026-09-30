@@ -1,12 +1,12 @@
 # Graph Report - p-05  (2026-09-30)
 
 ## Corpus Check
-- 104 files · ~66,316 words
+- 104 files · ~66,639 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 649 nodes · 825 edges · 90 communities (48 shown, 42 thin omitted)
+- 650 nodes · 827 edges · 89 communities (46 shown, 43 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -19,7 +19,7 @@
 - dependencies
 - Trabajar en un tile
 - scripts
-- AnimacionLottie.test.js
+- vitest-vue2.test.js
 - Flujo de un entregable
 - NuevoProducto.test.js
 - saltos-de-linea.test.sh
@@ -32,7 +32,7 @@
 - Calling a stored procedure from Sequelize
 - Vue 2 + Vuetify 2 + Vite setup
 - Requerimientos no funcionales
-- AnimacionLottie.vue
+- animaciones.test.js
 - hook-de-claude-code/graphify-fuera-del-path.test.sh
 - Grafo del proyecto
 - comun.sh
@@ -84,10 +84,9 @@
 - devDependencies
 - Requerimientos funcionales
 - Grafo del proyecto
-- vitest-vue2.test.js
+- vite.config.js
 - graphify-setup.md
 - dependencies
-- vuetify.js
 - engines
 
 ## God Nodes (most connected - your core abstractions)
@@ -117,11 +116,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (90 total, 42 thin omitted)
+## Communities (89 total, 43 thin omitted)
 
 ### Community 1 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+Cohesion: 0.20
+Nodes (10): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -135,9 +134,9 @@ Nodes (14): 1. Instalar Tessl, 2. Instalar los tiles del proyecto, 3. Conectar e
 Cohesion: 0.22
 Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 more)
 
-### Community 6 - "AnimacionLottie.test.js"
-Cohesion: 0.07
-Nodes (18): aHex(), buscar(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias } (+10 more)
+### Community 6 - "vitest-vue2.test.js"
+Cohesion: 0.06
+Nodes (24): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), animacion, { loadAnimation, instancias } (+16 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -152,8 +151,8 @@ Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
 ### Community 11 - "package.json"
-Cohesion: 0.13
-Nodes (16): description, name, private, type, version, eslint, eslint-config-prettier, @eslint/js (+8 more)
+Cohesion: 0.15
+Nodes (14): description, name, private, type, version, eslint, eslint-config-prettier, @eslint/js (+6 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -183,9 +182,9 @@ Nodes (6): 1. Versions, 2. Project files, 3. Environment and API client, 4. ESLi
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
-### Community 19 - "AnimacionLottie.vue"
-Cohesion: 0.43
-Nodes (6): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento()
+### Community 19 - "animaciones.test.js"
+Cohesion: 0.25
+Nodes (7): aHex(), animadas(), buscar(), carpeta, coloresDe(), paleta, permitidas
 
 ### Community 21 - "Grafo del proyecto"
 Cohesion: 0.33
@@ -212,8 +211,8 @@ Cohesion: 0.20
 Nodes (9): Colors, Components, Design System: AIPOS, Do's and Don'ts, Elevation & Depth, Layout, Overview, Shapes (+1 more)
 
 ### Community 44 - "FormularioProducto.test.js"
-Cohesion: 0.27
-Nodes (14): boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja(), guardarConError() (+6 more)
+Cohesion: 0.17
+Nodes (18): es, boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja() (+10 more)
 
 ### Community 45 - "Arquitectura de AIPOS"
 Cohesion: 0.06
@@ -252,7 +251,7 @@ Cohesion: 0.40
 Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
 
 ### Community 72 - "Alcance"
-Cohesion: 0.20
+Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 73 - "Flujo 01 · Crear producto"
@@ -292,29 +291,21 @@ Cohesion: 0.15
 Nodes (13): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto, RF-02 Buscar producto, RF-03 Agregar a la venta actual, RF-04 Ver los detalles de la venta actual, RF-05 Editar el precio aplicado, RF-06 Cambiar la cantidad (+5 more)
 
 ### Community 84 - "Grafo del proyecto"
-Cohesion: 0.18
+Cohesion: 0.20
 Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
-### Community 85 - "vitest-vue2.test.js"
-Cohesion: 0.20
-Nodes (6): avisosAlInstalar, declaradas, espia, paquete, versionesDelFrontend, lottie-web
-
 ### Community 86 - "graphify-setup.md"
-Cohesion: 0.31
-Nodes (4): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl
+Cohesion: 0.24
+Nodes (5): Setup de agents, AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl
 
 ### Community 87 - "dependencies"
 Cohesion: 0.33
 Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
 
-### Community 88 - "vuetify.js"
-Cohesion: 0.47
-Nodes (4): es, @mdi/font, vue, vuetify
-
 ## Knowledge Gaps
 - **300 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+295 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 393 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **43 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -331,5 +322,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `AnimacionLottie.test.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.07058823529411765 - nodes in this community are weakly interconnected._
+- **Should `vitest-vue2.test.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.05858585858585859 - nodes in this community are weakly interconnected._

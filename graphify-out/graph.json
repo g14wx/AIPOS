@@ -993,7 +993,7 @@
       "node_kind": "heading",
       "norm_label": "`agregaraventaactual` (v-04)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L135"
+      "source_location": "L139"
     },
     {
       "id": "specs_armar_venta_actual_spec_app_vue_une_la_b\u00fasqueda_con_la_venta_actual_v_04",
@@ -1005,7 +1005,7 @@
       "node_kind": "heading",
       "norm_label": "`app.vue`: une la busqueda con la venta actual (v-04)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L282"
+      "source_location": "L286"
     },
     {
       "id": "specs_armar_venta_actual_spec_armar_la_venta_actual",
@@ -1029,7 +1029,7 @@
       "node_kind": "heading",
       "norm_label": "boton \u00abeliminar\u00bb (v-07)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L412"
+      "source_location": "L416"
     },
     {
       "id": "specs_armar_venta_actual_spec_cambiarcantidad_y_validarcantidad_v_06",
@@ -1041,7 +1041,7 @@
       "node_kind": "heading",
       "norm_label": "`cambiarcantidad` y `validarcantidad` (v-06)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L211"
+      "source_location": "L215"
     },
     {
       "id": "specs_armar_venta_actual_spec_cambiarprecioaplicado_y_validarprecioaplicado_v_05",
@@ -1053,7 +1053,7 @@
       "node_kind": "heading",
       "norm_label": "`cambiarprecioaplicado` y `validarprecioaplicado` (v-05)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L187"
+      "source_location": "L191"
     },
     {
       "id": "specs_armar_venta_actual_spec_campocantidad_vue_v_06",
@@ -1065,7 +1065,7 @@
       "node_kind": "heading",
       "norm_label": "`campocantidad.vue` (v-06)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L379"
+      "source_location": "L383"
     },
     {
       "id": "specs_armar_venta_actual_spec_campoprecioaplicado_vue_v_05",
@@ -1077,7 +1077,7 @@
       "node_kind": "heading",
       "norm_label": "`campoprecioaplicado.vue` (v-05)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L347"
+      "source_location": "L351"
     },
     {
       "id": "specs_armar_venta_actual_spec_casos_de_error_y_bordes",
@@ -1089,7 +1089,7 @@
       "node_kind": "heading",
       "norm_label": "casos de error y bordes",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L447"
+      "source_location": "L451"
     },
     {
       "id": "specs_armar_venta_actual_spec_criterios_de_aceptaci\u00f3n",
@@ -1101,7 +1101,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L483"
+      "source_location": "L487"
     },
     {
       "id": "specs_armar_venta_actual_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -1113,7 +1113,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L663"
+      "source_location": "L667"
     },
     {
       "id": "specs_armar_venta_actual_spec_dise\u00f1o_skill_impeccable",
@@ -1125,7 +1125,7 @@
       "node_kind": "heading",
       "norm_label": "diseno (skill `impeccable`)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L425"
+      "source_location": "L429"
     },
     {
       "id": "specs_armar_venta_actual_spec_el_m\u00f3dulo_src_ventaactual",
@@ -1137,7 +1137,7 @@
       "node_kind": "heading",
       "norm_label": "el modulo (`src/ventaactual/`)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L107"
+      "source_location": "L111"
     },
     {
       "id": "specs_armar_venta_actual_spec_eliminardetalle_v_07",
@@ -1149,7 +1149,7 @@
       "node_kind": "heading",
       "norm_label": "`eliminardetalle` (v-07)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L234"
+      "source_location": "L238"
     },
     {
       "id": "specs_armar_venta_actual_spec_guardar_la_venta_actual_en_el_navegador_v_04",
@@ -1161,7 +1161,7 @@
       "node_kind": "heading",
       "norm_label": "guardar la venta actual en el navegador (v-04)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L244"
+      "source_location": "L248"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_api_con_curl",
@@ -1173,7 +1173,7 @@
       "node_kind": "heading",
       "norm_label": "la api, con `curl`",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L588"
+      "source_location": "L592"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_pantalla",
@@ -1185,7 +1185,7 @@
       "node_kind": "heading",
       "norm_label": "la pantalla",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L280"
+      "source_location": "L284"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_pantalla_en_el_navegador_con_el_mcp_chrome_devtools",
@@ -1197,7 +1197,7 @@
       "node_kind": "heading",
       "norm_label": "la pantalla, en el navegador con el mcp `chrome-devtools`",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L607"
+      "source_location": "L611"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_venta_actual_los_datos",
@@ -1209,7 +1209,7 @@
       "node_kind": "heading",
       "norm_label": "la venta actual: los datos",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L81"
+      "source_location": "L85"
     },
     {
       "id": "specs_armar_venta_actual_spec_lo_que_esta_spec_no_cubre",
@@ -1221,7 +1221,7 @@
       "node_kind": "heading",
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L653"
+      "source_location": "L657"
     },
     {
       "id": "specs_armar_venta_actual_spec_lo_que_v_08_espera_de_esta_spec",
@@ -1233,7 +1233,7 @@
       "node_kind": "heading",
       "norm_label": "lo que v-08 espera de esta spec",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L468"
+      "source_location": "L472"
     },
     {
       "id": "specs_armar_venta_actual_spec_pruebas_en_local",
@@ -1245,7 +1245,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L581"
+      "source_location": "L585"
     },
     {
       "id": "specs_armar_venta_actual_spec_qui\u00e9n_implementa_qu\u00e9",
@@ -1269,7 +1269,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L57"
+      "source_location": "L61"
     },
     {
       "id": "specs_armar_venta_actual_spec_subtotales_y_total_v_04",
@@ -1281,7 +1281,7 @@
       "node_kind": "heading",
       "norm_label": "subtotales y total (v-04)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L158"
+      "source_location": "L162"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_04_agregar_productos_y_ver_el_total_rf_03_rf_04_rf_08",
@@ -1293,7 +1293,7 @@
       "node_kind": "heading",
       "norm_label": "v-04 \u00b7 agregar productos y ver el total (rf-03, rf-04, rf-08)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L487"
+      "source_location": "L491"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_05_editar_el_precio_aplicado_rf_05",
@@ -1305,7 +1305,7 @@
       "node_kind": "heading",
       "norm_label": "v-05 \u00b7 editar el precio aplicado (rf-05)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L534"
+      "source_location": "L538"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_06_cambiar_la_cantidad_rf_06",
@@ -1317,7 +1317,7 @@
       "node_kind": "heading",
       "norm_label": "v-06 \u00b7 cambiar la cantidad (rf-06)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L552"
+      "source_location": "L556"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_07_eliminar_un_producto_rf_07",
@@ -1329,7 +1329,7 @@
       "node_kind": "heading",
       "norm_label": "v-07 \u00b7 eliminar un producto (rf-07)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L569"
+      "source_location": "L573"
     },
     {
       "id": "specs_armar_venta_actual_spec_validez_registro_y_vaciado_v_04",
@@ -1341,7 +1341,7 @@
       "node_kind": "heading",
       "norm_label": "validez, registro y vaciado (v-04)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L175"
+      "source_location": "L179"
     },
     {
       "id": "specs_armar_venta_actual_spec_ventaactual_vue_v_04_y_v_05_a_v_07_sobre_\u00e9l",
@@ -1353,7 +1353,7 @@
       "node_kind": "heading",
       "norm_label": "`ventaactual.vue` (v-04, y v-05 a v-07 sobre el)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L307"
+      "source_location": "L311"
     },
     {
       "id": "tessl_plugins_lenguaje_ubicuo_skills_glosario_lenguaje_ubicuo_skill",
@@ -4079,7 +4079,7 @@
       "node_kind": "heading",
       "norm_label": "base de datos",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L388"
+      "source_location": "L394"
     },
     {
       "id": "specs_arquitectura_spec_calidad",
@@ -4091,7 +4091,7 @@
       "node_kind": "heading",
       "norm_label": "calidad",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L693"
+      "source_location": "L701"
     },
     {
       "id": "specs_arquitectura_spec_capas",
@@ -4103,7 +4103,7 @@
       "node_kind": "heading",
       "norm_label": "capas",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L238"
+      "source_location": "L242"
     },
     {
       "id": "specs_arquitectura_spec_carpetas",
@@ -4118,7 +4118,7 @@
       "source_location": "L162"
     },
     {
-      "id": "specs_arquitectura_spec_carpetas_477",
+      "id": "specs_arquitectura_spec_carpetas_483",
       "label": "Carpetas",
       "_origin": "ast",
       "community": 45,
@@ -4127,7 +4127,7 @@
       "node_kind": "heading",
       "norm_label": "carpetas",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L477"
+      "source_location": "L483"
     },
     {
       "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
@@ -4139,7 +4139,7 @@
       "node_kind": "heading",
       "norm_label": "como se decide un diseno",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L741"
+      "source_location": "L749"
     },
     {
       "id": "specs_arquitectura_spec_dinero",
@@ -4151,7 +4151,7 @@
       "node_kind": "heading",
       "norm_label": "dinero",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L425"
+      "source_location": "L431"
     },
     {
       "id": "specs_arquitectura_spec_dise\u00f1o_de_la_pantalla",
@@ -4163,7 +4163,7 @@
       "node_kind": "heading",
       "norm_label": "diseno de la pantalla",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L573"
+      "source_location": "L581"
     },
     {
       "id": "specs_arquitectura_spec_errores",
@@ -4175,7 +4175,7 @@
       "node_kind": "heading",
       "norm_label": "errores",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L307"
+      "source_location": "L313"
     },
     {
       "id": "specs_arquitectura_spec_frontend",
@@ -4187,7 +4187,7 @@
       "node_kind": "heading",
       "norm_label": "frontend",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L471"
+      "source_location": "L477"
     },
     {
       "id": "specs_arquitectura_spec_git_y_entrega",
@@ -4199,7 +4199,7 @@
       "node_kind": "heading",
       "norm_label": "git y entrega",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L711"
+      "source_location": "L719"
     },
     {
       "id": "specs_arquitectura_spec_la_venta_actual",
@@ -4211,7 +4211,7 @@
       "node_kind": "heading",
       "norm_label": "la venta actual",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L542"
+      "source_location": "L548"
     },
     {
       "id": "specs_arquitectura_spec_l\u00edmites_cors_y_cabeceras",
@@ -4223,7 +4223,7 @@
       "node_kind": "heading",
       "norm_label": "limites, cors y cabeceras",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L356"
+      "source_location": "L362"
     },
     {
       "id": "specs_arquitectura_spec_monorepo",
@@ -4247,7 +4247,7 @@
       "node_kind": "heading",
       "norm_label": "paleta",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L582"
+      "source_location": "L590"
     },
     {
       "id": "specs_arquitectura_spec_procedimientos_almacenados",
@@ -4259,7 +4259,7 @@
       "node_kind": "heading",
       "norm_label": "procedimientos almacenados",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L263"
+      "source_location": "L268"
     },
     {
       "id": "specs_arquitectura_spec_pruebas",
@@ -4271,7 +4271,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L647"
+      "source_location": "L655"
     },
     {
       "id": "specs_arquitectura_spec_pruebas_en_local",
@@ -4283,7 +4283,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L674"
+      "source_location": "L682"
     },
     {
       "id": "specs_arquitectura_spec_salud",
@@ -4295,7 +4295,7 @@
       "node_kind": "heading",
       "norm_label": "salud",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L373"
+      "source_location": "L379"
     },
     {
       "id": "specs_arquitectura_spec_servicio_de_api",
@@ -4307,7 +4307,7 @@
       "node_kind": "heading",
       "norm_label": "servicio de api",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L521"
+      "source_location": "L527"
     },
     {
       "id": "specs_arquitectura_spec_validaci\u00f3n",
@@ -4319,7 +4319,7 @@
       "node_kind": "heading",
       "norm_label": "validacion",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L285"
+      "source_location": "L291"
     },
     {
       "id": "specs_arquitectura_spec_variables_de_entorno",
@@ -4355,7 +4355,7 @@
       "node_kind": "heading",
       "norm_label": "iconos y animaciones",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L624"
+      "source_location": "L632"
     },
     {
       "id": "tests_hook_de_git_marca_de_commit_test",
@@ -4503,7 +4503,7 @@
       "node_kind": "heading",
       "norm_label": "api: `get /api/productos?busqueda=<texto>`",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L70"
+      "source_location": "L72"
     },
     {
       "id": "specs_buscar_producto_spec_buscar_producto",
@@ -4527,7 +4527,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la api (p-04)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L177"
+      "source_location": "L179"
     },
     {
       "id": "specs_buscar_producto_spec_criterios_de_aceptaci\u00f3n_de_la_pantalla_p_05",
@@ -4539,7 +4539,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de la pantalla (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L315"
+      "source_location": "L317"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_busca_el_servicio",
@@ -4551,7 +4551,7 @@
       "node_kind": "heading",
       "norm_label": "como busca el servicio",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L127"
+      "source_location": "L129"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -4563,7 +4563,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L405"
+      "source_location": "L407"
     },
     {
       "id": "specs_buscar_producto_spec_c\u00f3mo_se_ve_y_se_comporta",
@@ -4575,7 +4575,7 @@
       "node_kind": "heading",
       "norm_label": "como se ve y se comporta",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L221"
+      "source_location": "L223"
     },
     {
       "id": "specs_buscar_producto_spec_dise\u00f1o_skill_impeccable",
@@ -4587,7 +4587,7 @@
       "node_kind": "heading",
       "norm_label": "diseno (skill `impeccable`)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L291"
+      "source_location": "L293"
     },
     {
       "id": "specs_buscar_producto_spec_documentaci\u00f3n_de_la_api",
@@ -4599,7 +4599,7 @@
       "node_kind": "heading",
       "norm_label": "documentacion de la api",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L144"
+      "source_location": "L146"
     },
     {
       "id": "specs_buscar_producto_spec_estados_de_la_zona_de_resultados",
@@ -4611,7 +4611,7 @@
       "node_kind": "heading",
       "norm_label": "estados de la zona de resultados",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L276"
+      "source_location": "L278"
     },
     {
       "id": "specs_buscar_producto_spec_lo_que_esta_spec_no_cubre",
@@ -4623,7 +4623,7 @@
       "node_kind": "heading",
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L398"
+      "source_location": "L400"
     },
     {
       "id": "specs_buscar_producto_spec_pantalla_campo_de_b\u00fasqueda_y_resultados_p_05",
@@ -4635,7 +4635,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla: campo de busqueda y resultados (p-05)",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L219"
+      "source_location": "L221"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_api_con_curl",
@@ -4647,7 +4647,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local: la api con `curl`",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L153"
+      "source_location": "L155"
     },
     {
       "id": "specs_buscar_producto_spec_pruebas_en_local_la_pantalla_en_el_navegador",
@@ -4659,7 +4659,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local: la pantalla en el navegador",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L348"
+      "source_location": "L350"
     },
     {
       "id": "specs_buscar_producto_spec_qui\u00e9n_implementa_qu\u00e9",
@@ -4683,7 +4683,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L49"
+      "source_location": "L51"
     },
     {
       "id": "specs_buscar_producto_spec_rf_12_opcional_enter_con_un_c\u00f3digo_de_barras_exacto",
@@ -4695,7 +4695,7 @@
       "node_kind": "heading",
       "norm_label": "rf-12 opcional: enter con un codigo de barras exacto",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L370"
+      "source_location": "L372"
     },
     {
       "id": "specs_buscar_producto_spec_validaci\u00f3n_del_texto",
@@ -4707,7 +4707,7 @@
       "node_kind": "heading",
       "norm_label": "validacion del texto",
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L114"
+      "source_location": "L116"
     },
     {
       "id": "githooks_pre_merge_commit",
@@ -4795,7 +4795,7 @@
       "node_kind": "heading",
       "norm_label": "animacion",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L453"
+      "source_location": "L455"
     },
     {
       "id": "specs_registrar_venta_spec_api_con_curl_v_03",
@@ -4807,7 +4807,7 @@
       "node_kind": "heading",
       "norm_label": "api, con `curl` (v-03)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L501"
+      "source_location": "L504"
     },
     {
       "id": "specs_registrar_venta_spec_api_post_api_ventas_v_03",
@@ -4843,7 +4843,7 @@
       "node_kind": "heading",
       "norm_label": "bugs y issues",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L571"
+      "source_location": "L574"
     },
     {
       "id": "specs_registrar_venta_spec_contrato_del_componente",
@@ -4891,7 +4891,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de v-08",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L471"
+      "source_location": "L473"
     },
     {
       "id": "specs_registrar_venta_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -4903,7 +4903,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L578"
+      "source_location": "L581"
     },
     {
       "id": "specs_registrar_venta_spec_documentaci\u00f3n_de_la_api",
@@ -4951,7 +4951,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla, en el navegador con el mcp `chrome-devtools` (v-08)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L535"
+      "source_location": "L538"
     },
     {
       "id": "specs_registrar_venta_spec_par\u00e1metro_y_respuesta",
@@ -4975,7 +4975,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas para la persona desarrolladora",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L560"
+      "source_location": "L563"
     },
     {
       "id": "specs_registrar_venta_spec_procedimiento_sp_registrar_venta_v_02",
@@ -4999,7 +4999,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L495"
+      "source_location": "L498"
     },
     {
       "id": "specs_registrar_venta_spec_qu\u00e9_hace",
@@ -5684,7 +5684,7 @@
       "node_kind": "heading",
       "norm_label": "al crear el producto",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L329"
+      "source_location": "L334"
     },
     {
       "id": "specs_crear_producto_spec_bugs",
@@ -5696,7 +5696,7 @@
       "node_kind": "heading",
       "norm_label": "bugs",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L483"
+      "source_location": "L488"
     },
     {
       "id": "specs_crear_producto_spec_contrato",
@@ -5708,7 +5708,7 @@
       "node_kind": "heading",
       "norm_label": "contrato",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L145"
+      "source_location": "L150"
     },
     {
       "id": "specs_crear_producto_spec_crear_producto",
@@ -5732,7 +5732,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-01",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L115"
+      "source_location": "L120"
     },
     {
       "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_02",
@@ -5744,7 +5744,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-02",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L235"
+      "source_location": "L240"
     },
     {
       "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_03",
@@ -5756,7 +5756,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-03",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L365"
+      "source_location": "L370"
     },
     {
       "id": "specs_crear_producto_spec_dise\u00f1o_con_impeccable",
@@ -5768,7 +5768,7 @@
       "node_kind": "heading",
       "norm_label": "diseno con `impeccable`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L349"
+      "source_location": "L354"
     },
     {
       "id": "specs_crear_producto_spec_documentaci\u00f3n_de_la_api_tarjeta_a_01",
@@ -5780,7 +5780,7 @@
       "node_kind": "heading",
       "norm_label": "documentacion de la api (tarjeta a-01)",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L226"
+      "source_location": "L231"
     },
     {
       "id": "specs_crear_producto_spec_el_formulario",
@@ -5792,7 +5792,7 @@
       "node_kind": "heading",
       "norm_label": "el formulario",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L282"
+      "source_location": "L287"
     },
     {
       "id": "specs_crear_producto_spec_los_componentes",
@@ -5804,7 +5804,7 @@
       "node_kind": "heading",
       "norm_label": "los componentes",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L261"
+      "source_location": "L266"
     },
     {
       "id": "specs_crear_producto_spec_migraci\u00f3n",
@@ -5816,7 +5816,7 @@
       "node_kind": "heading",
       "norm_label": "migracion",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L65"
+      "source_location": "L70"
     },
     {
       "id": "specs_crear_producto_spec_modelo",
@@ -5828,7 +5828,7 @@
       "node_kind": "heading",
       "norm_label": "modelo",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L95"
+      "source_location": "L100"
     },
     {
       "id": "specs_crear_producto_spec_p_01_la_base",
@@ -5840,7 +5840,7 @@
       "node_kind": "heading",
       "norm_label": "p-01: la base",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L398"
+      "source_location": "L403"
     },
     {
       "id": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
@@ -5852,7 +5852,7 @@
       "node_kind": "heading",
       "norm_label": "p-01 \u00b7 la tabla `productos` y el modelo `producto`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L63"
+      "source_location": "L68"
     },
     {
       "id": "specs_crear_producto_spec_p_02_la_api_con_curl",
@@ -5864,7 +5864,7 @@
       "node_kind": "heading",
       "norm_label": "p-02: la api con `curl`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L404"
+      "source_location": "L409"
     },
     {
       "id": "specs_crear_producto_spec_p_02_post_api_productos",
@@ -5876,7 +5876,7 @@
       "node_kind": "heading",
       "norm_label": "p-02 \u00b7 `post /api/productos`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L134"
+      "source_location": "L139"
     },
     {
       "id": "specs_crear_producto_spec_p_03_el_bot\u00f3n_nuevo_producto_y_el_formulario",
@@ -5888,7 +5888,7 @@
       "node_kind": "heading",
       "norm_label": "p-03 \u00b7 el boton \"nuevo producto\" y el formulario",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L259"
+      "source_location": "L264"
     },
     {
       "id": "specs_crear_producto_spec_p_03_la_pantalla_en_el_navegador_con_el_mcp_chrome_devtools",
@@ -5900,7 +5900,7 @@
       "node_kind": "heading",
       "norm_label": "p-03: la pantalla, en el navegador con el mcp `chrome-devtools`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L458"
+      "source_location": "L463"
     },
     {
       "id": "specs_crear_producto_spec_patrones_de_dise\u00f1o",
@@ -5912,7 +5912,7 @@
       "node_kind": "heading",
       "norm_label": "patrones de diseno",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L489"
+      "source_location": "L494"
     },
     {
       "id": "specs_crear_producto_spec_productos_de_ejemplo_opcional_por_confirmar",
@@ -5924,7 +5924,7 @@
       "node_kind": "heading",
       "norm_label": "productos de ejemplo (opcional, por confirmar)",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L107"
+      "source_location": "L112"
     },
     {
       "id": "specs_crear_producto_spec_pruebas_en_local",
@@ -5936,7 +5936,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L392"
+      "source_location": "L397"
     },
     {
       "id": "specs_crear_producto_spec_reglas_de_negocio",
@@ -5948,7 +5948,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L47"
+      "source_location": "L52"
     },
     {
       "id": "specs_crear_producto_spec_servicio_409_y_peticiones_al_mismo_tiempo",
@@ -5960,7 +5960,7 @@
       "node_kind": "heading",
       "norm_label": "servicio, 409 y peticiones al mismo tiempo",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L211"
+      "source_location": "L216"
     },
     {
       "id": "specs_crear_producto_spec_validaci\u00f3n",
@@ -5972,7 +5972,7 @@
       "node_kind": "heading",
       "norm_label": "validacion",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L197"
+      "source_location": "L202"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -8074,7 +8074,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L107",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -8085,7 +8085,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L244",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -8096,7 +8096,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L280",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -8118,7 +8118,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L447",
+      "source_location": "L451",
       "weight": 1.0
     },
     {
@@ -8129,7 +8129,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L468",
+      "source_location": "L472",
       "weight": 1.0
     },
     {
@@ -8140,18 +8140,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L483",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_armar_venta_actual_spec_armar_la_venta_actual",
-      "target": "specs_armar_venta_actual_spec_reglas_de_negocio",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L57",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -8162,7 +8151,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L581",
+      "source_location": "L585",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_armar_venta_actual_spec_armar_la_venta_actual",
+      "target": "specs_armar_venta_actual_spec_reglas_de_negocio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/armar-venta-actual.spec.md",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -8173,7 +8173,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L653",
+      "source_location": "L657",
       "weight": 1.0
     },
     {
@@ -8184,7 +8184,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L663",
+      "source_location": "L667",
       "weight": 1.0
     },
     {
@@ -8195,7 +8195,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L81",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -8206,7 +8206,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L487",
+      "source_location": "L491",
       "weight": 1.0
     },
     {
@@ -8217,7 +8217,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L534",
+      "source_location": "L538",
       "weight": 1.0
     },
     {
@@ -8228,7 +8228,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L552",
+      "source_location": "L556",
       "weight": 1.0
     },
     {
@@ -8239,7 +8239,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L569",
+      "source_location": "L573",
       "weight": 1.0
     },
     {
@@ -8250,7 +8250,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L135",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -8261,7 +8261,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L158",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -8272,7 +8272,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L175",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -8283,7 +8283,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L187",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -8294,7 +8294,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L211",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -8305,7 +8305,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L234",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -8316,7 +8316,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L282",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -8327,7 +8327,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L307",
+      "source_location": "L311",
       "weight": 1.0
     },
     {
@@ -8338,7 +8338,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L347",
+      "source_location": "L351",
       "weight": 1.0
     },
     {
@@ -8349,7 +8349,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L379",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -8360,7 +8360,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L412",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -8371,7 +8371,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L425",
+      "source_location": "L429",
       "weight": 1.0
     },
     {
@@ -8382,7 +8382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L588",
+      "source_location": "L592",
       "weight": 1.0
     },
     {
@@ -8393,7 +8393,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L607",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -8448,7 +8448,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L388",
+      "source_location": "L394",
       "weight": 1.0
     },
     {
@@ -8459,7 +8459,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L425",
+      "source_location": "L431",
       "weight": 1.0
     },
     {
@@ -8470,7 +8470,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L471",
+      "source_location": "L477",
       "weight": 1.0
     },
     {
@@ -8492,7 +8492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L573",
+      "source_location": "L581",
       "weight": 1.0
     },
     {
@@ -8503,7 +8503,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L647",
+      "source_location": "L655",
       "weight": 1.0
     },
     {
@@ -8514,7 +8514,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L693",
+      "source_location": "L701",
       "weight": 1.0
     },
     {
@@ -8525,7 +8525,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L711",
+      "source_location": "L719",
       "weight": 1.0
     },
     {
@@ -8536,7 +8536,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L741",
+      "source_location": "L749",
       "weight": 1.0
     },
     {
@@ -8558,7 +8558,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L238",
+      "source_location": "L242",
       "weight": 1.0
     },
     {
@@ -8569,7 +8569,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L263",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -8580,7 +8580,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L285",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -8591,7 +8591,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L307",
+      "source_location": "L313",
       "weight": 1.0
     },
     {
@@ -8602,7 +8602,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L356",
+      "source_location": "L362",
       "weight": 1.0
     },
     {
@@ -8613,7 +8613,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L373",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -8624,7 +8624,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L582",
+      "source_location": "L590",
       "weight": 1.0
     },
     {
@@ -8635,18 +8635,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L624",
+      "source_location": "L632",
       "weight": 1.0
     },
     {
       "source": "specs_arquitectura_spec_frontend",
-      "target": "specs_arquitectura_spec_carpetas_477",
+      "target": "specs_arquitectura_spec_carpetas_483",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L477",
+      "source_location": "L483",
       "weight": 1.0
     },
     {
@@ -8657,7 +8657,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L521",
+      "source_location": "L527",
       "weight": 1.0
     },
     {
@@ -8668,7 +8668,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L542",
+      "source_location": "L548",
       "weight": 1.0
     },
     {
@@ -8679,7 +8679,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L674",
+      "source_location": "L682",
       "weight": 1.0
     },
     {
@@ -8701,7 +8701,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L114",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -8712,7 +8712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L127",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -8723,7 +8723,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L144",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -8734,7 +8734,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L153",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -8745,7 +8745,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L177",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -8756,7 +8756,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L219",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -8778,7 +8778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L315",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -8789,7 +8789,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L370",
+      "source_location": "L372",
       "weight": 1.0
     },
     {
@@ -8800,7 +8800,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L398",
+      "source_location": "L400",
       "weight": 1.0
     },
     {
@@ -8811,7 +8811,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L405",
+      "source_location": "L407",
       "weight": 1.0
     },
     {
@@ -8822,7 +8822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L49",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -8833,7 +8833,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -8844,7 +8844,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L348",
+      "source_location": "L350",
       "weight": 1.0
     },
     {
@@ -8855,7 +8855,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L221",
+      "source_location": "L223",
       "weight": 1.0
     },
     {
@@ -8866,7 +8866,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L276",
+      "source_location": "L278",
       "weight": 1.0
     },
     {
@@ -8877,7 +8877,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/buscar-producto.spec.md",
-      "source_location": "L291",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -8899,7 +8899,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L134",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -8910,7 +8910,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L259",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -8921,18 +8921,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L392",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_crear_producto_spec_crear_producto",
-      "target": "specs_crear_producto_spec_reglas_de_negocio",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L47",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -8943,7 +8932,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L489",
+      "source_location": "L494",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_crear_producto_spec_crear_producto",
+      "target": "specs_crear_producto_spec_reglas_de_negocio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -8954,40 +8954,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L63",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
-      "target": "specs_crear_producto_spec_productos_de_ejemplo_opcional_por_confirmar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L107",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
-      "target": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_01",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L115",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
-      "target": "specs_crear_producto_spec_migraci\u00f3n",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L65",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -8998,7 +8965,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L95",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
+      "target": "specs_crear_producto_spec_productos_de_ejemplo_opcional_por_confirmar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
+      "target": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_01",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
+      "target": "specs_crear_producto_spec_migraci\u00f3n",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/crear-producto.spec.md",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -9009,7 +9009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L145",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -9020,7 +9020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L197",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -9031,7 +9031,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L211",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -9042,7 +9042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L226",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -9053,7 +9053,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L235",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -9064,7 +9064,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L261",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -9075,7 +9075,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L282",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -9086,7 +9086,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L329",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -9097,7 +9097,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L349",
+      "source_location": "L354",
       "weight": 1.0
     },
     {
@@ -9108,7 +9108,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L365",
+      "source_location": "L370",
       "weight": 1.0
     },
     {
@@ -9119,7 +9119,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L398",
+      "source_location": "L403",
       "weight": 1.0
     },
     {
@@ -9130,7 +9130,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L404",
+      "source_location": "L409",
       "weight": 1.0
     },
     {
@@ -9141,7 +9141,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L458",
+      "source_location": "L463",
       "weight": 1.0
     },
     {
@@ -9152,7 +9152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L483",
+      "source_location": "L488",
       "weight": 1.0
     },
     {
@@ -9867,7 +9867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L453",
+      "source_location": "L455",
       "weight": 1.0
     },
     {
@@ -9878,7 +9878,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L471",
+      "source_location": "L473",
       "weight": 1.0
     },
     {
@@ -9944,7 +9944,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L501",
+      "source_location": "L504",
       "weight": 1.0
     },
     {
@@ -9955,7 +9955,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L535",
+      "source_location": "L538",
       "weight": 1.0
     },
     {
@@ -10010,7 +10010,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L495",
+      "source_location": "L498",
       "weight": 1.0
     },
     {
@@ -10021,7 +10021,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L560",
+      "source_location": "L563",
       "weight": 1.0
     },
     {
@@ -10032,7 +10032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L571",
+      "source_location": "L574",
       "weight": 1.0
     },
     {
@@ -10043,7 +10043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L578",
+      "source_location": "L581",
       "weight": 1.0
     },
     {

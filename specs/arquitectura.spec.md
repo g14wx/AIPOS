@@ -208,7 +208,11 @@ backend/
   `services/productos.js`, `validators/productos.js` y `validators/comunes.js` con su prueba `validacion-comun.test.js`)
   los crea la primera de esas tarjetas que se integra en la rama de su entregable. Las demás los juntan: ponen su rama
   al día con la de su entregable y agregan lo suyo a los mismos archivos, y la que necesita una pieza de `comunes.js`
-  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez.
+  que todavía no está la agrega. En productos, P-02 y P-04 corren a la vez, y P-03 y P-05 corren a la vez: comparten
+  `frontend/src/api/productos.js` (P-03 agrega `crearProducto` y P-05 `buscarProductos`), y la que se integra primero lo
+  crea y la otra conserva las dos funciones. En ventas, V-05, V-06 y V-07 corren a la vez y comparten `VentaActual.vue`,
+  `src/ventaActual/ventaActual.js`, `src/ventaActual/validaciones.js` y `frontend/tests/pantalla-venta-actual.test.js`
+  (spec de armar la venta actual).
 - Los scripts de `package.json` del backend:
 
 | Comando | Qué hace |
@@ -258,7 +262,8 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   con tres tablas serían archivos que solo reenvían llamadas al modelo.
 
 `[@test] ../backend/tests/estructura.test.js`
-`[@test] ../backend/tests/base-de-datos/modelos.test.js`
+`[@test] ../backend/tests/base-de-datos/modelo-producto.test.js`
+`[@test] ../backend/tests/base-de-datos/modelos-venta.test.js`
 
 ### Procedimientos almacenados
 
@@ -280,7 +285,8 @@ La petición baja por las capas y la respuesta sube. Cada capa solo llama a la d
   Nunca se edita una migración que ya corrió.
 - Patrón: Transaction Script. Cada procedimiento resuelve una petición completa, de principio a fin, dentro de MySQL.
 
-`[@test] ../backend/tests/base-de-datos/procedimientos.test.js`
+`[@test] ../backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js`
+`[@test] ../backend/tests/base-de-datos/sp-registrar-venta-cliente-mysql.test.js`
 
 ### Validación
 
@@ -563,12 +569,14 @@ frontend/
 `[@test] ../frontend/tests/venta-actual/agregar.test.js`
 `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 `[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
+`[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
 
 Los archivos de `frontend/tests/venta-actual/` los escriben V-04 a V-07, y la spec de armar la venta actual da la lista
 completa. `agregar.test.js` y `calculos.test.js` prueban las funciones puras y los centavos, y `almacenamiento.test.js`
-prueba restaurar tras recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y vaciar solo cuando
-la API confirmó la venta. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
+prueba restaurar tras recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y guardar la venta
+actual vacía. Que la venta actual solo se vacíe cuando la API confirmó la venta lo prueba `pantalla-venta-actual.test.js`,
+la prueba de `App.vue`. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
 
 ## Diseño de la pantalla
 

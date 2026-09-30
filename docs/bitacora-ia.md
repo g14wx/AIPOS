@@ -329,12 +329,12 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 20:35–20:45.
 - **Commits:** este commit.
 
-### 2026-09-29 20:48 — Revisión de Codex del PR #17
+### 2026-09-29 20:45 — Revisión de Codex del PR #17
 
 - **Tarea:** revisar el PR #17 (tile `mysql-sequelize-procedimientos` 0.1.1) con otro agente antes de integrarlo.
 - **Agente:** Codex revisó con `codex review --base origin/main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
 - **Qué hizo el agente:** Codex encontró 3 hallazgos. La extracción del bloque se confundía con un comentario que mencionara "CREATE PROCEDURE". El eval 1 no exigía el `.sql` para el cliente `mysql`. Y la comprobación final se marcaba sola con el comentario de la plantilla. Claude Code hizo que la migración lea solo lo que está entre la línea `DELIMITER $$` y el `$$` final, y lo probó con node, también con saltos de línea de Windows y `delimiter` en minúsculas. Sumó al eval 1 el pedido del script reproducible y un criterio que lo exige, y cambió la comprobación para que busque solo líneas `DELIMITER`.
 - **Revisión de la persona:** aceptó los 3 hallazgos.
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
-- **Tiempo:** 20:48–20:47.
+- **Tiempo:** 20:45–20:47.
 - **Commits:** este commit (PR #17).

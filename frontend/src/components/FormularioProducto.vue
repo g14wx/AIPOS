@@ -225,10 +225,11 @@ export default {
     // Vuetify 2 no marca aria-invalid en el campo, y el mensaje de sus reglas desaparece en cuanto el campo vuelve a
     // tener el foco. Al salir de un campo se copia el mensaje de sus reglas a `errores`: se queda a la vista hasta que
     // el cajero lo edite, y el campo se marca con aria-invalid para los lectores de pantalla.
+    // Un mensaje que ya está, sea de las reglas o de la API, no se toca al salir: solo editar el campo lo quita (#66).
     alSalir(campo) {
-      if (!this.value) return;
+      if (!this.value || this.errores[campo]) return;
       const mensaje = primerMensaje(this.reglas[campo], this.valores[campo]);
-      if (mensaje !== this.errores[campo]) this.errores = { ...this.errores, [campo]: mensaje };
+      if (mensaje) this.errores = { ...this.errores, [campo]: mensaje };
     },
     marca(campo) {
       return this.errores[campo] ? 'true' : null;

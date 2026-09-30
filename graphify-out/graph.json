@@ -410,7 +410,7 @@
       "file_type": "code",
       "norm_label": "alsalir()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L228"
+      "source_location": "L229"
     },
     {
       "id": "frontend_src_components_formularioproducto_beforedestroy",
@@ -518,7 +518,7 @@
       "file_type": "code",
       "norm_label": "guardar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L236"
+      "source_location": "L237"
     },
     {
       "id": "frontend_src_components_formularioproducto_handler",
@@ -554,7 +554,7 @@
       "file_type": "code",
       "norm_label": "marca()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L233"
+      "source_location": "L234"
     },
     {
       "id": "frontend_src_components_formularioproducto_mostrarerror",
@@ -566,7 +566,7 @@
       "file_type": "code",
       "norm_label": "mostrarerror()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L261"
+      "source_location": "L262"
     },
     {
       "id": "frontend_src_components_formularioproducto_pantallacompleta",
@@ -12471,6 +12471,18 @@
       "type": "external"
     },
     {
+      "id": "frontend_src_assets_animaciones_producto_creado",
+      "label": "frontend_src_assets_animaciones_producto_creado",
+      "_origin": "semantic",
+      "community": 65,
+      "community_name": "NuevoProducto.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "frontend_src_assets_animaciones_producto_creado",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_eslint_config_prettier",
       "label": "ref_eslint_config_prettier",
       "_origin": "semantic",
@@ -12539,17 +12551,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_path",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "frontend_src_assets_animaciones_producto_creado",
-      "label": "frontend_src_assets_animaciones_producto_creado",
-      "community": 65,
-      "community_name": "NuevoProducto.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_assets_animaciones_producto_creado",
       "source_file": "",
       "type": "external"
     }
@@ -13188,7 +13189,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L230",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -13236,7 +13237,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L240",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -13248,7 +13249,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L245",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -13260,7 +13261,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L249",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -13272,7 +13273,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L252",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -13284,7 +13285,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L252",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -13296,7 +13297,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L254",
+      "source_location": "L255",
       "weight": 1.0
     },
     {
@@ -13308,7 +13309,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L256",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -13332,7 +13333,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L264",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -13344,7 +13345,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L265",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -13356,7 +13357,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L269",
+      "source_location": "L270",
       "weight": 1.0
     },
     {
@@ -22681,7 +22682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L228",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -22692,7 +22693,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L233",
+      "source_location": "L234",
       "weight": 1.0
     },
     {
@@ -22703,7 +22704,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L236",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -22714,7 +22715,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L261",
+      "source_location": "L262",
       "weight": 1.0
     },
     {

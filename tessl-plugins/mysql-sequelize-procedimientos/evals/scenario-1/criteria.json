@@ -1,10 +1,10 @@
 {
-  "context": "Point-of-sale backend with Express 4, Sequelize 6, sequelize-cli and mysql2 on MySQL 8.4 (docker image mysql:8.4). Migrations already create products, sales and sale_items, with money as DECIMAL(10,2) and created_at/updated_at defaulting to CURRENT_TIMESTAMP. The agent must write the stored procedure sp_register_sale, which registers a sale and all its items in one call and returns the sale id and total, plus the sequelize-cli migration that creates it. Review the new SQL file (if any), the new migration and any other changed file.",
+  "context": "Point-of-sale backend with Express 5, Sequelize 6, sequelize-cli and mysql2 on MySQL 8.4 (docker image mysql:8.4). Migrations already create products, sales and sale_items, with money as DECIMAL(10,2) and created_at/updated_at defaulting to CURRENT_TIMESTAMP. The agent must write the stored procedure sp_register_sale, which registers a sale and all its items in one call and returns the sale id and total, plus the sequelize-cli migration that creates it. Review the new SQL file (if any), the new migration and any other changed file.",
   "type": "weighted_checklist",
   "checklist": [
     {
-      "name": "no_delimiter",
-      "description": "Neither the migration nor any SQL file it runs contains DELIMITER. The CREATE PROCEDURE ... BEGIN ... END is sent as a single statement, without enabling multipleStatements.",
+      "name": "no_delimiter_from_node",
+      "description": "The migration never sends DELIMITER: it runs DROP PROCEDURE IF EXISTS and the CREATE PROCEDURE ... BEGIN ... END block as separate single statements, without enabling multipleStatements. A DELIMITER $$ wrapper is allowed only inside a .sql script meant for the mysql client.",
       "max_score": 2,
       "category": "MUST_NOT"
     },
@@ -46,7 +46,7 @@
     },
     {
       "name": "no_definer_single_path",
-      "description": "There is no DEFINER= clause and no CREATE OR REPLACE PROCEDURE, and the procedure is not also created from docker-entrypoint-initdb.d, docker-compose.yml or any script outside the migration.",
+      "description": "There is no DEFINER= clause and no CREATE OR REPLACE PROCEDURE, and the procedure is not created from docker-entrypoint-initdb.d or docker-compose.yml. The app creates it with the migration; if a .sql script is meant for the mysql client, the instructions say to run it as the app user, not root.",
       "max_score": 1,
       "category": "MUST_NOT"
     }

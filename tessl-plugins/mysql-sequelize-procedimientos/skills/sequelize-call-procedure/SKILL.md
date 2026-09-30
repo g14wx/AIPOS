@@ -1,11 +1,11 @@
 ---
 name: sequelize-call-procedure
-description: "Calls MySQL stored procedures from Node with Sequelize 6 and mysql2 and turns their errors into HTTP responses in Express. Covers CALL with named replacements and JSON.stringify for lists, reading rows[0], why QueryTypes.SELECT, OUT parameters and sequelize.transaction() break a CALL, errno mapping (1644, 1452, 3140, 1062) to 400, 404 and 409, money kept as DECIMAL strings, and safe name or barcode search with Op symbols. Use when writing a service or route that runs CALL, when a CALL returns nested arrays, objects with numeric keys or undefined, when adding status codes for procedure errors, when someone wants to wrap a procedure call in a transaction, or when searching products by name or barcode."
+description: "Calls MySQL stored procedures from Node with Sequelize 6 and mysql2 and turns their errors into HTTP responses in Express. Covers CALL with named replacements and JSON.stringify for lists, reading rows[0], why QueryTypes.SELECT, OUT parameters and sequelize.transaction() break a CALL, errno mapping (1644, 1452, 3140, 1062) to 422, 404, 400 and 409, money kept as DECIMAL strings, and safe name or barcode search with Op symbols. Use when writing a service or route that runs CALL, when a CALL returns nested arrays, objects with numeric keys or undefined, when adding status codes for procedure errors, when someone wants to wrap a procedure call in a transaction, or when searching products by name or barcode."
 ---
 
 # Calling a stored procedure from Sequelize
 
-For `sequelize` ^6.37.8 with `mysql2` ^3.24.5 and Express 4. Never import from `@sequelize/*` (v7 is still an alpha).
+For `sequelize` ^6.37.8 with `mysql2` ^3.24.5 and Express 5 (the code also runs on Express 4). Never import from `@sequelize/*` (v7 is still an alpha).
 
 ## 1. Service
 
@@ -61,7 +61,7 @@ Sequelize wraps the mysql2 error (`DatabaseError`; `UniqueConstraintError` for 1
 
 | errno | Meaning | Status |
 |---|---|---|
-| 1644 | `SIGNAL SQLSTATE '45000'` from the procedure; the code is in `sqlMessage` | 400 for bad input (`SALE_WITHOUT_ITEMS`), 409 for a rule on current data (for example no stock) |
+| 1644 | `SIGNAL SQLSTATE '45000'` from the procedure; the code is in `sqlMessage` | 422 by default (a business rule the request breaks), or the 4xx the project's spec sets |
 | 1452 | a line points to a product that does not exist | 404 (or 400) |
 | 3140 | the JSON parameter is not valid JSON | 400 |
 | 1062 | duplicate key (for example the same product twice in one sale) | 409 |
@@ -71,7 +71,7 @@ function httpErrorFromDatabase(err) {
   const db = err.parent;
   if (!db) return null;
   switch (db.errno) {
-    case 1644: return { status: 400, error: db.sqlMessage };
+    case 1644: return { status: 422, error: db.sqlMessage };
     case 1452: return { status: 404, error: 'PRODUCT_NOT_FOUND' };
     case 3140: return { status: 400, error: 'INVALID_ITEMS' };
     case 1062: return { status: 409, error: 'DUPLICATE_ITEM' };
@@ -93,7 +93,7 @@ router.post('/', async (req, res, next) => {
 });
 ```
 
-Express 4 does not catch rejected promises: keep everything, validation included, inside the `try/catch` and end with `next(err)`. The error middleware keeps the 4xx that `express.json()` sets (malformed JSON → 400, body too large → 413) and answers 500 for the rest:
+Express 5 sends rejected promises to the error middleware by itself (Express 4 does not). Keep everything, validation included, inside the `try/catch` anyway, because it turns the errno into an HTTP status, and end with `next(err)`. In Express 5 `req.body` is `undefined` when nothing was parsed, hence `(req.body || {}).items`. The error middleware keeps the 4xx that `express.json()` sets (malformed JSON → 400, body too large → 413) and answers 500 for the rest:
 
 ```js
 app.use((err, req, res, next) => {

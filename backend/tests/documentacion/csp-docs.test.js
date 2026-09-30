@@ -50,10 +50,12 @@ describe('la política de contenido de /api/docs/', () => {
     expect(directivas(await politicaDe(app, '/api/docs/'))).toEqual(esperada);
   });
 
-  it('script-src sigue siendo solo self y no se agrega ningún origen externo', async () => {
-    const politica = await politicaDe(app, '/api/docs/');
-    expect(directivas(politica)['script-src']).toEqual(["'self'"]);
-    expect(politica).not.toMatch(/https?:|\*|unsafe-eval/);
+  it('script-src y default-src siguen siendo solo self, sin connect-src ni unsafe-eval', async () => {
+    const politica = directivas(await politicaDe(app, '/api/docs/'));
+    expect(politica['script-src']).toEqual(["'self'"]);
+    expect(politica['default-src']).toEqual(["'self'"]);
+    expect(politica).not.toHaveProperty('connect-src');
+    expect(JSON.stringify(politica)).not.toMatch(/unsafe-eval|\*/);
   });
 
   it('también la llevan el JavaScript y el CSS de Swagger UI', async () => {

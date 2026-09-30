@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 4 h 50 min hasta ahora (12:46–17:33 y 20:35–20:45), en curso | 25 | 9 |
+| Preparación: agentes, tiles y glosario | 5 h hasta ahora (12:46–17:33 y 20:35–20:47), en curso | 26 | 9 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -328,3 +328,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** el tile asumía Express 4, respuestas 400/409, un `.sql` sin `DELIMITER` y la carpeta `db/procedures/` → se alineó con los requerimientos → mandan la spec y los requerimientos, y el riesgo del definidor queda cubierto con la instrucción de usar el usuario de la app.
 - **Tiempo:** 20:35–20:45.
 - **Commits:** este commit.
+
+### 2026-09-29 20:48 — Revisión de Codex del PR #17
+
+- **Tarea:** revisar el PR #17 (tile `mysql-sequelize-procedimientos` 0.1.1) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base origin/main`; Claude Code (Opus 5.5) recomendó qué hacer y aplicó los cambios.
+- **Qué hizo el agente:** Codex encontró 3 hallazgos. La extracción del bloque se confundía con un comentario que mencionara "CREATE PROCEDURE". El eval 1 no exigía el `.sql` para el cliente `mysql`. Y la comprobación final se marcaba sola con el comentario de la plantilla. Claude Code hizo que la migración lea solo lo que está entre la línea `DELIMITER $$` y el `$$` final, y lo probó con node, también con saltos de línea de Windows y `delimiter` en minúsculas. Sumó al eval 1 el pedido del script reproducible y un criterio que lo exige, y cambió la comprobación para que busque solo líneas `DELIMITER`.
+- **Revisión de la persona:** aceptó los 3 hallazgos.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 20:48–20:47.
+- **Commits:** este commit (PR #17).

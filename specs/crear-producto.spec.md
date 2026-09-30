@@ -35,8 +35,13 @@ Se hacen en ese orden: P-02 depende de P-01 y P-03 depende de P-02. Todas depend
 integrado. P-02 y P-04 corren a la vez (P-04 es la ruta de buscar producto, flujo 02) y comparten los archivos de
 `productos` del backend: `routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
 `validators/productos.js` y `validators/comunes.js`. Los crea la primera de las dos que se integra en
-`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-01 solo hace la migración y el modelo. Esta spec se apoya en `specs/arquitectura.spec.md` y no repite lo que ya dice: versiones, capas, formato de
-error, dinero, migraciones, paleta y `AnimacionLottie`. Si algo choca, manda el orden de la arquitectura:
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-03 y P-05 corren a la vez (P-05 es la
+pantalla de buscar producto) y comparten `frontend/src/api/productos.js`: P-03 agrega `crearProducto` y P-05
+`buscarProductos`. La que se integra primero lo crea, y la otra conserva las dos funciones al poner su rama al día.
+P-01 solo hace la migración y el modelo.
+
+Esta spec se apoya en `specs/arquitectura.spec.md` y no repite lo que ya dice: versiones, capas, formato de error,
+dinero, migraciones, paleta y `AnimacionLottie`. Si algo choca, manda el orden de la arquitectura:
 `requerimientos/`, la spec de arquitectura y las reglas de los tiles.
 
 Requerimientos que cubre: RF-01, RF-10 (la tabla `productos`), RN-01 a RN-04, RNF-03, RNF-04 y RNF-05.
@@ -122,7 +127,7 @@ con precio de 2 decimales. Si no, la tarjeta cierra esa subtarea como "no se hac
    `CHECK` lo rechaza.
    `[@test] ../backend/tests/base-de-datos/productos-restricciones.test.js`
 4. Dado el precio `25.00` y el código de barras `0012345`, cuando se guardan y se leen, entonces el precio conserva
-   sus centavos y el código conserva sus ceros de la izquierda.
+   sus centavos y el código de barras conserva sus ceros de la izquierda.
    `[@test] ../backend/tests/base-de-datos/productos-restricciones.test.js`
 5. Dada la base de prueba vacía, cuando se corre `npm run rehacer:prueba` (y `npm run migrar:prueba` después), entonces
    termina sin errores, y la tabla tiene las columnas, los tipos, los `CHECK`, el índice único, el motor y el orden de
@@ -246,7 +251,7 @@ Cada campo muestra solo su primer problema. Se revisa en el orden de la tabla.
    `CODIGO_BARRAS_DUPLICADO`, y el producto que ya estaba no cambia.
    `[@test] ../backend/tests/productos/crear-producto-409.test.js`
 5. Dado un producto válido, cuando se crea, entonces responde 201 con el producto y hay una fila nueva en `productos`.
-   Con precio `"25"` responde `"25.00"`, y con el código `"0012345"` responde `"0012345"`.
+   Con precio `"25"` responde `"25.00"`, y con el código de barras `"0012345"` responde `"0012345"`.
    `[@test] ../backend/tests/productos/crear-producto.test.js`
 6. Dadas dos peticiones iguales al mismo tiempo, entonces se crea un solo producto.
    `[@test] ../backend/tests/productos/crear-producto-simultaneo.test.js`
@@ -341,7 +346,7 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
   `[@test] ../frontend/tests/animaciones.test.js`
 - Con `prefers-reduced-motion: reduce` no se anima: se ve un solo cuadro fijo, el último (la palomita ya dibujada), no
   uno vacío. `AnimacionLottie` (que crea B-04) ya muestra el último cuadro por defecto (su propiedad `cuadroFijo` vale
-  `'ultimo'`), así que P-03 no le agrega nada: solo le pasa `animacion` y `loop` en `false`.
+  `'ultimo'`), así que P-03 no le agrega nada: le pasa `animacion`, `loop` en `false` y `alto` en 32 (por defecto es 120).
   `[@test] ../frontend/tests/componentes/AnimacionLottie.test.js`
 - El producto creado sale al buscarlo. Se comprueba cuando P-04 y P-05 estén integrados, con el mismo procedimiento
   de "Pruebas en local".

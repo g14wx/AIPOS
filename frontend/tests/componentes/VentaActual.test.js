@@ -244,7 +244,10 @@ describe('«Registrar venta» provisional (V-08 lo reemplaza)', () => {
   it('todavía no manda nada a ningún lado: no emite eventos al presionarlo', async () => {
     montar({ ventaActual: venta(leche) });
     await botonRegistrar().trigger('click');
-    expect(Object.keys(wrapper.emitted())).toEqual([]);
+    // Vue Test Utils también anota los eventos internos del ciclo de vida (hook:created y demás).
+    expect(Object.keys(wrapper.emitted()).filter((nombre) => !nombre.startsWith('hook:'))).toEqual(
+      [],
+    );
   });
 });
 
@@ -434,13 +437,14 @@ describe('filas apiladas cuando la tarjeta es angosta', () => {
     expect(observadores[0].disconnect).toHaveBeenCalled();
   });
 
-  it('mide la tarjeta al montarse, sin esperar al observador', () => {
+  it('mide la tarjeta al montarse, sin esperar al observador', async () => {
     Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
       configurable: true,
       get: () => 400,
     });
     try {
       montar({ ventaActual: venta(leche, pan) });
+      await wrapper.vm.$nextTick();
       expect(apiladas()).toBe(2);
     } finally {
       delete HTMLElement.prototype.clientWidth;
@@ -492,7 +496,10 @@ describe('estilos de la venta actual (skill impeccable, jerarquía y total)', ()
   });
 
   it('la fila recién agregada se pinta con el acento y el texto en tinta, sin animación', () => {
-    expect(declara('.detalle-resaltado', 'background', 'var(--v-accent-base)')).toBe(true);
+    // Con !important: las reglas de Vuetify para el puntero sobre una fila pesan más que una regla normal.
+    expect(declara('.detalle-resaltado', 'background', 'var(--v-accent-base) !important')).toBe(
+      true,
+    );
     expect(declara('.detalle-resaltado', 'color', 'var(--v-secondary-base)')).toBe(true);
     expect(css).not.toMatch(/@keyframes|animation\s*:|transition\s*:/);
   });

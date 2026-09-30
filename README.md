@@ -542,7 +542,7 @@ y escrito paso a paso en `AGENTS.md`, en «Cómo tomar una tarjeta».
 
 ### Ejemplos de la bitácora
 
-- **La persona corrigió una afirmación falsa del agente (2026-09-29, 12:46).** Claude Code dijo que Codex no admite
+- **La persona corrigió una afirmación falsa del agente (2026-09-29, 12:46; entrada reconstruida, por confirmar).** Claude Code dijo que Codex no admite
   servidores MCP por proyecto, porque solo había mirado `codex mcp add --help`. La persona investigó por su cuenta,
   comprobó que sí los admite, y se documentó la configuración por proyecto en `.codex/config.toml.example`.
 - **La persona corrigió cómo habla el agente (2026-09-29, 14:52).** El agente preguntó «¿Quito la línea Claude-Session?» sin
@@ -575,4 +575,36 @@ y escrito paso a paso en `AGENTS.md`, en «Cómo tomar una tarjeta».
   antes de ver las specs y el código, y dejó que los agentes siguieran durante la noche. Por eso la bitácora dice «por
   confirmar» en la revisión de la persona de esas tareas: las propuestas que el agente cambió o descartó las decidió el
   agente, y la persona puede confirmarlas o revertirlas.
+
+## 11. Decisiones técnicas
+
+Estas decisiones salen de las entradas de la bitácora, en «Propuestas cambiadas o descartadas», y de los requerimientos.
+La columna del medio dice qué propuso el agente, o Codex, cuando la decisión fue distinta. Cada fila dice quién decidió:
+donde dice «el agente», la persona desarrolladora todavía tiene que confirmarla. Las specs anotan además, para cada
+decisión de diseño, el patrón elegido del catálogo `design-patterns` y por qué: Layered Architecture con Service Layer
+para las capas del backend, Front Controller para el manejador de errores, Health Check para `GET /api/salud`, Facade
+para `frontend/src/api/` y Adapter para la animación Lottie (`specs/arquitectura.spec.md`).
+
+| Decisión | Propuesta original (si vino del agente) | Motivo |
+|---|---|---|
+| Los commits no llevan la línea `Claude-Session` ni enlaces a sesiones del agente. Decidió la persona, el 2026-09-29. | El agente la ponía en cada commit, como pide su configuración. | El repositorio es público, y quien evalúe puede no tener acceso a ese enlace. |
+| Los evals de los tiles usan un proyecto de ejemplo con su propio glosario. Decidió la persona, el 2026-09-29. | Codex proponía pasarlos a «detalle de venta». | Los evals miden si el agente sigue el glosario del repositorio donde trabaja, por eso el glosario del ejemplo es distinto a propósito. |
+| No se reescriben los commits ya subidos: la entrada de la bitácora va en el último commit de la tarea y nombra los anteriores. Decidió la persona, el 2026-09-29. | Codex proponía repartir la entrada reescribiendo dos commits ya subidos. | La regla de entrega trazable prohíbe reescribir commits subidos. |
+| Codex se configura por proyecto, con `.codex/config.toml.example`. La persona lo comprobó, el 2026-09-29 (entrada reconstruida desde git, por confirmar). | El agente afirmó que Codex no admite servidores MCP por proyecto. | Era falso: el agente solo había mirado `codex mcp add --help`, y Codex sí lee la configuración de un proyecto de confianza. |
+| No se repitió la tercera revisión de Codex del PR #19. Decidió la persona, el 2026-09-30. | El agente proponía repetirla, sin `graphify-out/` y con 60 minutos. | La persona prefirió usar ese tiempo para empezar a desarrollar. |
+| Las specs las escriben las sesiones que toman las tarjetas, y todo lo que se decide queda en el repositorio. Decidió la persona. | Escribir la spec de arquitectura en la sesión de planificación: el agente empezó y la persona lo detuvo. | Esa sesión solo planifica, y el repositorio tiene que funcionar desde un clon en cualquier máquina con Claude Code o Codex. |
+| Una tarjeta por área (frontend, backend, base de datos, DevOps…). Pidió la persona, el 2026-09-29. | Una tarjeta por historia de usuario. | Distinguir en el tablero AIPOS el trabajo de cada área. |
+| Un PR por tarjeta hacia la rama de su entregable, y otro PR del entregable hacia `ProductionEnv`. Pidió la persona, a las 01:12 del 2026-09-30. | Un solo PR por entregable. | Cada PR pasa por la revisión de Codex, y `git log --graph` muestra un merge commit por entregable y, dentro, uno por tarjeta (RNF-09). |
+| La venta actual se guarda en el navegador (`localStorage`). Decidió la persona, el 2026-09-30. | Que se pierda al recargar la página. | Decisión de la persona en la pregunta abierta 2 de `requerimientos/README.md`: recargar la página ya no pierde la venta actual. |
+| Vite 7 en vez de Vue CLI. Decidió la persona, el 2026-09-29. | — | El motivo no quedó anotado. `@vitejs/plugin-vue2` 2.3.4 acepta hasta Vite 7, y `npm i vite` instala la 8.3.1, que no funciona. |
+| `App.vue` une la búsqueda con la venta actual, sin `vuex`, `pinia` ni un bus de eventos. Decidió el agente. | Un bus de eventos, `vuex` o `pinia`, que el agente consideró y descartó. | Son dos componentes y un estado: un intermediario solo agregaría archivos. |
+| Express 5.2.1, y un 422 para el `SIGNAL SQLSTATE '45000'` del procedimiento. El 2026-09-29 la persona decidió actualizar el tile para alinearlo con los requerimientos. | El tile `mysql-sequelize-procedimientos` asumía Express 4 y respuestas 400 y 409. | Mandan los requerimientos sobre el tile. Express 5 pasa al manejador de errores los errores de las funciones `async`. El tile se actualizó a la versión 0.1.1. |
+| El `.sql` del procedimiento lleva `DELIMITER $$`, y la migración manda solo el bloque `CREATE PROCEDURE … END`. El 2026-09-29 la persona decidió actualizar el tile para alinearlo con los requerimientos. | Un `.sql` sin `DELIMITER`, como decía el tile. | `DELIMITER` es un comando del cliente `mysql` y por Sequelize da el error 1064. Así el mismo archivo corre con el cliente (con el usuario de la app) y con la migración. |
+| El dinero viaja como texto, y los subtotales y el total los calcula MySQL. Lo fijan la arquitectura y el tile. | — | mysql2 devuelve `DECIMAL` como texto, y en JavaScript 0.1 + 0.2 da 0.30000000000000004. La prueba de registrar venta comprueba que 3 × 0.10 y 1 × 0.20 suman 0.50. |
+| La API llama al procedimiento sin `sequelize.transaction()`. Lo fija el tile. | — | MySQL no anida transacciones: el `START TRANSACTION` del procedimiento confirmaría sin avisar lo que la API tuviera abierto (`backend/tests/ventas/sin-transaccion-externa.test.js`). |
+| `DECIMAL(12,2)` para el subtotal y el total, y `DECIMAL(10,2)` para el precio y el precio aplicado. Decidió el agente. | `DECIMAL(10,2)` en todo, como pedía el tile. | Con 100 detalles de 999 unidades a 99 999.99, el total llega a 9 989 999 001.00 y no cabe en `DECIMAL(10,2)`. |
+| Una venta tiene como máximo 100 detalles. Decidió el orquestador, con el consentimiento general de la persona, que puede confirmarlo o revertirlo. | Sin límite, ampliando `ventas.total` a `DECIMAL(14,2)`, la otra opción de la pregunta abierta 9. | Con 101 detalles el total pasaría de `DECIMAL(12,2)` y daría un error 500. |
+| Registrar venta no usa una llave de idempotencia (el patrón Keyed Idempotency). Decidió el agente. | El agente consideró ese patrón del catálogo `design-patterns`. | Los requerimientos no lo piden y agregaría una columna y una regla. El riesgo que queda está en el punto 12. |
+| No hay productos de ejemplo (seeder). Decidió el agente. | Cargar productos de ejemplo, como la leche entera `7501055300075`. | Hacía falta una carpeta, una ruta en `.sequelizerc` y un script que la arquitectura no lista. La subtarea se cerró como «no se hace». |
+| Se apagaron los PR de seguridad automáticos de Dependabot, y las alertas de Vue 2 y Vuetify 2 se revisan a mano. Decidió la persona, el 2026-09-29. | El agente dijo que `ignore` en `.github/dependabot.yml` también frenaba los PR de seguridad. | No los frenó: Dependabot abrió PR que subían Vue y Vuetify a la versión 3, y la prueba exige la 2. |
 

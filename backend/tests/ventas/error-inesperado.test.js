@@ -61,9 +61,10 @@ describe('un error inesperado de MySQL (por ejemplo, la tabla no existe)', () =>
 
   it('la API sigue viva: la siguiente venta válida responde 201 y se guarda', async () => {
     const original = await errorDeTablaInexistente();
+    // Se cuentan las filas antes de armar el espía: contarFilas también llama a sequelize.query y se comería el error.
+    const antes = await contarFilas();
     vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.spyOn(sequelize, 'query').mockRejectedValueOnce(original);
-    const antes = await contarFilas();
 
     expect((await registrarVentaPorApi(ventaValida())).status).toBe(500);
     const siguiente = await registrarVentaPorApi(ventaValida());

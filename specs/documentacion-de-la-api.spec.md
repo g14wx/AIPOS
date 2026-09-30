@@ -331,6 +331,8 @@ function listarRutasRegistradas(montajes) {
 espera `sinDocumentar: ['GET /api/extra']`. Arma otra con el documento de verdad pero sin una ruta que el documento sí
 tiene, y espera `sinRuta`. Sin esta prueba no se sabría si la de arriba de verdad falla cuando debe.
 
+`[@test] ../backend/tests/documentacion/comparar-rutas.test.js`
+
 ## Glosario y alcance
 
 - El glosario (`docs/lenguaje-ubicuo.md`) agrega «documentación de la API», que la persona desarrolladora aprueba

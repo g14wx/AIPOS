@@ -1837,7 +1837,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion",
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L372"
+      "source_location": "L374"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -1849,7 +1849,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L440"
+      "source_location": "L442"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_c\u00f3mo_se_listan_las_rutas_con_express_5",
@@ -1969,7 +1969,7 @@
       "node_kind": "heading",
       "norm_label": "glosario y alcance",
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L334"
+      "source_location": "L336"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_la_pol\u00edtica_de_contenido_solo_en_api_docs",
@@ -2017,7 +2017,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L406"
+      "source_location": "L408"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_qu\u00e9_entra_y_qu\u00e9_no",
@@ -2041,7 +2041,7 @@
       "node_kind": "heading",
       "norm_label": "que tarjeta implementa cada parte",
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L351"
+      "source_location": "L353"
     },
     {
       "id": "specs_documentacion_de_la_api_spec_rutas",
@@ -5763,7 +5763,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L334",
+      "source_location": "L336",
       "weight": 1.0
     },
     {
@@ -5774,7 +5774,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L351",
+      "source_location": "L353",
       "weight": 1.0
     },
     {
@@ -5785,7 +5785,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L372",
+      "source_location": "L374",
       "weight": 1.0
     },
     {
@@ -5807,7 +5807,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L406",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -5818,7 +5818,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/documentacion-de-la-api.spec.md",
-      "source_location": "L440",
+      "source_location": "L442",
       "weight": 1.0
     },
     {

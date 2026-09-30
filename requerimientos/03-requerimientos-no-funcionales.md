@@ -40,7 +40,7 @@ completa y dónde se instala cada paquete. Todas van fijas, sin `^` ni `~`.
   `#4ECDC4`, `#F7FFF7`, `#FF6B6B` y `#FFE66D`. El quinto color es un supuesto: la persona mandó `#FF6B6B` repetido
   y se asumió `#FFE66D`, el de la paleta clásica. El texto es `#292F36` y nunca blanco sobre `#4ECDC4` (contraste AA).
 - **Origen:** PDF, "Tecnologías requeridas".
-- **Se comprueba:** `package.json` fija las versiones y el README las lista (punto 2).
+- **Se comprueba:** `package.json` fija las versiones y el README las lista (punto 1).
 
 ## RNF-03 Validación en tres lugares
 

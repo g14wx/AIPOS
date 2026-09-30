@@ -43,11 +43,11 @@ igual() { # descripción, esperado, real
 
 echo "# los 12 puntos de la skill readme-entrega"
 TITULOS=(
-  "Funcionalidades"
   "Tecnologías y versiones"
+  "Instalación y ejecución"
+  "Funcionalidades"
   "Estructura"
   "Cumplimiento de requisitos"
-  "Instalación y ejecución"
   "Base de datos MySQL"
   "Procedimiento almacenado"
   "Tiempo"
@@ -89,9 +89,9 @@ echo "# versiones: las instaladas, no las de memoria"
 version_en_lock() { # archivo, paquete
   awk -v llave="\"node_modules/$2\": {" 'index($0, llave) { dentro = 1; next } dentro && /"version":/ { gsub(/[",]/, "", $2); print $2; exit }' "$1"
 }
-# La versión que el README pone en la tabla del punto 2: la fila cuya celda «Tecnología» es $1, y su celda «Versión».
+# La versión que el README pone en la tabla del punto 1: la fila cuya celda «Tecnología» es $1, y su celda «Versión».
 version_del_readme() { # tecnología
-  punto 2 | awk -F'|' -v tec="$1" '
+  punto 1 | awk -F'|' -v tec="$1" '
     function recortar(t) { gsub(/`/, "", t); gsub(/^[ \t]+|[ \t]+$/, "", t); return t }
     /^\|/ && recortar($3) == tec { print recortar($4); exit }'
 }
@@ -110,7 +110,7 @@ comprobar_version "Express" "$(version_en_lock backend/package-lock.json express
 comprobar_version "Sequelize" "$(version_en_lock backend/package-lock.json sequelize)" "backend/package-lock.json"
 comprobar_version "mysql2" "$(version_en_lock backend/package-lock.json mysql2)" "backend/package-lock.json"
 comprobar_version "MySQL" "$mysql_compose" "docker-compose.yml"
-if grep -qiE '\blatest\b' <(punto 2); then falla "el punto 2 habla de «latest»: las versiones van fijas"; else ok "el punto 2 no usa «latest»"; fi
+if grep -qiE '\blatest\b' <(punto 1); then falla "el punto 1 habla de «latest»: las versiones van fijas"; else ok "el punto 1 no usa «latest»"; fi
 
 echo "# el procedimiento almacenado (punto 7): archivo SQL, migración y quién lo llama"
 archivo_sql=backend/db/procedimientos/sp_registrar_venta.sql
@@ -138,23 +138,23 @@ if grep -qE 'https://aipos\.salsalvador\.io($|[^A-Za-z0-9.-])' "$README"; then o
 if grep -qE 'https://aipos-back\.salsalvador\.io($|[^/A-Za-z0-9.-])' "$README"; then ok "el README nombra la API: https://aipos-back.salsalvador.io"; else falla "el README no nombra https://aipos-back.salsalvador.io"; fi
 if grep -qF 'https://aipos-back.salsalvador.io/api/docs' "$README"; then ok "el README nombra la documentación de la API: /api/docs"; else falla "el README no nombra https://aipos-back.salsalvador.io/api/docs"; fi
 
-echo "# lo que agregamos y lo que no se completó (punto 4)"
+echo "# lo que agregamos y lo que no se completó (punto 5)"
 # Lo que hay bajo un título ### del punto $1 que empieza con $2.
 subseccion() {
   punto "$1" | awk -v t="### $2" 'index($0, t) == 1 { en = 1; next } /^### / { en = 0 } en'
 }
-agregado="$(subseccion 4 'Lo que agregamos')"
-if [ -n "$agregado" ]; then ok "el punto 4 tiene «### Lo que agregamos…»"; else falla "el punto 4 no tiene un título «### Lo que agregamos…» con contenido"; fi
+agregado="$(subseccion 5 'Lo que agregamos')"
+if [ -n "$agregado" ]; then ok "el punto 5 tiene «### Lo que agregamos…»"; else falla "el punto 5 no tiene un título «### Lo que agregamos…» con contenido"; fi
 for texto in 'Swagger UI' 'release-' 'localStorage' '100 detalles'; do
   if grep -qF -- "$texto" <<<"$agregado"; then ok "lo que agregamos dice $texto"; else falla "lo que agregamos no dice $texto"; fi
 done
-pendiente="$(subseccion 4 'Lo que no se completó')"
-if [ "$(grep -c '[^[:space:]]' <<<"$pendiente" || true)" -ge 3 ]; then ok "el punto 4 dice lo que no se completó"; else falla "el punto 4 no tiene «### Lo que no se completó» con al menos 3 líneas"; fi
+pendiente="$(subseccion 5 'Lo que no se completó')"
+if [ "$(grep -c '[^[:space:]]' <<<"$pendiente" || true)" -ge 3 ]; then ok "el punto 5 dice lo que no se completó"; else falla "el punto 5 no tiene «### Lo que no se completó» con al menos 3 líneas"; fi
 
 echo "# cumplimiento: cada requerimiento funcional y un estado honesto"
-cuatro="$(punto 4)"
+cuatro="$(punto 5)"
 while IFS= read -r rf; do
-  if grep -qF -- "$rf" <<<"$cuatro"; then ok "el punto 4 nombra $rf"; else falla "el punto 4 no nombra $rf"; fi
+  if grep -qF -- "$rf" <<<"$cuatro"; then ok "el punto 5 nombra $rf"; else falla "el punto 5 no nombra $rf"; fi
 done < <(grep -o '^| \[RF-[0-9][0-9]*\]' requerimientos/02-requerimientos-funcionales.md | grep -o 'RF-[0-9]*')
 tabla_cuatro="$(awk '/^### / { exit } 1' <<<"$cuatro")"
 filas_cuatro="$(grep '^|' <<<"$tabla_cuatro" | grep -v '^|[-| :]*$' | tail -n +2 || true)"
@@ -163,7 +163,7 @@ while IFS= read -r fila; do
   [ -z "$fila" ] && continue
   case "$(celda "$fila" 2)" in Cumplido | Parcial | "No completado") ;; *) estados_malos=$((estados_malos + 1)); echo "    estado que no vale: $(celda "$fila" 2)" ;; esac
 done <<<"$filas_cuatro"
-if [ -z "$filas_cuatro" ]; then falla "el punto 4 no tiene su tabla de requisitos"; elif [ "$estados_malos" -eq 0 ]; then ok "todos los estados son Cumplido, Parcial o No completado"; else falla "$estados_malos estado(s) no son Cumplido, Parcial ni No completado"; fi
+if [ -z "$filas_cuatro" ]; then falla "el punto 5 no tiene su tabla de requisitos"; elif [ "$estados_malos" -eq 0 ]; then ok "todos los estados son Cumplido, Parcial o No completado"; else falla "$estados_malos estado(s) no son Cumplido, Parcial ni No completado"; fi
 
 echo "# tiempo, uso del agente y decisiones salen de la bitácora"
 for p in 8 10; do
@@ -230,9 +230,9 @@ if [ -z "$inexistentes" ]; then ok "todos los archivos y enlaces que el README n
 while IFS= read -r script; do
   if grep -qF "\"$script\":" backend/package.json frontend/package.json; then ok "existe el script npm run $script"; else falla "el README nombra npm run $script y ningún package.json lo tiene"; fi
 done < <(grep -o 'npm run [a-z:-]*' "$README" | awk '{ print $3 }' | sort -u)
-cinco="$(punto 5)"
-for comando in 'cp .env.example .env' 'docker compose up -d --wait mysql' 'npm ci' 'npm run migrar' 'npm start' 'npm run dev'; do
-  if grep -qF -- "$comando" <<<"$cinco"; then ok "el punto 5 trae el comando $comando"; else falla "el punto 5 no trae el comando $comando"; fi
+dos="$(punto 2)"
+for comando in 'cp .env.example .env' 'docker compose -f docker-compose.produccion.yml up -d --wait' 'docker compose up -d --wait mysql' 'npm ci' 'npm run migrar' 'npm start' 'npm run dev'; do
+  if grep -qF -- "$comando" <<<"$dos"; then ok "el punto 2 trae el comando $comando"; else falla "el punto 2 no trae el comando $comando"; fi
 done
 
 echo "# palabras que el glosario no deja"

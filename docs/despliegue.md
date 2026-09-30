@@ -197,4 +197,68 @@ El grupo `docker` equivale a ser root sobre el servidor: quien pueda correr `doc
 acepta porque la clave está limitada con `restrict`, solo vive como secreto del environment (que exige tu aprobación) y
 el workflow solo corre `desplegar.sh`. Docker sin root (rootless) se descartó por su complejidad para una sola aplicación.
 
-<!-- La parte 3 (GitHub, errores y lo que nunca se hace) sigue en el mismo archivo. -->
+## Environment y regla de etiquetas (GitHub)
+
+Un environment es un lugar de GitHub que guarda secretos y variables y puede exigir una aprobación. Una regla de
+etiquetas (un ruleset, que es un conjunto de reglas para las ramas o las etiquetas del repositorio) decide quién puede
+crear, mover o borrar etiquetas. Las dos cosas se crean con `gh api`, con la cuenta de la persona desarrolladora.
+
+- **Environment `production`**:
+  - Revisora requerida: la persona desarrolladora. `prevent_self_review` va en `false`, porque ella también sube la
+    etiqueta; con `true` el despliegue no se podría aprobar nunca.
+  - Solo las etiquetas `release-*` pueden usarlo: un workflow que corra sobre otra rama o etiqueta no puede leer los
+    secretos.
+  - Secretos: `SSH_CLAVE_PRIVADA` y `SSH_HOSTS_CONOCIDOS`. Variable: `SERVIDOR_USUARIO`.
+
+  ```bash
+  gh api -X PUT repos/g14wx/AIPOS/environments/production --input - <<JSON
+  {"prevent_self_review": false,
+   "reviewers": [{"type": "User", "id": $(gh api users/g14wx --jq .id)}],
+   "deployment_branch_policy": {"protected_branches": false, "custom_branch_policies": true}}
+  JSON
+  gh api -X POST repos/g14wx/AIPOS/environments/production/deployment-branch-policies -f name='release-*' -f type=tag
+  ```
+
+- **Regla de etiquetas "Proteger etiquetas release"**: apunta a `refs/tags/release-*`, bloquea crear, mover y borrar, y
+  deja pasar solo a la persona desarrolladora, con el rol de administradora del repositorio en la lista de excepciones.
+  El repositorio es público, y sin esta regla cualquiera con permiso de escritura podría desplegar.
+
+  ```bash
+  gh api -X POST repos/g14wx/AIPOS/rulesets --input - <<'JSON'
+  {"name": "Proteger etiquetas release", "target": "tag", "enforcement": "active",
+   "conditions": {"ref_name": {"include": ["refs/tags/release-*"], "exclude": []}},
+   "rules": [{"type": "creation"}, {"type": "update"}, {"type": "deletion"}],
+   "bypass_actors": [{"actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "always"}]}
+  JSON
+  ```
+
+- El agente sube etiquetas con la cuenta de la persona desarrolladora, pero **no aprueba** un despliegue: la aprobación es
+  una acción de la persona en la página de la ejecución.
+- Para comprobar cómo quedó todo, corre `bash tests/despliegue/github-environment-y-etiquetas.test.sh`. Solo lee, y no
+  imprime los secretos.
+
+## Errores frecuentes
+
+| Qué ves | Qué pasa | Qué haces |
+|---|---|---|
+| `revisar` en rojo: "no tiene la forma release-X.Y.Z" | La etiqueta no cumple `^release-[0-9]+\.[0-9]+\.[0-9]+$`. | Borra la etiqueta y sube una con la forma correcta. |
+| `revisar` en rojo: "el commit no está en ProductionEnv" | La etiqueta apunta a un commit que no se integró. | Integra el entregable en `ProductionEnv` y pon la etiqueta en ese commit. |
+| `probar-backend` o `probar-frontend` en rojo | Falla una prueba. | Arréglala y sube una etiqueta nueva. No se desplegó nada. |
+| `construir` en rojo | Falla la construcción de una imagen (por ejemplo, la pantalla sin `VITE_API_URL`). | Mira el registro del job. No se desplegó nada. |
+| `desplegar` falla al conectar por SSH | La clave, el usuario o la llave del servidor no coinciden con los secretos. | Vuelve a cargar `SSH_CLAVE_PRIVADA`, `SSH_HOSTS_CONOCIDOS` o `SERVIDOR_USUARIO`. |
+| "hay otro despliegue en marcha" | Otro `desplegar.sh` tiene el candado de `/srv/aipos`. | Espera a que termine; no se cambió nada. |
+| "no se pudieron bajar las imágenes" | El servidor no pudo bajar una imagen de `ghcr.io`. | Sigue la versión anterior. Mira que el paquete esté enlazado al repositorio. |
+| "la migración falló" | Una migración dio error. | Sigue la versión anterior, pero la base puede tener una parte aplicada: revísala antes de repetir. |
+| `revisar-produccion.sh` dice "CORS" | El backend no deja pasar a la pantalla. | Revisa `CORS_ORIGIN` en el `.env` del servidor: es `https://aipos.salsalvador.io`, sin barra final. |
+| La pantalla abre pero Caddy responde 502 | Backend o pantalla no están corriendo. | `ssh` al servidor y `docker compose ps` con el compose de la versión actual; después vuelve a desplegar. |
+
+## Lo que nunca se hace
+
+- Nunca `docker compose down -v`, ni `--volumes`, ni `docker volume prune`, ni `docker system prune --volumes`: borran los
+  datos de producción. Para detener se usa `docker compose stop`.
+- Nunca reiniciar Caddy ni editar el archivo de otro sitio: se recarga con `systemctl reload caddy`.
+- Nunca guardar el `.env`, una clave, una contraseña, una dirección IP ni el alias de acceso al servidor en git, en un
+  workflow, en un commit, en un pull request ni en el tablero.
+- Nunca entrar con `root` ni con tu clave personal desde el workflow: solo con el usuario de despliegue.
+- Nunca desactivar la validación del certificado (`curl -k`, `StrictHostKeyChecking no`).
+- Nunca crear una etiqueta `release-*` sin que la persona desarrolladora lo pida: una etiqueta despliega.

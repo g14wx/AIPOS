@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 101 files · ~97,451 words
+- 101 files · ~98,162 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 20 file(s) not represented in the graph (top: (none) 9, .drawio 7, .caddy 2)
 
 ## Summary
-- 649 nodes · 693 edges · 84 communities (40 shown, 44 thin omitted)
+- 652 nodes · 696 edges · 85 communities (41 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -96,6 +96,7 @@
 - arranque-local.test.sh
 - crear-env.sh
 - revisar-etiqueta.sh
+- Despliegue de AIPOS
 - instalar-caddy.sh
 
 ## God Nodes (most connected - your core abstractions)
@@ -116,15 +117,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (84 total, 44 thin omitted)
+## Communities (85 total, 44 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.08
-Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
+Cohesion: 0.05
+Nodes (37): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+29 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.07
-Nodes (26): Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Qué es y para qué sirve, Volver a la versión anterior, Convención de nombres en código, Herramientas y proceso (+18 more)
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -274,13 +275,17 @@ Nodes (3): leer(), imagenes.test.sh script, uso()
 Cohesion: 0.46
 Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto(), arranque-local.test.sh script
 
+### Community 83 - "Despliegue de AIPOS"
+Cohesion: 0.22
+Nodes (9): Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace, Qué es y para qué sirve (+1 more)
+
 ### Community 84 - "instalar-caddy.sh"
 Cohesion: 0.60
 Nodes (3): codigos(), fallar(), instalar-caddy.sh script
 
 ## Knowledge Gaps
-- **363 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+358 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 426 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **366 isolated node(s):** `revisar-etiqueta.sh script`, `name`, `mode`, `source`, `source` (+361 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 429 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -288,15 +293,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `Grafo del proyecto`?**
+- **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
-  _363 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _366 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.07564102564102564 - nodes in this community are weakly interconnected._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.0659536541889483 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

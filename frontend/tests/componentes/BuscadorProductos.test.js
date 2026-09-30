@@ -525,6 +525,18 @@ describe('cuando la llamada falla', () => {
     expect(entrada().value).toBe('lech');
   });
 
+  it('"Reintentar" devuelve el foco al campo: el botón desaparece al buscar y el teclado sigue (#68)', async () => {
+    buscarProductos.mockRejectedValueOnce(Object.assign(new Error('x'), { status: 0 }));
+    await montar();
+    await escribirYBuscar('lech');
+    botonDe('Reintentar').element.focus();
+    expect(document.activeElement).toBe(botonDe('Reintentar').element);
+    buscarProductos.mockResolvedValue([leche]);
+    await botonDe('Reintentar').trigger('click');
+    await asentar();
+    expect(document.activeElement).toBe(entrada());
+  });
+
   it('mientras reintenta se ve "Buscando…", y si vuelve a fallar vuelve el mensaje', async () => {
     buscarProductos.mockRejectedValue(Object.assign(new Error('x'), { status: 0 }));
     await montar();

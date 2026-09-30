@@ -313,3 +313,20 @@ describe('Enter cuando la llamada falla', () => {
     expect(entrada().value).toBe('');
   });
 });
+
+describe('Enter en el mismo turno que el último cambio del texto (#69)', () => {
+  it('la búsqueda de Enter no se pierde: Vue procesa el cambio del texto antes de buscar', async () => {
+    buscarProductos.mockResolvedValue([leche]);
+    await montar();
+    const campo = entrada();
+    campo.value = '7501055300075';
+    campo.dispatchEvent(new Event('input', { bubbles: true }));
+    // Sin esperar a Vue: Enter llega antes de que corra el watcher del texto.
+    campo.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+    await asentar();
+    expect(elegidos()).toHaveLength(1);
+    expect(elegidos()[0][0]).toEqual(leche);
+    await avanzar(1000);
+    expect(buscarProductos).toHaveBeenCalledTimes(1);
+  });
+});

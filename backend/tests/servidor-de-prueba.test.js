@@ -250,7 +250,10 @@ describe('las pruebas del backend', () => {
               : [],
           ),
       );
-    expect(infractoras).toEqual([]);
+    expect(
+      infractoras,
+      'Estas llamadas le pasan una app a supertest. Pide con pedir(app, ...) de tests/servidor-de-prueba.js.',
+    ).toEqual([]);
   });
 
   it('la revisión reconoce las llamadas que busca y deja pasar las que no', () => {

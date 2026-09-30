@@ -53,9 +53,12 @@ export function enviarCrudo(destino, peticion) {
     const socket = net.connect({ host: '127.0.0.1', port: puerto });
     let respuesta = '';
     let error;
+    let vencio = false;
     socket.setEncoding('utf8');
-    socket.setTimeout(5000, () => {
-      socket.destroy(new Error('El servidor no cerró la conexión en 5 segundos.'));
+    // Un servidor que contesta y no cierra es un fallo, aunque ya haya mandado algo: se dice qué llegó.
+    socket.setTimeout(2000, () => {
+      vencio = true;
+      socket.destroy();
     });
     socket.on('data', (trozo) => {
       respuesta += trozo;
@@ -64,7 +67,19 @@ export function enviarCrudo(destino, peticion) {
     socket.on('error', (err) => {
       error = err;
     });
-    socket.on('close', () => (respuesta === '' && error ? rechazar(error) : resolver(respuesta)));
+    socket.on('close', () => {
+      if (vencio) {
+        rechazar(
+          new Error(
+            `El servidor no cerró la conexión en 2 segundos. Llegó: ${JSON.stringify(respuesta)}`,
+          ),
+        );
+      } else if (respuesta === '' && error) {
+        rechazar(error);
+      } else {
+        resolver(respuesta);
+      }
+    });
     socket.write(peticion);
   });
 }

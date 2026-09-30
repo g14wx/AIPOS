@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 6 h hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–22:46), en curso | 27 | 15 |
+| Preparación: agentes, tiles y glosario | 6 h 36 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–23:17), en curso | 28 | 15 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -348,3 +348,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
 - **Tiempo:** 20:45–20:47.
 - **Commits:** este commit (PR #17).
+
+### 2026-09-29 22:49 — Revisión de Codex del PR #19
+
+- **Tarea:** revisar el PR #19 (tarjeta T-03, grafo del proyecto) con otro agente antes de integrarlo.
+- **Agente:** Codex revisó con `codex review --base origin/main`, en un worktree del PR; Claude Code (Opus 5.5) propuso las correcciones y las aplicó.
+- **Qué hizo el agente:** la primera corrida de Codex no revisó nada. El worktree no tenía `.tessl/RULES.md`, así que el arranque nuevo de `AGENTS.md` le hizo correr `tessl install` y pedir una sesión nueva. En la segunda corrida, Codex encontró 4 hallazgos P2: un clon con `.tessl/RULES.md` viejo no reinstalaba los tiles nuevos; solo se revisaba que existiera `graphify`, no su versión; las apps de git como WebStorm no ven `~/.local/bin`; y la marca de commit del grafo nombraba el commit anterior. Claude Code sumó un quinto hallazgo: el arranque dejaba parado a `codex review` en un clon nuevo. Actualizó la spec y corrigió los cinco, con 5 pruebas nuevas; las 13 pruebas pasan. Probó que `tessl install` actualiza la fecha de `.tessl/RULES.md`, así que el chequeo nuevo no pide reinstalar en cada sesión, y vio que su propia copia instalada de la regla estaba vieja.
+- **Revisión de la persona:** aprobó corregir los 5 hallazgos en este PR y aprobó la spec actualizada.
+- **Propuestas cambiadas o descartadas:** ninguna descartada.
+- **Tiempo:** 22:49–23:17.
+- **Commits:** este commit y los 5 anteriores (la spec con los hallazgos y las cuatro correcciones), en el PR #19.

@@ -59,7 +59,7 @@ describe('versiones', () => {
     }
   });
 
-  it('son las versiones de la tabla de la spec', () => {
+  it('son las versiones de las tablas de las specs (arquitectura y documentación de la API)', () => {
     expect(paquete.dependencies).toEqual({
       cors: '2.8.6',
       dotenv: '18.0.4',
@@ -68,6 +68,10 @@ describe('versiones', () => {
       mysql2: '3.24.5',
       sequelize: '6.37.8',
       'sequelize-cli': '6.6.5',
+      // Las suma la tarjeta A-01 (spec de documentación de la API).
+      'swagger-ui-dist': '5.33.0',
+      'swagger-ui-express': '5.0.1',
+      yaml: '2.9.1',
     });
     expect(paquete.devDependencies).toMatchObject({
       vitest: '5.0.2',

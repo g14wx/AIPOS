@@ -1,8 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { createRequire } from 'node:module';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 const require = createRequire(import.meta.url);
-const { cargarConfig } = require('../src/config');
+const { cargarConfig, cargarArchivoEnv } = require('../src/config');
 
 const base = {
   CORS_ORIGIN: 'http://localhost:5173',
@@ -52,6 +55,62 @@ describe('src/config.js', () => {
     );
   });
 
+  it('acepta un origen con esquema, servidor y puerto, y el que no escribe el puerto por defecto', () => {
+    const validos = [
+      'http://localhost:5173',
+      'https://pos.example.com',
+      'http://127.0.0.1:5191',
+      'http://[::1]:5173',
+    ];
+    for (const origen of validos) {
+      expect(cargarConfig({ ...base, CORS_ORIGIN: origen }).corsOrigenes).toEqual([origen]);
+    }
+  });
+
+  it('rechaza un origen que nunca coincidiría con el Origin que manda el navegador', () => {
+    const invalidos = [
+      'localhost:5173', // sin esquema
+      'pantalla', // texto suelto
+      'http://', // sin servidor
+      'http://localhost:5173/app', // con ruta
+      'http://localhost:5173?x=1', // con parámetros
+      'http://localhost:5173#inicio', // con fragmento
+      'http://usuario@localhost:5173', // con usuario
+      'http://localhost:80', // el puerto por defecto no se escribe
+      'https://pos.example.com:443', // el puerto por defecto no se escribe
+      'HTTP://localhost:5173', // el navegador manda el esquema en minúsculas
+      'http://LOCALHOST:5173', // y el servidor en minúsculas
+    ];
+    for (const origen of invalidos) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: origen }), origen).toThrow('CORS_ORIGIN');
+    }
+  });
+
+  it('con varios orígenes, uno mal escrito hace fallar el arranque y el mensaje lo nombra', () => {
+    expect(() => cargarConfig({ ...base, CORS_ORIGIN: 'http://a.test, b.test:8080' })).toThrow(
+      /CORS_ORIGIN.*"b\.test:8080"/,
+    );
+  });
+
+  it('rechaza un esquema que no es http ni https: la pantalla se abre con uno de los dos', () => {
+    const invalidos = [
+      'ftp://example.com',
+      'ws://example.com',
+      'wss://example.com:8443',
+      'file:///pantalla',
+      'chrome-extension://abcdef',
+    ];
+    for (const origen of invalidos) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: origen }), origen).toThrow('CORS_ORIGIN');
+    }
+  });
+
+  it('rechaza una lista sin ningún origen, como "," o " , ,"', () => {
+    for (const lista of [',', ',,,', ' , , ']) {
+      expect(() => cargarConfig({ ...base, CORS_ORIGIN: lista }), lista).toThrow('CORS_ORIGIN');
+    }
+  });
+
   it('rechaza un PORT que no es un puerto', () => {
     expect(() => cargarConfig({ ...base, PORT: 'abc' })).toThrow('PORT');
     expect(() => cargarConfig({ ...base, PORT: '70000' })).toThrow('PORT');
@@ -77,11 +136,23 @@ describe('src/config.js', () => {
     expect(() => cargarConfig({ ...base, NODE_ENV: 'test' })).toThrow('MYSQL_TEST_DATABASE');
   });
 
-  it('una variable que ya está en el entorno gana sobre el .env', () => {
-    process.env.AIPOS_PRUEBA_DOTENV = 'del-entorno';
-    const { cargarArchivoEnv } = require('../src/config');
-    cargarArchivoEnv();
-    expect(process.env.AIPOS_PRUEBA_DOTENV).toBe('del-entorno');
-    delete process.env.AIPOS_PRUEBA_DOTENV;
+  it('una variable que ya está en el entorno gana sobre el .env, y las demás salen del .env', () => {
+    // Un .env de prueba con dos variables; una de ellas ya está en el entorno.
+    const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'aipos-env-'));
+    const archivo = path.join(carpeta, '.env');
+    fs.writeFileSync(
+      archivo,
+      'AIPOS_PRUEBA_EN_AMBOS=del-archivo\nAIPOS_PRUEBA_SOLO_ARCHIVO=del-archivo\n',
+    );
+    process.env.AIPOS_PRUEBA_EN_AMBOS = 'del-entorno';
+    try {
+      cargarArchivoEnv(archivo);
+      expect(process.env.AIPOS_PRUEBA_EN_AMBOS).toBe('del-entorno');
+      expect(process.env.AIPOS_PRUEBA_SOLO_ARCHIVO).toBe('del-archivo');
+    } finally {
+      delete process.env.AIPOS_PRUEBA_EN_AMBOS;
+      delete process.env.AIPOS_PRUEBA_SOLO_ARCHIVO;
+      fs.rmSync(carpeta, { recursive: true, force: true });
+    }
   });
 });

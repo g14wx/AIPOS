@@ -14,6 +14,8 @@ guía (tile, regla, skill, eval) están definidas en el [glosario](../lenguaje-u
 | `g14wxz/entrega-trazable` | 1 regla y las skills `flujo-entregable`, `bitacora-ia` y `readme-entrega` | Que cada entregable se vea claro en git, que cada tarea del agente quede en la bitácora y que el README cumpla los 12 puntos. |
 | `g14wxz/mysql-sequelize-procedimientos` | 1 regla y las skills `mysql-stored-procedure-authoring` y `sequelize-call-procedure` | Que el procedimiento almacenado se cree y se llame bien desde Sequelize 6: sin `DELIMITER` en lo que manda Node, un `.sql` que también corre con el cliente `mysql`, dinero en `DECIMAL(10,2)` y errores de MySQL traducidos a respuestas HTTP. |
 | `g14wxz/vue2-vuetify2-vite` | 1 regla y las skills `vue2-vuetify2-vite-setup` y `vuetify2-components` | Que el frontend use Vue 2.7 y Vuetify 2.7 con Vite 7, sin colar versiones ni código de Vue 3 o Vuetify 3. |
+| `g14wxz/grafo-del-proyecto` | 1 regla | Que el agente consulte el grafo del proyecto antes de empezar una tarea y que el grafo entre en cada commit. La guía está en [graphify-setup.md](graphify-setup.md). |
+| `tessl-labs/spec-driven-development` | 3 reglas y las skills `requirement-gathering`, `spec-writer`, `spec-verification` y `work-review` | Que no se escriba código sin una spec aprobada en `specs/`, y que el trabajo se revise contra esa spec. Viene del registro de Tessl, no de `tessl-plugins/`. |
 
 La lista completa de tiles instalados está en `tessl.json`.
 

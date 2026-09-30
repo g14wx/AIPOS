@@ -1,0 +1,4 @@
+# Scripts de shell con saltos de línea LF en cualquier sistema: en Windows, git puede escribirlos con CRLF, y con
+# CRLF `#!/bin/sh` no corre. Incluye el hook de git y la copia que usa el eval del tile grafo-del-proyecto.
+**/.githooks/* text eol=lf
+*.sh text eol=lf

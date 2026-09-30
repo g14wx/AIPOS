@@ -608,3 +608,62 @@ para `frontend/src/api/` y Adapter para la animación Lottie (`specs/arquitectur
 | No hay productos de ejemplo (seeder). Decidió el agente. | Cargar productos de ejemplo, como la leche entera `7501055300075`. | Hacía falta una carpeta, una ruta en `.sequelizerc` y un script que la arquitectura no lista. La subtarea se cerró como «no se hace». |
 | Se apagaron los PR de seguridad automáticos de Dependabot, y las alertas de Vue 2 y Vuetify 2 se revisan a mano. Decidió la persona, el 2026-09-29. | El agente dijo que `ignore` en `.github/dependabot.yml` también frenaba los PR de seguridad. | No los frenó: Dependabot abrió PR que subían Vue y Vuetify a la versión 3, y la prueba exige la 2. |
 
+## 12. Consideraciones
+
+### Para ejecutar
+
+- **Versiones.** Node 24 (`.nvmrc`; los dos `package.json` piden 24 o más), Docker con Compose v2 y MySQL 8.4. Con un MySQL
+  anterior a 8.0.16, MySQL no aplica las restricciones `CHECK`. Nunca `mysql:latest` ni una 9.x: Sequelize 6 soporta MySQL
+  5.7 y 8.
+- **El `.env`.** Está en la raíz y lo leen el backend y la pantalla. Si falta una variable obligatoria, o `CORS_ORIGIN` está
+  mal escrito (sin esquema, con barra final o con `*`), la API no arranca y dice cuál. Si falta `VITE_API_URL`, la pantalla
+  falla al abrirse y el mensaje lo dice.
+- **Puertos.** Si el puerto de la API está ocupado, la API avisa (`EADDRINUSE`) y sale. Vite falla si el de la pantalla está
+  ocupado, porque `CORS_ORIGIN` apunta a él. Cómo cambiarlos está en el punto 5.
+- **Claves.** Las que empiezan con «cambiar-» son de ejemplo: hay que cambiarlas. La API nunca entra a MySQL como root.
+- **Datos.** La base empieza sin productos. `docker compose down -v` borra los datos de esa copia (punto 6).
+
+### Trampas conocidas
+
+- `npm i vuetify` y `npm i vite` instalan versiones que no funcionan con Vue 2. Por eso las versiones van fijas (punto 2).
+- `DELIMITER` no se puede mandar por Sequelize: da el error 1064 (punto 7).
+- `DECIMAL` sin tamaño se vuelve `DECIMAL(10,0)` y pierde los centavos. mysql2 devuelve `DECIMAL` como texto, y «25.00» +
+  «22.00» pega los textos en vez de sumar. Por eso el dinero es texto en JavaScript y se calcula en SQL.
+- Un procedimiento que crea root, el usuario de la app ya no lo puede cambiar ni borrar.
+- `sequelize.transaction()` alrededor del `CALL` confirma sin avisar lo que tuviera abierto (punto 7).
+- Nunca se edita una migración que ya se aplicó: se crea otra.
+- Un producto que está en una venta no se puede borrar (`ON DELETE RESTRICT`).
+
+### Limitaciones y lo que falta
+
+- **Vue 2 y Vuetify 2 ya no reciben correcciones.** `npm audit` avisa en el frontend de `vue` 2 (un ReDoS, una expresión
+  regular que puede tardar demasiado, sin corrección disponible) y de `vue-template-compiler` (XSS), y de los paquetes que
+  dependen de ellos. En el backend avisa de `uuid` dentro de `sequelize` 6.37.8. Los arreglos que propone npm son cambios de
+  versión mayor, a Vue 3 o a Sequelize 3, que rompen lo que exige la prueba: por eso no se aplican. La pantalla no usa
+  `v-html` con datos del cajero, y la API usa consultas parametrizadas. Dependabot tiene apagados los PR de seguridad
+  automáticos, porque subían Vue y Vuetify a la versión 3, y las alertas se revisan a mano.
+- **Reintentar puede repetir una venta.** Si la respuesta de «Registrar venta» se pierde, la pantalla avisa y conserva la
+  venta actual, y el cajero puede reintentar. Si MySQL ya había guardado la venta, queda repetida: no hay una llave de
+  idempotencia (punto 11). Un doble clic sí registra una sola venta.
+- **Errores que contesta Node.** Las respuestas de error de la API tienen el formato de error, salvo unos pocos errores del
+  cliente que Node contesta antes de que lleguen a Express: una petición mal formada o de un cliente lento (issue #97,
+  abierto). Una dirección o unas cabeceras de más de 16 KB dan un 400 con el formato de error (issue #60; llega con F-01).
+- **Pruebas del backend con puertos ajenos.** Las pruebas con `supertest` a veces recibían la respuesta de otro programa de
+  la máquina que escuchaba en `127.0.0.1` en el mismo puerto (issues #58 y #59). Las corrige la tarjeta F-01 (llega con F-01).
+- **Verificación de las specs.** Las skills `spec-verification` y `work-review` piden scripts que el tile no trae (issue
+  #25). El agente hizo esa verificación a mano, con un guion propio que revisa los enlaces `[@test]`.
+- **Grafo del proyecto.** El grafo no se probó en Windows y necesita Git Bash allí (issues #20 y #21). Integrar un PR con el
+  botón de GitHub no corre el hook de git y no actualiza el grafo (issue #22): hay que poner la rama al día en local antes.
+- **Sin autenticación.** La prueba no la pide: quien tiene la pantalla abierta es el cajero.
+
+### Por confirmar
+
+- **La revisión de la persona desarrolladora.** La bitácora dice «por confirmar» en su revisión de las tareas de la noche
+  del 2026-09-30 (punto 10), y algunas entradas están marcadas «reconstruido» porque se armaron desde git y GitHub.
+- **Las palabras nuevas del glosario.** `docs/lenguaje-ubicuo.md` tiene una lista «Pendientes (por confirmar)» con los
+  términos que proponen las specs.
+- **Cómo llega la versión final a `main`.** La pregunta abierta 7 de `requerimientos/README.md` sigue abierta: la regla
+  «Protect main» de GitHub solo deja squash o rebase, y eso pierde los merge commits.
+- **El clon limpio.** El punto 5 se siguió paso a paso en una copia de trabajo (Node 24, MySQL 8.4 con Docker Compose y
+  otros puertos) hasta registrar una venta en el navegador. Falta repetirlo en un clon limpio: lo hace la tarjeta E-03.
+

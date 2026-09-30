@@ -1,9 +1,9 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { createRequire } from 'node:module';
-import request from 'supertest';
 import {
   RUTA,
   anotarCodigoDeBarras,
+  api,
   borrarProductosDePrueba,
   codigoConCerosNuevo,
   codigoDeBarrasNuevo,
@@ -14,7 +14,6 @@ import {
 } from './ayudas-crear-producto.js';
 
 const require = createRequire(import.meta.url);
-const app = require('../../src/app.js');
 const { config } = require('../../src/config.js');
 
 // Necesita MySQL levantado y la base de prueba migrada (npm run migrar:prueba).
@@ -163,7 +162,7 @@ describe('los textos: se recortan y se guardan tal cual', () => {
 describe('la pantalla llama desde otro origen', () => {
   it('la petición previa de CORS (OPTIONS) deja pasar el POST del origen de la pantalla', async () => {
     const origen = config.corsOrigenes[0];
-    const respuesta = await request(app)
+    const respuesta = await api()
       .options(RUTA)
       .set('Origin', origen)
       .set('Access-Control-Request-Method', 'POST')

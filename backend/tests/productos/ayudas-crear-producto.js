@@ -1,5 +1,7 @@
+import { beforeAll, afterAll } from 'vitest';
 import request from 'supertest';
 import { createRequire } from 'node:module';
+import { abrirServidorDePrueba, cerrarServidorDePrueba } from '../servidor-de-prueba.js';
 
 // Ayudas de las pruebas de POST /api/productos. No es un archivo de pruebas: Vitest solo corre *.test.js.
 // Esas pruebas hablan con MySQL de verdad: necesitan MySQL levantado y la base de prueba migrada
@@ -10,6 +12,18 @@ const app = require('../../src/app.js');
 const sequelize = require('../../src/database.js');
 
 export const RUTA = '/api/productos';
+
+// La API de prueba: un servidor atado a 127.0.0.1 que se abre antes de las pruebas del archivo que importa esta
+// ayuda y se cierra al terminar. Con request(app), una petición puede caer en otro programa de la máquina que
+// escucha en el mismo puerto (issue #58): un 403, un socket hang up o un ECONNRESET que la API no da.
+let servidor;
+beforeAll(async () => {
+  servidor = await abrirServidorDePrueba(app);
+});
+afterAll(() => cerrarServidorDePrueba(servidor));
+
+// Una petición a la API de prueba, para armarla con .post(), .options(), .set() y .send().
+export const api = () => request(servidor);
 
 // Test Fixture: la API confirma cada producto (no hay transacción que descartar), así que cada prueba usa
 // códigos de barras propios y los borra al terminar, aunque falle. `productos` queda como estaba.
@@ -54,7 +68,7 @@ export async function borrarProductosDePrueba() {
 
 // Lo que hace la pantalla: un POST con un cuerpo JSON. Sin `cuerpo`, manda la petición sin cuerpo.
 export function crearProductoPorApi(cuerpo) {
-  const peticion = request(app).post(RUTA);
+  const peticion = api().post(RUTA);
   return cuerpo === undefined ? peticion : peticion.send(cuerpo);
 }
 

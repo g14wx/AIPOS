@@ -26778,7 +26778,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "backend/tests/productos/buscar-productos.test.js",
-      "source_location": "L395",
+      "source_location": "L407",
       "weight": 1.0
     },
     {

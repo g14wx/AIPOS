@@ -363,6 +363,18 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
     "\\' OR 1=1 --",
     "%' OR 1=1 --",
     'lech%" OR ""="',
+    // El texto pasa por dos caminos: el patrón del LIKE (escapado por Sequelize) y el replacements del orden.
+    // Estas mezclas de barra invertida, comilla y :texto son las que confundirían al segundo con el primero.
+    "\\':texto",
+    "\\\\':texto",
+    "':texto",
+    "\\' OR :texto OR \\'",
+    ':texto\\',
+    '\\:texto',
+    "x\\\\\\':texto --",
+    "%\\':texto",
+    "_\\':texto",
+    '\u0000ab',
   ];
 
   it('ninguna búsqueda, ni con SQL hostil, cambia la tabla productos', async () => {
@@ -397,6 +409,15 @@ describe('buscar solo lee y el texto nunca se pega en el SQL', () => {
       expect(respuesta.body).toEqual([]);
     },
   );
+
+  it('un texto con comilla y con el nombre del parámetro (:texto) se busca tal cual y encuentra su producto', async () => {
+    await crear({ nombre: "O'Brien :texto", codigoBarras: 'OB-1', precio: '9.00' }, ...EJEMPLOS);
+    for (const texto of ["'brien :texto", "O'Brien :texto", 'n :texto']) {
+      const respuesta = await buscar(texto);
+      expect(respuesta.status, `${texto} -> ${respuesta.text}`).toBe(200);
+      expect(nombresDe(respuesta), texto).toEqual(["O'Brien :texto"]);
+    }
+  });
 
   it('los símbolos de los parámetros con nombre y de posición se buscan como texto normal', async () => {
     await crear(

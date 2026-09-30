@@ -670,7 +670,6 @@ describe('registrar la venta desde la pantalla (V-08)', () => {
   // La venta del ejemplo de la spec: 2 leches a 22.00 y 1 pan a 3.50, que suman 47.50.
   const armarLaVenta = () => dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
   const franjaDeEstado = () => zonaVenta().find('[role="status"]');
-  const franjaDeError = () => zonaVenta().find('[role="alert"]');
   const asentar = async () => {
     for (let vuelta = 0; vuelta < 6; vuelta += 1) await wrapper.vm.$nextTick();
   };
@@ -678,13 +677,6 @@ describe('registrar la venta desde la pantalla (V-08)', () => {
     await botonRegistrar().trigger('click');
     await asentar();
   };
-  const noExiste = () =>
-    Object.assign(new Error('Un producto de la venta ya no existe. Revisa la venta actual.'), {
-      status: 422,
-      codigo: 'PRODUCTO_NO_EXISTE',
-      mensaje: 'Un producto de la venta ya no existe. Revisa la venta actual.',
-      detalles: [],
-    });
 
   describe('éxito (criterio 1)', () => {
     beforeEach(() => {

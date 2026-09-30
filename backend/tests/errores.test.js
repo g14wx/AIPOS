@@ -162,6 +162,42 @@ describe('manejador de errores único', () => {
     expect(respuesta.body.error.codigo).toBe('ERROR_INTERNO');
   });
 
+  it('un cuerpo que dice ir comprimido y no lo está es un 400 DATOS_INVALIDOS, no un 500', async () => {
+    const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const app = appConRuta(async () => {});
+    for (const codificacion of ['gzip', 'deflate', 'br']) {
+      const respuesta = await request(app)
+        .post('/api/prueba/falla')
+        .set('Content-Type', 'application/json')
+        .set('Content-Encoding', codificacion)
+        .send('{"hola":"mundo"}');
+      expect(respuesta.status, codificacion).toBe(400);
+      expect(respuesta.body.error.codigo, codificacion).toBe('DATOS_INVALIDOS');
+      expect(typeof respuesta.body.error.mensaje).toBe('string');
+    }
+    // Es un error del cliente: no se cuenta como error del servidor ni llena el log.
+    expect(registro).not.toHaveBeenCalled();
+  });
+
+  it('un error 4xx de Express sin type es un 400, y uno 5xx sigue siendo un 500', async () => {
+    const registro = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const delCliente = appConRuta(async () => {
+      throw Object.assign(new Error('Decompression failed'), { status: 400, expose: true });
+    });
+    const respuesta = await request(delCliente).get('/api/prueba/falla');
+    expect(respuesta.status).toBe(400);
+    expect(respuesta.body.error.codigo).toBe('DATOS_INVALIDOS');
+    expect(registro).not.toHaveBeenCalled();
+
+    const delServidor = appConRuta(async () => {
+      throw Object.assign(new Error('Servicio caído'), { status: 503 });
+    });
+    const otra = await request(delServidor).get('/api/prueba/falla');
+    expect(otra.status).toBe(500);
+    expect(otra.body.error.codigo).toBe('ERROR_INTERNO');
+    expect(registro).toHaveBeenCalledTimes(1);
+  });
+
   it('una ruta que no existe es un 404 NO_ENCONTRADO con el mismo formato', async () => {
     const app = appConRuta(async () => {});
     for (const ruta of ['/api/no-existe', '/otra-cosa']) {

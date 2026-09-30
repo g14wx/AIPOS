@@ -113,3 +113,34 @@ describe('el documento se lee una vez, al arrancar', () => {
     });
   });
 });
+
+describe('la página de demostración de swagger-ui-dist no se sirve', () => {
+  it.each([
+    '/api/docs/index.html',
+    '/api/docs/swagger-initializer.js',
+    '/api/docs/oauth2-redirect.html',
+  ])('GET %s responde 404 NO_ENCONTRADO con el formato de error', async (ruta) => {
+    const respuesta = await request(app).get(ruta);
+    expect(respuesta.status).toBe(404);
+    expect(respuesta.headers['content-type']).toMatch(/application\/json/);
+    expect(respuesta.body.error.codigo).toBe('NO_ENCONTRADO');
+  });
+
+  it('cada archivo que pide la página de AIPOS sigue respondiendo 200', async () => {
+    const pagina = await request(app).get('/api/docs/');
+    const archivos = [...pagina.text.matchAll(/(?:href|src)="\.\/([^"]+)"/g)].map((m) => m[1]);
+    expect(archivos).toEqual(expect.arrayContaining(['swagger-ui.css', 'swagger-ui-init.js']));
+    for (const archivo of archivos) {
+      const respuesta = await request(app).get(`/api/docs/${archivo}`);
+      expect(respuesta.status, archivo).toBe(200);
+    }
+  });
+
+  it('la página de AIPOS no menciona la página de demostración ni el documento Petstore', async () => {
+    const pagina = await request(app).get('/api/docs/');
+    const inicio = await request(app).get('/api/docs/swagger-ui-init.js');
+    for (const texto of [pagina.text, inicio.text]) {
+      expect(texto).not.toMatch(/petstore|swagger-initializer|index\.html/i);
+    }
+  });
+});

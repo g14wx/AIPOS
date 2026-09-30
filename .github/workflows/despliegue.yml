@@ -1,0 +1,193 @@
+# Pipeline de despliegue de AIPOS. Spec: specs/despliegue.spec.md, sección "El workflow".
+# Arranca solo cuando la persona desarrolladora sube una etiqueta release-MAYOR.MENOR.PARCHE. Los cinco jobs van uno
+# detrás de otro; si uno falla, los siguientes no corren. GitHub corre el workflow que está en el commit de la etiqueta,
+# así que este archivo tiene que estar en ProductionEnv antes de subir la primera.
+name: Despliegue
+
+on:
+  push:
+    tags: ['release-*']
+
+permissions:
+  contents: read
+
+# Dos etiquetas seguidas se ponen en fila: no se cancelan ni se pisan.
+concurrency:
+  group: despliegue-produccion
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    name: Revisar la etiqueta
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: La etiqueta tiene la forma release-X.Y.Z y su commit está en ProductionEnv
+        run: bash despliegue/revisar-etiqueta.sh "$GITHUB_REF_NAME"
+
+  probar-backend:
+    name: Probar el backend
+    needs: revisar
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: ci-clave-de-prueba
+          MYSQL_DATABASE: aipos
+          MYSQL_USER: aipos
+          MYSQL_PASSWORD: ci-clave-de-prueba
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 --silent"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_PORT: '3306'
+      MYSQL_DATABASE: aipos
+      MYSQL_TEST_DATABASE: aipos_prueba
+      MYSQL_USER: aipos
+      MYSQL_PASSWORD: ci-clave-de-prueba
+      MYSQL_ROOT_PASSWORD: ci-clave-de-prueba
+      CORS_ORIGIN: http://localhost:5173
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm run preparar-prueba
+      - run: npm test
+
+  probar-frontend:
+    name: Probar la pantalla
+    needs: revisar
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VITE_API_URL: http://127.0.0.1:3000
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+
+  construir:
+    name: Construir las imágenes
+    needs: [probar-backend, probar-frontend]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Construir y subir la imagen del backend
+        uses: docker/build-push-action@v7
+        with:
+          context: backend
+          push: true
+          tags: ghcr.io/g14wx/aipos-backend:${{ github.ref_name }}
+      - name: Construir y subir la imagen de la pantalla
+        uses: docker/build-push-action@v7
+        with:
+          context: frontend
+          push: true
+          build-args: |
+            VITE_API_URL=https://aipos-back.salsalvador.io
+          tags: ghcr.io/g14wx/aipos-frontend:${{ github.ref_name }}
+
+  desplegar:
+    name: Desplegar en producción
+    needs: construir
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Se detiene hasta que la persona desarrolladora aprueba el despliegue en el environment production.
+    environment: production
+    permissions:
+      contents: read
+      packages: read
+    env:
+      VERSION: ${{ github.ref_name }}
+      SERVIDOR: aipos.salsalvador.io
+      USUARIO: ${{ vars.SERVIDOR_USUARIO }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Preparar la clave y la configuración de SSH
+        env:
+          SSH_CLAVE_PRIVADA: ${{ secrets.SSH_CLAVE_PRIVADA }}
+          SSH_HOSTS_CONOCIDOS: ${{ secrets.SSH_HOSTS_CONOCIDOS }}
+        run: |
+          test -n "$USUARIO" || { echo "Falta la variable SERVIDOR_USUARIO del environment production." >&2; exit 1; }
+          test -n "$SSH_CLAVE_PRIVADA" || { echo "Falta el secreto SSH_CLAVE_PRIVADA del environment production." >&2; exit 1; }
+          test -n "$SSH_HOSTS_CONOCIDOS" || { echo "Falta el secreto SSH_HOSTS_CONOCIDOS del environment production." >&2; exit 1; }
+          install -m 700 -d ~/.ssh
+          umask 077
+          printf '%s\n' "$SSH_CLAVE_PRIVADA" > ~/.ssh/clave_despliegue
+          chmod 600 ~/.ssh/clave_despliegue
+          printf '%s\n' "$SSH_HOSTS_CONOCIDOS" > ~/.ssh/known_hosts
+          {
+            echo "Host servidor"
+            echo "  HostName $SERVIDOR"
+            echo "  User $USUARIO"
+            echo "  IdentityFile ~/.ssh/clave_despliegue"
+            echo "  IdentitiesOnly yes"
+            echo "  StrictHostKeyChecking yes"
+            echo "  UserKnownHostsFile ~/.ssh/known_hosts"
+          } > ~/.ssh/config
+      - name: Copiar el compose y el script a la carpeta de la versión
+        run: |
+          ssh servidor mkdir -p /srv/aipos/versiones/"$VERSION"
+          scp docker-compose.produccion.yml despliegue/desplegar.sh "servidor:/srv/aipos/versiones/$VERSION/"
+      - name: Entrar a ghcr.io en el servidor con el token de este job
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: printf '%s' "$GITHUB_TOKEN" | ssh servidor docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+      - name: Desplegar la versión en el servidor
+        id: desplegar
+        run: |
+          # La etiqueta ya la validó el job revisar (release-X.Y.Z), así que es seguro expandirla aquí, en el runner.
+          # shellcheck disable=SC2029
+          ssh servidor bash /srv/aipos/versiones/"$VERSION"/desplegar.sh desplegar "$VERSION"
+      - name: Revisar desde internet que AIPOS responde
+        id: internet
+        run: >-
+          bash despliegue/revisar-produccion.sh
+          https://aipos.salsalvador.io
+          https://aipos-back.salsalvador.io
+          https://aipos.salsalvador.io
+      # Solo si el paso de desplegar salió bien y la revisión desde internet falló: la versión nueva ya está activa. Si
+      # falló el paso de desplegar, el script ya dejó corriendo la que estaba activa y volver bajaría a una más vieja.
+      - name: Volver a la versión anterior
+        if: failure() && steps.internet.outcome == 'failure'
+        run: ssh servidor bash /srv/aipos/versiones/"$VERSION"/desplegar.sh volver
+      - name: Salir de ghcr.io y borrar la clave
+        if: always()
+        run: |
+          ssh servidor docker logout ghcr.io || echo "No se pudo salir de ghcr.io en el servidor."
+          rm -f ~/.ssh/clave_despliegue ~/.ssh/known_hosts ~/.ssh/config

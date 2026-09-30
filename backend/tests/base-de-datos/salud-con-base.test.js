@@ -1,10 +1,11 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import request from 'supertest';
 import net from 'node:net';
-import { execFile, execFileSync } from 'node:child_process';
+import { once } from 'node:events';
+import { execFile, execFileSync, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createRequire } from 'node:module';
-import { carpetaBackend } from './ayudas.js';
+import { carpetaBackend, crearProxyCongelable } from './ayudas.js';
 
 const require = createRequire(import.meta.url);
 const sequelize = require('../../src/database.js');
@@ -129,7 +130,8 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
   });
 
   it('con un MySQL callado de verdad, responde 500 en pocos segundos y la API sigue viva', async () => {
-    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado.
+    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado, que
+    // deja pendiente el saludo con el que empieza toda conexión (la API todavía no tiene ninguna abierta).
     const conexiones = [];
     const callado = net.createServer((socket) => conexiones.push(socket));
     const puerto = await new Promise((resolve) => {
@@ -138,16 +140,20 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
     const programa = `
       const request = require('supertest');
       const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
       (async () => {
         const inicio = Date.now();
         const respuesta = await request(app).get('/api/salud');
         const milisegundos = Date.now() - inicio;
         const otra = await request(app).get('/api/no-existe');
         console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, milisegundos, otra: otra.status }));
-        process.exit(0);
+        await sequelize.close();
       })();
     `;
     try {
+      // Sin process.exit: si el intento de conexión sigue pendiente, sequelize.close() lo espera y el
+      // programa tarda en cerrarse. Con el intento cortado a los 3 s, se cierra a los pocos segundos.
+      const arranque = Date.now();
       const { stdout } = await correr('node', ['-e', programa], {
         cwd: carpetaBackend,
         env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(puerto) },
@@ -160,9 +166,96 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
       expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puerto));
       expect(resultado.milisegundos).toBeLessThan(6000);
       expect(resultado.otra).toBe(404);
+      // El intento de conexión con el saludo pendiente se corta junto con el tope de 3 s de la salud.
+      // Sin cortarlo, mysql2 lo deja abierto 10 s (connectTimeout por defecto) y el programa tarda más.
+      expect(Date.now() - arranque).toBeLessThan(8000);
     } finally {
       conexiones.forEach((socket) => socket.destroy());
       callado.close();
     }
   }, 30_000);
+
+  // Issue #54: al vencer el tope, la API respondía 500 pero la consulta seguía pendiente y su conexión
+  // ocupada. Aquí la API abre su conexión con MySQL a través de un intermediario que después se congela:
+  // la segunda petición usa esa conexión abierta y MySQL no contesta. El programa hijo y la prueba se
+  // hablan por el canal IPC: el hijo avisa cuando la conexión está abierta y la prueba le dice cuándo seguir.
+  it('con la conexión ya abierta y MySQL congelado, corta la consulta y libera la conexión del pool', async () => {
+    const proxy = await crearProxyCongelable(sequelize.config.host, Number(sequelize.config.port));
+    const programa = `
+      const request = require('supertest');
+      const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
+      const avisar = (mensaje) => new Promise((resolve) => process.send(mensaje, resolve));
+      (async () => {
+        const primera = await request(app).get('/api/salud');
+        const orden = new Promise((resolve) => process.once('message', resolve));
+        await avisar({ fase: 'abierta', estado: primera.status });
+        await orden;
+        const inicio = Date.now();
+        const segunda = await request(app).get('/api/salud');
+        const milisegundos = Date.now() - inicio;
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        const enUso = sequelize.connectionManager.pool.using;
+        await avisar({ fase: 'fin', estado: segunda.status, milisegundos, enUso });
+        process.disconnect();
+        await sequelize.close();
+      })();
+    `;
+    const hijo = spawn('node', ['-e', programa], {
+      cwd: carpetaBackend,
+      env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(proxy.puerto) },
+      stdio: ['ignore', 'ignore', 'ignore', 'ipc'],
+    });
+    const hijoTermino = once(hijo, 'exit');
+    const siguienteMensaje = () =>
+      Promise.race([
+        once(hijo, 'message').then(([mensaje]) => mensaje),
+        hijoTermino.then(() =>
+          Promise.reject(new Error('El programa hijo terminó antes de avisar.')),
+        ),
+      ]);
+    let plazo;
+    try {
+      expect(await siguienteMensaje()).toEqual({ fase: 'abierta', estado: 200 });
+      proxy.congelar();
+      const fin = siguienteMensaje();
+      hijo.send('seguir');
+      const resultado = await fin;
+      expect(resultado.estado).toBe(500);
+      // Respondió el tope de 3 s, no un fallo rápido.
+      expect(resultado.milisegundos).toBeGreaterThanOrEqual(2900);
+      // La consulta de salud ya no ocupa una conexión del pool.
+      expect(resultado.enUso).toBe(0);
+      // Sin consultas colgadas, sequelize.close() termina y el programa se cierra solo (sin process.exit).
+      const seColgo = new Promise((resolve) => {
+        plazo = setTimeout(() => resolve('colgado'), 10_000);
+      });
+      expect(await Promise.race([hijoTermino, seColgo])).toEqual([0, null]);
+    } finally {
+      clearTimeout(plazo);
+      hijo.kill('SIGKILL');
+      await proxy.cerrar();
+    }
+  }, 30_000);
+
+  it('si la consulta esperaba lugar en el pool y llega cuando ya venció el tiempo, no se envía', async () => {
+    const { connectionManager } = sequelize;
+    const { pool } = connectionManager;
+    // Se ocupan todos los lugares del pool: la consulta de salud tiene que esperar el suyo.
+    const ocupadas = [];
+    for (let i = 0; i < pool.maxSize; i += 1)
+      ocupadas.push(await connectionManager.getConnection());
+    const enviar = vi.spyOn(sequelize.dialect.Query.prototype, 'run');
+    try {
+      await expect(consultarSalud(100)).rejects.toThrow(/no contest/i);
+      expect(pool.waiting).toBe(1);
+      // Se libera un lugar: la consulta que esperaba lo toma, ve que ya venció y no envía nada.
+      connectionManager.releaseConnection(ocupadas.pop());
+      await vi.waitFor(() => expect(pool.waiting).toBe(0));
+      await vi.waitFor(() => expect(pool.using).toBe(ocupadas.length));
+      expect(enviar).not.toHaveBeenCalled();
+    } finally {
+      ocupadas.forEach((conexion) => connectionManager.releaseConnection(conexion));
+    }
+  }, 10_000);
 });

@@ -1,0 +1,3 @@
+# ShellCheck para las pruebas de despliegue: sigue el `source comun.sh` de cada prueba, corra desde donde corra.
+external-sources=true
+source-path=SCRIPTDIR

@@ -28,11 +28,11 @@ los `[@test]`.
 
 ## Quién implementa qué
 
-Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
+Una sola pantalla, cuatro tarjetas: V-04 va primero, y V-05, V-06 y V-07 dependen de V-04 y pueden correr a la vez.
 
 | Parte | Tarjeta | Qué se entrega |
 |---|---|---|
-| Módulo `src/ventaActual/`: `agregarAVentaActual`, subtotales, `calcularTotal`, `ventaActualEsValida`, `detallesParaRegistrar`, `vaciarVentaActual` | V-04 | Frontend |
+| Módulo `src/ventaActual/`: `agregarAVentaActual`, `ventaActualEsValida` y `detallesParaRegistrar`, más lo que B-04 ya dejó en `ventaActual.js` (`vaciarVentaActual`, `calcularSubtotal` y `calcularTotal`) | V-04 | Frontend |
 | `almacenamiento.js`: guardar la venta actual en el navegador, leerla al abrir y vaciarla | V-04 | Frontend |
 | `VentaActual.vue`: tabla de detalles, total siempre a la vista, venta actual vacía (con `venta-vacia.json`) y un botón provisional «Registrar venta» | V-04 | Frontend |
 | Conectar `producto-elegido` de `BuscadorProductos.vue` con `agregarAVentaActual` en `App.vue` | V-04 | Frontend |
@@ -41,7 +41,17 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 | `eliminarDetalle` y el botón «Eliminar» de cada detalle | V-07 | Frontend |
 
 - V-04 depende de P-05 (`BuscadorProductos.vue`, que emite `producto-elegido`) y de B-04 (`App.vue`, `AnimacionLottie.vue`,
-  `src/dinero.js`). V-05, V-06 y V-07 dependen de V-04.
+  `src/dinero.js`, `VentaActual.vue` y `src/ventaActual/ventaActual.js`). V-05, V-06 y V-07 dependen de V-04.
+- V-05, V-06 y V-07 comparten `VentaActual.vue`, `src/ventaActual/ventaActual.js`, `src/ventaActual/validaciones.js` y
+  `frontend/tests/pantalla-venta-actual.test.js`. V-04 deja creados `VentaActual.vue`, `ventaActual.js` y la prueba;
+  `validaciones.js` lo crea la primera de V-05 y V-06 que se integra. Cada una agrega lo suyo, y la que se integra
+  después pone su rama al día con `feature/ventas` y junta lo de las otras (spec de arquitectura, "Carpetas").
+- B-04 ya dejó en `src/ventaActual/ventaActual.js` `vaciarVentaActual`, `calcularSubtotal` y `calcularTotal`, con su prueba
+  `frontend/tests/venta-actual/venta-vacia.test.js`. V-04 agrega el resto a ese mismo archivo y no cambia lo que hacen
+  esas tres funciones.
+- B-04 ya dejó `VentaActual.vue` con la propiedad `ventaActual`, el texto «Busca un producto para empezar la venta» con un
+  ícono (`mdi-barcode-scan`) y el total `0.00` (`data-total`, `aria-live="polite"`), sin tabla ni botón. V-04 agrega la
+  tabla y el botón provisional, y cambia el ícono por la animación `venta-vacia.json`.
 - El botón «Registrar venta» de verdad lo hace V-08 (`RegistrarVenta.vue`, spec `registrar-venta`). V-04 deja en su lugar un
   botón provisional con el mismo texto que solo se deshabilita cuando la venta actual no es válida; V-08 lo reemplaza sin
   tocar el módulo (ver "Lo que V-08 espera de esta spec").
@@ -50,8 +60,9 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 
 ## Reglas de negocio
 
-Salen de RF-03 a RF-08, RN-05 a RN-09, y de las decisiones de la persona desarrolladora del 2026-09-30 (preguntas abiertas
-1, 2, 4 y 6 de `requerimientos/README.md`).
+Salen de RF-03 a RF-08, RN-05 a RN-09 y RN-14, y de las decisiones de la persona desarrolladora del 2026-09-30 (preguntas
+abiertas 1, 2, 4 y 6 de `requerimientos/README.md`). RN-14 sale de la pregunta abierta 9, que resolvió el orquestador el
+2026-09-30 y que la persona desarrolladora puede confirmar o revertir.
 
 - **RN-05.** El precio aplicado empieza igual al precio del producto. Cambiarlo no cambia el precio del producto: la
   pantalla nunca llama a la API para esto. Es 0 o más, hasta 99 999.99, con 2 decimales como máximo. **El 0 se permite**
@@ -60,9 +71,12 @@ Salen de RF-03 a RF-08, RN-05 a RN-09, y de las decisiones de la persona desarro
 - **RN-07.** Un producto tiene un solo detalle en la venta actual. Si se agrega otra vez, su cantidad sube en 1.
 - **RN-08.** Subtotal = precio aplicado × cantidad. Total = suma de los subtotales.
 - **RN-09.** El total de la pantalla es solo para mostrar. El que vale lo calcula MySQL al registrar la venta.
-- **Dinero.** Los importes se calculan en centavos (números enteros) con `src/dinero.js` y se muestran con 2 decimales, sin
-  símbolo de moneda y sin separador de miles (`47.50`, `99899990.01`), igual que la API. Nunca se suman ni se multiplican
-  decimales de JavaScript.
+- **RN-14.** Una venta tiene como máximo 100 detalles. Con el producto 101, la pantalla no lo agrega y avisa «Una venta
+  puede tener como máximo 100 productos.». Es la misma regla que aplican la API y el procedimiento de registrar venta
+  (spec `registrar-venta`), y evita que el total pase de `DECIMAL(12,2)`.
+- **Dinero.** Los precios aplicados, los subtotales y el total se calculan en centavos (números enteros) con
+  `src/dinero.js` y se muestran con 2 decimales, sin símbolo de moneda y sin separador de miles (`47.50`,
+  `99899990.01`), igual que la API. Nunca se suman ni se multiplican decimales de JavaScript.
 - **Persistencia.** La venta actual se guarda en `localStorage`, se recupera al abrir la pantalla y se vacía cuando la API
   confirma la venta (V-08). Todo acceso va dentro de `try/catch`: si el navegador no deja guardar, la venta sigue en memoria.
 - **Un error no borra la venta actual.** Un precio aplicado o una cantidad inválidos bloquean «Registrar venta»; no quitan
@@ -133,6 +147,9 @@ validarCantidad(valor)                             // { valido, valor | mensaje 
 - Si la cantidad ya es 999, no la sube: devuelve **la misma venta**. `App.vue` lo nota (`nueva === anterior`) y avisa al
   cajero (ver "`App.vue`").
   `[@test] ../frontend/tests/venta-actual/agregar.test.js`
+- Si el producto no está y la venta actual ya tiene 100 detalles (RN-14), no lo agrega: devuelve **la misma venta**, y
+  `App.vue` avisa al cajero igual que con la cantidad 999.
+  `[@test] ../frontend/tests/venta-actual/agregar.test.js`
 - Si el detalle tenía un error de cantidad escrito, al subir su cantidad ese error se quita: el campo vuelve a mostrar el
   valor válido.
   `[@test] ../frontend/tests/venta-actual/agregar.test.js`
@@ -155,13 +172,13 @@ validarCantidad(valor)                             // { valido, valor | mensaje 
 - Un precio aplicado de `0.00` da subtotal `0.00`.
   `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 - El módulo depende de que `aCentavos` entienda cualquier texto con la forma del dinero, también sin decimales (`"22"` da
-  `2200`) y con uno (`"22.5"` da `2250`), y de que `formatearCentavos` complete los 2 decimales. La prueba de V-04 lo
-  comprueba; si `src/dinero.js` de B-04 no lo hace, V-04 lo corrige en el mismo PR y lo anota.
+  `2200`) y con uno (`"22.5"` da `2250`), y de que `formatearCentavos` complete los 2 decimales. `src/dinero.js` de B-04 ya lo
+  hace (lo prueba `dinero.test.js`), y la prueba de V-04 lo comprueba otra vez, por si un cambio lo rompe.
   `[@test] ../frontend/tests/venta-actual/calculos.test.js`
 
 ### Validez, registro y vaciado (V-04)
 
-- `ventaActualEsValida(venta)` es `true` solo si hay al menos un detalle y `errores` está vacío (RN-10). Una
+- `ventaActualEsValida(venta)` es `true` solo si hay de 1 a 100 detalles y `errores` está vacío (RN-10 y RN-14). Una
   venta actual con solo productos a 0.00 es válida.
   `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
 - `detallesParaRegistrar(venta)` devuelve, para cada detalle y en su orden, `{ productoId, cantidad, precioAplicado }` con
@@ -247,7 +264,8 @@ guardarVentaActual(venta)  // -> true si guardó o borró, false si el navegador
   vaciarla después de registrar la venta deja el navegador sin nada guardado (RF-09, criterio 1).
   `[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
 - Lo guardado se valida entero al leerlo. Se ignora **todo** (y se empieza con la venta actual vacía) si: no es un JSON
-  válido; no es un objeto con `version` igual a 1; `detalles` no es una lista; o algún detalle no cumple: `productoId`
+  válido; no es un objeto con `version` igual a 1; `detalles` no es una lista o tiene más de 100 detalles (RN-14); o
+  algún detalle no cumple: `productoId`
   entero de 1 o más, `nombre` texto no vacío de hasta 120 caracteres, `precioAplicado` texto con la forma del dinero y de 0
   a 99 999.99, `cantidad` entero de 1 a 999, o un `productoId` repetido. Lo que se lee sale con el `precioAplicado` de 2
   decimales.
@@ -276,8 +294,9 @@ emite la venta nueva y `App.vue` la reemplaza.
 - Al recibir `producto-elegido`, llama a `agregarAVentaActual`, guarda el resultado y lo guarda en el navegador
   (`guardarVentaActual`). El componente `BuscadorProductos.vue` no sabe nada de la venta actual.
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
-- Si `agregarAVentaActual` devolvió la misma venta (la cantidad ya era 999), muestra el aviso «La cantidad máxima de un
-  producto es 999.» en una franja con `role="alert"` que se quita sola a los 4 segundos.
+- Si `agregarAVentaActual` devolvió la misma venta, muestra un aviso en una franja con `role="alert"` que se quita sola
+  a los 4 segundos: «La cantidad máxima de un producto es 999.» si el producto ya estaba en la venta actual, o «Una
+  venta puede tener como máximo 100 productos.» si no estaba (ya hay 100 detalles).
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 - Marca `resaltarId` con el `productoId` agregado, y lo quita a los 2 segundos.
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
@@ -308,8 +327,8 @@ Componente de Vue 2 con Options API y un solo elemento raíz, en `src/components
   llevan `key` con el `productoId`.
   `[@test] ../frontend/tests/componentes/VentaActual.test.js`
 - **Total siempre a la vista.** Debajo de la tabla, en una franja aparte que se queda pegada al borde de abajo del área de
-  la venta actual cuando la lista es larga (`position: sticky`), dice «Total» y el importe de `calcularTotal` con 2
-  decimales (`47.50`). Está también con la venta actual vacía (`0.00`). El importe se anuncia a los lectores de pantalla
+  la venta actual cuando la lista es larga (`position: sticky`), dice «Total» y lo que devuelve `calcularTotal`, con 2
+  decimales (`47.50`). Está también con la venta actual vacía (`0.00`). El total se anuncia a los lectores de pantalla
   (`aria-live="polite"`). El total se calcula con cada cambio, sin botón que lo pida.
   `[@test] ../frontend/tests/componentes/VentaActual.test.js`
 - **Venta actual vacía.** En vez de la tabla se ve la animación `venta-vacia.json` (en `AnimacionLottie.vue`, decorativa) y
@@ -414,12 +433,13 @@ espacios, estados, textos, contraste, teclado, foco visible y móvil). Al revisa
 cambió. Todo dentro de Vue 2 y Vuetify 2, con la paleta y los contrastes de la spec de arquitectura (`tema.test.js`).
 
 - **Jerarquía.** El total es lo más grande de la zona: al menos 28 px, en negrita, sobre una franja de acento (`#FFE66D`) con
-  texto `#292F36` (contraste 10.80). Los importes de la tabla van alineados a la derecha, con cifras del mismo ancho
+  texto `#292F36` (contraste 10.80). Los precios aplicados y los subtotales de la tabla van alineados a la derecha, con cifras del mismo ancho
   (`font-variant-numeric: tabular-nums`), para que los decimales queden en columna.
 - **Estados.** Vacío (con animación y el texto), con detalles, con un campo con error, enviando (campos deshabilitados) y
   el aviso de cantidad máxima. Cada uno se ve distinto sin depender solo del color.
 - **Teclado y foco.** Se llega a todo con Tab, en el orden de lectura de la fila (precio aplicado, «−», cantidad, «+»,
-  «Eliminar»). El foco se ve siempre: un anillo de 2 px en `#292F36` (contraste 13.26 con el fondo `#F7FFF7`; el
+  «Eliminar»). El foco se ve siempre: un anillo de 3 px en `#292F36`, con 2 px de separación, que ya pone `plugins/vuetify.css`
+  (contraste 13.26 con el fondo `#F7FFF7`; el
   turquesa `#4ECDC4` solo tiene 1.90 y no alcanza para un borde de foco, que pide 3 o más).
 - **Móvil.** Con 375 px de ancho no hay scroll horizontal. La tabla de Vuetify pasa a filas apiladas con la etiqueta de cada
   columna, y las zonas táctiles miden al menos 44 × 44 px.
@@ -508,6 +528,12 @@ Los de las tarjetas, más los que faltaban (marcados con «Extra»). Cada uno es
 13. Extra. Dada una venta actual, entonces las funciones del módulo no la modifican.
     `[@test] ../frontend/tests/venta-actual/agregar.test.js`
     `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
+14. Extra. Dada una venta actual con 100 detalles, cuando el cajero elige un producto que no está en ella, entonces no se
+    agrega y se ve el aviso «Una venta puede tener como máximo 100 productos.» (RN-14). Con 100 detalles válidos,
+    «Registrar venta» sigue habilitado.
+    `[@test] ../frontend/tests/venta-actual/agregar.test.js`
+    `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
+    `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 
 ### V-05 · Editar el precio aplicado (RF-05)
 
@@ -635,7 +661,7 @@ error y en 375 × 667). Con el teclado (`press_key` Tab) se llega a todos los ca
 - Un botón «Deshacer» ni una confirmación al eliminar: los requerimientos no los piden.
 - Mostrar el precio del producto junto al precio aplicado ni un botón para volver a él.
 - Sincronizar la venta actual entre dos pestañas del navegador, ni guardarla en el servidor.
-- El separador de miles (`1 234.50`): los importes se muestran como los devuelve la API.
+- El separador de miles (`1 234.50`): el dinero se muestra como lo devuelve la API.
 - El orden de los detalles: siempre es el orden en que se agregaron.
 
 ## Cómo se decidió el diseño

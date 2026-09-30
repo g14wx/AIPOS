@@ -124,11 +124,13 @@
  * P-03: el modal del formulario de producto, los errores, la franja de error y el aviso de éxito.
  * Vuetify pone en rojo, con !important, el texto de lo que está en error (etiqueta, mensaje y contador), y el rojo
  * sobre el fondo claro no llega a 4.5 de contraste. Aquí el texto sigue en tinta, y el rojo queda en el borde, en el
- * ícono y en la franja (specs/arquitectura.spec.md, "Paleta").
+ * ícono y en la franja (specs/arquitectura.spec.md, "Paleta"). El contador de un campo con error no lleva la clase
+ * error--text: hereda el rojo del campo, y por eso tiene su propio selector (#55).
  */
 .v-application .v-label.error--text,
 .v-application .v-messages.error--text,
-.v-application .v-counter.error--text {
+.v-application .v-counter.error--text,
+.v-application .v-input.error--text .v-counter {
   color: var(--v-secondary-base) !important;
 }
 

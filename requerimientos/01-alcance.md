@@ -35,7 +35,7 @@ con un procedimiento almacenado, el uso de Git y el trabajo con un agente de có
 **Recomendado**, decidido por la persona desarrolladora y permitido por el PDF:
 - Cantidad y subtotal en cada detalle de venta.
 
-**Opcional**, por confirmar:
+**Opcional**, decidido el 2026-09-30: entra si sobra tiempo.
 - RF-12: Enter con un código de barras exacto agrega el producto directo a la venta actual.
 
 ## Fuera de alcance
@@ -70,7 +70,7 @@ Se declara en el README para que quien evalúa lo vea.
 ## Supuestos
 
 - Hay un solo cajero a la vez y una sola venta actual.
-- La venta actual vive solo en la pantalla. Si se recarga la página, se pierde (pregunta abierta 2).
+- La venta actual vive en la pantalla y se guarda en el navegador. Si se recarga la página, sigue ahí, y se vacía al registrar la venta (pregunta abierta 2, resuelta el 2026-09-30).
 - Los precios están en una sola moneda y tienen 2 decimales.
 - AIPOS corre en local con los comandos del README. No se publica en internet.
 

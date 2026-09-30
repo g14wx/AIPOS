@@ -6845,6 +6845,36 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_caddy_test",
+      "label": "caddy.test.sh",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "caddy.test.sh",
+      "source_file": "tests/despliegue/caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_caddy_test_sh__entry",
+      "label": "caddy.test.sh script",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "caddy.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "caddy.test.sh script",
+      "source_file": "tests/despliegue/caddy.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -11948,6 +11978,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/arranque/agents-md.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_caddy_test",
+      "target": "tests_despliegue_caddy_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/caddy.test.sh",
       "source_location": "L1",
       "weight": 1.0
     },

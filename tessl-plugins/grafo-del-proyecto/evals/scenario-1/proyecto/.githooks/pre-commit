@@ -1,49 +1,73 @@
 #!/bin/sh
 # Hook de git pre-commit del grafo del proyecto (spec: specs/grafo-del-proyecto.spec.md).
-# Antes de cada commit actualiza graph.json y GRAPH_REPORT.md y los agrega al commit.
-# Nunca bloquea un commit: si algo falla, avisa y deja pasar el commit con el grafo anterior.
+# Antes de cada commit actualiza graph.json y GRAPH_REPORT.md y los agrega al commit. .githooks/pre-merge-commit lo
+# corre también en los merges sin choques.
+# Nunca bloquea un commit: si no puede actualizar el grafo, avisa, marca el reporte como desactualizado y deja pasar
+# el commit con el grafo anterior.
 # El agente lo activa en el arranque (AGENTS.md) con: git config core.hooksPath .githooks
 
 # Con otra versión el grafo puede salir distinto, y dos personas se pisarían el grafo en cada commit.
 version_esperada="0.9.72"
+
+grafo=graphify-out/graph.json
+reporte=graphify-out/GRAPH_REPORT.md
+al_dia='- En AIPOS, el hook de git `pre-commit` actualiza este grafo en cada commit: va al día con el commit que lo trae.'
+
+# Deja en el reporte la línea que dice si el grafo va al día. Reemplaza la que deja Graphify, la de un commit
+# anterior o el aviso de desactualizado, y borra la marca "Built from commit".
+poner_linea() {
+  [ -f "$reporte" ] || return 0
+  awk -v linea="$1" '
+    /^- Built from commit: / { next }
+    /^- Run `git rev-parse HEAD` and compare/ || /^- En AIPOS, el hook de git / || /^- Puede estar desactualizado: / {
+      print linea
+      next
+    }
+    { print }
+  ' "$reporte" > "$reporte.tmp" && mv "$reporte.tmp" "$reporte"
+}
+
+# Si no se pudo actualizar el grafo, graph.json queda como estaba, pero el reporte lo avisa.
+no_se_pudo() {
+  echo "pre-commit: $1; el grafo del proyecto no se actualizó." >&2
+  if [ -n "${2:-}" ]; then
+    echo "pre-commit: $2" >&2
+  fi
+  poner_linea "- Puede estar desactualizado: el commit que trae este archivo no pudo actualizar el grafo ($1). Corre \`graphify update .\` y haz commit."
+  if [ -f "$reporte" ]; then
+    git add -f -- "$reporte"
+  fi
+  exit 0
+}
 
 # Las apps de git, como WebStorm, a veces no ven ~/.local/bin, donde `uv tool install` pone graphify.
 graphify_bin=$(command -v graphify 2>/dev/null)
 if [ -z "$graphify_bin" ] && [ -x "$HOME/.local/bin/graphify" ]; then
   graphify_bin="$HOME/.local/bin/graphify"
 fi
-
 if [ -z "$graphify_bin" ]; then
-  echo "pre-commit: Graphify no está instalado; el grafo del proyecto no se actualizó. Guía: docs/setup/graphify-setup.md" >&2
-  exit 0
+  no_se_pudo "Graphify no está instalado" "Guía: docs/setup/graphify-setup.md"
 fi
 
 # En Windows, `graphify --version` responde con CRLF: se quita el \r antes de comparar.
 version=$("$graphify_bin" --version 2>/dev/null | tr -d '\r' | awk '{print $NF}')
 if [ "$version" != "$version_esperada" ]; then
-  echo "pre-commit: Graphify ${version:-sin versión} no es la versión del proyecto ($version_esperada); el grafo del proyecto no se actualizó. Instálala con: uv tool install \"graphifyy[sql]==$version_esperada\"" >&2
-  exit 0
+  no_se_pudo "Graphify ${version:-sin versión} no es la versión del proyecto ($version_esperada)" \
+    "Instálala con: uv tool install \"graphifyy[sql]==$version_esperada\""
 fi
 
 if ! salida=$("$graphify_bin" update . 2>&1); then
-  echo "pre-commit: 'graphify update .' falló; el commit sigue con el grafo anterior." >&2
   printf '%s\n' "$salida" | tail -n 3 >&2
-  echo "pre-commit: si borraste código a propósito, corre 'graphify update . --force' y agrega el grafo en otro commit." >&2
-  exit 0
+  no_se_pudo "'graphify update .' falló" \
+    "si borraste código a propósito, corre 'graphify update . --force' y agrega el grafo en otro commit."
 fi
 
 # Graphify anota como "commit de origen" el commit anterior, porque el nuevo todavía no existe. Se vacía esa marca
 # para que el grafo no parezca desactualizado en su propio commit. Graphify no la usa al comparar grafos.
-grafo=graphify-out/graph.json
-reporte=graphify-out/GRAPH_REPORT.md
 if [ -f "$grafo" ]; then
   sed 's/^\(  "built_at_commit": \)"[^"]*"/\1""/' "$grafo" > "$grafo.tmp" && mv "$grafo.tmp" "$grafo"
 fi
-if [ -f "$reporte" ]; then
-  sed -e '/^- Built from commit: /d' \
-      -e 's/^- Run `git rev-parse HEAD` and compare to check if the graph is stale\.$/- En AIPOS, el hook de git `pre-commit` actualiza este grafo en cada commit: va al día con el commit que lo trae./' \
-      "$reporte" > "$reporte.tmp" && mv "$reporte.tmp" "$reporte"
-fi
+poner_linea "$al_dia"
 
 for archivo in "$grafo" "$reporte"; do
   if [ -f "$archivo" ]; then

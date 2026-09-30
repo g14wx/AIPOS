@@ -198,6 +198,17 @@ describe('al presionar «Eliminar» (criterios 1 y 2)', () => {
     await botonEliminar(pan.nombre).trigger('click');
     expect(emitidas().at(-1)[0].detalles).toEqual([leche]);
   });
+
+  // El cajero pudo eliminar el detalle un instante antes: eliminarDetalle devuelve la misma venta y no hay nada que emitir.
+  it('si el detalle ya no está en la venta actual, no emite ni anota a dónde llevar el foco', async () => {
+    montar({ ventaActual: venta(leche, pan) });
+    botonEliminar(leche.nombre).element.focus();
+    wrapper.vm.alEliminar({ ...huevos });
+    await wrapper.setProps({ ventaActual: venta(leche) });
+    await wrapper.vm.$nextTick();
+    expect(emitidas()).toHaveLength(0);
+    expect(document.activeElement).toBe(botonEliminar(leche.nombre).element);
+  });
 });
 
 describe('mientras V-08 registra la venta (enviando)', () => {

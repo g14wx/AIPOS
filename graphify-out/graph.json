@@ -4454,7 +4454,7 @@
       "file_type": "code",
       "norm_label": "clic()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L352"
+      "source_location": "L363"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
@@ -4466,7 +4466,7 @@
       "file_type": "code",
       "norm_label": "eliminarconelfocoenelboton()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L238"
+      "source_location": "L249"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_emitidas",
@@ -4538,7 +4538,7 @@
       "file_type": "code",
       "norm_label": "observadorfalso()",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L307"
+      "source_location": "L318"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_eliminar_test_reemplazarconlaemitida",
@@ -23474,7 +23474,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L354",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -23486,7 +23486,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L239",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -23498,7 +23498,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L242",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -26335,18 +26335,6 @@
     },
     {
       "source": "frontend_tests_componentes_ventaactual_eliminar_test",
-      "target": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L238",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_componentes_ventaactual_eliminar_test",
       "target": "frontend_tests_componentes_ventaactual_eliminar_test_venta",
       "relation": "contains",
       "_origin": "ast",
@@ -26359,6 +26347,18 @@
     },
     {
       "source": "frontend_tests_componentes_ventaactual_eliminar_test",
+      "target": "frontend_tests_componentes_ventaactual_eliminar_test_eliminarconelfocoenelboton",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_ventaactual_eliminar_test",
       "target": "frontend_tests_componentes_ventaactual_eliminar_test_observadorfalso",
       "relation": "contains",
       "_origin": "ast",
@@ -26366,7 +26366,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L307",
+      "source_location": "L318",
       "weight": 1.0
     },
     {
@@ -26378,7 +26378,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual-eliminar.test.js",
-      "source_location": "L352",
+      "source_location": "L363",
       "weight": 1.0
     },
     {

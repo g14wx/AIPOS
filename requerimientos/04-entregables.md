@@ -61,6 +61,7 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 |---|---|---|---|---|---|---|
 | T-01 | Tile mysql-sequelize-procedimientos | Agente y tiles | `chore/tiles-mysql-vue2` (PR #9, en revisión) | — | — | 1.5 |
 | T-02 | Tile vue2-vuetify2-vite | Agente y tiles | `chore/tiles-mysql-vue2` (PR #9, en revisión) | — | — | 1.5 |
+| T-03 | Grafo del proyecto con Graphify | Agente y tiles | `chore/grafo-del-proyecto` | — | 06 | 2 |
 | B-01 | Preparar GitHub y crear ProductionEnv | DevOps | sin rama: configuración de GitHub | R-00, T-01 y T-02 en `main` | 05 | 0.5 |
 | B-02 | Base del backend | Backend | `feature/base` | B-01, T-01 | — | 1 |
 | B-03 | MySQL con Docker Compose y migraciones | Base de datos, DevOps | `feature/base` | B-01, T-01 | — | 1 |
@@ -103,7 +104,7 @@ Rama: `feature/ventas`.
 
 Rama: `docs/entrega-final` para E-01 y E-02; E-03 etiqueta `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
 
-Total estimado: 23.5 horas, sin contar R-00.
+Total estimado: 25 horas, sin contar R-00.
 
 ## Definición de terminado
 

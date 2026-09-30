@@ -4982,7 +4982,7 @@
       "file_type": "code",
       "norm_label": "servidor",
       "source_file": "backend/src/servidor.js",
-      "source_location": "L6"
+      "source_location": "L8"
     },
     {
       "id": "backend_tests_database_test",
@@ -6540,6 +6540,18 @@
       "type": "external"
     },
     {
+      "id": "ref_node_net",
+      "label": "ref_node_net",
+      "_origin": "semantic",
+      "community": 66,
+      "community_name": "estructura.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_net",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_path",
       "label": "ref_node_path",
       "_origin": "semantic",
@@ -6548,17 +6560,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_path",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_net",
-      "label": "ref_node_net",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_net",
       "source_file": "",
       "type": "external"
     }
@@ -9553,7 +9554,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/servidor.js",
-      "source_location": "L6",
+      "source_location": "L8",
       "weight": 1.0
     },
     {

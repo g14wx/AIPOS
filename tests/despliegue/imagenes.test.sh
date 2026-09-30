@@ -45,6 +45,8 @@ leer frontend/Dockerfile F
 igual "la etapa de construcción usa node:$NODO-alpine" "1" "$(cuenta "$F" "^FROM node:$NODO-alpine( |$)")"
 tiene "la etapa final es nginxinc/nginx-unprivileged:1.28-alpine" "$F" "FROM nginxinc/nginx-unprivileged:1.28-alpine"
 tiene "VITE_API_URL llega como argumento de construcción" "$F" "ARG VITE_API_URL"
+# El texto se busca tal cual, con su $: no debe expandirse.
+# shellcheck disable=SC2016
 tiene "la construcción falla si VITE_API_URL está vacío" "$F" 'test -n "$VITE_API_URL"'
 tiene "corre npm ci y npm run build" "$F" "npm run build"
 tiene "copia dist/ a la etapa final" "$F" "/app/dist"
@@ -60,6 +62,8 @@ tiene "server_tokens off" "$N" "server_tokens off"
 tiene "escucha en el puerto 8080" "$N" "listen 8080"
 tiene "/assets/ con Cache-Control public, max-age=31536000, immutable" "$N" "public, max-age=31536000, immutable"
 tiene "index.html con Cache-Control no-store" "$N" "no-store"
+# El texto se busca tal cual, con su $: no debe expandirse.
+# shellcheck disable=SC2016
 tiene "una ruta que no es un archivo da 404 (try_files \$uri =404)" "$N" 'try_files $uri =404'
 no_tiene "no hay ruta de reserva a index.html (no hay vue-router)" "$N" "/index.html;"
 no_tiene "nginx no comprime (comprime Caddy)" "$N" "gzip on"
@@ -87,12 +91,16 @@ TMP="$(mktemp -d)"
 IMG_B="aipos-prueba-imagenes-backend:prueba"
 IMG_F="aipos-prueba-imagenes-frontend:prueba"
 CONTENEDOR=""
+# La llama trap limpiar EXIT, no una línea del script.
+# shellcheck disable=SC2329
 limpiar() {
   if [ -n "$CONTENEDOR" ]; then docker rm -f "$CONTENEDOR" >/dev/null 2>&1 || true; fi
   docker rmi -f "$IMG_B" "$IMG_F" >/dev/null 2>&1 || true
   rm -rf "$TMP"
 }
 trap limpiar EXIT
+# La llama comprobar con "$@", no una línea del script.
+# shellcheck disable=SC2329
 en() { docker run --rm --entrypoint "$@"; } # en <programa> <imagen> <argumentos>: corre un programa de la imagen
 uso() { docker run --rm --entrypoint "$1" "$2" "${@:3}" 2>&1; }
 

@@ -80,6 +80,8 @@ restos_del_proyecto() {
   docker ps -aq --filter "label=com.docker.compose.project=$PROYECTO" | while read -r c; do docker rm -f "$c" >/dev/null 2>&1 || true; done
   docker volume rm "${PROYECTO}_mysql_datos" >/dev/null 2>&1 || true
 }
+# La llama trap limpiar EXIT, no una línea del script.
+# shellcheck disable=SC2329
 limpiar() {
   restos_del_proyecto
   docker rmi "$IMG_B:$V1" "$IMG_B:$V2" "$IMG_F:$V1" "$IMG_F:$V2" >/dev/null 2>&1 || true

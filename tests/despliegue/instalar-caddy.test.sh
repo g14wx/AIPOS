@@ -73,7 +73,7 @@ correr_script() {
 }
 
 linea() { grep -nF -- "$1" "$REGISTRO" | head -1 | cut -d: -f1 || true; }
-lista_conf() { (cd "$CADDY_DIR/conf.d" && ls | tr '\n' ' '); }
+lista_conf() { find "$CADDY_DIR/conf.d" -mindepth 1 -maxdepth 1 -exec basename {} \; | sort | tr '\n' ' '; }
 
 # --- 1. Todo válido -------------------------------------------------------------------------------------------
 echo "# caso: la configuración es válida"

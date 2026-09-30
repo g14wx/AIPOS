@@ -13,6 +13,8 @@ texto="$(cat "$COMPOSE")"
 tiene "MySQL es la imagen mysql:8.4" "$texto" "image: mysql:8.4"
 no_tiene "nunca mysql:latest" "$texto" "mysql:latest"
 no_tiene "nunca MySQL 9" "$texto" "mysql:9"
+# El texto se busca tal cual, con su $: no debe expandirse.
+# shellcheck disable=SC2016
 tiene "AIPOS_VERSION es obligatoria" "$texto" '${AIPOS_VERSION:?falta AIPOS_VERSION}'
 no_tiene "ningún puerto en 0.0.0.0" "$texto" "0.0.0.0"
 no_tiene "nada crea el esquema desde docker-entrypoint-initdb.d" "$texto" "initdb"

@@ -7317,7 +7317,7 @@
       },
       "norm_label": "compose_config()",
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L31"
+      "source_location": "L33"
     },
     {
       "id": "tests_despliegue_compose_produccion_test_dato",
@@ -7332,7 +7332,7 @@
       },
       "norm_label": "dato()",
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L44"
+      "source_location": "L46"
     },
     {
       "id": "tests_despliegue_compose_produccion_test_sh__entry",
@@ -7704,7 +7704,7 @@
       },
       "norm_label": "en()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L96"
+      "source_location": "L104"
     },
     {
       "id": "tests_despliegue_imagenes_test_leer",
@@ -7734,7 +7734,7 @@
       },
       "norm_label": "limpiar()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L90"
+      "source_location": "L96"
     },
     {
       "id": "tests_despliegue_imagenes_test_sh__entry",
@@ -7764,7 +7764,7 @@
       },
       "norm_label": "uso()",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L97"
+      "source_location": "L105"
     },
     {
       "id": "tests_despliegue_documentos_test",
@@ -8139,7 +8139,7 @@
       },
       "norm_label": "limpiar()",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L83"
+      "source_location": "L85"
     },
     {
       "id": "tests_despliegue_arranque_local_test_mysql_app",
@@ -9172,7 +9172,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L84",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -9196,7 +9196,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L106",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -9208,7 +9208,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L122",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -9220,7 +9220,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L137",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -9232,7 +9232,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L89",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -9244,7 +9244,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -9256,7 +9256,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L84",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -9484,7 +9484,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L117",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -15150,7 +15150,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/arranque-local.test.sh",
-      "source_location": "L83",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -15161,7 +15161,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -15172,7 +15172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/compose-produccion.test.sh",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -15540,6 +15540,28 @@
     },
     {
       "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_en",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
+      "target": "tests_despliegue_imagenes_test_uso",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/imagenes.test.sh",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_imagenes_test",
       "target": "tests_despliegue_imagenes_test_leer",
       "relation": "defines",
       "_origin": "ast",
@@ -15568,29 +15590,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L90",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_despliegue_imagenes_test",
-      "target": "tests_despliegue_imagenes_test_en",
-      "relation": "defines",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/despliegue/imagenes.test.sh",
       "source_location": "L96",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_despliegue_imagenes_test",
-      "target": "tests_despliegue_imagenes_test_uso",
-      "relation": "defines",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/despliegue/imagenes.test.sh",
-      "source_location": "L97",
       "weight": 1.0
     },
     {

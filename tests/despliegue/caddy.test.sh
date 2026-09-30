@@ -11,7 +11,7 @@ for f in "$FRONT" "$BACK"; do
   if [ -f "$f" ]; then ok "existe ${f#"$RAIZ"/}"; else falla "falta ${f#"$RAIZ"/}"; fi
 done
 [ "$FALLAS" -eq 0 ] || terminar
-igual "en despliegue/caddy solo están los dos archivos de AIPOS" "aipos-back.caddy aipos.caddy " "$(cd "$CARPETA" && ls | tr '\n' ' ')"
+igual "en despliegue/caddy solo están los dos archivos de AIPOS" "aipos-back.caddy aipos.caddy " "$(find "$CARPETA" -mindepth 1 -maxdepth 1 -exec basename {} \; | sort | tr '\n' ' ')"
 
 front="$(cat "$FRONT")"
 back="$(cat "$BACK")"

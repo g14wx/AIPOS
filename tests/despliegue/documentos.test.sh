@@ -72,6 +72,8 @@ tiene "la fila de D-01 nombra el diagrama 07" "$FILA" "07"
 
 echo "# glosario"
 leer docs/lenguaje-ubicuo.md GLOSARIO
+# Las comillas invertidas de la última palabra se buscan tal cual: no deben ejecutarse.
+# shellcheck disable=SC2016
 for palabra in "Desplegar" "Producción" "Pipeline" 'Etiqueta `release-*`'; do
   tiene "el glosario define $palabra" "$GLOSARIO" "| $palabra |"
 done

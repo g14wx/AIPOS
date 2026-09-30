@@ -4,7 +4,7 @@
 
 Revisa esto al abrir cada sesión, en este orden. Así un clon nuevo queda listo en cualquier máquina con Claude Code o Codex.
 
-1. Si no existe `.tessl/RULES.md`, corre `tessl install` desde la raíz del proyecto. Así se instalan las reglas y las skills de los tiles de `tessl-plugins/`. Después pídele a la persona que abra una sesión nueva, y no empieces ninguna tarea en esta: las reglas y las skills se cargan al abrir la sesión. Si el comando `tessl` no está instalado, pídele que siga `docs/setup/tessl-setup.md`.
+1. Si no existe `.tessl/RULES.md`, o si `find tessl.json tessl-plugins -newer .tessl/RULES.md` muestra algún archivo (por ejemplo, después de un `git pull` que trajo un tile nuevo), corre `tessl install` desde la raíz del proyecto. Así se instalan las reglas y las skills de los tiles de `tessl-plugins/`. Después pídele a la persona que abra una sesión nueva, y no empieces ninguna tarea en esta: las reglas y las skills se cargan al abrir la sesión. Si no hay una persona que pueda abrirla, por ejemplo en `codex review` o en una ejecución automática, lee `.tessl/RULES.md` y los archivos que enlaza, y sigue con la tarea. Si el comando `tessl` no está instalado, pídele a la persona que siga `docs/setup/tessl-setup.md`.
 2. Si `git config core.hooksPath` no responde `.githooks`, corre `git config core.hooksPath .githooks`. Así se activa el hook de git `pre-commit`, que actualiza el grafo del proyecto en cada commit.
 3. Si el comando `graphify` no está instalado, pregúntale a la persona si lo instalas. Si dice que sí, corre `uv tool install "graphifyy[sql]==0.9.72"`. Nunca lo instales sin preguntar. Si falta `uv`, la guía está en `docs/setup/graphify-setup.md`.
 

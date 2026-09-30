@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 7 h 57 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–00:38 del 30), en curso | 30 | 18 |
+| Preparación: agentes, tiles y glosario | 8 h 37 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30), en curso | 31 | 19 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -348,6 +348,16 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
 - **Tiempo:** 20:45–20:47.
 - **Commits:** este commit (PR #17).
+
+### 2026-09-29 21:00 — Repo reproducible desde un clon limpio, y cambios en S-01 y D-01
+
+- **Tarea:** decidir quién toma S-01. El agente propuso tomarla en esta sesión porque "tengo a mano lo que se decidió en los tiles", y la persona respondió que todo tiene que ser "reproducible desde cualquier otra pc con claude code o codex, … ese es todo el punto de estar creando las tiles, los .md".
+- **Agente:** Claude Code (Opus 5.5). Codex CLI contestó la prueba en el clon limpio.
+- **Qué hizo el agente:** clonó el repo en una carpeta temporal y corrió `tessl install`: se instalaron los 5 tiles y sus 12 skills para Claude Code y Codex, sin cambios en git, y `codex exec` contestó bien 3 preguntas que solo responden los tiles. Encontró lo que dependía de esta sesión o de esta máquina: una subtarea de S-01 que nombraba a esta sesión, el MCP de draw.io sin commit en `.mcp.json.example` (entró en el PR #18) y el PDF, que `devdoc/` deja fuera a propósito. En el tablero AIPOS, esa subtarea pasó a «Revisión del borrador por el agente revisor (Codex)», y S-01 sumó para `AGENTS.md` la regla de no depender de una sesión ni de una máquina, con el OK de la sesión de planificación. De D-01 quitó la IP del runner de GitLab y la frase de que al servidor solo se entra como `root`, porque el tablero es público. Como Trello guarda las descripciones viejas en el historial público, copió D-01 y borró la original (enlace nuevo: <https://trello.com/c/ebqouqpL>).
+- **Revisión de la persona:** preguntó por qué cambiar la subtarea y si convenía poner la regla en `AGENTS.md`, y aprobó cada cambio en el tablero AIPOS ("adelante", "confírmalo con @planning y dale"). Preguntó si hacía falta un PR: las tarjetas no están en git, pero esta entrada sí.
+- **Propuestas cambiadas o descartadas:** tomar S-01 en esta sesión porque tenía el contexto → la persona lo descartó → una sesión nueva la toma desde un clon, y si pregunta algo ya decidido, falta escribirlo en el repo.
+- **Tiempo:** 21:00–22:55.
+- **Commits:** este commit.
 
 ### 2026-09-29 22:49 — Revisión de Codex del PR #19
 

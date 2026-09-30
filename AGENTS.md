@@ -37,7 +37,7 @@ Una sesión nueva sigue estos pasos con cualquier tarjeta del tablero AIPOS. No 
 8. **Verificar contra la spec.** Corre las skills `spec-verification` y `work-review`, y corrige lo que falte.
 9. **Pasar la revisión de Codex.** El agente revisor corre `codex review --base origin/<rama de destino>`. Corrige cada hallazgo o explica por qué no aplica, y deja el resultado como comentario del PR.
 10. **Escribir la entrada de la bitácora.** Con la skill `bitacora-ia`, en el último commit de la tarea. No inventes lo que la persona revisó o decidió: si no lo sabes, pregúntale o márcalo "por confirmar".
-11. **Commit, push y PR.** Commits con Conventional Commits, `Co-Authored-By` y sin `Claude-Session`. El hook de git `pre-commit` agrega el grafo del proyecto. El PR va a la rama de su entregable, con merge commit y sin borrar la rama. Marca las subtareas en el tablero AIPOS y pasa la tarjeta a "En revisión".
+11. **Commit, push y PR.** Commits con Conventional Commits, `Co-Authored-By` y sin `Claude-Session`. El hook de git `pre-commit` agrega el grafo del proyecto. El PR va a la rama de su entregable (S-01 va a `main`, y B-01 y D-01 a `ProductionEnv`), con merge commit y sin borrar la rama. Marca las subtareas en el tablero AIPOS y pasa la tarjeta a "En revisión".
 
 ## Nada depende de una sesión ni de una máquina
 

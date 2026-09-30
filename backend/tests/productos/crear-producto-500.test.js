@@ -74,6 +74,14 @@ describe('el servicio no traduce por adivinar', () => {
       Object.assign(new Error('otro índice'), {
         parent: { errno: 1062, sqlMessage: "Duplicate entry '1' for key 'productos.otro_indice'" },
       }),
+      // El valor lo escribe el cajero: si trae el nombre del índice, no puede engañar a la comparación.
+      Object.assign(new Error('valor con el nombre del índice'), {
+        parent: {
+          errno: 1062,
+          sqlMessage:
+            "Duplicate entry 'x' for key 'productos.uq_productos_codigo_barras' ' for key 'productos.PRIMARY'",
+        },
+      }),
       new TypeError('no es de MySQL'),
     ];
     for (const original of otros) {

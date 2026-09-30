@@ -1,0 +1,35 @@
+# MySQL para desarrollo y pruebas. Lee las variables MYSQL_* del .env de la raíz.
+# `docker compose up -d --wait mysql` espera a que MySQL responda (healthcheck).
+# Nada crea tablas ni procedimientos desde aquí: todo el esquema sale de las migraciones.
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    # utf8mb4 con el orden por defecto de MySQL 8.4, y la hora del servidor en UTC (RN-12).
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+00:00
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Falta MYSQL_ROOT_PASSWORD en el .env}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?Falta MYSQL_DATABASE en el .env}
+      MYSQL_USER: ${MYSQL_USER:?Falta MYSQL_USER en el .env}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Falta MYSQL_PASSWORD en el .env}
+    # Solo en 127.0.0.1: MySQL no queda a la vista de la red. Dentro de Docker siempre usa el 3306.
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql_datos:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'MYSQL_PWD="$$MYSQL_ROOT_PASSWORD" mysqladmin ping -h 127.0.0.1 -uroot --silent',
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+volumes:
+  mysql_datos:

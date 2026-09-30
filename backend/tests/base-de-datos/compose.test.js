@@ -9,20 +9,25 @@ const texto = fs.existsSync(archivo) ? fs.readFileSync(archivo, 'utf8') : '';
 
 // Lo que Docker Compose entiende de verdad: `docker compose config` resuelve las variables y
 // devuelve el archivo ya interpretado. Las claves son de mentira, y las pruebas no levantan ningún contenedor.
+// `--env-file /dev/null` evita que el .env de quien corre las pruebas cambie el resultado.
 function leerConfiguracion(entorno = {}) {
-  const salida = execFileSync('docker', ['compose', 'config', '--format', 'json'], {
-    cwd: carpetaRaiz,
-    env: {
-      ...process.env,
-      COMPOSE_PROJECT_NAME: 'aipos-prueba-compose',
-      MYSQL_DATABASE: 'aipos',
-      MYSQL_USER: 'aipos',
-      MYSQL_PASSWORD: 'clave-de-mentira',
-      MYSQL_ROOT_PASSWORD: 'clave-de-root-de-mentira',
-      ...entorno,
+  const salida = execFileSync(
+    'docker',
+    ['compose', '--env-file', '/dev/null', 'config', '--format', 'json'],
+    {
+      cwd: carpetaRaiz,
+      env: {
+        ...process.env,
+        COMPOSE_PROJECT_NAME: 'aipos-prueba-compose',
+        MYSQL_DATABASE: 'aipos',
+        MYSQL_USER: 'aipos',
+        MYSQL_PASSWORD: 'clave-de-mentira',
+        MYSQL_ROOT_PASSWORD: 'clave-de-root-de-mentira',
+        ...entorno,
+      },
+      encoding: 'utf8',
     },
-    encoding: 'utf8',
-  });
+  );
   return JSON.parse(salida);
 }
 

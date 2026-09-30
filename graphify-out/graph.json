@@ -302,7 +302,7 @@
       "file_type": "code",
       "norm_label": "leerconfiguracion()",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L12"
+      "source_location": "L13"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas_corrercli",
@@ -6866,6 +6866,18 @@
       "type": "external"
     },
     {
+      "id": "ref_node_net",
+      "label": "ref_node_net",
+      "_origin": "semantic",
+      "community": 65,
+      "community_name": "ayudas.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_net",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_path",
       "label": "ref_node_path",
       "_origin": "semantic",
@@ -6898,17 +6910,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_fs",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_net",
-      "label": "ref_node_net",
-      "community": 65,
-      "community_name": "ayudas.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_net",
       "source_file": "",
       "type": "external"
     }
@@ -7487,7 +7488,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -14605,7 +14606,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "backend/tests/base-de-datos/compose.test.js",
-      "source_location": "L42",
+      "source_location": "L47",
       "weight": 1.0
     },
     {

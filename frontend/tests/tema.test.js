@@ -164,15 +164,24 @@ describe('el CSS del tema pinta los errores y el aviso con la paleta (specs/arqu
     expect(pintaCon('.v-alert', 'border', '1px solid var(--v-error-base)')).toBe(true);
   });
 
-  it('el aviso tiene fondo de superficie, texto en tinta y un borde primary de 1 px, sin franja gruesa', () => {
+  it('el aviso tiene fondo de superficie, texto en tinta y borde izquierdo primary de 1 px, sin franja gruesa', () => {
     expect(pintaCon('.v-snack__wrapper', 'background-color', 'var(--v-surface-base)')).toBe(true);
     expect(pintaCon('.v-snack__wrapper', 'color', 'var(--v-secondary-base)')).toBe(true);
+    // La spec de crear producto pide un borde izquierdo primary. DESIGN.md prohíbe una franja de color de más de 1 px a
+    // un lado, así que mide 1 px, y los otros tres lados llevan el filete de tinta que separa las superficies.
     expect(
-      pintaCon('.v-snack__wrapper', 'border', '1px solid var(--v-primary-base) !important'),
+      pintaCon(
+        '.v-snack__wrapper',
+        'border',
+        '1px solid color-mix(in srgb, var(--v-secondary-base) 16%, transparent) !important',
+      ),
+    ).toBe(true);
+    expect(
+      pintaCon('.v-snack__wrapper', 'border-left-color', 'var(--v-primary-base) !important'),
     ).toBe(true);
     // La sombra de elevación de Vuetify lleva más peso que una regla normal (#56).
     expect(pintaCon('.v-snack__wrapper', 'box-shadow', 'none !important')).toBe(true);
-    expect(css).not.toMatch(/border-(left|right)\s*:\s*[2-9]\d*px/);
+    expect(css).not.toMatch(/border-(left|right)(-width)?\s*:\s*(\d+\s+solid\s+)?[2-9]\d*px/);
   });
 
   it('el botón "Guardar" guardando conserva el turquesa y el texto en tinta, sin depender de la clase primary', () => {

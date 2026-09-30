@@ -1,12 +1,12 @@
 # Graph Report - b-04  (2026-09-30)
 
 ## Corpus Check
-- 76 files · ~47,730 words
+- 76 files · ~47,721 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 405 nodes · 419 edges · 54 communities (25 shown, 29 thin omitted)
+- 405 nodes · 418 edges · 57 communities (27 shown, 30 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -21,11 +21,12 @@
 - Trabajar en un tile
 - Requerimientos funcionales
 - Requerimientos no funcionales
-- pantalla-unica.test.js
+- vitest-vue2.test.js
 - Flujo de un entregable
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
 - Entregables y tarjetas
+- pantalla-unica.test.js
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
 - README de entrega
@@ -57,16 +58,18 @@
 - hook-de-git/sin-graphify.test.sh
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
+- sin-axios-en-componentes.test.js
 - Arquitectura de AIPOS
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
 - desactualizado-tras-falla.test.sh
 - merge-sin-choques.test.sh
 - merge-sin-cambios-en-el-grafo.test.sh
-- tema.test.js
+- ref_vitest
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 - Flujo 05 · Entregar un entregable
+- animaciones.test.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -86,7 +89,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (54 total, 29 thin omitted)
+## Communities (57 total, 30 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -112,9 +115,9 @@ Nodes (14): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
-### Community 6 - "pantalla-unica.test.js"
-Cohesion: 0.06
-Nodes (18): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+10 more)
+### Community 6 - "vitest-vue2.test.js"
+Cohesion: 0.13
+Nodes (5): animacion, { loadAnimation, instancias }, declaradas, paquete, versionesDelFrontend
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -176,6 +179,10 @@ Nodes (13): 1. Instalar Graphify, 2. Activar el hook de git, 3. Verificar, Antes
 Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
+### Community 44 - "sin-axios-en-componentes.test.js"
+Cohesion: 0.25
+Nodes (6): archivosDe(), componentes, enSrc(), fueraDeApi, raiz, todos
+
 ### Community 45 - "Arquitectura de AIPOS"
 Cohesion: 0.07
 Nodes (26): Arquitectura de AIPOS, Backend, Base de datos, Calidad, Capas, Carpetas, Carpetas, Cómo se decide un diseño (+18 more)
@@ -188,10 +195,14 @@ Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 Cohesion: 0.40
 Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
 
+### Community 56 - "animaciones.test.js"
+Cohesion: 0.29
+Nodes (5): aHex(), carpeta, coloresDe(), paleta, permitidas
+
 ## Knowledge Gaps
 - **231 isolated node(s):** `carpeta`, `permitidas`, `paleta`, `{ loadAnimation, instancias }`, `animacion` (+226 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 282 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **29 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

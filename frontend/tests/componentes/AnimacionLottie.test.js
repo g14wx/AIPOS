@@ -124,8 +124,7 @@ describe('AnimacionLottie: menos movimiento (prefers-reduced-motion: reduce)', (
 describe('AnimacionLottie: sin lottie en el resto de la pantalla', () => {
   it('es el único componente que conoce a lottie-web (Adapter)', async () => {
     const { readdirSync, readFileSync } = await import('node:fs');
-    const { fileURLToPath } = await import('node:url');
-    const carpeta = fileURLToPath(new URL('../../src/components/', import.meta.url));
+    const carpeta = `${import.meta.dirname}/../../src/components/`;
     for (const nombre of readdirSync(carpeta).filter((n) => n.endsWith('.vue') && n !== 'AnimacionLottie.vue')) {
       expect(readFileSync(carpeta + nombre, 'utf8'), nombre).not.toMatch(/lottie/i);
     }

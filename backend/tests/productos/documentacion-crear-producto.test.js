@@ -48,7 +48,7 @@ describe('POST /api/productos está documentada', () => {
     const esquema =
       resuelto.paths['/api/productos'].post.requestBody.content['application/json'].schema;
     expect(esquema.type).toBe('object');
-    expect(esquema.required).toEqual(['nombre', 'precio', 'codigoBarras']);
+    expect([...esquema.required].sort()).toEqual(['codigoBarras', 'nombre', 'precio']);
     expect(esquema.properties.nombre).toMatchObject({
       type: 'string',
       minLength: 1,
@@ -66,7 +66,7 @@ describe('POST /api/productos está documentada', () => {
     const esquema =
       resuelto.paths['/api/productos'].post.responses['201'].content['application/json'].schema;
     expect(esquema.type).toBe('object');
-    expect(esquema.required).toEqual(['id', 'nombre', 'precio', 'codigoBarras']);
+    expect([...esquema.required].sort()).toEqual(['codigoBarras', 'id', 'nombre', 'precio']);
     expect(esquema.additionalProperties).toBe(false);
     expect(esquema.properties.id.type).toBe('integer');
     expect(esquema.properties.precio).toMatchObject({ type: 'string', pattern: PATRON_DEL_PRECIO });

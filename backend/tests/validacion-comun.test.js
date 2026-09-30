@@ -3,7 +3,12 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const ErrorApi = require('../src/errors/ErrorApi.js');
-const { validarTexto, validarDinero, exigirDatosValidos } = require('../src/validators/comunes.js');
+const {
+  validarTexto,
+  validarDinero,
+  validarEnteroEnRango,
+  exigirDatosValidos,
+} = require('../src/validators/comunes.js');
 
 // Las piezas de validación que usan todos los recursos (spec de arquitectura, "Validación" y "Dinero").
 // Ninguna lanza: devuelven { valor } con el dato limpio o { detalleDelError: { campo, mensaje } }, para que
@@ -166,6 +171,73 @@ describe('validarDinero: el dinero llega como texto con la forma ^\\d{1,5}(\\.\\
         'detalles[2].precioAplicado',
         'Debe ser un número con punto decimal, por ejemplo 25.50.',
       ),
+    );
+  });
+});
+
+describe('validarEnteroEnRango: un número entero JSON dentro de un rango, sin convertir nada', () => {
+  const cantidad = (valor) => validarEnteroEnRango(valor, 'cantidad', { minimo: 1, maximo: 999 });
+  const MENSAJE = 'Debe ser un entero de 1 a 999.';
+
+  it.each([1, 2, 500, 998, 999])('acepta %s y lo devuelve tal cual', (numero) => {
+    expect(cantidad(numero)).toEqual({ valor: numero });
+  });
+
+  it('un decimal escrito como entero (2.0) llega como el entero 2: JSON no distingue uno del otro', () => {
+    expect(cantidad(JSON.parse('2.0'))).toEqual({ valor: 2 });
+    expect(cantidad(JSON.parse('1e2'))).toEqual({ valor: 100 });
+  });
+
+  it.each([
+    ['falta (undefined)', undefined],
+    ['es null', null],
+  ])('dice "Es obligatorio." cuando %s', (_caso, valor) => {
+    expect(cantidad(valor)).toEqual(conProblema('cantidad', 'Es obligatorio.'));
+  });
+
+  it.each([
+    ['el cero', 0],
+    ['el cero negativo', -0],
+    ['un negativo', -1],
+    ['uno más que el máximo', 1000],
+    ['un entero muy grande', 1e21],
+    ['un entero que ya no es seguro en JavaScript', Number.MAX_SAFE_INTEGER + 1],
+  ])('dice el rango cuando el entero está fuera de él: %s', (_caso, valor) => {
+    expect(cantidad(valor)).toEqual(conProblema('cantidad', MENSAJE));
+  });
+
+  it.each([
+    ['un decimal', 1.5],
+    ['un decimal muy cerca de un entero', 1.0000001],
+    ['un texto que parece un entero', '2'],
+    ['un texto vacío', ''],
+    ['un booleano', true],
+    ['un objeto', { cantidad: 2 }],
+    ['un arreglo', [2]],
+    ['NaN', Number.NaN],
+    ['Infinity', Number.POSITIVE_INFINITY],
+  ])('no convierte: %s es un error con el mismo mensaje del rango', (_caso, valor) => {
+    expect(cantidad(valor)).toEqual(conProblema('cantidad', MENSAJE));
+  });
+
+  it('el mensaje dice el rango que le dijeron (por ejemplo, el de un id que cabe en INT)', () => {
+    expect(validarEnteroEnRango(0, 'productoId', { minimo: 1, maximo: 2147483647 })).toEqual(
+      conProblema('productoId', 'Debe ser un entero de 1 a 2147483647.'),
+    );
+    expect(
+      validarEnteroEnRango(2147483647, 'productoId', { minimo: 1, maximo: 2147483647 }),
+    ).toEqual({ valor: 2147483647 });
+    expect(
+      validarEnteroEnRango(2147483648, 'productoId', { minimo: 1, maximo: 2147483647 }),
+    ).toEqual(conProblema('productoId', 'Debe ser un entero de 1 a 2147483647.'));
+  });
+
+  it('pone en el detalle del error el campo que le dijeron', () => {
+    expect(validarEnteroEnRango(null, 'detalles[0].cantidad', { minimo: 1, maximo: 999 })).toEqual(
+      conProblema('detalles[0].cantidad', 'Es obligatorio.'),
+    );
+    expect(validarEnteroEnRango('2', 'detalles[3].cantidad', { minimo: 1, maximo: 999 })).toEqual(
+      conProblema('detalles[3].cantidad', MENSAJE),
     );
   });
 });

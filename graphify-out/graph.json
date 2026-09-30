@@ -3299,7 +3299,7 @@
       "node_kind": "heading",
       "norm_label": "calidad",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L607"
+      "source_location": "L611"
     },
     {
       "id": "specs_arquitectura_spec_capas",
@@ -3347,7 +3347,7 @@
       "node_kind": "heading",
       "norm_label": "como se decide un diseno",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L652"
+      "source_location": "L656"
     },
     {
       "id": "specs_arquitectura_spec_dinero",
@@ -3371,7 +3371,7 @@
       "node_kind": "heading",
       "norm_label": "diseno de la pantalla",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L506"
+      "source_location": "L510"
     },
     {
       "id": "specs_arquitectura_spec_errores",
@@ -3407,7 +3407,7 @@
       "node_kind": "heading",
       "norm_label": "git y entrega",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L624"
+      "source_location": "L628"
     },
     {
       "id": "specs_arquitectura_spec_la_venta_actual",
@@ -3455,7 +3455,7 @@
       "node_kind": "heading",
       "norm_label": "paleta",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L513"
+      "source_location": "L517"
     },
     {
       "id": "specs_arquitectura_spec_procedimientos_almacenados",
@@ -3479,7 +3479,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L568"
+      "source_location": "L572"
     },
     {
       "id": "specs_arquitectura_spec_pruebas_en_local",
@@ -3491,7 +3491,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L588"
+      "source_location": "L592"
     },
     {
       "id": "specs_arquitectura_spec_salud",
@@ -3563,7 +3563,7 @@
       "node_kind": "heading",
       "norm_label": "iconos y animaciones",
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L548"
+      "source_location": "L552"
     },
     {
       "id": "tests_hook_de_git_marca_de_commit_test",
@@ -6151,18 +6151,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L506",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_arquitectura_spec_arquitectura_de_aipos",
-      "target": "specs_arquitectura_spec_pruebas",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L568",
+      "source_location": "L510",
       "weight": 1.0
     },
     {
@@ -6178,13 +6167,24 @@
     },
     {
       "source": "specs_arquitectura_spec_arquitectura_de_aipos",
+      "target": "specs_arquitectura_spec_pruebas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L572",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_arquitectura_spec_arquitectura_de_aipos",
       "target": "specs_arquitectura_spec_calidad",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L607",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -6195,7 +6195,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L624",
+      "source_location": "L628",
       "weight": 1.0
     },
     {
@@ -6206,7 +6206,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L652",
+      "source_location": "L656",
       "weight": 1.0
     },
     {
@@ -6294,7 +6294,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L513",
+      "source_location": "L517",
       "weight": 1.0
     },
     {
@@ -6305,7 +6305,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L548",
+      "source_location": "L552",
       "weight": 1.0
     },
     {
@@ -6349,7 +6349,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L588",
+      "source_location": "L592",
       "weight": 1.0
     },
     {

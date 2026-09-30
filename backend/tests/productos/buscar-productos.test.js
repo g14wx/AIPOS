@@ -309,6 +309,19 @@ describe('lo que trae cada producto', () => {
     expect(typeof producto.precio).toBe('string');
   });
 
+  it('pide a MySQL solo esas cuatro columnas, para que una columna nueva de la tabla no salga por la búsqueda', async () => {
+    const buscarTodo = vi.spyOn(Producto, 'findAll');
+    const respuesta = await buscar('lech');
+    expect(respuesta.status, respuesta.text).toBe(200);
+    expect(buscarTodo).toHaveBeenCalledTimes(1);
+    expect(buscarTodo.mock.calls[0][0].attributes).toEqual([
+      'id',
+      'nombre',
+      'codigoBarras',
+      'precio',
+    ]);
+  });
+
   it('el precio sale con 2 decimales aunque se haya guardado sin ellos', async () => {
     await crear(
       { nombre: 'Pan 1', codigoBarras: 'D1', precio: '25' },

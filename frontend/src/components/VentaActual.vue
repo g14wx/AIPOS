@@ -29,7 +29,7 @@
         </template>
 
         <template #item.precioAplicado="{ item }">
-          <span class="detalle__importe">{{ item.precioAplicado }}</span>
+          <span class="detalle__precio-aplicado">{{ item.precioAplicado }}</span>
         </template>
 
         <template #item.cantidad="{ item }">
@@ -37,7 +37,7 @@
         </template>
 
         <template #item.subtotal="{ item }">
-          <span class="detalle__importe">{{ subtotalDe(item) }}</span>
+          <span class="detalle__subtotal">{{ subtotalDe(item) }}</span>
         </template>
 
         <template #header.acciones>
@@ -51,9 +51,9 @@
     </div>
 
     <div class="venta-actual__pie">
-      <div class="venta-actual__total" aria-live="polite" aria-atomic="true">
+      <div class="venta-actual__franja-total" aria-live="polite" aria-atomic="true">
         <span class="venta-actual__etiqueta">Total</span>
-        <span class="venta-actual__importe" data-total>{{ total }}</span>
+        <span class="venta-actual__total" data-total>{{ total }}</span>
       </div>
       <div class="venta-actual__registro">
         <v-btn color="primary" large depressed block :disabled="!puedeRegistrar">
@@ -219,7 +219,7 @@ export default {
 }
 
 /* Si la cifra más grande (13 caracteres) no cabe junto a «Total» en una pantalla muy angosta, pasa a la línea de abajo. */
-.venta-actual__total {
+.venta-actual__franja-total {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.75rem;
@@ -235,7 +235,7 @@ export default {
   line-height: 1.75rem;
 }
 
-.venta-actual__importe {
+.venta-actual__total {
   margin-left: auto;
   font-size: 2rem;
   font-variant-numeric: tabular-nums;
@@ -259,8 +259,9 @@ export default {
   overflow-wrap: anywhere;
 }
 
-.detalle__importe,
-.detalle__cantidad {
+.detalle__precio-aplicado,
+.detalle__cantidad,
+.detalle__subtotal {
   font-size: 1rem;
   font-variant-numeric: tabular-nums;
   line-height: 1.5rem;

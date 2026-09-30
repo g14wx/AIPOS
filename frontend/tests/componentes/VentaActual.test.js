@@ -486,13 +486,13 @@ describe('estilos de la venta actual (skill impeccable, jerarquía y total)', ()
   });
 
   it('el total es lo más grande de la zona: 2rem (32 px), en negrita y con cifras tabulares', () => {
-    expect(declara('.venta-actual__importe', 'font-size', '2rem')).toBe(true);
-    expect(declara('.venta-actual__importe', 'font-weight', '700')).toBe(true);
-    expect(declara('.venta-actual__importe', 'font-variant-numeric', 'tabular-nums')).toBe(true);
+    expect(declara('.venta-actual__total', 'font-size', '2rem')).toBe(true);
+    expect(declara('.venta-actual__total', 'font-weight', '700')).toBe(true);
+    expect(declara('.venta-actual__total', 'font-variant-numeric', 'tabular-nums')).toBe(true);
   });
 
   it('el total va sobre la franja de acento, en tinta', () => {
-    expect(declara('.venta-actual__total', 'background', 'var(--v-accent-base)')).toBe(true);
+    expect(declara('.venta-actual__franja-total', 'background', 'var(--v-accent-base)')).toBe(true);
   });
 
   it('la fila recién agregada se pinta con el acento y el texto en tinta, sin animación', () => {
@@ -505,7 +505,8 @@ describe('estilos de la venta actual (skill impeccable, jerarquía y total)', ()
   });
 
   it('los precios aplicados y los subtotales llevan cifras tabulares, para que los decimales queden en columna', () => {
-    expect(declara('.detalle__importe', 'font-variant-numeric', 'tabular-nums')).toBe(true);
+    expect(declara('.detalle__precio-aplicado', 'font-variant-numeric', 'tabular-nums')).toBe(true);
+    expect(declara('.detalle__subtotal', 'font-variant-numeric', 'tabular-nums')).toBe(true);
   });
 
   it('un nombre largo pasa a otra línea y no rompe la tabla', () => {

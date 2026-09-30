@@ -241,7 +241,7 @@
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L43"
+      "source_location": "L44"
     },
     {
       "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
@@ -253,7 +253,7 @@
       "node_kind": "heading",
       "norm_label": "otros caminos",
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "requerimientos_flujos_02_buscar_producto_pasos",
@@ -265,7 +265,7 @@
       "node_kind": "heading",
       "norm_label": "pasos",
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual",
@@ -7788,7 +7788,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -7799,7 +7799,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -7810,7 +7810,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {

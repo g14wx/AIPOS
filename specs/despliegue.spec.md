@@ -649,9 +649,9 @@ create`) y se cierra con un comentario que nombra el commit que lo corrige (`gh 
 | Workflow, Dockerfiles, `nginx.conf`, compose de producción, scripts de `despliegue/`, bloques de Caddy | D-01 | Rama `chore/despliegue` (la única excepción a `<tipo>/<id>-<resumen>`), PR a `ProductionEnv`. |
 | Configuración del servidor, environment `production` y regla de etiquetas | D-01 | Se hace en el servidor y en GitHub, sin commit: queda descrita en `docs/despliegue.md` y en el "Update" de la tarjeta. |
 | Flujo 07, su diagrama, `01-alcance.md`, `04-entregables.md`, glosario y README | D-01 | Subtareas 2, 3 y 14. |
-| `GET /api/salud`, el `Dockerfile` puede correr `node src/servidor.js`, `sequelize-cli` en `dependencies` | B-02 y B-03 | D-01 depende de que estén integradas. |
+| `GET /api/salud`, el `Dockerfile` puede correr `node src/servidor.js`, `sequelize-cli` en `dependencies` | B-02 y B-03 | D-01 depende del entregable base integrado (B-01 a B-04 y A-01). |
 | El build de la pantalla con `VITE_API_URL` | B-04 | `frontend/package.json` con `build`, y `http.js` que falla sin `VITE_API_URL`. |
-| `GET /api/docs` | A-01 | Va en `release-0.1.0`: A-01 es parte del entregable base, y `revisar-produccion.sh` la pide. |
+| `GET /api/docs` | A-01 | Va en `release-0.1.0`: A-01 es parte del entregable base, y `revisar-produccion.sh` la pide. Su PR suma su fila a `requerimientos/04-entregables.md` (spec de la documentación de la API), y el de D-01 suma la de D-01. |
 | Aprobar cada despliegue y subir las etiquetas `release-*` | La persona desarrolladora | El agente no aprueba. |
 
 ## Cómo se decidió el diseño

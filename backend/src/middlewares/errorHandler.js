@@ -3,11 +3,21 @@
 const ErrorApi = require('../errors/ErrorApi');
 const desdeBaseDeDatos = require('../errors/desdeBaseDeDatos');
 
-// Errores del cliente que lanza el lector de JSON de Express (body-parser): siempre traen `status` 4xx.
-// Casi todos traen también `type`, pero no todos: un cuerpo comprimido que no se puede descomprimir
-// trae `status` 400 y ningún `type`, y también es un error del cliente (no un 500).
+// Señales propias del lector de JSON de Express (body-parser). Los errores que él lanza traen `status` 4xx
+// y un `type` como entity.parse.failed. Un cuerpo comprimido que no se puede descomprimir no trae `type`:
+// trae el `code` de zlib (Z_DATA_ERROR en gzip y deflate) o el de brotli (ERR__ERROR_FORMAT_*).
+// Un error 4xx que no trae ninguna de las dos no es del lector: puede ser un fallo del servidor con un
+// `status` casual, y sigue como 500, con su stack en el log.
+const TIPO_DEL_LECTOR = /^(entity|encoding|charset|request|stream)\./;
+const CODIGO_DE_DESCOMPRESION = /^(Z_[A-Z_]+|ERR__ERROR_[A-Z0-9_]+)$/;
+
+function esDelLector(err) {
+  if (!(err.status >= 400 && err.status < 500)) return false;
+  return TIPO_DEL_LECTOR.test(err.type ?? '') || CODIGO_DE_DESCOMPRESION.test(err.code ?? '');
+}
+
 function desdeElCuerpo(err) {
-  if (!err || !(err.status >= 400 && err.status < 500)) return null;
+  if (!err || !esDelLector(err)) return null;
   if (err.type === 'entity.too.large') {
     return new ErrorApi(400, 'CUERPO_MUY_GRANDE', 'El cuerpo de la petición es demasiado grande.');
   }

@@ -102,14 +102,14 @@ Cómo se contó:
 - T-01 y T-02 se hicieron con dos agentes a la vez y comparten entradas, así que van en una fila: 39 min, que son 14, 22 y 3 de sus tres entradas. La versión 0.1.1 del tile de MySQL (12 min, en las entradas de las 20:35 y 20:45) no se suma.
 - T-03 suma la implementación (21:40–22:46), las dos revisiones de Codex del PR #19 y su cierre: 2 h 20 min. La planeación tuvo pausas y no se midió.
 - S-01 es la spec de arquitectura: no cuenta las dos planificaciones (42 min la de S-01 y 40 min la de la noche) ni las otras 6 specs de flujo, que no tienen estimación propia. D-01 tampoco cuenta su spec, que no se midió.
-- R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
+- Las estimaciones de R-00, S-01, S-02 y F-01 salen solo del tablero AIPOS: `requerimientos/04-entregables.md` no las trae. R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
 - F-01 es una tarjeta de corrección, sin entregable. E-01 es esta tarjeta y E-02 está en curso; sus tiempos los anotan sus entradas. E-03 está pendiente (estado del 2026-09-30 a las 15:36).
 
 Lo que se aprende: las 25 filas con tiempo real suman 56 h 25 min contra 33 h 30 min estimadas (1,7 veces), y la razón baja con cada entregable que siguió el mismo proceso: base 3,6, productos 1,8 y ventas 1,3. Las estimaciones de 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces, y ninguna tarjeta de backend, pantalla o base de datos tardó menos de 45 min (V-01, estimada en 30 min). La preparación sí tardó menos de lo estimado (0,7 veces).
 
 ## Por confirmar con la persona
 
-La persona no pudo confirmar estas entradas: la bitácora se cerró mientras dormía. Aquí están juntas las 44 entradas (de 70) que dicen «por confirmar», cada una con su enlace y lo que hay que decidir. Ninguna está marcada como confirmada: la columna Estado dice «por confirmar» hasta que la persona responda, y entonces pasa a «confirmada» con la fecha, porque las entradas no se reescriben.
+La persona no pudo confirmar estas entradas: cuando se cerró la bitácora dormía, según el orquestador. Aquí están juntas las 44 entradas (de las 70 que había el 2026-09-30 a las 15:40) que dicen «por confirmar», cada una con su enlace y lo que hay que decidir. Ninguna está marcada como confirmada: la columna Estado dice «por confirmar» hasta que la persona responda, y entonces pasa a «confirmada» con la fecha, porque las entradas no se reescriben.
 
 Desde las 01:40 del 2026-09-30 la persona dio su OK general al proceso y a los PR, antes de ver el código y las specs, y se fue a dormir. Por eso, en todas las entradas de la noche, queda por confirmar su revisión del trabajo, además de lo que dice cada fila. Donde una fila habla de agregar algo a la spec o de ajustarla, la spec aprobada no se tocó y la decisión es de la persona.
 

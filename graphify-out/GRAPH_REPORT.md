@@ -1,12 +1,12 @@
 # Graph Report - a-01  (2026-09-30)
 
 ## Corpus Check
-- 102 files · ~51,637 words
+- 103 files · ~52,178 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 593 nodes · 727 edges · 71 communities (36 shown, 35 thin omitted)
+- 601 nodes · 743 edges · 78 communities (43 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -45,7 +45,7 @@
 - ignora-lo-local.test.sh
 - agents-md.test.sh
 - CLAUDE.md
-- Arquitectura de AIPOS
+- errorHandler.js
 - comunicacion-clara.md
 - rules/lenguaje-ubicuo.md
 - mysql-sequelize.md
@@ -75,18 +75,25 @@
 - errores.test.js
 - limite-del-cuerpo.test.js
 - Requerimientos de AIPOS
+- Arquitectura de AIPOS
+- ejemplos-de-error.test.js
+- estructura.test.js
+- ejemplos-reales.test.js
+- env-example.test.js
+- openapi-valido.test.js
+- swagger-ui.test.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `vitest` - 18 edges
+1. `vitest` - 19 edges
 2. `scripts` - 15 edges
 3. `Requerimientos funcionales` - 14 edges
 4. `Requerimientos no funcionales` - 14 edges
 5. `Arquitectura de AIPOS` - 13 edges
-6. `crearApp()` - 11 edges
-7. `supertest` - 10 edges
-8. `Grafo del proyecto` - 10 edges
-9. `Flujo de un entregable` - 10 edges
-10. `express` - 9 edges
+6. `supertest` - 11 edges
+7. `crearApp()` - 11 edges
+8. `express` - 10 edges
+9. `Grafo del proyecto` - 10 edges
+10. `Flujo de un entregable` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Carpetas` --references--> `test()`  [INFERRED]
@@ -103,7 +110,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (71 total, 35 thin omitted)
+## Communities (78 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.06
@@ -201,9 +208,9 @@ Nodes (13): 1. Instalar Graphify, 2. Activar el hook de git, 3. Verificar, Antes
 Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
-### Community 31 - "Arquitectura de AIPOS"
-Cohesion: 0.06
-Nodes (37): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+29 more)
+### Community 31 - "errorHandler.js"
+Cohesion: 0.13
+Nodes (19): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+11 more)
 
 ### Community 44 - "csp-docs.test.js"
 Cohesion: 0.24
@@ -214,8 +221,8 @@ Cohesion: 0.06
 Nodes (37): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), dotenv (+29 more)
 
 ### Community 52 - "vitest"
-Cohesion: 0.05
-Nodes (29): app, { cargarConfig }, config, { crearApp }, require, { cargarDocumentacionApi }, documento, PROHIBIDO (+21 more)
+Cohesion: 0.19
+Nodes (8): app, { cargarConfig }, config, { crearApp }, require, require, supertest, vitest
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -249,25 +256,53 @@ Nodes (5): app, { crearApp }, eco, express, require
 Cohesion: 0.33
 Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz del PDF, Preguntas abiertas, Requerimientos de AIPOS
 
+### Community 71 - "Arquitectura de AIPOS"
+Cohesion: 0.11
+Nodes (18): Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla, Frontend (+10 more)
+
+### Community 72 - "ejemplos-de-error.test.js"
+Cohesion: 0.22
+Nodes (6): { cargarDocumentacionApi }, documento, PROHIBIDO, recogerEjemplos(), require, RESPUESTAS_DE_ERROR
+
+### Community 73 - "estructura.test.js"
+Cohesion: 0.22
+Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
+
+### Community 74 - "ejemplos-reales.test.js"
+Cohesion: 0.25
+Nodes (6): app, { cargarDocumentacionApi }, documento, problemas(), require, { Router }
+
+### Community 75 - "env-example.test.js"
+Cohesion: 0.25
+Nodes (3): archivosJs(), ejemplo, raiz
+
+### Community 76 - "openapi-valido.test.js"
+Cohesion: 0.29
+Nodes (3): archivo, { cargarDocumentacionApi }, require
+
+### Community 77 - "swagger-ui.test.js"
+Cohesion: 0.33
+Nodes (3): app, { cargarDocumentacionApi }, require
+
 ## Knowledge Gaps
-- **333 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+328 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 390 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **338 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+333 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 395 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
+  _High betweenness centrality (0.133) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _High betweenness centrality (0.123) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _333 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _338 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.06294326241134751 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06207482993197279 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos no funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

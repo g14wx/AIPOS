@@ -429,3 +429,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna en esta tarjeta. La regla de `ProductionEnv` es la parte «opcional» de la tarjeta y se hizo porque el plan de la noche la pedía.
 - **Tiempo:** 03:25–03:40 (unos 15 min), sin contar el cambio de configuración de las 01:11.
 - **Commits:** este commit.
+
+### 2026-09-30 04:35 — B-02: base del backend
+
+- **Tarea:** tomar la tarjeta B-02 del tablero AIPOS y crear la base del backend según `specs/arquitectura.spec.md`, en la rama `feature/b-02-base-del-backend`, con su PR hacia `feature/base`. Las pruebas primero, el código después.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow de tres pasos (proyecto y pruebas, código, revisión). Un workflow anterior se cortó 6 veces; los commits y los archivos sin commit de ese intento se reutilizaron.
+- **Qué hizo el agente:** creó `backend/` con versiones fijas (`71fac29`), `src/config.js` que lee y valida las variables de entorno (`fbcff1b`) y las pruebas en rojo (`393bc63`). Después escribió el código: la instancia de Sequelize, `.sequelizerc` y `db/config.js`; `ErrorApi`, `desdeBaseDeDatos`, `errorHandler` y `noEncontrado`; `app.js` (helmet, CORS, límite de 100 kb, rutas de `/api`, ruta no encontrada, manejador de errores), `servidor.js` y `GET /api/salud` por rutas, controlador y servicio. Patrones del MCP `design-patterns`: Layered Architecture con Service Layer, Front Controller para el manejador de errores (el más cercano; el catálogo no trae uno exacto) y Health Check. Pasan las 90 pruebas de Vitest, `npm run lint` y `npm run format:check`. Probó la API en local con `curl`: salud 200, ruta que no existe 404, JSON mal escrito 400, cuerpo de 200 kb 400 `CUERPO_MUY_GRANDE`, CORS con origen permitido y no permitido, y el arranque sin variables obligatorias.
+- **Revisión de la persona:** por confirmar. Dio el OK para la noche a las 01:40 y no revisó lo que hizo este workflow.
+- **Propuestas cambiadas o descartadas:** la tarjeta dice que la salud revisa la conexión a MySQL → B-02 responde `{ "estado": "ok" }` y B-03 suma la base, como dice la spec → así `npm test` no necesita MySQL en esta tarjeta. `dialectOptions.decimalNumbers` (pregunta de la tarjeta) → no se activa, el dinero queda como texto → lo fija la spec. No hay script de `build`: el backend corre con `node` directo.
+- **Tiempo:** 03:44–04:36 (unos 52 min, con el corte del workflow anterior incluido).
+- **Commits:** este commit y los 5 anteriores de la rama `feature/b-02-base-del-backend` (el proyecto, la configuración, las pruebas, la instancia de Sequelize, el manejador de errores y la app con la salud).

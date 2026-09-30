@@ -126,7 +126,13 @@ if [ -d "$RAIZ/backend/docs" ]; then comprobar "backend: trae docs/ (A-01 lee op
 tiene "backend: la imagen declara un HEALTHCHECK" "$(docker image inspect --format '{{json .Config.Healthcheck}}' "$IMG_B")" "/api/salud"
 tiene "backend: la imagen declara su origen (org.opencontainers.image.source)" "$(docker image inspect --format '{{json .Config.Labels}}' "$IMG_B")" "github.com/g14wx/AIPOS"
 tiene "frontend: la imagen declara su origen (org.opencontainers.image.source)" "$(docker image inspect --format '{{json .Config.Labels}}' "$IMG_F")" "github.com/g14wx/AIPOS"
-tiene "frontend: VITE_API_URL quedó grabado en el JavaScript" "$(uso sh "$IMG_F" -c 'cat /usr/share/nginx/html/assets/*.js')" "127.0.0.1:8140"
+# Vite solo graba VITE_API_URL en el JavaScript si algún componente llega a src/api/http.js. La pantalla base (B-04)
+# todavía no llama a la API, así que esta comprobación espera a que algo importe src/api/.
+if grep -rqE "from ['\"][./]*api/" "$RAIZ/frontend/src" --include='*.js' --include='*.vue' --exclude='http.js'; then
+  tiene "frontend: VITE_API_URL quedó grabado en el JavaScript" "$(uso sh "$IMG_F" -c 'cat /usr/share/nginx/html/assets/*.js')" "127.0.0.1:8140"
+else
+  echo "OMITIDA: la pantalla todavía no llama a la API (nada importa src/api/), así que VITE_API_URL no queda grabado en el JavaScript"
+fi
 
 echo "# nginx de la pantalla (contenedor en un puerto libre de 127.0.0.1)"
 CONTENEDOR="$(docker run -d --rm -p 127.0.0.1::8080 "$IMG_F" 2>/dev/null || true)"

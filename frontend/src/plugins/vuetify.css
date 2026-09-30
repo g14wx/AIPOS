@@ -101,14 +101,21 @@
   outline-color: var(--v-primary-base);
 }
 
-/* Menos movimiento: sin transiciones ni animaciones cuando el sistema lo pide. */
+/*
+ * Menos movimiento: los cambios de estado se ven al instante, sin transiciones ni ondas en los botones.
+ * Las animaciones que informan, como un indicador de carga girando, no se apagan: sin ellas el cajero no sabe que
+ * algo está pasando. Las animaciones de Lottie las maneja AnimacionLottie.vue.
+ */
 @media (prefers-reduced-motion: reduce) {
   .v-application *,
   .v-application *::before,
   .v-application *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+    transition-delay: 0s !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .v-application .v-ripple__container {
+    display: none !important;
   }
 }

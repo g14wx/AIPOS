@@ -575,3 +575,46 @@ describe('el foco da la vuelta dentro del modal', () => {
     expect(document.activeElement).toBe(entrada('Nombre'));
   });
 });
+
+// Un lector de pantalla dice "no válido" de un campo solo si lo marca aria-invalid. El mensaje de Vuetify (role="alert")
+// se anuncia cuando aparece, pero no queda atado al campo.
+describe('los campos con error se marcan con aria-invalid', () => {
+  const invalido = (etiqueta) => entrada(etiqueta).getAttribute('aria-invalid');
+
+  it('ningún campo está marcado al abrir', async () => {
+    await montar();
+    for (const etiqueta of ['Nombre', 'Precio', 'Código de barras'])
+      expect(invalido(etiqueta)).toBeNull();
+  });
+
+  it('"Guardar" con el formulario vacío marca los tres campos, y editar uno le quita la marca', async () => {
+    await montar();
+    await presionarGuardar();
+    for (const etiqueta of ['Nombre', 'Precio', 'Código de barras'])
+      expect(invalido(etiqueta)).toBe('true');
+    await escribir('Precio', '25.50');
+    expect(invalido('Precio')).toBeNull();
+    expect(invalido('Nombre')).toBe('true');
+  });
+
+  it('salir de un campo vacío lo marca, igual que el mensaje que se ve', async () => {
+    await montar();
+    entrada('Nombre').focus();
+    entrada('Nombre').blur();
+    await esperar();
+    expect(mensajesDe('Nombre')).toEqual(['Es obligatorio.']);
+    expect(invalido('Nombre')).toBe('true');
+    expect(invalido('Precio')).toBeNull();
+  });
+
+  it('el error de la API en el código de barras lo marca', async () => {
+    crearProducto.mockRejectedValue(
+      errorDeLaApi({ status: 409, codigo: 'CODIGO_BARRAS_DUPLICADO', mensaje: 'x' }),
+    );
+    await montar();
+    await llenarUnProductoValido();
+    await presionarGuardar();
+    expect(invalido('Código de barras')).toBe('true');
+    expect(invalido('Nombre')).toBeNull();
+  });
+});

@@ -31,7 +31,20 @@ if ! salida=$("$graphify_bin" update . 2>&1); then
   exit 0
 fi
 
-for archivo in graphify-out/graph.json graphify-out/GRAPH_REPORT.md; do
+# Graphify anota como "commit de origen" el commit anterior, porque el nuevo todavía no existe. Se vacía esa marca
+# para que el grafo no parezca desactualizado en su propio commit. Graphify no la usa al comparar grafos.
+grafo=graphify-out/graph.json
+reporte=graphify-out/GRAPH_REPORT.md
+if [ -f "$grafo" ]; then
+  sed 's/^\(  "built_at_commit": \)"[^"]*"/\1""/' "$grafo" > "$grafo.tmp" && mv "$grafo.tmp" "$grafo"
+fi
+if [ -f "$reporte" ]; then
+  sed -e '/^- Built from commit: /d' \
+      -e 's/^- Run `git rev-parse HEAD` and compare to check if the graph is stale\.$/- En AIPOS, el hook de git `pre-commit` actualiza este grafo en cada commit: va al día con el commit que lo trae./' \
+      "$reporte" > "$reporte.tmp" && mv "$reporte.tmp" "$reporte"
+fi
+
+for archivo in "$grafo" "$reporte"; do
   if [ -f "$archivo" ]; then
     git add -f -- "$archivo"
   fi

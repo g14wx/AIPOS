@@ -14,6 +14,7 @@ targets:
   - ../backend/src/controllers/ventas.js
   - ../backend/src/services/ventas.js
   - ../backend/src/validators/ventas.js
+  - ../backend/docs/openapi.yaml
   - ../frontend/src/api/ventas.js
   - ../frontend/src/components/RegistrarVenta.vue
   - ../frontend/src/components/VentaActual.vue
@@ -32,15 +33,16 @@ local) y no repite lo que esa spec ya dice. Si esta spec choca con otro document
 
 Los archivos y los `[@test]` de abajo los escriben las tarjetas que implementan cada parte:
 
-| Parte | Tarjeta | Área |
-|---|---|---|
-| Tablas `ventas` y `detalles_venta`, y modelos `Venta` y `DetalleVenta` | V-01 | Base de datos |
-| Procedimiento `sp_registrar_venta` y su migración | V-02 | Base de datos |
-| `POST /api/ventas` y su documentación en la API | V-03 | Backend |
-| Botón "Registrar venta" y su resultado en la pantalla | V-08 | Frontend |
+| Parte | Tarjeta | Área | Rama de tarjeta (sale de `feature/ventas`) |
+|---|---|---|---|
+| Tablas `ventas` y `detalles_venta`, y modelos `Venta` y `DetalleVenta` | V-01 | Base de datos | `feature/v-01-tablas-ventas` |
+| Procedimiento `sp_registrar_venta` y su migración | V-02 | Base de datos | `feature/v-02-sp-registrar-venta` |
+| `POST /api/ventas` y su documentación en la API | V-03 | Backend | `feature/v-03-api-registrar-venta` |
+| Botón "Registrar venta" y su resultado en la pantalla | V-08 | Frontend | `feature/v-08-boton-registrar-venta` |
 
-Las cuatro tarjetas van en la rama de entregable `feature/ventas`. V-01 es la tarjeta dueña de esta spec: su
-primera subtarea ("escribir `specs/registrar-venta.spec.md`") es este archivo.
+Las cuatro tarjetas son del entregable ventas: cada una trabaja en su rama de tarjeta, que sale de `feature/ventas`, y su
+PR va a `feature/ventas` (spec de arquitectura, "Git y entrega"). V-01 es la tarjeta dueña de esta spec: su primera
+subtarea ("escribir `specs/registrar-venta.spec.md`") es este archivo.
 
 ## Reglas de negocio
 
@@ -58,7 +60,7 @@ avisa, la API valida y la base de datos la protege.
 | RN-11 | Registrar venta es todo o nada. | Procedimiento con su propia transacción |
 | RN-12 | Cada venta guarda su fecha, y la pone la base de datos. | `DEFAULT CURRENT_TIMESTAMP` |
 | RN-13 | Un producto que está en una venta no se puede borrar. | Llave foránea `ON DELETE RESTRICT` |
-| Propuesta de esta spec | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. | Pantalla (el botón y `valida`, ver preguntas), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
+| RN-14 | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. Por confirmar con la persona desarrolladora (ver preguntas). | Pantalla (no agrega el detalle 101; el botón y `valida`), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
 
 ## Tablas y modelos (V-01)
 
@@ -283,9 +285,10 @@ Content-Type: application/json
   `cantidad` y `precioAplicado` de cada detalle.
 - La API no recibe un total ni un subtotal. Si el cuerpo trae uno, se ignora: el que vale es el de MySQL (RN-09).
 - La validación va en el controller, antes de llamar al servicio, con `src/validators/ventas.js` y las piezas de
-  `comunes.js` (`validarDinero` con mínimo 0, `validarEnteroEnRango`). Devuelve todos los campos con problema, no solo el
+  `comunes.js` (`validarDinero` con `permiteCero: true`, porque el precio aplicado puede ser 0 (RN-05), y
+  `validarEnteroEnRango`). Devuelve todos los campos con problema, no solo el
   primero. Patrón: Input Validation. La API no confía en la pantalla, porque se le puede llamar con `curl`.
-  `[@test] ../backend/tests/validators/ventas.test.js`
+  `[@test] ../backend/tests/ventas/validador-venta.test.js`
 
 ### Respuestas
 
@@ -355,8 +358,10 @@ Todas siguen el formato de error de la spec de arquitectura (RNF-05).
 ### Documentación de la API
 
 V-03 documenta `POST /api/ventas` en la documentación de la API (A-01), con el mismo contrato de esta sección: el cuerpo, un
-ejemplo del 201, del 400, del 422 y del 500. Sigue el formato y el archivo que fija la spec de documentación de la API. Si
-A-01 todavía no está integrada cuando V-03 termina, V-03 deja la ruta lista para documentar y lo anota en su "Update".
+ejemplo del 201, del 400, del 422 y del 500. Sigue el formato y el archivo (`backend/docs/openapi.yaml`) que fija la spec
+de documentación de la API, y agrega la ruta a `montajes`. Si A-01 todavía no está integrada cuando V-03 termina, V-03
+deja la ruta lista para documentar y lo anota en su "Update".
+`[@test] ../backend/tests/ventas/documentacion-registrar-venta.test.js`
 
 ### Criterios de aceptación de V-03
 
@@ -399,9 +404,11 @@ con la paleta y los contrastes de "Diseño de la pantalla" de la spec de arquite
 | Evento | `registrada` | Se emite con `{ ventaId, total }` cuando la API responde 201. |
 | Evento | `update:enviando` | Se emite con `true` al empezar a enviar y con `false` al terminar. `VentaActual.vue` lo usa con `:enviando.sync` para deshabilitar agregar, editar y eliminar mientras dura el envío. |
 
-Al recibir `registrada`, `VentaActual.vue` vacía la venta actual con la función de `src/ventaActual/` que vacía el estado y
-borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/almacenamiento.js`, el único que toca
-`localStorage`). El componente no toca `localStorage` ni importa `axios`: llama a `registrarVenta` de `src/api/ventas.js`.
+Al recibir `registrada`, `VentaActual.vue` emite `update:ventaActual` con la venta actual vacía (`vaciarVentaActual()`, de
+`src/ventaActual/`), y `App.vue` la guarda con `guardarVentaActual` (de `src/ventaActual/almacenamiento.js`, el único
+que toca `localStorage`), que borra la llave `aipos.ventaActual`. `App.vue` es el único que guarda la venta actual, como
+define la spec de armar la venta actual. `RegistrarVenta.vue` no toca `localStorage` ni importa `axios`: llama a
+`registrarVenta` de `src/api/ventas.js`.
 
 ### Qué hace
 
@@ -415,7 +422,7 @@ borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/alma
 - **Envío.** Llama a `registrarVenta(detalles)` de `src/api/ventas.js`, que manda `POST /api/ventas` con
   `{ detalles: [{ productoId, cantidad, precioAplicado }] }` y solo esos tres campos de cada detalle. La función devuelve
   `{ ventaId, total }` o lanza el `Error` con `status`, `codigo`, `mensaje` y `detalles` que arma `src/api/http.js`.
-  `[@test] ../frontend/tests/api/ventas.test.js`
+  `[@test] ../frontend/tests/api/registrar-venta.test.js`
 - **Éxito (201).** Muestra una franja con `role="status"` (se anuncia a los lectores de pantalla) que dice
   **"Venta 15 registrada · Total 47.50"**, con los valores que devolvió la API, sin símbolo de moneda y sin recalcular en la
   pantalla. Junto al texto va la animación Lottie `venta-registrada.json` en `AnimacionLottie.vue`, una sola vez (sin
@@ -431,7 +438,7 @@ borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/alma
 - **Error 500.** Muestra el mensaje de la API ("Ocurrió un error inesperado. Intenta de nuevo."). La venta actual queda
   intacta y el botón se habilita otra vez.
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
-- **Sin respuesta** (`status` 0: la API está caída o pasó el tiempo máximo). Muestra "No se pudo conectar con el servidor.
+- **Sin respuesta** (`status` 0 y `codigo` `SIN_CONEXION`: la API está caída o pasó el tiempo máximo). Muestra "No se pudo conectar con el servidor.
   Tu venta sigue aquí: intenta de nuevo." La venta actual queda intacta y el botón se habilita otra vez. Ver el riesgo
   conocido de "API".
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
@@ -449,8 +456,9 @@ borra lo guardado en el navegador (`aipos.ventaActual`, en `src/ventaActual/alma
   cerca de 1.5 segundos, sin repetirse. La crea V-08 con el MCP `lottiefiles-creator` o, si la sesión no lo tiene, con la
   skill `text-to-lottie`. La revisa la prueba de animaciones de la spec de arquitectura.
   `[@test] ../frontend/tests/animaciones.test.js`
-- Con `prefers-reduced-motion: reduce` no se anima: `AnimacionLottie.vue` muestra un solo cuadro fijo (lo prueba B-04).
-  `RegistrarVenta.vue` solo le pasa el JSON y `loop` en `false`, y el texto de al lado dice lo mismo que la animación.
+- Con `prefers-reduced-motion: reduce` no se anima: `AnimacionLottie.vue` muestra un solo cuadro fijo, el último por
+  defecto (`cuadroFijo`; lo prueba B-04). `RegistrarVenta.vue` solo le pasa `animacion` y `loop` en `false`, y el texto
+  de al lado dice lo mismo que la animación.
   `[@test] ../frontend/tests/componentes/AnimacionLottie.test.js`
   `[@test] ../frontend/tests/componentes/RegistrarVenta.test.js`
 - En las pruebas, `lottie-web` se sustituye con `vi.mock`, porque jsdom no dibuja.
@@ -550,10 +558,13 @@ Si la sesión no tiene el MCP `chrome-devtools`, lo dice y la persona desarrolla
 
 ## Preguntas para la persona desarrolladora
 
-- **Límite de 100 detalles.** Los requerimientos no lo piden. Esta spec lo agrega porque, sin él, 101 productos distintos con
-  cantidad 999 y precio 99 999.99 (una venta válida en cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Las opciones son
-  aceptar el límite de 100 (la API, el procedimiento y el botón lo rechazan; las specs de la venta actual, V-04 a V-07, deben
-  incluirlo en `valida` y avisarlo al agregar el producto 101) o ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de arquitectura y RN-08. Esta spec sigue la primera.
+- **Límite de 100 detalles (RN-14, pregunta abierta 9 de `requerimientos/README.md`).** Los requerimientos no lo pedían.
+  Esta spec lo propuso porque, sin él, 101 productos distintos con cantidad 999 y precio 99 999.99 (una venta válida en
+  cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Ya está adoptado, con el consentimiento general de la persona
+  desarrolladora: la API, el procedimiento y el botón lo rechazan, y la spec de armar la venta actual lo incluye en `valida`
+  y lo avisa al agregar el producto 101. La otra opción era ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de
+  arquitectura y RN-08. Por confirmar con la persona desarrolladora: si prefiere la otra opción, cambia RN-14, esta spec y
+  la de armar la venta actual.
 - **Reintento con la respuesta perdida.** Ver "Riesgo conocido" en la sección de la API.
 
 ## Bugs y issues

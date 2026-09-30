@@ -4795,7 +4795,7 @@
       "node_kind": "heading",
       "norm_label": "animacion",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L446"
+      "source_location": "L453"
     },
     {
       "id": "specs_registrar_venta_spec_api_con_curl_v_03",
@@ -4807,7 +4807,7 @@
       "node_kind": "heading",
       "norm_label": "api, con `curl` (v-03)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L492"
+      "source_location": "L500"
     },
     {
       "id": "specs_registrar_venta_spec_api_post_api_ventas_v_03",
@@ -4819,7 +4819,7 @@
       "node_kind": "heading",
       "norm_label": "api: post /api/ventas (v-03)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L255"
+      "source_location": "L257"
     },
     {
       "id": "specs_registrar_venta_spec_archivos",
@@ -4831,7 +4831,7 @@
       "node_kind": "heading",
       "norm_label": "archivos",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L137"
+      "source_location": "L139"
     },
     {
       "id": "specs_registrar_venta_spec_bugs_y_issues",
@@ -4843,7 +4843,7 @@
       "node_kind": "heading",
       "norm_label": "bugs y issues",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L559"
+      "source_location": "L570"
     },
     {
       "id": "specs_registrar_venta_spec_contrato_del_componente",
@@ -4855,7 +4855,7 @@
       "node_kind": "heading",
       "norm_label": "contrato del componente",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L393"
+      "source_location": "L398"
     },
     {
       "id": "specs_registrar_venta_spec_criterios_de_aceptaci\u00f3n_de_v_02",
@@ -4867,7 +4867,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de v-02",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L237"
+      "source_location": "L239"
     },
     {
       "id": "specs_registrar_venta_spec_criterios_de_aceptaci\u00f3n_de_v_03",
@@ -4879,7 +4879,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de v-03",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L361"
+      "source_location": "L366"
     },
     {
       "id": "specs_registrar_venta_spec_criterios_de_aceptaci\u00f3n_de_v_08",
@@ -4891,7 +4891,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de v-08",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L462"
+      "source_location": "L470"
     },
     {
       "id": "specs_registrar_venta_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -4903,7 +4903,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L566"
+      "source_location": "L577"
     },
     {
       "id": "specs_registrar_venta_spec_documentaci\u00f3n_de_la_api",
@@ -4915,7 +4915,7 @@
       "node_kind": "heading",
       "norm_label": "documentacion de la api",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L355"
+      "source_location": "L358"
     },
     {
       "id": "specs_registrar_venta_spec_el_servicio_y_el_procedimiento",
@@ -4927,7 +4927,7 @@
       "node_kind": "heading",
       "norm_label": "el servicio y el procedimiento",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L334"
+      "source_location": "L337"
     },
     {
       "id": "specs_registrar_venta_spec_pantalla_bot\u00f3n_registrar_venta_v_08",
@@ -4939,7 +4939,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla: boton \"registrar venta\" (v-08)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L387"
+      "source_location": "L392"
     },
     {
       "id": "specs_registrar_venta_spec_pantalla_en_el_navegador_con_el_mcp_chrome_devtools_v_08",
@@ -4951,7 +4951,7 @@
       "node_kind": "heading",
       "norm_label": "pantalla, en el navegador con el mcp `chrome-devtools` (v-08)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L526"
+      "source_location": "L534"
     },
     {
       "id": "specs_registrar_venta_spec_par\u00e1metro_y_respuesta",
@@ -4963,7 +4963,7 @@
       "node_kind": "heading",
       "norm_label": "parametro y respuesta",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L157"
+      "source_location": "L159"
     },
     {
       "id": "specs_registrar_venta_spec_preguntas_para_la_persona_desarrolladora",
@@ -4975,7 +4975,7 @@
       "node_kind": "heading",
       "norm_label": "preguntas para la persona desarrolladora",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L551"
+      "source_location": "L559"
     },
     {
       "id": "specs_registrar_venta_spec_procedimiento_sp_registrar_venta_v_02",
@@ -4987,7 +4987,7 @@
       "node_kind": "heading",
       "norm_label": "procedimiento sp_registrar_venta (v-02)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L132"
+      "source_location": "L134"
     },
     {
       "id": "specs_registrar_venta_spec_pruebas_en_local",
@@ -4999,7 +4999,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L486"
+      "source_location": "L494"
     },
     {
       "id": "specs_registrar_venta_spec_qu\u00e9_hace",
@@ -5011,7 +5011,7 @@
       "node_kind": "heading",
       "norm_label": "que hace",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L406"
+      "source_location": "L413"
     },
     {
       "id": "specs_registrar_venta_spec_qu\u00e9_hace_en_orden",
@@ -5023,7 +5023,7 @@
       "node_kind": "heading",
       "norm_label": "que hace, en orden",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L176"
+      "source_location": "L178"
     },
     {
       "id": "specs_registrar_venta_spec_registrar_venta",
@@ -5035,7 +5035,7 @@
       "node_kind": "heading",
       "norm_label": "registrar venta",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "specs_registrar_venta_spec_reglas_de_negocio",
@@ -5047,7 +5047,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L45"
+      "source_location": "L47"
     },
     {
       "id": "specs_registrar_venta_spec_respuestas",
@@ -5059,7 +5059,7 @@
       "node_kind": "heading",
       "norm_label": "respuestas",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L290"
+      "source_location": "L293"
     },
     {
       "id": "specs_registrar_venta_spec_riesgo_conocido_reintento_cuando_la_respuesta_se_pierde",
@@ -5071,7 +5071,7 @@
       "node_kind": "heading",
       "norm_label": "riesgo conocido: reintento cuando la respuesta se pierde",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L379"
+      "source_location": "L384"
     },
     {
       "id": "specs_registrar_venta_spec_tablas_y_modelos_v_01",
@@ -5083,7 +5083,7 @@
       "node_kind": "heading",
       "norm_label": "tablas y modelos (v-01)",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L63"
+      "source_location": "L65"
     },
     {
       "id": "specs_registrar_venta_spec_todo_o_nada",
@@ -5095,7 +5095,7 @@
       "node_kind": "heading",
       "norm_label": "todo o nada",
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L218"
+      "source_location": "L220"
     },
     {
       "id": "tests_arquitectura_spec_arquitectura_test",
@@ -9779,7 +9779,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -9790,7 +9790,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L290",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -9801,7 +9801,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L334",
+      "source_location": "L337",
       "weight": 1.0
     },
     {
@@ -9812,7 +9812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L355",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -9823,7 +9823,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L361",
+      "source_location": "L366",
       "weight": 1.0
     },
     {
@@ -9834,7 +9834,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L379",
+      "source_location": "L384",
       "weight": 1.0
     },
     {
@@ -9845,7 +9845,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L393",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -9856,7 +9856,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L406",
+      "source_location": "L413",
       "weight": 1.0
     },
     {
@@ -9867,7 +9867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L446",
+      "source_location": "L453",
       "weight": 1.0
     },
     {
@@ -9878,7 +9878,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L462",
+      "source_location": "L470",
       "weight": 1.0
     },
     {
@@ -9889,7 +9889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L137",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -9900,7 +9900,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L157",
+      "source_location": "L159",
       "weight": 1.0
     },
     {
@@ -9911,7 +9911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L176",
+      "source_location": "L178",
       "weight": 1.0
     },
     {
@@ -9922,7 +9922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L218",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -9933,7 +9933,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L237",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -9944,7 +9944,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L492",
+      "source_location": "L500",
       "weight": 1.0
     },
     {
@@ -9955,7 +9955,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L526",
+      "source_location": "L534",
       "weight": 1.0
     },
     {
@@ -9966,7 +9966,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L132",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -9977,7 +9977,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L255",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -9988,7 +9988,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L387",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -9999,7 +9999,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -10010,7 +10010,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L486",
+      "source_location": "L494",
       "weight": 1.0
     },
     {
@@ -10021,7 +10021,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L551",
+      "source_location": "L559",
       "weight": 1.0
     },
     {
@@ -10032,7 +10032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L559",
+      "source_location": "L570",
       "weight": 1.0
     },
     {
@@ -10043,7 +10043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L566",
+      "source_location": "L577",
       "weight": 1.0
     },
     {
@@ -10054,7 +10054,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/registrar-venta.spec.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0
     },
     {

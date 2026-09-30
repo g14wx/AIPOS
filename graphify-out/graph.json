@@ -7176,6 +7176,51 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_sin_datos_privados_test",
+      "label": "sin-datos-privados.test.sh",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "sin-datos-privados.test.sh",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_sin_datos_privados_test_resumir",
+      "label": "resumir()",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "resumir()",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L95"
+    },
+    {
+      "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "label": "sin-datos-privados.test.sh script",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "sin-datos-privados.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "sin-datos-privados.test.sh script",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7709,6 +7754,18 @@
       "context": "call",
       "source_file": "tests/despliegue/revisar-produccion.test.sh",
       "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "target": "tests_despliegue_sin_datos_privados_test_resumir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -12304,6 +12361,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_sin_datos_privados_test",
+      "target": "tests_despliegue_sin_datos_privados_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_volver_dos_veces_test",
       "target": "tests_despliegue_volver_dos_veces_test_sh__entry",
       "relation": "contains",
@@ -13060,6 +13128,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/revisar-produccion.test.sh",
       "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_sin_datos_privados_test",
+      "target": "tests_despliegue_sin_datos_privados_test_resumir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/sin-datos-privados.test.sh",
+      "source_location": "L95",
       "weight": 1.0
     },
     {

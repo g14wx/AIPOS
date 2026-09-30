@@ -55,7 +55,12 @@ function montar(propsData = {}) {
 }
 
 const filas = () => wrapper.findAll('tbody tr').wrappers;
-const celdas = (fila) => fila.findAll('td').wrappers.map((celda) => celda.text());
+// Un campo de la tabla (la cantidad, V-06) muestra su valor en el input y no como texto de la celda.
+const celdas = (fila) =>
+  fila.findAll('td').wrappers.map((celda) => {
+    const campo = celda.find('input');
+    return campo.exists() ? campo.element.value : celda.text();
+  });
 const total = () => wrapper.find('[data-total]').text();
 const etiqueta = (nombre) => `Eliminar ${nombre} de la venta actual`;
 const botones = () =>

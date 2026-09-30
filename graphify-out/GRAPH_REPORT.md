@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 93 files · ~89,693 words
+- 94 files · ~90,322 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 593 nodes · 593 edges · 79 communities (37 shown, 42 thin omitted)
+- 596 nodes · 596 edges · 80 communities (37 shown, 43 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -92,6 +92,7 @@
 - Flujo 05 · Entregar un entregable
 - sin-borrar-datos.test.sh
 - imagenes.test.sh
+- documentos.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -111,7 +112,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (79 total, 42 thin omitted)
+## Communities (80 total, 43 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -264,7 +265,7 @@ Nodes (3): leer(), imagenes.test.sh script, uso()
 ## Knowledge Gaps
 - **357 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+352 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 418 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **43 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -272,7 +273,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**

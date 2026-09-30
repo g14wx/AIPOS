@@ -7461,6 +7461,51 @@
       "source_location": "L94"
     },
     {
+      "id": "tests_despliegue_documentos_test",
+      "label": "documentos.test.sh",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "documentos.test.sh",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_documentos_test_leer",
+      "label": "leer()",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "leer()",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_despliegue_documentos_test_sh__entry",
+      "label": "documentos.test.sh script",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "documentos.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "documentos.test.sh script",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7934,6 +7979,18 @@
       "context": "call",
       "source_file": "tests/despliegue/crear-env.test.sh",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_documentos_test_sh__entry",
+      "target": "tests_despliegue_documentos_test_leer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -12616,6 +12673,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_documentos_test",
+      "target": "tests_despliegue_documentos_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/documentos.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_etiqueta_en_produccionenv_test",
       "target": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
       "relation": "contains",
@@ -13371,6 +13439,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_documentos_test",
+      "target": "tests_despliegue_documentos_test_leer",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/documentos.test.sh",
       "source_location": "L10",
       "weight": 1.0
     },

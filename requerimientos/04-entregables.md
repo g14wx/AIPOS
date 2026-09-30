@@ -80,7 +80,7 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 | B-02 | Base del backend | Backend | `feature/base` | B-01, T-01 | — | 1 |
 | B-03 | MySQL con Docker Compose y migraciones | Base de datos, DevOps | `feature/base` | B-01, T-01 | — | 1 |
 | B-04 | Base del frontend con la pantalla única | Frontend | `feature/base` | B-01, T-02 | — | 1.5 |
-| A-01 | Documentación de la API con Swagger | Backend, Documentación | `feature/base` | B-02 | — | 1 |
+| A-01 | Documentación de la API con Swagger UI | Backend, Documentación | `feature/base` | B-02 | — | 1 |
 
 ### Entregable productos
 

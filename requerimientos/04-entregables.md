@@ -85,7 +85,7 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 
 | Id | Tarjeta | Área | Rama | Depende de | Diagrama | Horas |
 |---|---|---|---|---|---|---|
-| D-01 | Pipeline de despliegue con etiquetas release-* | DevOps | `chore/despliegue` → `ProductionEnv` (la configuración del servidor y de GitHub no está en git; queda descrita en `docs/despliegue.md`) | Entregable base integrado (B-01 a B-04), para probar con `release-0.1.0` | 07 | 4 |
+| D-01 | Pipeline de despliegue con etiquetas release-* | DevOps | `chore/despliegue` → `ProductionEnv` (la configuración del servidor y de GitHub no está en git; queda descrita en `docs/despliegue.md`) | Entregable base integrado (B-01 a B-04 y A-01), para probar con `release-0.1.0` | 07 | 4 |
 
 ### Entregable productos
 

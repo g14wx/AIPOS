@@ -14,6 +14,11 @@ services:
   mysql:
     image: mysql:8.4
     restart: unless-stopped
+    # Igual que el compose de desarrollo: utf8mb4 con el orden por defecto de MySQL 8.4 y la hora del servidor en UTC (RN-12).
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+00:00
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -26,12 +31,13 @@ services:
     volumes:
       - mysql_datos:/var/lib/mysql
     healthcheck:
-      # Por TCP: mientras la imagen prepara la base solo escucha en su socket, y ahí todavía no está sana.
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
-      interval: 10s
+      # Por TCP y con la clave de root (que la imagen ya tiene en su entorno): mientras la imagen prepara la base solo
+      # escucha en su socket, y ahí todavía no está sana.
+      test: ["CMD-SHELL", 'MYSQL_PWD="$$MYSQL_ROOT_PASSWORD" mysqladmin ping -h 127.0.0.1 -uroot --silent']
+      interval: 5s
       timeout: 5s
-      retries: 12
-      start_period: 30s
+      retries: 20
+      start_period: 20s
     mem_limit: 1g
     logging: &registros
       driver: json-file

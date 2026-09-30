@@ -4,6 +4,18 @@
   "graph": {},
   "nodes": [
     {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
       "id": "requerimientos_02_requerimientos_funcionales",
       "label": "02-requerimientos-funcionales.md",
       "_origin": "ast",
@@ -112,54 +124,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
-      "label": "Flujo 02 \u00b7 Buscar producto",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 02 \u00b7 buscar producto",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L43"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L17"
-    },
-    {
       "id": "requerimientos_flujos_03_armar_la_venta_actual",
       "label": "03-armar-la-venta-actual.md",
       "_origin": "ast",
@@ -172,6 +136,54 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
+      "label": "Flujo 03 \u00b7 Armar la venta actual",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 03 \u00b7 armar la venta actual",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L31"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L17"
+    },
+    {
       "id": "requerimientos_flujos_04_registrar_venta",
       "label": "04-registrar-venta.md",
       "_origin": "ast",
@@ -182,54 +194,6 @@
       "norm_label": "04-registrar-venta.md",
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
-      "label": "Flujo 04 \u00b7 Registrar venta",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 04 \u00b7 registrar venta",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19"
     },
     {
       "id": "requerimientos_flujos_05_entregar_un_entregable",
@@ -410,150 +374,6 @@
       "norm_label": "graphify-setup.md",
       "source_file": "docs/setup/graphify-setup.md",
       "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_graphify_setup_1_instalar_graphify",
-      "label": "1. Instalar Graphify",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. instalar graphify",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "docs_setup_graphify_setup_2_activar_el_hook_de_git",
-      "label": "2. Activar el hook de git",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. activar el hook de git",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "docs_setup_graphify_setup_3_verificar",
-      "label": "3. Verificar",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. verificar",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L52"
-    },
-    {
-      "id": "docs_setup_graphify_setup_comandos_\u00fatiles",
-      "label": "Comandos \u00fatiles",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "comandos utiles",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L76"
-    },
-    {
-      "id": "docs_setup_graphify_setup_flujo_de_una_tarea",
-      "label": "Flujo de una tarea",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo de una tarea",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L64"
-    },
-    {
-      "id": "docs_setup_graphify_setup_privacidad",
-      "label": "Privacidad",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "privacidad",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L119"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
-      "label": "Qu\u00e9 es y para qu\u00e9 sirve",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que es y para que sirve",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_no_usamos_y_por_qu\u00e9",
-      "label": "Qu\u00e9 no usamos, y por qu\u00e9",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no usamos, y por que",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L96"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_va_a_git_y_qu\u00e9_no",
-      "label": "Qu\u00e9 va a git y qu\u00e9 no",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que va a git y que no",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L87"
-    },
-    {
-      "id": "docs_setup_graphify_setup_requisitos",
-      "label": "Requisitos",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "requisitos",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L24"
-    },
-    {
-      "id": "docs_setup_graphify_setup_setup_de_graphify",
-      "label": "Setup de Graphify",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de graphify",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_graphify_setup_soluci\u00f3n_de_problemas",
-      "label": "Soluci\u00f3n de problemas",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "solucion de problemas",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L106"
     },
     {
       "id": "docs_setup_tessl_setup",
@@ -2044,52 +1864,148 @@
       "source_location": "L18"
     },
     {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
-      "label": "Flujo 03 \u00b7 Armar la venta actual",
+      "id": "docs_setup_graphify_setup_1_instalar_graphify",
+      "label": "1. Instalar Graphify",
       "_origin": "ast",
       "community": 25,
-      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "community_name": "Comandos \u00fatiles",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "flujo 03 \u00b7 armar la venta actual",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "norm_label": "1. instalar graphify",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "docs_setup_graphify_setup_2_activar_el_hook_de_git",
+      "label": "2. Activar el hook de git",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. activar el hook de git",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "docs_setup_graphify_setup_3_verificar",
+      "label": "3. Verificar",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. verificar",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L52"
+    },
+    {
+      "id": "docs_setup_graphify_setup_comandos_\u00fatiles",
+      "label": "Comandos \u00fatiles",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "comandos utiles",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L76"
+    },
+    {
+      "id": "docs_setup_graphify_setup_flujo_de_una_tarea",
+      "label": "Flujo de una tarea",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo de una tarea",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L64"
+    },
+    {
+      "id": "docs_setup_graphify_setup_privacidad",
+      "label": "Privacidad",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "privacidad",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L119"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
+      "label": "Qu\u00e9 es y para qu\u00e9 sirve",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que es y para que sirve",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_no_usamos_y_por_qu\u00e9",
+      "label": "Qu\u00e9 no usamos, y por qu\u00e9",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no usamos, y por que",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L96"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_va_a_git_y_qu\u00e9_no",
+      "label": "Qu\u00e9 va a git y qu\u00e9 no",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que va a git y que no",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L87"
+    },
+    {
+      "id": "docs_setup_graphify_setup_requisitos",
+      "label": "Requisitos",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requisitos",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "docs_setup_graphify_setup_setup_de_graphify",
+      "label": "Setup de Graphify",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Comandos \u00fatiles",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de graphify",
+      "source_file": "docs/setup/graphify-setup.md",
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
+      "id": "docs_setup_graphify_setup_soluci\u00f3n_de_problemas",
+      "label": "Soluci\u00f3n de problemas",
       "_origin": "ast",
       "community": 25,
-      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "community_name": "Comandos \u00fatiles",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L39"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L31"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L17"
+      "norm_label": "solucion de problemas",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L106"
     },
     {
       "id": "tests_grafo_del_proyecto_misma_version_test",
@@ -2992,6 +2908,132 @@
       "source_location": "L1"
     },
     {
+      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
+      "label": "Flujo 02 \u00b7 Buscar producto",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 02 \u00b7 buscar producto",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
+      "label": "Flujo 04 \u00b7 Registrar venta",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 04 \u00b7 registrar venta",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "tests_hook_de_git_marca_de_commit_test",
+      "label": "marca-de-commit.test.sh",
+      "_origin": "ast",
+      "community": 46,
+      "community_name": "marca-de-commit.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "marca-de-commit.test.sh",
+      "source_file": "tests/hook-de-git/marca-de-commit.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_git_marca_de_commit_test_sh__entry",
+      "label": "marca-de-commit.test.sh script",
+      "_origin": "ast",
+      "community": 46,
+      "community_name": "marca-de-commit.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "marca-de-commit.test.sh script",
+      "source_file": "tests/hook-de-git/marca-de-commit.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "requerimientos_03_requerimientos_no_funcionales_requerimientos_no_funcionales",
       "label": "Requerimientos no funcionales",
       "_origin": "ast",
@@ -3486,18 +3528,6 @@
       "norm_label": "solucion de problemas",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L168"
-    },
-    {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
     },
     {
       "id": "requerimientos_01_alcance_actores_y_partes",
@@ -6177,6 +6207,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_hook_de_git_marca_de_commit_test",
+      "target": "tests_hook_de_git_marca_de_commit_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/hook-de-git/marca-de-commit.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_hook_de_git_otra_version_test",
       "target": "tests_hook_de_git_otra_version_test_sh__entry",
       "relation": "contains",
@@ -6750,5 +6791,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b9595966e7e0c05d7480285ddcc89178caa9e813"
+  "built_at_commit": ""
 }

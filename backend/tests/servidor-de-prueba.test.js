@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import http from 'node:http';
 import net from 'node:net';
@@ -6,7 +7,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
 import { createRequire } from 'node:module';
-import { abrirServidorDePrueba, cerrarServidorDePrueba, pedir } from './servidor-de-prueba.js';
+import { promisify } from 'node:util';
+import {
+  abrirServidorDePrueba,
+  cerrarServidorDePrueba,
+  pedir,
+  PEDIR_DESDE_UN_PROGRAMA,
+} from './servidor-de-prueba.js';
 
 // Pruebas del ayudante que abre el servidor de las pruebas con supertest (issues #58 y #59). No necesitan MySQL:
 // usan una app de Express de mentira.
@@ -165,6 +172,29 @@ describe('con otros programas escuchando en 127.0.0.1', () => {
       await Promise.all(ajenos.map((ajeno) => cerrarServidorDePrueba(ajeno)));
     }
   }, 60_000);
+});
+
+// Algunas pruebas arrancan un programa aparte con `node -e`, que no puede importar el ayudante (es un módulo de
+// Vitest): reciben el mismo pedir(app, ...) como texto de CommonJS.
+describe('PEDIR_DESDE_UN_PROGRAMA', () => {
+  it('define pedir(app, ...) con un servidor en 127.0.0.1 y deja que el programa termine solo', async () => {
+    const programa = `
+      ${PEDIR_DESDE_UN_PROGRAMA}
+      const app = require('express')();
+      app.get('/donde', (req, res) => res.json({ direccion: req.socket.localAddress }));
+      (async () => {
+        const respuesta = await pedir(app, (api) => api.get('/donde'));
+        console.log(JSON.stringify({ estado: respuesta.status, direccion: respuesta.body.direccion }));
+      })();
+    `;
+    // Si el servidor quedara abierto, el programa no terminaría y execFile lo mataría a los 15 segundos.
+    const { stdout } = await promisify(execFile)('node', ['-e', programa], {
+      cwd: path.resolve(import.meta.dirname, '..'),
+      encoding: 'utf8',
+      timeout: 15_000,
+    });
+    expect(JSON.parse(stdout)).toEqual({ estado: 200, direccion: '127.0.0.1' });
+  }, 20_000);
 });
 
 // Todas las pruebas con supertest usan esta ayuda. Sin esta revisión, una prueba nueva con request(app) vuelve a

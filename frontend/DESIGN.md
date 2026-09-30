@@ -111,6 +111,8 @@ en reposo es la tinta al 55 % (3.4 de contraste sobre blanco) y en foco es de 2 
 
 - **Botón principal:** relleno turquesa, texto tinta, 44 px de alto (`large`), un ícono `mdi` a la izquierda si ayuda.
 - **Campo de búsqueda:** `outlined` con fondo blanco, etiqueta visible, ayuda fija de 14 px y botón de borrar con nombre en español. Toma el foco al abrir la pantalla.
+- **Resultados de búsqueda:** una lista de filas en una superficie blanca con el filete de tinta al 16 %. Cada fila es un botón de 48 px o más: el nombre en 600, el código de barras debajo en 14 px y el precio a la derecha, en cifras tabulares. El puntero tiñe la fila de turquesa al 18 %, y el foco de teclado es un contorno de 3 px en tinta por dentro de la fila. Con muchos resultados la lista se desplaza por dentro (26 rem de alto máximo), para que el total de la venta actual no se vaya de la pantalla.
+- **Mensaje de estado:** una franja blanca con el mismo filete y una frase de 16 px, con un ícono `mdi` en tinta («Escribe al menos 2 caracteres», «Sin resultados») o con la animación `buscando` («Buscando…»). El error va en tinta, con borde e ícono coral, y con «Reintentar» como única acción.
 - **Venta actual:** tarjeta con título h2, cuerpo (el estado vacío enseña qué hacer: «Busca un producto para empezar la venta») y franja del total pegada abajo.
 - **AnimacionLottie:** decorativa (`aria-hidden`). Con menos movimiento muestra un cuadro fijo, el último por defecto.
 - **Foco visible:** contorno de 3 px en tinta con 2 px de separación, y turquesa sobre la barra oscura.

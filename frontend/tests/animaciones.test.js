@@ -153,3 +153,67 @@ describe('animación producto-creado.json (P-03)', () => {
     expect(ultima.t).toBeLessThanOrEqual(datos.op - datos.ip - 1);
   });
 });
+
+// P-05: buscando.json es la espera de la búsqueda, y se repite mientras dura: un código de barras que un haz turquesa
+// recorre de arriba abajo y de vuelta. Su primer y su último cuadro son iguales, así que no salta al repetirse y, con
+// menos movimiento, el cuadro fijo (el último) es el código de barras con el haz en el centro.
+describe('animación buscando.json (P-05)', () => {
+  const ruta = join(carpeta, 'buscando.json');
+  const datos = existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')) : {};
+
+  // Las propiedades animadas de Lottie: { a: 1, k: [cuadros clave con t y s] }.
+  function animadas(nodo, encontradas = []) {
+    if (Array.isArray(nodo)) {
+      nodo.forEach((hijo) => animadas(hijo, encontradas));
+    } else if (nodo && typeof nodo === 'object') {
+      if (nodo.a === 1 && Array.isArray(nodo.k)) encontradas.push(nodo.k);
+      Object.values(nodo).forEach((hijo) => animadas(hijo, encontradas));
+    }
+    return encontradas;
+  }
+
+  it('existe en src/assets/animaciones/', () => {
+    expect(existsSync(ruta)).toBe(true);
+  });
+
+  it('cada vuelta dura de 1 a 2,5 segundos', () => {
+    const segundos = (datos.op - datos.ip) / datos.fr;
+    expect(segundos).toBeGreaterThanOrEqual(1);
+    expect(segundos).toBeLessThanOrEqual(2.5);
+  });
+
+  it('es cuadrada, para que a 48 px de alto se vea entera', () => {
+    expect(datos.w).toBe(datos.h);
+  });
+
+  it('usa la tinta y el turquesa de la paleta', () => {
+    const colores = coloresDe(datos);
+    expect(colores).toContain('#292F36');
+    expect(colores).toContain('#4ECDC4');
+  });
+
+  it('no tiene fondo: se ve sobre la superficie blanca de la zona de resultados', () => {
+    expect((datos.layers ?? []).some((capa) => capa.ty === 1)).toBe(false);
+  });
+
+  it('se mueve: tiene al menos una propiedad animada', () => {
+    expect(animadas(datos).length).toBeGreaterThan(0);
+  });
+
+  it('es un ciclo: cada propiedad animada termina donde empezó, sin salto al repetirse', () => {
+    for (const claves of animadas(datos)) {
+      const primera = claves[0];
+      const ultima = claves[claves.length - 1];
+      expect(ultima.s, 'el último cuadro clave debe valer lo mismo que el primero').toEqual(
+        primera.s,
+      );
+      expect(primera.t).toBe(datos.ip);
+      expect(ultima.t).toBe(datos.op);
+    }
+  });
+
+  it('solo una capa se mueve, el haz: el código de barras queda quieto', () => {
+    const conMovimiento = (datos.layers ?? []).filter((capa) => animadas(capa).length > 0);
+    expect(conMovimiento).toHaveLength(1);
+  });
+});

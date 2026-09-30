@@ -2,35 +2,56 @@
 
 const ErrorApi = require('../errors/ErrorApi');
 
-// Piezas de validación que comparten todos los recursos (spec de arquitectura, "Validación"). Ninguna lanza:
-// devuelven { valor } con el dato limpio o { detalleDelError: { campo, mensaje } }, para que el validador de cada
-// recurso junte todos los campos con problema y no solo el primero. exigirDatosValidos los junta y lanza el 400.
+// Las piezas de validación que usan todos los recursos (spec de arquitectura, "Validación" y "Dinero").
+// Ninguna lanza por un dato malo: devuelven { valor } con el dato limpio, o { detalleDelError: { campo, mensaje } }.
+// Así el validador de un recurso las llama todas y junta los campos con problema en vez de cortar en el primero
+// (Validation Pattern), y exigirDatosValidos lanza el 400 una sola vez.
 
-function conProblema(campo, mensaje) {
-  return { detalleDelError: { campo, mensaje } };
-}
+const FORMA_DEL_DINERO = /^\d+(\.\d+)?$/;
+const SOLO_CEROS = /^0+(\.0+)?$/;
 
-// Cuenta caracteres como CHAR_LENGTH de MySQL: un emoji cuenta 1, y no 2 como length (unidades de UTF-16).
-function contarCaracteres(texto) {
-  return [...texto].length;
-}
+const bueno = (valor) => ({ valor });
+const conProblema = (campo, mensaje) => ({ detalleDelError: { campo, mensaje } });
 
-// Quita los espacios de los extremos y revisa que no quede vacío ni pase del largo máximo. Recorta con trim() de
-// JavaScript, que quita más que el espacio normal (el CHECK de MySQL solo ve ese). Un valor que no es texto no se
-// convierte. Sin `maximo`, solo revisa que no quede vacío.
-function validarTexto(valor, campo, { maximo } = {}) {
+// Un texto del cajero: le quita los espacios de los extremos y revisa que no quede vacío ni pase del máximo.
+// trim() de JavaScript quita más que el espacio normal (tabulador, salto de línea, espacio no separable...) y el
+// CHECK de MySQL solo ve el espacio normal: por eso el recorte es de la API, no de la base.
+function validarTexto(valor, campo, { maximo = Infinity } = {}) {
   if (valor === undefined || valor === null) return conProblema(campo, 'Es obligatorio.');
   if (typeof valor !== 'string') return conProblema(campo, 'Debe ser un texto.');
-  const texto = valor.trim();
-  if (texto === '') return conProblema(campo, 'Es obligatorio.');
-  if (maximo !== undefined && contarCaracteres(texto) > maximo) {
+  const limpio = valor.trim();
+  if (limpio === '') return conProblema(campo, 'Es obligatorio.');
+  // El largo se cuenta en caracteres, como lo cuenta MySQL, y no en unidades de UTF-16: un emoji cuenta 1.
+  // Solo se separa en caracteres cuando las unidades de UTF-16 ya pasan del máximo.
+  if (limpio.length > maximo && [...limpio].length > maximo) {
     return conProblema(campo, `No puede pasar de ${maximo} caracteres.`);
   }
-  return { valor: texto };
+  return bueno(limpio);
 }
 
-// Si algún resultado trae un problema, lanza un solo 400 DATOS_INVALIDOS con el detalle de cada campo con
-// problema, en el mismo orden. Si todos son buenos, no hace nada.
+// Un dinero que llega como texto con la forma ^\d{1,5}(\.\d{1,2})?$ (hasta 99999.99). Sin permiteCero tiene que ser
+// mayor que 0, como el precio de un producto (RN-02). Devuelve el texto tal cual: el backend no formatea dinero,
+// y MySQL redondea sin avisar cuando le llegan más de 2 decimales, así que la API los rechaza aquí.
+// Se dice solo el primer problema, en este orden: falta, no es un texto, la forma, los decimales, los enteros y el cero.
+function validarDinero(valor, campo, { permiteCero = false } = {}) {
+  if (valor === undefined || valor === null || valor === '') {
+    return conProblema(campo, 'Es obligatorio.');
+  }
+  if (typeof valor !== 'string') {
+    return conProblema(campo, 'Debe enviarse como texto, por ejemplo "25.50".');
+  }
+  if (!FORMA_DEL_DINERO.test(valor)) {
+    return conProblema(campo, 'Debe ser un número con punto decimal, por ejemplo 25.50.');
+  }
+  const [enteros, decimales = ''] = valor.split('.');
+  if (decimales.length > 2) return conProblema(campo, 'No puede tener más de 2 decimales.');
+  if (enteros.length > 5) return conProblema(campo, 'No puede ser mayor que 99999.99.');
+  if (!permiteCero && SOLO_CEROS.test(valor)) return conProblema(campo, 'Debe ser mayor que 0.');
+  return bueno(valor);
+}
+
+// Si algún resultado trae un detalle del error, lanza un 400 DATOS_INVALIDOS con los detalles del error de todos los
+// campos con problema, en el orden en que llegaron los resultados.
 function exigirDatosValidos(mensaje, resultados) {
   const detalles = resultados
     .filter((resultado) => resultado.detalleDelError)
@@ -38,4 +59,4 @@ function exigirDatosValidos(mensaje, resultados) {
   if (detalles.length > 0) throw new ErrorApi(400, 'DATOS_INVALIDOS', mensaje, detalles);
 }
 
-module.exports = { validarTexto, exigirDatosValidos };
+module.exports = { validarTexto, validarDinero, exigirDatosValidos };

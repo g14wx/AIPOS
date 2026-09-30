@@ -91,6 +91,19 @@ describe('contraste de los pares que la pantalla usa para texto (mínimo 4.5)', 
     // P-03: el modal y el aviso son superficies blancas; la franja de error es el rojo al 12 % sobre el modal.
     ['texto sobre la superficie blanca del modal, el aviso y los campos', texto, '#FFFFFF', 13.51],
     ['texto sobre la franja de error', texto, mezclar('#FF6B6B', '#FFFFFF', 0.12), 11.96],
+    // P-05: la fila de un resultado se tiñe de turquesa al pasar el puntero (18 %) y al pulsarla (32 %).
+    [
+      'texto sobre una fila de resultado con el puntero encima',
+      texto,
+      mezclar('#4ECDC4', '#FFFFFF', 0.18),
+      11.98,
+    ],
+    [
+      'texto sobre una fila de resultado pulsada',
+      texto,
+      mezclar('#4ECDC4', '#FFFFFF', 0.32),
+      10.91,
+    ],
   ];
 
   for (const [nombre, letra, fondo, esperado] of pares) {

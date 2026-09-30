@@ -340,6 +340,19 @@ describe('disabled', () => {
     expect(emitidos()).toEqual(['22']);
   });
 
+  // Chrome no avisa con blur cuando un campo con el foco se deshabilita (por ejemplo, al empezar V-08 a registrar la
+  // venta): el campo no debe quedarse «enfocado» y dejar de mostrar el valor que le llegue.
+  it('si se deshabilita mientras tiene el foco, sale del campo: muestra el valor válido y acepta el que le llegue después', async () => {
+    montar();
+    await enfocar();
+    await escribir('22');
+    await wrapper.setProps({ value: '22.00' });
+    await wrapper.setProps({ disabled: true });
+    expect(textoDelCampo()).toBe('22.00');
+    await wrapper.setProps({ value: '18.00' });
+    expect(textoDelCampo()).toBe('18.00');
+  });
+
   it('deshabilitado sigue mostrando el precio aplicado y el error, si lo tiene', () => {
     montar({ disabled: true, error: MENSAJE, value: '22.00' });
     expect(textoDelCampo()).toBe('22.00');

@@ -62,6 +62,11 @@ export default {
     value(nuevo) {
       if (!this.enfocado) this.texto = nuevo;
     },
+    // Chrome no avisa con blur cuando un campo con el foco se deshabilita (V-08 lo hace al registrar la venta): sin esto
+    // el campo se quedaría «enfocado» y no mostraría los value que le lleguen después (#84).
+    disabled(deshabilitado) {
+      if (deshabilitado) this.alSalir();
+    },
   },
   methods: {
     alEscribir(texto) {

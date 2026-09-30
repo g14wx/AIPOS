@@ -99,3 +99,57 @@ describe.each(archivos)('animación %s', (nombre) => {
     expect(readFileSync(ruta, 'utf8')).not.toMatch(/"x"\s*:\s*"var\s/);
   });
 });
+
+// P-03: producto-creado.json es el aviso "Producto creado": una palomita que se dibuja en 1 a 1,5 segundos, en el
+// turquesa y la tinta de la paleta, y que al terminar queda dibujada por completo (es el cuadro que se ve con menos
+// movimiento).
+function buscar(nodo, predicado) {
+  if (Array.isArray(nodo)) {
+    for (const hijo of nodo) {
+      const encontrado = buscar(hijo, predicado);
+      if (encontrado) return encontrado;
+    }
+  } else if (nodo && typeof nodo === 'object') {
+    if (predicado(nodo)) return nodo;
+    for (const hijo of Object.values(nodo)) {
+      const encontrado = buscar(hijo, predicado);
+      if (encontrado) return encontrado;
+    }
+  }
+  return null;
+}
+
+describe('animación producto-creado.json (P-03)', () => {
+  const ruta = join(carpeta, 'producto-creado.json');
+  const datos = existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')) : {};
+
+  it('existe en src/assets/animaciones/', () => {
+    expect(existsSync(ruta)).toBe(true);
+  });
+
+  it('dura de 1 a 1,5 segundos', () => {
+    const segundos = (datos.op - datos.ip) / datos.fr;
+    expect(segundos).toBeGreaterThanOrEqual(1);
+    expect(segundos).toBeLessThanOrEqual(1.5);
+  });
+
+  it('es cuadrada, para que a 32 px de alto se vea entera', () => {
+    expect(datos.w).toBe(datos.h);
+  });
+
+  it('usa el turquesa y la tinta de la paleta', () => {
+    const colores = coloresDe(datos);
+    expect(colores).toContain('#4ECDC4');
+    expect(colores).toContain('#292F36');
+  });
+
+  it('la palomita se dibuja con un trazo recortado y ya está completa antes del último cuadro', () => {
+    const recorte = buscar(datos, (nodo) => nodo.ty === 'tm');
+    expect(recorte, 'debe haber un recorte de trazo (trim path)').not.toBeNull();
+    const claves = recorte.e.k;
+    expect(Array.isArray(claves)).toBe(true);
+    const ultima = claves[claves.length - 1];
+    expect(ultima.s[0]).toBe(100);
+    expect(ultima.t).toBeLessThanOrEqual(datos.op - datos.ip - 1);
+  });
+});

@@ -7,7 +7,9 @@ const FORMA_DEL_DINERO = /^(\d{1,5})(?:\.(\d{1,2}))?$/;
 export function aCentavos(texto) {
   const partes = typeof texto === 'string' ? FORMA_DEL_DINERO.exec(texto) : null;
   if (!partes) {
-    throw new Error('El dinero es un texto con hasta 5 enteros y 2 decimales, por ejemplo "22.50".');
+    throw new Error(
+      'El dinero es un texto con hasta 5 enteros y 2 decimales, por ejemplo "22.50".',
+    );
   }
   const [, enteros, decimales = ''] = partes;
   return Number(enteros) * 100 + Number(decimales.padEnd(2, '0'));

@@ -27,10 +27,19 @@ function traducirError(errorDeAxios) {
   const cuerpo = response.data?.error;
   if (typeof cuerpo?.codigo === 'string' && typeof cuerpo?.mensaje === 'string') {
     const detalles = Array.isArray(cuerpo.detalles) ? cuerpo.detalles : [];
-    return crearError({ status: response.status, codigo: cuerpo.codigo, mensaje: cuerpo.mensaje, detalles });
+    return crearError({
+      status: response.status,
+      codigo: cuerpo.codigo,
+      mensaje: cuerpo.mensaje,
+      detalles,
+    });
   }
   // Una respuesta que no viene de la API (por ejemplo, el HTML de un 502): nunca se muestra tal cual.
-  return crearError({ status: response.status, codigo: 'ERROR_INTERNO', mensaje: MENSAJE_INESPERADO });
+  return crearError({
+    status: response.status,
+    codigo: 'ERROR_INTERNO',
+    mensaje: MENSAJE_INESPERADO,
+  });
 }
 
 http.interceptors.response.use(

@@ -89,7 +89,7 @@ Las tres pruebas arman un repo temporal con un `graphify` falso, así que no toc
 Vive en `.claude/settings.json`. Antes de cada búsqueda o lectura de archivos corre `graphify hook-guard`, que le
 recuerda al agente consultar el grafo. Si Graphify no está instalado, no hace nada y no muestra errores.
 
-La prueba corre los dos comandos del hook sin Graphify en el `PATH` y revisa que terminen con código 0 y sin salida:
+La prueba corre los dos comandos del hook de Claude Code sin Graphify en el `PATH` y revisa que terminen con código 0 y sin salida:
 `[@test] ../tests/hook-de-claude-code/sin-graphify.test.sh`
 
 ## Regla del tile `grafo-del-proyecto`
@@ -119,7 +119,7 @@ archivos del grafo:
   regla en inglés en `CLAUDE.md` y `AGENTS.md`, y crea `.codex/hooks.json`. `AGENTS.md` lo maneja Tessl, y
   `graphify update .` ya alcanza para armar y actualizar el grafo.
 - `graphify claude install`, `graphify codex install` y `graphify hook install`. Los dos primeros escriben esa misma
-  regla, y el tercero instala hooks que corren después del commit y dejan `graph.json` cambiado.
+  regla, y el tercero instala hooks de git que corren después del commit y dejan `graph.json` cambiado.
 
 ## Proceso escrito
 

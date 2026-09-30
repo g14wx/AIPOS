@@ -1,12 +1,12 @@
 # Ayudas de las pruebas del hook de git pre-commit (spec: specs/grafo-del-proyecto.spec.md).
-# Cada prueba arma un repo temporal con el hook y, si hace falta, un graphify falso.
+# Cada prueba arma un repo temporal con el hook de git y, si hace falta, un graphify falso.
 # Así no toca este repo ni necesita Graphify instalado.
 set -euo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 GIT_REAL="$(command -v git)"
 
-# Repo temporal con el hook activo. El PATH solo trae git y las herramientas del sistema,
+# Repo temporal con el hook de git activo. El PATH solo trae git y las herramientas del sistema,
 # así que el graphify de esta máquina no se ve.
 preparar_repo() {
   TMP="$(mktemp -d)"

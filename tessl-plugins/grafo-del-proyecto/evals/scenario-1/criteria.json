@@ -15,7 +15,7 @@
       "category": "INTENT"
     },
     {
-      "name": "hook_activado",
+      "name": "hook_de_git_activado",
       "description": "git config core.hooksPath responde .githooks: el agente activó el hook de git del repo.",
       "max_score": 1,
       "category": "DESIGN"

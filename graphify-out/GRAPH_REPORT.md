@@ -1,12 +1,12 @@
 # Graph Report - b-04  (2026-09-30)
 
 ## Corpus Check
-- 79 files · ~48,809 words
+- 82 files · ~49,633 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 468 nodes · 486 edges · 57 communities (28 shown, 29 thin omitted)
+- 479 nodes · 503 edges · 60 communities (31 shown, 29 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -67,18 +67,20 @@
 - merge-sin-cambios-en-el-grafo.test.sh
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
+- scripts
 - devDependencies
-- tema.test.js
+- venta-vacia.test.js
+- http.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
 2. `Requerimientos no funcionales` - 14 edges
 3. `Arquitectura de AIPOS` - 13 edges
 4. `Product` - 11 edges
-5. `Grafo del proyecto` - 10 edges
-6. `Flujo de un entregable` - 10 edges
-7. `scripts` - 9 edges
-8. `vitest` - 9 edges
+5. `vitest` - 10 edges
+6. `Grafo del proyecto` - 10 edges
+7. `Flujo de un entregable` - 10 edges
+8. `scripts` - 9 edges
 9. `Configurar el MCP de Trello` - 9 edges
 10. `Alcance` - 9 edges
 
@@ -88,7 +90,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (57 total, 29 thin omitted)
+## Communities (60 total, 29 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.08
@@ -115,8 +117,8 @@ Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
 ### Community 6 - "vitest-vue2.test.js"
-Cohesion: 0.06
-Nodes (24): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+16 more)
+Cohesion: 0.05
+Nodes (26): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+18 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -131,8 +133,8 @@ Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
 ### Community 11 - "package.json"
-Cohesion: 0.05
-Nodes (37): dependencies, axios, lottie-web, @mdi/font, vue, vuetify, description, engines (+29 more)
+Cohesion: 0.08
+Nodes (25): dependencies, axios, lottie-web, @mdi/font, vue, vuetify, description, engines (+17 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -198,26 +200,38 @@ Nodes (26): Arquitectura de AIPOS, Backend, Base de datos, Calidad, Capas, Carpe
 Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 
+### Community 55 - "scripts"
+Cohesion: 0.22
+Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 more)
+
 ### Community 56 - "devDependencies"
 Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
 
+### Community 57 - "venta-vacia.test.js"
+Cohesion: 0.31
+Nodes (5): aCentavos(), formatearCentavos(), congelar(), leche, pan
+
+### Community 58 - "http.js"
+Cohesion: 0.36
+Nodes (5): crearError(), http, traducirError(), cargarHttp(), axios
+
 ## Knowledge Gaps
-- **284 isolated node(s):** `name`, `version`, `description`, `private`, `type` (+279 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 335 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **287 isolated node(s):** `name`, `version`, `description`, `private`, `type` (+282 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 339 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **29 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Why does `vitest` connect `vitest-vue2.test.js` to `package.json`, `tema.test.js`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+- **Why does `vitest` connect `vitest-vue2.test.js` to `venta-vacia.test.js`, `http.js`, `package.json`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _284 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _287 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.07564102564102564 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**

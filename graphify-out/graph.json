@@ -4,12 +4,72 @@
   "graph": {},
   "nodes": [
     {
+      "id": "frontend_src_dinero_acentavos",
+      "label": "aCentavos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "acentavos()",
+      "source_file": "frontend/src/dinero.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "frontend_src_dinero_formatearcentavos",
+      "label": "formatearCentavos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "formatearcentavos()",
+      "source_file": "frontend/src/dinero.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_tests_venta_actual_venta_vacia_test_congelar",
+      "label": "congelar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "congelar()",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "frontend_src_api_http_crearerror",
+      "label": "crearError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "crearerror()",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_src_api_http_traducirerror",
+      "label": "traducirError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "traducirerror()",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L22"
+    },
+    {
       "id": "frontend_tests_api_http_test_cargarhttp",
       "label": "cargarHttp()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
+      "community": 58,
+      "community_name": "http.js",
       "file_type": "code",
       "norm_label": "cargarhttp()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -20,8 +80,8 @@
       "label": "responderCon()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
+      "community": 58,
+      "community_name": "http.js",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -188,8 +248,8 @@
       "label": "contraste()",
       "_callable": true,
       "_origin": "ast",
-      "community": 63,
-      "community_name": "tema.test.js",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
       "file_type": "code",
       "norm_label": "contraste()",
       "source_file": "frontend/tests/tema.test.js",
@@ -200,8 +260,8 @@
       "label": "luminancia()",
       "_callable": true,
       "_origin": "ast",
-      "community": 63,
-      "community_name": "tema.test.js",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
       "file_type": "code",
       "norm_label": "luminancia()",
       "source_file": "frontend/tests/tema.test.js",
@@ -212,8 +272,8 @@
       "label": "mayusculas()",
       "_callable": true,
       "_origin": "ast",
-      "community": 63,
-      "community_name": "tema.test.js",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
       "file_type": "code",
       "norm_label": "mayusculas()",
       "source_file": "frontend/tests/tema.test.js",
@@ -1152,17 +1212,6 @@
       "source_location": "L72"
     },
     {
-      "id": "frontend_src_api_http",
-      "label": "../../src/api/http.js",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "../../src/api/http.js",
-      "source_file": "frontend/src/api/http.js"
-    },
-    {
       "id": "frontend_package",
       "label": "package.json",
       "_origin": "ast",
@@ -1295,105 +1344,6 @@
       "source_location": "L5"
     },
     {
-      "id": "frontend_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "frontend/package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "frontend/package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "frontend_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "frontend/package.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "frontend_package_scripts_format",
-      "label": "format",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "format",
-      "source_file": "frontend/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "frontend_package_scripts_format_check",
-      "label": "format:check",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "format:check",
-      "source_file": "frontend/package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "frontend_package_scripts_lint",
-      "label": "lint",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "lint",
-      "source_file": "frontend/package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "frontend_package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "frontend/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "frontend_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "frontend/package.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "frontend_package_scripts_test_vigilar",
-      "label": "test:vigilar",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "test:vigilar",
-      "source_file": "frontend/package.json",
-      "source_location": "L15"
-    },
-    {
       "id": "frontend_package_type",
       "label": "type",
       "_origin": "ast",
@@ -1416,17 +1366,6 @@
       "source_location": "L3"
     },
     {
-      "id": "frontend_tests_api_http_test",
-      "label": "http.test.js",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "http.test.js",
-      "source_file": "frontend/tests/api/http.test.js",
-      "source_location": "L1"
-    },
-    {
       "id": "frontend_vite_config",
       "label": "vite.config.js",
       "_origin": "ast",
@@ -1436,17 +1375,6 @@
       "norm_label": "vite.config.js",
       "source_file": "frontend/vite.config.js",
       "source_location": "L1"
-    },
-    {
-      "id": "ref_axios",
-      "label": "axios",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "axios",
-      "source_file": "frontend/package.json",
-      "source_location": "L22"
     },
     {
       "id": "ref_eslint",
@@ -4871,6 +4799,105 @@
       "source_location": "L1"
     },
     {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "frontend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "frontend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "frontend_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "frontend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "frontend_package_scripts_format",
+      "label": "format",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "format",
+      "source_file": "frontend/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_package_scripts_format_check",
+      "label": "format:check",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "format:check",
+      "source_file": "frontend/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "frontend_package_scripts_lint",
+      "label": "lint",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "lint",
+      "source_file": "frontend/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "frontend_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "frontend/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "frontend_package_scripts_test_vigilar",
+      "label": "test:vigilar",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test:vigilar",
+      "source_file": "frontend/package.json",
+      "source_location": "L15"
+    },
+    {
       "id": "frontend_package_devdependencies",
       "label": "devDependencies",
       "_origin": "ast",
@@ -5025,6 +5052,105 @@
       "source_location": "L30"
     },
     {
+      "id": "frontend_src_dinero",
+      "label": "dinero.js",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "dinero.js",
+      "source_file": "frontend/src/dinero.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_dinero_test",
+      "label": "dinero.test.js",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "dinero.test.js",
+      "source_file": "frontend/tests/dinero.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_venta_actual_venta_vacia_test",
+      "label": "venta-vacia.test.js",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "venta-vacia.test.js",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_venta_actual_venta_vacia_test_leche",
+      "label": "leche",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "leche",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_tests_venta_actual_venta_vacia_test_pan",
+      "label": "pan",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
+      "file_type": "code",
+      "norm_label": "pan",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "frontend_src_api_http",
+      "label": "http.js",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "http.js",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_src_api_http_http",
+      "label": "http",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "http",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "frontend_tests_api_http_test",
+      "label": "http.test.js",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "http.test.js",
+      "source_file": "frontend/tests/api/http.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_axios",
+      "label": "axios",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "http.js",
+      "file_type": "concept",
+      "norm_label": "axios",
+      "source_file": "frontend/package.json",
+      "source_location": "L22"
+    },
+    {
       "id": "lottie_light",
       "label": "lottie-web/build/player/lottie_light",
       "_origin": "ast",
@@ -5113,17 +5239,6 @@
       "source_location": "L10"
     },
     {
-      "id": "frontend_tests_dinero_test",
-      "label": "dinero.test.js",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "vitest-vue2.test.js",
-      "file_type": "code",
-      "norm_label": "dinero.test.js",
-      "source_file": "frontend/tests/dinero.test.js",
-      "source_location": "L1"
-    },
-    {
       "id": "frontend_tests_fixtures_botondeprueba",
       "label": "BotonDePrueba.vue",
       "_origin": "ast",
@@ -5210,6 +5325,17 @@
       "norm_label": "todos",
       "source_file": "frontend/tests/sin-axios-en-componentes.test.js",
       "source_location": "L20"
+    },
+    {
+      "id": "frontend_tests_tema_test",
+      "label": "tema.test.js",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "code",
+      "norm_label": "tema.test.js",
+      "source_file": "frontend/tests/tema.test.js",
+      "source_location": "L1"
     },
     {
       "id": "frontend_tests_vitest_vue2_test",
@@ -5331,17 +5457,6 @@
       "norm_label": "vuetify",
       "source_file": "frontend/package.json",
       "source_location": "L25"
-    },
-    {
-      "id": "frontend_tests_tema_test",
-      "label": "tema.test.js",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "tema.test.js",
-      "file_type": "code",
-      "norm_label": "tema.test.js",
-      "source_file": "frontend/tests/tema.test.js",
-      "source_location": "L1"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -5654,6 +5769,18 @@
       "type": "external"
     },
     {
+      "id": "ref_src_dinero_js",
+      "label": "ref_src_dinero_js",
+      "_origin": "semantic",
+      "community": 59,
+      "community_name": "ref_src_dinero_js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_src_dinero_js",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_fs",
       "label": "ref_node_fs",
       "_origin": "semantic",
@@ -5690,14 +5817,14 @@
       "type": "external"
     },
     {
-      "id": "ref_src_dinero_js",
-      "label": "ref_src_dinero_js",
+      "id": "ref_src_plugins_vuetify_js",
+      "label": "ref_src_plugins_vuetify_js",
       "_origin": "semantic",
       "community": 6,
       "community_name": "vitest-vue2.test.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_src_dinero_js",
+      "norm_label": "ref_src_plugins_vuetify_js",
       "source_file": "",
       "type": "external"
     },
@@ -5726,19 +5853,30 @@
       "type": "external"
     },
     {
-      "id": "ref_src_plugins_vuetify_js",
-      "label": "ref_src_plugins_vuetify_js",
-      "_origin": "semantic",
-      "community": 63,
-      "community_name": "tema.test.js",
+      "id": "ref_src_ventaactual_ventaactual_js",
+      "label": "ref_src_ventaactual_ventaactual_js",
+      "community": 57,
+      "community_name": "venta-vacia.test.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_src_plugins_vuetify_js",
+      "norm_label": "ref_src_ventaactual_ventaactual_js",
       "source_file": "",
       "type": "external"
     }
   ],
   "links": [
+    {
+      "source": "frontend_src_api_http_traducirerror",
+      "target": "frontend_src_api_http_crearerror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
     {
       "source": "frontend_tests_animaciones_test_coloresde",
       "target": "frontend_tests_animaciones_test_coloresde",
@@ -5797,6 +5935,18 @@
       "context": "call",
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test_congelar",
+      "target": "frontend_tests_venta_actual_venta_vacia_test_congelar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5956,6 +6106,18 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_src_api_http",
+      "target": "frontend_src_api_http_traducirerror",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_animaciones_test",
       "target": "frontend_tests_animaciones_test_coloresde",
       "relation": "contains",
@@ -6085,6 +6247,18 @@
       "context": "call",
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "frontend_tests_venta_actual_venta_vacia_test_congelar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -6382,6 +6556,54 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_tests_dinero_test",
+      "target": "frontend_src_dinero_acentavos",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/dinero.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_dinero_test",
+      "target": "frontend_src_dinero_formatearcentavos",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/dinero.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "frontend_src_dinero_formatearcentavos",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_api_http",
+      "target": "ref_axios",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_animaciones_test",
       "target": "ref_node_fs",
       "relation": "imports_from",
@@ -6515,7 +6737,7 @@
     },
     {
       "source": "frontend_tests_dinero_test",
-      "target": "ref_src_dinero_js",
+      "target": "frontend_src_dinero",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6631,6 +6853,42 @@
       "context": "import",
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "ref_vitest",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "frontend_src_dinero",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "ref_src_ventaactual_ventaactual_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -7710,6 +7968,50 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_src_api_http",
+      "target": "frontend_src_api_http_http",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_api_http",
+      "target": "frontend_src_api_http_crearerror",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_dinero",
+      "target": "frontend_src_dinero_formatearcentavos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/dinero.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_dinero",
+      "target": "frontend_src_dinero_acentavos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/dinero.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_animaciones_test",
       "target": "frontend_tests_animaciones_test_carpeta",
       "relation": "contains",
@@ -7883,6 +8185,28 @@
       "confidence_score": 1.0,
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "frontend_tests_venta_actual_venta_vacia_test_leche",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_venta_actual_venta_vacia_test",
+      "target": "frontend_tests_venta_actual_venta_vacia_test_pan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
+      "source_location": "L18",
       "weight": 1.0
     },
     {

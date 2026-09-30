@@ -378,6 +378,11 @@ Las guías de instalación están en [docs/setup/agents-setup.md](docs/setup/age
 *Cada tarjeta pasa por una spec que la persona aprueba, un agente que la implementa con las pruebas primero y la revisión
 de Codex. [Fuente editable](docs/diagramas/proceso-de-trabajo.drawio).*
 
+![Cómo empieza una tarea el agente](docs/diagramas/como-empieza-una-tarea.drawio.png)
+
+*Antes de abrir archivos, el agente le pregunta al grafo del proyecto (Graphify) qué specs, código y pruebas toca su
+tarea. El hook de git lo deja al día en cada commit. [Fuente editable](docs/diagramas/como-empieza-una-tarea.drawio).*
+
 Claude Code escribió el código, las pruebas, las specs y la documentación, y Codex revisó los PR. La persona desarrolladora
 dirigió el trabajo: decidió el alcance y las reglas, y revisó lo que se detalla más abajo.
 

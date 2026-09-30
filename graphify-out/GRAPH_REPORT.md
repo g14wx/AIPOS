@@ -1,9 +1,9 @@
-# Graph Report - readme2  (2026-09-30)
+# Graph Report - readme3  (2026-09-30)
 
 ## Corpus Check
-- 282 files · ~252,581 words
+- 282 files · ~252,621 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 33 file(s) not represented in the graph (top: (none) 17, .drawio 10, .example 2)
+- Unclassified: 34 file(s) not represented in the graph (top: (none) 17, .drawio 11, .example 2)
 
 ## Summary
 - 2077 nodes · 3555 edges · 193 communities (137 shown, 56 thin omitted)
@@ -786,9 +786,9 @@ Nodes (19): Negocio, alCambiarCantidad(), alEditarPrecioAplicado(), alEliminar()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Lenguaje ubicuo — AIPOS` connect `Despliegue de AIPOS` to `graphify-setup.md`, `ventaActual.js`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+  _High betweenness centrality (0.081) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `ventaActual.js` to `Despliegue de AIPOS`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
+  _High betweenness centrality (0.078) - this node is a cross-community bridge._
 - **Why does `agregarAVentaActual()` connect `ventaActual.js` to `agregar.test.js`, `App.vue`, `CampoPrecioAplicado.vue`, `Buscar producto`, `eliminar.test.js`, `Armar la venta actual`, `formatearCentavos`?**
   _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**

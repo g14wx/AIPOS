@@ -22,7 +22,7 @@ Fuente editable: [`00-mapa-de-procesos.drawio`](../diagramas/00-mapa-de-procesos
 | Flujo | Qué pasa | Sigue con |
 |---|---|---|
 | [05 Entregar un entregable](05-entregar-un-entregable.md) | Rama, tarjetas, PR, revisión, merge commit y etiqueta en `ProductionEnv`. | El siguiente entregable o la entrega final. |
-| [06 Trabajar una tarjeta con el agente](06-trabajar-una-tarjeta-con-el-agente.md) | Plan, implementación, pruebas, revisión de la persona desarrolladora, bitácora y commit. Se repite por cada tarjeta dentro del flujo 05. | 05 |
+| [06 Trabajar una tarjeta con el agente](06-trabajar-una-tarjeta-con-el-agente.md) | Grafo del proyecto, requisitos y spec, implementación, pruebas, revisión contra la spec, revisión de la persona desarrolladora, bitácora y commit con el grafo al día. Se repite por cada tarjeta dentro del flujo 05. | 05 |
 
 - **Requerimientos:** todos. La matriz está en el [README](../README.md#matriz-del-pdf).
 - **Tarjetas:** R-01.

@@ -480,3 +480,19 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó `vuex`, `pinia` y un bus de eventos (son solo dos componentes y un estado en `App.vue`).
 - **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
 - **Commits:** este commit y los 2 de la rama (`9fe4819` la spec y `ca6cdf0` las correcciones de Codex).
+
+### 2026-09-30 03:59 — V-01: spec de registrar venta (V-01, V-02, V-03 y V-08)
+
+- **Tarea:** escribir `specs/registrar-venta.spec.md`, la spec del flujo 04: las tablas `ventas` y `detalles_venta` con sus modelos, el procedimiento almacenado `sp_registrar_venta`, `POST /api/ventas` y el botón "Registrar venta" (tarjetas V-01, V-02, V-03 y V-08). Rama `docs/v-01-spec-registrar-venta`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la spec de arquitectura, las 4 tarjetas con sus checklists, el flujo 04, RF-09 a RF-11, RNF-05 y RNF-07 y las skills de MySQL y Sequelize; consultó el grafo del proyecto y los patrones de diseño; escribió la spec y corrigió los hallazgos de Codex.
+- **Decisiones del agente (por confirmar por la persona):**
+  - El procedimiento devuelve un solo `SELECT` con `ventaId` y `total`. Sus rechazos usan `SIGNAL SQLSTATE '45000'` con un código en `MESSAGE_TEXT` (`VENTA_SIN_DETALLES`, `PRODUCTO_NO_EXISTE`, etc.), que la API traduce a un 422 con mensaje en español.
+  - Máximo de 100 detalles por venta (API, procedimiento y botón), porque con 101 detalles de 999 × 99 999.99 el total pasa de `DECIMAL(12,2)`. No está en los requerimientos. La otra opción es ampliar el total a `DECIMAL(14,2)`.
+  - El procedimiento revisa el precio como texto para rechazar decimales de más; la columna que inserta sigue en `DECIMAL(10,2)`, como pide la arquitectura.
+  - No se incluye idempotencia por llave (reintento cuando la respuesta se pierde): queda como pregunta abierta.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos. La segunda dio 1 P1 y 4 P2: el procedimiento redondeaba `"10.999"` a `11.00`, una venta válida desbordaba el total (límite de 100), faltaban las llaves foráneas de las relaciones y dos archivos en los `targets`, y faltaba esta entrada. Una tercera pasada dio 1 P1 (la columna de `JSON_TABLE` debía alinearse con la arquitectura) y 1 P2 (el máximo de 100 debía entrar en `valida` del botón). Todo quedó corregido en la rama (commits `adb6a95` y `0dddbea`).
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó los patrones Repository y Data Mapper, porque los modelos solo consultan y la venta se escribe en el procedimiento.
+- **Tiempo:** unos 35 minutos para escribir la spec (01:59–02:35). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 3 de la rama (`379099b` la spec, `adb6a95` y `0dddbea` las correcciones de Codex).

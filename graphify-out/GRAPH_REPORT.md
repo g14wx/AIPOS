@@ -1,12 +1,12 @@
-# Graph Report - spec-armar-venta-actual  (2026-09-30)
+# Graph Report - spec-registrar-venta  (2026-09-30)
 
 ## Corpus Check
-- 70 files · ~59,787 words
+- 71 files · ~66,030 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 425 nodes · 419 edges · 54 communities (27 shown, 27 thin omitted)
+- 452 nodes · 445 edges · 55 communities (28 shown, 27 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -65,6 +65,7 @@
 - desactualizado-tras-falla.test.sh
 - merge-sin-choques.test.sh
 - merge-sin-cambios-en-el-grafo.test.sh
+- Registrar venta
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
 
@@ -75,10 +76,10 @@
 4. `Arquitectura de AIPOS` - 13 edges
 5. `Buscar producto` - 10 edges
 6. `Grafo del proyecto` - 10 edges
-7. `Flujo de un entregable` - 10 edges
-8. `Configurar el MCP de Trello` - 9 edges
-9. `Alcance` - 9 edges
-10. `Backend` - 8 edges
+7. `Registrar venta` - 10 edges
+8. `Flujo de un entregable` - 10 edges
+9. `Configurar el MCP de Trello` - 9 edges
+10. `Alcance` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -86,7 +87,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (54 total, 27 thin omitted)
+## Communities (55 total, 27 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.08
@@ -192,24 +193,28 @@ Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PD
 Cohesion: 0.07
 Nodes (26): Arquitectura de AIPOS, Backend, Base de datos, Calidad, Capas, Carpetas, Carpetas, Cómo se decide un diseño (+18 more)
 
+### Community 52 - "Registrar venta"
+Cohesion: 0.07
+Nodes (26): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Archivos, Bugs y issues, Contrato del componente, Criterios de aceptación de V-02, Criterios de aceptación de V-03 (+18 more)
+
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 
 ## Knowledge Gaps
-- **278 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+273 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 313 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **299 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+294 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 335 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _278 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _299 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.07823613086770982 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**

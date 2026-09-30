@@ -1406,7 +1406,7 @@
       "file_type": "code",
       "norm_label": "avisovisible()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L87"
+      "source_location": "L92"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_botonregistrar",
@@ -1418,7 +1418,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L89"
+      "source_location": "L94"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_celdas",
@@ -1430,7 +1430,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L85"
+      "source_location": "L86"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_ciendetalles",
@@ -1478,7 +1478,7 @@
       "file_type": "code",
       "norm_label": "elegir()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L95"
+      "source_location": "L100"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_filas",
@@ -1514,7 +1514,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86"
+      "source_location": "L91"
     },
     {
       "id": "frontend_tests_pantalla_venta_actual_test_zonaventa",
@@ -1874,7 +1874,7 @@
       "file_type": "code",
       "norm_label": "botonregistrar()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L72"
+      "source_location": "L77"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_celdas",
@@ -1886,7 +1886,7 @@
       "file_type": "code",
       "norm_label": "celdas()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L71"
+      "source_location": "L72"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_estadeshabilitado",
@@ -1898,7 +1898,7 @@
       "file_type": "code",
       "norm_label": "estadeshabilitado()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L74"
+      "source_location": "L79"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_filas",
@@ -1934,7 +1934,7 @@
       "file_type": "code",
       "norm_label": "observadorfalso()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L383"
+      "source_location": "L388"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_total",
@@ -1946,7 +1946,7 @@
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L75"
+      "source_location": "L80"
     },
     {
       "id": "frontend_tests_componentes_ventaactual_test_venta",
@@ -2594,7 +2594,7 @@
       "file_type": "code",
       "norm_label": "ventaactual()",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L88"
+      "source_location": "L93"
     },
     {
       "id": "frontend_tests_venta_actual_valida_y_registro_test_congelar",
@@ -20013,6 +20013,18 @@
       "type": "external"
     },
     {
+      "id": "ref_src_components_campocantidad_vue",
+      "label": "ref_src_components_campocantidad_vue",
+      "_origin": "semantic",
+      "community": 124,
+      "community_name": "CampoCantidad.test.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_src_components_campocantidad_vue",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_node_module",
       "label": "ref_node_module",
       "_origin": "semantic",
@@ -20189,17 +20201,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_util",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_src_components_campocantidad_vue",
-      "label": "ref_src_components_campocantidad_vue",
-      "community": 124,
-      "community_name": "CampoCantidad.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_src_components_campocantidad_vue",
       "source_file": "",
       "type": "external"
     }
@@ -23310,7 +23311,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L90",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -23334,7 +23335,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -26286,7 +26287,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L383",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -26322,7 +26323,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L71",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -26334,7 +26335,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L72",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -26346,7 +26347,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L74",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -26358,7 +26359,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/componentes/VentaActual.test.js",
-      "source_location": "L75",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -26371,6 +26372,18 @@
       "context": "call",
       "source_file": "frontend/tests/pantalla-unica.test.js",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_pantalla_venta_actual_test",
+      "target": "frontend_tests_pantalla_venta_actual_test_elegir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -26466,7 +26479,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L85",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -26478,7 +26491,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L86",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -26490,7 +26503,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L87",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -26502,7 +26515,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L88",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -26514,19 +26527,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L89",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_pantalla_venta_actual_test",
-      "target": "frontend_tests_pantalla_venta_actual_test_elegir",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L95",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -49491,7 +49492,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L118",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -49503,7 +49504,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "frontend/tests/pantalla-venta-actual.test.js",
-      "source_location": "L158",
+      "source_location": "L163",
       "weight": 1.0
     },
     {

@@ -33,6 +33,8 @@
             label="Nombre"
             :rules="reglas.nombre"
             :error-messages="errores.nombre"
+            :aria-invalid="marca('nombre')"
+            aria-required="true"
             :counter="largos.nombre"
             autocomplete="off"
             background-color="surface"
@@ -40,6 +42,7 @@
             outlined
             validate-on-blur
             @input="borrarError('nombre')"
+            @blur="alSalir('nombre')"
           />
           <v-text-field
             ref="precio"
@@ -51,12 +54,15 @@
             class="formulario__precio"
             :rules="reglas.precio"
             :error-messages="errores.precio"
+            :aria-invalid="marca('precio')"
+            aria-required="true"
             autocomplete="off"
             background-color="surface"
             color="secondary"
             outlined
             validate-on-blur
             @input="borrarError('precio')"
+            @blur="alSalir('precio')"
           />
           <v-text-field
             ref="codigoBarras"
@@ -64,6 +70,8 @@
             label="Código de barras"
             :rules="reglas.codigoBarras"
             :error-messages="errores.codigoBarras"
+            :aria-invalid="marca('codigoBarras')"
+            aria-required="true"
             :counter="largos.codigoBarras"
             autocomplete="off"
             background-color="surface"
@@ -71,6 +79,7 @@
             outlined
             validate-on-blur
             @input="borrarError('codigoBarras')"
+            @blur="alSalir('codigoBarras')"
           />
         </div>
 
@@ -101,6 +110,7 @@ import {
   LARGO_MAXIMO_NOMBRE,
   leerErrorDeLaApi,
   limpiarProducto,
+  primerMensaje,
   reglasCodigoBarras,
   reglasNombre,
   reglasPrecio,
@@ -120,8 +130,8 @@ export default {
   data() {
     return {
       idDelTitulo: 'formulario-producto-titulo',
-      // Lo que escribió el cajero, y los mensajes que salen de "Guardar" o de la API (los de salir de un campo los
-      // pone Vuetify con las reglas).
+      // Lo que escribió el cajero, y el mensaje que se ve junto a cada campo: sale de "Guardar", de la API o de salir
+      // del campo (alSalir). Un campo tiene error, y aria-invalid, mientras su mensaje no esté vacío.
       valores: vacio(),
       errores: vacio(),
       // El mensaje de la franja de error: red caída, un 500 o un campo que la pantalla no conoce.
@@ -211,6 +221,17 @@ export default {
     // El mensaje de un campo se quita cuando el cajero lo edita.
     borrarError(campo) {
       if (this.errores[campo]) this.errores = { ...this.errores, [campo]: '' };
+    },
+    // Vuetify 2 no marca aria-invalid en el campo, y el mensaje de sus reglas desaparece en cuanto el campo vuelve a
+    // tener el foco. Al salir de un campo se copia el mensaje de sus reglas a `errores`: se queda a la vista hasta que
+    // el cajero lo edite, y el campo se marca con aria-invalid para los lectores de pantalla.
+    alSalir(campo) {
+      if (!this.value) return;
+      const mensaje = primerMensaje(this.reglas[campo], this.valores[campo]);
+      if (mensaje !== this.errores[campo]) this.errores = { ...this.errores, [campo]: mensaje };
+    },
+    marca(campo) {
+      return this.errores[campo] ? 'true' : null;
     },
     async guardar() {
       // La bandera se marca antes de esperar nada: un doble clic o un doble Enter mandan una sola petición, aun antes

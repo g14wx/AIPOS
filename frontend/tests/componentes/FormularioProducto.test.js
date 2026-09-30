@@ -523,3 +523,55 @@ describe('"Cancelar" y el cierre del modal', () => {
     await esperar();
   });
 });
+
+// Vuetify 2 devuelve el foco al modal solo cuando cae en un elemento de fuera, y un Tab desde el último botón cae
+// primero en el navegador o en el cuerpo de la página. El modal da la vuelta por sí mismo, como pide la guía de ARIA.
+describe('el foco da la vuelta dentro del modal', () => {
+  const tabulador = (elemento, opciones = {}) => {
+    const evento = new KeyboardEvent('keydown', {
+      key: 'Tab',
+      keyCode: 9,
+      bubbles: true,
+      cancelable: true,
+      ...opciones,
+    });
+    elemento.dispatchEvent(evento);
+    return evento;
+  };
+
+  it('Tab desde "Guardar", el último elemento, lleva el foco a "Nombre"', async () => {
+    await montar();
+    boton('Guardar').focus();
+    const evento = tabulador(boton('Guardar'));
+    expect(evento.defaultPrevented).toBe(true);
+    expect(document.activeElement).toBe(entrada('Nombre'));
+  });
+
+  it('Shift+Tab desde "Nombre", el primero, lleva el foco a "Guardar"', async () => {
+    await montar();
+    entrada('Nombre').focus();
+    const evento = tabulador(entrada('Nombre'), { shiftKey: true });
+    expect(evento.defaultPrevented).toBe(true);
+    expect(document.activeElement).toBe(boton('Guardar'));
+  });
+
+  it('Tab en un elemento del medio sigue su camino normal', async () => {
+    await montar();
+    entrada('Precio').focus();
+    expect(tabulador(entrada('Precio')).defaultPrevented).toBe(false);
+    expect(tabulador(entrada('Precio'), { shiftKey: true }).defaultPrevented).toBe(false);
+    expect(tabulador(boton('Guardar'), { shiftKey: true }).defaultPrevented).toBe(false);
+  });
+
+  it('guardando, con los dos botones deshabilitados, da la vuelta entre los campos', async () => {
+    crearProducto.mockReturnValue(new Promise(() => {}));
+    await montar();
+    await llenarUnProductoValido();
+    await presionarGuardar();
+    expect(boton('Guardar').disabled).toBe(true);
+    entrada('Código de barras').focus();
+    const evento = tabulador(entrada('Código de barras'));
+    expect(evento.defaultPrevented).toBe(true);
+    expect(document.activeElement).toBe(entrada('Nombre'));
+  });
+});

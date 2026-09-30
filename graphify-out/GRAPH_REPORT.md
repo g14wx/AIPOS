@@ -1,12 +1,12 @@
 # Graph Report - f-01  (2026-09-30)
 
 ## Corpus Check
-- 276 files · ~240,386 words
+- 276 files · ~240,400 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
 ## Summary
-- 2012 nodes · 3452 edges · 186 communities (134 shown, 52 thin omitted)
+- 2012 nodes · 3453 edges · 187 communities (135 shown, 52 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 160 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -72,7 +72,7 @@
 - despliegue/comun.sh
 - desplegar.sh
 - revisar-produccion.sh
-- documentacion.js
+- documentacion-crear-producto.test.js
 - arranque-local.test.sh
 - instalar-caddy.test.sh
 - imagenes.test.sh
@@ -158,6 +158,7 @@
 - VentaActual.vue
 - Registrar venta
 - tema.test.js
+- archivos.test.js
 - sin-axios-en-componentes.test.js
 - Despliegue de AIPOS
 - VentaActual.test.js
@@ -204,7 +205,7 @@
 7. `agregarAVentaActual()` - 16 edges
 8. `scripts` - 15 edges
 9. `cargarDocumentacionApi()` - 15 edges
-10. `@vue/test-utils` - 15 edges
+10. `pedir()` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Configuración del servidor (una sola vez)` --references--> `production()`  [INFERRED]
@@ -221,7 +222,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (186 total, 52 thin omitted)
+## Communities (187 total, 52 thin omitted)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -359,9 +360,9 @@ Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), despl
 Cohesion: 0.33
 Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
 
-### Community 60 - "documentacion.js"
-Cohesion: 0.08
-Nodes (23): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivosJs(), backend, raiz (+15 more)
+### Community 60 - "documentacion-crear-producto.test.js"
+Cohesion: 0.12
+Nodes (16): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivo, { cargarDocumentacionApi }, copiaRota() (+8 more)
 
 ### Community 61 - "arranque-local.test.sh"
 Cohesion: 0.46
@@ -416,8 +417,8 @@ Cohesion: 0.14
 Nodes (15): { cargarDocumentacionApi }, DE_DEMOSTRACION, documento, helmet, { Router }, swaggerUi, app, docs (+7 more)
 
 ### Community 91 - "app.js"
-Cohesion: 0.10
-Nodes (22): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+14 more)
+Cohesion: 0.11
+Nodes (21): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+13 more)
 
 ### Community 92 - "ayudas-ventas.js"
 Cohesion: 0.10
@@ -428,8 +429,8 @@ Cohesion: 0.13
 Nodes (15): scripts, deshacer, deshacer:prueba, dev, format, format:check, lint, migrar (+7 more)
 
 ### Community 94 - "Documentación de la API"
-Cohesion: 0.13
-Nodes (14): ErrorApi, noEncontrado(), Criterios de aceptación, Cómo se decidió el diseño, Dependencias, Documentación de la API, Glosario y alcance, La política de contenido solo en `/api/docs` (+6 more)
+Cohesion: 0.12
+Nodes (16): ErrorApi, noEncontrado(), crearRouterApi(), Archivos, Criterios de aceptación, Cómo se decidió el diseño, Dependencias, Documentación de la API (+8 more)
 
 ### Community 95 - "devDependencies"
 Cohesion: 0.14
@@ -627,6 +628,10 @@ Nodes (20): Negocio, alCambiarCantidad(), alEditarPrecioAplicado(), alEliminar()
 Cohesion: 0.10
 Nodes (19): Animación, API, con `curl` (V-03), Archivos, Bugs y issues, Criterios de aceptación de V-02, Criterios de aceptación de V-08, Cómo se decidió el diseño, Pantalla: botón "Registrar venta" (V-08) (+11 more)
 
+### Community 147 - "archivos.test.js"
+Cohesion: 0.29
+Nodes (5): archivosJs(), backend, raiz, require, src
+
 ### Community 148 - "sin-axios-en-componentes.test.js"
 Cohesion: 0.29
 Nodes (6): archivosDe(), componentes, enSrc(), fueraDeApi, raiz, todos
@@ -672,8 +677,8 @@ Cohesion: 0.16
 Nodes (23): subtotalDe(), aCentavos(), formatearCentavos(), detalleGuardado(), esObjeto(), ventaGuardada(), calcularSubtotal(), detalleNuevo() (+15 more)
 
 ### Community 159 - "ref_vitest"
-Cohesion: 0.13
-Nodes (13): app, { cargarConfig }, config, { crearApp }, require, abrirServidorDePrueba(), cerrarServidorDePrueba(), pedir() (+5 more)
+Cohesion: 0.09
+Nodes (19): app, { cargarConfig }, config, { crearApp }, require, app, { cargarDocumentacionApi }, documento (+11 more)
 
 ### Community 160 - "modelos.test.js"
 Cohesion: 0.29
@@ -748,8 +753,8 @@ Cohesion: 0.10
 Nodes (19): `agregarAVentaActual` (V-04), Armar la venta actual, `cambiarCantidad` y `validarCantidad` (V-06), Casos de error y bordes, Criterios de aceptación, Cómo se decidió el diseño, El módulo (`src/ventaActual/`), `eliminarDetalle` (V-07) (+11 more)
 
 ### Community 187 - "documentacion-registrar-venta.test.js"
-Cohesion: 0.09
-Nodes (20): docs, montajes, productos, { Router }, salud, ventas, { cargarDocumentacionApi }, documento (+12 more)
+Cohesion: 0.12
+Nodes (15): docs, montajes, productos, { Router }, salud, ventas, { cargarDocumentacionApi }, contexto (+7 more)
 
 ### Community 188 - "sp-registrar-venta-todo-o-nada.test.js"
 Cohesion: 0.22

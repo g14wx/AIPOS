@@ -3,9 +3,11 @@
 const ErrorApi = require('../errors/ErrorApi');
 const desdeBaseDeDatos = require('../errors/desdeBaseDeDatos');
 
-// Errores que lanza el lector de JSON de Express (body-parser). Traen `type` y `status` 4xx.
+// Errores del cliente que lanza el lector de JSON de Express (body-parser): siempre traen `status` 4xx.
+// Casi todos traen también `type`, pero no todos: un cuerpo comprimido que no se puede descomprimir
+// trae `status` 400 y ningún `type`, y también es un error del cliente (no un 500).
 function desdeElCuerpo(err) {
-  if (!err || typeof err.type !== 'string' || !(err.status >= 400 && err.status < 500)) return null;
+  if (!err || !(err.status >= 400 && err.status < 500)) return null;
   if (err.type === 'entity.too.large') {
     return new ErrorApi(400, 'CUERPO_MUY_GRANDE', 'El cuerpo de la petición es demasiado grande.');
   }

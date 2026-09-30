@@ -50,7 +50,7 @@
       "file_type": "code",
       "norm_label": "aerrorapi()",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L18"
+      "source_location": "L20"
     },
     {
       "id": "backend_src_middlewares_errorhandler_desdeelcuerpo",
@@ -62,7 +62,7 @@
       "file_type": "code",
       "norm_label": "desdeelcuerpo()",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L7"
+      "source_location": "L9"
     },
     {
       "id": "backend_src_middlewares_errorhandler_errorhandler",
@@ -74,7 +74,7 @@
       "file_type": "code",
       "norm_label": "errorhandler()",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "backend_src_middlewares_noencontrado_noencontrado",
@@ -6708,7 +6708,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -6720,7 +6720,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -6732,7 +6732,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -6744,7 +6744,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L10",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -6756,7 +6756,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -9199,18 +9199,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_src_middlewares_errorhandler",
-      "target": "backend_src_middlewares_errorhandler_errorhandler",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L28",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -9222,6 +9211,17 @@
       "confidence_score": 1.0,
       "source_file": "backend/src/middlewares/errorHandler.js",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_middlewares_errorhandler",
+      "target": "backend_src_middlewares_errorhandler_errorhandler",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/middlewares/errorHandler.js",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -9243,7 +9243,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/middlewares/errorHandler.js",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0
     },
     {

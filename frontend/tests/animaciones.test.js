@@ -217,3 +217,75 @@ describe('animación buscando.json (P-05)', () => {
     expect(conMovimiento).toHaveLength(1);
   });
 });
+
+// V-04: venta-vacia.json es el estado vacío de la venta actual («Busca un producto para empezar la venta»): un comprobante
+// en blanco que flota despacio, con su primera fila en turquesa respirando (esperando el primer producto) y la franja
+// amarilla del total. Se repite mientras la venta actual está vacía, así que su primer y su último cuadro son iguales y no
+// salta al repetirse. Con menos movimiento se ve el último cuadro, y ese ya es el comprobante completo.
+describe('animación venta-vacia.json (V-04)', () => {
+  const ruta = join(carpeta, 'venta-vacia.json');
+  const datos = existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')) : {};
+
+  // Las propiedades animadas de Lottie: { a: 1, k: [cuadros clave con t y s] }.
+  function animadas(nodo, encontradas = []) {
+    if (Array.isArray(nodo)) {
+      nodo.forEach((hijo) => animadas(hijo, encontradas));
+    } else if (nodo && typeof nodo === 'object') {
+      if (nodo.a === 1 && Array.isArray(nodo.k)) encontradas.push(nodo.k);
+      Object.values(nodo).forEach((hijo) => animadas(hijo, encontradas));
+    }
+    return encontradas;
+  }
+
+  it('existe en src/assets/animaciones/', () => {
+    expect(existsSync(ruta)).toBe(true);
+  });
+
+  it('cada vuelta dura de 2 a 4 segundos: es calma, no llama la atención', () => {
+    const segundos = (datos.op - datos.ip) / datos.fr;
+    expect(segundos).toBeGreaterThanOrEqual(2);
+    expect(segundos).toBeLessThanOrEqual(4);
+  });
+
+  it('es cuadrada, para que a 112 px de alto se vea entera', () => {
+    expect(datos.w).toBe(datos.h);
+  });
+
+  it('usa la tinta, el turquesa y el amarillo de la paleta: las tres partes de la pantalla', () => {
+    const colores = coloresDe(datos);
+    expect(colores).toContain('#292F36');
+    expect(colores).toContain('#4ECDC4');
+    expect(colores).toContain('#FFE66D');
+  });
+
+  it('no tiene fondo: se ve sobre la superficie blanca de la tarjeta', () => {
+    expect((datos.layers ?? []).some((capa) => capa.ty === 1)).toBe(false);
+  });
+
+  it('se mueve: tiene al menos una propiedad animada', () => {
+    expect(animadas(datos).length).toBeGreaterThan(0);
+  });
+
+  it('es un ciclo: cada propiedad animada termina donde empezó, sin salto al repetirse', () => {
+    for (const claves of animadas(datos)) {
+      const primera = claves[0];
+      const ultima = claves[claves.length - 1];
+      expect(ultima.s, 'el último cuadro clave debe valer lo mismo que el primero').toEqual(
+        primera.s,
+      );
+      expect(primera.t).toBe(datos.ip);
+      expect(ultima.t).toBe(datos.op);
+    }
+  });
+
+  it('con menos movimiento se ve el último cuadro y ahí nada está apagado: la opacidad empieza y termina en 100', () => {
+    const opacidades = (datos.layers ?? []).flatMap((capa) =>
+      capa.ks?.o?.a === 1 ? [capa.ks.o.k] : [],
+    );
+    expect(opacidades.length).toBeGreaterThan(0);
+    for (const claves of opacidades) {
+      expect(claves[0].s).toEqual([100]);
+      expect(claves[claves.length - 1].s).toEqual([100]);
+    }
+  });
+});

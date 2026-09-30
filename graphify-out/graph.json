@@ -22295,7 +22295,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L165",
+      "source_location": "L230",
       "weight": 1.0
     },
     {

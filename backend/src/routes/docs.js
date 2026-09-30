@@ -12,6 +12,12 @@ const documento = cargarDocumentacionApi();
 
 const router = Router();
 
+// swagger-ui-dist trae una página de demostración (index.html) que carga el documento de ejemplo Petstore y el
+// validador en línea desde servicios externos. AIPOS no la usa: esos archivos salen del router y siguen el camino de
+// una ruta que no existe, un 404 con el formato de error. Va antes de la política de contenido y de `serve`.
+const DE_DEMOSTRACION = ['/index.html', '/swagger-initializer.js', '/oauth2-redirect.html'];
+router.use(DE_DEMOSTRACION, (req, res, next) => next('router'));
+
 // Swagger UI escribe estilos en línea, así que esta política deja 'unsafe-inline' en style-src. Vale solo dentro de
 // este router: el resto de la API conserva la política de helmet tal cual. También quita upgrade-insecure-requests,
 // para poder abrir la página por http desde otra máquina de la red local sin que el navegador pida todo por https.

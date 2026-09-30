@@ -217,3 +217,173 @@ describe('animación buscando.json (P-05)', () => {
     expect(conMovimiento).toHaveLength(1);
   });
 });
+
+// V-04: venta-vacia.json es el estado vacío de la venta actual («Busca un producto para empezar la venta»): un comprobante
+// en blanco que flota despacio, con su primera fila en turquesa respirando (esperando el primer producto) y la franja
+// amarilla del total. Se repite mientras la venta actual está vacía, así que su primer y su último cuadro son iguales y no
+// salta al repetirse. Con menos movimiento se ve el último cuadro, y ese ya es el comprobante completo.
+describe('animación venta-vacia.json (V-04)', () => {
+  const ruta = join(carpeta, 'venta-vacia.json');
+  const datos = existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')) : {};
+
+  // Las propiedades animadas de Lottie: { a: 1, k: [cuadros clave con t y s] }.
+  function animadas(nodo, encontradas = []) {
+    if (Array.isArray(nodo)) {
+      nodo.forEach((hijo) => animadas(hijo, encontradas));
+    } else if (nodo && typeof nodo === 'object') {
+      if (nodo.a === 1 && Array.isArray(nodo.k)) encontradas.push(nodo.k);
+      Object.values(nodo).forEach((hijo) => animadas(hijo, encontradas));
+    }
+    return encontradas;
+  }
+
+  it('existe en src/assets/animaciones/', () => {
+    expect(existsSync(ruta)).toBe(true);
+  });
+
+  it('cada vuelta dura de 2 a 4 segundos: es calma, no llama la atención', () => {
+    const segundos = (datos.op - datos.ip) / datos.fr;
+    expect(segundos).toBeGreaterThanOrEqual(2);
+    expect(segundos).toBeLessThanOrEqual(4);
+  });
+
+  it('es cuadrada, para que a 112 px de alto se vea entera', () => {
+    expect(datos.w).toBe(datos.h);
+  });
+
+  it('usa la tinta, el turquesa y el amarillo de la paleta: las tres partes de la pantalla', () => {
+    const colores = coloresDe(datos);
+    expect(colores).toContain('#292F36');
+    expect(colores).toContain('#4ECDC4');
+    expect(colores).toContain('#FFE66D');
+  });
+
+  it('no tiene fondo: se ve sobre la superficie blanca de la tarjeta', () => {
+    expect((datos.layers ?? []).some((capa) => capa.ty === 1)).toBe(false);
+  });
+
+  it('se mueve: tiene al menos una propiedad animada', () => {
+    expect(animadas(datos).length).toBeGreaterThan(0);
+  });
+
+  it('es un ciclo: cada propiedad animada termina donde empezó, sin salto al repetirse', () => {
+    for (const claves of animadas(datos)) {
+      const primera = claves[0];
+      const ultima = claves[claves.length - 1];
+      expect(ultima.s, 'el último cuadro clave debe valer lo mismo que el primero').toEqual(
+        primera.s,
+      );
+      expect(primera.t).toBe(datos.ip);
+      expect(ultima.t).toBe(datos.op);
+    }
+  });
+
+  it('con menos movimiento se ve el último cuadro y ahí nada está apagado: la opacidad empieza y termina en 100', () => {
+    const opacidades = (datos.layers ?? []).flatMap((capa) =>
+      capa.ks?.o?.a === 1 ? [capa.ks.o.k] : [],
+    );
+    expect(opacidades.length).toBeGreaterThan(0);
+    for (const claves of opacidades) {
+      expect(claves[0].s).toEqual([100]);
+      expect(claves[claves.length - 1].s).toEqual([100]);
+    }
+  });
+});
+
+// V-08: venta-registrada.json es el aviso «Venta registrada»: el comprobante de la venta ya completo, con su franja amarilla
+// del total y un sello de palomita. Se anima una sola vez en cerca de 1,5 segundos (RegistrarVenta.vue la pasa con loop en
+// false) y se queda quieta unos cuadros al final: ese estado completo es el cuadro fijo que se ve con menos movimiento.
+describe('animación venta-registrada.json (V-08)', () => {
+  const ruta = join(carpeta, 'venta-registrada.json');
+  const datos = existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')) : {};
+  const ultimoCuadro = datos.op - 1;
+
+  // Las propiedades animadas de Lottie: { a: 1, k: [cuadros clave con t y s] }.
+  function animadas(nodo, encontradas = []) {
+    if (Array.isArray(nodo)) {
+      nodo.forEach((hijo) => animadas(hijo, encontradas));
+    } else if (nodo && typeof nodo === 'object') {
+      if (nodo.a === 1 && Array.isArray(nodo.k)) encontradas.push(nodo.k);
+      Object.values(nodo).forEach((hijo) => animadas(hijo, encontradas));
+    }
+    return encontradas;
+  }
+  const capa = (nombre) => (datos.layers ?? []).find((candidata) => candidata.nm === nombre);
+
+  it('existe en src/assets/animaciones/', () => {
+    expect(existsSync(ruta)).toBe(true);
+  });
+
+  it('dura cerca de 1,5 segundos', () => {
+    const segundos = (datos.op - datos.ip) / datos.fr;
+    expect(segundos).toBeGreaterThanOrEqual(1.3);
+    expect(segundos).toBeLessThanOrEqual(1.7);
+  });
+
+  it('es cuadrada, para que a 48 px de alto se vea entera', () => {
+    expect(datos.w).toBe(datos.h);
+  });
+
+  it('usa la tinta, el turquesa y el amarillo de la paleta: el papel, el sello y la franja del total', () => {
+    const colores = coloresDe(datos);
+    expect(colores).toContain('#292F36');
+    expect(colores).toContain('#4ECDC4');
+    expect(colores).toContain('#FFE66D');
+  });
+
+  it('no tiene fondo: se ve sobre la franja de éxito', () => {
+    expect((datos.layers ?? []).some((capa) => capa.ty === 1)).toBe(false);
+  });
+
+  it('se mueve: tiene al menos una propiedad animada', () => {
+    expect(animadas(datos).length).toBeGreaterThan(0);
+  });
+
+  it('ningún cuadro clave pasa del último cuadro, y todo termina de moverse antes de una pausa de al menos 5 cuadros', () => {
+    const tiempos = animadas(datos).flatMap((claves) => claves.map((clave) => clave.t));
+    expect(Math.max(...tiempos)).toBeLessThanOrEqual(ultimoCuadro - 5);
+  });
+
+  it('cada capa se ve hasta el último cuadro: con menos movimiento no falta nada en el cuadro fijo', () => {
+    for (const capaDelDibujo of datos.layers) {
+      expect(capaDelDibujo.op, capaDelDibujo.nm).toBeGreaterThanOrEqual(datos.op);
+    }
+  });
+
+  it('en el último cuadro todo está completo: la opacidad y las escalas animadas terminan en 100', () => {
+    const opacidades = (datos.layers ?? []).flatMap((capaDelDibujo) =>
+      capaDelDibujo.ks?.o?.a === 1 ? [capaDelDibujo.ks.o.k] : [],
+    );
+    expect(opacidades.length).toBeGreaterThan(0);
+    for (const claves of opacidades) expect(claves[claves.length - 1].s).toEqual([100]);
+    const escalas = animadas(datos).filter(
+      (claves) => claves[0].s.length >= 2 && claves[0].s[0] === 0,
+    );
+    expect(escalas.length).toBeGreaterThan(0);
+    for (const claves of escalas) {
+      expect(claves[claves.length - 1].s.slice(0, 2)).toEqual([100, 100]);
+    }
+  });
+
+  it('el sello aparece con un pequeño rebote: su escala pasa de 100 y vuelve a 100', () => {
+    const claves = capa('Sello').ks.s.k;
+    expect(Math.max(...claves.map((clave) => clave.s[0]))).toBeGreaterThan(100);
+    expect(claves[claves.length - 1].s[0]).toBe(100);
+  });
+
+  it('la palomita se dibuja con un trazo recortado y ya está completa antes de la pausa final', () => {
+    const recorte = buscar(datos, (nodo) => nodo.ty === 'tm');
+    expect(recorte, 'debe haber un recorte de trazo (trim path)').not.toBeNull();
+    const claves = recorte.e.k;
+    expect(Array.isArray(claves)).toBe(true);
+    const ultima = claves[claves.length - 1];
+    expect(ultima.s[0]).toBe(100);
+    expect(ultima.t).toBeLessThanOrEqual(ultimoCuadro - 5);
+  });
+
+  it('la palomita llega después que el sello: primero se estampa y luego se dibuja', () => {
+    const inicioDelSello = capa('Sello').ks.s.k[0].t;
+    const inicioDeLaPalomita = buscar(datos, (nodo) => nodo.ty === 'tm').e.k[0].t;
+    expect(inicioDeLaPalomita).toBeGreaterThan(inicioDelSello);
+  });
+});

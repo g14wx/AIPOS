@@ -50,6 +50,18 @@ function validarDinero(valor, campo, { permiteCero = false } = {}) {
   return bueno(valor);
 }
 
+// Un número entero de JSON dentro de un rango, los dos extremos incluidos (por ejemplo la cantidad, de 1 a 999).
+// No convierte nada: un texto ("2"), un decimal (1.5), un booleano o NaN no son un entero, y el 2.0 que escribe
+// un JSON llega aquí como el entero 2. Se dice solo el primer problema: falta, o no es un entero del rango.
+// Como validarTexto y validarDinero, no lanza: devuelve { valor } o { detalleDelError } (Validation Pattern).
+function validarEnteroEnRango(valor, campo, { minimo, maximo }) {
+  if (valor === undefined || valor === null) return conProblema(campo, 'Es obligatorio.');
+  if (!Number.isInteger(valor) || valor < minimo || valor > maximo) {
+    return conProblema(campo, `Debe ser un entero de ${minimo} a ${maximo}.`);
+  }
+  return bueno(valor);
+}
+
 // Si algún resultado trae un detalle del error, lanza un 400 DATOS_INVALIDOS con los detalles del error de todos los
 // campos con problema, en el orden en que llegaron los resultados.
 function exigirDatosValidos(mensaje, resultados) {
@@ -59,4 +71,4 @@ function exigirDatosValidos(mensaje, resultados) {
   if (detalles.length > 0) throw new ErrorApi(400, 'DATOS_INVALIDOS', mensaje, detalles);
 }
 
-module.exports = { validarTexto, validarDinero, exigirDatosValidos };
+module.exports = { validarTexto, validarDinero, validarEnteroEnRango, exigirDatosValidos };

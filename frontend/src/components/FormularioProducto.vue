@@ -10,7 +10,13 @@
     :overlay-opacity="0.5"
     @input="$emit('input', $event)"
   >
-    <v-card flat class="formulario" :class="{ 'formulario--completo': pantallaCompleta }">
+    <v-card
+      ref="tarjeta"
+      flat
+      class="formulario"
+      :class="{ 'formulario--completo': pantallaCompleta }"
+      @keydown.native.tab="darLaVueltaAlFoco"
+    >
       <h2 :id="idDelTitulo" class="formulario__titulo">Nuevo producto</h2>
 
       <!-- lazy-validation y validate-on-blur: nada se marca antes de que el cajero salga de un campo o presione
@@ -173,6 +179,23 @@ export default {
     enfocar(campo) {
       this.$refs[campo]?.focus();
     },
+    // El foco da la vuelta dentro del modal: Tab desde el último elemento va al primero, y Shift+Tab desde el primero va
+    // al último. Vuetify solo lo devuelve cuando el foco ya cayó fuera, y ese primer Tab se pierde en el navegador.
+    darLaVueltaAlFoco(evento) {
+      const enfocables = [...this.$refs.tarjeta.$el.querySelectorAll('input, button')].filter(
+        (elemento) => !elemento.disabled,
+      );
+      if (enfocables.length === 0) return;
+      const primero = enfocables[0];
+      const ultimo = enfocables[enfocables.length - 1];
+      if (!evento.shiftKey && document.activeElement === ultimo) {
+        evento.preventDefault();
+        primero.focus();
+      } else if (evento.shiftKey && document.activeElement === primero) {
+        evento.preventDefault();
+        ultimo.focus();
+      }
+    },
     vaciar() {
       this.valores = vacio();
       this.errores = vacio();
@@ -264,8 +287,16 @@ export default {
   font-variant-numeric: tabular-nums;
 }
 
+/* Aire entre un campo y el siguiente: el mensaje de error o la ayuda no pegan con el campo de abajo. */
+.formulario__campos ::v-deep .v-text-field + .v-text-field {
+  margin-top: 0.5rem;
+}
+
 .formulario__acciones {
+  position: sticky;
+  bottom: 0;
   display: flex;
+  background: var(--v-surface-base);
   gap: 0.75rem;
   justify-content: flex-end;
   padding: 0.75rem 1.25rem max(1.25rem, env(safe-area-inset-bottom));

@@ -214,6 +214,8 @@ export default {
     reintentar() {
       const { texto, alEntrar } = this.ultimaBusqueda;
       this.buscar(texto, { alEntrar });
+      // El botón desaparece al empezar a buscar: el foco vuelve al campo para que el teclado siga (#68).
+      this.$refs.campo.focus();
     },
     // Domain Event: avisa que el cajero eligió un producto. Después el campo queda vacío y con el foco, para buscar el
     // siguiente sin tocar el ratón. El foco se pide en nextTick: la fila que lo tenía desaparece con la lista.

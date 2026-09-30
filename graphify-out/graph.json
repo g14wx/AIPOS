@@ -889,7 +889,7 @@
       "file_type": "code",
       "norm_label": "describir()",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
-      "source_location": "L226"
+      "source_location": "L228"
     },
     {
       "id": "frontend_src_components_buscadorproductos_elegir",
@@ -901,7 +901,7 @@
       "file_type": "code",
       "norm_label": "elegir()",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
-      "source_location": "L220"
+      "source_location": "L222"
     },
     {
       "id": "frontend_src_components_buscadorproductos_haymasquemostrar",
@@ -13447,7 +13447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/BuscadorProductos.vue",
-      "source_location": "L220",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -13458,7 +13458,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/BuscadorProductos.vue",
-      "source_location": "L226",
+      "source_location": "L228",
       "weight": 1.0
     },
     {

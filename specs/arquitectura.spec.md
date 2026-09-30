@@ -81,12 +81,13 @@ de ningún paquete: en varios de estos, `latest` rompe el proyecto (Vue 3, Vueti
 | Pruebas | `jsdom` | 30.1.1 | Solo frontend. |
 | Pruebas | `@vue/test-utils` | 1.3.6 | Solo frontend. Es la versión 1, la de Vue 2. |
 | Pruebas | `vue-template-compiler` | 2.7.16 | Solo frontend. `@vue/test-utils` 1 lo pide como dependencia. |
-| Calidad | `eslint` | 10.11.0 | Configuración plana (`eslint.config.js`). |
+| Calidad | `eslint` | 10.11.0 | Solo configuración plana. |
 | Calidad | `@eslint/js` | 10.0.1 | |
 | Calidad | `globals` | 17.12.0 | |
 | Calidad | `eslint-config-prettier` | 10.1.8 | Apaga las reglas de ESLint que chocan con Prettier. |
 | Calidad | `prettier` | 3.9.9 | |
 | Calidad | `eslint-plugin-vue` | 10.11.1 | Solo frontend, con la configuración `flat/vue2-recommended`. |
+| Calidad | `vue-eslint-parser` | 10.4.1 | Solo frontend. `eslint-plugin-vue` lo pide como dependencia: se instala aparte y fijo. |
 
 Comprobado en local (2026-09-30, con Node 26.9): Vitest 5.0.2 corre pruebas de un backend en CommonJS, sea con
 `import` o con `require`; y corre pruebas de componentes de Vue 2 con `@vitejs/plugin-vue2` 2.3.4, `@vue/test-utils`
@@ -104,7 +105,7 @@ como prueba, para que un cambio de versión lo avise.
 ## Variables de entorno
 
 Hay un solo archivo de ejemplo, `.env.example`, en la raíz. Se copia a `.env` y se editan los valores. El
-`.env.example` no lleva secretos: las claves valen `cambiar-esta-clave` y avisan con un comentario.
+`.env.example` no lleva secretos: las claves empiezan con `cambiar-` y avisan con un comentario.
 
 ```dotenv
 # Docker Compose: el nombre del proyecto separa contenedores y volúmenes de dos copias del repo.
@@ -156,7 +157,7 @@ Node 24, CommonJS (`"type"` no se declara, así que los `.js` son CommonJS), Exp
 
 ```text
 backend/
-  package.json  package-lock.json  .sequelizerc  eslint.config.js  .prettierrc.json  vitest.config.mjs
+  package.json  package-lock.json  .sequelizerc  eslint.config.mjs  .prettierrc.json  vitest.config.mjs
   db/
     config.js                 lee src/config.js y arma development, test y production para sequelize-cli
     migrations/               migraciones, CommonJS
@@ -444,6 +445,8 @@ frontend/
 
 - Los componentes se llaman con palabras del glosario: `FormularioProducto.vue`, `BuscadorProductos.vue`,
   `VentaActual.vue`, `AnimacionLottie.vue`. Siempre de dos o más palabras.
+- El `package.json` del frontend declara `"type": "module"`, como pide el tile de Vue 2, y por eso sus archivos de
+  configuración usan `import`.
 - `vite.config.js` usa `@vitejs/plugin-vue2`, el alias `vue` → `vue/dist/vue.esm.js`, `dedupe: ['vue']`,
   `envDir: '..'` y `server.port` con `FRONTEND_PORT` (con `strictPort: true`, para que el puerto que ve `CORS_ORIGIN`
   sea el real). El bloque `test` pone `environment: 'jsdom'`.
@@ -469,7 +472,8 @@ frontend/
 - `src/api/productos.js` y `src/api/ventas.js` exportan una función por operación, con nombres del glosario:
   `crearProducto`, `buscarProductos`, `registrarVenta`. Los componentes llaman solo a esas funciones. Ningún
   componente importa `axios` ni escribe una URL.
-- Lo que se lee del entorno es solo `import.meta.env.VITE_*`. `process.env` no existe en el navegador.
+- Lo que se lee del entorno es solo `import.meta.env.VITE_*`. `process.env` no existe en el navegador. Si falta
+  `VITE_API_URL`, `http.js` falla al cargar con un mensaje que nombra la variable.
 - Patrón: Facade. Las funciones de `src/api/` son una fachada simple sobre axios y la forma de la API, y dejan a la
   pantalla sin saber de rutas ni de errores de red.
 
@@ -602,8 +606,11 @@ flujo 06.
 
 ## Calidad
 
-- ESLint en configuración plana (`eslint.config.js`) y Prettier, en el backend y en el frontend.
-- Backend: `@eslint/js` (`recommended`), `globals.node` y `eslint-config-prettier`. Frontend: lo mismo con
+- ESLint en configuración plana y Prettier, en el backend y en el frontend. El archivo de ESLint es
+  `eslint.config.mjs` en el backend (que es CommonJS y no puede usar `import` en un `.js`) y `eslint.config.js` en el
+  frontend.
+- Backend: `@eslint/js` (`recommended`), `globals.node` y `eslint-config-prettier`, con `sourceType: 'commonjs'` para
+  el código y `sourceType: 'module'` solo para `tests/**` (que usan `import`). Comprobado en local con ESLint 10.11.0. Frontend: lo mismo con
   `globals.browser` y `eslint-plugin-vue` con `pluginVue.configs['flat/vue2-recommended']`. Desde la versión 10 de
   `eslint-plugin-vue`, `recommended` a secas es de Vue 3.
 - En el frontend se agrega la regla `'vue/valid-v-slot': ['error', { allowModifiers: true }]`, para las ranuras

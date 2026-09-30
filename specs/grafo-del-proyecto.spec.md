@@ -4,6 +4,8 @@ description: Consultar el grafo del proyecto antes de empezar una tarea y actual
 targets:
   - ../tessl-plugins/grafo-del-proyecto/**
   - ../.githooks/pre-commit
+  - ../.githooks/pre-merge-commit
+  - ../.gitattributes
   - ../.claude/settings.json
   - ../AGENTS.md
   - ../.gitignore
@@ -15,6 +17,7 @@ targets:
   - ../requerimientos/04-entregables.md
   - ../requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md
   - ../requerimientos/flujos/00-mapa-de-procesos.md
+  - ../requerimientos/flujos/05-entregar-un-entregable.md
   - ../requerimientos/diagramas/06-trabajar-una-tarjeta-con-el-agente.*
 ---
 
@@ -90,16 +93,30 @@ La prueba corre `graphify update .` dos veces y compara los archivos. Si Graphif
 Vive en `.githooks/pre-commit` y entra a git como ejecutable. Se activa con `git config core.hooksPath .githooks`,
 que lo hace el agente en el arranque. Nunca bloquea un commit: siempre termina con código 0.
 
+- Los scripts de shell (`.githooks/*` y `*.sh`) van con saltos de línea LF en cualquier sistema, por
+  `.gitattributes`. Con CRLF, `#!/bin/sh` no corre en Windows.
+  `[@test] ../tests/grafo-del-proyecto/saltos-de-linea.test.sh`
+- `.githooks/pre-merge-commit` hace lo mismo en los merges sin choques, porque git no corre `pre-commit` en ellos.
+  En un merge con choques, el commit que los resuelve sí corre `pre-commit`.
+  `[@test] ../tests/hook-de-git/merge-sin-choques.test.sh`
+
 - Busca `graphify` en el `PATH` y, si no está, en `~/.local/bin/graphify`, donde lo pone `uv tool install`. Así
   funciona también en los commits desde WebStorm u otra app, que a veces no ven `~/.local/bin`.
   `[@test] ../tests/hook-de-git/graphify-fuera-del-path.test.sh`
 - Si `graphify --version` no es la 0.9.72, avisa, deja pasar el commit y no toca el grafo.
   `[@test] ../tests/hook-de-git/otra-version.test.sh`
+- Compara la versión sin el salto de línea de Windows (`\r`), porque en Windows `graphify --version` responde
+  con CRLF.
+  `[@test] ../tests/hook-de-git/version-con-crlf.test.sh`
 - Con Graphify instalado, corre `graphify update .` y agrega `graph.json` y `GRAPH_REPORT.md` al commit, aunque
   la persona desarrolladora o el agente solo hayan agregado otros archivos.
   `[@test] ../tests/hook-de-git/agrega-el-grafo.test.sh`
-- Sin Graphify, avisa por la salida de error, deja pasar el commit y no toca el grafo.
+- Sin Graphify, avisa por la salida de error, deja pasar el commit y no toca `graph.json`.
   `[@test] ../tests/hook-de-git/sin-graphify.test.sh`
+- Si no puede actualizar el grafo (falta Graphify, es otra versión o falla), no toca `graph.json`, pero cambia en
+  `GRAPH_REPORT.md` la línea de la marca por "Puede estar desactualizado" y lo agrega al commit. Cuando vuelve a
+  actualizarlo, la línea vuelve a decir que va al día.
+  `[@test] ../tests/hook-de-git/desactualizado-tras-falla.test.sh`
 - Si `graphify update .` falla, avisa, muestra el aviso de Graphify y deja pasar el commit con el grafo anterior.
   Si Graphify se negó a achicar el grafo porque se borró código a propósito, el aviso dice cómo seguir:
   `graphify update . --force` y el grafo en otro commit.
@@ -127,6 +144,9 @@ La prueba corre los dos comandos del hook de Claude Code sin Graphify y revisa q
 La otra prueba pone un `graphify` falso solo en `~/.local/bin` y revisa que el hook de Claude Code lo use:
 `[@test] ../tests/hook-de-claude-code/graphify-fuera-del-path.test.sh`
 
+En Windows, Claude Code corre los hooks con Git Bash, que trae Git for Windows, y usa PowerShell solo si no hay Git
+Bash. Por eso AIPOS en Windows necesita Git for Windows, que además hace falta para git y para el hook de git.
+
 ## Regla del tile `grafo-del-proyecto`
 
 El agente la lee en cada conversación, en Claude Code y en Codex, junto a las del tile `spec-driven-development`.
@@ -137,6 +157,9 @@ El agente la lee en cada conversación, en Claude Code y en Codex, junto a las d
   necesita.
 - Si el hook de git no está activo (`git config core.hooksPath` no responde `.githooks`), lo activa. Si no puede,
   corre `graphify update .` antes del commit y agrega los dos archivos del grafo.
+- Antes de integrar un PR, pone la rama al día con su rama de destino en local. Con merge, el hook de git actualiza
+  el grafo en ese merge; con rebase, corre `graphify update .` y hace commit si el grafo cambió. El botón de GitHub
+  no corre el hook de git.
 
 El eval le da al agente una tarea de código con un `graphify` falso que anota cada llamada y si había cambios sin
 commit en ese momento. Así se ve si consultó el grafo antes de tocar el código, y si el commit final trae los dos
@@ -166,6 +189,8 @@ El proceso escrito nombra los mismos pasos que sigue el agente, para que nadie s
   `work-review`, validar, bitácora, y commit con el hook de git. Si la tarjeta no cambia código, no lleva spec: el
   agente propone un plan corto y la persona desarrolladora lo aprueba. La tarjeta R-03 del tablero AIPOS muestra la
   imagen nueva, y el mapa de procesos (`00-mapa-de-procesos.md`) resume el flujo 06 con los mismos pasos.
+- El flujo 05 pide poner la rama al día con su rama de destino en local antes de integrar un PR, en el paso 9 y en
+  la entrega final.
 - La definición de terminado (`requerimientos/04-entregables.md`) pide dos cosas más. Si la tarjeta cambia
   código, tiene su spec aprobada y pasó `spec-verification` y `work-review`. Y su commit trae el grafo del
   proyecto al día.

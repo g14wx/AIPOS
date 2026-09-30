@@ -22,12 +22,7 @@
       <v-container fluid class="pantalla py-4 py-md-6">
         <v-row>
           <v-col cols="12" md="7" lg="8">
-            <div data-zona="nuevo-producto">
-              <v-btn color="primary" large depressed :block="$vuetify.breakpoint.xsOnly">
-                <v-icon left>mdi-plus</v-icon>
-                Nuevo producto
-              </v-btn>
-            </div>
+            <NuevoProducto data-zona="nuevo-producto" />
             <BuscadorProductos data-zona="busqueda" class="mt-4" />
           </v-col>
 
@@ -42,6 +37,7 @@
 
 <script>
 import BuscadorProductos from './components/BuscadorProductos.vue';
+import NuevoProducto from './components/NuevoProducto.vue';
 import VentaActual from './components/VentaActual.vue';
 import { vaciarVentaActual } from './ventaActual/ventaActual.js';
 
@@ -49,7 +45,7 @@ import { vaciarVentaActual } from './ventaActual/ventaActual.js';
 // lógica se queda en src/ventaActual/ y los componentes solo muestran.
 export default {
   name: 'App',
-  components: { BuscadorProductos, VentaActual },
+  components: { BuscadorProductos, NuevoProducto, VentaActual },
   data() {
     return { ventaActual: vaciarVentaActual() };
   },

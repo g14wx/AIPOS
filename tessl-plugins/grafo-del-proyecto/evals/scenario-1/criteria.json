@@ -1,0 +1,42 @@
+{
+  "context": "Repositorio local con src/productos.js, el grafo del proyecto en git (graphify-out/graph.json y graphify-out/GRAPH_REPORT.md) y un hook de git en .githooks/pre-commit que todavía no está activo. El comando graphify es falso: cada llamada queda anotada en graphify-out/.llamadas.log con la cantidad de archivos con cambios sin commit en ese momento (cambios_sin_commit). El agente debe consultar el grafo antes de tocar el código, arreglar buscarProductos y hacer commit del cambio con el grafo actualizado. Se revisa el estado final del repositorio git, graphify-out/.llamadas.log y respuesta.md.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "consulta_antes_de_tocar",
+      "description": "graphify-out/.llamadas.log tiene una llamada a graphify query, path o explain con cambios_sin_commit=0, anotada antes que cualquier llamada a graphify update. El agente consultó el grafo antes de tocar el código.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "grafo_en_el_commit",
+      "description": "El commit que arregla buscarProductos también trae graphify-out/graph.json y graphify-out/GRAPH_REPORT.md cambiados respecto del commit inicial, y en graphify-out/.llamadas.log hay una llamada a graphify update con cambios_sin_commit mayor que 0: el grafo se actualizó después del cambio y antes del commit, a mano o con el hook de git.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "hook_activado",
+      "description": "git config core.hooksPath responde .githooks: el agente activó el hook de git del repo.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "solo_los_dos_archivos_del_grafo",
+      "description": "Ningún commit trae otros archivos de graphify-out/, como .llamadas.log.",
+      "max_score": 1,
+      "category": "MUST_NOT"
+    },
+    {
+      "name": "arreglo_correcto",
+      "description": "buscarProductos ignora los espacios al principio y al final del texto (por ejemplo con trim) y sigue buscando por nombre o por código de barras.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "respuesta_clara",
+      "description": "respuesta.md es corta, dice qué se arregló y que el grafo del proyecto quedó actualizado en el commit.",
+      "max_score": 1,
+      "category": "DESIGN"
+    }
+  ]
+}

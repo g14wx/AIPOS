@@ -1,0 +1,6 @@
+{
+  "description": "Consultar el grafo del proyecto antes de tocar el código y hacer commit del cambio con el grafo actualizado",
+  "fixtures": {
+    "proyecto": { "type": "directory", "path": "./proyecto", "installPath": "." }
+  }
+}

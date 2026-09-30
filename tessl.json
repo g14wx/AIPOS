@@ -14,6 +14,9 @@
     "g14wxz/vue2-vuetify2-vite": {
       "source": "file:./tessl-plugins/vue2-vuetify2-vite"
     },
+    "g14wxz/grafo-del-proyecto": {
+      "source": "file:./tessl-plugins/grafo-del-proyecto"
+    },
     "tessl-labs/spec-driven-development": {
       "version": "2.0.1"
     }

@@ -1,0 +1,7 @@
+{
+  "name": "g14wxz/grafo-del-proyecto",
+  "version": "0.1.0",
+  "description": "Grafo del proyecto con Graphify para agentes de código: consultarlo antes de empezar una tarea y actualizarlo en cada commit con un hook de git pre-commit. Funciona junto al flujo de specs y desde un clon nuevo.",
+  "private": false,
+  "rules": "rules"
+}

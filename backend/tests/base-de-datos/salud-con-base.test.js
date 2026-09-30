@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
-import request from 'supertest';
+import { pedir, PEDIR_DESDE_UN_PROGRAMA } from '../servidor-de-prueba.js';
 import net from 'node:net';
 import { once } from 'node:events';
 import { execFile, execFileSync, spawn } from 'node:child_process';
@@ -18,7 +18,7 @@ afterEach(() => {
 
 describe('GET /api/salud con la base de datos arriba', () => {
   it('responde 200 con { estado: "ok", baseDeDatos: "ok" }', async () => {
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(respuesta.status).toBe(200);
     expect(respuesta.headers['content-type']).toMatch(/application\/json/);
     expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
@@ -26,21 +26,21 @@ describe('GET /api/salud con la base de datos arriba', () => {
 
   it('pregunta a MySQL con sequelize.authenticate() en cada llamada', async () => {
     const espia = vi.spyOn(sequelize, 'authenticate');
-    await request(app).get('/api/salud');
-    await request(app).get('/api/salud');
+    await pedir(app, (api) => api.get('/api/salud'));
+    await pedir(app, (api) => api.get('/api/salud'));
     expect(espia).toHaveBeenCalledTimes(2);
   });
 
   it('no pide nada en la petición: un parámetro de más no cambia la respuesta', async () => {
-    const respuesta = await request(app).get('/api/salud?baseDeDatos=falla&x=1');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud?baseDeDatos=falla&x=1'));
     expect(respuesta.status).toBe(200);
     expect(respuesta.body).toEqual({ estado: 'ok', baseDeDatos: 'ok' });
   });
 
   it('no cambia nada en la base: dos llamadas dan lo mismo y no crean tablas', async () => {
     const [antes] = await sequelize.query('SHOW TABLES');
-    const primera = await request(app).get('/api/salud');
-    const segunda = await request(app).get('/api/salud');
+    const primera = await pedir(app, (api) => api.get('/api/salud'));
+    const segunda = await pedir(app, (api) => api.get('/api/salud'));
     const [despues] = await sequelize.query('SHOW TABLES');
     expect(segunda.body).toEqual(primera.body);
     expect(despues).toEqual(antes);
@@ -54,7 +54,7 @@ describe('GET /api/salud con la base de datos abajo', () => {
     });
     vi.spyOn(sequelize, 'authenticate').mockRejectedValue(fallo);
     vi.spyOn(console, 'error').mockImplementation(() => {});
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(respuesta.status).toBe(500);
     expect(respuesta.headers['content-type']).toMatch(/application\/json/);
     expect(respuesta.body).toEqual({
@@ -66,7 +66,7 @@ describe('GET /api/salud con la base de datos abajo', () => {
   it('no inventa un estado nuevo: la respuesta caída no lleva estado ni baseDeDatos', async () => {
     vi.spyOn(sequelize, 'authenticate').mockRejectedValue(new Error('caída'));
     vi.spyOn(console, 'error').mockImplementation(() => {});
-    const respuesta = await request(app).get('/api/salud');
+    const respuesta = await pedir(app, (api) => api.get('/api/salud'));
     expect(respuesta.body).not.toHaveProperty('estado');
     expect(respuesta.body).not.toHaveProperty('baseDeDatos');
   });
@@ -81,12 +81,12 @@ describe('GET /api/salud con la base de datos abajo', () => {
     });
     // Un proceso aparte, con MYSQL_PORT apuntando a un puerto donde no escucha nadie.
     const programa = `
-      const request = require('supertest');
+      ${PEDIR_DESDE_UN_PROGRAMA}
       const app = require('./src/app.js');
       const sequelize = require('./src/database.js');
       (async () => {
-        const respuesta = await request(app).get('/api/salud');
-        const noExiste = await request(app).get('/api/no-existe');
+        const respuesta = await pedir(app, (api) => api.get('/api/salud'));
+        const noExiste = await pedir(app, (api) => api.get('/api/no-existe'));
         console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, otra: noExiste.status }));
         await sequelize.close();
       })();
@@ -138,14 +138,14 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
       callado.listen(0, '127.0.0.1', () => resolve(callado.address().port));
     });
     const programa = `
-      const request = require('supertest');
+      ${PEDIR_DESDE_UN_PROGRAMA}
       const app = require('./src/app.js');
       const sequelize = require('./src/database.js');
       (async () => {
         const inicio = Date.now();
-        const respuesta = await request(app).get('/api/salud');
+        const respuesta = await pedir(app, (api) => api.get('/api/salud'));
         const milisegundos = Date.now() - inicio;
-        const otra = await request(app).get('/api/no-existe');
+        const otra = await pedir(app, (api) => api.get('/api/no-existe'));
         console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, milisegundos, otra: otra.status }));
         await sequelize.close();
       })();
@@ -182,17 +182,17 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
   it('con la conexión ya abierta y MySQL congelado, corta la consulta y libera la conexión del pool', async () => {
     const proxy = await crearProxyCongelable(sequelize.config.host, Number(sequelize.config.port));
     const programa = `
-      const request = require('supertest');
+      ${PEDIR_DESDE_UN_PROGRAMA}
       const app = require('./src/app.js');
       const sequelize = require('./src/database.js');
       const avisar = (mensaje) => new Promise((resolve) => process.send(mensaje, resolve));
       (async () => {
-        const primera = await request(app).get('/api/salud');
+        const primera = await pedir(app, (api) => api.get('/api/salud'));
         const orden = new Promise((resolve) => process.once('message', resolve));
         await avisar({ fase: 'abierta', estado: primera.status });
         await orden;
         const inicio = Date.now();
-        const segunda = await request(app).get('/api/salud');
+        const segunda = await pedir(app, (api) => api.get('/api/salud'));
         const milisegundos = Date.now() - inicio;
         await new Promise((resolve) => setTimeout(resolve, 500));
         const enUso = sequelize.connectionManager.pool.using;

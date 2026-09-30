@@ -43,8 +43,10 @@ de `productos` del backend (`routes/productos.js`, `controllers/productos.js`, `
 `validators/productos.js` y `validators/comunes.js`): los crea la primera de las dos que se integra en
 `feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-05 depende de P-04 y
 de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js`, `App.vue` y el campo inicial de
-`BuscadorProductos.vue`). Si A-01 todavía no está integrada cuando
-P-04 termina, la subtarea de documentar la ruta espera y se hace en cuanto A-01 esté integrada.
+`BuscadorProductos.vue`). P-03 y P-05 corren a la vez y comparten `frontend/src/api/productos.js`: P-05 agrega
+`buscarProductos` y P-03 `crearProducto`. La que se integra primero lo crea, y la otra conserva las dos funciones al
+poner su rama al día. Si A-01 todavía no está integrada cuando P-04 termina, la subtarea de documentar la ruta espera y
+se hace en cuanto A-01 esté integrada.
 
 ## Reglas de negocio
 
@@ -55,9 +57,9 @@ Salen de RF-02, RN-01, RN-03 y RN-04, y de las decisiones de la persona desarrol
   de un nombre (RN-04), y un código de barras (máximo 50) cabe dentro.
 - Por nombre: el producto aparece si su nombre contiene el texto, sin importar mayúsculas ni tildes ("lech" y "LÉCH"
   encuentran "Leche entera 1 L"). Eso lo da la comparación por defecto de MySQL (`utf8mb4_0900_ai_ci`), sin código extra.
-- Por código de barras: el producto aparece si su código de barras es igual al texto completo. Un pedazo del código no
-  cuenta ("750105530007" no encuentra el código "7501055300075"). MySQL lo compara con la misma regla del `UNIQUE` de
-  RN-03, así que no distingue mayúsculas.
+- Por código de barras: el producto aparece si su código de barras es igual al texto completo. Un pedazo del código de
+  barras no cuenta ("750105530007" no encuentra el código de barras "7501055300075"). MySQL lo compara con la misma
+  regla del `UNIQUE` de RN-03, así que no distingue mayúsculas.
 - `%`, `_` y `\` son texto normal: buscar "50%" solo encuentra nombres que tengan "50%". Se escapan antes de armar el
   patrón de `LIKE` (RNF-04).
 - Como máximo 20 resultados. Van primero el producto cuyo código de barras es igual al texto, y después los demás por
@@ -153,9 +155,9 @@ con una función `buscarProductos` (el controller y el servicio) y `validarBusqu
 ### Pruebas en local: la API con `curl`
 
 Con MySQL levantado y migrado y el backend corriendo (`npm run dev`), y los productos de ejemplo creados con
-`POST /api/productos` (P-01): "Leche entera 1 L" con código "7501055300075" y precio "25.00", "Jugo 50% fruta" con código
-"111" y precio "18.50", "Jugo 500 ml" con código "222" y precio "12.00", y "Cable A_B" con código "333" y precio
-"40.00". Los `curl` usan `-G` y `--data-urlencode` para que el texto viaje bien codificado. Se corren con `PORT` en
+`POST /api/productos` (P-01): "Leche entera 1 L" con código de barras "7501055300075" y precio "25.00", "Jugo 50% fruta"
+con código de barras "111" y precio "18.50", "Jugo 500 ml" con código de barras "222" y precio "12.00", y "Cable A_B" con
+código de barras "333" y precio "40.00". Los `curl` usan `-G` y `--data-urlencode` para que el texto viaje bien codificado. Se corren con `PORT` en
 lugar de 3000 si el `.env` lo cambió:
 
 | Comando | Respuesta esperada |
@@ -204,7 +206,7 @@ Los cinco primeros son los de la tarjeta P-04; el resto completan la spec.
     por nombre de la A a la Z.
     `[@test] ../backend/tests/productos/buscar-productos.test.js`
 11. Dado un producto cuyo código de barras es "222" y 25 productos con "222" en el nombre, cuando se busca "222", entonces
-    el producto de ese código va primero.
+    el producto de ese código de barras va primero.
     `[@test] ../backend/tests/productos/buscar-productos.test.js`
 12. Dado un texto de 1 carácter, o sin `busqueda`, o de más de 120, entonces responde 400 `DATOS_INVALIDOS` con el campo
     `busqueda` en `detalles`.
@@ -300,8 +302,8 @@ Vue 2 y Vuetify 2:
 - Los mensajes de estado ("Escribe al menos 2 caracteres", "Sin resultados", "Buscando…" y el error) van en una región
   con `role="status"` y `aria-live="polite"`, para que un lector de pantalla los anuncie. La lista es una lista de
   verdad, y cada fila se alcanza con Tab, se elige con Enter o espacio y muestra un foco visible.
-- Cada fila mide al menos 48 px de alto (se usa con el dedo en una tableta) y el nombre, el código y el precio se leen con
-  contraste 4.5 o más.
+- Cada fila mide al menos 48 px de alto (se usa con el dedo en una tableta) y el nombre, el código de barras y el precio se
+  leen con contraste 4.5 o más.
 - Con 375 px de ancho (móvil) no hay scroll horizontal: el nombre pasa a otra línea y el precio no se corta.
 - La animación `buscando.json` la hace P-05 (con el MCP `lottiefiles-creator` o, si no está, con la skill
   `text-to-lottie`), en los colores de la paleta y con menos de 50 KB. Con `prefers-reduced-motion: reduce`,

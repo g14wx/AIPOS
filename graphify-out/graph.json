@@ -4,66 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "id": "frontend_tests_animaciones_test_ahex",
-      "label": "aHex()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "ahex()",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_animadas",
-      "label": "animadas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "animadas()",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L165"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_buscar",
-      "label": "buscar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "buscar()",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L106"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_coloresde",
-      "label": "coloresDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "coloresde()",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L38"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_distancia",
-      "label": "distancia()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "distancia()",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L55"
-    },
-    {
       "id": "frontend_tests_componentes_formularioproducto_test_boton",
       "label": "boton()",
       "_callable": true,
@@ -242,6 +182,18 @@
       "norm_label": "raizde()",
       "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
       "source_location": "L52"
+    },
+    {
+      "id": "frontend_src_api_productos_buscarproductos",
+      "label": "buscarProductos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "code",
+      "norm_label": "buscarproductos()",
+      "source_file": "frontend/src/api/productos.js",
+      "source_location": "L17"
     },
     {
       "id": "frontend_src_api_productos_crearproducto",
@@ -626,6 +578,66 @@
       "norm_label": "traducirerror()",
       "source_file": "frontend/src/api/http.js",
       "source_location": "L22"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_ahex",
+      "label": "aHex()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "ahex()",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_animadas",
+      "label": "animadas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "animadas()",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L165"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_buscar",
+      "label": "buscar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "buscar()",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L106"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_coloresde",
+      "label": "coloresDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "coloresde()",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_distancia",
+      "label": "distancia()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "distancia()",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L55"
     },
     {
       "id": "frontend_tests_api_buscar_productos_test_cargar",
@@ -2692,50 +2704,6 @@
       "source_location": "L171"
     },
     {
-      "id": "frontend_tests_animaciones_test",
-      "label": "animaciones.test.js",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "animaciones.test.js",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_carpeta",
-      "label": "carpeta",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "carpeta",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_paleta",
-      "label": "paleta",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "paleta",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L17"
-    },
-    {
-      "id": "frontend_tests_animaciones_test_permitidas",
-      "label": "permitidas",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "animaciones.test.js",
-      "file_type": "code",
-      "norm_label": "permitidas",
-      "source_file": "frontend/tests/animaciones.test.js",
-      "source_location": "L11"
-    },
-    {
       "id": "tessl",
       "label": "tessl.json",
       "_origin": "ast",
@@ -4457,39 +4425,6 @@
       "source_location": "L1"
     },
     {
-      "id": "frontend_src_main",
-      "label": "main.js",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "main.js",
-      "source_file": "frontend/src/main.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_src_plugins_vuetify",
-      "label": "vuetify.js",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "vuetify.js",
-      "source_file": "frontend/src/plugins/vuetify.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_src_plugins_vuetify_es",
-      "label": "es",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "code",
-      "norm_label": "es",
-      "source_file": "frontend/src/plugins/vuetify.js",
-      "source_location": "L9"
-    },
-    {
       "id": "frontend_tests_componentes_formularioproducto_test",
       "label": "FormularioProducto.test.js",
       "_origin": "ast",
@@ -4499,39 +4434,6 @@
       "norm_label": "formularioproducto.test.js",
       "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
       "source_location": "L1"
-    },
-    {
-      "id": "ref_mdi_font",
-      "label": "@mdi/font",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "concept",
-      "norm_label": "@mdi/font",
-      "source_file": "frontend/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "ref_vue",
-      "label": "vue",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "concept",
-      "norm_label": "vue",
-      "source_file": "frontend/package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "ref_vuetify",
-      "label": "vuetify",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "FormularioProducto.test.js",
-      "file_type": "concept",
-      "norm_label": "vuetify",
-      "source_file": "frontend/package.json",
-      "source_location": "L25"
     },
     {
       "id": "specs_arquitectura_spec",
@@ -5543,6 +5445,50 @@
       "source_location": "L1"
     },
     {
+      "id": "frontend_tests_animaciones_test",
+      "label": "animaciones.test.js",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "animaciones.test.js",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_carpeta",
+      "label": "carpeta",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "carpeta",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_paleta",
+      "label": "paleta",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "paleta",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_tests_animaciones_test_permitidas",
+      "label": "permitidas",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "permitidas",
+      "source_file": "frontend/tests/animaciones.test.js",
+      "source_location": "L11"
+    },
+    {
       "id": "frontend_tests_api_buscar_productos_test",
       "label": "buscar-productos.test.js",
       "_origin": "ast",
@@ -5762,6 +5708,39 @@
       "source_location": "L1"
     },
     {
+      "id": "frontend_src_main",
+      "label": "main.js",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "code",
+      "norm_label": "main.js",
+      "source_file": "frontend/src/main.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_src_plugins_vuetify",
+      "label": "vuetify.js",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "code",
+      "norm_label": "vuetify.js",
+      "source_file": "frontend/src/plugins/vuetify.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_src_plugins_vuetify_es",
+      "label": "es",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "code",
+      "norm_label": "es",
+      "source_file": "frontend/src/plugins/vuetify.js",
+      "source_location": "L9"
+    },
+    {
       "id": "frontend_tests_componentes_animacionlottie_test",
       "label": "AnimacionLottie.test.js",
       "_origin": "ast",
@@ -5971,6 +5950,28 @@
       "source_location": "L23"
     },
     {
+      "id": "ref_mdi_font",
+      "label": "@mdi/font",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "concept",
+      "norm_label": "@mdi/font",
+      "source_file": "frontend/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "ref_vue",
+      "label": "vue",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "concept",
+      "norm_label": "vue",
+      "source_file": "frontend/package.json",
+      "source_location": "L24"
+    },
+    {
       "id": "ref_vue_test_utils",
       "label": "@vue/test-utils",
       "_origin": "ast",
@@ -5980,6 +5981,17 @@
       "norm_label": "@vue/test-utils",
       "source_file": "frontend/package.json",
       "source_location": "L30"
+    },
+    {
+      "id": "ref_vuetify",
+      "label": "vuetify",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "vitest-vue2.test.js",
+      "file_type": "concept",
+      "norm_label": "vuetify",
+      "source_file": "frontend/package.json",
+      "source_location": "L25"
     },
     {
       "id": "frontend_src_app",
@@ -7861,18 +7873,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "frontend_src_assets_animaciones_producto_creado",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "frontend_src_api_productos_buscarproductos",
-      "label": "frontend_src_api_productos_buscarproductos",
-      "_origin": "semantic",
-      "community": 81,
-      "community_name": "BuscadorProductos-enter.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_api_productos_buscarproductos",
       "source_file": "",
       "type": "external"
     }
@@ -10421,30 +10421,6 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_componentes_buscadorproductos_enter_test",
-      "target": "frontend_src_api_productos_buscarproductos",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/tests/componentes/BuscadorProductos-enter.test.js",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_componentes_buscadorproductos_test",
-      "target": "frontend_src_api_productos_buscarproductos",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/tests/componentes/BuscadorProductos.test.js",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
       "source": "frontend_tests_dinero_test",
       "target": "frontend_src_dinero_acentavos",
       "relation": "imports",
@@ -12860,6 +12836,17 @@
       "confidence_score": 1.0,
       "source_file": "frontend/src/api/http.js",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_api_productos",
+      "target": "frontend_src_api_productos_buscarproductos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/api/productos.js",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -17174,6 +17161,30 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_tests_componentes_buscadorproductos_enter_test",
+      "target": "frontend_src_api_productos_buscarproductos",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "frontend/tests/componentes/BuscadorProductos-enter.test.js",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_buscadorproductos_test",
+      "target": "frontend_src_api_productos_buscarproductos",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "frontend/tests/componentes/BuscadorProductos.test.js",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_componentes_formularioproducto_test",
       "target": "frontend_src_api_productos_crearproducto",
       "relation": "indirect_call",
@@ -17219,6 +17230,30 @@
       "context": "collection",
       "source_file": "frontend/src/components/VentaActual.vue",
       "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_lenguaje_ubicuo_negocio",
+      "target": "frontend_src_api_productos_buscarproductos",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "buscarProductos",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_arquitectura_spec_servicio_de_api",
+      "target": "frontend_src_api_productos_buscarproductos",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "buscarProductos",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L483",
       "weight": 1.0
     },
     {

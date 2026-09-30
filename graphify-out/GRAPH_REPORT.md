@@ -1,13 +1,13 @@
 # Graph Report - p-05  (2026-09-30)
 
 ## Corpus Check
-- 104 files · ~66,639 words
+- 104 files · ~66,712 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 650 nodes · 827 edges · 89 communities (46 shown, 43 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.91)
+- 650 nodes · 830 edges · 88 communities (45 shown, 43 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -32,7 +32,6 @@
 - Calling a stored procedure from Sequelize
 - Vue 2 + Vuetify 2 + Vite setup
 - Requerimientos no funcionales
-- animaciones.test.js
 - hook-de-claude-code/graphify-fuera-del-path.test.sh
 - Grafo del proyecto
 - comun.sh
@@ -106,17 +105,17 @@
   specs/arquitectura.spec.md → frontend/src/ventaActual/ventaActual.js
 - `Carpetas` --references--> `crearProducto()`  [INFERRED]
   specs/arquitectura.spec.md → frontend/src/api/productos.js
-- `Servicio de API` --references--> `crearProducto()`  [INFERRED]
-  specs/arquitectura.spec.md → frontend/src/api/productos.js
 - `Negocio` --references--> `total()`  [INFERRED]
   docs/lenguaje-ubicuo.md → frontend/src/components/VentaActual.vue
 - `RF-10 Guardar productos, ventas y detalles con sus relaciones` --references--> `total()`  [INFERRED]
   requerimientos/02-requerimientos-funcionales.md → frontend/src/components/VentaActual.vue
+- `5. Final check` --references--> `total()`  [INFERRED]
+  tessl-plugins/mysql-sequelize-procedimientos/skills/mysql-stored-procedure-authoring/SKILL.md → frontend/src/components/VentaActual.vue
 
 ## Import Cycles
 - None detected.
 
-## Communities (89 total, 43 thin omitted)
+## Communities (88 total, 43 thin omitted)
 
 ### Community 1 - "Configurar el MCP de Trello"
 Cohesion: 0.20
@@ -136,7 +135,7 @@ Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 mo
 
 ### Community 6 - "vitest-vue2.test.js"
 Cohesion: 0.06
-Nodes (24): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), animacion, { loadAnimation, instancias } (+16 more)
+Nodes (28): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), es, animacion (+20 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -182,10 +181,6 @@ Nodes (6): 1. Versions, 2. Project files, 3. Environment and API client, 4. ESLi
 Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
-### Community 19 - "animaciones.test.js"
-Cohesion: 0.25
-Nodes (7): aHex(), animadas(), buscar(), carpeta, coloresDe(), paleta, permitidas
-
 ### Community 21 - "Grafo del proyecto"
 Cohesion: 0.33
 Nodes (5): Al terminar una tarea, Antes de empezar una tarea, Antes de integrar un PR, Cuándo no usarlo, Grafo del proyecto
@@ -211,12 +206,12 @@ Cohesion: 0.20
 Nodes (9): Colors, Components, Design System: AIPOS, Do's and Don'ts, Elevation & Depth, Layout, Overview, Shapes (+1 more)
 
 ### Community 44 - "FormularioProducto.test.js"
-Cohesion: 0.17
-Nodes (18): es, boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja() (+10 more)
+Cohesion: 0.27
+Nodes (14): boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja(), guardarConError() (+6 more)
 
 ### Community 45 - "Arquitectura de AIPOS"
 Cohesion: 0.06
-Nodes (33): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), crearProducto(), Arquitectura de AIPOS (+25 more)
+Nodes (34): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), buscarProductos(), crearProducto() (+26 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -227,8 +222,8 @@ Cohesion: 0.10
 Nodes (29): alAbrir(), alSalir(), cancelar(), cerrar(), data(), enfocar(), enlazarTitulo(), guardar() (+21 more)
 
 ### Community 56 - "vitest"
-Cohesion: 0.20
-Nodes (10): crearError(), http, traducirError(), cargar(), leche, cargar(), producto, cargarHttp() (+2 more)
+Cohesion: 0.12
+Nodes (17): crearError(), http, traducirError(), aHex(), animadas(), buscar(), carpeta, coloresDe() (+9 more)
 
 ### Community 57 - "BuscadorProductos.test.js"
 Cohesion: 0.15
@@ -279,7 +274,7 @@ Cohesion: 0.67
 Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 
 ### Community 81 - "BuscadorProductos-enter.test.js"
-Cohesion: 0.12
+Cohesion: 0.13
 Nodes (12): asentar(), avanzar(), cable, entrada(), escribir(), jugo, leche, { loadAnimation } (+4 more)
 
 ### Community 82 - "devDependencies"
@@ -310,12 +305,12 @@ Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `crearProducto()` connect `Arquitectura de AIPOS` to `vitest`, `NuevoProducto.test.js`, `FormularioProducto.test.js`, `FormularioProducto.vue`?**
-  _High betweenness centrality (0.195) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `Arquitectura de AIPOS` to `venta-vacia.test.js`?**
-  _High betweenness centrality (0.162) - this node is a cross-community bridge._
+  _High betweenness centrality (0.170) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `Arquitectura de AIPOS` to `graphify-setup.md`?**
-  _High betweenness centrality (0.156) - this node is a cross-community bridge._
+  _High betweenness centrality (0.160) - this node is a cross-community bridge._
+- **Why does `vitest` connect `vitest` to `vitest-vue2.test.js`, `NuevoProducto.test.js`, `package.json`, `FormularioProducto.test.js`, `BuscadorProductos-enter.test.js`, `FormularioProducto.vue`, `BuscadorProductos.test.js`, `venta-vacia.test.js`?**
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _300 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
@@ -323,4 +318,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `vitest-vue2.test.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.05858585858585859 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05568627450980392 - nodes in this community are weakly interconnected._

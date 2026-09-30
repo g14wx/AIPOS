@@ -17,15 +17,15 @@ import {
 // (RNF-03): los CHECK (RN-05 y RN-06), las llaves foráneas (RN-13), el índice único (RN-07), NOT NULL y
 // la fecha (RN-12). Cada prueba corre en una transacción que se descarta.
 
-// Guarda un producto y una venta, intenta guardar un detalle con los campos que se cambian y devuelve
+// Inserta un producto y una venta, intenta insertar un detalle con los campos que se cambian y devuelve
 // el error de MySQL (o null si lo aceptó).
-async function guardarDetalle(consultar, campos = {}) {
+async function intentarDetalle(consultar, campos = {}) {
   const { ventaId, productoId } = await insertarProductoYVenta(consultar);
   return errorDeMySQL(insertarDetalle(consultar, { ventaId, productoId, ...campos }));
 }
 
-// Guarda un detalle válido con los campos que se cambian y devuelve la fila que quedó en detalles_venta.
-async function guardarYLeer(consultar, campos) {
+// Inserta un detalle válido con los campos que se cambian y devuelve la fila que quedó en detalles_venta.
+async function insertarYLeer(consultar, campos) {
   const { ventaId, productoId } = await insertarProductoYVenta(consultar);
   await insertarDetalle(consultar, { ventaId, productoId, ...campos });
   const [fila] = await consultar(
@@ -38,7 +38,7 @@ async function guardarYLeer(consultar, campos) {
 describe('el CHECK chk_detalles_venta_cantidad (RN-06)', () => {
   it.each([0, -1, 1000, 5000])('rechaza la cantidad %i con el error 3819', async (cantidad) => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const error = await guardarDetalle(consultar, { cantidad });
+      const error = await intentarDetalle(consultar, { cantidad });
       expect(error?.errno).toBe(ER_CHECK_CONSTRAINT_VIOLATED);
       expect(error.mensaje).toContain('chk_detalles_venta_cantidad');
     });
@@ -46,7 +46,7 @@ describe('el CHECK chk_detalles_venta_cantidad (RN-06)', () => {
 
   it.each([1, 2, 999])('acepta la cantidad %i y la guarda tal cual', async (cantidad) => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const fila = await guardarYLeer(consultar, { cantidad });
+      const fila = await insertarYLeer(consultar, { cantidad });
       expect(fila.cantidad).toBe(cantidad);
     });
   });
@@ -57,7 +57,7 @@ describe('el CHECK chk_detalles_venta_precio_aplicado (RN-05)', () => {
     'rechaza el precio aplicado %s con el error 3819',
     async (precioAplicado) => {
       await conTransaccionDescartada(async ({ consultar }) => {
-        const error = await guardarDetalle(consultar, { precioAplicado });
+        const error = await intentarDetalle(consultar, { precioAplicado });
         expect(error?.errno).toBe(ER_CHECK_CONSTRAINT_VIOLATED);
         expect(error.mensaje).toContain('chk_detalles_venta_precio_aplicado');
       });
@@ -72,14 +72,14 @@ describe('el CHECK chk_detalles_venta_precio_aplicado (RN-05)', () => {
     ['99999.99', '99999.99'],
   ])('acepta el precio aplicado %s y lo guarda como "%s"', async (precioAplicado, guardado) => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const fila = await guardarYLeer(consultar, { precioAplicado });
+      const fila = await insertarYLeer(consultar, { precioAplicado });
       expect(fila.precio_aplicado).toBe(guardado);
     });
   });
 
   it('con 3 decimales MySQL no da error: redondea 10.999 a 11.00 (por eso la API y el procedimiento lo rechazan antes)', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const fila = await guardarYLeer(consultar, { precioAplicado: '10.999' });
+      const fila = await insertarYLeer(consultar, { precioAplicado: '10.999' });
       expect(fila.precio_aplicado).toBe('11.00');
     });
   });
@@ -88,7 +88,7 @@ describe('el CHECK chk_detalles_venta_precio_aplicado (RN-05)', () => {
 describe('las llaves foráneas de detalles_venta', () => {
   it('rechaza un detalle de un producto que no existe con el error 1452', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const error = await guardarDetalle(consultar, { productoId: 999999999 });
+      const error = await intentarDetalle(consultar, { productoId: 999999999 });
       expect(error?.errno).toBe(ER_NO_REFERENCED_ROW);
       expect(error.mensaje).toContain('fk_detalles_venta_producto');
     });
@@ -96,15 +96,15 @@ describe('las llaves foráneas de detalles_venta', () => {
 
   it('rechaza un detalle de una venta que no existe con el error 1452', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      const error = await guardarDetalle(consultar, { ventaId: 999999999 });
+      const error = await intentarDetalle(consultar, { ventaId: 999999999 });
       expect(error?.errno).toBe(ER_NO_REFERENCED_ROW);
       expect(error.mensaje).toContain('fk_detalles_venta_venta');
     });
   });
 
-  it('un rechazo no deja ningún detalle guardado', async () => {
+  it('un rechazo no deja ningún detalle en la tabla', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
-      await guardarDetalle(consultar, { productoId: 999999999 });
+      await intentarDetalle(consultar, { productoId: 999999999 });
       const [{ total }] = await consultar('SELECT COUNT(*) AS total FROM detalles_venta');
       expect(Number(total)).toBe(0);
     });
@@ -221,7 +221,7 @@ describe('NOT NULL', () => {
     'detalles_venta.%s: un NULL explícito da el error 1048',
     async (columna, campo) => {
       await conTransaccionDescartada(async ({ consultar }) => {
-        const error = await guardarDetalle(consultar, { [campo]: null });
+        const error = await intentarDetalle(consultar, { [campo]: null });
         expect(error?.errno).toBe(ER_BAD_NULL_ERROR);
         expect(error.mensaje).toContain(`'${columna}'`);
       });
@@ -263,7 +263,7 @@ describe('NOT NULL', () => {
 });
 
 describe('la fecha de la venta (RN-12)', () => {
-  it('la pone MySQL: un INSERT sin fecha guarda la hora actual del servidor, en UTC', async () => {
+  it('la pone MySQL: un INSERT sin fecha deja la hora actual del servidor, en UTC', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
       const ventaId = await insertarVenta(consultar);
       const [fila] = await consultar(
@@ -286,7 +286,7 @@ describe('la fecha de la venta (RN-12)', () => {
   });
 });
 
-describe('lo que se guarda es lo que se lee', () => {
+describe('lo que se inserta es lo que se lee', () => {
   it('el dinero vuelve como texto con 2 decimales y la cantidad como número', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
       const { ventaId, productoId } = await insertarProductoYVenta(consultar);

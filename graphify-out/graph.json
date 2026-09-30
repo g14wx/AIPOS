@@ -497,14 +497,14 @@
       "source_location": "L24"
     },
     {
-      "id": "backend_tests_base_de_datos_migraciones_ventas_test_buscar",
-      "label": "buscar()",
+      "id": "backend_tests_base_de_datos_migraciones_ventas_test_archivodemigracion",
+      "label": "archivoDeMigracion()",
       "_callable": true,
       "_origin": "ast",
       "community": 111,
       "community_name": "migraciones-ventas.test.js",
       "file_type": "code",
-      "norm_label": "buscar()",
+      "norm_label": "archivodemigracion()",
       "source_file": "backend/tests/base-de-datos/migraciones-ventas.test.js",
       "source_location": "L18"
     },
@@ -1733,14 +1733,14 @@
       "source_location": "L17"
     },
     {
-      "id": "backend_tests_base_de_datos_modelos_venta_test_guardarventadeejemplo",
-      "label": "guardarVentaDeEjemplo()",
+      "id": "backend_tests_base_de_datos_modelos_venta_test_prepararventadeejemplo",
+      "label": "prepararVentaDeEjemplo()",
       "_callable": true,
       "_origin": "ast",
       "community": 31,
       "community_name": "restricciones-ventas.test.js",
       "file_type": "code",
-      "norm_label": "guardarventadeejemplo()",
+      "norm_label": "prepararventadeejemplo()",
       "source_file": "backend/tests/base-de-datos/modelos-venta.test.js",
       "source_location": "L147"
     },
@@ -1757,28 +1757,28 @@
       "source_location": "L16"
     },
     {
-      "id": "backend_tests_base_de_datos_restricciones_ventas_test_guardardetalle",
-      "label": "guardarDetalle()",
+      "id": "backend_tests_base_de_datos_restricciones_ventas_test_insertaryleer",
+      "label": "insertarYLeer()",
       "_callable": true,
       "_origin": "ast",
       "community": 31,
       "community_name": "restricciones-ventas.test.js",
       "file_type": "code",
-      "norm_label": "guardardetalle()",
-      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "backend_tests_base_de_datos_restricciones_ventas_test_guardaryleer",
-      "label": "guardarYLeer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "restricciones-ventas.test.js",
-      "file_type": "code",
-      "norm_label": "guardaryleer()",
+      "norm_label": "insertaryleer()",
       "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
       "source_location": "L28"
+    },
+    {
+      "id": "backend_tests_base_de_datos_restricciones_ventas_test_intentardetalle",
+      "label": "intentarDetalle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "restricciones-ventas.test.js",
+      "file_type": "code",
+      "norm_label": "intentardetalle()",
+      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
+      "source_location": "L22"
     },
     {
       "id": "backend_tests_base_de_datos_tipos_de_dinero_test_ventacondetallesmaximos",
@@ -18098,43 +18098,7 @@
       "weight": 1.0
     },
     {
-      "source": "backend_tests_base_de_datos_restricciones_ventas_test_guardardetalle",
-      "target": "backend_tests_base_de_datos_ayudas_ventas_insertarproductoyventa",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_base_de_datos_restricciones_ventas_test_guardardetalle",
-      "target": "backend_tests_base_de_datos_ayudas_productos_errordemysql",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_base_de_datos_restricciones_ventas_test_guardardetalle",
-      "target": "backend_tests_base_de_datos_ayudas_ventas_insertardetalle",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_tests_base_de_datos_restricciones_ventas_test_guardaryleer",
+      "source": "backend_tests_base_de_datos_restricciones_ventas_test_insertaryleer",
       "target": "backend_tests_base_de_datos_ayudas_ventas_insertarproductoyventa",
       "relation": "calls",
       "_origin": "ast",
@@ -18146,7 +18110,7 @@
       "weight": 1.0
     },
     {
-      "source": "backend_tests_base_de_datos_restricciones_ventas_test_guardaryleer",
+      "source": "backend_tests_base_de_datos_restricciones_ventas_test_insertaryleer",
       "target": "backend_tests_base_de_datos_ayudas_ventas_insertardetalle",
       "relation": "calls",
       "_origin": "ast",
@@ -18155,6 +18119,42 @@
       "context": "call",
       "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
       "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_restricciones_ventas_test_intentardetalle",
+      "target": "backend_tests_base_de_datos_ayudas_ventas_insertarproductoyventa",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_restricciones_ventas_test_intentardetalle",
+      "target": "backend_tests_base_de_datos_ayudas_productos_errordemysql",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_base_de_datos_restricciones_ventas_test_intentardetalle",
+      "target": "backend_tests_base_de_datos_ayudas_ventas_insertardetalle",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/tests/base-de-datos/restricciones-ventas.test.js",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -20703,7 +20703,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_modelos_venta_test",
-      "target": "backend_tests_base_de_datos_modelos_venta_test_guardarventadeejemplo",
+      "target": "backend_tests_base_de_datos_modelos_venta_test_prepararventadeejemplo",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -20811,7 +20811,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_restricciones_ventas_test",
-      "target": "backend_tests_base_de_datos_restricciones_ventas_test_guardardetalle",
+      "target": "backend_tests_base_de_datos_restricciones_ventas_test_intentardetalle",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -20823,7 +20823,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_restricciones_ventas_test",
-      "target": "backend_tests_base_de_datos_restricciones_ventas_test_guardaryleer",
+      "target": "backend_tests_base_de_datos_restricciones_ventas_test_insertaryleer",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -30431,7 +30431,7 @@
     },
     {
       "source": "backend_tests_base_de_datos_migraciones_ventas_test",
-      "target": "backend_tests_base_de_datos_migraciones_ventas_test_buscar",
+      "target": "backend_tests_base_de_datos_migraciones_ventas_test_archivodemigracion",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",

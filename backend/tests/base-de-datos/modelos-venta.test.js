@@ -140,11 +140,11 @@ describe('las relaciones entre Venta, DetalleVenta y Producto (no necesita MySQL
 });
 
 // Necesita MySQL levantado y la base de prueba migrada. Cada prueba corre en una transacción que se descarta.
-// Registrar una venta de verdad lo hace el procedimiento (V-02): aquí los modelos guardan datos de ejemplo
+// Registrar una venta de verdad lo hace el procedimiento (V-02): aquí los modelos crean datos de ejemplo
 // solo para probar que sirven para consultar.
 describe('Venta y DetalleVenta contra MySQL', () => {
   // Dos productos, una venta de 47.50 y sus dos detalles: 2 leches a 22.00 y 1 pan a 3.50.
-  async function guardarVentaDeEjemplo(transaccion) {
+  async function prepararVentaDeEjemplo(transaccion) {
     const opciones = { transaction: transaccion };
     const leche = await Producto.create(
       { nombre: 'Leche entera 1 L', precio: '25.00', codigoBarras: 'LECHE-1' },
@@ -180,7 +180,7 @@ describe('Venta y DetalleVenta contra MySQL', () => {
 
   it('una venta se consulta con sus detalles y el nombre de cada producto, con el dinero como texto', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
-      const { venta } = await guardarVentaDeEjemplo(transaccion);
+      const { venta } = await prepararVentaDeEjemplo(transaccion);
       const leida = await Venta.findByPk(venta.id, {
         include: [{ association: 'detalles', include: ['producto'] }],
         order: [[{ model: DetalleVenta, as: 'detalles' }, 'id', 'ASC']],
@@ -201,7 +201,7 @@ describe('Venta y DetalleVenta contra MySQL', () => {
 
   it('un JOIN entre detalles_venta y productos muestra el nombre de cada producto (criterio de aceptación 1)', async () => {
     await conTransaccionDescartada(async ({ consultar, transaccion }) => {
-      const { venta } = await guardarVentaDeEjemplo(transaccion);
+      const { venta } = await prepararVentaDeEjemplo(transaccion);
       const filas = await consultar(
         `SELECT p.nombre, d.cantidad, d.precio_aplicado, d.subtotal
            FROM ventas v
@@ -220,7 +220,7 @@ describe('Venta y DetalleVenta contra MySQL', () => {
 
   it('un producto sabe en qué detalles está: Producto.detalles', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
-      const { venta, leche } = await guardarVentaDeEjemplo(transaccion);
+      const { venta, leche } = await prepararVentaDeEjemplo(transaccion);
       const leido = await Producto.findByPk(leche.id, {
         include: ['detalles'],
         transaction: transaccion,
@@ -248,14 +248,14 @@ describe('Venta y DetalleVenta contra MySQL', () => {
         { id: venta.id },
       );
       expect(Math.abs(Number(fila.segundos))).toBeLessThanOrEqual(5);
-      // La Date de JavaScript es la misma hora que guardó MySQL, sin correrla por zona horaria.
+      // La Date de JavaScript es la misma hora que puso MySQL, sin correrla por zona horaria.
       expect(venta.fecha.toISOString()).toBe(fila.iso);
     });
   });
 
   it('el modelo no valida: una cantidad 0 y un precio aplicado negativo los rechaza MySQL (3819)', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
-      const { venta, leche } = await guardarVentaDeEjemplo(transaccion);
+      const { venta, leche } = await prepararVentaDeEjemplo(transaccion);
       const base = { ventaId: venta.id, productoId: leche.id, subtotal: '0.00' };
       const otro = await Producto.create(
         { nombre: 'Otro', precio: '1.00', codigoBarras: 'OTRO-1' },
@@ -280,7 +280,7 @@ describe('Venta y DetalleVenta contra MySQL', () => {
 
   it('borrar con el modelo un producto que está en una venta también lo impide: error 1451 (RN-13)', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
-      const { leche } = await guardarVentaDeEjemplo(transaccion);
+      const { leche } = await prepararVentaDeEjemplo(transaccion);
       const error = await errorDeMySQL(
         Producto.destroy({ where: { id: leche.id }, transaction: transaccion }),
       );
@@ -291,7 +291,7 @@ describe('Venta y DetalleVenta contra MySQL', () => {
 
   it('borrar con el modelo una venta que tiene detalles también lo impide: error 1451', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
-      const { venta } = await guardarVentaDeEjemplo(transaccion);
+      const { venta } = await prepararVentaDeEjemplo(transaccion);
       const error = await errorDeMySQL(
         Venta.destroy({ where: { id: venta.id }, transaction: transaccion }),
       );

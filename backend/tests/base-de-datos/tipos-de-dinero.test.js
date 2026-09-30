@@ -121,7 +121,7 @@ describe('el dinero llega como texto', () => {
 });
 
 describe('los límites de una venta caben en los tipos (RN-14)', () => {
-  // Guarda `cuantos` productos y una venta con un detalle de 999 × 99999.99 por cada producto, con un
+  // Inserta `cuantos` productos y una venta con un detalle de 999 × 99999.99 por cada producto, con un
   // solo INSERT. El subtotal se calcula en SQL, como lo hará el procedimiento.
   async function ventaConDetallesMaximos(consultar, cuantos) {
     await insertarProductos(consultar, cuantos);
@@ -136,7 +136,7 @@ describe('los límites de una venta caben en los tipos (RN-14)', () => {
   }
 
   // Pone en la venta la suma de sus subtotales y devuelve el error de MySQL (o null).
-  const guardarTotal = (consultar, ventaId) =>
+  const ponerTotal = (consultar, ventaId) =>
     errorDeMySQL(
       consultar(
         `UPDATE ventas SET total = (SELECT SUM(subtotal) FROM detalles_venta WHERE venta_id = :ventaId)
@@ -159,7 +159,7 @@ describe('los límites de una venta caben en los tipos (RN-14)', () => {
   it('con 100 detalles del subtotal más grande, el total es "9989999001.00" y cabe en ventas.total', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
       const ventaId = await ventaConDetallesMaximos(consultar, 100);
-      expect(await guardarTotal(consultar, ventaId)).toBeNull();
+      expect(await ponerTotal(consultar, ventaId)).toBeNull();
       const [fila] = await consultar('SELECT total FROM ventas WHERE id = :ventaId', { ventaId });
       expect(fila.total).toBe(TOTAL_MAXIMO);
     });
@@ -168,7 +168,7 @@ describe('los límites de una venta caben en los tipos (RN-14)', () => {
   it('con 101 detalles el total se desborda: MySQL lo rechaza con el error 1264 (por eso el máximo es 100)', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
       const ventaId = await ventaConDetallesMaximos(consultar, 101);
-      const error = await guardarTotal(consultar, ventaId);
+      const error = await ponerTotal(consultar, ventaId);
       expect(error?.errno).toBe(ER_WARN_DATA_OUT_OF_RANGE);
       expect(error.mensaje).toContain("'total'");
     });

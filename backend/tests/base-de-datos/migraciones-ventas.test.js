@@ -15,10 +15,10 @@ const nombres = fs
   .readdirSync(carpetaMigraciones)
   .filter((nombre) => !nombre.startsWith('.'))
   .sort();
-const buscar = (patron) => nombres.find((nombre) => patron.test(nombre));
-const archivoProductos = buscar(/^\d{14}-crear-productos\.c?js$/);
-const archivoVentas = buscar(/^\d{14}-crear-ventas\.c?js$/);
-const archivoDetalles = buscar(/^\d{14}-crear-detalles-venta\.c?js$/);
+const archivoDeMigracion = (patron) => nombres.find((nombre) => patron.test(nombre));
+const archivoProductos = archivoDeMigracion(/^\d{14}-crear-productos\.c?js$/);
+const archivoVentas = archivoDeMigracion(/^\d{14}-crear-ventas\.c?js$/);
+const archivoDetalles = archivoDeMigracion(/^\d{14}-crear-detalles-venta\.c?js$/);
 
 // Lo que MySQL dice de una tabla, leído de information_schema.
 async function leer(sql, tabla) {

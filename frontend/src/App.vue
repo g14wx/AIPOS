@@ -12,15 +12,17 @@
 -->
 <template>
   <v-app>
-    <v-app-bar app dense flat color="secondary">
-      <v-toolbar-title class="marca">AIPOS</v-toolbar-title>
+    <v-app-bar app dense flat color="secondary" class="barra">
+      <div class="pantalla">
+        <v-toolbar-title class="marca">AIPOS</v-toolbar-title>
+      </div>
     </v-app-bar>
 
     <v-main>
-      <v-container fluid class="pantalla pa-4 pa-md-6">
+      <v-container fluid class="pantalla py-4 py-md-6">
         <v-row>
           <v-col cols="12" md="7" lg="8">
-            <div data-zona="nuevo-producto" class="zona-nuevo-producto">
+            <div data-zona="nuevo-producto">
               <v-btn color="primary" large depressed :block="$vuetify.breakpoint.xsOnly">
                 <v-icon left>mdi-plus</v-icon>
                 Nuevo producto
@@ -55,9 +57,24 @@ export default {
 </script>
 
 <style scoped>
+/* El contenido y la marca de la barra comparten ancho máximo y márgenes, así que quedan alineados. */
 .pantalla {
+  width: 100%;
   max-width: 90rem;
   margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 960px) {
+  .pantalla {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+.barra ::v-deep .v-toolbar__content {
+  padding: 0;
 }
 
 .marca {

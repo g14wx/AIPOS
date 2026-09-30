@@ -1,12 +1,12 @@
 # Graph Report - b-03  (2026-09-30)
 
 ## Corpus Check
-- 104 files · ~52,855 words
+- 104 files · ~52,964 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 586 nodes · 715 edges · 67 communities (32 shown, 35 thin omitted)
+- 587 nodes · 717 edges · 74 communities (39 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -70,7 +70,14 @@
 - agents-md-tarjeta.test.sh
 - .prettierrc.json
 - migraciones.test.js
+- routes/salud.js
 - app.js
+- vitest
+- estructura.test.js
+- ref_node_module
+- errores.test.js
+- salud-con-base.test.js
+- limite-del-cuerpo.test.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `vitest` - 18 edges
@@ -99,7 +106,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (67 total, 35 thin omitted)
+## Communities (74 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -222,12 +229,40 @@ Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
 ### Community 65 - "migraciones.test.js"
-Cohesion: 0.06
-Nodes (30): carpetaBackend, carpetaRaiz, correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), consultar(), permisosDelUsuario() (+22 more)
+Cohesion: 0.08
+Nodes (24): carpetaBackend, carpetaRaiz, correrCli(), correrNpm(), correrNpmSinFallar(), tablasDeLaBase(), consultar(), permisosDelUsuario() (+16 more)
+
+### Community 66 - "routes/salud.js"
+Cohesion: 0.29
+Nodes (7): { consultarSalud }, obtenerSalud(), { obtenerSalud }, { Router }, conLimiteDeTiempo(), consultarSalud(), sequelize
 
 ### Community 67 - "app.js"
-Cohesion: 0.05
-Nodes (45): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+37 more)
+Cohesion: 0.16
+Nodes (16): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+8 more)
+
+### Community 68 - "vitest"
+Cohesion: 0.24
+Nodes (7): app, { cargarConfig }, config, { crearApp }, require, supertest, vitest
+
+### Community 69 - "estructura.test.js"
+Cohesion: 0.22
+Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
+
+### Community 70 - "ref_node_module"
+Cohesion: 0.29
+Nodes (3): require, sequelize, require
+
+### Community 71 - "errores.test.js"
+Cohesion: 0.29
+Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
+
+### Community 72 - "salud-con-base.test.js"
+Cohesion: 0.33
+Nodes (3): app, require, sequelize
+
+### Community 73 - "limite-del-cuerpo.test.js"
+Cohesion: 0.33
+Nodes (5): app, { crearApp }, eco, express, require
 
 ## Knowledge Gaps
 - **324 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+319 more)
@@ -237,14 +272,14 @@ Nodes (45): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `errorHandler.js`?**
-  _High betweenness centrality (0.131) - this node is a cross-community bridge._
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`?**
+  _High betweenness centrality (0.130) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `src/config.js` to `requerimientos/README.md`?**
   _High betweenness centrality (0.127) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _324 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.0696969696969697 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0708245243128964 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

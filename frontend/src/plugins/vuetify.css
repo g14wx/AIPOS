@@ -119,3 +119,77 @@
     display: none !important;
   }
 }
+
+/*
+ * P-03: el modal del formulario de producto, los errores, la franja de error y el aviso de éxito.
+ * Vuetify pone en rojo, con !important, el texto de lo que está en error (etiqueta, mensaje y contador), y el rojo
+ * sobre el fondo claro no llega a 4.5 de contraste. Aquí el texto sigue en tinta, y el rojo queda en el borde, en el
+ * ícono y en la franja (specs/arquitectura.spec.md, "Paleta").
+ */
+.v-application .v-label.error--text,
+.v-application .v-messages.error--text,
+.v-application .v-counter.error--text {
+  color: var(--v-secondary-base) !important;
+}
+
+/* Un mensaje de error se distingue de la ayuda por el borde rojo del campo y por el peso, no por el color. */
+.v-application .v-messages.error--text {
+  font-weight: 600;
+}
+
+/* El contador mide lo mismo que las ayudas y los errores: 14 px. */
+.v-application .v-counter {
+  font-size: 0.875rem;
+}
+
+/* La tarjeta del modal: texto tinta y no negro transparente. */
+.v-application .theme--light.v-card {
+  color: var(--v-secondary-base);
+}
+
+/* El velo separa el modal de la pantalla: sin sombras, como el resto (DESIGN.md). */
+.v-application .v-dialog:not(.v-dialog--fullscreen) {
+  box-shadow: none;
+}
+
+/* Botón de texto ("Cancelar"): tinta y no negro transparente. */
+.v-application .theme--light.v-btn.v-btn--text:not(.v-btn--disabled) {
+  color: var(--v-secondary-base);
+}
+
+/* Guardando, "Guardar" queda deshabilitado pero conserva el turquesa y el texto en tinta: así se ve su indicador. */
+.v-application .theme--light.v-btn.v-btn--disabled.v-btn--loading.primary {
+  background-color: var(--v-primary-base) !important;
+  color: var(--v-secondary-base) !important;
+}
+
+/* Franja de error: el rojo de los errores en el borde y el ícono, el fondo apenas teñido y el texto en tinta. */
+.v-application .v-alert.error--text {
+  border: 1px solid var(--v-error-base);
+}
+
+.v-application .v-alert .v-alert__content {
+  color: var(--v-secondary-base);
+}
+
+/* Aviso de éxito: superficie blanca, texto en tinta y un borde primary de 1 px. Sin sombra y sin franja gruesa. */
+.v-application .v-snack__wrapper {
+  min-width: 0;
+  color: var(--v-secondary-base);
+  background-color: var(--v-surface-base);
+  border: 1px solid var(--v-primary-base) !important;
+  box-shadow: none;
+}
+
+.v-application .v-snack__content {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+/* Con menos movimiento, la ventana no se sacude cuando un clic fuera no puede cerrarla. */
+@media (prefers-reduced-motion: reduce) {
+  .v-application .v-dialog--animated {
+    animation: none !important;
+  }
+}

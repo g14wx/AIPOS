@@ -515,3 +515,64 @@ Las guías de instalación están en [docs/setup/agents-setup.md](docs/setup/age
 en Codex), [docs/setup/tessl-setup.md](docs/setup/tessl-setup.md) (Tessl y los tiles) y
 [docs/setup/graphify-setup.md](docs/setup/graphify-setup.md) (Graphify y el hook de git).
 
+## 10. Cómo se usó el agente
+
+Claude Code escribió el código, las pruebas, las specs y la documentación del repositorio, y la persona desarrolladora
+dirigió el trabajo: decidió el alcance y las reglas, y revisó lo que se detalla más abajo. Codex revisó los PR. Cada tarea
+quedó en la bitácora de IA, [`docs/bitacora-ia.md`](docs/bitacora-ia.md): qué se le pidió al agente, qué hizo, qué revisó
+o corrigió la persona, qué propuestas se cambiaron o descartaron, cuánto tardó y qué commits dejó.
+
+### Qué se le delegó
+
+- **Requerimientos y tablero.** `requerimientos/` (alcance, requerimientos funcionales y no funcionales, y flujos), siete
+  diagramas BPMN con la skill `drawio-skill`, y las tarjetas del tablero AIPOS con sus subtareas y sus criterios de
+  aceptación.
+- **Reglas para el propio agente.** Los tiles de Tessl (punto 9): el glosario, la forma de entregar y las trampas de MySQL
+  con Sequelize y de Vue 2 con Vuetify 2.
+- **Specs antes del código.** Las specs de `specs/` se escribieron antes de implementar (SDD, desarrollo guiado por
+  specs), con sus pruebas enlazadas.
+- **Una tarjeta por agente.** Un agente en segundo plano tomó cada tarjeta de código. Escribió primero las pruebas y
+  después el código, lo probó en local (la API con `curl` y la pantalla en el navegador), abrió un issue de GitHub por cada
+  bug relevante y lo cerró con el commit que lo corrige.
+- **Verificación y cierre.** El agente comparó su trabajo con la spec, pasó la revisión de Codex, corrigió o explicó cada
+  hallazgo, puso la rama al día con su destino e integró el PR con merge commit.
+
+El flujo está dibujado en [requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md](requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md)
+y escrito paso a paso en `AGENTS.md`, en «Cómo tomar una tarjeta».
+
+### Ejemplos de la bitácora
+
+- **La persona corrigió una afirmación falsa del agente (2026-09-29, 12:46).** Claude Code dijo que Codex no admite
+  servidores MCP por proyecto, porque solo había mirado `codex mcp add --help`. La persona investigó por su cuenta,
+  comprobó que sí los admite, y se documentó la configuración por proyecto en `.codex/config.toml.example`.
+- **La persona corrigió cómo habla el agente (2026-09-29, 14:52).** El agente preguntó «¿Quito la línea Claude-Session?» sin
+  decir qué era ni dónde estaba. La persona pidió explicaciones cortas, con cada término explicado y, para el código, el
+  archivo y la línea. Eso quedó como regla en el tile `lenguaje-ubicuo`.
+- **La persona decidió los hallazgos de Codex (2026-09-29, 15:00).** En el PR #2 aceptó dos hallazgos y descartó uno.
+- **El agente encontró bugs probando la pantalla (tarjeta B-04).** En Chrome real encontró seis: por ejemplo, el botón de
+  borrar del campo de búsqueda se anunciaba en inglés (issue #42) y, con menos movimiento del sistema, los indicadores de
+  carga se congelaban (issue #44). Abrió un issue por cada uno y los cerró con su commit.
+- **Codex vio lo que el agente no vio (tarjeta B-03).** El agente había puesto un tope de 3 segundos a `GET /api/salud` para
+  cuando MySQL no contesta (issue #39). Codex señaló que la consulta seguía viva después del tope. El agente lo comprobó,
+  abrió el issue #54 y lo corrigió cerrando la conexión cuando vence el tiempo.
+- **Una decisión del agente que se corrigió (tarjeta V-08).** El agente que implementó había dejado pasar como venta
+  registrada una respuesta 2xx que no fuera 201, y eso vaciaba la venta actual sin número ni total (issue #93). Se trató
+  como error, y Codex, al revisar ese arreglo, pidió que la pantalla aceptara justo la forma que el contrato de la API
+  permite (issues #94 y #95).
+
+### Qué revisó, corrigió o decidió la persona
+
+- Decidió el alcance y las palabras del glosario: «cajero», «venta actual», «crear producto», «precio aplicado»,
+  «detalle de venta» y «registrar venta».
+- Aprobó los diagramas y el tablero AIPOS, y pidió una tarjeta por área (frontend, backend, base de datos, DevOps).
+- Resolvió las preguntas abiertas de los requerimientos el 2026-09-30: precio aplicado de 0, buscar desde 2 caracteres con 20
+  resultados, límites de precio y cantidad, Enter con un código de barras exacto, y precios con 2 decimales y sin símbolo
+  de moneda. Cambió una propuesta: la venta actual se guarda en el navegador.
+- Entre las 00:40 y las 01:20 del 2026-09-30 dejó las reglas de la noche: las siete specs se escriben primero, una rama y un
+  PR por tarjeta, el agente integra los PR si las pruebas pasan y cada hallazgo de Codex queda corregido o explicado, y el
+  PR de `ProductionEnv` a `main` lo integra ella.
+- **Por confirmar.** A las 01:40 y a las 01:45 del 2026-09-30 dio su visto bueno a todo el proceso y a todos los PR,
+  antes de ver las specs y el código, y dejó que los agentes siguieran durante la noche. Por eso la bitácora dice «por
+  confirmar» en la revisión de la persona de esas tareas: las propuestas que el agente cambió o descartó las decidió el
+  agente, y la persona puede confirmarlas o revertirlas.
+

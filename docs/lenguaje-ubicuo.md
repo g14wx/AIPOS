@@ -30,6 +30,8 @@ Fuente: el documento de la prueba técnica y las decisiones tomadas en conversac
 | Venta actual | La venta que el cajero arma en la pantalla antes de registrarla. Se guarda en el navegador (`localStorage`), así que sigue ahí si se recarga la página, y se vacía al registrarla: entonces se vuelve una venta. | `ventaActual` | carrito, venta en curso, ticket, orden | "La venta actual tiene 2 detalles y total 47.00." |
 | Agregar a la venta actual | Poner en la venta actual un producto elegido en la búsqueda. Si ya está, su cantidad sube en 1. | `agregarAVentaActual` | añadir, meter al carrito, agregar producto | "Agrego otra leche a la venta actual y su cantidad pasa a 2." |
 | Detalle de venta | Cada producto dentro de una venta, con su cantidad, su precio aplicado y su subtotal. Un producto tiene un solo detalle por venta. "Los detalles de la venta" son todos juntos. | `DetalleVenta`, tabla `detalles_venta` | línea, item, sale_item, order_line | "La venta 15 tiene un detalle de 2 leches a 22.00." |
+| Detalle de la venta actual | Cada producto dentro de la venta actual, con su cantidad, su precio aplicado y su subtotal, antes de registrarla. Al registrar la venta pasa a ser un detalle de venta. | `detalles` (dentro de `ventaActual`) | línea, item, producto del carrito | "La venta actual tiene 2 detalles: 2 leches a 22.00 y 1 pan a 3.50." |
+| Error de un campo del detalle | Un valor escrito por el cajero (precio aplicado o cantidad) que no cumple RN-05 o RN-06. Se anota aparte: el detalle conserva su último valor válido y "Registrar venta" se deshabilita hasta corregirlo. | `errores` (dentro de `ventaActual`) | estado inválido, warnings | "Escribir «abc» en la cantidad deja un error en ese detalle, y la cantidad sigue en 2." |
 | Cantidad | Cuántas unidades de un producto lleva un detalle de venta. Es un número entero, 1 o más. | columna `cantidad` en `detalles_venta` | qty, piezas, cant | "2 leches: cantidad 2." |
 | Precio aplicado | Lo que se cobra por cada unidad de un producto en una venta. Empieza igual al precio del producto y se puede editar solo dentro de la venta actual; el precio del producto no cambia. | columna `precio_aplicado` en `detalles_venta` | precio de venta, precio cobrado, unit_price | "La leche tiene precio 25.00 pero se cobró a 22.00." |
 | Subtotal | Precio aplicado por cantidad en un detalle de venta. | columna `subtotal` en `detalles_venta` | importe, monto, total de la línea | "2 leches a 22.00: subtotal 44.00." |
@@ -85,10 +87,23 @@ Fuente: el documento de la prueba técnica y las decisiones tomadas en conversac
 | Issue de GitHub | El aviso de un bug en GitHub, con los pasos para reproducirlo. Se cierra con un comentario que nombra el commit que lo corrige. | Tarjeta (del tablero AIPOS) | "El issue del precio con 3 decimales explica cómo repetir el error." |
 | Prueba en local | Probar un cambio con el sistema corriendo en la máquina de quien trabaja, además de las pruebas automáticas: la API con `curl` contra el backend corriendo y la pantalla en el navegador con el MCP `chrome-devtools`. | Prueba automática (`npm test`) | "La prueba en local de crear producto manda un `curl` con el precio "10.999" y espera un 400." |
 | Base de prueba | La base de datos MySQL separada (`aipos_prueba`) donde corren las pruebas automáticas del backend. Nunca es la base donde se trabaja. | La base de desarrollo (`aipos`) | "`npm test` migra la base de prueba y no toca los productos de la base de desarrollo." |
+| Documentación de la API | El documento OpenAPI 3 del backend (`backend/docs/openapi.yaml`) y la página de Swagger UI en `GET /api/docs` que lo muestra. Describe cada ruta de la API, lo que recibe, lo que responde y su formato de error. Swagger UI es la página y OpenAPI es el formato: no se dice "Swagger" a secas ni "doc de la API". | Los comentarios del código | "La ruta de crear producto está en la documentación de la API." |
+| Formato de error | La forma única de toda respuesta de error de la API: `{ "error": { "codigo", "mensaje", "detalles" } }`. Está descrita en la spec de arquitectura y en el esquema `RespuestaDeError` de la documentación de la API. | Un error de MySQL, que nunca sale tal cual al cliente | "El formato de error del 409 lleva el código `CODIGO_BARRAS_DUPLICADO`." |
+| Desplegar | Poner en producción una versión que ya pasó las pruebas. En código es `despliegue/desplegar.sh`. No se dice "deployar" ni "subir a producción". | Integrar (unir una rama con otra con un pull request) | "El pipeline despliega `release-0.1.0` en el servidor." |
+| Producción | El servidor real donde el público usa AIPOS: `aipos.salsalvador.io`. Su environment de GitHub se llama `production`. No se dice "prod" ni "servidor en vivo". | La rama `ProductionEnv`, que es la rama de integración | "La pantalla de producción llama a `aipos-back.salsalvador.io`." |
+| Pipeline | La cadena de pasos automáticos de GitHub Actions que revisa, prueba, construye y despliega. En código es el workflow `despliegue.yml`. | Un hook de git (corre en la máquina de quien trabaja, antes de un commit) | "El pipeline falló en las pruebas del backend y no desplegó." |
+| Etiqueta `release-*` | La etiqueta de git `release-MAYOR.MENOR.PARCHE` (por ejemplo `release-0.1.0`) que arranca el pipeline. Solo la persona desarrolladora puede crearla. | La etiqueta `entregable-<x>` y la etiqueta de Trello | "Subí la etiqueta `release-0.2.0` con productos." |
 
 ## Pendientes (por confirmar)
 
-No hay términos pendientes. Las dudas de reglas de negocio están en `requerimientos/README.md`.
+Términos que proponen las specs de la noche del 2026-09-30. La persona desarrolladora los aprueba, o los cambia, cuando aprueba el lote de specs. Hasta entonces son propuestas:
+
+- Del glosario de S-01: el texto de "SDD" (la tarjeta no trae el texto que aprobó la persona).
+- De armar la venta actual: "detalle de la venta actual" y "error de un campo del detalle".
+- De la documentación de la API: "documentación de la API" y "formato de error".
+- Del despliegue: "desplegar", "producción", "pipeline" y "etiqueta `release-*`".
+
+Las dudas de reglas de negocio están en `requerimientos/README.md`.
 
 ## Historial de cambios
 
@@ -103,3 +118,4 @@ No hay términos pendientes. Las dudas de reglas de negocio están en `requerimi
 | 2026-09-29 | Se aclara "tarjeta": las de la lista "Requerimientos" son de consulta y no llevan subtareas ni criterios de aceptación. | R-01 a R-04 guardan decisiones, reglas o preguntas, no tareas. Decisión de la persona al cerrar R-00. |
 | 2026-09-29 | Se agregan "spec", "grafo del proyecto", "hook de git" y "hook de Claude Code". "Hook" nunca se dice a secas. | Los usan el tile grafo-del-proyecto y la spec `specs/grafo-del-proyecto.spec.md`. La persona eligió "grafo del proyecto" y confirmó las cuatro entradas. |
 | 2026-09-30 | Se agregan "SDD", "rama de tarjeta", "issue de GitHub", "prueba en local" y "base de prueba". "Venta actual" ya no se pierde al recargar: se guarda en el navegador hasta registrarla. | Los usan `specs/arquitectura.spec.md` y `AGENTS.md`. La persona decidió el 2026-09-30 que la venta actual no se pierde al recargar (pregunta abierta 2 de `requerimientos/README.md`). "SDD" y "spec" venían de la tarjeta S-01. |
+| 2026-09-30 | Se agregan "detalle de la venta actual", "error de un campo del detalle", "documentación de la API", "formato de error", "desplegar", "producción", "pipeline" y "etiqueta `release-*`". | Los proponen las specs de esta noche (armar la venta actual, documentación de la API y despliegue); la persona los aprueba con el lote. |

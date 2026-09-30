@@ -48,7 +48,7 @@ export default {
   overflow: hidden;
   background: var(--v-surface-base);
   border: 1px solid color-mix(in srgb, var(--v-secondary-base) 16%, transparent);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .venta-actual__titulo {

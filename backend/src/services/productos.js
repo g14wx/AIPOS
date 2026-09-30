@@ -11,7 +11,7 @@ const MENSAJE_DEL_DUPLICADO = 'Ya existe un producto con ese código de barras.'
 const FINAL_DEL_INDICE_DEL_CODIGO_DE_BARRAS = /for key '(?:[^'.]+\.)?uq_productos_codigo_barras'$/;
 
 // Es el error del índice único del código de barras (error 1062 con el nombre fijo del índice). Como es el único
-// índice único además de la llave primaria, que se llena sola, un 1062 con ese nombre es siempre un código repetido.
+// índice único además de la llave primaria, que se llena sola, ese error es siempre un código de barras repetido.
 // Cualquier otro error no se reconoce aquí: no se traduce por adivinar.
 function esCodigoDeBarrasRepetido(err) {
   const original = err && (err.parent || err.original);

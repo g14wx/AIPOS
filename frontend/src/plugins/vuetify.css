@@ -51,6 +51,16 @@
   opacity: 0.72;
 }
 
+/* Las ayudas y los errores de los campos miden 14 px y no 12 px: el cajero los lee de pie y con prisa. */
+.v-application .v-messages {
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+}
+
+.v-application .v-messages__message {
+  line-height: 1.25rem;
+}
+
 /* Borde de los campos: la tinta al 55 % da 3.4 de contraste sobre blanco, y el negro al 38 % de Vuetify da 2.6. */
 .v-application .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) fieldset {
   border-color: color-mix(in srgb, var(--v-secondary-base) 55%, transparent);

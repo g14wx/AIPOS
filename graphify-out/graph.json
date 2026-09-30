@@ -301,7 +301,7 @@
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L41"
+      "source_location": "L47"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
@@ -313,7 +313,7 @@
       "node_kind": "heading",
       "norm_label": "otros caminos",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L32"
+      "source_location": "L37"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
@@ -325,7 +325,7 @@
       "node_kind": "heading",
       "norm_label": "pasos",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L18"
+      "source_location": "L21"
     },
     {
       "id": "requerimientos_flujos_04_registrar_venta",
@@ -7832,7 +7832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L18",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -7843,7 +7843,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L32",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -7854,7 +7854,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L41",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -11627,7 +11627,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -11638,7 +11638,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {

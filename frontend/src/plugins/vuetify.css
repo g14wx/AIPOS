@@ -159,8 +159,11 @@
   color: var(--v-secondary-base);
 }
 
-/* Guardando, "Guardar" queda deshabilitado pero conserva el turquesa y el texto en tinta: así se ve su indicador. */
-.v-application .theme--light.v-btn.v-btn--disabled.v-btn--loading.primary {
+/*
+ * Guardando, "Guardar" queda deshabilitado pero conserva el turquesa y el texto en tinta: así se ve su indicador.
+ * Vuetify no le pone la clase primary a un botón deshabilitado (#57), y solo un botón principal guarda.
+ */
+.v-application .theme--light.v-btn.v-btn--disabled.v-btn--loading {
   background-color: var(--v-primary-base) !important;
   color: var(--v-secondary-base) !important;
 }

@@ -12566,7 +12566,7 @@
       "node_kind": "heading",
       "norm_label": "10. como se uso el agente",
       "source_file": "README.md",
-      "source_location": "L518"
+      "source_location": "L524"
     },
     {
       "id": "readme_11_decisiones_t\u00e9cnicas",
@@ -12578,7 +12578,7 @@
       "node_kind": "heading",
       "norm_label": "11. decisiones tecnicas",
       "source_file": "README.md",
-      "source_location": "L579"
+      "source_location": "L586"
     },
     {
       "id": "readme_12_consideraciones",
@@ -12590,7 +12590,7 @@
       "node_kind": "heading",
       "norm_label": "12. consideraciones",
       "source_file": "README.md",
-      "source_location": "L611"
+      "source_location": "L618"
     },
     {
       "id": "readme_1_funcionalidades",
@@ -12614,7 +12614,7 @@
       "node_kind": "heading",
       "norm_label": "2. tecnologias y versiones",
       "source_file": "README.md",
-      "source_location": "L71"
+      "source_location": "L72"
     },
     {
       "id": "readme_3_estructura",
@@ -12626,7 +12626,7 @@
       "node_kind": "heading",
       "norm_label": "3. estructura",
       "source_file": "README.md",
-      "source_location": "L97"
+      "source_location": "L98"
     },
     {
       "id": "readme_4_cumplimiento_de_requisitos",
@@ -12638,7 +12638,7 @@
       "node_kind": "heading",
       "norm_label": "4. cumplimiento de requisitos",
       "source_file": "README.md",
-      "source_location": "L160"
+      "source_location": "L161"
     },
     {
       "id": "readme_5_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -12650,7 +12650,7 @@
       "node_kind": "heading",
       "norm_label": "5. instalacion y ejecucion",
       "source_file": "README.md",
-      "source_location": "L218"
+      "source_location": "L222"
     },
     {
       "id": "readme_6_base_de_datos_mysql",
@@ -12662,7 +12662,7 @@
       "node_kind": "heading",
       "norm_label": "6. base de datos mysql",
       "source_file": "README.md",
-      "source_location": "L343"
+      "source_location": "L349"
     },
     {
       "id": "readme_7_procedimiento_almacenado",
@@ -12674,7 +12674,7 @@
       "node_kind": "heading",
       "norm_label": "7. procedimiento almacenado",
       "source_file": "README.md",
-      "source_location": "L410"
+      "source_location": "L416"
     },
     {
       "id": "readme_8_tiempo",
@@ -12686,7 +12686,7 @@
       "node_kind": "heading",
       "norm_label": "8. tiempo",
       "source_file": "README.md",
-      "source_location": "L472"
+      "source_location": "L478"
     },
     {
       "id": "readme_9_herramientas_de_ia",
@@ -12698,7 +12698,7 @@
       "node_kind": "heading",
       "norm_label": "9. herramientas de ia",
       "source_file": "README.md",
-      "source_location": "L489"
+      "source_location": "L495"
     },
     {
       "id": "readme_aipos",
@@ -12722,7 +12722,7 @@
       "node_kind": "heading",
       "norm_label": "apagar mysql y empezar de cero",
       "source_file": "README.md",
-      "source_location": "L403"
+      "source_location": "L409"
     },
     {
       "id": "readme_backend",
@@ -12734,7 +12734,7 @@
       "node_kind": "heading",
       "norm_label": "backend",
       "source_file": "README.md",
-      "source_location": "L133"
+      "source_location": "L134"
     },
     {
       "id": "readme_base_de_datos",
@@ -12746,7 +12746,7 @@
       "node_kind": "heading",
       "norm_label": "base de datos",
       "source_file": "README.md",
-      "source_location": "L152"
+      "source_location": "L153"
     },
     {
       "id": "readme_base_de_prueba",
@@ -12758,7 +12758,7 @@
       "node_kind": "heading",
       "norm_label": "base de prueba",
       "source_file": "README.md",
-      "source_location": "L397"
+      "source_location": "L403"
     },
     {
       "id": "readme_comandos_del_backend",
@@ -12770,7 +12770,7 @@
       "node_kind": "heading",
       "norm_label": "comandos del backend",
       "source_file": "README.md",
-      "source_location": "L385"
+      "source_location": "L391"
     },
     {
       "id": "readme_crearlo_con_el_cliente_mysql",
@@ -12782,7 +12782,7 @@
       "node_kind": "heading",
       "norm_label": "crearlo con el cliente mysql",
       "source_file": "README.md",
-      "source_location": "L440"
+      "source_location": "L446"
     },
     {
       "id": "readme_c\u00f3mo_funciona",
@@ -12794,7 +12794,7 @@
       "node_kind": "heading",
       "norm_label": "como funciona",
       "source_file": "README.md",
-      "source_location": "L423"
+      "source_location": "L429"
     },
     {
       "id": "readme_despliegue_agregado_la_prueba_no_lo_pide",
@@ -12806,7 +12806,7 @@
       "node_kind": "heading",
       "norm_label": "despliegue (agregado: la prueba no lo pide)",
       "source_file": "README.md",
-      "source_location": "L320"
+      "source_location": "L326"
     },
     {
       "id": "readme_ejemplos_de_la_bit\u00e1cora",
@@ -12818,7 +12818,7 @@
       "node_kind": "heading",
       "norm_label": "ejemplos de la bitacora",
       "source_file": "README.md",
-      "source_location": "L543"
+      "source_location": "L549"
     },
     {
       "id": "readme_frontend",
@@ -12830,7 +12830,7 @@
       "node_kind": "heading",
       "norm_label": "frontend",
       "source_file": "README.md",
-      "source_location": "L118"
+      "source_location": "L119"
     },
     {
       "id": "readme_la_api",
@@ -12854,7 +12854,7 @@
       "node_kind": "heading",
       "norm_label": "las migraciones",
       "source_file": "README.md",
-      "source_location": "L361"
+      "source_location": "L367"
     },
     {
       "id": "readme_las_tablas",
@@ -12866,7 +12866,7 @@
       "node_kind": "heading",
       "norm_label": "las tablas",
       "source_file": "README.md",
-      "source_location": "L350"
+      "source_location": "L356"
     },
     {
       "id": "readme_limitaciones_y_lo_que_falta",
@@ -12878,7 +12878,7 @@
       "node_kind": "heading",
       "norm_label": "limitaciones y lo que falta",
       "source_file": "README.md",
-      "source_location": "L637"
+      "source_location": "L644"
     },
     {
       "id": "readme_lo_que_agregamos_y_la_prueba_t\u00e9cnica_no_pide",
@@ -12890,7 +12890,7 @@
       "node_kind": "heading",
       "norm_label": "lo que agregamos y la prueba tecnica no pide",
       "source_file": "README.md",
-      "source_location": "L189"
+      "source_location": "L193"
     },
     {
       "id": "readme_lo_que_no_se_complet\u00f3",
@@ -12902,7 +12902,7 @@
       "node_kind": "heading",
       "norm_label": "lo que no se completo",
       "source_file": "README.md",
-      "source_location": "L203"
+      "source_location": "L207"
     },
     {
       "id": "readme_otros_puertos_o_varias_copias",
@@ -12914,7 +12914,7 @@
       "node_kind": "heading",
       "norm_label": "otros puertos o varias copias",
       "source_file": "README.md",
-      "source_location": "L279"
+      "source_location": "L285"
     },
     {
       "id": "readme_para_ejecutar",
@@ -12926,7 +12926,7 @@
       "node_kind": "heading",
       "norm_label": "para ejecutar",
       "source_file": "README.md",
-      "source_location": "L613"
+      "source_location": "L620"
     },
     {
       "id": "readme_pasos_desde_un_clon_limpio",
@@ -12938,7 +12938,7 @@
       "node_kind": "heading",
       "norm_label": "pasos desde un clon limpio",
       "source_file": "README.md",
-      "source_location": "L227"
+      "source_location": "L231"
     },
     {
       "id": "readme_por_confirmar",
@@ -12950,7 +12950,7 @@
       "node_kind": "heading",
       "norm_label": "por confirmar",
       "source_file": "README.md",
-      "source_location": "L659"
+      "source_location": "L666"
     },
     {
       "id": "readme_probarlo",
@@ -12962,7 +12962,7 @@
       "node_kind": "heading",
       "norm_label": "probarlo",
       "source_file": "README.md",
-      "source_location": "L453"
+      "source_location": "L459"
     },
     {
       "id": "readme_probarlo_en_la_pantalla",
@@ -12974,7 +12974,7 @@
       "node_kind": "heading",
       "norm_label": "probarlo en la pantalla",
       "source_file": "README.md",
-      "source_location": "L271"
+      "source_location": "L275"
     },
     {
       "id": "readme_pruebas",
@@ -12986,7 +12986,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas",
       "source_file": "README.md",
-      "source_location": "L295"
+      "source_location": "L301"
     },
     {
       "id": "readme_qu\u00e9_revis\u00f3_corrigi\u00f3_o_decidi\u00f3_la_persona",
@@ -12998,7 +12998,7 @@
       "node_kind": "heading",
       "norm_label": "que reviso, corrigio o decidio la persona",
       "source_file": "README.md",
-      "source_location": "L563"
+      "source_location": "L570"
     },
     {
       "id": "readme_qu\u00e9_se_le_deleg\u00f3",
@@ -13010,7 +13010,7 @@
       "node_kind": "heading",
       "norm_label": "que se le delego",
       "source_file": "README.md",
-      "source_location": "L525"
+      "source_location": "L531"
     },
     {
       "id": "readme_requisitos_previos",
@@ -13022,7 +13022,7 @@
       "node_kind": "heading",
       "norm_label": "requisitos previos",
       "source_file": "README.md",
-      "source_location": "L220"
+      "source_location": "L224"
     },
     {
       "id": "readme_trampas_conocidas",
@@ -13034,7 +13034,7 @@
       "node_kind": "heading",
       "norm_label": "trampas conocidas",
       "source_file": "README.md",
-      "source_location": "L626"
+      "source_location": "L633"
     },
     {
       "id": "readme_variables_de_entorno",
@@ -13046,7 +13046,7 @@
       "node_kind": "heading",
       "norm_label": "variables de entorno",
       "source_file": "README.md",
-      "source_location": "L372"
+      "source_location": "L378"
     },
     {
       "id": "backend_db_migrations_20260930172100_crear_sp_registrar_venta",
@@ -55981,7 +55981,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L525",
+      "source_location": "L531",
       "weight": 1.0
     },
     {
@@ -55992,7 +55992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L543",
+      "source_location": "L549",
       "weight": 1.0
     },
     {
@@ -56003,7 +56003,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L563",
+      "source_location": "L570",
       "weight": 1.0
     },
     {
@@ -56014,7 +56014,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L613",
+      "source_location": "L620",
       "weight": 1.0
     },
     {
@@ -56025,7 +56025,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L626",
+      "source_location": "L633",
       "weight": 1.0
     },
     {
@@ -56036,7 +56036,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L637",
+      "source_location": "L644",
       "weight": 1.0
     },
     {
@@ -56047,7 +56047,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L659",
+      "source_location": "L666",
       "weight": 1.0
     },
     {
@@ -56069,7 +56069,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L118",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -56080,7 +56080,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -56091,7 +56091,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L152",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -56102,7 +56102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L189",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -56113,7 +56113,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L203",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -56124,7 +56124,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L220",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -56135,7 +56135,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L227",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -56146,7 +56146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L271",
+      "source_location": "L275",
       "weight": 1.0
     },
     {
@@ -56157,7 +56157,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L279",
+      "source_location": "L285",
       "weight": 1.0
     },
     {
@@ -56168,7 +56168,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L295",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -56179,7 +56179,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L320",
+      "source_location": "L326",
       "weight": 1.0
     },
     {
@@ -56190,7 +56190,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L350",
+      "source_location": "L356",
       "weight": 1.0
     },
     {
@@ -56201,7 +56201,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L361",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -56212,7 +56212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L372",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -56223,7 +56223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L385",
+      "source_location": "L391",
       "weight": 1.0
     },
     {
@@ -56234,7 +56234,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L397",
+      "source_location": "L403",
       "weight": 1.0
     },
     {
@@ -56245,7 +56245,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L403",
+      "source_location": "L409",
       "weight": 1.0
     },
     {
@@ -56256,7 +56256,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L423",
+      "source_location": "L429",
       "weight": 1.0
     },
     {
@@ -56267,7 +56267,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L440",
+      "source_location": "L446",
       "weight": 1.0
     },
     {
@@ -56278,7 +56278,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L453",
+      "source_location": "L459",
       "weight": 1.0
     },
     {
@@ -56289,7 +56289,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L160",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -56300,7 +56300,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L218",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -56322,7 +56322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L343",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -56333,7 +56333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L410",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -56344,7 +56344,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L472",
+      "source_location": "L478",
       "weight": 1.0
     },
     {
@@ -56355,7 +56355,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L489",
+      "source_location": "L495",
       "weight": 1.0
     },
     {
@@ -56366,7 +56366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L518",
+      "source_location": "L524",
       "weight": 1.0
     },
     {
@@ -56377,7 +56377,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L579",
+      "source_location": "L586",
       "weight": 1.0
     },
     {
@@ -56388,7 +56388,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L611",
+      "source_location": "L618",
       "weight": 1.0
     },
     {
@@ -56399,7 +56399,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L71",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -56410,7 +56410,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -62266,7 +62266,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L339",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -62277,7 +62277,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L540",
+      "source_location": "L546",
       "weight": 1.0
     },
     {
@@ -64309,7 +64309,7 @@
       "confidence_score": 0.95,
       "context": "production",
       "source_file": "README.md",
-      "source_location": "L340",
+      "source_location": "L346",
       "weight": 1.0
     },
     {

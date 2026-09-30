@@ -10,7 +10,7 @@ app llama por su nombre). Es la solución de una prueba técnica y se construyó
 | API (el backend) | <https://aipos-back.salsalvador.io> |
 | Documentación de la API (Swagger UI) | <https://aipos-back.salsalvador.io/api/docs> |
 | Versión desplegada | la etiqueta `release-*` más reciente (al escribir este README, `release-1.0.1`) |
-| Código | <https://github.com/g14wx/AIPOS>, rama `ProductionEnv` |
+| Código | <https://github.com/g14wx/AIPOS>, rama `ProductionEnv` (la rama donde se juntan los entregables terminados) |
 
 Este README tiene los 12 puntos que pide la prueba. Cada dato se puede comprobar en el repositorio, y la prueba
 `tests/documentacion/readme-entrega.test.sh` revisa que estén los 12 puntos, que las versiones sean las instaladas y que
@@ -66,7 +66,8 @@ su total y el botón «Registrar venta».
 Las respuestas de error de la API tienen la misma forma, `{ "error": { "codigo", "mensaje", "detalles" } }`, y usan uno de
 cinco estados: 400 (datos inválidos), 404 (la ruta no existe), 409 (el código de barras ya existe), 422 (el procedimiento
 almacenado rechazó la venta por una regla de negocio) y 500 (error inesperado, sin detalles internos para el cliente). La
-excepción conocida está en el punto 12. El documento `backend/docs/openapi.yaml` describe cada ruta.
+excepción conocida está en el punto 12. El documento OpenAPI `backend/docs/openapi.yaml` describe cada ruta, y Swagger UI
+lo muestra en `/api/docs`.
 
 ## 2. Tecnologías y versiones
 
@@ -103,8 +104,8 @@ AIPOS/
 ├── docker-compose.yml             MySQL 8.4 para desarrollo y pruebas
 ├── docker-compose.produccion.yml  MySQL, backend y pantalla en producción
 ├── despliegue/                    scripts del servidor y bloques de Caddy (el programa que recibe el tráfico de internet)
-├── .github/workflows/             el pipeline de despliegue, de GitHub Actions
-├── docs/                          bitácora de IA, glosario, y guías de instalación del agente y del despliegue
+├── .github/workflows/             el pipeline de despliegue (la cadena de pasos automáticos de GitHub Actions)
+├── docs/                          la bitácora de IA (qué hizo el agente en cada tarea), el glosario y las guías de instalación
 ├── requerimientos/                requerimientos, flujos y diagramas BPMN (dibujos de un proceso)
 ├── specs/                         las specs: qué tiene que hacer cada parte
 ├── tests/                         pruebas de shell de la raíz
@@ -135,8 +136,8 @@ AIPOS/
 - Las capas van en este orden: rutas, controladores, servicios y modelos. `backend/src/routes/` dice qué ruta llama a qué
   controlador, `backend/src/controllers/` recibe la petición y la valida con `backend/src/validators/`,
   `backend/src/services/` tiene la lógica de negocio y `backend/src/models/` tiene `Producto`, `Venta` y `DetalleVenta`.
-- `backend/src/app.js` arma Express: helmet (cabeceras de seguridad), CORS, límite de 100 KB para el cuerpo, las rutas de
-  `/api`, la ruta no encontrada y el manejador de errores. `backend/src/servidor.js` arranca la API: escucha en `PORT` y
+- `backend/src/app.js` arma Express: helmet (cabeceras de seguridad), CORS (la regla del navegador que decide qué páginas
+  pueden llamar a la API), límite de 100 KB para el cuerpo, las rutas de `/api`, la ruta no encontrada y el manejador de errores. `backend/src/servidor.js` arranca la API: escucha en `PORT` y
   avisa si el puerto está ocupado.
 - `backend/src/config.js` es el único archivo que lee las variables de entorno, y `backend/src/database.js` crea la
   conexión de Sequelize. `backend/src/documentacion.js` lee `backend/docs/openapi.yaml`, que `backend/src/routes/docs.js`
@@ -144,7 +145,7 @@ AIPOS/
 - `backend/src/errors/` (`ErrorApi.js` y `desdeBaseDeDatos.js`, que traduce los errores de MySQL) y
   `backend/src/middlewares/` (`errorHandler.js` y `noEncontrado.js`) dan el formato de error.
 - `backend/src/crearServidor.js` (llega con F-01): crea el servidor HTTP y contesta con el formato de error a una dirección o
-  unas cabeceras de más de 16 KB, que Node rechaza antes de que lleguen a Express (issue #60).
+  unas cabeceras de más de 16 KB, que Node rechaza antes de que lleguen a Express (issue #60, el aviso del bug en GitHub).
 - `backend/src/errors/aFormatoDeError.js` (llega con F-01): arma el cuerpo del formato de error, para que lo usen el manejador
   de errores y ese servidor.
 - `backend/scripts/crear-base-de-prueba.js`, `backend/tests/` y `backend/Dockerfile` completan la carpeta.
@@ -160,8 +161,11 @@ AIPOS/
 ## 4. Cumplimiento de requisitos
 
 Cada fila es un requisito de la prueba técnica. Los RF (requerimientos funcionales) y los RNF (no funcionales) están en
-`requerimientos/`, con sus criterios de aceptación y las tarjetas del tablero AIPOS que los construyeron. El estado es
-Cumplido, Parcial o No completado.
+`requerimientos/`, con sus criterios de aceptación y las tarjetas del [tablero AIPOS](https://trello.com/b/K5mkgcdl/aipos), el
+tablero de Trello del proyecto, que los construyeron. El estado es Cumplido, Parcial o No completado. Un entregable es una
+parte del trabajo que se entrega en su propia rama (base, productos y ventas). Un PR (pull request) es la solicitud en GitHub
+para unir una rama con otra, y un merge commit es un commit que une dos ramas y deja ver en el historial que existieron por
+separado.
 
 | Requisito | Estado | Dónde se ve |
 |---|---|---|
@@ -212,7 +216,7 @@ Cumplido, Parcial o No completado.
   lo dice, y manda el texto.
 - **Bugs sin corregir.** Siguen abiertos como issues de GitHub: <https://github.com/g14wx/AIPOS/issues?q=is%3Aissue+is%3Aopen+label%3Abug>.
 - **Fuera de alcance, como dice la prueba:** impresión de tickets, generación de documentos, reportes, inventarios,
-  control de caja, métodos de pago, autenticación y CRUD completo. No se editan ni se borran productos, y no se consultan
+  control de caja, métodos de pago, autenticación y CRUD completo (crear, leer, editar y borrar). No se editan ni se borran productos, y no se consultan
   ni se cancelan las ventas registradas.
 
 ## 5. Instalación y ejecución
@@ -273,8 +277,10 @@ La documentación de la API está en <http://localhost:3000/api/docs>.
 1. Abre <http://localhost:5173> y presiona «Nuevo producto». Escribe nombre «Leche entera 1 L», precio «25.00» y código de
    barras «7501055300075», y presiona «Guardar». Aparece «Producto creado».
 2. En el campo de búsqueda escribe «lech» y elige el resultado: entra a la venta actual con cantidad 1.
-3. Cambia la cantidad a 2 y el precio aplicado a 22.00: el subtotal y el total se recalculan.
-4. Presiona «Registrar venta». La pantalla muestra «Venta 1 registrada · Total 44.00».
+3. Presiona «+» para que la cantidad sea 2. Selecciona el texto del precio aplicado y escribe 22.00: el subtotal y el total
+   se recalculan y llegan a 44.00.
+4. Presiona «Registrar venta». La pantalla muestra «Venta 1 registrada · Total 44.00» y deja vacía la venta actual. Con la
+   base recién creada la venta es la 1; si ya hay ventas, el número cambia.
 
 ### Otros puertos o varias copias
 
@@ -344,8 +350,8 @@ GitHub, los errores frecuentes y lo que nunca se hace.
 
 AIPOS guarda sus datos en MySQL 8.4, que corre con Docker Compose. Las tablas y el procedimiento almacenado se crean solo
 con migraciones de Sequelize (archivos que cambian la base de datos paso a paso): Docker no crea nada, solo levanta
-MySQL. Hace falta MySQL 8.0.16 o más para que aplique las restricciones `CHECK`; por eso el Compose usa la imagen
-`mysql:8.4` y nunca `latest`.
+MySQL. Hace falta MySQL 8.0.16 o más para que aplique las restricciones `CHECK` (reglas que MySQL revisa en cada fila que se
+guarda); por eso el Compose usa la imagen `mysql:8.4` y nunca `latest`.
 
 ### Las tablas
 
@@ -355,7 +361,7 @@ MySQL. Hace falta MySQL 8.0.16 o más para que aplique las restricciones `CHECK`
 | `ventas` | `id`, `fecha` (la pone MySQL) y `total` `DECIMAL(12,2)` | — |
 | `detalles_venta` | `id`, `venta_id` → `ventas`, `producto_id` → `productos`, `cantidad`, `precio_aplicado` `DECIMAL(10,2)` y `subtotal` `DECIMAL(12,2)` | Un solo detalle por producto en cada venta (único `venta_id` y `producto_id`). Llaves foráneas con `ON DELETE RESTRICT`: un producto que está en una venta no se borra. `CHECK`: cantidad de 1 a 999 y precio aplicado de 0 a 99999.99. |
 
-El dinero es `DECIMAL`, nunca `FLOAT`. mysql2 lo devuelve como texto (`"25.00"`), y así viaja hasta la pantalla. Los
+Una llave foránea es una columna que apunta a una fila de otra tabla. El dinero es `DECIMAL`, nunca `FLOAT`. mysql2 lo devuelve como texto (`"25.00"`), y así viaja hasta la pantalla. Los
 subtotales y el total los calcula MySQL, no JavaScript.
 
 ### Las migraciones
@@ -542,9 +548,10 @@ y escrito paso a paso en `AGENTS.md`, en «Cómo tomar una tarjeta».
 
 ### Ejemplos de la bitácora
 
-- **La persona corrigió una afirmación falsa del agente (2026-09-29, 12:46; entrada reconstruida, por confirmar).** Claude Code dijo que Codex no admite
-  servidores MCP por proyecto, porque solo había mirado `codex mcp add --help`. La persona investigó por su cuenta,
-  comprobó que sí los admite, y se documentó la configuración por proyecto en `.codex/config.toml.example`.
+- **La persona corrigió una afirmación falsa del agente (2026-09-29, 12:46; entrada reconstruida, por confirmar).** Claude
+  Code dijo que Codex no admite servidores MCP por proyecto, porque solo había mirado `codex mcp add --help`. La persona
+  investigó por su cuenta, comprobó que sí los admite, y se documentó la configuración por proyecto en
+  `.codex/config.toml.example`.
 - **La persona corrigió cómo habla el agente (2026-09-29, 14:52).** El agente preguntó «¿Quito la línea Claude-Session?» sin
   decir qué era ni dónde estaba. La persona pidió explicaciones cortas, con cada término explicado y, para el código, el
   archivo y la línea. Eso quedó como regla en el tile `lenguaje-ubicuo`.
@@ -594,7 +601,7 @@ para `frontend/src/api/` y Adapter para la animación Lottie (`specs/arquitectur
 | No se repitió la tercera revisión de Codex del PR #19. Decidió la persona, el 2026-09-30. | El agente proponía repetirla, sin `graphify-out/` y con 60 minutos. | La persona prefirió usar ese tiempo para empezar a desarrollar. |
 | Las specs las escriben las sesiones que toman las tarjetas, y todo lo que se decide queda en el repositorio. Decidió la persona. | Escribir la spec de arquitectura en la sesión de planificación: el agente empezó y la persona lo detuvo. | Esa sesión solo planifica, y el repositorio tiene que funcionar desde un clon en cualquier máquina con Claude Code o Codex. |
 | Una tarjeta por área (frontend, backend, base de datos, DevOps…). Pidió la persona, el 2026-09-29. | Una tarjeta por historia de usuario. | Distinguir en el tablero AIPOS el trabajo de cada área. |
-| Un PR por tarjeta hacia la rama de su entregable, y otro PR del entregable hacia `ProductionEnv`. Pidió la persona, a las 01:12 del 2026-09-30. | Un solo PR por entregable. | Cada PR pasa por la revisión de Codex, y `git log --graph` muestra un merge commit por entregable y, dentro, uno por tarjeta (RNF-09). |
+| Un PR por tarjeta hacia la rama de su entregable, y otro PR del entregable hacia `ProductionEnv`. Pidió la persona, a las 01:12 del 2026-09-30. | Un solo PR por entregable. | Cada PR de tarjeta y de entregable pasa por la revisión de Codex antes de integrarse, y `git log --graph` muestra un merge commit por entregable y, dentro, uno por tarjeta (RNF-09). |
 | La venta actual se guarda en el navegador (`localStorage`). Decidió la persona, el 2026-09-30. | Que se pierda al recargar la página. | Decisión de la persona en la pregunta abierta 2 de `requerimientos/README.md`: recargar la página ya no pierde la venta actual. |
 | Vite 7 en vez de Vue CLI. Decidió la persona, el 2026-09-29. | — | El motivo no quedó anotado. `@vitejs/plugin-vue2` 2.3.4 acepta hasta Vite 7, y `npm i vite` instala la 8.3.1, que no funciona. |
 | `App.vue` une la búsqueda con la venta actual, sin `vuex`, `pinia` ni un bus de eventos. Decidió el agente. | Un bus de eventos, `vuex` o `pinia`, que el agente consideró y descartó. | Son dos componentes y un estado: un intermediario solo agregaría archivos. |
@@ -637,7 +644,7 @@ para `frontend/src/api/` y Adapter para la animación Lottie (`specs/arquitectur
 ### Limitaciones y lo que falta
 
 - **Vue 2 y Vuetify 2 ya no reciben correcciones.** `npm audit` avisa en el frontend de `vue` 2 (un ReDoS, una expresión
-  regular que puede tardar demasiado, sin corrección disponible) y de `vue-template-compiler` (XSS), y de los paquetes que
+  regular que puede tardar demasiado, sin corrección disponible) y de `vue-template-compiler` (XSS, código malicioso que se cuela en una página), y de los paquetes que
   dependen de ellos. En el backend avisa de `uuid` dentro de `sequelize` 6.37.8. Los arreglos que propone npm son cambios de
   versión mayor, a Vue 3 o a Sequelize 3, que rompen lo que exige la prueba: por eso no se aplican. La pantalla no usa
   `v-html` con datos del cajero, y la API usa consultas parametrizadas. Dependabot tiene apagados los PR de seguridad

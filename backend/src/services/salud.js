@@ -1,8 +1,13 @@
 'use strict';
 
-// Dice si la API está viva. B-03 le suma la revisión de la conexión a MySQL.
+const sequelize = require('../database');
+
+// Dice si la API está viva y si MySQL responde. Health Check: solo lee, no cambia nada en la base.
+// Si authenticate() falla, el error sigue de largo hasta el manejador de errores, que responde 500
+// con el formato de error y sin el texto de MySQL.
 async function consultarSalud() {
-  return { estado: 'ok' };
+  await sequelize.authenticate();
+  return { estado: 'ok', baseDeDatos: 'ok' };
 }
 
 module.exports = { consultarSalud };

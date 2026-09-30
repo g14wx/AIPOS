@@ -214,3 +214,103 @@ Cumplido, Parcial o No completado.
 - **Fuera de alcance, como dice la prueba:** impresión de tickets, generación de documentos, reportes, inventarios,
   control de caja, métodos de pago, autenticación y CRUD completo. No se editan ni se borran productos, y no se consultan
   ni se cancelan las ventas registradas.
+
+## 5. Instalación y ejecución
+
+### Requisitos previos
+
+- Git.
+- Docker con Compose v2: `docker compose version` tiene que responder.
+- Node.js 24, el del archivo `.nvmrc`. Con [nvm](https://github.com/nvm-sh/nvm), `nvm install` y `nvm use` lo eligen solos. npm
+  viene con Node.
+
+### Pasos desde un clon limpio
+
+```bash
+# 1. Clona el repositorio y entra a la versión final, la de ProductionEnv.
+git clone https://github.com/g14wx/AIPOS.git
+cd AIPOS
+git checkout ProductionEnv
+
+# 2. Elige Node 24 (con nvm).
+nvm install
+nvm use
+
+# 3. Copia las variables de entorno y cambia las claves que empiezan con "cambiar-". El .env no va a git.
+cp .env.example .env
+
+# 4. Levanta MySQL. --wait espera a que responda: sin él, el primer arranque tarda unos segundos
+#    y la migración puede fallar por llegar antes que MySQL.
+docker compose up -d --wait mysql
+
+# 5. Instala el backend, crea las tablas y el procedimiento almacenado con las migraciones, y arranca la API.
+cd backend
+npm ci
+npm run migrar
+npm start
+```
+
+La API queda en <http://localhost:3000>. Déjala corriendo y, en otra terminal, desde la raíz del repositorio, instala y
+arranca la pantalla:
+
+```bash
+# 6. Instala la pantalla y arráncala.
+cd frontend
+npm ci
+npm run dev
+```
+
+La pantalla queda en <http://localhost:5173>. Para comprobar que todo responde:
+
+```bash
+curl http://localhost:3000/api/salud   # {"estado":"ok","baseDeDatos":"ok"}
+```
+
+La documentación de la API está en <http://localhost:3000/api/docs>.
+
+### Probarlo en la pantalla
+
+1. Abre <http://localhost:5173> y presiona «Nuevo producto». Escribe nombre «Leche entera 1 L», precio «25.00» y código de
+   barras «7501055300075», y presiona «Guardar». Aparece «Producto creado».
+2. En el campo de búsqueda escribe «lech» y elige el resultado: entra a la venta actual con cantidad 1.
+3. Cambia la cantidad a 2 y el precio aplicado a 22.00: el subtotal y el total se recalculan.
+4. Presiona «Registrar venta». La pantalla muestra «Venta 1 registrada · Total 44.00».
+
+### Otros puertos o varias copias
+
+Los dos proyectos leen el mismo `.env`, el de la raíz. Para cambiar un puerto, o para tener dos copias a la vez, cambia
+estas variables:
+
+| Variable | Qué cambia | Por defecto |
+|---|---|---|
+| `COMPOSE_PROJECT_NAME` | El nombre del proyecto de Docker Compose: separa los contenedores y los volúmenes de dos copias. | `aipos` |
+| `MYSQL_PORT` | El puerto de MySQL en tu máquina, solo en `127.0.0.1`. | `3306` |
+| `PORT` | El puerto de la API. | `3000` |
+| `FRONTEND_PORT` | El puerto de la pantalla. | `5173` |
+| `CORS_ORIGIN` | El origen de la pantalla, con su puerto y sin barra final. La API solo acepta ese origen. | `http://localhost:5173` |
+| `VITE_API_URL` | La dirección de la API, sin `/api` al final. | `http://localhost:3000` |
+
+Si cambias `PORT` o `FRONTEND_PORT`, cambia también `VITE_API_URL` o `CORS_ORIGIN`.
+
+### Pruebas
+
+```bash
+# Backend, desde backend/. La primera vez, con MySQL levantado, crea la base de prueba.
+npm run preparar-prueba
+npm test
+npm run lint
+npm run format:check
+
+# Frontend, desde frontend/.
+npm test
+npm run lint
+npm run format:check
+npm run build
+
+# Pruebas de shell, desde la raíz. Una falla imprime FALLÓ con el nombre del archivo.
+for prueba in $(find tests -name '*.test.sh'); do bash "$prueba" || echo "FALLÓ: $prueba"; done
+```
+
+`tests/despliegue/arranque-local.test.sh` construye las imágenes de Docker y necesita Docker libre: si Docker no está
+corriendo, se omite y lo dice.
+

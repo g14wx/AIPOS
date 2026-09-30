@@ -569,7 +569,7 @@
       "node_kind": "heading",
       "norm_label": "herramientas y proceso",
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42"
+      "source_location": "L45"
     },
     {
       "id": "docs_lenguaje_ubicuo_historial_de_cambios",
@@ -581,7 +581,7 @@
       "node_kind": "heading",
       "norm_label": "historial de cambios",
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L108"
+      "source_location": "L115"
     },
     {
       "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
@@ -617,7 +617,7 @@
       "node_kind": "heading",
       "norm_label": "pendientes (por confirmar)",
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L97"
+      "source_location": "L103"
     },
     {
       "id": "docs_setup_agents_setup",
@@ -6627,13 +6627,24 @@
     },
     {
       "source": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "target": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
       "target": "docs_lenguaje_ubicuo_historial_de_cambios",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L108",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -6655,7 +6666,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6667,17 +6678,6 @@
       "confidence_score": 1.0,
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "target": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L97",
       "weight": 1.0
     },
     {

@@ -6110,7 +6110,20 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
-      "source_location": "L126",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_componentes_animacionlottie_test",
+      "target": "ref_node_path",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "deferred": true,
+      "source_file": "frontend/tests/componentes/AnimacionLottie.test.js",
+      "source_location": "L128",
       "weight": 1.0
     },
     {

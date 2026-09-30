@@ -121,12 +121,22 @@ describe('AnimacionLottie: menos movimiento (prefers-reduced-motion: reduce)', (
   });
 });
 
-describe('AnimacionLottie: sin lottie en el resto de la pantalla', () => {
-  it('es el único componente que conoce a lottie-web (Adapter)', async () => {
-    const { readdirSync, readFileSync } = await import('node:fs');
-    const carpeta = `${import.meta.dirname}/../../src/components/`;
-    for (const nombre of readdirSync(carpeta).filter((n) => n.endsWith('.vue') && n !== 'AnimacionLottie.vue')) {
-      expect(readFileSync(carpeta + nombre, 'utf8'), nombre).not.toMatch(/lottie/i);
+describe('AnimacionLottie: la librería solo la conoce el adaptador', () => {
+  // Los demás componentes sí pueden usar <AnimacionLottie>: lo que no pueden es importar ni llamar a lottie-web.
+  it('ningún otro archivo de src/ importa lottie-web (Adapter)', async () => {
+    const { readdirSync, readFileSync, statSync } = await import('node:fs');
+    const { join, relative } = await import('node:path');
+    const raiz = join(import.meta.dirname, '../../src');
+    const archivos = (carpeta) =>
+      readdirSync(carpeta).flatMap((nombre) => {
+        const ruta = join(carpeta, nombre);
+        if (statSync(ruta).isDirectory()) return archivos(ruta);
+        return /\.(vue|js)$/.test(nombre) ? [ruta] : [];
+      });
+    const otros = archivos(raiz).filter((ruta) => relative(raiz, ruta) !== 'components/AnimacionLottie.vue');
+    expect(otros.length).toBeGreaterThan(0);
+    for (const ruta of otros) {
+      expect(readFileSync(ruta, 'utf8'), relative(raiz, ruta)).not.toMatch(/lottie-web|lottie_light/);
     }
   });
 });

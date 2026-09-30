@@ -1,12 +1,12 @@
 # Graph Report - b-04  (2026-09-30)
 
 ## Corpus Check
-- 79 files · ~48,756 words
+- 79 files · ~48,809 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 468 nodes · 485 edges · 57 communities (28 shown, 29 thin omitted)
+- 468 nodes · 486 edges · 57 communities (28 shown, 29 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -115,7 +115,7 @@ Cohesion: 0.14
 Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
 ### Community 6 - "vitest-vue2.test.js"
-Cohesion: 0.05
+Cohesion: 0.06
 Nodes (24): aHex(), carpeta, coloresDe(), paleta, permitidas, animacion, { loadAnimation, instancias }, paquete (+16 more)
 
 ### Community 7 - "Flujo de un entregable"

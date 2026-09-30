@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 87 files · ~84,869 words
+- 88 files · ~86,004 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 571 nodes · 571 edges · 71 communities (34 shown, 37 thin omitted)
+- 574 nodes · 574 edges · 72 communities (34 shown, 38 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -84,6 +84,7 @@
 - caddy.test.sh
 - etiqueta-en-produccionenv.test.sh
 - etiqueta-release.test.sh
+- workflow.test.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -103,7 +104,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (71 total, 37 thin omitted)
+## Communities (72 total, 38 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
 Cohesion: 0.07
@@ -244,7 +245,7 @@ Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 ## Knowledge Gaps
 - **356 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+351 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 412 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **37 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **38 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

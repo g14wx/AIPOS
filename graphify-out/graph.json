@@ -7131,6 +7131,51 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_workflow_test",
+      "label": "workflow.test.sh",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "workflow.test.sh",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_workflow_test_py",
+      "label": "py()",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "py()",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L14"
+    },
+    {
+      "id": "tests_despliegue_workflow_test_sh__entry",
+      "label": "workflow.test.sh script",
+      "_origin": "ast",
+      "community": 71,
+      "community_name": "workflow.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "workflow.test.sh script",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7664,6 +7709,18 @@
       "context": "call",
       "source_file": "tests/despliegue/revisar-produccion.test.sh",
       "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_workflow_test_sh__entry",
+      "target": "tests_despliegue_workflow_test_py",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -12280,6 +12337,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_workflow_test",
+      "target": "tests_despliegue_workflow_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_grafo_del_proyecto_ignora_lo_local_test",
       "target": "tests_grafo_del_proyecto_ignora_lo_local_test_sh__entry",
       "relation": "contains",
@@ -13014,6 +13082,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/volver-si-falla-la-salud.test.sh",
       "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_workflow_test",
+      "target": "tests_despliegue_workflow_test_py",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/workflow.test.sh",
+      "source_location": "L14",
       "weight": 1.0
     },
     {

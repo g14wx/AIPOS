@@ -20,6 +20,8 @@ import vuetify from '../src/plugins/vuetify.js';
 import App from '../src/App.vue';
 import BuscadorProductos from '../src/components/BuscadorProductos.vue';
 import VentaActual from '../src/components/VentaActual.vue';
+import CampoPrecioAplicado from '../src/components/CampoPrecioAplicado.vue';
+import { cambiarPrecioAplicado } from '../src/ventaActual/ventaActual.js';
 
 // La llave y los tiempos de la spec, escritos otra vez a propósito: si cambian en el código, esta prueba avisa.
 const LLAVE = 'aipos.ventaActual';
@@ -82,7 +84,12 @@ const guardado = () => JSON.parse(localStorage.getItem(LLAVE));
 
 const zonaVenta = () => wrapper.find('[data-zona="venta-actual"]');
 const filas = () => zonaVenta().findAll('tbody tr').wrappers;
-const celdas = (fila) => fila.findAll('td').wrappers.map((celda) => celda.text());
+// Lo que muestra cada celda: el valor de su campo si lo tiene (el precio aplicado es un campo desde V-05) o su texto.
+const celdas = (fila) =>
+  fila.findAll('td').wrappers.map((celda) => {
+    const campo = celda.find('input');
+    return campo.exists() ? campo.element.value : celda.text();
+  });
 const total = () => zonaVenta().find('[data-total]').text();
 const avisoVisible = () => wrapper.find('[role="alert"]');
 const ventaActual = () => wrapper.findComponent(VentaActual);
@@ -293,6 +300,245 @@ describe('guardar la venta actual en el navegador y recuperarla al recargar (cri
     });
     abrir();
     expect(zonaVenta().text()).toContain('Busca un producto para empezar la venta');
+  });
+});
+
+// V-05, "CampoPrecioAplicado.vue" y criterios 1 a 5 de V-05 (RF-05): el cajero edita el precio aplicado de un detalle en su
+// campo. VentaActual pasa lo que escribe a cambiarPrecioAplicado y emite la venta actual nueva, y App.vue la guarda. El
+// precio del producto no cambia y la pantalla no llama a la API para esto.
+describe('editar el precio aplicado (V-05, criterios 1 a 5)', () => {
+  const FORMATO = 'El precio aplicado debe ser un número de 0 a 99 999.99, como 22.00.';
+  const etiqueta = (producto) => `Precio aplicado de ${producto.nombre}`;
+  const entradaDe = (producto) =>
+    zonaVenta()
+      .findAll('.v-input')
+      .wrappers.find(
+        (entrada) => entrada.find('input').attributes('aria-label') === etiqueta(producto),
+      );
+  const campoDe = (producto) => entradaDe(producto).find('input');
+  const mensajeDe = (producto) => entradaDe(producto).find('.v-messages__message');
+  const subtotalDe = (fila) => celdas(filas()[fila])[3];
+
+  // El cajero entra al campo y escribe, con el foco de verdad, como con un clic o con Tab.
+  async function escribirPrecio(producto, texto) {
+    campoDe(producto).element.focus();
+    await campoDe(producto).setValue(texto);
+  }
+  // Salir del campo: Vuetify avisa el blur un turno después, y el campo se vuelve a pintar en otro.
+  async function salirDelPrecio(producto) {
+    campoDe(producto).element.blur();
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+  }
+
+  it('criterio 1: la leche a 25.00 pasa a 22.00, se recalculan el subtotal y el total, y queda guardado', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22');
+    expect(subtotalDe(0)).toBe('22.00');
+    expect(total()).toBe('22.00');
+    expect(guardado().detalles).toEqual([detalle(leche, 1, '22.00')]);
+  });
+
+  it('el subtotal sale también de la cantidad: 2 leches a 22.00 valen 44.00', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(leche);
+    await escribirPrecio(leche, '22');
+    expect(celdas(filas()[0]).slice(2, 4)).toEqual(['2', '44.00']);
+    expect(total()).toBe('44.00');
+  });
+
+  it('criterio 1: al buscar la leche otra vez su precio sigue en 25.00, y cambiar el precio aplicado no llama a la API', async () => {
+    buscarProductos.mockResolvedValue([leche]);
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22');
+    expect(buscarProductos).not.toHaveBeenCalled();
+    expect(crearProducto).not.toHaveBeenCalled();
+    await wrapper.find('[data-zona="busqueda"] input').setValue('lech');
+    await vi.advanceTimersByTimeAsync(300);
+    await wrapper.vm.$nextTick();
+    expect(buscarProductos).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('[data-zona="busqueda"] .resultado__precio').text()).toBe('25.00');
+    expect(leche.precio).toBe('25.00');
+    expect(subtotalDe(0)).toBe('22.00');
+  });
+
+  it('el precio del producto no aparece como campo: solo hay un precio aplicado por detalle', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(pan);
+    const etiquetas = zonaVenta()
+      .findAll('input')
+      .wrappers.map((entrada) => entrada.attributes('aria-label'));
+    expect(etiquetas.filter((texto) => /^Precio/.test(texto))).toEqual([
+      etiqueta(leche),
+      etiqueta(pan),
+    ]);
+  });
+
+  it('cada fila tiene un CampoPrecioAplicado con su precio aplicado, su error, su nombre y disabled', async () => {
+    dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
+    abrir();
+    const campos = wrapper.findAllComponents(CampoPrecioAplicado).wrappers;
+    expect(campos.map((campo) => campo.props())).toEqual([
+      { value: '22.00', error: '', nombre: 'Leche entera 1 L', disabled: false },
+      { value: '3.50', error: '', nombre: 'Pan de caja', disabled: false },
+    ]);
+  });
+
+  it.each(['-1', 'abc'])(
+    'criterio 2: con «%s» el campo muestra el error, conserva lo escrito y «Registrar venta» queda deshabilitado',
+    async (texto) => {
+      abrir();
+      await elegir(leche);
+      await escribirPrecio(leche, texto);
+      expect(mensajeDe(leche).text()).toBe(FORMATO);
+      expect(campoDe(leche).element.value).toBe(texto);
+      expect(campoDe(leche).attributes('aria-invalid')).toBe('true');
+      expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    },
+  );
+
+  it('mientras el texto no sirve, el detalle conserva su último precio aplicado válido: subtotal y total no cambian', async () => {
+    dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
+    abrir();
+    await escribirPrecio(leche, 'abc');
+    expect(subtotalDe(0)).toBe('44.00');
+    expect(total()).toBe('47.50');
+    expect(guardado().detalles[0].precioAplicado).toBe('22.00');
+  });
+
+  it.each([
+    ['22.999', 'Usa hasta 2 decimales.'],
+    ['100000', FORMATO],
+    ['', 'Escribe un precio aplicado.'],
+  ])('criterio 4: con «%s» el campo muestra «%s»', async (texto, mensaje) => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, texto);
+    expect(mensajeDe(leche).text()).toBe(mensaje);
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+  });
+
+  it('criterio 3: el 0 es válido, sin error: el subtotal es 0.00, el total es 0.00 y «Registrar venta» sigue habilitado', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '0');
+    expect(mensajeDe(leche).exists()).toBe(false);
+    expect(subtotalDe(0)).toBe('0.00');
+    expect(total()).toBe('0.00');
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+  });
+
+  it('criterio 5: con un error, al corregirlo el error se va y «Registrar venta» se habilita', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, 'abc');
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    await escribirPrecio(leche, '21.5');
+    expect(mensajeDe(leche).exists()).toBe(false);
+    expect(campoDe(leche).attributes('aria-invalid')).toBeUndefined();
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+    expect(subtotalDe(0)).toBe('21.50');
+    expect(total()).toBe('21.50');
+  });
+
+  it('al salir del campo, un texto válido se muestra con 2 decimales: «22» pasa a «22.00»', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22');
+    expect(campoDe(leche).element.value).toBe('22');
+    await salirDelPrecio(leche);
+    expect(campoDe(leche).element.value).toBe('22.00');
+  });
+
+  it('con Enter también, y el campo conserva el foco para seguir', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22.5');
+    await campoDe(leche).trigger('keydown.enter');
+    await wrapper.vm.$nextTick();
+    expect(campoDe(leche).element.value).toBe('22.50');
+    expect(document.activeElement).toBe(campoDe(leche).element);
+  });
+
+  it('un texto que no sirve se queda como está al salir, con su error y con «Registrar venta» deshabilitado', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22.999');
+    await salirDelPrecio(leche);
+    expect(campoDe(leche).element.value).toBe('22.999');
+    expect(mensajeDe(leche).text()).toBe('Usa hasta 2 decimales.');
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+  });
+
+  it('el error de un campo del detalle no se guarda: al recargar el detalle vuelve a su último valor válido', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, '22');
+    await escribirPrecio(leche, 'abc');
+    expect(localStorage.getItem(LLAVE)).not.toMatch(/errores|abc|El precio aplicado/);
+    wrapper.destroy();
+    abrir();
+    expect(campoDe(leche).element.value).toBe('22.00');
+    expect(mensajeDe(leche).exists()).toBe(false);
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+  });
+
+  it('cada detalle tiene su propio error: con el de la leche sin corregir, editar el pan no habilita «Registrar venta»', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(pan);
+    await escribirPrecio(leche, '-1');
+    await escribirPrecio(pan, '3');
+    expect(mensajeDe(pan).exists()).toBe(false);
+    expect(mensajeDe(leche).text()).toBe(FORMATO);
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    await escribirPrecio(leche, '24');
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+    expect(total()).toBe('27.00');
+  });
+
+  it('editar el precio aplicado de un detalle no toca los otros ni el orden', async () => {
+    dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan, 3)]);
+    abrir();
+    await escribirPrecio(pan, '4');
+    expect(celdas(filas()[0]).slice(0, 4)).toEqual(['Leche entera 1 L', '22.00', '2', '44.00']);
+    expect(celdas(filas()[1])[0]).toBe('Pan de caja');
+    expect(subtotalDe(1)).toBe('12.00');
+    expect(total()).toBe('56.00');
+  });
+
+  it('VentaActual emite update:ventaActual con la venta actual nueva que devuelve cambiarPrecioAplicado', async () => {
+    abrir();
+    await elegir(leche);
+    const antes = ventaActual().props('ventaActual');
+    await escribirPrecio(leche, '22');
+    const emitidos = ventaActual().emitted('update:ventaActual');
+    expect(emitidos.at(-1)).toEqual([cambiarPrecioAplicado(antes, 1, '22')]);
+  });
+
+  it('agregar otra vez un producto con un error de precio aplicado sube la cantidad y el error se queda', async () => {
+    abrir();
+    await elegir(leche);
+    await escribirPrecio(leche, 'abc');
+    await elegir(leche);
+    expect(celdas(filas()[0])[2]).toBe('2');
+    expect(mensajeDe(leche).text()).toBe(FORMATO);
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+  });
+
+  it('mientras V-08 registra la venta (enviando) el campo está deshabilitado, y se habilita cuando termina', async () => {
+    abrir();
+    await elegir(leche);
+    ventaActual().vm.$emit('update:enviando', true);
+    await wrapper.vm.$nextTick();
+    expect(campoDe(leche).attributes('disabled')).toBeDefined();
+    ventaActual().vm.$emit('update:enviando', false);
+    await wrapper.vm.$nextTick();
+    expect(campoDe(leche).attributes('disabled')).toBeUndefined();
   });
 });
 

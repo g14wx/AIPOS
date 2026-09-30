@@ -68,7 +68,12 @@ function montar(propsData = {}) {
 }
 
 const filas = () => wrapper.findAll('tbody tr').wrappers;
-const celdas = (fila) => fila.findAll('td').wrappers.map((celda) => celda.text());
+// Lo que muestra cada celda: el valor de su campo si lo tiene (el precio aplicado es un campo desde V-05) o su texto.
+const celdas = (fila) =>
+  fila.findAll('td').wrappers.map((celda) => {
+    const campo = celda.find('input');
+    return campo.exists() ? campo.element.value : celda.text();
+  });
 const botonRegistrar = () =>
   wrapper.findAll('button').wrappers.find((boton) => boton.text() === 'Registrar venta');
 const estaDeshabilitado = (boton) => boton.attributes('disabled') !== undefined;

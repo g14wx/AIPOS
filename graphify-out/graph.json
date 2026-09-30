@@ -2606,7 +2606,7 @@
       "file_type": "code",
       "norm_label": "invalido()",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L20"
+      "source_location": "L22"
     },
     {
       "id": "frontend_src_ventaactual_validaciones_validarprecioaplicado",
@@ -2618,7 +2618,7 @@
       "file_type": "code",
       "norm_label": "validarprecioaplicado()",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "frontend_src_ventaactual_ventaactual_agregaraventaactual",
@@ -5961,7 +5961,7 @@
       "node_kind": "heading",
       "norm_label": "do's and don'ts",
       "source_file": "frontend/DESIGN.md",
-      "source_location": "L122"
+      "source_location": "L123"
     },
     {
       "id": "frontend_design_elevation_depth",
@@ -10963,7 +10963,7 @@
       "file_type": "code",
       "norm_label": "mensajes_de_precio_aplicado",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L8"
+      "source_location": "L10"
     },
     {
       "id": "frontend_src_ventaactual_ventaactual",
@@ -22886,7 +22886,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -22898,7 +22898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L34",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -22910,7 +22910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L34",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -41044,7 +41044,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/DESIGN.md",
-      "source_location": "L122",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -42633,13 +42633,24 @@
     },
     {
       "source": "frontend_src_ventaactual_validaciones",
+      "target": "frontend_src_ventaactual_validaciones_mensajes_de_precio_aplicado",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/ventaActual/validaciones.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_ventaactual_validaciones",
       "target": "frontend_src_ventaactual_validaciones_invalido",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -42650,18 +42661,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_src_ventaactual_validaciones",
-      "target": "frontend_src_ventaactual_validaciones_mensajes_de_precio_aplicado",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/ventaActual/validaciones.js",
-      "source_location": "L8",
+      "source_location": "L27",
       "weight": 1.0
     },
     {

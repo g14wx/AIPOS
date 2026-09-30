@@ -45,6 +45,14 @@ ASIGNA = [
     re.compile(r"(?i)[\"']" + _NOMBRE + r"[\"']\s*:" + _VALOR),
 ]
 VALOR_BUENO = re.compile(r"^(?:[$<{*]|cambiar-|tu-|clave-de-mentira|ci-clave-de-prueba|secrets\.|[A-Z][A-Z0-9_]*$)")
+# Código que lee un valor y no lo escribe: una comparación (`clave === ''`), una flecha (`clave => ...`), una llamada
+# (`const clave = texto(env, ...)`) o una comilla invertida que no se cierra en el mismo valor (la que cierra un
+# fragmento de código en un texto, o la que abre una sustitución de comandos, cuyo valor se corta en el primer espacio).
+# Un valor escrito a mano sigue contando: con comillas simples, dobles o invertidas (una plantilla literal de
+# JavaScript cierra su comilla en el mismo valor) y sin comillas (issues #67 y #72).
+# Límite: la revisión lee una línea a la vez y corta el valor en el primer espacio, comilla o #. Una plantilla literal
+# con uno de ellos dentro, o que sigue en otra línea, deja su comilla sin cerrar y pasa.
+NO_ES_UN_VALOR = re.compile(r"^(?:[=>]|`[^`]*$|[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*\()")
 
 def revisar_texto(donde, texto, es_commit=False, nombra_alias=False):
     for n, linea in enumerate(texto.split("\n"), 1):
@@ -69,7 +77,7 @@ def revisar_texto(donde, texto, es_commit=False, nombra_alias=False):
             avisar("credencial")
         for patron in ASIGNA:
             for m in patron.finditer(linea):
-                if not VALOR_BUENO.match(m.group(1)):
+                if not VALOR_BUENO.match(m.group(1)) and not NO_ES_UN_VALOR.match(m.group(1)):
                     avisar("credencial")
 
 archivos = subprocess.run(["git", "ls-files", "-co", "--exclude-standard", "-z"], capture_output=True, check=True).stdout

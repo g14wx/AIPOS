@@ -64,6 +64,7 @@ Se declara en el README para que quien evalúa lo vea.
 | Cantidad y subtotal | Así funciona un punto de venta real: agregar otra leche sube su cantidad a 2. |
 | RF-12, si entra | Un lector de código de barras escribe el número y presiona Enter. |
 | Docker Compose para MySQL | Cualquiera levanta la misma base de datos con un comando. |
+| Documentación de la API | La persona desarrolladora la pidió el 2026-09-30 y el PDF no la pide. Describe cada ruta de la API y se puede leer y probar en `/api/docs`. |
 | Flujos 05 y 06 | Muestran cómo se entrega cada parte y cómo se trabaja con el agente. |
 | Despliegue con etiquetas `release-*` (flujo 07) | AIPOS se puede ver en `https://aipos.salsalvador.io`: una etiqueta prueba, construye y despliega con Docker en el servidor de producción, y vuelve a la versión anterior si algo falla. |
 | PR final de `ProductionEnv` a `main` | Deja la versión final también en la rama que GitHub muestra primero. |

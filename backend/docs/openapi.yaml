@@ -1,0 +1,156 @@
+# Documentación de la API de AIPOS: el documento OpenAPI 3 es la única fuente de lo que dice la documentación.
+# Se muestra con Swagger UI en GET /api/docs. Cada tarjeta que crea una ruta agrega aquí su entrada y su router
+# a `montajes` (src/routes/index.js): si falta una de las dos cosas, `npm test` falla.
+openapi: 3.0.3
+info:
+  title: API de AIPOS
+  version: '1.0.0'
+  description: |
+    AIPOS es un punto de venta de una sola pantalla: el cajero busca productos, arma la venta actual y la registra.
+    Esta es la documentación de la API del backend: cada ruta, lo que recibe, lo que responde y su formato de error.
+
+    - No hay login: quien tiene la pantalla abierta es el cajero.
+    - El dinero va como texto con 2 decimales, por ejemplo `"25.00"`, para no perder centavos.
+    - Toda respuesta de error tiene el mismo formato: `{ "error": { "codigo", "mensaje", "detalles" } }`.
+servers:
+  # Una dirección relativa: "Try it out" llama al mismo servidor que mostró esta página, sea localhost o producción.
+  - url: /
+tags:
+  # Una etiqueta por recurso en uso. Las de Productos y Ventas las agregan las tarjetas que crean esas rutas.
+  - name: Salud
+    description: Revisar que la API está viva.
+paths:
+  /api/salud:
+    get:
+      operationId: consultarSalud
+      tags:
+        - Salud
+      summary: Consultar si la API está viva
+      description: Sirve para saber si el backend responde. No recibe nada y no cambia nada.
+      responses:
+        '200':
+          description: La API está viva.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Salud'
+              example:
+                estado: 'ok'
+                baseDeDatos: 'ok'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+components:
+  schemas:
+    Salud:
+      type: object
+      description: La respuesta de GET /api/salud.
+      required:
+        - estado
+      additionalProperties: false
+      properties:
+        estado:
+          type: string
+          enum: ['ok']
+          description: Siempre `ok` cuando la API responde.
+        baseDeDatos:
+          type: string
+          enum: ['ok']
+          description: Solo aparece cuando la API comprueba MySQL (tarjeta B-03). Siempre `ok`.
+    RespuestaDeError:
+      type: object
+      description: El formato de error, igual en todas las rutas.
+      required:
+        - error
+      additionalProperties: false
+      properties:
+        error:
+          type: object
+          required:
+            - codigo
+            - mensaje
+          additionalProperties: false
+          properties:
+            codigo:
+              type: string
+              pattern: '^[A-Z][A-Z0-9_]*$'
+              description: Texto estable, en mayúsculas y con guion bajo, que la pantalla puede leer.
+            mensaje:
+              type: string
+              description: Una frase en español para el cajero.
+            detalles:
+              type: array
+              description: >-
+                Un elemento por campo con problema. Solo lo llevan el 400 y el 409 del código de barras repetido.
+              items:
+                $ref: '#/components/schemas/DetalleDeError'
+    DetalleDeError:
+      type: object
+      description: Un campo con problema.
+      required:
+        - campo
+        - mensaje
+      additionalProperties: false
+      properties:
+        campo:
+          type: string
+          description: El nombre del campo del JSON, por ejemplo `precio`.
+        mensaje:
+          type: string
+          description: Qué tiene mal ese campo.
+  responses:
+    DatosInvalidos:
+      description: La forma o los valores de la petición no cumplen las reglas (400).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'DATOS_INVALIDOS'
+              mensaje: 'El precio no puede tener más de 2 decimales.'
+              detalles:
+                - campo: 'precio'
+                  mensaje: 'No puede tener más de 2 decimales.'
+    NoEncontrado:
+      description: La ruta no existe, o lo pedido no existe (404).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'NO_ENCONTRADO'
+              mensaje: 'La ruta no existe.'
+    Conflicto:
+      description: Un dato único ya existe (409).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'CODIGO_BARRAS_DUPLICADO'
+              mensaje: 'Ya existe un producto con ese código de barras.'
+              detalles:
+                - campo: 'codigoBarras'
+                  mensaje: 'Ya existe un producto con ese código de barras.'
+    ReglaDeNegocio:
+      description: El procedimiento almacenado rechazó la petición por una regla del negocio (422).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'VENTA_SIN_DETALLES'
+              mensaje: 'La venta no tiene productos. Agrega al menos uno.'
+    ErrorInterno:
+      description: Cualquier otro error (500). El mensaje es genérico y nunca cuenta qué falló por dentro.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RespuestaDeError'
+          example:
+            error:
+              codigo: 'ERROR_INTERNO'
+              mensaje: 'Ocurrió un error inesperado. Intenta de nuevo.'

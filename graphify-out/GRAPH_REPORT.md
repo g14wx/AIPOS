@@ -1,13 +1,13 @@
 # Graph Report - p-05  (2026-09-30)
 
 ## Corpus Check
-- 199 files · ~154,623 words
+- 209 files · ~159,732 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
 ## Summary
-- 1372 nodes · 2002 edges · 149 communities (102 shown, 47 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.93)
+- 1429 nodes · 2105 edges · 151 communities (104 shown, 47 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 110 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -20,12 +20,12 @@
 - Trabajar en un tile
 - Requerimientos funcionales
 - FormularioProducto.vue
-- FormularioProducto.test.js
+- BuscadorProductos.test.js
 - Flujo de un entregable
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
 - Tarjetas
-- venta-vacia.test.js
+- Armar la venta actual
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
 - README de entrega
@@ -58,7 +58,7 @@
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
 - Crear producto
-- BuscadorProductos.test.js
+- BuscadorProductos.vue
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
 - desactualizado-tras-falla.test.sh
@@ -76,7 +76,7 @@
 - arranque-local.test.sh
 - instalar-caddy.test.sh
 - imagenes.test.sh
-- database.js
+- database.test.js
 - instalar-caddy.sh
 - revisar-produccion.test.sh
 - compose-produccion.test.sh
@@ -98,7 +98,7 @@
 - etiqueta-release.test.sh
 - sin-borrar-datos.test.sh
 - volver-primer-despliegue.test.sh
-- Armar la venta actual
+- ref_node_fs
 - frontend/package.json
 - src/config.js
 - backend/package.json
@@ -106,11 +106,11 @@
 - app.js
 - modelo-producto.test.js
 - scripts
-- ref_node_path
+- servidor.test.js
 - devDependencies
-- migraciones.test.js
-- estructura-del-documento.test.js
-- db/config.js
+- ref_node_path
+- api/productos.js
+- Documentación de la API
 - base-de-prueba.test.js
 - NuevoProducto.test.js
 - Product
@@ -118,29 +118,29 @@
 - productos-migracion.test.js
 - Design System: AIPOS
 - devDependencies
-- rutas-documentadas.test.js
-- ejemplos-de-error.test.js
+- routes/index.js
+- BuscadorProductos-enter.test.js
 - estructura.test.js
 - scripts
-- Documentación de la API
+- AnimacionLottie.test.js
 - modelos.test.js
 - Registrar venta
 - down
-- errores.test.js
-- BuscadorProductos-enter.test.js
+- Procedimiento sp_registrar_venta (V-02)
+- FormularioProducto.test.js
 - sin-axios-en-componentes.test.js
 - animaciones.test.js
 - eslint.config.js
-- Backend
+- validarTexto
 - dependencies
 - Vuetify 2 components (Vue 2.7)
-- database.test.js
-- ref_node_fs
+- productos/buscar-productos.test.js
+- compose.test.js
 - Flujo 05 · Entregar un entregable
 - glosario-y-alcance.test.sh
 - backend/.prettierrc.json
 - frontend/.prettierrc.json
-- AnimacionLottie.test.js
+- database.js
 - Flujo 01 · Crear producto
 - Flujo 02 · Buscar producto
 - Flujo 03 · Armar la venta actual
@@ -149,46 +149,48 @@
 - Flujo 06 · Trabajar una tarjeta con el agente
 - vitest-vue2.test.js
 - vue2-vuetify2.md
-- consultarSalud
+- documentacion-buscar-productos.test.js
+- Backend
 - crearProducto
-- errorHandler.js
-- El documento OpenAPI
 - noEncontrado
-- pantalla-unica.test.js
-- El módulo (`src/ventaActual/`)
-- La pantalla
-- P-03 · El botón "Nuevo producto" y el formulario
-- P-02 · `POST /api/productos`
+- models/index.js
+- errores.test.js
+- limite-del-cuerpo.test.js
+- errorHandler.js
 - Lenguaje ubicuo — AIPOS
+- validar-busqueda.test.js
+- P-01 · La tabla `productos` y el modelo `Producto`
+- pantalla-unica.test.js
+- API: `GET /api/productos?busqueda=<texto>`
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
 2. `scripts` - 15 edges
 3. `crearProducto()` - 15 edges
-4. `Requerimientos funcionales` - 14 edges
-5. `Requerimientos no funcionales` - 14 edges
-6. `buscarProductos()` - 13 edges
-7. `Armar la venta actual` - 13 edges
-8. `Arquitectura de AIPOS` - 13 edges
-9. `production()` - 12 edges
-10. `supertest` - 12 edges
+4. `supertest` - 14 edges
+5. `Requerimientos funcionales` - 14 edges
+6. `Requerimientos no funcionales` - 14 edges
+7. `texto()` - 13 edges
+8. `cargarDocumentacionApi()` - 13 edges
+9. `Armar la venta actual` - 13 edges
+10. `Arquitectura de AIPOS` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Herramientas y proceso` --references--> `production()`  [INFERRED]
   docs/lenguaje-ubicuo.md → backend/db/config.js
-- `Despliegue` --references--> `production()`  [INFERRED]
-  README.md → backend/db/config.js
 - `Archivos` --references--> `down()`  [INFERRED]
   specs/registrar-venta.spec.md → backend/db/migrations/20260930133500-crear-productos.js
-- ``GET /api/salud`` --references--> `consultarSalud()`  [INFERRED]
-  specs/documentacion-de-la-api.spec.md → backend/src/services/salud.js
-- `Los componentes` --references--> `crearProducto()`  [INFERRED]
-  specs/crear-producto.spec.md → frontend/src/api/productos.js
+- `Reglas de negocio` --references--> `validarTexto()`  [INFERRED]
+  specs/crear-producto.spec.md → backend/src/validators/comunes.js
+- `Validación` --references--> `validarTexto()`  [INFERRED]
+  specs/crear-producto.spec.md → backend/src/validators/comunes.js
+- `Servicio de API` --references--> `crearProducto()`  [INFERRED]
+  specs/arquitectura.spec.md → frontend/src/api/productos.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (149 total, 47 thin omitted)
+## Communities (151 total, 47 thin omitted)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -210,9 +212,9 @@ Nodes (13): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 Cohesion: 0.10
 Nodes (29): alAbrir(), alSalir(), cancelar(), cerrar(), data(), enfocar(), enlazarTitulo(), guardar() (+21 more)
 
-### Community 6 - "FormularioProducto.test.js"
-Cohesion: 0.27
-Nodes (14): boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja(), guardarConError() (+6 more)
+### Community 6 - "BuscadorProductos.test.js"
+Cohesion: 0.15
+Nodes (12): asentar(), avanzar(), conResultados(), entrada(), escribir(), escribirYBuscar(), jugo, leche (+4 more)
 
 ### Community 7 - "Flujo de un entregable"
 Cohesion: 0.18
@@ -226,9 +228,9 @@ Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el to
 Cohesion: 0.17
 Nodes (12): Definición de terminado, Despliegue, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos (+4 more)
 
-### Community 11 - "venta-vacia.test.js"
-Cohesion: 0.21
-Nodes (13): data(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcularTotal(), vaciarVentaActual(), congelar(), leche (+5 more)
+### Community 11 - "Armar la venta actual"
+Cohesion: 0.06
+Nodes (40): data(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcularTotal(), vaciarVentaActual(), congelar(), leche (+32 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -283,32 +285,32 @@ Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
 ### Community 31 - "ref_vitest"
-Cohesion: 0.08
-Nodes (20): require, sequelize, base, { cargarConfig, cargarArchivoEnv }, require, app, { cargarConfig }, config (+12 more)
+Cohesion: 0.11
+Nodes (12): require, sequelize, archivosJs(), backend, raiz, require, src, app (+4 more)
 
 ### Community 35 - "comparar-rutas.test.js"
-Cohesion: 0.13
-Nodes (18): { cargarDocumentacionApi }, { crearApp }, docs, documentadas, documento, { montajes }, require, { Router } (+10 more)
+Cohesion: 0.11
+Nodes (23): { cargarDocumentacionApi }, { crearApp }, docs, documentadas, documento, { montajes }, require, { Router } (+15 more)
 
 ### Community 44 - "Crear producto"
-Cohesion: 0.25
-Nodes (7): Bugs, Crear producto, P-01: la base, P-02: la API con `curl`, P-03: la pantalla, en el navegador con el MCP `chrome-devtools`, Pruebas en local, Reglas de negocio
+Cohesion: 0.15
+Nodes (12): Bugs, Crear producto, Criterios de aceptación de P-03, Diseño con `impeccable`, El formulario, Los componentes, P-01: la base, P-02: la API con `curl` (+4 more)
 
-### Community 45 - "BuscadorProductos.test.js"
-Cohesion: 0.05
-Nodes (40): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), beforeDestroy(), buscar() (+32 more)
+### Community 45 - "BuscadorProductos.vue"
+Cohesion: 0.18
+Nodes (11): buscarProductos(), beforeDestroy(), buscar(), buscarAlPresionarEnter(), cancelarEspera(), elegir(), largoEnCaracteres(), mostrar() (+3 more)
 
 ### Community 52 - "total"
-Cohesion: 0.18
-Nodes (14): total(), RF-10 Guardar productos, ventas y detalles con sus relaciones, API: POST /api/ventas (V-03), Archivos, Criterios de aceptación de V-02, Criterios de aceptación de V-03, Documentación de la API, El servicio y el procedimiento (+6 more)
+Cohesion: 0.32
+Nodes (8): total(), RF-10 Guardar productos, ventas y detalles con sus relaciones, API: POST /api/ventas (V-03), Criterios de aceptación de V-03, Documentación de la API, El servicio y el procedimiento, Respuestas, Riesgo conocido: reintento cuando la respuesta se pierde
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.71
 Nodes (7): debe_decir(), falla(), ok(), revisar(), spec-arquitectura.test.sh script, unido(), ya_no_debe_decir()
 
 ### Community 55 - "Despliegue de AIPOS"
-Cohesion: 0.06
-Nodes (38): production(), Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace (+30 more)
+Cohesion: 0.05
+Nodes (47): production(), Configuración del servidor (una sola vez), Cómo desplegar una versión, Cómo queda armado el servidor, Despliegue de AIPOS, Environment y regla de etiquetas (GitHub), Errores frecuentes, Lo que nunca se hace (+39 more)
 
 ### Community 56 - "Alcance"
 Cohesion: 0.22
@@ -327,8 +329,8 @@ Cohesion: 0.33
 Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
 
 ### Community 60 - "documentacion.js"
-Cohesion: 0.08
-Nodes (23): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivosJs(), backend, raiz (+15 more)
+Cohesion: 0.05
+Nodes (35): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, { cargarDocumentacionApi }, documento, PROHIBIDO (+27 more)
 
 ### Community 61 - "arranque-local.test.sh"
 Cohesion: 0.46
@@ -342,9 +344,9 @@ Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.
 Cohesion: 0.38
 Nodes (3): leer(), imagenes.test.sh script, uso()
 
-### Community 64 - "database.js"
+### Community 64 - "database.test.js"
 Cohesion: 0.15
-Nodes (11): { config }, { Sequelize }, Producto, sequelize, { DataTypes }, Producto, sequelize, { DataTypes } (+3 more)
+Nodes (9): app, { config }, servidor, { config }, dbConfig, modelos, require, { Sequelize } (+1 more)
 
 ### Community 65 - "instalar-caddy.sh"
 Cohesion: 0.60
@@ -362,17 +364,17 @@ Nodes (3): compose_config(), dato(), compose-produccion.test.sh script
 Cohesion: 0.67
 Nodes (3): AIPOS_RAIZ, crear-env.test.sh script, valor()
 
-### Community 86 - "Armar la venta actual"
-Cohesion: 0.12
-Nodes (15): Armar la venta actual, Casos de error y bordes, Criterios de aceptación, Cómo se decidió el diseño, Guardar la venta actual en el navegador (V-04), La API, con `curl`, La pantalla, en el navegador con el MCP `chrome-devtools`, La venta actual: los datos (+7 more)
+### Community 86 - "ref_node_fs"
+Cohesion: 0.17
+Nodes (7): backend, EN_DEPENDENCIES, EN_DEV_DEPENDENCIES, lock, paquete, contraste(), luminancia()
 
 ### Community 87 - "frontend/package.json"
 Cohesion: 0.11
 Nodes (18): description, engines, node, eslint, eslint-config-prettier, @eslint/js, globals, prettier (+10 more)
 
 ### Community 88 - "src/config.js"
-Cohesion: 0.38
-Nodes (9): cargarConfig(), dotenv, entero(), esUnOrigen(), leerOrigenes(), nombreDeLaBase(), OBLIGATORIAS, path (+1 more)
+Cohesion: 0.07
+Nodes (39): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), test(), crearBaseDePrueba(), cargarArchivoEnv(), cargarClaveRoot(), cargarConfig() (+31 more)
 
 ### Community 89 - "backend/package.json"
 Cohesion: 0.11
@@ -383,8 +385,8 @@ Cohesion: 0.14
 Nodes (15): { cargarDocumentacionApi }, DE_DEMOSTRACION, documento, helmet, { Router }, swaggerUi, app, docs (+7 more)
 
 ### Community 91 - "app.js"
-Cohesion: 0.25
-Nodes (10): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+2 more)
+Cohesion: 0.15
+Nodes (15): app, cors, crearApp(), { crearRouterApi, montajes: montajesDeLaApi }, errorHandler, express, helmet, noEncontrado (+7 more)
 
 ### Community 92 - "modelo-producto.test.js"
 Cohesion: 0.18
@@ -394,33 +396,33 @@ Nodes (13): conTransaccionDescartada(), errorDeMySQL(), insertarProducto(), requ
 Cohesion: 0.13
 Nodes (15): scripts, deshacer, deshacer:prueba, dev, format, format:check, lint, migrar (+7 more)
 
-### Community 94 - "ref_node_path"
-Cohesion: 0.11
-Nodes (13): carpetaBackend, carpetaRaiz, correrNpm(), correrNpmSinFallar(), crearProxyCongelable(), archivo, app, require (+5 more)
+### Community 94 - "servidor.test.js"
+Cohesion: 0.33
+Nodes (3): abrirUnPuerto(), backend, buscarPuertoLibre()
 
 ### Community 95 - "devDependencies"
 Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
 
-### Community 96 - "migraciones.test.js"
-Cohesion: 0.18
-Nodes (10): correrCli(), tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro() (+2 more)
+### Community 96 - "ref_node_path"
+Cohesion: 0.19
+Nodes (9): tablasDeLaBase(), archivos, cargarConfiguracion(), carpetaMigraciones, require, sequelize, tablasSinElRegistro(), porDefecto (+1 more)
 
-### Community 97 - "estructura-del-documento.test.js"
-Cohesion: 0.18
-Nodes (11): { cargarDocumentacionApi }, DINERO, documento, ESTADOS_PERMITIDOS, METODOS, nombresDeCampos(), problemasDeDinero(), recorrer() (+3 more)
+### Community 97 - "api/productos.js"
+Cohesion: 0.21
+Nodes (9): crearError(), http, traducirError(), cargar(), leche, cargar(), producto, cargarHttp() (+1 more)
 
-### Community 98 - "db/config.js"
-Cohesion: 0.24
-Nodes (9): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), test(), cargarArchivoEnv(), cargarConfigDeEntorno(), Carpetas, Git y entrega (+1 more)
+### Community 98 - "Documentación de la API"
+Cohesion: 0.08
+Nodes (27): { consultarSalud }, obtenerSalud(), { obtenerSalud }, { Router }, conLimiteDeTiempo(), consultarSalud(), cortarConexion(), sequelize (+19 more)
 
 ### Community 99 - "base-de-prueba.test.js"
-Cohesion: 0.19
-Nodes (10): crearBaseDePrueba(), cargarClaveRoot(), { cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }, consultar(), mysql, permisosDelUsuario(), require, sequelize (+2 more)
+Cohesion: 0.14
+Nodes (14): carpetaBackend, correrNpm(), correrNpmSinFallar(), crearProxyCongelable(), { cargarClaveRoot, cargarConfig, cargarConfigDeEntorno }, consultar(), mysql, permisosDelUsuario() (+6 more)
 
 ### Community 100 - "NuevoProducto.test.js"
-Cohesion: 0.15
-Nodes (10): abrirLlenarYGuardar(), boton(), botonNuevo(), dialogo(), entrada(), escribir(), esperar(), { loadAnimation, instancias } (+2 more)
+Cohesion: 0.09
+Nodes (22): animacion(), beforeDestroy(), crear(), destruir(), mounted(), pideMenosMovimiento(), abrirLlenarYGuardar(), boton() (+14 more)
 
 ### Community 101 - "Product"
 Cohesion: 0.17
@@ -431,8 +433,8 @@ Cohesion: 0.18
 Nodes (11): dependencies, cors, dotenv, express, helmet, mysql2, sequelize, sequelize-cli (+3 more)
 
 ### Community 103 - "productos-migracion.test.js"
-Cohesion: 0.29
-Nodes (9): archivo, carpetaMigraciones, columnas(), indices(), leer(), require, restriccionesCheck(), sequelize (+1 more)
+Cohesion: 0.25
+Nodes (10): correrCli(), archivo, carpetaMigraciones, columnas(), indices(), leer(), require, restriccionesCheck() (+2 more)
 
 ### Community 104 - "Design System: AIPOS"
 Cohesion: 0.20
@@ -442,13 +444,13 @@ Nodes (9): Colors, Components, Design System: AIPOS, Do's and Don'ts, Elevation 
 Cohesion: 0.22
 Nodes (9): devDependencies, @apidevtools/swagger-parser, eslint, eslint-config-prettier, @eslint/js, globals, prettier, supertest (+1 more)
 
-### Community 106 - "rutas-documentadas.test.js"
-Cohesion: 0.13
-Nodes (14): docs, montajes, { Router }, salud, { obtenerSalud }, { Router }, app, { cargarDocumentacionApi } (+6 more)
-
-### Community 107 - "ejemplos-de-error.test.js"
+### Community 106 - "routes/index.js"
 Cohesion: 0.22
-Nodes (6): { cargarDocumentacionApi }, documento, PROHIBIDO, recogerEjemplos(), require, RESPUESTAS_DE_ERROR
+Nodes (8): docs, montajes, productos, { Router }, salud, { buscarProductos }, { Router }, express
+
+### Community 107 - "BuscadorProductos-enter.test.js"
+Cohesion: 0.15
+Nodes (12): asentar(), avanzar(), cable, entrada(), escribir(), jugo, leche, { loadAnimation } (+4 more)
 
 ### Community 108 - "estructura.test.js"
 Cohesion: 0.22
@@ -458,29 +460,29 @@ Nodes (6): archivosJs(), backend, paquete, raiz, require_, src
 Cohesion: 0.22
 Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 more)
 
-### Community 111 - "Documentación de la API"
-Cohesion: 0.25
-Nodes (7): Criterios de aceptación, Cómo se decidió el diseño, Dependencias, Documentación de la API, Glosario y alcance, Pruebas en local, Qué entra y qué no
+### Community 111 - "AnimacionLottie.test.js"
+Cohesion: 0.21
+Nodes (7): es, animacion, { loadAnimation, instancias }, @mdi/font, vue, @vue/test-utils, vuetify
 
 ### Community 112 - "modelos.test.js"
 Cohesion: 0.29
 Nodes (5): carpetaModelos, modelos, registrados, require, tablasDelGlosario
 
 ### Community 113 - "Registrar venta"
-Cohesion: 0.14
-Nodes (13): Animación, API, con `curl` (V-03), Bugs y issues, Contrato del componente, Criterios de aceptación de V-08, Cómo se decidió el diseño, Pantalla: botón "Registrar venta" (V-08), Pantalla, en el navegador con el MCP `chrome-devtools` (V-08) (+5 more)
+Cohesion: 0.22
+Nodes (8): API, con `curl` (V-03), Bugs y issues, Cómo se decidió el diseño, Pantalla, en el navegador con el MCP `chrome-devtools` (V-08), Preguntas para la persona desarrolladora, Pruebas en local, Registrar venta, Reglas de negocio
 
 ### Community 114 - "down"
-Cohesion: 0.12
-Nodes (20): down(), up(), AIPOS, Base de datos: MySQL y migraciones, Base de prueba, Comandos del backend, Desde un clon limpio, Despliegue (+12 more)
+Cohesion: 0.43
+Nodes (7): down(), up(), Comandos del backend, Base de datos, Migración, Patrones de diseño, Tablas y modelos (V-01)
 
-### Community 115 - "errores.test.js"
-Cohesion: 0.18
-Nodes (9): desdeBaseDeDatos(), ErrorApi, ESTADOS, appConRuta(), { crearApp }, desdeBaseDeDatos, ErrorApi, express (+1 more)
+### Community 115 - "Procedimiento sp_registrar_venta (V-02)"
+Cohesion: 0.33
+Nodes (6): Archivos, Criterios de aceptación de V-02, Parámetro y respuesta, Procedimiento sp_registrar_venta (V-02), Qué hace, en orden, Todo o nada
 
-### Community 116 - "BuscadorProductos-enter.test.js"
-Cohesion: 0.09
-Nodes (21): crearError(), http, traducirError(), cargar(), leche, cargar(), producto, cargarHttp() (+13 more)
+### Community 116 - "FormularioProducto.test.js"
+Cohesion: 0.27
+Nodes (14): boton(), dialogo(), entrada(), escribir(), esperar(), etiquetaDe(), franja(), guardarConError() (+6 more)
 
 ### Community 117 - "sin-axios-en-componentes.test.js"
 Cohesion: 0.29
@@ -490,9 +492,9 @@ Nodes (6): archivosDe(), componentes, enSrc(), fueraDeApi, raiz, todos
 Cohesion: 0.25
 Nodes (7): aHex(), animadas(), buscar(), carpeta, coloresDe(), paleta, permitidas
 
-### Community 120 - "Backend"
-Cohesion: 0.18
-Nodes (11): ErrorApi, Backend, Capas, Errores, Procedimientos almacenados, Validación, API: `GET /api/productos?busqueda=<texto>`, Cómo busca el servicio (+3 more)
+### Community 120 - "validarTexto"
+Cohesion: 0.27
+Nodes (10): buscarProductos(), servicio, { validarBusqueda }, conProblema(), contarCaracteres(), ErrorApi, exigirDatosValidos(), validarTexto() (+2 more)
 
 ### Community 121 - "dependencies"
 Cohesion: 0.33
@@ -502,13 +504,13 @@ Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
 Cohesion: 0.33
 Nodes (5): Custom v-model, Example: point-of-sale screen, Reactivity, Vue 3 / Vuetify 3 habit and its Vue 2 / Vuetify 2 form, Vuetify 2 components (Vue 2.7)
 
-### Community 123 - "database.test.js"
-Cohesion: 0.15
-Nodes (9): app, { config }, servidor, { config }, dbConfig, modelos, require, { Sequelize } (+1 more)
+### Community 123 - "productos/buscar-productos.test.js"
+Cohesion: 0.14
+Nodes (10): app, CABLE, EJEMPLOS, idsCreados, JUGO_50, JUGO_500, LECHE, { Producto } (+2 more)
 
-### Community 124 - "ref_node_fs"
-Cohesion: 0.12
-Nodes (10): backend, EN_DEPENDENCIES, EN_DEV_DEPENDENCIES, lock, paquete, archivosJs(), ejemplo, raiz (+2 more)
+### Community 124 - "compose.test.js"
+Cohesion: 0.15
+Nodes (6): carpetaRaiz, archivo, archivosJs(), ejemplo, raiz, carpetaBackend
 
 ### Community 125 - "Flujo 05 · Entregar un entregable"
 Cohesion: 0.40
@@ -526,9 +528,9 @@ Nodes (3): printWidth, singleQuote, trailingComma
 Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
-### Community 129 - "AnimacionLottie.test.js"
-Cohesion: 0.21
-Nodes (7): es, animacion, { loadAnimation, instancias }, @mdi/font, vue, @vue/test-utils, vuetify
+### Community 129 - "database.js"
+Cohesion: 0.18
+Nodes (9): { config }, { Sequelize }, { DataTypes }, Producto, sequelize, { DataTypes }, require, sequelize (+1 more)
 
 ### Community 130 - "Flujo 01 · Crear producto"
 Cohesion: 0.50
@@ -558,62 +560,70 @@ Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
 Cohesion: 0.20
 Nodes (6): avisosAlInstalar, declaradas, espia, paquete, versionesDelFrontend, lottie-web
 
-### Community 138 - "consultarSalud"
-Cohesion: 0.36
-Nodes (7): { consultarSalud }, obtenerSalud(), conLimiteDeTiempo(), consultarSalud(), cortarConexion(), sequelize, Salud
+### Community 138 - "documentacion-buscar-productos.test.js"
+Cohesion: 0.20
+Nodes (9): app, { cargarDocumentacionApi }, documento, idsCreados, { montajes }, { Producto }, require, abrirServidorDePrueba() (+1 more)
 
-### Community 139 - "crearProducto"
-Cohesion: 0.33
-Nodes (9): Negocio, buscarProductos(), crearProducto(), Frontend, La venta actual, Servicio de API, Quién implementa qué, Qué tarjeta implementa cada parte (+1 more)
+### Community 139 - "Backend"
+Cohesion: 0.25
+Nodes (8): ErrorApi, Backend, Capas, Carpetas, Errores, Procedimientos almacenados, Validación, Validación del texto
 
-### Community 140 - "errorHandler.js"
-Cohesion: 0.46
-Nodes (7): aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi, errorHandler(), esDelLector(), Carpetas
-
-### Community 141 - "El documento OpenAPI"
+### Community 140 - "crearProducto"
 Cohesion: 0.29
-Nodes (7): Cabecera, Ejemplos que dicen lo que la API hace, Ejemplos sin detalles internos, El documento es OpenAPI 3 válido, El documento OpenAPI, El formato de error como esquema compartido, `GET /api/salud`
+Nodes (8): crearProducto(), Quién implementa qué, Contrato, Criterios de aceptación de P-02, Documentación de la API (tarjeta A-01), P-02 · `POST /api/productos`, Servicio, 409 y peticiones al mismo tiempo, Validación
 
-### Community 142 - "noEncontrado"
-Cohesion: 0.40
-Nodes (5): ErrorApi, noEncontrado(), Límites, CORS y cabeceras, La política de contenido solo en `/api/docs`, Swagger UI en `GET /api/docs`
-
-### Community 144 - "El módulo (`src/ventaActual/`)"
+### Community 141 - "noEncontrado"
 Cohesion: 0.33
-Nodes (6): `agregarAVentaActual` (V-04), `cambiarCantidad` y `validarCantidad` (V-06), `cambiarPrecioAplicado` y `validarPrecioAplicado` (V-05), El módulo (`src/ventaActual/`), `eliminarDetalle` (V-07), Validez, registro y vaciado (V-04)
+Nodes (6): ErrorApi, noEncontrado(), crearRouterApi(), Límites, CORS y cabeceras, La política de contenido solo en `/api/docs`, Swagger UI en `GET /api/docs`
 
-### Community 145 - "La pantalla"
+### Community 142 - "models/index.js"
+Cohesion: 0.25
+Nodes (8): Producto, sequelize, buscarProductos(), escaparParaLike(), { Op }, { sequelize, Producto }, { escaparParaLike }, require
+
+### Community 143 - "errores.test.js"
+Cohesion: 0.29
+Nodes (5): { crearApp }, desdeBaseDeDatos, ErrorApi, express, require
+
+### Community 144 - "limite-del-cuerpo.test.js"
 Cohesion: 0.33
-Nodes (6): `App.vue`: une la búsqueda con la venta actual (V-04), Botón «Eliminar» (V-07), `CampoCantidad.vue` (V-06), `CampoPrecioAplicado.vue` (V-05), Diseño (skill `impeccable`), La pantalla
+Nodes (5): app, { crearApp }, eco, express, require
 
-### Community 146 - "P-03 · El botón "Nuevo producto" y el formulario"
+### Community 145 - "errorHandler.js"
+Cohesion: 0.29
+Nodes (9): desdeBaseDeDatos(), ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi, errorHandler() (+1 more)
+
+### Community 146 - "Lenguaje ubicuo — AIPOS"
 Cohesion: 0.33
-Nodes (6): Al crear el producto, Criterios de aceptación de P-03, Diseño con `impeccable`, El formulario, Los componentes, P-03 · El botón "Nuevo producto" y el formulario
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
 
-### Community 147 - "P-02 · `POST /api/productos`"
+### Community 147 - "validar-busqueda.test.js"
 Cohesion: 0.33
-Nodes (6): Contrato, Criterios de aceptación de P-02, Documentación de la API (tarjeta A-01), P-02 · `POST /api/productos`, Servicio, 409 y peticiones al mismo tiempo, Validación
+Nodes (4): ErrorApi, errorDe(), require, { validarBusqueda }
 
-### Community 148 - "Lenguaje ubicuo — AIPOS"
-Cohesion: 0.40
-Nodes (5): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Pendientes (por confirmar)
+### Community 148 - "P-01 · La tabla `productos` y el modelo `Producto`"
+Cohesion: 0.50
+Nodes (4): Criterios de aceptación de P-01, Modelo, P-01 · La tabla `productos` y el modelo `Producto`, Productos de ejemplo (opcional, por confirmar)
+
+### Community 150 - "API: `GET /api/productos?busqueda=<texto>`"
+Cohesion: 0.50
+Nodes (4): API: `GET /api/productos?busqueda=<texto>`, Cómo busca el servicio, Documentación de la API, Pruebas en local: la API con `curl`
 
 ## Knowledge Gaps
-- **623 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+618 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 764 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **649 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+644 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 795 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Negocio` connect `crearProducto` to `Lenguaje ubicuo — AIPOS`, `total`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
-- **Why does `crearProducto()` connect `crearProducto` to `NuevoProducto.test.js`, `FormularioProducto.vue`, `FormularioProducto.test.js`, `errorHandler.js`, `Crear producto`, `P-03 · El botón "Nuevo producto" y el formulario`, `P-02 · `POST /api/productos``, `BuscadorProductos-enter.test.js`?**
+- **Why does `crearProducto()` connect `crearProducto` to `api/productos.js`, `Documentación de la API`, `NuevoProducto.test.js`, `FormularioProducto.vue`, `Backend`, `Crear producto`, `Lenguaje ubicuo — AIPOS`, `FormularioProducto.test.js`, `src/config.js`?**
+  _High betweenness centrality (0.111) - this node is a cross-community bridge._
+- **Why does `Negocio` connect `Lenguaje ubicuo — AIPOS` to `crearProducto`, `total`?**
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+- **Why does `Lenguaje ubicuo — AIPOS` connect `Lenguaje ubicuo — AIPOS` to `07-desplegar-una-version.md`?**
   _High betweenness centrality (0.065) - this node is a cross-community bridge._
-- **Why does `Lenguaje ubicuo — AIPOS` connect `Lenguaje ubicuo — AIPOS` to `crearProducto`, `07-desplegar-una-version.md`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _623 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _649 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

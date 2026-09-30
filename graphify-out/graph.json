@@ -289,7 +289,19 @@
       "file_type": "code",
       "norm_label": "alabrir()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L163"
+      "source_location": "L173"
+    },
+    {
+      "id": "frontend_src_components_formularioproducto_alsalir",
+      "label": "alSalir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "FormularioProducto.vue",
+      "file_type": "code",
+      "norm_label": "alsalir()",
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L228"
     },
     {
       "id": "frontend_src_components_formularioproducto_beforedestroy",
@@ -301,7 +313,7 @@
       "file_type": "code",
       "norm_label": "beforedestroy()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L159"
+      "source_location": "L169"
     },
     {
       "id": "frontend_src_components_formularioproducto_borrarerror",
@@ -313,7 +325,7 @@
       "file_type": "code",
       "norm_label": "borrarerror()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L212"
+      "source_location": "L222"
     },
     {
       "id": "frontend_src_components_formularioproducto_cancelar",
@@ -325,7 +337,7 @@
       "file_type": "code",
       "norm_label": "cancelar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L208"
+      "source_location": "L218"
     },
     {
       "id": "frontend_src_components_formularioproducto_cerrar",
@@ -337,7 +349,7 @@
       "file_type": "code",
       "norm_label": "cerrar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L204"
+      "source_location": "L214"
     },
     {
       "id": "frontend_src_components_formularioproducto_darlavueltaalfoco",
@@ -349,7 +361,7 @@
       "file_type": "code",
       "norm_label": "darlavueltaalfoco()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L184"
+      "source_location": "L194"
     },
     {
       "id": "frontend_src_components_formularioproducto_data",
@@ -361,7 +373,7 @@
       "file_type": "code",
       "norm_label": "data()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L120"
+      "source_location": "L130"
     },
     {
       "id": "frontend_src_components_formularioproducto_enfocar",
@@ -373,7 +385,7 @@
       "file_type": "code",
       "norm_label": "enfocar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L179"
+      "source_location": "L189"
     },
     {
       "id": "frontend_src_components_formularioproducto_enlazartitulo",
@@ -385,7 +397,7 @@
       "file_type": "code",
       "norm_label": "enlazartitulo()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L175"
+      "source_location": "L185"
     },
     {
       "id": "frontend_src_components_formularioproducto_guardar",
@@ -397,7 +409,7 @@
       "file_type": "code",
       "norm_label": "guardar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L215"
+      "source_location": "L236"
     },
     {
       "id": "frontend_src_components_formularioproducto_handler",
@@ -409,7 +421,7 @@
       "file_type": "code",
       "norm_label": "handler()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L152"
+      "source_location": "L162"
     },
     {
       "id": "frontend_src_components_formularioproducto_haytexto",
@@ -421,7 +433,19 @@
       "file_type": "code",
       "norm_label": "haytexto()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L137"
+      "source_location": "L147"
+    },
+    {
+      "id": "frontend_src_components_formularioproducto_marca",
+      "label": "marca()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "FormularioProducto.vue",
+      "file_type": "code",
+      "norm_label": "marca()",
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L233"
     },
     {
       "id": "frontend_src_components_formularioproducto_mostrarerror",
@@ -433,7 +457,7 @@
       "file_type": "code",
       "norm_label": "mostrarerror()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L240"
+      "source_location": "L261"
     },
     {
       "id": "frontend_src_components_formularioproducto_pantallacompleta",
@@ -445,7 +469,7 @@
       "file_type": "code",
       "norm_label": "pantallacompleta()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L145"
+      "source_location": "L155"
     },
     {
       "id": "frontend_src_components_formularioproducto_persistente",
@@ -457,7 +481,7 @@
       "file_type": "code",
       "norm_label": "persistente()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L142"
+      "source_location": "L152"
     },
     {
       "id": "frontend_src_components_formularioproducto_vaciar",
@@ -469,7 +493,7 @@
       "file_type": "code",
       "norm_label": "vaciar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L199"
+      "source_location": "L209"
     },
     {
       "id": "frontend_src_components_formularioproducto_vacio",
@@ -481,7 +505,7 @@
       "file_type": "code",
       "norm_label": "vacio()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L110"
+      "source_location": "L120"
     },
     {
       "id": "frontend_src_reglasproducto_estavacio",
@@ -1204,51 +1228,11 @@
       "source_location": "L36"
     },
     {
-      "id": "specs_grafo_del_proyecto_spec",
-      "label": "grafo-del-proyecto.spec.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Grafo del proyecto",
-        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
-      },
-      "node_kind": "page",
-      "norm_label": "grafo-del-proyecto.spec.md",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_lenguaje_ubicuo",
-      "label": "docs/lenguaje-ubicuo.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "docs/lenguaje-ubicuo.md",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_agents_setup",
-      "label": "agents-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "agents-setup.md",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
-    },
-    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. crear el board en trello",
@@ -1260,7 +1244,7 @@
       "label": "2. Obtener el API key",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. obtener el api key",
@@ -1272,7 +1256,7 @@
       "label": "3. Generar el token",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. generar el token",
@@ -1284,7 +1268,7 @@
       "label": "4. Agregar el servidor a Claude Code",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. agregar el servidor a claude code",
@@ -1296,7 +1280,7 @@
       "label": "5. Verificar la conexi\u00f3n",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. verificar la conexion",
@@ -1308,7 +1292,7 @@
       "label": "Alternativa: Codex CLI",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "alternativa: codex cli",
@@ -1320,7 +1304,7 @@
       "label": "Configurar el MCP de Trello",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "configurar el mcp de trello",
@@ -1332,7 +1316,7 @@
       "label": "Requisitos",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requisitos",
@@ -1344,7 +1328,7 @@
       "label": "Seguridad",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "seguridad",
@@ -1356,7 +1340,7 @@
       "label": "Setup de agents",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "setup de agents",
@@ -1368,216 +1352,12 @@
       "label": "Soluci\u00f3n de problemas",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Grafo del proyecto",
+      "community_name": "Configurar el MCP de Trello",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "solucion de problemas",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L168"
-    },
-    {
-      "id": "docs_setup_graphify_setup",
-      "label": "graphify-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "graphify-setup.md",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_setup_tessl_setup",
-      "label": "tessl-setup.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "tessl-setup.md",
-      "source_file": "docs/setup/tessl-setup.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme",
-      "label": "README.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "readme.md",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_aipos",
-      "label": "AIPOS",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aipos",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "README.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "readme_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "README.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "readme_tiles_de_tessl",
-      "label": "Tiles de Tessl",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tiles de tessl",
-      "source_file": "README.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
-      "label": "Arranque de un clon nuevo",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "arranque de un clon nuevo",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
-      "label": "Grafo del proyecto",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "grafo del proyecto",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L24"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
-      "label": "Hook de Claude Code",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hook de claude code",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L138"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
-      "label": "Hook de git `pre-commit`",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hook de git `pre-commit`",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L91"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
-      "label": "Proceso escrito",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "proceso escrito",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L186"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
-      "label": "Qu\u00e9 entra al grafo",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra al grafo",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L75"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
-      "label": "Qu\u00e9 no se usa",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se usa",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L178"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
-      "label": "Qu\u00e9 va a git",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que va a git",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L66"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
-      "label": "Regla del tile `grafo-del-proyecto`",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "regla del tile `grafo-del-proyecto`",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L153"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
-      "label": "Versi\u00f3n de Graphify",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Grafo del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "version de graphify",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
-      "source_location": "L58"
     },
     {
       "id": "requerimientos_04_entregables_definici\u00f3n_de_terminado",
@@ -4605,22 +4385,6 @@
       "source_location": "L1"
     },
     {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
-    },
-    {
       "id": "docs_lenguaje_ubicuo_convenci\u00f3n_de_nombres_en_c\u00f3digo",
       "label": "Convenci\u00f3n de nombres en c\u00f3digo",
       "_origin": "ast",
@@ -5125,124 +4889,20 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
       "_origin": "ast",
       "community": 5,
       "community_name": "requerimientos/README.md",
       "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
       "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_01_alcance_actores_y_partes",
-      "label": "Actores y partes",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "actores y partes",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "requerimientos_01_alcance_alcance",
-      "label": "Alcance",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_01_alcance_fuera_de_alcance",
-      "label": "Fuera de alcance",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fuera de alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
-      "label": "Lo que agregamos y el PDF no pide",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lo que agregamos y el pdf no pide",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "requerimientos_01_alcance_objetivo",
-      "label": "Objetivo",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "objetivo",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "requerimientos_01_alcance_qu\u00e9_entra",
-      "label": "Qu\u00e9 entra",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "requerimientos_01_alcance_restricciones",
-      "label": "Restricciones",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "restricciones",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "requerimientos_01_alcance_riesgos",
-      "label": "Riesgos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "riesgos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "requerimientos_01_alcance_supuestos",
-      "label": "Supuestos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "supuestos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -5293,42 +4953,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_00_mapa_de_procesos_desarrollo_de_aipos",
-      "label": "Desarrollo de AIPOS",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "desarrollo de aipos",
-      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "requerimientos_flujos_00_mapa_de_procesos_flujo_00_mapa_de_procesos",
-      "label": "Flujo 00 \u00b7 Mapa de procesos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 00 \u00b7 mapa de procesos",
-      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_00_mapa_de_procesos_operaci\u00f3n_del_pos",
-      "label": "Operaci\u00f3n del POS",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "operacion del pos",
-      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
-      "source_location": "L11"
-    },
-    {
       "id": "requerimientos_flujos_01_crear_producto",
       "label": "01-crear-producto.md",
       "_origin": "ast",
@@ -5339,54 +4963,6 @@
       "norm_label": "01-crear-producto.md",
       "source_file": "requerimientos/flujos/01-crear-producto.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_01_crear_producto_flujo_01_crear_producto",
-      "label": "Flujo 01 \u00b7 Crear producto",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 01 \u00b7 crear producto",
-      "source_file": "requerimientos/flujos/01-crear-producto.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_01_crear_producto_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/01-crear-producto.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_flujos_01_crear_producto_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/01-crear-producto.md",
-      "source_location": "L31"
-    },
-    {
-      "id": "requerimientos_flujos_01_crear_producto_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/01-crear-producto.md",
-      "source_location": "L18"
     },
     {
       "id": "requerimientos_flujos_02_buscar_producto",
@@ -5401,54 +4977,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
-      "label": "Flujo 02 \u00b7 Buscar producto",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 02 \u00b7 buscar producto",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L43"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "requerimientos_flujos_02_buscar_producto_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/02-buscar-producto.md",
-      "source_location": "L17"
-    },
-    {
       "id": "requerimientos_flujos_03_armar_la_venta_actual",
       "label": "03-armar-la-venta-actual.md",
       "_origin": "ast",
@@ -5459,54 +4987,6 @@
       "norm_label": "03-armar-la-venta-actual.md",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
-      "label": "Flujo 03 \u00b7 Armar la venta actual",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 03 \u00b7 armar la venta actual",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L32"
-    },
-    {
-      "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L18"
     },
     {
       "id": "requerimientos_flujos_04_registrar_venta",
@@ -5521,54 +5001,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
-      "label": "Flujo 04 \u00b7 Registrar venta",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 04 \u00b7 registrar venta",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19"
-    },
-    {
       "id": "requerimientos_flujos_05_entregar_un_entregable",
       "label": "05-entregar-un-entregable.md",
       "_origin": "ast",
@@ -5581,66 +5013,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L66"
-    },
-    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -5651,42 +5023,6 @@
       "norm_label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
       "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_flujo_06_trabajar_una_tarjeta_con_el_agente",
-      "label": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 06 \u00b7 trabajar una tarjeta con el agente",
-      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
-      "source_location": "L22"
     },
     {
       "id": "requerimientos_readme",
@@ -6958,6 +6294,142 @@
       "source_location": "L1"
     },
     {
+      "id": "specs_grafo_del_proyecto_spec",
+      "label": "grafo-del-proyecto.spec.md",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Grafo del proyecto",
+        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
+      },
+      "node_kind": "page",
+      "norm_label": "grafo-del-proyecto.spec.md",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
+      "label": "Arranque de un clon nuevo",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "arranque de un clon nuevo",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_hook_de_claude_code",
+      "label": "Hook de Claude Code",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hook de claude code",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L138"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_hook_de_git_pre_commit",
+      "label": "Hook de git `pre-commit`",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hook de git `pre-commit`",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L91"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_proceso_escrito",
+      "label": "Proceso escrito",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "proceso escrito",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L186"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_entra_al_grafo",
+      "label": "Qu\u00e9 entra al grafo",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra al grafo",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_no_se_usa",
+      "label": "Qu\u00e9 no se usa",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se usa",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L178"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_qu\u00e9_va_a_git",
+      "label": "Qu\u00e9 va a git",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que va a git",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L66"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_regla_del_tile_grafo_del_proyecto",
+      "label": "Regla del tile `grafo-del-proyecto`",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "regla del tile `grafo-del-proyecto`",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L153"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec_versi\u00f3n_de_graphify",
+      "label": "Versi\u00f3n de Graphify",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "version de graphify",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L58"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -7094,6 +6566,438 @@
       "source_location": "L110"
     },
     {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_actores_y_partes",
+      "label": "Actores y partes",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "actores y partes",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "requerimientos_01_alcance_alcance",
+      "label": "Alcance",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_fuera_de_alcance",
+      "label": "Fuera de alcance",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fuera de alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
+      "label": "Lo que agregamos y el PDF no pide",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lo que agregamos y el pdf no pide",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "requerimientos_01_alcance_objetivo",
+      "label": "Objetivo",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "objetivo",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "requerimientos_01_alcance_qu\u00e9_entra",
+      "label": "Qu\u00e9 entra",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_01_alcance_restricciones",
+      "label": "Restricciones",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "restricciones",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "requerimientos_01_alcance_riesgos",
+      "label": "Riesgos",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "riesgos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "requerimientos_01_alcance_supuestos",
+      "label": "Supuestos",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "Alcance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "supuestos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo",
+      "label": "docs/lenguaje-ubicuo.md",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "docs/lenguaje-ubicuo.md",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_agents_setup",
+      "label": "agents-setup.md",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents-setup.md",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_graphify_setup",
+      "label": "graphify-setup.md",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "graphify-setup.md",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_tessl_setup",
+      "label": "tessl-setup.md",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "tessl-setup.md",
+      "source_file": "docs/setup/tessl-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_aipos",
+      "label": "AIPOS",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aipos",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_grafo_del_proyecto",
+      "label": "Grafo del proyecto",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "grafo del proyecto",
+      "source_file": "README.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "readme_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "README.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "readme_tiles_de_tessl",
+      "label": "Tiles de Tessl",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "graphify-setup.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tiles de tessl",
+      "source_file": "README.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L66"
+    },
+    {
+      "id": "requerimientos_flujos_01_crear_producto_flujo_01_crear_producto",
+      "label": "Flujo 01 \u00b7 Crear producto",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "Flujo 01 \u00b7 Crear producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 01 \u00b7 crear producto",
+      "source_file": "requerimientos/flujos/01-crear-producto.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_01_crear_producto_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "Flujo 01 \u00b7 Crear producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/01-crear-producto.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "requerimientos_flujos_01_crear_producto_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "Flujo 01 \u00b7 Crear producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/01-crear-producto.md",
+      "source_location": "L31"
+    },
+    {
+      "id": "requerimientos_flujos_01_crear_producto_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 77,
+      "community_name": "Flujo 01 \u00b7 Crear producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/01-crear-producto.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_flujo_02_buscar_producto",
+      "label": "Flujo 02 \u00b7 Buscar producto",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 02 \u00b7 buscar producto",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "requerimientos_flujos_02_buscar_producto_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "Flujo 02 \u00b7 Buscar producto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/02-buscar-producto.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_flujo_03_armar_la_venta_actual",
+      "label": "Flujo 03 \u00b7 Armar la venta actual",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 03 \u00b7 armar la venta actual",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "Flujo 03 \u00b7 Armar la venta actual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
+      "source_location": "L18"
+    },
+    {
       "id": "frontend_src_components_nuevoproducto",
       "label": "NuevoProducto.vue",
       "_origin": "ast",
@@ -7136,6 +7040,126 @@
       "norm_label": "producto",
       "source_file": "frontend/tests/componentes/NuevoProducto.test.js",
       "source_location": "L25"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
+      "label": "Flujo 04 \u00b7 Registrar venta",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 04 \u00b7 registrar venta",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 80,
+      "community_name": "Flujo 04 \u00b7 Registrar venta",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "requerimientos_flujos_00_mapa_de_procesos_desarrollo_de_aipos",
+      "label": "Desarrollo de AIPOS",
+      "_origin": "ast",
+      "community": 81,
+      "community_name": "Flujo 00 \u00b7 Mapa de procesos",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "desarrollo de aipos",
+      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "requerimientos_flujos_00_mapa_de_procesos_flujo_00_mapa_de_procesos",
+      "label": "Flujo 00 \u00b7 Mapa de procesos",
+      "_origin": "ast",
+      "community": 81,
+      "community_name": "Flujo 00 \u00b7 Mapa de procesos",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 00 \u00b7 mapa de procesos",
+      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_00_mapa_de_procesos_operaci\u00f3n_del_pos",
+      "label": "Operaci\u00f3n del POS",
+      "_origin": "ast",
+      "community": 81,
+      "community_name": "Flujo 00 \u00b7 Mapa de procesos",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "operacion del pos",
+      "source_file": "requerimientos/flujos/00-mapa-de-procesos.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_flujo_06_trabajar_una_tarjeta_con_el_agente",
+      "label": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 06 \u00b7 trabajar una tarjeta con el agente",
+      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 82,
+      "community_name": "Flujo 06 \u00b7 Trabajar una tarjeta con el agente",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/06-trabajar-una-tarjeta-con-el-agente.md",
+      "source_location": "L22"
     },
     {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
@@ -7454,7 +7478,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L164",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -7466,7 +7490,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L170",
+      "source_location": "L180",
       "weight": 1.0
     },
     {
@@ -7478,7 +7502,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L171",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_formularioproducto_alsalir",
+      "target": "frontend_src_reglasproducto_primermensaje",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L230",
       "weight": 1.0
     },
     {
@@ -7490,7 +7526,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L209",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -7502,7 +7538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L206",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -7514,7 +7550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L125",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -7526,7 +7562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L219",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -7538,7 +7574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L224",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -7550,7 +7586,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L228",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -7562,7 +7598,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L231",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -7574,7 +7610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L231",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -7586,7 +7622,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L233",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -7598,7 +7634,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L235",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -7610,7 +7646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L153",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -7622,7 +7658,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L243",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -7634,7 +7670,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L244",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -7646,7 +7682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L248",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -7658,7 +7694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L200",
+      "source_location": "L210",
       "weight": 1.0
     },
     {
@@ -9190,7 +9226,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L97",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -9202,7 +9238,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9214,7 +9250,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9226,7 +9262,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9238,7 +9274,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9250,7 +9286,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_formularioproducto",
+      "target": "frontend_src_reglasproducto_primermensaje",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9262,7 +9310,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9274,7 +9322,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9286,7 +9334,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9298,7 +9346,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9682,7 +9730,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L97",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -9694,7 +9742,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L98",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -11728,7 +11776,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L110",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -11739,7 +11787,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L120",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -11750,7 +11798,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L137",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -11761,7 +11809,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L142",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -11772,7 +11820,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L145",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -11783,7 +11831,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L152",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -11794,7 +11842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L159",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -11805,7 +11853,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L163",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -11816,7 +11864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L175",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -11827,7 +11875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L179",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -11838,7 +11886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L184",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -11849,7 +11897,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L199",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -11860,7 +11908,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L204",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -11871,7 +11919,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L208",
+      "source_location": "L218",
       "weight": 1.0
     },
     {
@@ -11882,7 +11930,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L212",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_formularioproducto",
+      "target": "frontend_src_components_formularioproducto_alsalir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_formularioproducto",
+      "target": "frontend_src_components_formularioproducto_marca",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/FormularioProducto.vue",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -11893,7 +11963,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L215",
+      "source_location": "L236",
       "weight": 1.0
     },
     {
@@ -11904,7 +11974,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L240",
+      "source_location": "L261",
       "weight": 1.0
     },
     {

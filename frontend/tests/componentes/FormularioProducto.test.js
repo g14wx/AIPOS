@@ -607,6 +607,36 @@ describe('los campos con error se marcan con aria-invalid', () => {
     expect(invalido('Precio')).toBeNull();
   });
 
+  it('el mensaje de un campo al que se salió sin llenar se queda a la vista al volver a enfocarlo, hasta que se edite', async () => {
+    await montar();
+    entrada('Nombre').focus();
+    entrada('Nombre').blur();
+    await esperar();
+    entrada('Nombre').focus();
+    await esperar();
+    expect(mensajesDe('Nombre')).toEqual(['Es obligatorio.']);
+    expect(invalido('Nombre')).toBe('true');
+    await escribir('Nombre', 'P');
+    expect(mensajesDe('Nombre')).toEqual([]);
+    expect(invalido('Nombre')).toBeNull();
+  });
+
+  it('un campo que se llenó bien al salir no se marca', async () => {
+    await montar();
+    await escribir('Precio', '25.50');
+    entrada('Precio').blur();
+    await esperar();
+    expect(mensajesDe('Precio')).toEqual(['Con punto decimal, por ejemplo 25.50']);
+    expect(invalido('Precio')).toBeNull();
+  });
+
+  it('los tres campos se anuncian como obligatorios con aria-required', async () => {
+    await montar();
+    for (const etiqueta of ['Nombre', 'Precio', 'Código de barras']) {
+      expect(entrada(etiqueta).getAttribute('aria-required'), etiqueta).toBe('true');
+    }
+  });
+
   it('el error de la API en el código de barras lo marca', async () => {
     crearProducto.mockRejectedValue(
       errorDeLaApi({ status: 409, codigo: 'CODIGO_BARRAS_DUPLICADO', mensaje: 'x' }),

@@ -1,12 +1,12 @@
 # Graph Report - p-03  (2026-09-30)
 
 ## Corpus Check
-- 101 files · ~61,290 words
+- 101 files · ~61,691 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 606 nodes · 752 edges · 73 communities (33 shown, 40 thin omitted)
+- 608 nodes · 756 edges · 83 communities (42 shown, 41 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -15,11 +15,10 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Grafo del proyecto
+- Configurar el MCP de Trello
 - dependencies
 - Trabajar en un tile
 - devDependencies
-- requerimientos/README.md
 - vitest-vue2.test.js
 - Flujo de un entregable
 - NuevoProducto.test.js
@@ -73,6 +72,16 @@
 - Requerimientos funcionales
 - vue2-vuetify2.md
 - Requerimientos de AIPOS
+- Grafo del proyecto
+- Alcance
+- graphify-setup.md
+- Flujo 05 · Entregar un entregable
+- Flujo 01 · Crear producto
+- Flujo 02 · Buscar producto
+- Flujo 03 · Armar la venta actual
+- Flujo 04 · Registrar venta
+- Flujo 00 · Mapa de procesos
+- Flujo 06 · Trabajar una tarjeta con el agente
 
 ## God Nodes (most connected - your core abstractions)
 1. `vitest` - 14 edges
@@ -101,11 +110,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (73 total, 40 thin omitted)
+## Communities (83 total, 41 thin omitted)
 
-### Community 1 - "Grafo del proyecto"
-Cohesion: 0.07
-Nodes (25): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+17 more)
+### Community 1 - "Configurar el MCP de Trello"
+Cohesion: 0.18
+Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -118,10 +127,6 @@ Nodes (14): 1. Instalar Tessl, 2. Instalar los tiles del proyecto, 3. Conectar e
 ### Community 4 - "devDependencies"
 Cohesion: 0.14
 Nodes (14): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-vue, globals, jsdom, prettier (+6 more)
-
-### Community 5 - "requerimientos/README.md"
-Cohesion: 0.06
-Nodes (36): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+28 more)
 
 ### Community 6 - "vitest-vue2.test.js"
 Cohesion: 0.07
@@ -212,8 +217,8 @@ Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 
 ### Community 55 - "FormularioProducto.vue"
-Cohesion: 0.11
-Nodes (28): alAbrir(), cancelar(), cerrar(), data(), enfocar(), enlazarTitulo(), guardar(), handler() (+20 more)
+Cohesion: 0.10
+Nodes (29): alAbrir(), alSalir(), cancelar(), cerrar(), data(), enfocar(), enlazarTitulo(), guardar() (+21 more)
 
 ### Community 56 - "vitest"
 Cohesion: 0.13
@@ -235,25 +240,65 @@ Nodes (13): Reglas de negocio, Requerimientos funcionales, RF-01 Crear producto,
 Cohesion: 0.33
 Nodes (6): Aspectos que se evaluarán, Cómo leer esta carpeta, Flujos, Matriz del PDF, Preguntas abiertas, Requerimientos de AIPOS
 
+### Community 67 - "Grafo del proyecto"
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+
+### Community 72 - "Alcance"
+Cohesion: 0.20
+Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
+
+### Community 73 - "graphify-setup.md"
+Cohesion: 0.31
+Nodes (4): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl
+
+### Community 74 - "Flujo 05 · Entregar un entregable"
+Cohesion: 0.40
+Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+
+### Community 77 - "Flujo 01 · Crear producto"
+Cohesion: 0.50
+Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
+
+### Community 78 - "Flujo 02 · Buscar producto"
+Cohesion: 0.50
+Nodes (4): Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos
+
+### Community 79 - "Flujo 03 · Armar la venta actual"
+Cohesion: 0.50
+Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
+
+### Community 80 - "Flujo 04 · Registrar venta"
+Cohesion: 0.50
+Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
+
+### Community 81 - "Flujo 00 · Mapa de procesos"
+Cohesion: 0.67
+Nodes (3): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS
+
+### Community 82 - "Flujo 06 · Trabajar una tarjeta con el agente"
+Cohesion: 0.67
+Nodes (3): Flujo 06 · Trabajar una tarjeta con el agente, Otros caminos, Pasos
+
 ## Knowledge Gaps
 - **292 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+287 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 373 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **40 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 374 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `crearProducto()` connect `Arquitectura de AIPOS` to `vitest`, `NuevoProducto.test.js`, `FormularioProducto.test.js`, `FormularioProducto.vue`?**
-  _High betweenness centrality (0.181) - this node is a cross-community bridge._
+  _High betweenness centrality (0.182) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `Arquitectura de AIPOS` to `venta-vacia.test.js`?**
-  _High betweenness centrality (0.153) - this node is a cross-community bridge._
-- **Why does `Lenguaje ubicuo — AIPOS` connect `Arquitectura de AIPOS` to `Grafo del proyecto`?**
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+- **Why does `Lenguaje ubicuo — AIPOS` connect `Arquitectura de AIPOS` to `graphify-setup.md`?**
   _High betweenness centrality (0.148) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _292 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.07096774193548387 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

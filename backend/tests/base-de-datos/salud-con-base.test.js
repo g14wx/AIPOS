@@ -229,4 +229,25 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
       await proxy.cerrar();
     }
   }, 30_000);
+
+  it('si la consulta esperaba lugar en el pool y llega cuando ya venció el tiempo, no se envía', async () => {
+    const { connectionManager } = sequelize;
+    const { pool } = connectionManager;
+    // Se ocupan todos los lugares del pool: la consulta de salud tiene que esperar el suyo.
+    const ocupadas = [];
+    for (let i = 0; i < pool.maxSize; i += 1)
+      ocupadas.push(await connectionManager.getConnection());
+    const enviar = vi.spyOn(sequelize.dialect.Query.prototype, 'run');
+    try {
+      await expect(consultarSalud(100)).rejects.toThrow(/no contest/i);
+      expect(pool.waiting).toBe(1);
+      // Se libera un lugar: la consulta que esperaba lo toma, ve que ya venció y no envía nada.
+      connectionManager.releaseConnection(ocupadas.pop());
+      await vi.waitFor(() => expect(pool.waiting).toBe(0));
+      await vi.waitFor(() => expect(pool.using).toBe(ocupadas.length));
+      expect(enviar).not.toHaveBeenCalled();
+    } finally {
+      ocupadas.forEach((conexion) => connectionManager.releaseConnection(conexion));
+    }
+  }, 10_000);
 });

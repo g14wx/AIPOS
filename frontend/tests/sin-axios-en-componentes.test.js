@@ -1,11 +1,11 @@
 // Spec de arquitectura, secciones "Servicio de API" y "La venta actual": ningún componente importa axios ni
 // escribe una URL, ninguno toca localStorage ni contiene la lógica de la venta actual, y nada lee process.env.
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
-import { join, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative, resolve, sep } from 'node:path';
 import { describe, it, expect } from 'vitest';
 
-const raiz = fileURLToPath(new URL('../src', import.meta.url));
+// Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y fileURLToPath falla.
+const raiz = resolve(import.meta.dirname, '../src');
 
 function archivosDe(carpeta, extensiones) {
   if (!existsSync(carpeta)) return [];

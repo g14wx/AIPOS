@@ -5671,18 +5671,6 @@
     },
     {
       "source": "frontend_tests_sin_axios_en_componentes_test",
-      "target": "ref_node_url",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/tests/sin-axios-en-componentes.test.js",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_sin_axios_en_componentes_test",
       "target": "ref_vitest",
       "relation": "imports_from",
       "_origin": "ast",
@@ -5690,7 +5678,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/tests/sin-axios-en-componentes.test.js",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0
     },
     {

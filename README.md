@@ -144,10 +144,10 @@ AIPOS/
   muestra con Swagger UI.
 - `backend/src/errors/` (`ErrorApi.js` y `desdeBaseDeDatos.js`, que traduce los errores de MySQL) y
   `backend/src/middlewares/` (`errorHandler.js` y `noEncontrado.js`) dan el formato de error.
-- `backend/src/crearServidor.js` (llega con F-01): crea el servidor HTTP y contesta con el formato de error a una dirección o
-  unas cabeceras de más de 16 KB, que Node rechaza antes de que lleguen a Express (issue #60, el aviso del bug en GitHub).
-- `backend/src/errors/aFormatoDeError.js` (llega con F-01): arma el cuerpo del formato de error, para que lo usen el manejador
-  de errores y ese servidor.
+- `backend/src/crearServidor.js` crea el servidor HTTP y contesta con el formato de error a una dirección o unas cabeceras
+  de más de 16 KB, que Node rechaza antes de que lleguen a Express (issue #60, el aviso del bug en GitHub).
+- `backend/src/errors/aFormatoDeError.js` arma el cuerpo del formato de error, para que lo usen el manejador de errores y
+  ese servidor.
 - `backend/scripts/crear-base-de-prueba.js`, `backend/tests/` y `backend/Dockerfile` completan la carpeta.
 
 ### Base de datos
@@ -478,19 +478,30 @@ venta ni ningún detalle nuevo.
 ## 8. Tiempo
 
 El tiempo sale de la bitácora de IA, [`docs/bitacora-ia.md`](docs/bitacora-ia.md). Cada entrada dice cuándo empezó y cuándo
-terminó su tarea, y la tabla «Resumen» del principio de la bitácora junta los tiempos por tarea. Las entradas marcadas
-«reconstruido» se armaron después, desde git y GitHub. La estimación inicial, en horas por tarjeta, está en
-`requerimientos/04-entregables.md`.
+terminó su tarea, y la tabla «Resumen» del principio de la bitácora junta los tiempos. Las entradas marcadas
+«reconstruido» se armaron después, desde git y GitHub. La tabla de abajo es la de la bitácora, tal cual, al cerrar la
+tarjeta E-01, y `tests/documentacion/readme-entrega.test.sh` revisa que siga igual.
 
-| Parte del trabajo | Tarjetas | Tiempo |
-|---|---|---|
-| Preparación: agentes, tiles de Tessl, glosario, requerimientos y specs | R-00 a R-04, T-01 a T-03, S-01 y S-02 | (se completa con E-01) |
-| Entregable base | B-01 a B-04 y A-01 | (se completa con E-01) |
-| Despliegue | D-01 | (se completa con E-01) |
-| Entregable productos | P-01 a P-05 | (se completa con E-01) |
-| Entregable ventas | V-01 a V-08 | (se completa con E-01) |
-| Entrega final | E-01 a E-03 | (se completa con E-01) |
-| **Total aproximado** | | (se completa con E-01) |
+| Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas | Qué suma |
+|---|---|---|---|---|
+| Preparación | 11 h 08 min | 34 | 26 | Agentes, tiles y glosario (8 h 37 min), y requerimientos, diagramas BPMN y tablero AIPOS (2 h 31 min) |
+| Specs | 10 h, sin la spec de despliegue (sin medir) | 10 | 14 | S-01 (2 h 58 min), S-02 (4 h 33 min) y las 6 specs de flujo |
+| Base | 18 h 55 min | 7 | 32 | B-01, B-02, B-03, B-04, A-01 y el PR #70 del entregable |
+| D-01 | 5 h 24 min | 1 | 3 | El pipeline de despliegue |
+| Productos | 11 h 22 min | 7 | 34 | P-01 a P-05 y el PR #76 del entregable |
+| Ventas | 10 h 52 min | 10 | 70 | V-01 a V-08 y el PR #96 del entregable |
+| F-01, corrección sin entregable | 1 h 27 min | 1 | 9 | Los issues #58, #59 y #60 del backend |
+| Entrega final | en curso | — | — | E-01, E-02 y E-03: todavía sin entrada |
+| Total | 69 h 08 min | 70 | 188 | |
+
+- **Suma y reloj.** El tiempo de cada entregable es la suma de sus tareas. Varias tareas corrieron a la vez (por ejemplo,
+  V-05, V-06 y V-07 empezaron a las 11:26), así que la suma, 69 h 08 min, es mayor que el reloj: del primer commit
+  (2026-09-29 12:46) a la última hora anotada (2026-09-30 15:25) pasaron 26 h 39 min, con pausas.
+- **Estimación.** La estimación inicial, en horas por tarjeta, está en `requerimientos/04-entregables.md`. En las 25 filas
+  con tiempo real de la sección «Estimación contra tiempo real» de la bitácora, la estimación suma 33 h 30 min y el tiempo
+  real 56 h 25 min: 1,7 veces lo estimado.
+- **Entrega final.** Su fila está en curso: los tiempos de E-01, E-02 y E-03 se suman en la bitácora cuando se cierre la
+  entrega.
 
 ## 9. Herramientas de IA
 
@@ -654,9 +665,11 @@ para `frontend/src/api/` y Adapter para la animación Lottie (`specs/arquitectur
   idempotencia (punto 11). Un doble clic sí registra una sola venta.
 - **Errores que contesta Node.** Las respuestas de error de la API tienen el formato de error, salvo unos pocos errores del
   cliente que Node contesta antes de que lleguen a Express: una petición mal formada o de un cliente lento (issue #97,
-  abierto). Una dirección o unas cabeceras de más de 16 KB dan un 400 con el formato de error (issue #60; llega con F-01).
+  abierto). Una dirección o unas cabeceras de más de 16 KB dan un 400 con el formato de error (issue #60, corregido por la
+  tarjeta F-01).
 - **Pruebas del backend con puertos ajenos.** Las pruebas con `supertest` a veces recibían la respuesta de otro programa de
-  la máquina que escuchaba en `127.0.0.1` en el mismo puerto (issues #58 y #59). Las corrige la tarjeta F-01 (llega con F-01).
+  la máquina que escuchaba en `127.0.0.1` en el mismo puerto (issues #58 y #59). La tarjeta F-01 lo corrigió: las pruebas
+  abren su propio servidor, atado a `127.0.0.1` (`backend/tests/servidor-de-prueba.js`).
 - **Verificación de las specs.** Las skills `spec-verification` y `work-review` piden scripts que el tile no trae (issue
   #25). El agente hizo esa verificación a mano, con un guion propio que revisa los enlaces `[@test]`.
 - **Grafo del proyecto.** El grafo no se probó en Windows y necesita Git Bash allí (issues #20 y #21). Integrar un PR con el

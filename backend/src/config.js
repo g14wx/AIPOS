@@ -93,6 +93,17 @@ function cargarConfig(env) {
   };
 }
 
+// La configuración de un entorno concreto, para sequelize-cli (db/config.js): así process.env
+// se sigue leyendo solo en este archivo.
+function cargarConfigDeEntorno(entorno) {
+  return cargarConfig({ ...process.env, NODE_ENV: entorno });
+}
+
 cargarArchivoEnv();
 
-module.exports = { config: cargarConfig(process.env), cargarConfig, cargarArchivoEnv };
+module.exports = {
+  config: cargarConfig(process.env),
+  cargarConfig,
+  cargarConfigDeEntorno,
+  cargarArchivoEnv,
+};

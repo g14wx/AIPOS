@@ -1,13 +1,13 @@
 # Graph Report - b-02  (2026-09-30)
 
 ## Corpus Check
-- 96 files · ~49,232 words
+- 96 files · ~49,353 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 19 file(s) not represented in the graph (top: (none) 10, .drawio 7, .example 2)
 
 ## Summary
-- 543 nodes · 628 edges · 66 communities (31 shown, 35 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.91)
+- 544 nodes · 630 edges · 65 communities (30 shown, 35 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -58,7 +58,6 @@
 - hook-de-git/sin-graphify.test.sh
 - hook-de-git/graphify-fuera-del-path.test.sh
 - otra-version.test.sh
-- Alcance
 - marca-de-commit.test.sh
 - version-con-crlf.test.sh
 - desactualizado-tras-falla.test.sh
@@ -80,8 +79,8 @@
 6. `Grafo del proyecto` - 10 edges
 7. `Flujo de un entregable` - 10 edges
 8. `crearApp()` - 9 edges
-9. `cargarConfig()` - 9 edges
-10. `Configurar el MCP de Trello` - 9 edges
+9. `Configurar el MCP de Trello` - 9 edges
+10. `Alcance` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Carpetas` --references--> `test()`  [INFERRED]
@@ -98,15 +97,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (66 total, 35 thin omitted)
+## Communities (65 total, 35 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.08
-Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
+Cohesion: 0.06
+Nodes (36): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+28 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.09
-Nodes (19): Convención de nombres en código, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto, Setup de agents (+11 more)
+Nodes (20): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+12 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -200,13 +199,9 @@ Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 Cohesion: 0.13
 Nodes (19): desdeBaseDeDatos(), ErrorApi, ErrorApi, ESTADOS, aErrorApi(), desdeBaseDeDatos, desdeElCuerpo(), ErrorApi (+11 more)
 
-### Community 44 - "Alcance"
-Cohesion: 0.22
-Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
-
 ### Community 52 - "src/config.js"
-Cohesion: 0.09
-Nodes (28): { cargarConfig, cargarArchivoEnv }, development(), paraElCli(), production(), cargarArchivoEnv(), cargarConfig(), dotenv, entero() (+20 more)
+Cohesion: 0.07
+Nodes (33): { cargarConfigDeEntorno, cargarArchivoEnv }, development(), paraElCli(), production(), test(), cargarArchivoEnv(), cargarConfig(), cargarConfigDeEntorno() (+25 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
@@ -217,15 +212,15 @@ Cohesion: 0.50
 Nodes (3): printWidth, singleQuote, trailingComma
 
 ### Community 65 - "Arquitectura de AIPOS"
-Cohesion: 0.10
-Nodes (20): test(), Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla (+12 more)
+Cohesion: 0.11
+Nodes (18): Arquitectura de AIPOS, Base de datos, Calidad, Carpetas, Cómo se decide un diseño, Dinero, Diseño de la pantalla, Frontend (+10 more)
 
 ### Community 66 - "estructura.test.js"
-Cohesion: 0.08
-Nodes (15): base, { cargarConfig, cargarArchivoEnv }, require, archivosJs(), ejemplo, raiz, archivosJs(), backend (+7 more)
+Cohesion: 0.09
+Nodes (12): archivosJs(), ejemplo, raiz, archivosJs(), backend, paquete, raiz, require_ (+4 more)
 
 ## Knowledge Gaps
-- **304 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfig, cargarArchivoEnv }`, `name` (+299 more)
+- **304 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `{ cargarConfigDeEntorno, cargarArchivoEnv }`, `name` (+299 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 356 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -234,14 +229,14 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `errorHandler.js`?**
   _High betweenness centrality (0.134) - this node is a cross-community bridge._
-- **Why does `Lenguaje ubicuo — AIPOS` connect `Grafo del proyecto` to `src/config.js`?**
-  _High betweenness centrality (0.114) - this node is a cross-community bridge._
+- **Why does `production()` connect `src/config.js` to `Grafo del proyecto`?**
+  _High betweenness centrality (0.109) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
   _304 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05851063829787234 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

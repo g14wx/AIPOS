@@ -125,6 +125,18 @@
       "source_location": "L29"
     },
     {
+      "id": "backend_db_config_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L26"
+    },
+    {
       "id": "backend_src_config_cargararchivoenv",
       "label": "cargarArchivoEnv()",
       "_callable": true,
@@ -147,6 +159,18 @@
       "norm_label": "cargarconfig()",
       "source_file": "backend/src/config.js",
       "source_location": "L76"
+    },
+    {
+      "id": "backend_src_config_cargarconfigdeentorno",
+      "label": "cargarConfigDeEntorno()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "cargarconfigdeentorno()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L98"
     },
     {
       "id": "backend_src_config_entero",
@@ -281,18 +305,6 @@
       "source_location": "L11"
     },
     {
-      "id": "backend_db_config_test",
-      "label": "test()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L26"
-    },
-    {
       "id": "backend_tests_env_example_test_archivosjs",
       "label": "archivosJs()",
       "_callable": true,
@@ -411,6 +423,114 @@
       "norm_label": "01-alcance.md",
       "source_file": "requerimientos/01-alcance.md",
       "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_actores_y_partes",
+      "label": "Actores y partes",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "actores y partes",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "requerimientos_01_alcance_alcance",
+      "label": "Alcance",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance_fuera_de_alcance",
+      "label": "Fuera de alcance",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fuera de alcance",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
+      "label": "Lo que agregamos y el PDF no pide",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "lo que agregamos y el pdf no pide",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "requerimientos_01_alcance_objetivo",
+      "label": "Objetivo",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "objetivo",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "requerimientos_01_alcance_qu\u00e9_entra",
+      "label": "Qu\u00e9 entra",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que entra",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "requerimientos_01_alcance_restricciones",
+      "label": "Restricciones",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "restricciones",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "requerimientos_01_alcance_riesgos",
+      "label": "Riesgos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "riesgos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "requerimientos_01_alcance_supuestos",
+      "label": "Supuestos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "supuestos",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L70"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -907,6 +1027,18 @@
       "norm_label": "convencion de nombres en codigo",
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L9"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
+      "label": "Herramientas y proceso",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "herramientas y proceso",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L42"
     },
     {
       "id": "docs_lenguaje_ubicuo_historial_de_cambios",
@@ -4262,114 +4394,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance_actores_y_partes",
-      "label": "Actores y partes",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "actores y partes",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "requerimientos_01_alcance_alcance",
-      "label": "Alcance",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_01_alcance_fuera_de_alcance",
-      "label": "Fuera de alcance",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fuera de alcance",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "requerimientos_01_alcance_lo_que_agregamos_y_el_pdf_no_pide",
-      "label": "Lo que agregamos y el PDF no pide",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "lo que agregamos y el pdf no pide",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "requerimientos_01_alcance_objetivo",
-      "label": "Objetivo",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "objetivo",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "requerimientos_01_alcance_qu\u00e9_entra",
-      "label": "Qu\u00e9 entra",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que entra",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "requerimientos_01_alcance_restricciones",
-      "label": "Restricciones",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "restricciones",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "requerimientos_01_alcance_riesgos",
-      "label": "Riesgos",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "riesgos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "requerimientos_01_alcance_supuestos",
-      "label": "Supuestos",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "supuestos",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L70"
-    },
-    {
       "id": "tests_hook_de_git_marca_de_commit_test",
       "label": "marca-de-commit.test.sh",
       "_origin": "ast",
@@ -4729,13 +4753,13 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_db_config_cargarconfig_cargararchivoenv",
-      "label": "{ cargarConfig, cargarArchivoEnv }",
+      "id": "backend_db_config_cargarconfigdeentorno_cargararchivoenv",
+      "label": "{ cargarConfigDeEntorno, cargarArchivoEnv }",
       "_origin": "ast",
       "community": 52,
       "community_name": "src/config.js",
       "file_type": "code",
-      "norm_label": "{ cargarconfig, cargararchivoenv }",
+      "norm_label": "{ cargarconfigdeentorno, cargararchivoenv }",
       "source_file": "backend/db/config.js",
       "source_location": "L3"
     },
@@ -4883,6 +4907,50 @@
       "source_location": "L8"
     },
     {
+      "id": "backend_tests_config_test",
+      "label": "config.test.js",
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "config.test.js",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_config_test_base",
+      "label": "base",
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "base",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_config_test_cargarconfig_cargararchivoenv",
+      "label": "{ cargarConfig, cargarArchivoEnv }",
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "{ cargarconfig, cargararchivoenv }",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_tests_config_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/config.test.js",
+      "source_location": "L7"
+    },
+    {
       "id": "backend_tests_database_test",
       "label": "database.test.js",
       "_origin": "ast",
@@ -4971,16 +5039,28 @@
       "source_location": "L32"
     },
     {
-      "id": "docs_lenguaje_ubicuo_herramientas_y_proceso",
-      "label": "Herramientas y proceso",
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
+      "label": "entrega-trazable.md",
+      "_origin": "ast",
+      "community": 52,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "entrega-trazable.md",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
+      "label": "Entrega trazable",
       "_origin": "ast",
       "community": 52,
       "community_name": "src/config.js",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "herramientas y proceso",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L42"
+      "norm_label": "entrega trazable",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
     },
     {
       "id": "tests_arquitectura_spec_arquitectura_test",
@@ -5885,74 +5965,6 @@
       "source_location": "L563"
     },
     {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
-      "label": "entrega-trazable.md",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "entrega-trazable.md",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
-      "label": "Entrega trazable",
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega trazable",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_config_test",
-      "label": "config.test.js",
-      "_origin": "ast",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "file_type": "code",
-      "norm_label": "config.test.js",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_config_test_base",
-      "label": "base",
-      "_origin": "ast",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "file_type": "code",
-      "norm_label": "base",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_config_test_cargarconfig_cargararchivoenv",
-      "label": "{ cargarConfig, cargarArchivoEnv }",
-      "_origin": "ast",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "file_type": "code",
-      "norm_label": "{ cargarconfig, cargararchivoenv }",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_config_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/config.test.js",
-      "source_location": "L7"
-    },
-    {
       "id": "backend_tests_env_example_test",
       "label": "env-example.test.js",
       "_origin": "ast",
@@ -6396,6 +6408,18 @@
       "type": "external"
     },
     {
+      "id": "ref_node_os",
+      "label": "ref_node_os",
+      "_origin": "semantic",
+      "community": 52,
+      "community_name": "src/config.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_os",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_src_app_js",
       "label": "ref_src_app_js",
       "_origin": "semantic",
@@ -6552,18 +6576,6 @@
       "type": "external"
     },
     {
-      "id": "ref_node_os",
-      "label": "ref_node_os",
-      "_origin": "semantic",
-      "community": 66,
-      "community_name": "estructura.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_os",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_node_path",
       "label": "ref_node_path",
       "_origin": "semantic",
@@ -6591,7 +6603,7 @@
     },
     {
       "source": "backend_db_config_paraelcli",
-      "target": "backend_src_config_cargarconfig",
+      "target": "backend_src_config_cargarconfigdeentorno",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6719,6 +6731,18 @@
       "context": "call",
       "source_file": "backend/src/config.js",
       "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config_cargarconfigdeentorno",
+      "target": "backend_src_config_cargarconfig",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/config.js",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -7263,7 +7287,7 @@
     },
     {
       "source": "backend_db_config",
-      "target": "backend_src_config_cargarconfig",
+      "target": "backend_src_config_cargarconfigdeentorno",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8693,7 +8717,7 @@
     },
     {
       "source": "backend_db_config",
-      "target": "backend_db_config_cargarconfig_cargararchivoenv",
+      "target": "backend_db_config_cargarconfigdeentorno_cargararchivoenv",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13500,18 +13524,6 @@
     },
     {
       "source": "backend_src_config",
-      "target": "backend_src_config_cargararchivoenv",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "backend/src/config.js",
-      "source_location": "L98",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_src_config",
       "target": "backend_src_config_cargarconfig",
       "relation": "indirect_call",
       "_origin": "ast",
@@ -13519,7 +13531,31 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L98",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config",
+      "target": "backend_src_config_cargarconfigdeentorno",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "backend/src/config.js",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config",
+      "target": "backend_src_config_cargararchivoenv",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "backend/src/config.js",
+      "source_location": "L108",
       "weight": 1.0
     },
     {

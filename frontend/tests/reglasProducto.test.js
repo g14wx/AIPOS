@@ -335,7 +335,7 @@ describe('leerErrorDeLaApi (lo que el cajero ve según lo que contesta la API)',
     expect(leerErrorDeLaApi(error).campos).toEqual({ codigoBarras: TEXTO.codigoRepetido });
   });
 
-  it('un 409 con otro código no se adivina: va a la franja con el mensaje de la API', () => {
+  it('un 409 con otro código de error no se adivina: va a la franja con el mensaje de la API', () => {
     const error = errorDeLaApi({
       status: 409,
       codigo: 'CONFLICTO',

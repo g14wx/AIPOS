@@ -85,7 +85,11 @@ describe('crearProducto', () => {
     responderCon(http, {
       estado: 409,
       datos: {
-        error: { codigo: 'CODIGO_BARRAS_DUPLICADO', mensaje: 'Código repetido.', detalles },
+        error: {
+          codigo: 'CODIGO_BARRAS_DUPLICADO',
+          mensaje: 'Código de barras repetido.',
+          detalles,
+        },
       },
     });
     const error = await crearProducto(producto).catch((e) => e);

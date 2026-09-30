@@ -11,6 +11,8 @@ services:
       - --collation-server=utf8mb4_0900_ai_ci
       - --default-time-zone=+00:00
     environment:
+      # La imagen crea root@% por defecto (MYSQL_ROOT_HOST vale %): así `npm run preparar-prueba`, que corre
+      # en el host, entra como root por el puerto publicado, que solo escucha en 127.0.0.1.
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Falta MYSQL_ROOT_PASSWORD en el .env}
       MYSQL_DATABASE: ${MYSQL_DATABASE:?Falta MYSQL_DATABASE en el .env}
       MYSQL_USER: ${MYSQL_USER:?Falta MYSQL_USER en el .env}

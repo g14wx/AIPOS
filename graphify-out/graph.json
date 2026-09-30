@@ -5674,6 +5674,21 @@
       "source_location": "L107"
     },
     {
+      "id": "tests_despliegue_comun_crear_repo_de_mentira",
+      "label": "crear_repo_de_mentira()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "crear_repo_de_mentira()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L254"
+    },
+    {
       "id": "tests_despliegue_comun_crear_version",
       "label": "crear_version()",
       "_origin": "ast",
@@ -5732,6 +5747,21 @@
       "norm_label": "falla()",
       "source_file": "tests/despliegue/comun.sh",
       "source_location": "L23"
+    },
+    {
+      "id": "tests_despliegue_comun_g",
+      "label": "g()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "g()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L256"
     },
     {
       "id": "tests_despliegue_comun_igual",
@@ -5912,6 +5942,21 @@
       "norm_label": "regla_curl()",
       "source_file": "tests/despliegue/comun.sh",
       "source_location": "L210"
+    },
+    {
+      "id": "tests_despliegue_comun_revisar_etiqueta",
+      "label": "revisar_etiqueta()",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "despliegue/comun.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "revisar_etiqueta()",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L279"
     },
     {
       "id": "tests_despliegue_comun_servidor_con_version",
@@ -6875,6 +6920,51 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "label": "etiqueta-en-produccionenv.test.sh",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "etiqueta-en-produccionenv.test.sh",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "label": "G()",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "g()",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L13"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "label": "etiqueta-en-produccionenv.test.sh script",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "etiqueta-en-produccionenv.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "etiqueta-en-produccionenv.test.sh script",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -7009,6 +7099,36 @@
       "norm_label": "que no hacer",
       "source_file": "tessl-plugins/entrega-trazable/skills/flujo-entregable/SKILL.md",
       "source_location": "L110"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_release_test",
+      "label": "etiqueta-release.test.sh",
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "etiqueta-release.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "etiqueta-release.test.sh",
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_etiqueta_release_test_sh__entry",
+      "label": "etiqueta-release.test.sh script",
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "etiqueta-release.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "etiqueta-release.test.sh script",
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1"
     },
     {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
@@ -7475,6 +7595,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_instalar_caddy_test_sh__entry",
       "target": "tests_despliegue_instalar_caddy_test_armar",
       "relation": "calls",
@@ -7568,6 +7700,18 @@
       "context": "call",
       "source_file": "tests/grafo-del-proyecto/misma-version.test.sh",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun_crear_repo_de_mentira",
+      "target": "tests_despliegue_comun_g",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -12059,6 +12203,28 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_release_test",
+      "target": "tests_despliegue_etiqueta_release_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-release.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_instalar_caddy_test",
       "target": "tests_despliegue_instalar_caddy_test_sh__entry",
       "relation": "contains",
@@ -12555,6 +12721,28 @@
     },
     {
       "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_crear_repo_de_mentira",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
+      "target": "tests_despliegue_comun_revisar_etiqueta",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/comun.sh",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_comun",
       "target": "tests_despliegue_comun_comprobar",
       "relation": "defines",
       "_origin": "ast",
@@ -12694,6 +12882,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/desplegar-sin-imagen.test.sh",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_etiqueta_en_produccionenv_test",
+      "target": "tests_despliegue_etiqueta_en_produccionenv_test_g",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
+      "source_location": "L13",
       "weight": 1.0
     },
     {

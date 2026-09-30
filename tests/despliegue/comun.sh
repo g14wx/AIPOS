@@ -243,3 +243,42 @@ sin_borrar() {
     ok "$1: ninguna orden de docker borra datos"
   fi
 }
+
+# ---------------------------------------------------------------------------------------------------------------
+# Repositorio de git de mentira (para despliegue/revisar-etiqueta.sh)
+# ---------------------------------------------------------------------------------------------------------------
+
+# Crea en $1 un "origen" y un clon con la rama ProductionEnv (commit EN_PRODUCCION) y otra rama, feature/otra, que
+# sale de ProductionEnv y tiene un commit más (commit FUERA_DE_PRODUCCION). Deja el clon en $REPO_MENTIRA, con
+# origin/ProductionEnv al día. No toca la configuración global de git.
+crear_repo_de_mentira() {
+  local base="$1" g
+  g() { git -c user.name=Prueba -c user.email=prueba@example.com -c commit.gpgsign=false -c core.hooksPath=/dev/null "$@"; }
+  mkdir -p "$base"
+  g init -q --bare -b ProductionEnv "$base/origen.git"
+  REPO_MENTIRA="$base/clon"
+  g clone -q "$base/origen.git" "$REPO_MENTIRA" 2>/dev/null
+  (
+    cd "$REPO_MENTIRA"
+    g switch -q -c ProductionEnv
+    echo uno >archivo.txt
+    g add archivo.txt
+    g commit -q -m "primer commit en ProductionEnv"
+    g push -q -u origin ProductionEnv
+    g switch -q -c feature/otra
+    echo dos >>archivo.txt
+    g commit -q -am "commit que solo está en otra rama"
+    g push -q -u origin feature/otra
+    g switch -q ProductionEnv
+  )
+  EN_PRODUCCION="$(git -C "$REPO_MENTIRA" rev-parse ProductionEnv)"
+  FUERA_DE_PRODUCCION="$(git -C "$REPO_MENTIRA" rev-parse feature/otra)"
+}
+
+# Corre despliegue/revisar-etiqueta.sh dentro del clon de mentira; deja la salida en SALIDA y el código en CODIGO.
+revisar_etiqueta() {
+  set +e
+  SALIDA="$(cd "$REPO_MENTIRA" && bash "$RAIZ/despliegue/revisar-etiqueta.sh" "$@" 2>&1)"
+  CODIGO=$?
+  set -e
+}

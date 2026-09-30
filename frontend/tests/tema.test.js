@@ -150,6 +150,8 @@ describe('el CSS del tema pinta los errores y el aviso con la paleta (specs/arqu
       '.v-label.error--text',
       '.v-messages.error--text',
       '.v-counter.error--text',
+      // El contador de un campo con error no lleva la clase: hereda el rojo del campo (#55).
+      '.v-input.error--text .v-counter',
     ]) {
       expect(pintaCon(fragmento, 'color', 'var(--v-secondary-base) !important'), fragmento).toBe(
         true,
@@ -168,6 +170,8 @@ describe('el CSS del tema pinta los errores y el aviso con la paleta (specs/arqu
     expect(
       pintaCon('.v-snack__wrapper', 'border', '1px solid var(--v-primary-base) !important'),
     ).toBe(true);
+    // La sombra de elevación de Vuetify lleva más peso que una regla normal (#56).
+    expect(pintaCon('.v-snack__wrapper', 'box-shadow', 'none !important')).toBe(true);
     expect(css).not.toMatch(/border-(left|right)\s*:\s*[2-9]\d*px/);
   });
 

@@ -1,12 +1,12 @@
 # Graph Report - AIPOS  (2026-09-30)
 
 ## Corpus Check
-- 64 files · ~32,406 words
+- 64 files · ~32,752 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 12 file(s) not represented in the graph (top: .drawio 7, (none) 4, .example 1)
 
 ## Summary
-- 306 nodes · 297 edges · 52 communities (26 shown, 26 thin omitted)
+- 308 nodes · 300 edges · 52 communities (26 shown, 26 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -91,8 +91,8 @@ Cohesion: 0.17
 Nodes (10): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 06 · Trabajar una tarjeta con el agente (+2 more)
 
 ### Community 1 - "Grafo del proyecto"
-Cohesion: 0.08
-Nodes (21): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), Setup de agents, AIPOS (+13 more)
+Cohesion: 0.09
+Nodes (20): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), AIPOS, Grafo del proyecto (+12 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -119,8 +119,8 @@ Cohesion: 0.18
 Nodes (10): 0. Revisar el repositorio (una vez por proyecto), 1. Empezar el entregable, 2. Trabajar, 3. Abrir el PR, 4. Revisar antes de integrar, 5. Integrar, 6. Etiquetar, 7. Entrega final (+2 more)
 
 ### Community 8 - "Configurar el MCP de Trello"
-Cohesion: 0.20
-Nodes (10): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+2 more)
+Cohesion: 0.18
+Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
 
 ### Community 10 - "Tarjetas"
 Cohesion: 0.20
@@ -163,8 +163,8 @@ Cohesion: 0.33
 Nodes (5): Custom v-model, Example: point-of-sale screen, Reactivity, Vue 3 / Vuetify 3 habit and its Vue 2 / Vuetify 2 form, Vuetify 2 components (Vue 2.7)
 
 ### Community 21 - "Grafo del proyecto"
-Cohesion: 0.40
-Nodes (4): Al terminar una tarea, Antes de empezar una tarea, Cuándo no usarlo, Grafo del proyecto
+Cohesion: 0.33
+Nodes (5): Al terminar una tarea, Antes de empezar una tarea, Antes de integrar un PR, Cuándo no usarlo, Grafo del proyecto
 
 ### Community 23 - "AGENTS.md"
 Cohesion: 0.50
@@ -175,8 +175,8 @@ Cohesion: 0.50
 Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
 
 ### Community 25 - "Comandos útiles"
-Cohesion: 0.17
-Nodes (12): 1. Instalar Graphify, 2. Activar el hook de git, 3. Verificar, Comandos útiles, Flujo de una tarea, Privacidad, Qué es y para qué sirve, Qué no usamos, y por qué (+4 more)
+Cohesion: 0.15
+Nodes (13): 1. Instalar Graphify, 2. Activar el hook de git, 3. Verificar, Antes de integrar un PR, Comandos útiles, Flujo de una tarea, Privacidad, Qué es y para qué sirve (+5 more)
 
 ### Community 27 - "ignora-lo-local.test.sh"
 Cohesion: 0.83
@@ -191,8 +191,8 @@ Cohesion: 0.50
 Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
 
 ## Knowledge Gaps
-- **190 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+185 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 222 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **192 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+187 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 224 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -205,9 +205,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Setup de Tessl` connect `Trabajar en un tile` to `Grafo del proyecto`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _190 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _192 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.08262108262108261 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

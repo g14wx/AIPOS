@@ -7,7 +7,7 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 | Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 6 h 36 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–23:17), en curso | 28 | 15 |
+| Preparación: agentes, tiles y glosario | 7 h 22 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:40–00:03 del 30), en curso | 29 | 17 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
 
 ## Entradas
@@ -358,3 +358,13 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** ninguna descartada.
 - **Tiempo:** 22:49–23:17.
 - **Commits:** este commit y los 5 anteriores (la spec con los hallazgos y las cuatro correcciones), en el PR #19.
+
+### 2026-09-29 23:19 — Segunda revisión de Codex del PR #19
+
+- **Tarea:** revisar otra vez el PR #19 con Codex, después de las correcciones de la primera revisión.
+- **Agente:** Codex revisó con `codex review --base origin/main`, en el worktree del PR; Claude Code (Opus 5.5) propuso las correcciones y las aplicó.
+- **Qué hizo el agente:** Codex confirmó primero el arreglo del arranque: vio archivos más nuevos que `.tessl/RULES.md`, corrió `tessl install` y siguió sin pedir una sesión nueva. Encontró 5 hallazgos: 2 P1 de Windows (CRLF en el hook de git y en `graphify --version`) y 3 P2 (el reporte decía "va al día" después de una falla, los merges no corrían el hook de git, y el hook de Claude Code no funcionaba en PowerShell). Claude Code verificó en la documentación de Claude Code que en Windows los hooks corren con Git Bash, y en la web que el botón de GitHub no respeta los drivers de merge de `.gitattributes`. Corrigió los cuatro primeros con 5 pruebas nuevas; las 18 pruebas pasan. Probó con Apple Git 2.54.0 que git no mete en el merge commit lo que agrega `pre-merge-commit`, así que ese hook detiene el merge y pide `git commit --no-edit`. El quinto quedó explicado, con Git for Windows como requisito en la guía. La regla, la guía y el flujo 05 piden poner la rama al día en local antes de integrar un PR.
+- **Revisión de la persona:** aprobó corregir del 1 al 4 y explicar el 5, aprobó la spec y aceptó que un merge que cambia el grafo se detenga y pida `git commit --no-edit`.
+- **Propuestas cambiadas o descartadas:** un `pre-merge-commit` que solo agregara el grafo, como pedía Codex → detiene el merge y pide `git commit --no-edit` → git no mete en el merge commit lo que ese hook agrega. Hacer el hook de Claude Code independiente del shell → se explica sin cambiarlo → en Windows corre con Git Bash, y el cambio rompía la búsqueda en `~/.local/bin`.
+- **Tiempo:** 23:19–00:03 del 30.
+- **Commits:** este commit y los 5 anteriores (la spec, los saltos de línea LF, la versión sin `\r`, el reporte desactualizado y el hook de git `pre-merge-commit` con el glosario), en el PR #19.

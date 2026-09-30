@@ -29,3 +29,15 @@ que están en `tessl-plugins/`. La guía está en [docs/setup/tessl-setup.md](do
 - Cambiar un tile, validarlo y reinstalarlo
 - Medir un tile con evals y publicarlo en el registro de Tessl
 - Solución de problemas
+
+## Grafo del proyecto
+
+El grafo del proyecto es un mapa de los archivos, funciones, documentos y specs de AIPOS, armado con
+[Graphify](https://github.com/Graphify-Labs/graphify). El agente lo consulta antes de empezar cada tarea, y un
+hook de git lo actualiza en cada commit. La guía está en [docs/setup/graphify-setup.md](docs/setup/graphify-setup.md)
+e incluye:
+
+- Instalar Graphify y activar el hook de git
+- El flujo de una tarea con el grafo y las specs
+- Qué va a git y qué no
+- Solución de problemas

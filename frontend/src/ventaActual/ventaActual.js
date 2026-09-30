@@ -57,16 +57,22 @@ function detalleNuevo(producto) {
   return { productoId: producto.id, nombre: producto.nombre, precioAplicado, cantidad: 1 };
 }
 
-// Quita el error de cantidad de un detalle (el campo vuelve a mostrar el valor válido) y deja los demás errores.
-// Si el detalle se queda sin errores, su clave se va: sin errores, errores es {} y la venta actual puede registrarse.
-function sinErrorDeCantidad(errores, productoId) {
-  if (!errores[productoId] || !('cantidad' in errores[productoId])) return errores;
+// Los errores sin el de un campo de un detalle («precioAplicado» o «cantidad»): el campo vuelve a mostrar su valor válido
+// y los demás errores se quedan. Si el detalle se queda sin errores, su clave se va: sin errores, errores es {} y la venta
+// actual puede registrarse. Si el detalle no tenía ese error devuelve los mismos errores.
+function sinErrorDeCampo(errores, productoId, campo) {
+  if (!errores[productoId] || !(campo in errores[productoId])) return errores;
   const restantes = { ...errores[productoId] };
-  delete restantes.cantidad;
+  delete restantes[campo];
   const nuevos = { ...errores };
   if (Object.keys(restantes).length === 0) delete nuevos[productoId];
   else nuevos[productoId] = restantes;
   return nuevos;
+}
+
+// Los errores con el mensaje de un campo de un detalle, sin tocar sus otros campos ni los otros detalles.
+function conErrorDeCampo(errores, productoId, campo, mensaje) {
+  return { ...errores, [productoId]: { ...errores[productoId], [campo]: mensaje } };
 }
 
 // Quita todos los errores de un detalle (los de su precio aplicado y los de su cantidad). Si no tenía, devuelve los mismos.
@@ -105,25 +111,8 @@ export function agregarAVentaActual(ventaActual, producto) {
     detalles: detalles.map((detalle) =>
       detalle === actual ? { ...detalle, cantidad: detalle.cantidad + 1 } : detalle,
     ),
-    errores: sinErrorDeCantidad(errores, actual.productoId),
+    errores: sinErrorDeCampo(errores, actual.productoId, 'cantidad'),
   };
-}
-
-// Los errores sin el de un campo de un detalle, y sin la clave del detalle si se queda sin errores. Si el detalle no
-// tenía ese error devuelve los mismos errores.
-function sinErrorDeCampo(errores, productoId, campo) {
-  if (!errores[productoId] || !(campo in errores[productoId])) return errores;
-  const restantes = { ...errores[productoId] };
-  delete restantes[campo];
-  const nuevos = { ...errores };
-  if (Object.keys(restantes).length === 0) delete nuevos[productoId];
-  else nuevos[productoId] = restantes;
-  return nuevos;
-}
-
-// Los errores con el mensaje de un campo de un detalle, sin tocar sus otros campos ni los otros detalles.
-function conErrorDeCampo(errores, productoId, campo, mensaje) {
-  return { ...errores, [productoId]: { ...errores[productoId], [campo]: mensaje } };
 }
 
 // Editar el precio aplicado de un detalle (RF-05, RN-05). `texto` es lo que escribió el cajero. Si es válido, el detalle
@@ -159,14 +148,16 @@ export function cambiarCantidad(ventaActual, productoId, valor) {
   if (!detalles.some((detalle) => detalle.productoId === productoId)) return ventaActual;
   const resultado = validarCantidad(valor);
   if (!resultado.valido) {
-    const delDetalle = { ...errores[productoId], cantidad: resultado.mensaje };
-    return { detalles, errores: { ...errores, [productoId]: delDetalle } };
+    return {
+      detalles,
+      errores: conErrorDeCampo(errores, productoId, 'cantidad', resultado.mensaje),
+    };
   }
   return {
     detalles: detalles.map((detalle) =>
       detalle.productoId === productoId ? { ...detalle, cantidad: resultado.valor } : detalle,
     ),
-    errores: sinErrorDeCantidad(errores, productoId),
+    errores: sinErrorDeCampo(errores, productoId, 'cantidad'),
   };
 }
 

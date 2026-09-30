@@ -8,8 +8,8 @@
       "label": "cargarHttp()",
       "_callable": true,
       "_origin": "ast",
-      "community": 24,
-      "community_name": "http.test.js",
+      "community": 11,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "cargarhttp()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -20,8 +20,8 @@
       "label": "responderCon()",
       "_callable": true,
       "_origin": "ast",
-      "community": 24,
-      "community_name": "http.test.js",
+      "community": 11,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/http.test.js",
@@ -218,6 +218,34 @@
       "norm_label": "mayusculas()",
       "source_file": "frontend/tests/tema.test.js",
       "source_location": "L21"
+    },
+    {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_01_alcance",
+      "label": "01-alcance.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-alcance.md",
+      "source_file": "requerimientos/01-alcance.md",
+      "source_location": "L1"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales",
@@ -1124,6 +1152,17 @@
       "source_location": "L72"
     },
     {
+      "id": "frontend_src_api_http",
+      "label": "../../src/api/http.js",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "../../src/api/http.js",
+      "source_file": "frontend/src/api/http.js"
+    },
+    {
       "id": "frontend_package",
       "label": "package.json",
       "_origin": "ast",
@@ -1377,6 +1416,17 @@
       "source_location": "L3"
     },
     {
+      "id": "frontend_tests_api_http_test",
+      "label": "http.test.js",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "http.test.js",
+      "source_file": "frontend/tests/api/http.test.js",
+      "source_location": "L1"
+    },
+    {
       "id": "frontend_vite_config",
       "label": "vite.config.js",
       "_origin": "ast",
@@ -1386,6 +1436,17 @@
       "norm_label": "vite.config.js",
       "source_file": "frontend/vite.config.js",
       "source_location": "L1"
+    },
+    {
+      "id": "ref_axios",
+      "label": "axios",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "axios",
+      "source_file": "frontend/package.json",
+      "source_location": "L22"
     },
     {
       "id": "ref_eslint",
@@ -2692,37 +2753,148 @@
       "source_location": "L11"
     },
     {
-      "id": "frontend_src_api_http",
-      "label": "../../src/api/http.js",
+      "id": "product",
+      "label": "PRODUCT.md",
       "_origin": "ast",
       "community": 24,
-      "community_name": "http.test.js",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "../../src/api/http.js",
-      "source_file": "frontend/src/api/http.js"
-    },
-    {
-      "id": "frontend_tests_api_http_test",
-      "label": "http.test.js",
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "http.test.js",
-      "file_type": "code",
-      "norm_label": "http.test.js",
-      "source_file": "frontend/tests/api/http.test.js",
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "product.md",
+      "source_file": "PRODUCT.md",
       "source_location": "L1"
     },
     {
-      "id": "ref_axios",
-      "label": "axios",
+      "id": "product_accessibility_inclusion",
+      "label": "Accessibility & Inclusion",
       "_origin": "ast",
       "community": 24,
-      "community_name": "http.test.js",
-      "file_type": "concept",
-      "norm_label": "axios",
-      "source_file": "frontend/package.json",
-      "source_location": "L22"
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "accessibility & inclusion",
+      "source_file": "PRODUCT.md",
+      "source_location": "L65"
+    },
+    {
+      "id": "product_brand_commitments",
+      "label": "Brand Commitments",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "brand commitments",
+      "source_file": "PRODUCT.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "product_capabilities_and_constraints",
+      "label": "Capabilities and Constraints",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "capabilities and constraints",
+      "source_file": "PRODUCT.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "product_evidence_on_hand",
+      "label": "Evidence on Hand",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "evidence on hand",
+      "source_file": "PRODUCT.md",
+      "source_location": "L52"
+    },
+    {
+      "id": "product_operating_context",
+      "label": "Operating Context",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "operating context",
+      "source_file": "PRODUCT.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "product_platform",
+      "label": "Platform",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "platform",
+      "source_file": "PRODUCT.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "product_positioning",
+      "label": "Positioning",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "positioning",
+      "source_file": "PRODUCT.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "product_product",
+      "label": "Product",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product",
+      "source_file": "PRODUCT.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "product_product_principles",
+      "label": "Product Principles",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product principles",
+      "source_file": "PRODUCT.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "product_product_purpose",
+      "label": "Product Purpose",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product purpose",
+      "source_file": "PRODUCT.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "product_users",
+      "label": "Users",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "users",
+      "source_file": "PRODUCT.md",
+      "source_location": "L13"
     },
     {
       "id": "docs_setup_graphify_setup_1_instalar_graphify",
@@ -3811,18 +3983,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_01_alcance",
-      "label": "01-alcance.md",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "Alcance",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-alcance.md",
-      "source_file": "requerimientos/01-alcance.md",
-      "source_location": "L1"
-    },
-    {
       "id": "requerimientos_01_alcance_actores_y_partes",
       "label": "Actores y partes",
       "_origin": "ast",
@@ -3929,22 +4089,6 @@
       "norm_label": "supuestos",
       "source_file": "requerimientos/01-alcance.md",
       "source_location": "L70"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
     },
     {
       "id": "specs_arquitectura_spec_arquitectura_de_aipos",
@@ -7803,6 +7947,127 @@
       "confidence_score": 1.0,
       "source_file": ".githooks/pre-merge-commit",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "product",
+      "target": "product_product",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_users",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_product_purpose",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_positioning",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_operating_context",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_capabilities_and_constraints",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_brand_commitments",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_evidence_on_hand",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_product_principles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_accessibility_inclusion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_platform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L9",
       "weight": 1.0
     },
     {

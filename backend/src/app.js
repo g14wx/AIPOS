@@ -7,7 +7,8 @@ const { crearRouterApi, montajes: montajesDeLaApi } = require('./routes');
 const noEncontrado = require('./middlewares/noEncontrado');
 const errorHandler = require('./middlewares/errorHandler');
 
-// Arma la app y no escucha ningún puerto: las pruebas usan supertest(app). Solo servidor.js escucha.
+// Arma la app y no escucha ningún puerto. crearServidor la envuelve en un servidor de Node, y ese servidor lo pone a
+// escuchar servidor.js (y las pruebas, en 127.0.0.1, con tests/servidor-de-prueba.js).
 // El orden importa: helmet, cors, JSON, rutas de /api, ruta no encontrada y, al final, el manejador de errores.
 function crearApp(config = require('./config').config, { montajes = montajesDeLaApi } = {}) {
   const app = express();

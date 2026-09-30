@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 98 files · ~93,183 words
+- 99 files · ~93,716 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 627 nodes · 661 edges · 83 communities (38 shown, 45 thin omitted)
+- 637 nodes · 676 edges · 82 communities (37 shown, 45 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Configurar el MCP de Trello
+- Grafo del proyecto
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -88,8 +88,7 @@
 - sin-datos-privados.test.sh
 - github-environment-y-etiquetas.test.sh
 - compose-produccion.test.sh
-- Grafo del proyecto
-- Lenguaje ubicuo — AIPOS
+- revisar-produccion.sh
 - sin-borrar-datos.test.sh
 - imagenes.test.sh
 - documentos.test.sh
@@ -115,15 +114,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (83 total, 45 thin omitted)
+## Communities (82 total, 45 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.06
-Nodes (31): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+23 more)
+Cohesion: 0.07
+Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
 
-### Community 1 - "Configurar el MCP de Trello"
-Cohesion: 0.18
-Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
+### Community 1 - "Grafo del proyecto"
+Cohesion: 0.06
+Nodes (31): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), 1. Crear el board en Trello, 2. Obtener el API key (+23 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -253,13 +252,9 @@ Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.
 Cohesion: 0.70
 Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 
-### Community 75 - "Grafo del proyecto"
-Cohesion: 0.18
-Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
-
-### Community 76 - "Lenguaje ubicuo — AIPOS"
+### Community 75 - "revisar-produccion.sh"
 Cohesion: 0.33
-Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
 
 ### Community 78 - "imagenes.test.sh"
 Cohesion: 0.38
@@ -278,16 +273,16 @@ Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `Despliegue de AIPOS` connect `Despliegue de AIPOS` to `requerimientos/README.md`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Why does `Documentación de la API` connect `Documentación de la API` to `requerimientos/README.md`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `revisar-etiqueta.sh script`, `name`, `mode` to the rest of the system?**
   _358 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
+- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
+  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

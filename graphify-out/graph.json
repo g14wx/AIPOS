@@ -700,6 +700,30 @@
       "source_location": "L55"
     },
     {
+      "id": "frontend_tests_api_crear_producto_test_cargar",
+      "label": "cargar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "cargar()",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_tests_api_crear_producto_test_respondercon",
+      "label": "responderCon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "respondercon()",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L18"
+    },
+    {
       "id": "frontend_tests_api_http_test_cargarhttp",
       "label": "cargarHttp()",
       "_callable": true,
@@ -722,30 +746,6 @@
       "norm_label": "respondercon()",
       "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L16"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_cargar",
-      "label": "cargar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "vitest",
-      "file_type": "code",
-      "norm_label": "cargar()",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_respondercon",
-      "label": "responderCon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "vitest",
-      "file_type": "code",
-      "norm_label": "respondercon()",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L18"
     },
     {
       "id": "frontend_src_app_data",
@@ -5426,6 +5426,28 @@
       "source_location": "L11"
     },
     {
+      "id": "frontend_tests_api_crear_producto_test",
+      "label": "crear-producto.test.js",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "crear-producto.test.js",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_api_crear_producto_test_producto",
+      "label": "producto",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "vitest",
+      "file_type": "code",
+      "norm_label": "producto",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L30"
+    },
+    {
       "id": "frontend_tests_api_http_test",
       "label": "http.test.js",
       "_origin": "ast",
@@ -5435,28 +5457,6 @@
       "norm_label": "http.test.js",
       "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_api_productos_test",
-      "label": "productos.test.js",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "vitest",
-      "file_type": "code",
-      "norm_label": "productos.test.js",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_producto",
-      "label": "producto",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "vitest",
-      "file_type": "code",
-      "norm_label": "producto",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L30"
     },
     {
       "id": "ref_axios",
@@ -8406,6 +8406,30 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_tests_api_crear_producto_test",
+      "target": "frontend_tests_api_crear_producto_test_cargar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_api_crear_producto_test",
+      "target": "frontend_tests_api_crear_producto_test_respondercon",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_api_http_test",
       "target": "frontend_tests_api_http_test_respondercon",
       "relation": "contains",
@@ -8427,30 +8451,6 @@
       "context": "call",
       "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_api_productos_test",
-      "target": "frontend_tests_api_productos_test_cargar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_api_productos_test",
-      "target": "frontend_tests_api_productos_test_respondercon",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -8874,6 +8874,32 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_tests_api_crear_producto_test_cargar",
+      "target": "frontend_src_api_http",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "deferred": true,
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_api_crear_producto_test_cargar",
+      "target": "frontend_src_api_productos",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "deferred": true,
+      "source_file": "frontend/tests/api/crear-producto.test.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_tests_api_http_test_cargarhttp",
       "target": "frontend_src_api_http",
       "relation": "imports_from",
@@ -8884,32 +8910,6 @@
       "deferred": true,
       "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_api_productos_test_cargar",
-      "target": "frontend_src_api_http",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "deferred": true,
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_tests_api_productos_test_cargar",
-      "target": "frontend_src_api_productos",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "deferred": true,
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -9950,50 +9950,50 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_api_http_test",
+      "source": "frontend_tests_api_crear_producto_test",
       "target": "ref_vitest",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "frontend/tests/api/http.test.js",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
       "source_location": "L4",
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_api_http_test",
+      "source": "frontend_tests_api_crear_producto_test",
       "target": "ref_axios",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "frontend/tests/api/http.test.js",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
       "source_location": "L5",
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_api_productos_test",
+      "source": "frontend_tests_api_http_test",
       "target": "ref_vitest",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "frontend/tests/api/productos.test.js",
+      "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L4",
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_api_productos_test",
+      "source": "frontend_tests_api_http_test",
       "target": "ref_axios",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "frontend/tests/api/productos.test.js",
+      "source_file": "frontend/tests/api/http.test.js",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -12330,13 +12330,13 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_tests_api_productos_test",
-      "target": "frontend_tests_api_productos_test_producto",
+      "source": "frontend_tests_api_crear_producto_test",
+      "target": "frontend_tests_api_crear_producto_test_producto",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "frontend/tests/api/productos.test.js",
+      "source_file": "frontend/tests/api/crear-producto.test.js",
       "source_location": "L30",
       "weight": 1.0
     },
@@ -15300,6 +15300,24 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_tests_api_crear_producto_test",
+      "target": "frontend_src_api_http",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/tests/api/crear-producto.test.js"
+    },
+    {
+      "source": "frontend_tests_api_crear_producto_test",
+      "target": "frontend_src_api_productos",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/tests/api/crear-producto.test.js"
+    },
+    {
       "source": "frontend_tests_api_http_test",
       "target": "frontend_src_api_http",
       "relation": "dynamic_import",
@@ -15307,24 +15325,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/api/http.test.js"
-    },
-    {
-      "source": "frontend_tests_api_productos_test",
-      "target": "frontend_src_api_http",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/tests/api/productos.test.js"
-    },
-    {
-      "source": "frontend_tests_api_productos_test",
-      "target": "frontend_src_api_productos",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/tests/api/productos.test.js"
     },
     {
       "source": "frontend_tests_vitest_vue2_test",

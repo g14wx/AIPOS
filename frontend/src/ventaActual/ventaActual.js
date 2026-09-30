@@ -1,4 +1,5 @@
 import { aCentavos, formatearCentavos } from '../dinero.js';
+import { CANTIDAD_MAXIMA, validarCantidad } from './validaciones.js';
 
 // La lógica de la venta actual vive aquí y no en los componentes, para probarla sin pantalla (RNF-06).
 // Son funciones puras: reciben la venta actual y devuelven una nueva (o la misma, si nada cambió), sin modificar lo que
@@ -8,8 +9,9 @@ import { aCentavos, formatearCentavos } from '../dinero.js';
 
 // RN-14: una venta tiene como máximo 100 detalles. Evita que el total pase de DECIMAL(12,2).
 export const MAXIMO_DETALLES = 100;
-// RN-06: la cantidad de un detalle es un entero de 1 a 999.
-export const CANTIDAD_MAXIMA = 999;
+// RN-06: la cantidad de un detalle es un entero de 1 a 999. El límite vive en validaciones.js, que valida lo que escribe el
+// cajero, y se reexporta aquí: App.vue y las pruebas lo leen de este módulo.
+export { CANTIDAD_MAXIMA };
 // Lo que acepta la API de crear producto (RN-04), contado en caracteres: un emoji es uno solo, como en MySQL.
 export const LARGO_MAXIMO_NOMBRE = 120;
 
@@ -85,6 +87,27 @@ export function agregarAVentaActual(ventaActual, producto) {
       detalle === actual ? { ...detalle, cantidad: detalle.cantidad + 1 } : detalle,
     ),
     errores: sinErrorDeCantidad(errores, actual.productoId),
+  };
+}
+
+// Cambiar la cantidad de un detalle (RF-06), con los botones «+» y «−» (la cantidad válida más 1 o menos 1) o con lo que
+// escribió el cajero. Si el valor sirve, el detalle queda con esa cantidad y se quita su error de cantidad. Si no sirve, el
+// detalle conserva su última cantidad válida y el mensaje queda como error de un campo del detalle: «Registrar venta» se
+// deshabilita hasta corregirlo. Un producto que ya no está (el cajero pudo eliminarlo un instante antes) devuelve LA
+// MISMA venta actual, sin error.
+export function cambiarCantidad(ventaActual, productoId, valor) {
+  const { detalles, errores } = ventaActual;
+  if (!detalles.some((detalle) => detalle.productoId === productoId)) return ventaActual;
+  const resultado = validarCantidad(valor);
+  if (!resultado.valido) {
+    const delDetalle = { ...errores[productoId], cantidad: resultado.mensaje };
+    return { detalles, errores: { ...errores, [productoId]: delDetalle } };
+  }
+  return {
+    detalles: detalles.map((detalle) =>
+      detalle.productoId === productoId ? { ...detalle, cantidad: resultado.valor } : detalle,
+    ),
+    errores: sinErrorDeCantidad(errores, productoId),
   };
 }
 

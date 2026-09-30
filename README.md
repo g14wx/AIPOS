@@ -225,8 +225,9 @@ separado.
 
 - Git.
 - Docker con Compose v2: `docker compose version` tiene que responder.
-- Node.js 24, el del archivo `.nvmrc`. Con [nvm](https://github.com/nvm-sh/nvm), `nvm install` y `nvm use` lo eligen solos. npm
-  viene con Node.
+- Node.js 24, el del archivo `.nvmrc`. Con [nvm](https://github.com/nvm-sh/nvm), `nvm install` y `nvm use` lo eligen solos. Sin
+  nvm, instala Node 24 o más nuevo desde <https://nodejs.org> y comprueba que `node --version` responda v24 o más, y salta el
+  paso 2. npm viene con Node.
 
 ### Pasos desde un clon limpio
 
@@ -282,6 +283,9 @@ La documentación de la API está en <http://localhost:3000/api/docs>.
 4. Presiona «Registrar venta». La pantalla muestra «Venta 1 registrada · Total 44.00» y deja vacía la venta actual. Con la
    base recién creada la venta es la 1; si ya hay ventas, el número cambia.
 
+La pantalla guarda la venta actual en el navegador y la recupera al recargar. Si ya habías probado y quedó una venta
+actual a medias, elimina sus detalles o usa una ventana privada: si no, el producto se suma a lo que ya había.
+
 ### Otros puertos o varias copias
 
 Los dos proyectos leen el mismo `.env`, el de la raíz. Para cambiar un puerto, o para tener dos copias a la vez, cambia
@@ -322,7 +326,9 @@ fallas=0; for prueba in $(find tests -name '*.test.sh' | sort); do bash "$prueba
 corriendo, se omite y lo dice.
 
 npm puede mostrar avisos al instalar (`npm warn install-scripts` y el resumen de `npm audit`). No son errores: la
-instalación termina bien. Lo de `npm audit` está en el punto 12.
+instalación termina bien. Lo de `npm audit` está en el punto 12. Tampoco son errores otros dos avisos: las pruebas de la
+pantalla imprimen «Not implemented: HTMLCanvasElement's getContext()», un aviso de jsdom por la animación, y el build
+avisa «Some chunks are larger than 500 kB». Los dos comandos terminan bien.
 
 ### Despliegue (agregado: la prueba no lo pide)
 

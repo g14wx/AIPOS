@@ -1,12 +1,12 @@
 # Graph Report - f-01  (2026-09-30)
 
 ## Corpus Check
-- 276 files · ~240,381 words
+- 276 files · ~240,386 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
 ## Summary
-- 2012 nodes · 3450 edges · 186 communities (134 shown, 52 thin omitted)
+- 2012 nodes · 3452 edges · 186 communities (134 shown, 52 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 160 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -72,7 +72,7 @@
 - despliegue/comun.sh
 - desplegar.sh
 - revisar-produccion.sh
-- documentacion-crear-producto.test.js
+- documentacion.js
 - arranque-local.test.sh
 - instalar-caddy.test.sh
 - imagenes.test.sh
@@ -359,9 +359,9 @@ Nodes (17): bajar_imagenes(), comprobar_env(), comprobar_etiqueta(), dc(), despl
 Cohesion: 0.33
 Nodes (9): cabecera_cors(), pedir(), revisar(), revisar_cors_otro(), revisar_cors_permitido(), revisar_docs(), revisar_pantalla(), revisar_salud() (+1 more)
 
-### Community 60 - "documentacion-crear-producto.test.js"
+### Community 60 - "documentacion.js"
 Cohesion: 0.08
-Nodes (22): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivosJs(), backend, raiz (+14 more)
+Nodes (23): cargarDocumentacionApi(), fs, { parse }, path, RUTA_DEL_DOCUMENTO, archivosJs(), backend, raiz (+15 more)
 
 ### Community 61 - "arranque-local.test.sh"
 Cohesion: 0.46
@@ -404,8 +404,8 @@ Cohesion: 0.11
 Nodes (18): description, engines, node, eslint, eslint-config-prettier, @eslint/js, globals, prettier (+10 more)
 
 ### Community 88 - "ref_node_module"
-Cohesion: 0.09
-Nodes (16): crearProxyCongelable(), require, sequelize, app, require, sequelize, app, { cargarDocumentacionApi } (+8 more)
+Cohesion: 0.12
+Nodes (10): crearProxyCongelable(), require, sequelize, app, require, sequelize, app, { cargarDocumentacionApi } (+2 more)
 
 ### Community 89 - "backend/package.json"
 Cohesion: 0.11
@@ -748,8 +748,8 @@ Cohesion: 0.10
 Nodes (19): `agregarAVentaActual` (V-04), Armar la venta actual, `cambiarCantidad` y `validarCantidad` (V-06), Casos de error y bordes, Criterios de aceptación, Cómo se decidió el diseño, El módulo (`src/ventaActual/`), `eliminarDetalle` (V-07) (+11 more)
 
 ### Community 187 - "documentacion-registrar-venta.test.js"
-Cohesion: 0.12
-Nodes (15): docs, montajes, productos, { Router }, salud, ventas, { cargarDocumentacionApi }, contexto (+7 more)
+Cohesion: 0.09
+Nodes (20): docs, montajes, productos, { Router }, salud, ventas, { cargarDocumentacionApi }, documento (+12 more)
 
 ### Community 188 - "sp-registrar-venta-todo-o-nada.test.js"
 Cohesion: 0.22

@@ -9,7 +9,7 @@ const LARGO_MAXIMO_DE_LA_BUSQUEDA = 120;
 const MENSAJE_DE_LA_BUSQUEDA = `El texto de búsqueda debe tener entre ${LARGO_MINIMO_DE_LA_BUSQUEDA} y ${LARGO_MAXIMO_DE_LA_BUSQUEDA} caracteres.`;
 
 // Recibe el valor crudo de req.query.busqueda y devuelve el texto limpio, o lanza un 400 DATOS_INVALIDOS con el
-// campo busqueda en detalles. Un valor que no es texto (por ejemplo la lista de ?busqueda=a&busqueda=b) es un 400:
+// campo busqueda en los detalles del error. Un valor que no es texto (por ejemplo la lista de ?busqueda=a&busqueda=b) es un 400:
 // no se convierte. Es lo primero que corre: un texto inválido no llega a la base de datos (Input Validation).
 function validarBusqueda(valor) {
   const texto = validarTexto(valor, 'busqueda', { maximo: LARGO_MAXIMO_DE_LA_BUSQUEDA });

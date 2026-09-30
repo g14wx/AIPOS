@@ -48,8 +48,8 @@ paths:
       summary: Buscar productos por una parte del nombre o por su código de barras
       description: |
         Busca por una parte del nombre, sin importar mayúsculas ni tildes, o por el código de barras exacto (un pedazo
-        del código no cuenta). Trae 20 productos como máximo: primero el que tiene ese código de barras y después los
-        demás por nombre, de la A a la Z. Si nada coincide, responde 200 con la lista vacía.
+        del código de barras no cuenta). Trae 20 productos como máximo: primero el que tiene ese código de barras y
+        después los demás por nombre, de la A a la Z. Si nada coincide, responde 200 con la lista vacía.
 
         `%`, `_` y `\` se buscan como texto normal: buscar `50%` solo encuentra nombres que tengan `50%`.
         Solo lee: no cambia nada.

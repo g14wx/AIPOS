@@ -132,7 +132,7 @@ describe('la ruta real dice lo mismo que su documentación', () => {
     expect(producto.precio).toMatch(new RegExp(properties.precio.pattern));
   });
 
-  it('el 400 real tiene la forma de RespuestaDeError y el código que documenta DatosInvalidos', async () => {
+  it('el 400 real tiene la forma de RespuestaDeError y el codigo del error que documenta DatosInvalidos', async () => {
     const ejemplo =
       resuelto.components.responses.DatosInvalidos.content['application/json'].example;
     const respuesta = await buscar('a');

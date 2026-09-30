@@ -182,7 +182,7 @@ describe('el código de barras se busca exacto', () => {
     expect(nombresDe(await buscar('999'))).toEqual(['Tornillo 999']);
   });
 
-  it('un texto que es el nombre de uno y el código de barras de otro trae los dos, el del código primero', async () => {
+  it('un texto que es el nombre de uno y el código de barras de otro trae los dos, el del código de barras primero', async () => {
     await crear({ nombre: 'Tornillo 999', codigoBarras: 'T-1', precio: '1.00' });
     await crear({ nombre: 'Zapato', codigoBarras: '999', precio: '90.00' });
     expect(nombresDe(await buscar('999'))).toEqual(['Zapato', 'Tornillo 999']);
@@ -206,7 +206,7 @@ describe('como máximo 20 resultados, siempre en el mismo orden', () => {
     expect(nombresDe(respuesta)).toEqual(nombres.slice(0, 20));
   });
 
-  it('criterio 11: dado un producto con el código de barras "222" y 25 productos con "222" en el nombre, cuando se busca "222", entonces el producto de ese código va primero', async () => {
+  it('criterio 11: dado un producto con el código de barras "222" y 25 productos con "222" en el nombre, cuando se busca "222", entonces el producto de ese código de barras va primero', async () => {
     const tornillos = Array.from({ length: 25 }, (_, i) => ({
       nombre: `Tornillo 222 ${String(i + 1).padStart(2, '0')}`,
       codigoBarras: `T-${i}`,
@@ -259,7 +259,7 @@ describe('el texto de búsqueda se valida antes de tocar la base de datos (400 D
   ];
 
   it.each(CASOS)(
-    'criterio 12: %s responde 400 con el campo busqueda en detalles y sin tocar MySQL',
+    'criterio 12: %s responde 400 con el campo busqueda en los detalles del error y sin tocar MySQL',
     async (nombre, pedirCaso) => {
       await crear(LECHE);
       const consultas = vi.spyOn(sequelize, 'query');

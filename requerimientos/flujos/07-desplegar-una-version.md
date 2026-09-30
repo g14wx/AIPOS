@@ -65,7 +65,7 @@ y la aprueba de nuevo.
 - Desplegar una rama o `main`: solo despliega una etiqueta `release-*`. Las etiquetas `entregable-<x>` y `v1.0.0` no
   arrancan el workflow.
 - Aprobar un despliegue por la persona desarrolladora: la aprobación es suya, en la página de la ejecución.
-- `docker compose down -v` o cualquier orden que borre el volumen de MySQL: son los datos de producción.
+- Nunca `docker compose down -v` ni otra orden que borre el volumen de MySQL: son los datos de producción.
 - Reiniciar Caddy o tocar el archivo de otro sitio: se recarga con `systemctl reload caddy`.
 - Escribir una dirección IP, el alias de acceso al servidor, un usuario del sistema o una credencial en git, en el
   tablero o en un commit.

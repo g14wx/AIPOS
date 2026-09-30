@@ -7266,6 +7266,66 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_compose_produccion_test",
+      "label": "compose-produccion.test.sh",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "compose-produccion.test.sh",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_compose_config",
+      "label": "compose_config()",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "compose_config()",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L31"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_dato",
+      "label": "dato()",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "dato()",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L44"
+    },
+    {
+      "id": "tests_despliegue_compose_produccion_test_sh__entry",
+      "label": "compose-produccion.test.sh script",
+      "_origin": "ast",
+      "community": 74,
+      "community_name": "compose-produccion.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "compose-produccion.test.sh script",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7547,6 +7607,18 @@
       "context": "call",
       "source_file": "tests/arranque/agents-md.test.sh",
       "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test_sh__entry",
+      "target": "tests_despliegue_compose_produccion_test_compose_config",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -12308,6 +12380,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_comun",
       "target": "tests_despliegue_comun_sh__entry",
       "relation": "contains",
@@ -12756,6 +12839,28 @@
       "confidence_score": 1.0,
       "source_file": "tests/arranque/agents-md.test.sh",
       "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_compose_config",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_compose_produccion_test",
+      "target": "tests_despliegue_compose_produccion_test_dato",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/compose-produccion.test.sh",
+      "source_location": "L44",
       "weight": 1.0
     },
     {

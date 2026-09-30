@@ -395,6 +395,44 @@ describe('lo que la API o la red contesten no borra lo escrito', () => {
     expect(mensajesDe('Nombre')).toEqual(['Es obligatorio.']);
   });
 
+  it('criterio 7: el mensaje de un 400 se queda a la vista si el cajero sale del campo sin editarlo (#66)', async () => {
+    await guardarConError(
+      errorDeLaApi({
+        status: 400,
+        codigo: 'DATOS_INVALIDOS',
+        mensaje: 'Los datos del producto no son válidos. Revisa los campos marcados.',
+        detalles: [{ campo: 'precio', mensaje: 'No puede ser mayor que 99999.99.' }],
+      }),
+    );
+    entrada('Precio').focus();
+    entrada('Precio').blur();
+    await esperar();
+    expect(mensajesDe('Precio')).toEqual(['No puede ser mayor que 99999.99.']);
+    expect(entrada('Precio').getAttribute('aria-invalid')).toBe('true');
+    await escribir('Precio', '25.5');
+    expect(mensajesDe('Precio')).toEqual(['Con punto decimal, por ejemplo 25.50']);
+    expect(entrada('Precio').getAttribute('aria-invalid')).toBeNull();
+  });
+
+  it('criterio 3: el mensaje del 409 se queda a la vista, con el campo marcado, si el cajero sale del código de barras sin editarlo (#66)', async () => {
+    await guardarConError(
+      errorDeLaApi({
+        status: 409,
+        codigo: 'CODIGO_BARRAS_DUPLICADO',
+        mensaje: 'Ya existe un producto con ese código de barras.',
+      }),
+    );
+    entrada('Código de barras').blur();
+    await esperar();
+    expect(mensajesDe('Código de barras')).toEqual([
+      'Ya existe un producto con ese código de barras.',
+    ]);
+    expect(entrada('Código de barras').getAttribute('aria-invalid')).toBe('true');
+    await escribir('Código de barras', '7501055300076');
+    expect(mensajesDe('Código de barras')).toEqual([]);
+    expect(entrada('Código de barras').getAttribute('aria-invalid')).toBeNull();
+  });
+
   it('un campo que la pantalla no conoce se muestra en la franja de error del modal', async () => {
     await guardarConError(
       errorDeLaApi({

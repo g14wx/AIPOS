@@ -221,3 +221,108 @@ describe('registrarVenta: los errores', () => {
     expect(peticiones).toHaveLength(1);
   });
 });
+
+// Issue #93. axios resuelve cualquier 2xx, y la pantalla toma como «venta registrada» lo que registrarVenta devuelve. La spec
+// pide un 201 con { ventaId, total } (criterio «Éxito (201)» y «La venta actual solo se vacía cuando la API confirmó la venta
+// con un 201»). Un 200, 202 o 204 (por ejemplo de un proxy) o un 201 sin esa forma no es una venta registrada: es el error
+// de «otro estado», con el status de la respuesta, ERROR_INTERNO y el mensaje genérico, como el HTML de un 502.
+const INESPERADO = 'Ocurrió un error inesperado. Intenta de nuevo.';
+const HTML_DE_UN_PROXY = '<html><body>Bienvenido a nginx/1.27</body></html>';
+
+const esElErrorInesperado = (error, status) => {
+  expect(error).toBeInstanceOf(Error);
+  expect(error.status).toBe(status);
+  expect(error.codigo).toBe('ERROR_INTERNO');
+  expect(error.mensaje).toBe(INESPERADO);
+  expect(error.detalles).toEqual([]);
+};
+
+describe('registrarVenta: una respuesta 2xx que no es la de la spec es un error (#93)', () => {
+  it.each([200, 202, 204])(
+    'un %i con el cuerpo vacío no es una venta registrada',
+    async (estado) => {
+      const { http, registrarVenta } = await cargar();
+      responderCon(http, { estado, datos: '' });
+      const error = await registrarVenta(detalles).catch((e) => e);
+      esElErrorInesperado(error, estado);
+    },
+  );
+
+  it.each([200, 202])(
+    'un %i aunque traiga { ventaId, total }: la spec pide un 201',
+    async (estado) => {
+      const { http, registrarVenta } = await cargar();
+      responderCon(http, { estado, datos: { ventaId: 15, total: '47.50' } });
+      const error = await registrarVenta(detalles).catch((e) => e);
+      esElErrorInesperado(error, estado);
+    },
+  );
+
+  it('un 200 con otro JSON no es una venta registrada', async () => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 200, datos: { ok: true } });
+    const error = await registrarVenta(detalles).catch((e) => e);
+    esElErrorInesperado(error, 200);
+  });
+
+  it('un 200 con el HTML de un proxy es un error y el mensaje no muestra ese HTML', async () => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 200, datos: HTML_DE_UN_PROXY });
+    const error = await registrarVenta(detalles).catch((e) => e);
+    esElErrorInesperado(error, 200);
+    expect(error.mensaje).not.toMatch(/nginx|html|bienvenido/i);
+  });
+});
+
+// Un 201 es la venta guardada, pero la pantalla muestra el número y el total que trae: sin ellos no hay qué mostrar. La
+// spec fija el cuerpo: ventaId entero y total como texto con 2 decimales (DECIMAL(12,2), RN-09).
+describe('registrarVenta: un 201 sin { ventaId, total } con esa forma es un error (#93)', () => {
+  it.each([
+    ['sin cuerpo', undefined],
+    ['con el cuerpo null', null],
+    ['con el cuerpo vacío', ''],
+    ['con el HTML de un proxy', HTML_DE_UN_PROXY],
+    ['sin ventaId', { total: '47.50' }],
+    ['sin total', { ventaId: 15 }],
+    ['con el ventaId como texto', { ventaId: '15', total: '47.50' }],
+    ['con el ventaId en 0', { ventaId: 0, total: '47.50' }],
+    ['con el ventaId con decimales', { ventaId: 1.5, total: '47.50' }],
+    ['con el total como número', { ventaId: 15, total: 47.5 }],
+    ['con el total sin 2 decimales', { ventaId: 15, total: '47.5' }],
+    ['con el total vacío', { ventaId: 15, total: '' }],
+    ['con un total que no es un número', { ventaId: 15, total: 'mucho' }],
+  ])('%s', async (_caso, datos) => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 201, datos });
+    const error = await registrarVenta(detalles).catch((e) => e);
+    esElErrorInesperado(error, 201);
+  });
+});
+
+describe('registrarVenta: el error de una respuesta que no es la de la spec (#93)', () => {
+  it('tiene la forma de los errores de http.js: status, codigo, mensaje y detalles', async () => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 502, datos: HTML_DE_UN_PROXY });
+    const deUnProxy = await registrarVenta(detalles).catch((e) => e);
+    responderCon(http, { estado: 202, datos: '' });
+    const deUnDosCientosDos = await registrarVenta(detalles).catch((e) => e);
+    expect(Object.keys(deUnDosCientosDos)).toEqual(Object.keys(deUnProxy));
+    expect(Object.keys(deUnDosCientosDos)).toEqual(['status', 'codigo', 'mensaje', 'detalles']);
+    expect(deUnDosCientosDos.message).toBe(deUnDosCientosDos.mensaje);
+  });
+
+  it('no se reintenta solo: cada llamada manda una sola petición', async () => {
+    const { http, registrarVenta } = await cargar();
+    const peticiones = responderCon(http, { estado: 202, datos: '' });
+    await registrarVenta(detalles).catch(() => {});
+    expect(peticiones).toHaveLength(1);
+  });
+
+  it('un 201 con la forma de la spec sigue siendo una venta registrada, también en los extremos', async () => {
+    const { http, registrarVenta } = await cargar();
+    responderCon(http, { estado: 201, datos: { ventaId: 2147483647, total: '0.00' } });
+    await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 2147483647, total: '0.00' });
+    responderCon(http, { estado: 201, datos: { ventaId: 1, total: '9999999999.99' } });
+    await expect(registrarVenta(detalles)).resolves.toEqual({ ventaId: 1, total: '9999999999.99' });
+  });
+});

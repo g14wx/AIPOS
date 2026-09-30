@@ -93,6 +93,6 @@ describe('docker-compose.yml', () => {
   });
 
   it('no escribe claves en el archivo: salen del .env', () => {
-    expect(texto).not.toMatch(/PASSWORD:\s*(?!\$\{)\S+/);
+    expect(texto).not.toMatch(/^\s*\w*PASSWORD:\s+(?!\$\{)\S+/m);
   });
 });

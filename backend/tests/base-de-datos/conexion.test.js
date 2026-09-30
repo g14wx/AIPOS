@@ -57,12 +57,14 @@ describe('conexión a MySQL', () => {
     // Una tabla temporal vive solo en su conexión, por eso todo va en una transacción administrada.
     const encontrados = await sequelize.transaction(async (transaccion) => {
       const consulta = (sql) => sequelize.query(sql, { transaction: transaccion });
+      await consulta('DROP TEMPORARY TABLE IF EXISTS prueba_orden');
       await consulta('CREATE TEMPORARY TABLE prueba_orden (nombre VARCHAR(50))');
       await consulta("INSERT INTO prueba_orden (nombre) VALUES ('Leche'), ('Café'), ('Pan')");
       const [porLeche] = await consulta(
         "SELECT nombre FROM prueba_orden WHERE nombre LIKE 'lech%'",
       );
       const [porCafe] = await consulta("SELECT nombre FROM prueba_orden WHERE nombre LIKE 'cafe%'");
+      await consulta('DROP TEMPORARY TABLE IF EXISTS prueba_orden');
       return { porLeche, porCafe };
     });
     expect(encontrados.porLeche).toEqual([{ nombre: 'Leche' }]);

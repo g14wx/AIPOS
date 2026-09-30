@@ -14,13 +14,19 @@ async function conTablaDeDinero(trabajo) {
       const [filas] = await sequelize.query(sql, { ...opciones, transaction: transaccion });
       return filas;
     };
+    // El pool reutiliza conexiones: la tabla temporal de una prueba seguiría viva en la siguiente.
+    await consultar('DROP TEMPORARY TABLE IF EXISTS prueba_dinero');
     await consultar(`CREATE TEMPORARY TABLE prueba_dinero (
       id INT AUTO_INCREMENT PRIMARY KEY,
       precio DECIMAL(10,2) NOT NULL,
       cantidad INT NOT NULL,
       subtotal DECIMAL(12,2) NOT NULL
     )`);
-    return trabajo(consultar, transaccion);
+    try {
+      return await trabajo(consultar, transaccion);
+    } finally {
+      await consultar('DROP TEMPORARY TABLE IF EXISTS prueba_dinero');
+    }
   });
 }
 

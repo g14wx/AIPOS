@@ -5113,6 +5113,21 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "label": "debe_decir()",
+      "_origin": "ast",
+      "community": 53,
+      "community_name": "spec-arquitectura.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "debe_decir()",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L73"
+    },
+    {
       "id": "tests_arquitectura_spec_arquitectura_test_falla",
       "label": "falla()",
       "_origin": "ast",
@@ -5171,6 +5186,36 @@
       "norm_label": "spec-arquitectura.test.sh script",
       "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
       "source_location": "L1"
+    },
+    {
+      "id": "tests_arquitectura_spec_arquitectura_test_unido",
+      "label": "unido()",
+      "_origin": "ast",
+      "community": 53,
+      "community_name": "spec-arquitectura.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "unido()",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "label": "ya_no_debe_decir()",
+      "_origin": "ast",
+      "community": 53,
+      "community_name": "spec-arquitectura.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "ya_no_debe_decir()",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L78"
     },
     {
       "id": "tests_arranque_agents_md_tarjeta_test",
@@ -6266,6 +6311,42 @@
       "weight": 1.0
     },
     {
+      "source": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_unido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
       "source": "tests_arquitectura_spec_arquitectura_test_revisar",
       "target": "tests_arquitectura_spec_arquitectura_test_falla",
       "relation": "calls",
@@ -6323,6 +6404,66 @@
       "context": "call",
       "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
       "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_sh__entry",
+      "target": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_sh__entry",
+      "target": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_unido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_falla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "target": "tests_arquitectura_spec_arquitectura_test_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -11047,6 +11188,39 @@
       "confidence_score": 1.0,
       "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
       "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test",
+      "target": "tests_arquitectura_spec_arquitectura_test_unido",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test",
+      "target": "tests_arquitectura_spec_arquitectura_test_debe_decir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_arquitectura_spec_arquitectura_test",
+      "target": "tests_arquitectura_spec_arquitectura_test_ya_no_debe_decir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/arquitectura/spec-arquitectura.test.sh",
+      "source_location": "L78",
       "weight": 1.0
     },
     {

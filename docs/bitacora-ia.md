@@ -309,14 +309,14 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 17:29–17:49.
 - **Commits:** este commit y los 2 anteriores de la rama `docs/cierre-requerimientos`: las filas de la matriz y la aclaración del glosario.
 
-### 2026-09-29 17:28 — Caveman en modo lite en AIPOS
+### 2026-09-29 17:30 — Caveman en modo lite en AIPOS
 
 - **Tarea:** dejar el plugin de Claude Code caveman en modo lite, como eligió la persona al crear el tile `lenguaje-ubicuo` ("adelante").
 - **Agente:** Claude Code (Opus 5.5), con la skill de configuración de Claude Code.
 - **Qué hizo el agente:** agregó `CAVEMAN_DEFAULT_MODE=lite` en `.claude/settings.local.json`, la configuración local del proyecto, que no va a git. Comprobó que Claude Code pasa la variable y que el hook de arranque del caveman responde `level: lite`. En los demás proyectos sigue en `full`.
 - **Revisión de la persona:** eligió aplicarlo solo en AIPOS.
 - **Propuestas cambiadas o descartadas:** ninguna.
-- **Tiempo:** 17:28–17:33.
+- **Tiempo:** 17:30–17:33.
 - **Commits:** este commit (solo la entrada; la configuración es local).
 
 ### 2026-09-29 20:35 — Tile mysql-sequelize-procedimientos 0.1.1

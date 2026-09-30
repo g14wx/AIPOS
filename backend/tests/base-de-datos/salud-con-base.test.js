@@ -130,7 +130,8 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
   });
 
   it('con un MySQL callado de verdad, responde 500 en pocos segundos y la API sigue viva', async () => {
-    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado.
+    // Un servidor TCP que acepta la conexión y no escribe nada: para el cliente es un MySQL congelado, que
+    // deja pendiente el saludo con el que empieza toda conexión (la API todavía no tiene ninguna abierta).
     const conexiones = [];
     const callado = net.createServer((socket) => conexiones.push(socket));
     const puerto = await new Promise((resolve) => {
@@ -139,16 +140,20 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
     const programa = `
       const request = require('supertest');
       const app = require('./src/app.js');
+      const sequelize = require('./src/database.js');
       (async () => {
         const inicio = Date.now();
         const respuesta = await request(app).get('/api/salud');
         const milisegundos = Date.now() - inicio;
         const otra = await request(app).get('/api/no-existe');
         console.log(JSON.stringify({ estado: respuesta.status, cuerpo: respuesta.body, milisegundos, otra: otra.status }));
-        process.exit(0);
+        await sequelize.close();
       })();
     `;
     try {
+      // Sin process.exit: si el intento de conexión sigue pendiente, sequelize.close() lo espera y el
+      // programa tarda en cerrarse. Con el intento cortado a los 3 s, se cierra a los pocos segundos.
+      const arranque = Date.now();
       const { stdout } = await correr('node', ['-e', programa], {
         cwd: carpetaBackend,
         env: { ...process.env, MYSQL_HOST: '127.0.0.1', MYSQL_PORT: String(puerto) },
@@ -161,6 +166,9 @@ describe('GET /api/salud si MySQL acepta la conexión pero no contesta', () => {
       expect(JSON.stringify(resultado.cuerpo)).not.toContain(String(puerto));
       expect(resultado.milisegundos).toBeLessThan(6000);
       expect(resultado.otra).toBe(404);
+      // El intento de conexión con el saludo pendiente se corta junto con el tope de 3 s de la salud.
+      // Sin cortarlo, mysql2 lo deja abierto 10 s (connectTimeout por defecto) y el programa tarda más.
+      expect(Date.now() - arranque).toBeLessThan(8000);
     } finally {
       conexiones.forEach((socket) => socket.destroy());
       callado.close();

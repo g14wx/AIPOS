@@ -12,14 +12,16 @@ if [ -n "$NODO" ]; then ok ".nvmrc dice Node $NODO"; else
   echo "OMITIDA: falta .nvmrc (lo trae B-02); se usa Node $NODO, como dice la spec de arquitectura"
 fi
 
-# leer <ruta desde la raíz>: el contenido del archivo, o falla la prueba si no está.
+# leer <ruta desde la raíz> <variable>: pone el contenido del archivo en la variable; si no está, falla la prueba.
 leer() {
-  if [ -f "$RAIZ/$1" ]; then ok "existe $1"; cat "$RAIZ/$1"; else falla "falta $1" >&2; fi
+  local contenido=""
+  if [ -f "$RAIZ/$1" ]; then ok "existe $1"; contenido="$(cat "$RAIZ/$1")"; else falla "falta $1"; fi
+  printf -v "$2" '%s' "$contenido"
 }
 cuenta() { grep -cE -- "$2" <<<"$1" || true; }
 
 echo "# backend/Dockerfile"
-B="$(leer backend/Dockerfile)"
+leer backend/Dockerfile B
 igual "dos etapas, las dos con node:$NODO-alpine (la versión mayor de .nvmrc)" "2" "$(cuenta "$B" "^FROM node:$NODO-alpine( |$)")"
 tiene "la primera etapa corre npm ci --omit=dev" "$B" "npm ci --omit=dev"
 tiene "corre como el usuario node (USER node)" "$B" "USER node"
@@ -39,7 +41,7 @@ tiene "la etiqueta org.opencontainers.image.source une el paquete con el reposit
 no_tiene "no instala curl" "$B" "apk add"
 
 echo "# frontend/Dockerfile"
-F="$(leer frontend/Dockerfile)"
+leer frontend/Dockerfile F
 igual "la etapa de construcción usa node:$NODO-alpine" "1" "$(cuenta "$F" "^FROM node:$NODO-alpine( |$)")"
 tiene "la etapa final es nginxinc/nginx-unprivileged:1.28-alpine" "$F" "FROM nginxinc/nginx-unprivileged:1.28-alpine"
 tiene "VITE_API_URL llega como argumento de construcción" "$F" "ARG VITE_API_URL"
@@ -53,7 +55,7 @@ tiene "la etiqueta org.opencontainers.image.source une el paquete con el reposit
 no_tiene "no corre como root (USER root)" "$F" "USER root"
 
 echo "# frontend/nginx.conf"
-N="$(leer frontend/nginx.conf)"
+leer frontend/nginx.conf N
 tiene "server_tokens off" "$N" "server_tokens off"
 tiene "escucha en el puerto 8080" "$N" "listen 8080"
 tiene "/assets/ con Cache-Control public, max-age=31536000, immutable" "$N" "public, max-age=31536000, immutable"
@@ -63,9 +65,9 @@ no_tiene "no hay ruta de reserva a index.html (no hay vue-router)" "$N" "/index.
 no_tiene "nginx no comprime (comprime Caddy)" "$N" "gzip on"
 
 echo "# .dockerignore"
-BI="$(leer backend/.dockerignore)"
+leer backend/.dockerignore BI
 for x in node_modules .env coverage tests .git; do tiene "backend/.dockerignore deja fuera $x" "$BI" "$x"; done
-FI="$(leer frontend/.dockerignore)"
+leer frontend/.dockerignore FI
 for x in node_modules dist .env .git; do tiene "frontend/.dockerignore deja fuera $x" "$FI" "$x"; done
 
 echo "# backend/package.json"

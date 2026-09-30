@@ -26,22 +26,32 @@ function archivosJs(carpeta) {
 describe('.env.example', () => {
   it('tiene cada variable que lee src/config.js', () => {
     const codigo = fs.readFileSync(path.join(raiz, 'backend/src/config.js'), 'utf8');
-    const usadas = [...codigo.matchAll(/\b(?:env|process\.env)\.([A-Z][A-Z0-9_]*)/g)].map(
-      (m) => m[1],
+    // config.js nombra las variables de dos formas: env.NOMBRE y 'NOMBRE' entre comillas
+    // (texto(env, 'NOMBRE'), entero(env, 'NOMBRE', ...) y la lista OBLIGATORIAS). Se buscan las dos.
+    const usadas = new Set(
+      [
+        ...codigo.matchAll(/\b(?:env|process\.env)\.([A-Z][A-Z0-9_]*)/g),
+        ...codigo.matchAll(/['"]([A-Z][A-Z0-9_]*)['"]/g),
+      ].map((m) => m[1]),
     );
-    expect(usadas.length).toBeGreaterThan(0);
+    // Si la búsqueda deja de ver las variables, la prueba pasaría sin revisar nada
+    // (antes veía 1 de 9): con menos de 8 falla.
+    expect(usadas.size).toBeGreaterThanOrEqual(8);
+    // NODE_ENV no va en .env.example: la pone quien corre el comando, y los scripts de prueba la fijan.
+    const sinEjemplo = new Set(['NODE_ENV']);
     const ejemploVars = variablesDelEjemplo();
-    for (const variable of new Set(usadas)) {
+    for (const variable of usadas) {
+      if (sinEjemplo.has(variable)) continue;
       expect(ejemploVars, `falta ${variable} en .env.example`).toHaveProperty(variable);
     }
   });
 
-  it('solo src/config.js lee process.env en el backend', () => {
-    const src = path.join(raiz, 'backend/src');
-    const otros = archivosJs(src).filter(
-      (ruta) =>
-        path.basename(ruta) !== 'config.js' && /process\.env/.test(fs.readFileSync(ruta, 'utf8')),
-    );
+  it('solo src/config.js lee process.env en el backend (src/ y db/)', () => {
+    const unico = path.join(raiz, 'backend/src/config.js');
+    const otros = ['backend/src', 'backend/db']
+      .flatMap((carpeta) => archivosJs(path.join(raiz, carpeta)))
+      .filter((ruta) => ruta !== unico && /process\.env/.test(fs.readFileSync(ruta, 'utf8')))
+      .map((ruta) => path.relative(raiz, ruta));
     expect(otros).toEqual([]);
   });
 

@@ -10,11 +10,13 @@ targets:
   - ../backend/src/models/DetalleVenta.js
   - ../backend/src/models/index.js
   - ../backend/src/routes/ventas.js
+  - ../backend/src/routes/index.js
   - ../backend/src/controllers/ventas.js
   - ../backend/src/services/ventas.js
   - ../backend/src/validators/ventas.js
   - ../frontend/src/api/ventas.js
   - ../frontend/src/components/RegistrarVenta.vue
+  - ../frontend/src/components/VentaActual.vue
   - ../frontend/src/assets/animaciones/venta-registrada.json
 ---
 
@@ -47,7 +49,7 @@ avisa, la API valida y la base de datos la protege.
 
 | RN | Regla | Dónde se cumple |
 |---|---|---|
-| RN-05 | El precio aplicado es 0 o más, hasta 99 999.99, con 2 decimales como máximo. | Pantalla (V-05), API (rechaza los decimales de más), `CHECK` y procedimiento |
+| RN-05 | El precio aplicado es 0 o más, hasta 99 999.99, con 2 decimales como máximo. | Pantalla (V-05), API, procedimiento (lee el precio como texto y rechaza los decimales de más) y `CHECK` |
 | RN-06 | La cantidad es un entero de 1 a 999. | Pantalla (V-06), API, `CHECK` y procedimiento |
 | RN-07 | Un producto tiene un solo detalle de venta en cada venta. | API, procedimiento e índice único `venta_id` + `producto_id` |
 | RN-08 | Subtotal = precio aplicado × cantidad. Total = suma de los subtotales. | Solo MySQL, dentro del procedimiento |
@@ -56,6 +58,7 @@ avisa, la API valida y la base de datos la protege.
 | RN-11 | Registrar venta es todo o nada. | Procedimiento con su propia transacción |
 | RN-12 | Cada venta guarda su fecha, y la pone la base de datos. | `DEFAULT CURRENT_TIMESTAMP` |
 | RN-13 | Un producto que está en una venta no se puede borrar. | Llave foránea `ON DELETE RESTRICT` |
+| Propuesta de esta spec | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. | Pantalla (aviso de la venta actual, ver preguntas), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
 
 ## Tablas y modelos (V-01)
 
@@ -100,9 +103,12 @@ Los modelos siguen "Capas" de la spec de arquitectura:
 - `Venta` (tabla `ventas`) y `DetalleVenta` (tabla `detalles_venta`), con `tableName` explícito, `freezeTableName: true`,
   `underscored: true` y `timestamps: false`. Los campos de JavaScript van en `camelCase` (`ventaId`, `productoId`,
   `precioAplicado`) y se traducen a la columna con `field`. El dinero es `DataTypes.DECIMAL(10, 2)` y `DECIMAL(12, 2)`.
-- Relaciones: una venta tiene muchos detalles (`Venta.hasMany(DetalleVenta, { as: 'detalles' })`); cada detalle es de una
-  venta y de un producto (`DetalleVenta.belongsTo(Venta)` y `belongsTo(Producto, { as: 'producto' })`); un producto
-  puede estar en muchos detalles. Todas con `onDelete: 'RESTRICT'`.
+- Relaciones, con la llave foránea fijada a mano para que Sequelize no invente `VentaId` ni `ProductoId`: una venta tiene
+  muchos detalles (`Venta.hasMany(DetalleVenta, { as: 'detalles', foreignKey: 'ventaId' })`); cada detalle es de una venta
+  y de un producto (`DetalleVenta.belongsTo(Venta, { foreignKey: 'ventaId' })` y
+  `DetalleVenta.belongsTo(Producto, { as: 'producto', foreignKey: 'productoId' })`); un producto puede estar en muchos
+  detalles (`Producto.hasMany(DetalleVenta, { foreignKey: 'productoId' })`). Todas con `onDelete: 'RESTRICT'`. El atributo
+  `ventaId` del modelo es el único que apunta a `venta_id`.
 - Registrar una venta no usa estos modelos: la escritura la hace el procedimiento. Los modelos sirven para consultar (por
   ejemplo, una venta con sus detalles y el nombre de cada producto) y para las pruebas.
   `[@test] ../backend/tests/base-de-datos/modelos-venta.test.js`
@@ -154,7 +160,7 @@ total. Es el procedimiento almacenado obligatorio del PDF.
 CREATE PROCEDURE sp_registrar_venta(IN p_detalles JSON)
 ```
 
-`p_detalles` es un arreglo JSON con un objeto por detalle de venta:
+`p_detalles` es un arreglo JSON de 1 a 100 objetos, uno por detalle de venta:
 
 ```json
 [
@@ -176,25 +182,29 @@ con 2 decimales, por ejemplo `47.50`). No usa parámetros `OUT` ni deja otros `S
 | Código en `MESSAGE_TEXT` | Cuándo |
 |---|---|
 | `VENTA_SIN_DETALLES` | `p_detalles` es `NULL`, no es un arreglo o está vacío (RN-10). |
-| `DETALLE_INVALIDO` | Un elemento no es un objeto, o su `productoId` falta o no es un entero. |
-| `CANTIDAD_FUERA_DE_RANGO` | Una `cantidad` falta, no es un entero, o no está entre 1 y 999 (RN-06). |
-| `PRECIO_FUERA_DE_RANGO` | Un `precioAplicado` falta, no es un número, es negativo o pasa de 99 999.99 (RN-05). |
+| `DEMASIADOS_DETALLES` | `p_detalles` tiene más de 100 elementos. |
+| `DETALLE_INVALIDO` | Un elemento no es un objeto, o su `productoId` falta o no es un entero de 1 a 2 147 483 647. |
+| `CANTIDAD_FUERA_DE_RANGO` | Una `cantidad` falta, no es un entero escrito con solo dígitos, o no está entre 1 y 999 (RN-06). |
+| `PRECIO_FUERA_DE_RANGO` | Un `precioAplicado` falta, no tiene la forma `^[0-9]{1,5}(\.[0-9]{1,2})?$` (por ejemplo `10.999`, `-1`, `100000` o `abc`), lo que también deja el máximo en 99 999.99 (RN-05). |
 | `PRODUCTO_REPETIDO` | Dos detalles con el mismo `productoId` (RN-07). |
 | `PRODUCTO_NO_EXISTE` | Algún `productoId` no está en `productos`. |
 
 3. Crea la venta (`INSERT INTO ventas (total) VALUES (0)`; la fecha la pone `DEFAULT CURRENT_TIMESTAMP`) y guarda su `id` con
    `LAST_INSERT_ID()`.
-4. Crea los detalles con `INSERT … SELECT … FROM JSON_TABLE(p_detalles, '$[*]' COLUMNS (…)) AS j`, con
-   `precio_aplicado` como `DECIMAL(10,2)` en la columna de `JSON_TABLE`, y calcula cada subtotal en SQL con
-   `ROUND(precio_aplicado * cantidad, 2)`.
+4. Crea los detalles con `INSERT … SELECT … FROM JSON_TABLE(p_detalles, '$[*]' COLUMNS (…)) AS j` y calcula cada subtotal
+   en SQL con `ROUND(precio_aplicado * cantidad, 2)`. Para revisar las reglas del paso 2, `JSON_TABLE` lee `productoId`,
+   `cantidad` y `precioAplicado` como texto (`VARCHAR`), y el procedimiento valida ese texto con `REGEXP` y rango antes de
+   convertirlo. Así un `precioAplicado` de `"10.999"` se rechaza en vez de redondearse en silencio a `11.00`. Al insertar,
+   convierte el texto ya validado (`CAST(… AS DECIMAL(10,2))`, `CAST(… AS UNSIGNED)`).
 5. Calcula el total con `SUM(subtotal)` de los detalles recién creados y lo guarda en la venta.
 6. `COMMIT` y el `SELECT` final.
 
 - La lista viaja como un solo parámetro JSON y se lee con `JSON_TABLE` (MySQL 8.0.19 o más; el proyecto usa 8.4). El
   procedimiento nunca recibe un total: el que vale es el que calcula MySQL (RN-08 y RN-09).
-- El procedimiento no puede ver los decimales de más de un `precioAplicado` (MySQL los redondea al leer la columna
-  `DECIMAL(10,2)` sin dar error). Rechazarlos es trabajo de la API. Por eso la API nunca deja pasar un precio aplicado de
-  más de 2 decimales.
+- El procedimiento protege la regla aunque no lo llame la API: si se lo llama desde el cliente `mysql` con
+  `precioAplicado` `"10.999"`, responde `PRECIO_FUERA_DE_RANGO` y no guarda nada. Acepta el precio y la cantidad como
+  texto o como número JSON, mientras se escriban en la forma exacta de la tabla (sin notación científica, sin espacios).
+  La API es más estricta (pide texto para el precio y número para la cantidad) para que el contrato sea uno solo.
 - Si falla cualquier otra cosa (un error de MySQL que no es una regla), el manejador hace `ROLLBACK` y `RESIGNAL`: el error
   original llega a la API tal cual.
 - Patrón: Transaction Script, como en la spec de arquitectura, más el Database Transaction Pattern del catálogo (la
@@ -215,6 +225,13 @@ con 2 decimales, por ejemplo `47.50`). No usa parámetros `OUT` ni deja otros `S
   `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-todo-o-nada.test.js`
 - Dada una lista vacía, entonces responde `VENTA_SIN_DETALLES` y no crea nada.
   `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-reglas.test.js`
+- Dada una lista con un `precioAplicado` de `"10.999"` llamada directo al procedimiento, entonces responde
+  `PRECIO_FUERA_DE_RANGO` y no queda nada guardado (no se redondea a `11.00`).
+  `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-reglas.test.js`
+- Dada una lista de 101 detalles, entonces responde `DEMASIADOS_DETALLES` y no queda nada guardado. Con 100 detalles de
+  999 × `99999.99`, la venta se registra y el total es `9989999001.00`.
+  `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-calculo.test.js`
+  `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-reglas.test.js`
 
 ### Criterios de aceptación de V-02
 
@@ -226,8 +243,8 @@ con 2 decimales, por ejemplo `47.50`). No usa parámetros `OUT` ni deja otros `S
 3. Dada la cantidad más grande (999) al precio más grande (`99999.99`), entonces el subtotal es `99899990.01` y el total no
    se desborda.
    `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-calculo.test.js`
-4. Dada una lista con un producto que no existe, cantidad 0, cantidad 1000, precio negativo, un producto repetido o una
-   lista vacía, entonces responde el código de la tabla y no queda nada guardado.
+4. Dada una lista con un producto que no existe, cantidad 0, cantidad 1000, precio negativo, precio con 3 decimales, un
+   producto repetido, 101 detalles o una lista vacía, entonces responde el código de la tabla y no queda nada guardado.
    `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-reglas.test.js`
 5. La migración y el cliente `mysql` crean el mismo procedimiento, con el usuario de la app.
    `[@test] ../backend/tests/base-de-datos/sp-registrar-venta-migracion.test.js`
@@ -236,7 +253,7 @@ con 2 decimales, por ejemplo `47.50`). No usa parámetros `OUT` ni deja otros `S
 
 ## API: POST /api/ventas (V-03)
 
-Un router (`src/routes/ventas.js`), un controller (`src/controllers/ventas.js`), un servicio (`src/services/ventas.js`) y
+Un router (`src/routes/ventas.js`, que `src/routes/index.js` monta en `/api/ventas`), un controller (`src/controllers/ventas.js`), un servicio (`src/services/ventas.js`) y
 un validador (`src/validators/ventas.js`), con las capas y los límites de "Capas" de la spec de arquitectura.
 
 ```http
@@ -253,12 +270,14 @@ Content-Type: application/json
 
 | Campo | Tipo en el JSON | Regla |
 |---|---|---|
-| `detalles` | arreglo | Obligatorio, con al menos 1 elemento (RN-10). |
+| `detalles` | arreglo | Obligatorio, de 1 a 100 elementos (RN-10 y el límite de 100 detalles). |
 | `detalles[i].productoId` | número entero | De 1 a 2 147 483 647 (cabe en `INT`). |
 | `detalles[i].cantidad` | número entero | De 1 a 999 (RN-06). Un texto (`"2"`) o un decimal (`1.5`) es un 400. |
 | `detalles[i].precioAplicado` | texto | Forma `^\d{1,5}(\.\d{1,2})?$`, de `0` a `99999.99` (RN-05). Un número JSON (`22.5`) es un 400. |
 
 - Un producto no puede repetirse en `detalles` (RN-07): el segundo `productoId` igual es un 400 que apunta a él.
+- Más de 100 detalles es un 400 con el campo `detalles` y el mensaje "Una venta puede tener como máximo 100 productos.".
+  Es el límite que evita que el total pase de `DECIMAL(12,2)` (9 999 999 999.99) con datos válidos.
 - Los campos que no están en la tabla se ignoran y no se pasan al procedimiento. El validador devuelve solo `productoId`,
   `cantidad` y `precioAplicado` de cada detalle.
 - La API no recibe un total ni un subtotal. Si el cuerpo trae uno, se ignora: el que vale es el de MySQL (RN-09).
@@ -284,7 +303,7 @@ Todas siguen el formato de error de la spec de arquitectura (RNF-05).
   `[@test] ../backend/tests/ventas/registrar-venta.test.js`
 - `400`: cada regla de la tabla tiene su caso (sin `detalles`, `detalles` que no es arreglo, lista vacía, elemento que no es
   objeto, `productoId` con texto o menor que 1, `cantidad` 0, 1000, `"2"` o `1.5`, `precioAplicado` con número JSON,
-  `"10.999"`, `"-1"`, `"100000"` o `"abc"`, y un producto repetido). En cada uno no se crea ninguna venta.
+  `"10.999"`, `"-1"`, `"100000"` o `"abc"`, un producto repetido y 101 detalles). En cada uno no se crea ninguna venta.
   `[@test] ../backend/tests/ventas/validacion.test.js`
 - `422`: cada código de la tabla del procedimiento se traduce con el código de `MESSAGE_TEXT` y un mensaje en español para
   el cajero, que sale de una tabla en `src/services/ventas.js`:
@@ -292,6 +311,7 @@ Todas siguen el formato de error de la spec de arquitectura (RNF-05).
 | Código | Mensaje |
 |---|---|
 | `VENTA_SIN_DETALLES` | La venta no tiene productos. Agrega al menos uno. |
+| `DEMASIADOS_DETALLES` | Una venta puede tener como máximo 100 productos. |
 | `DETALLE_INVALIDO` | Un producto de la venta tiene datos inválidos. |
 | `CANTIDAD_FUERA_DE_RANGO` | La cantidad debe ser un número entero de 1 a 999. |
 | `PRECIO_FUERA_DE_RANGO` | El precio aplicado debe estar entre 0 y 99 999.99. |
@@ -342,8 +362,8 @@ A-01 todavía no está integrada cuando V-03 termina, V-03 deja la ruta lista pa
 1. Dado un cuerpo con 2 detalles válidos, cuando se llama a `POST /api/ventas`, entonces responde 201 con `ventaId` y
    `total` `47.50`, y hay 1 fila nueva en `ventas` y 2 en `detalles_venta`.
    `[@test] ../backend/tests/ventas/registrar-venta.test.js`
-2. Dado un cuerpo sin detalles, con una cantidad fuera de rango o con un precio aplicado con 3 decimales, entonces responde
-   400 con el campo y el motivo, y no se guarda nada.
+2. Dado un cuerpo sin detalles, con 101 detalles, con una cantidad fuera de rango o con un precio aplicado con 3 decimales,
+   entonces responde 400 con el campo y el motivo, y no se guarda nada.
    `[@test] ../backend/tests/ventas/validacion.test.js`
 3. Dado un producto que ya no existe, entonces responde 422 `PRODUCTO_NO_EXISTE` con su mensaje, y no se guarda nada.
    `[@test] ../backend/tests/ventas/regla-de-negocio.test.js`
@@ -366,7 +386,7 @@ desarrolladora.
 ## Pantalla: botón "Registrar venta" (V-08)
 
 El botón y el resultado viven en un componente nuevo, `src/components/RegistrarVenta.vue`, de Vue 2 con el Options API y
-un solo elemento raíz. `VentaActual.vue` (V-04) lo muestra junto al total. La pantalla se diseña con la skill `impeccable`,
+un solo elemento raíz. `VentaActual.vue` (V-04) lo muestra junto al total, le pasa `detalles` y `valida`, y escucha `registrada` y `update:enviando`. La pantalla se diseña con la skill `impeccable`,
 con la paleta y los contrastes de "Diseño de la pantalla" de la spec de arquitectura.
 
 ### Contrato del componente
@@ -486,6 +506,7 @@ Se necesitan dos productos. Se crean con `POST /api/productos` (P-02) y se anota
 | 11 | Un detalle con `"productoId":999999` | `422` `PRODUCTO_NO_EXISTE` y ninguna fila nueva |
 | 12 | `curl -i localhost:3000/api/ventas` | `404` `NO_ENCONTRADO` |
 | 13 | Con `"cantidad":999` y `"precioAplicado":"99999.99"` | `201` y `"total":"99899990.01"` |
+| 14 | Un cuerpo con 101 detalles (armado con un ciclo de `jq` o de shell, con `productoId` distintos) | `400` `DATOS_INVALIDOS`, con `detalles` (el caso de 100 detalles lo cubre la prueba automática) |
 
 - La comprobación del 11 se hace contando filas antes y después con el cliente `mysql` (con el usuario de la app, no con
   `root`): `docker compose exec mysql mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" -e "SELECT COUNT(*) FROM
@@ -524,6 +545,14 @@ Si la sesión no tiene el MCP `chrome-devtools`, lo dice y la persona desarrolla
 9. `resize_page` a 375 × 667 (móvil): el botón, el total y el mensaje se ven sin scroll horizontal y el botón se alcanza
    con el teclado, con el foco visible.
 
+## Preguntas para la persona desarrolladora
+
+- **Límite de 100 detalles.** Los requerimientos no lo piden. Esta spec lo agrega porque, sin él, 101 productos distintos con
+  cantidad 999 y precio 99 999.99 (una venta válida en cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Las opciones son
+  aceptar el límite de 100 (la API y el procedimiento lo rechazan, y las specs de la venta actual (V-04 a V-07) pueden avisar
+  antes) o ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de arquitectura y RN-08. Esta spec sigue la primera.
+- **Reintento con la respuesta perdida.** Ver "Riesgo conocido" en la sección de la API.
+
 ## Bugs y issues
 
 Cada bug relevante que aparezca al implementar o al probar estas partes se abre como un issue de GitHub (`gh issue create`,
@@ -546,4 +575,5 @@ Se consultó el MCP `design-patterns` para cada decisión. Los patrones que se e
 | `src/api/ventas.js` | Facade | Los componentes no saben de rutas ni de errores de red. |
 | Animación de éxito | Adapter | `AnimacionLottie.vue` adapta la librería a un componente. |
 | Botón deshabilitado y resultado | Ninguno | No hay un patrón del catálogo para una marca `enviando` en un componente de Vue. |
+| Máximo de 100 detalles | Input Validation | Sin límite, una venta válida en cada campo desbordaría `DECIMAL(12,2)`; se rechaza en la API y en el procedimiento. |
 | Reintento con la respuesta perdida | Keyed Idempotency, descartado | Los requerimientos no lo piden y agregaría una columna y una regla; queda como pregunta. |

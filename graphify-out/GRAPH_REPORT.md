@@ -1,12 +1,12 @@
 # Graph Report - spec-registrar-venta  (2026-09-30)
 
 ## Corpus Check
-- 65 files · ~38,378 words
+- 65 files · ~38,917 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 334 nodes · 325 edges · 53 communities (27 shown, 26 thin omitted)
+- 335 nodes · 326 edges · 53 communities (27 shown, 26 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -71,10 +71,10 @@
 1. `Requerimientos funcionales` - 14 edges
 2. `Requerimientos no funcionales` - 14 edges
 3. `Grafo del proyecto` - 10 edges
-4. `Flujo de un entregable` - 10 edges
-5. `Configurar el MCP de Trello` - 9 edges
-6. `Alcance` - 9 edges
-7. `Registrar venta` - 9 edges
+4. `Registrar venta` - 10 edges
+5. `Flujo de un entregable` - 10 edges
+6. `Configurar el MCP de Trello` - 9 edges
+7. `Alcance` - 9 edges
 8. `Trabajar en un tile` - 7 edges
 9. `Lenguaje ubicuo — AIPOS` - 6 edges
 10. `Usar los tiles del proyecto` - 6 edges
@@ -172,8 +172,8 @@ Cohesion: 0.50
 Nodes (3): Agent Rules <!-- tessl-managed -->, AIPOS, Antes de empezar
 
 ### Community 24 - "Registrar venta"
-Cohesion: 0.08
-Nodes (25): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Archivos, Bugs y issues, Contrato del componente, Criterios de aceptación de V-02, Criterios de aceptación de V-03 (+17 more)
+Cohesion: 0.07
+Nodes (26): Animación, API, con `curl` (V-03), API: POST /api/ventas (V-03), Archivos, Bugs y issues, Contrato del componente, Criterios de aceptación de V-02, Criterios de aceptación de V-03 (+18 more)
 
 ### Community 25 - "Comandos útiles"
 Cohesion: 0.15
@@ -196,8 +196,8 @@ Cohesion: 0.50
 Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
 
 ## Knowledge Gaps
-- **212 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+207 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 245 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **213 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+208 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 246 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -210,7 +210,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Setup de Tessl` connect `Trabajar en un tile` to `graphify-setup.md`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _212 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _213 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
   _Cohesion score 0.13538461538461538 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

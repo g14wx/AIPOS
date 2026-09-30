@@ -1,9 +1,11 @@
 import { aCentavos, formatearCentavos } from '../dinero.js';
 
-// Las reglas de lo que el cajero escribe en un campo del detalle de la venta actual, como funciones puras: reciben lo
-// escrito y devuelven { valido: true, valor } o { valido: false, mensaje }. Un texto mal escrito es un caso normal del
-// cajero y no un fallo de programación, por eso el error es un valor y la función no lanza.
-// Este archivo tiene lo de V-05 (validarPrecioAplicado). V-06 suma validarCantidad.
+// Las reglas de lo que el cajero escribe en un detalle de la venta actual. Son funciones puras: reciben lo escrito y
+// devuelven un resultado, { valido: true, valor } o { valido: false, mensaje }. Un texto mal escrito es un caso normal
+// del cajero y no una excepción, así que el error viaja como un valor (patrón Either) y nadie necesita un try/catch.
+// La pantalla y las pruebas las usan igual; la API vuelve a validar al registrar la venta.
+
+// --- Precio aplicado (V-05) ---
 
 const MENSAJES_DE_PRECIO_APLICADO = Object.freeze({
   vacio: 'Escribe un precio aplicado.',

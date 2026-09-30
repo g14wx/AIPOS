@@ -50,8 +50,8 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 
 ## Reglas de negocio
 
-Salen de RF-03 a RF-08, RN-05 a RN-09, y de las decisiones de la persona desarrolladora del 2026-09-30 (preguntas abiertas
-1, 2, 4 y 6 de `requerimientos/README.md`).
+Salen de RF-03 a RF-08, RN-05 a RN-09 y RN-14, y de las decisiones de la persona desarrolladora del 2026-09-30 (preguntas
+abiertas 1, 2, 4 y 6 de `requerimientos/README.md`). RN-14 sale de la pregunta abierta 9, que sigue por confirmar.
 
 - **RN-05.** El precio aplicado empieza igual al precio del producto. Cambiarlo no cambia el precio del producto: la
   pantalla nunca llama a la API para esto. Es 0 o más, hasta 99 999.99, con 2 decimales como máximo. **El 0 se permite**
@@ -60,9 +60,12 @@ Salen de RF-03 a RF-08, RN-05 a RN-09, y de las decisiones de la persona desarro
 - **RN-07.** Un producto tiene un solo detalle en la venta actual. Si se agrega otra vez, su cantidad sube en 1.
 - **RN-08.** Subtotal = precio aplicado × cantidad. Total = suma de los subtotales.
 - **RN-09.** El total de la pantalla es solo para mostrar. El que vale lo calcula MySQL al registrar la venta.
-- **Dinero.** Los importes se calculan en centavos (números enteros) con `src/dinero.js` y se muestran con 2 decimales, sin
-  símbolo de moneda y sin separador de miles (`47.50`, `99899990.01`), igual que la API. Nunca se suman ni se multiplican
-  decimales de JavaScript.
+- **RN-14.** Una venta tiene como máximo 100 detalles. Con el producto 101, la pantalla no lo agrega y avisa «Una venta
+  puede tener como máximo 100 productos.». Es la misma regla que aplican la API y el procedimiento de registrar venta
+  (spec `registrar-venta`), y evita que el total pase de `DECIMAL(12,2)`.
+- **Dinero.** Los precios aplicados, los subtotales y el total se calculan en centavos (números enteros) con
+  `src/dinero.js` y se muestran con 2 decimales, sin símbolo de moneda y sin separador de miles (`47.50`,
+  `99899990.01`), igual que la API. Nunca se suman ni se multiplican decimales de JavaScript.
 - **Persistencia.** La venta actual se guarda en `localStorage`, se recupera al abrir la pantalla y se vacía cuando la API
   confirma la venta (V-08). Todo acceso va dentro de `try/catch`: si el navegador no deja guardar, la venta sigue en memoria.
 - **Un error no borra la venta actual.** Un precio aplicado o una cantidad inválidos bloquean «Registrar venta»; no quitan
@@ -133,6 +136,9 @@ validarCantidad(valor)                             // { valido, valor | mensaje 
 - Si la cantidad ya es 999, no la sube: devuelve **la misma venta**. `App.vue` lo nota (`nueva === anterior`) y avisa al
   cajero (ver "`App.vue`").
   `[@test] ../frontend/tests/venta-actual/agregar.test.js`
+- Si el producto no está y la venta actual ya tiene 100 detalles (RN-14), no lo agrega: devuelve **la misma venta**, y
+  `App.vue` avisa al cajero igual que con la cantidad 999.
+  `[@test] ../frontend/tests/venta-actual/agregar.test.js`
 - Si el detalle tenía un error de cantidad escrito, al subir su cantidad ese error se quita: el campo vuelve a mostrar el
   valor válido.
   `[@test] ../frontend/tests/venta-actual/agregar.test.js`
@@ -161,7 +167,7 @@ validarCantidad(valor)                             // { valido, valor | mensaje 
 
 ### Validez, registro y vaciado (V-04)
 
-- `ventaActualEsValida(venta)` es `true` solo si hay al menos un detalle y `errores` está vacío (RN-10). Una
+- `ventaActualEsValida(venta)` es `true` solo si hay de 1 a 100 detalles y `errores` está vacío (RN-10 y RN-14). Una
   venta actual con solo productos a 0.00 es válida.
   `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
 - `detallesParaRegistrar(venta)` devuelve, para cada detalle y en su orden, `{ productoId, cantidad, precioAplicado }` con
@@ -276,8 +282,9 @@ emite la venta nueva y `App.vue` la reemplaza.
 - Al recibir `producto-elegido`, llama a `agregarAVentaActual`, guarda el resultado y lo guarda en el navegador
   (`guardarVentaActual`). El componente `BuscadorProductos.vue` no sabe nada de la venta actual.
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
-- Si `agregarAVentaActual` devolvió la misma venta (la cantidad ya era 999), muestra el aviso «La cantidad máxima de un
-  producto es 999.» en una franja con `role="alert"` que se quita sola a los 4 segundos.
+- Si `agregarAVentaActual` devolvió la misma venta, muestra un aviso en una franja con `role="alert"` que se quita sola
+  a los 4 segundos: «La cantidad máxima de un producto es 999.» si el producto ya estaba en la venta actual, o «Una
+  venta puede tener como máximo 100 productos.» si no estaba (ya hay 100 detalles).
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 - Marca `resaltarId` con el `productoId` agregado, y lo quita a los 2 segundos.
   `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
@@ -308,8 +315,8 @@ Componente de Vue 2 con Options API y un solo elemento raíz, en `src/components
   llevan `key` con el `productoId`.
   `[@test] ../frontend/tests/componentes/VentaActual.test.js`
 - **Total siempre a la vista.** Debajo de la tabla, en una franja aparte que se queda pegada al borde de abajo del área de
-  la venta actual cuando la lista es larga (`position: sticky`), dice «Total» y el importe de `calcularTotal` con 2
-  decimales (`47.50`). Está también con la venta actual vacía (`0.00`). El importe se anuncia a los lectores de pantalla
+  la venta actual cuando la lista es larga (`position: sticky`), dice «Total» y lo que devuelve `calcularTotal`, con 2
+  decimales (`47.50`). Está también con la venta actual vacía (`0.00`). El total se anuncia a los lectores de pantalla
   (`aria-live="polite"`). El total se calcula con cada cambio, sin botón que lo pida.
   `[@test] ../frontend/tests/componentes/VentaActual.test.js`
 - **Venta actual vacía.** En vez de la tabla se ve la animación `venta-vacia.json` (en `AnimacionLottie.vue`, decorativa) y
@@ -414,7 +421,7 @@ espacios, estados, textos, contraste, teclado, foco visible y móvil). Al revisa
 cambió. Todo dentro de Vue 2 y Vuetify 2, con la paleta y los contrastes de la spec de arquitectura (`tema.test.js`).
 
 - **Jerarquía.** El total es lo más grande de la zona: al menos 28 px, en negrita, sobre una franja de acento (`#FFE66D`) con
-  texto `#292F36` (contraste 10.80). Los importes de la tabla van alineados a la derecha, con cifras del mismo ancho
+  texto `#292F36` (contraste 10.80). Los precios aplicados y los subtotales de la tabla van alineados a la derecha, con cifras del mismo ancho
   (`font-variant-numeric: tabular-nums`), para que los decimales queden en columna.
 - **Estados.** Vacío (con animación y el texto), con detalles, con un campo con error, enviando (campos deshabilitados) y
   el aviso de cantidad máxima. Cada uno se ve distinto sin depender solo del color.
@@ -508,6 +515,12 @@ Los de las tarjetas, más los que faltaban (marcados con «Extra»). Cada uno es
 13. Extra. Dada una venta actual, entonces las funciones del módulo no la modifican.
     `[@test] ../frontend/tests/venta-actual/agregar.test.js`
     `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
+14. Extra. Dada una venta actual con 100 detalles, cuando el cajero elige un producto que no está en ella, entonces no se
+    agrega y se ve el aviso «Una venta puede tener como máximo 100 productos.» (RN-14). Con 100 detalles válidos,
+    «Registrar venta» sigue habilitado.
+    `[@test] ../frontend/tests/venta-actual/agregar.test.js`
+    `[@test] ../frontend/tests/venta-actual/valida-y-registro.test.js`
+    `[@test] ../frontend/tests/pantalla-venta-actual.test.js`
 
 ### V-05 · Editar el precio aplicado (RF-05)
 
@@ -635,7 +648,7 @@ error y en 375 × 667). Con el teclado (`press_key` Tab) se llega a todos los ca
 - Un botón «Deshacer» ni una confirmación al eliminar: los requerimientos no los piden.
 - Mostrar el precio del producto junto al precio aplicado ni un botón para volver a él.
 - Sincronizar la venta actual entre dos pestañas del navegador, ni guardarla en el servidor.
-- El separador de miles (`1 234.50`): los importes se muestran como los devuelve la API.
+- El separador de miles (`1 234.50`): el dinero se muestra como lo devuelve la API.
 - El orden de los detalles: siempre es el orden en que se agregaron.
 
 ## Cómo se decidió el diseño

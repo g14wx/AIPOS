@@ -80,6 +80,7 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 | B-02 | Base del backend | Backend | `feature/base` | B-01, T-01 | — | 1 |
 | B-03 | MySQL con Docker Compose y migraciones | Base de datos, DevOps | `feature/base` | B-01, T-01 | — | 1 |
 | B-04 | Base del frontend con la pantalla única | Frontend | `feature/base` | B-01, T-02 | — | 1.5 |
+| A-01 | Documentación de la API con Swagger UI | Backend, Documentación | `feature/base` | B-02 | — | 1 |
 
 ### Entregable productos
 
@@ -118,7 +119,7 @@ Rama: `feature/ventas`.
 
 Rama: `docs/entrega-final` para E-01 y E-02; E-03 etiqueta `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
 
-Total estimado: 25 horas, sin contar R-00.
+Total estimado: 26 horas, sin contar R-00.
 
 ## Definición de terminado
 

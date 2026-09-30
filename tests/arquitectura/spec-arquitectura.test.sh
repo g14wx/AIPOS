@@ -264,6 +264,37 @@ debe_decir "$AVA" 'B-04 ya dejó `VentaActual.vue`'
 debe_decir "$AVA" 'un anillo de 3 px en `#292F36`'
 ya_no_debe_decir "$AVA" 'si `src/dinero.js` de B-04 no lo hace'
 
+# Segunda revisión de Codex y segunda revisión cruzada: A-01 en el entregable base, tarjetas que corren a la vez y
+# comparten archivos, y las frases que todavía decían otra cosa.
+F2=requerimientos/flujos/02-buscar-producto.md
+debe_decir requerimientos/04-entregables.md 'y la documentación de la API (A-01), en `feature/base`'
+debe_decir "$DES" 'D-01 depende del entregable base integrado (B-01 a B-04 y A-01)'
+debe_decir "$DES" 'Su PR suma su fila a `requerimientos/04-entregables.md`'
+debe_decir "$AVA" 'V-04 va primero'
+debe_decir "$AVA" 'pueden correr a la vez'
+ya_no_debe_decir "$AVA" 'Cada una depende de la anterior'
+debe_decir "$AVA" 'la primera de V-05 y V-06 que se integra'
+for spec in "$A" "$CP" "$BP"; do debe_decir "$spec" 'P-03 y P-05 corren a la vez'; done
+debe_decir "$A" 'V-05, V-06 y V-07 corren a la vez'
+debe_decir "$A" '`frontend/src/api/productos.js`'
+debe_decir "$CP" 'le pasa `animacion`, `loop` en `false` y `alto` en 32'
+ya_no_debe_decir "$CP" 'solo le pasa `animacion` y `loop` en `false`'
+debe_decir "$RV" 'ya antepone `/api`'
+debe_decir "$RV" '`VentaActual.vue` lo reemite y `App.vue` lo usa con `:enviando.sync`'
+ya_no_debe_decir "$RV" '`VentaActual.vue` lo usa con `:enviando.sync`'
+debe_decir "$RV" '**Error 500 u otro estado**'
+debe_decir "$RV" '[@test] ../frontend/tests/pantalla-venta-actual.test.js'
+debe_decir "$F2" 'entra si sobra tiempo'
+ya_no_debe_decir "$F2" 'por confirmar|si se confirma|hasta que se confirme'
+debe_decir "$A" 'base-de-datos/modelo-producto.test.js'
+debe_decir "$A" 'base-de-datos/modelos-venta.test.js'
+debe_decir "$A" 'base-de-datos/sp-registrar-venta-migracion.test.js'
+ya_no_debe_decir "$A" 'base-de-datos/modelos\.test\.js|base-de-datos/procedimientos\.test\.js'
+debe_decir "$A" 'lo prueba `pantalla-venta-actual.test.js`'
+# «Código de barras» se dice completo: el glosario tiene «código» a secas en "No decir".
+ya_no_debe_decir "$BP" 'con código "|el código "7501055300075"|de ese código va primero|el nombre, el código y el precio'
+ya_no_debe_decir "$CP" 'y el código conserva sus ceros|con el código `"0012345"`'
+
 if [ "$fallas" -gt 0 ]; then
   echo "$fallas fallas"
   exit 1

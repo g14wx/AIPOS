@@ -100,6 +100,7 @@ como prueba, para que un cambio de versión lo avise.
   "Validación", "Errores" y "Frontend").
 
 `[@test] ../backend/tests/estructura.test.js`
+`[@test] ../backend/tests/vitest-commonjs.test.js`
 `[@test] ../frontend/tests/vitest-vue2.test.js`
 
 ## Variables de entorno
@@ -129,8 +130,10 @@ FRONTEND_PORT=5173
 VITE_API_URL=http://localhost:3000
 ```
 
-- `CORS_ORIGIN` es el origen de la pantalla, con esquema y puerto y sin barra final. Puede llevar varios separados
-  por coma. Nunca `*`.
+- `CORS_ORIGIN` es el origen de la pantalla como lo manda el navegador en la cabecera `Origin`: `http` o `https`, el
+  servidor y, si no es el puerto por defecto, el puerto (`http://localhost:5173`, `https://aipos.salsalvador.io`). Va en
+  minúsculas, sin ruta, sin barra final y sin escribir el puerto 80 ni el 443. Puede llevar varios separados por coma.
+  Nunca `*`. Si un origen no cumple, el arranque falla con un mensaje que nombra la variable.
 - `VITE_API_URL` es la dirección del backend, sin `/api` al final. El servicio de API de la pantalla le agrega
   `/api`. La ruta base de producción la fija la spec de despliegue.
 - `MYSQL_ROOT_PASSWORD` solo lo usan Docker Compose y el script que crea la base de prueba. La API nunca entra a
@@ -140,7 +143,8 @@ VITE_API_URL=http://localhost:3000
   entorno gana sobre el archivo. Vite lee el mismo archivo con `envDir: '..'` en `vite.config.js`.
 - `src/config.js` es el único lugar donde el backend lee `process.env`. Si falta una variable obligatoria
   (`MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD` y `CORS_ORIGIN`), el arranque falla con un mensaje que nombra la
-  variable. `PORT`, `MYSQL_HOST` y `MYSQL_PORT` tienen valor por defecto (3000, `127.0.0.1` y 3306).
+  variable. `PORT`, `MYSQL_HOST` y `MYSQL_PORT` tienen valor por defecto (3000, `127.0.0.1` y 3306). `PORT` y
+  `MYSQL_PORT` son enteros de 1 a 65535: con otro valor el arranque falla.
 - Cada variable que lee `src/config.js` está en `.env.example`, y ninguna lleva un valor que parezca un secreto real.
 - El patrón de diseño: ninguno del catálogo describe un archivo `.env`; se sigue la práctica de configuración por
   entorno, con un solo lugar de lectura.
@@ -151,7 +155,8 @@ VITE_API_URL=http://localhost:3000
 ## Backend
 
 Node 24, CommonJS (`"type"` no se declara, así que los `.js` son CommonJS), Express 5.2.1, Sequelize 6.37.8 y mysql2
-3.24.5. Cada archivo empieza con `'use strict';`.
+3.24.5. Cada archivo CommonJS (`src/`, `db/` y `.sequelizerc`) empieza con `'use strict';`. Las pruebas y los `.mjs`
+son ESM.
 
 ### Carpetas
 
@@ -168,13 +173,13 @@ backend/
     crear-base-de-prueba.js   crea la base de prueba y le da permiso al usuario de la app
   src/
     app.js                    arma la app Express y no escucha ningún puerto
-    servidor.js               arranca la app en PORT
+    servidor.js               arranca la app en PORT (con el puerto ocupado, avisa y sale con código 1)
     config.js                 lee y valida las variables de entorno
     database.js               la instancia de Sequelize
     routes/                   un router por recurso: salud.js, productos.js, ventas.js, index.js (A-01 suma docs.js)
     documentacion.js          lee openapi.yaml para /api/docs (A-01)
     controllers/              un controller por recurso
-    services/                 la lógica de negocio: productos.js, ventas.js
+    services/                 la lógica de negocio: salud.js, productos.js, ventas.js
     models/                   Producto.js, Venta.js, DetalleVenta.js, index.js
     validators/               comunes.js y un archivo por recurso
     errors/                   ErrorApi.js y desdeBaseDeDatos.js
@@ -190,6 +195,9 @@ backend/
 - Los campos del JSON van en `camelCase` (`codigoBarras`, `precioAplicado`). Las columnas de MySQL van en
   `snake_case` (`codigo_barras`, `precio_aplicado`). El modelo de Sequelize hace la traducción con `field`.
 - `app.js` no escucha un puerto: así las pruebas usan `supertest(app)` sin abrir uno. Solo `servidor.js` escucha.
+  `app.js` exporta la app ya armada y, en `app.crearApp(config, { montajes })`, la fábrica para armar otra con otra
+  configuración u otros `montajes`. Si el puerto está ocupado, `servidor.js` escribe `EADDRINUSE` y sale con código 1; con
+  `SIGINT` o `SIGTERM` (Docker manda `SIGTERM`) deja terminar las peticiones en curso y sale con 0.
 - `src/routes/index.js` lo crea B-02. Exporta `montajes`, una lista de `{ ruta, router }` (al principio solo
   `{ ruta: '/salud', router: salud }`), y `crearRouterApi(lista = montajes)`, que monta cada router en su ruta y
   devuelve el router de `/api`. La tarjeta que crea una ruta agrega su router a `montajes` y su entrada a la
@@ -206,7 +214,7 @@ backend/
 |---|---|
 | `npm run dev` | `node --watch src/servidor.js` |
 | `npm start` | `node src/servidor.js` |
-| `npm test` | `vitest run`. Necesita MySQL levantado (ver "Base de datos"). |
+| `npm test` | `vitest run`. Desde B-03 necesita MySQL levantado (ver "Base de datos"): el de B-02 no. |
 | `npm run test:vigilar` | `vitest`, se vuelve a correr al guardar. |
 | `npm run migrar` | `sequelize-cli db:migrate` |
 | `npm run deshacer` | `sequelize-cli db:migrate:undo` (la última migración) |
@@ -214,7 +222,7 @@ backend/
 | `npm run migrar:prueba` | lo mismo que `migrar`, con `--env test` |
 | `npm run deshacer:prueba` | lo mismo que `deshacer`, con `--env test` |
 | `npm run rehacer:prueba` | lo mismo que `rehacer`, con `--env test` |
-| `npm run preparar-prueba` | `node scripts/crear-base-de-prueba.js` |
+| `npm run preparar-prueba` | `node scripts/crear-base-de-prueba.js`. B-02 deja el comando; el script y `docker-compose.yml` los crea B-03. |
 | `npm run lint` | `eslint .` |
 | `npm run format` | `prettier --write .` |
 | `npm run format:check` | `prettier --check .` |
@@ -224,6 +232,7 @@ backend/
   capas y con tres recursos no hace falta más.
 
 `[@test] ../backend/tests/estructura.test.js`
+`[@test] ../backend/tests/servidor.test.js`
 
 ### Capas
 
@@ -324,13 +333,19 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 | 500 | `ERROR_INTERNO` | Cualquier otro error. El mensaje es "Ocurrió un error inesperado. Intenta de nuevo." |
 
 - `src/errors/ErrorApi.js` es la clase que lanzan validadores y servicios: `new ErrorApi(estado, codigo, mensaje,
-  detalles)`.
+  detalles)`. Lanza un `Error` si el estado no es uno de los cinco de arriba.
 - `src/errors/desdeBaseDeDatos.js` traduce el error de Sequelize por `err.parent.errno`: 1644 (`SIGNAL`) → 422, con
-  el código de `MESSAGE_TEXT` solo si son mayúsculas y guion bajo, y si no `REGLA_DE_NEGOCIO`; 1062 (duplicado) →
+  el código de `MESSAGE_TEXT` solo si son mayúsculas, dígitos y guion bajo y empieza con una letra
+  (`^[A-Z][A-Z0-9_]*$`), y si no `REGLA_DE_NEGOCIO`; 1062 (duplicado) →
   409; 1452 (llave foránea que no existe) → 404; 3140 (JSON inválido) y 3819 (restricción `CHECK`) → 400. Todo lo
   demás no se traduce y sigue como 500.
 - El 500 nunca muestra al cliente el stack, el texto del SQL ni el mensaje original. El manejador lo escribe entero,
   con su stack, en el log del servidor con `console.error`. No se usa una librería de logs.
+- Los errores del lector del cuerpo de Express también salen con este formato. Un JSON que no es un objeto ni un arreglo
+  (`null`, `5`, `"x"`) lo rechaza el lector en modo estricto, antes de llegar al validador: es un 400 `JSON_INVALIDO`. Un
+  cuerpo comprimido que no se puede descomprimir, o con una codificación o un `charset` que no admite, es un 400
+  `DATOS_INVALIDOS` con el mensaje "La petición no se pudo leer.". Un error con estado 4xx que no viene de ese lector no
+  se traduce: sigue como 500.
 - Una ruta que no existe cae en `src/middlewares/noEncontrado.js`, que lanza el 404 con el mismo formato.
 - Patrón: Front Controller es el más cercano. Centraliza en un solo punto el comportamiento común (aquí, los errores)
   para que ninguna ruta lo repita. El catálogo no trae un patrón exacto para "un manejador de errores de Express".
@@ -358,8 +373,9 @@ Hay un solo manejador de errores (`src/middlewares/errorHandler.js`) y un solo f
 
 `GET /api/salud` dice si la API está viva. Sirve para el despliegue y para probar con `curl`.
 
-- B-02 la crea: responde 200 con `{ "estado": "ok" }`.
-- B-03 le suma la base de datos: corre `sequelize.authenticate()`. Si MySQL responde, 200 con
+- B-02 la crea con `routes/salud.js`, `controllers/salud.js` (`obtenerSalud`) y `services/salud.js`
+  (`consultarSalud`): responde 200 con `{ "estado": "ok" }`.
+- B-03 le suma la base de datos en `consultarSalud`: corre `sequelize.authenticate()`. Si MySQL responde, 200 con
   `{ "estado": "ok", "baseDeDatos": "ok" }`. Si no, responde 500 con el formato de error de arriba: no se suma un
   estado nuevo.
 - No pide nada en la petición y no cambia nada en la base.
@@ -399,6 +415,7 @@ MySQL 8.4 con Docker Compose. Nunca `mysql:latest` ni una 9.x: Sequelize 6 sopor
 - Los `CHECK`, `NOT NULL`, `UNIQUE` y las llaves foráneas (`ON DELETE RESTRICT`) son de las specs de cada tabla.
 - Un test de B-03 revisa que MySQL sea 8.4, que use `utf8mb4` y que `mysql2` devuelva el dinero como texto.
 
+`[@test] ../backend/tests/database.test.js`
 `[@test] ../backend/tests/base-de-datos/compose.test.js`
 `[@test] ../backend/tests/base-de-datos/conexion.test.js`
 `[@test] ../backend/tests/base-de-datos/base-de-prueba.test.js`

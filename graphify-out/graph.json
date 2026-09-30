@@ -158,7 +158,7 @@
       "file_type": "code",
       "norm_label": "cargarconfig()",
       "source_file": "backend/src/config.js",
-      "source_location": "L57"
+      "source_location": "L75"
     },
     {
       "id": "backend_src_config_entero",
@@ -173,6 +173,18 @@
       "source_location": "L20"
     },
     {
+      "id": "backend_src_config_esunorigen",
+      "label": "esUnOrigen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "esunorigen()",
+      "source_file": "backend/src/config.js",
+      "source_location": "L33"
+    },
+    {
       "id": "backend_src_config_leerorigenes",
       "label": "leerOrigenes()",
       "_callable": true,
@@ -182,7 +194,7 @@
       "file_type": "code",
       "norm_label": "leerorigenes()",
       "source_file": "backend/src/config.js",
-      "source_location": "L30"
+      "source_location": "L41"
     },
     {
       "id": "backend_src_config_nombredelabase",
@@ -194,7 +206,7 @@
       "file_type": "code",
       "norm_label": "nombredelabase()",
       "source_file": "backend/src/config.js",
-      "source_location": "L46"
+      "source_location": "L64"
     },
     {
       "id": "backend_src_config_texto",
@@ -377,6 +389,18 @@
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "agents-setup.md",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_agents_setup_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L1"
     },
@@ -4448,222 +4472,6 @@
       "source_location": "L97"
     },
     {
-      "id": "specs_arquitectura_spec_arquitectura_de_aipos",
-      "label": "Arquitectura de AIPOS",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "arquitectura de aipos",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "specs_arquitectura_spec_base_de_datos",
-      "label": "Base de datos",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "base de datos",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L356"
-    },
-    {
-      "id": "specs_arquitectura_spec_calidad",
-      "label": "Calidad",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "calidad",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L622"
-    },
-    {
-      "id": "specs_arquitectura_spec_carpetas_439",
-      "label": "Carpetas",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "carpetas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L439"
-    },
-    {
-      "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
-      "label": "C\u00f3mo se decide un dise\u00f1o",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como se decide un diseno",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L667"
-    },
-    {
-      "id": "specs_arquitectura_spec_dinero",
-      "label": "Dinero",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dinero",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L392"
-    },
-    {
-      "id": "specs_arquitectura_spec_dise\u00f1o_de_la_pantalla",
-      "label": "Dise\u00f1o de la pantalla",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "diseno de la pantalla",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L521"
-    },
-    {
-      "id": "specs_arquitectura_spec_frontend",
-      "label": "Frontend",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "frontend",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L433"
-    },
-    {
-      "id": "specs_arquitectura_spec_git_y_entrega",
-      "label": "Git y entrega",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "git y entrega",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L639"
-    },
-    {
-      "id": "specs_arquitectura_spec_la_venta_actual",
-      "label": "La venta actual",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "la venta actual",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L493"
-    },
-    {
-      "id": "specs_arquitectura_spec_monorepo",
-      "label": "Monorepo",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "monorepo",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "specs_arquitectura_spec_paleta",
-      "label": "Paleta",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "paleta",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L528"
-    },
-    {
-      "id": "specs_arquitectura_spec_pruebas",
-      "label": "Pruebas",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pruebas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L583"
-    },
-    {
-      "id": "specs_arquitectura_spec_pruebas_en_local",
-      "label": "Pruebas en local",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pruebas en local",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L603"
-    },
-    {
-      "id": "specs_arquitectura_spec_servicio_de_api",
-      "label": "Servicio de API",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "servicio de api",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L476"
-    },
-    {
-      "id": "specs_arquitectura_spec_variables_de_entorno",
-      "label": "Variables de entorno",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "variables de entorno",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L105"
-    },
-    {
-      "id": "specs_arquitectura_spec_versiones",
-      "label": "Versiones",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "versiones",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L57"
-    },
-    {
-      "id": "specs_arquitectura_spec_\u00edconos_y_animaciones",
-      "label": "\u00cdconos y animaciones",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "src/config.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "iconos y animaciones",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L563"
-    },
-    {
       "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
       "label": "entrega-trazable.md",
       "_origin": "ast",
@@ -5992,6 +5800,222 @@
       "source_location": "L42"
     },
     {
+      "id": "specs_arquitectura_spec_arquitectura_de_aipos",
+      "label": "Arquitectura de AIPOS",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "arquitectura de aipos",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "specs_arquitectura_spec_base_de_datos",
+      "label": "Base de datos",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "base de datos",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L356"
+    },
+    {
+      "id": "specs_arquitectura_spec_calidad",
+      "label": "Calidad",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "calidad",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L622"
+    },
+    {
+      "id": "specs_arquitectura_spec_carpetas_439",
+      "label": "Carpetas",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "carpetas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L439"
+    },
+    {
+      "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
+      "label": "C\u00f3mo se decide un dise\u00f1o",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como se decide un diseno",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L667"
+    },
+    {
+      "id": "specs_arquitectura_spec_dinero",
+      "label": "Dinero",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dinero",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L392"
+    },
+    {
+      "id": "specs_arquitectura_spec_dise\u00f1o_de_la_pantalla",
+      "label": "Dise\u00f1o de la pantalla",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "diseno de la pantalla",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L521"
+    },
+    {
+      "id": "specs_arquitectura_spec_frontend",
+      "label": "Frontend",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "frontend",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L433"
+    },
+    {
+      "id": "specs_arquitectura_spec_git_y_entrega",
+      "label": "Git y entrega",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "git y entrega",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L639"
+    },
+    {
+      "id": "specs_arquitectura_spec_la_venta_actual",
+      "label": "La venta actual",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "la venta actual",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L493"
+    },
+    {
+      "id": "specs_arquitectura_spec_monorepo",
+      "label": "Monorepo",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "monorepo",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "specs_arquitectura_spec_paleta",
+      "label": "Paleta",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "paleta",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L528"
+    },
+    {
+      "id": "specs_arquitectura_spec_pruebas",
+      "label": "Pruebas",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pruebas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L583"
+    },
+    {
+      "id": "specs_arquitectura_spec_pruebas_en_local",
+      "label": "Pruebas en local",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pruebas en local",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L603"
+    },
+    {
+      "id": "specs_arquitectura_spec_servicio_de_api",
+      "label": "Servicio de API",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "servicio de api",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L476"
+    },
+    {
+      "id": "specs_arquitectura_spec_variables_de_entorno",
+      "label": "Variables de entorno",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "variables de entorno",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "specs_arquitectura_spec_versiones",
+      "label": "Versiones",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "versiones",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "specs_arquitectura_spec_\u00edconos_y_animaciones",
+      "label": "\u00cdconos y animaciones",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "iconos y animaciones",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L563"
+    },
+    {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
       "label": "flujo-entregable/SKILL.md",
       "_origin": "ast",
@@ -6234,18 +6258,6 @@
       "norm_label": "seguridad",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L177"
-    },
-    {
-      "id": "docs_setup_agents_setup_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "Configurar el MCP de Trello",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
     },
     {
       "id": "docs_setup_agents_setup_soluci\u00f3n_de_problemas",
@@ -6576,7 +6588,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L58",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -6588,7 +6600,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L65",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -6600,7 +6612,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L66",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -6612,7 +6624,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L70",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -6636,7 +6648,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L31",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config_leerorigenes",
+      "target": "backend_src_config_esunorigen",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/config.js",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -6648,7 +6672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/src/config.js",
-      "source_location": "L47",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -9037,13 +9061,13 @@
     },
     {
       "source": "backend_src_config",
-      "target": "backend_src_config_leerorigenes",
+      "target": "backend_src_config_esunorigen",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -9059,13 +9083,24 @@
     },
     {
       "source": "backend_src_config",
+      "target": "backend_src_config_leerorigenes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/config.js",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_config",
       "target": "backend_src_config_nombredelabase",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/config.js",
-      "source_location": "L46",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -13224,7 +13259,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L79",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -13236,7 +13271,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "backend/src/config.js",
-      "source_location": "L79",
+      "source_location": "L97",
       "weight": 1.0
     },
     {

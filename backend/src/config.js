@@ -27,6 +27,17 @@ function entero(env, nombre, porDefecto, { minimo, maximo }) {
   return numero;
 }
 
+// El navegador manda `Origin` como esquema://servidor[:puerto], en minúsculas y sin el puerto por defecto.
+// Si `new URL` no devuelve el mismo texto (sin esquema, con ruta, con usuario, con mayúsculas o con el
+// puerto por defecto), ese origen nunca coincidiría con el de la pantalla y el navegador la bloquearía.
+function esUnOrigen(valor) {
+  try {
+    return new URL(valor).origin === valor;
+  } catch {
+    return false;
+  }
+}
+
 function leerOrigenes(env) {
   const origenes = texto(env, 'CORS_ORIGIN')
     .split(',')
@@ -38,6 +49,13 @@ function leerOrigenes(env) {
     }
     if (origen.endsWith('/')) {
       throw new Error(`CORS_ORIGIN no lleva barra final: "${origen}".`);
+    }
+    if (!esUnOrigen(origen)) {
+      throw new Error(
+        'CORS_ORIGIN debe ser un origen como http://localhost:5173: esquema, servidor y puerto, ' +
+          'en minúsculas, sin ruta y sin escribir el puerto por defecto (80 o 443). ' +
+          `Vale "${origen}".`,
+      );
     }
   }
   return origenes;

@@ -35,7 +35,7 @@ Cada tarjeta trae:
 1. **Requerimientos** (esta carpeta), en la rama `docs/requerimientos` hacia `main`.
 2. **Tiles de Tessl** que faltan, en la rama `chore/tiles-mysql-vue2` hacia `main` (PR #9), antes del código.
 3. **ProductionEnv**: se crea desde `main` cuando ya tiene los tiles y los requerimientos.
-4. **Entregable base**: backend, base de datos y frontend vacíos, en `feature/base`.
+4. **Entregable base**: backend, base de datos y frontend vacíos, y la documentación de la API (A-01), en `feature/base`.
 5. **Entregable productos**, en `feature/productos`.
 6. **Entregable ventas**, en `feature/ventas`.
 7. **Entrega final**: bitácora, README y prueba desde cero, en `docs/entrega-final`, y después el PR de
@@ -82,6 +82,12 @@ Estimación inicial en horas, con el agente. Sirve para comparar con el tiempo r
 | B-04 | Base del frontend con la pantalla única | Frontend | `feature/base` | B-01, T-02 | — | 1.5 |
 | A-01 | Documentación de la API con Swagger UI | Backend, Documentación | `feature/base` | B-02 | — | 1 |
 
+### Despliegue
+
+| Id | Tarjeta | Área | Rama | Depende de | Diagrama | Horas |
+|---|---|---|---|---|---|---|
+| D-01 | Pipeline de despliegue con etiquetas release-* | DevOps | `chore/despliegue` → `ProductionEnv` (la configuración del servidor y de GitHub no está en git; queda descrita en `docs/despliegue.md`) | Entregable base integrado (B-01 a B-04 y A-01), para probar con `release-0.1.0` | 07 | 4 |
+
 ### Entregable productos
 
 | Id | Tarjeta | Área | Depende de | Diagrama | Horas |
@@ -119,7 +125,7 @@ Rama: `feature/ventas`.
 
 Rama: `docs/entrega-final` para E-01 y E-02; E-03 etiqueta `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
 
-Total estimado: 26 horas, sin contar R-00.
+Total estimado: 30 horas, con A-01 y D-01 y sin contar R-00.
 
 ## Definición de terminado
 

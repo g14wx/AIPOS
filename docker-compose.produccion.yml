@@ -1,0 +1,84 @@
+# Docker Compose de producción de AIPOS.
+# Spec: specs/despliegue.spec.md, sección "Docker Compose de producción".
+#
+# No es el docker-compose.yml de desarrollo (ese solo levanta MySQL). El workflow copia este archivo a
+# /srv/aipos/versiones/<etiqueta>/ y despliegue/desplegar.sh lo corre con --env-file y --project-directory, así que las
+# variables salen del .env de /srv/aipos. AIPOS_VERSION la pone desplegar.sh en cada despliegue: es la etiqueta
+# release-X.Y.Z de las imágenes.
+#
+# Todo puerto publicado lleva 127.0.0.1 delante: Docker se salta el firewall en los puertos que publica, y así solo
+# Caddy y el propio servidor alcanzan los contenedores.
+# El volumen mysql_datos guarda los datos de producción y se conserva entre despliegues. Para detener se usa
+# `docker compose stop`; las órdenes que borran volúmenes no se escriben en ningún script.
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    # Igual que el compose de desarrollo: utf8mb4 con el orden por defecto de MySQL 8.4 y la hora del servidor en UTC (RN-12).
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+00:00
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      # MYSQL_PORT es el puerto del host (para entrar desde el servidor o con un túnel SSH). Dentro de la red de Docker
+      # MySQL siempre está en el 3306.
+      - "127.0.0.1:${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql_datos:/var/lib/mysql
+    healthcheck:
+      # Por TCP y con la clave de root (que la imagen ya tiene en su entorno): mientras la imagen prepara la base solo
+      # escucha en su socket, y ahí todavía no está sana.
+      test: ["CMD-SHELL", 'MYSQL_PWD="$$MYSQL_ROOT_PASSWORD" mysqladmin ping -h 127.0.0.1 -uroot --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    mem_limit: 1g
+    logging: &registros
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  backend:
+    image: ghcr.io/g14wx/aipos-backend:${AIPOS_VERSION:?falta AIPOS_VERSION}
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    # Solo lo que el backend usa. No recibe MYSQL_ROOT_PASSWORD: la API nunca entra a MySQL como root.
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "127.0.0.1:8140:3000"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 384m
+    logging: *registros
+
+  frontend:
+    image: ghcr.io/g14wx/aipos-frontend:${AIPOS_VERSION:?falta AIPOS_VERSION}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8141:8080"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    logging: *registros
+
+volumes:
+  mysql_datos:

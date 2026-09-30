@@ -34,7 +34,7 @@ enlazan los `[@test]`.
 | Ruta `GET /api/productos?busqueda=`, controller, validación, servicio `buscarProductos` y escape de `%`, `_` y `\` | P-04 | Backend |
 | Documentar la ruta en la documentación de la API (subtarea de P-04) | P-04, sobre lo que crea A-01 | Backend |
 | Función `buscarProductos` de `frontend/src/api/productos.js` | P-05 | Frontend |
-| `BuscadorProductos.vue`, su animación `buscando.json` y su lugar en `App.vue` | P-05 | Frontend |
+| `BuscadorProductos.vue` (B-04 deja el campo con el foco al abrir y su lugar en `App.vue`; P-05 le suma la espera, los resultados y `producto-elegido`) y su animación `buscando.json` | P-05 | Frontend |
 | Conectar el evento `producto-elegido` con `agregarAVentaActual` | V-04 | Frontend |
 | RF-12 (Enter con un código de barras exacto), opcional | P-05, si sobra tiempo | Frontend |
 
@@ -42,7 +42,8 @@ P-04 depende de P-01 (la tabla `productos` y el modelo `Producto`). P-02 y P-04 
 de `productos` del backend (`routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
 `validators/productos.js` y `validators/comunes.js`): los crea la primera de las dos que se integra en
 `feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-05 depende de P-04 y
-de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js` y `App.vue`). Si A-01 todavía no está integrada cuando
+de B-04 (el componente `AnimacionLottie.vue`, `src/api/http.js`, `App.vue` y el campo inicial de
+`BuscadorProductos.vue`). Si A-01 todavía no está integrada cuando
 P-04 termina, la subtarea de documentar la ruta espera y se hace en cuanto A-01 esté integrada.
 
 ## Reglas de negocio
@@ -221,7 +222,9 @@ Los cinco primeros son los de la tarjeta P-04; el resto completan la spec.
 
 `BuscadorProductos.vue` (`src/components/`, Options API, un solo elemento raíz) es el campo de búsqueda con su lista de
 resultados. Se pone en `App.vue`, en la pantalla principal (RNF-01), y cabe en un componente: no hace falta partirlo. No
-guarda nada en `localStorage`.
+guarda nada en `localStorage`. B-04 deja `BuscadorProductos.vue` con el campo «Buscar producto», su ayuda, la lupa, el
+botón de borrar y el foco al abrir (en `mounted`), y ya lo pone en `App.vue` (`data-zona="busqueda"`): P-05 le suma lo
+demás sin quitar nada de eso.
 
 - Un campo de texto de Vuetify 2 (`v-text-field`) con etiqueta visible "Buscar producto", ayuda "Nombre o código de
   barras", ícono de lupa MDI, botón para borrar y foco al abrir la pantalla. Debajo, la zona de resultados.
@@ -313,7 +316,7 @@ Vue 2 y Vuetify 2:
 
 Los cuatro primeros son los de la tarjeta P-05; el resto completan la spec. Las pruebas automáticas usan Vitest,
 `@vue/test-utils` 1 y jsdom, con `vi.useFakeTimers()` para la espera y `vi.mock` para `src/api/productos.js` y para
-`lottie-web`.
+la ruta exacta que importa `AnimacionLottie`, `lottie-web/build/player/lottie_light`.
 
 1. Dado que el cajero escribe rápido "le", "lec" y "lech", entonces solo se ven los resultados de "lech" (una sola
    llamada a la API, con "lech"). Y dado que la respuesta de "le" llega después que la de "lech", entonces sigue la

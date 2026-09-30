@@ -184,9 +184,11 @@ Un 400 tiene siempre el mensaje "Los datos del producto no son válidos. Revisa 
 
 Cada campo muestra solo su primer problema. Se revisa en el orden de la tabla.
 
-- Un cuerpo que falta (petición sin `Content-Type: application/json`) o que no es un objeto se trata como un objeto
+- Un cuerpo que falta (petición sin `Content-Type: application/json`) o que es un arreglo se trata como un objeto
   vacío: da un 400 con los tres campos obligatorios. Con Express 5, `req.body` llega `undefined` en el primero de
-  esos casos, y el validador no debe fallar con un error de JavaScript (que sería un 500).
+  esos casos, y el validador no debe fallar con un error de JavaScript (que sería un 500). Un JSON que no es un objeto
+  ni un arreglo (`null`, `5`, `"x"`) no llega al validador: el lector de Express lo rechaza como 400 `JSON_INVALIDO`
+  (spec de arquitectura, "Errores").
   `[@test] ../backend/tests/productos/crear-producto-400.test.js`
 - Un JSON mal escrito (`JSON_INVALIDO`) y un cuerpo que pasa de 100 KB (`CUERPO_MUY_GRANDE`) son 400 del manejador
   de errores de la arquitectura; esta ruta no los cambia.
@@ -268,8 +270,10 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
 | `src/reglasProducto.js` | Las reglas de Vuetify de cada campo, como funciones puras, para probarlas sin pantalla. |
 | `src/api/productos.js` | `crearProducto({ nombre, precio, codigoBarras })`: `POST productos` con `http`, y devuelve el producto. Los errores llegan como los deja el interceptor de `http.js` (`status`, `codigo`, `mensaje`, `detalles`). |
 
-- El botón "Nuevo producto" está a la vista en la barra superior de la pantalla principal, fuera de cualquier lista, con
-  el color `primary` y el texto `#292F36` (nunca blanco: arquitectura, "Paleta").
+- El botón "Nuevo producto" está a la vista en la primera zona de la pantalla (`data-zona="nuevo-producto"`), encima de
+  la búsqueda y fuera de cualquier lista, con el color `primary` y el texto `#292F36` (nunca blanco: arquitectura,
+  "Paleta"). B-04 deja ahí un botón sin acción (el `v-btn` de `App.vue`); P-03 lo reemplaza por `NuevoProducto.vue` sin
+  quitar ni mover la zona, que `pantalla-unica.test.js` exige.
 - Ningún componente importa `axios` ni escribe una URL.
   `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
 - `crearProducto` manda `POST /productos` con el cuerpo de la tabla de arriba y devuelve el producto.
@@ -287,8 +291,10 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
 - Las reglas de Vuetify de cada campo usan los mismos textos que la API (tabla del contrato) y revisan lo mismo. La
   pantalla quita los espacios de los extremos del nombre y del código de barras antes de revisarlos y de mandarlos. El
   precio no se recorta, igual que en la API: `" 25"` se marca con "Debe ser un número con punto decimal, por ejemplo
-  25.50.". El máximo del precio se compara en centavos con `aCentavos` de `src/dinero.js`, sin sumar decimales de
-  JavaScript.
+  25.50.". El máximo del precio se revisa con la forma del texto, igual que en la API (más de 5 dígitos enteros: "No
+  puede ser mayor que 99999.99."), sin sumar decimales de JavaScript. `aCentavos` de `src/dinero.js` solo se llama con un
+  texto que ya tiene la forma del dinero (hasta 5 enteros y 2 decimales), por ejemplo para ver si vale 0: con otro texto
+  lanza un `Error` y no marca el campo.
   `[@test] ../frontend/tests/reglasProducto.test.js`
 - Al presionar "Guardar" con el formulario vacío se marcan los tres campos como obligatorios, el foco va al primero
   y no se llama a la API. Los campos no se marcan antes de que el cajero presione "Guardar" o salga de ellos

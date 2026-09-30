@@ -145,6 +145,8 @@ export default {
       immediate: true,
       handler(abierto) {
         if (abierto) this.alAbrir();
+        // Si se cierra antes de que llegue el foco a "Nombre", el foco ya no va.
+        else clearTimeout(this.temporizador);
       },
     },
   },

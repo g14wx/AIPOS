@@ -289,7 +289,7 @@
       "file_type": "code",
       "norm_label": "alabrir()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L155"
+      "source_location": "L157"
     },
     {
       "id": "frontend_src_components_formularioproducto_beforedestroy",
@@ -301,7 +301,7 @@
       "file_type": "code",
       "norm_label": "beforedestroy()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L151"
+      "source_location": "L153"
     },
     {
       "id": "frontend_src_components_formularioproducto_borrarerror",
@@ -313,7 +313,7 @@
       "file_type": "code",
       "norm_label": "borrarerror()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L187"
+      "source_location": "L189"
     },
     {
       "id": "frontend_src_components_formularioproducto_cancelar",
@@ -325,7 +325,7 @@
       "file_type": "code",
       "norm_label": "cancelar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L183"
+      "source_location": "L185"
     },
     {
       "id": "frontend_src_components_formularioproducto_cerrar",
@@ -337,7 +337,7 @@
       "file_type": "code",
       "norm_label": "cerrar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L179"
+      "source_location": "L181"
     },
     {
       "id": "frontend_src_components_formularioproducto_data",
@@ -361,7 +361,7 @@
       "file_type": "code",
       "norm_label": "enfocar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L171"
+      "source_location": "L173"
     },
     {
       "id": "frontend_src_components_formularioproducto_enlazartitulo",
@@ -373,7 +373,7 @@
       "file_type": "code",
       "norm_label": "enlazartitulo()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L167"
+      "source_location": "L169"
     },
     {
       "id": "frontend_src_components_formularioproducto_guardar",
@@ -385,7 +385,7 @@
       "file_type": "code",
       "norm_label": "guardar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L190"
+      "source_location": "L192"
     },
     {
       "id": "frontend_src_components_formularioproducto_handler",
@@ -421,7 +421,7 @@
       "file_type": "code",
       "norm_label": "mostrarerror()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L215"
+      "source_location": "L217"
     },
     {
       "id": "frontend_src_components_formularioproducto_pantallacompleta",
@@ -457,7 +457,7 @@
       "file_type": "code",
       "norm_label": "vaciar()",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L174"
+      "source_location": "L176"
     },
     {
       "id": "frontend_src_components_formularioproducto_vacio",
@@ -592,12 +592,84 @@
       "source_location": "L29"
     },
     {
+      "id": "frontend_src_api_http_crearerror",
+      "label": "crearError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "crearerror()",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_src_api_http_traducirerror",
+      "label": "traducirError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "traducirerror()",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "frontend_tests_api_http_test_cargarhttp",
+      "label": "cargarHttp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "cargarhttp()",
+      "source_file": "frontend/tests/api/http.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "frontend_tests_api_http_test_respondercon",
+      "label": "responderCon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "respondercon()",
+      "source_file": "frontend/tests/api/http.test.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_tests_api_productos_test_cargar",
+      "label": "cargar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "cargar()",
+      "source_file": "frontend/tests/api/productos.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_tests_api_productos_test_respondercon",
+      "label": "responderCon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "respondercon()",
+      "source_file": "frontend/tests/api/productos.test.js",
+      "source_location": "L18"
+    },
+    {
       "id": "frontend_src_app_data",
       "label": "data()",
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "data()",
       "source_file": "frontend/src/App.vue",
@@ -609,7 +681,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "data()",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
@@ -621,7 +693,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "mounted()",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
@@ -633,7 +705,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "haydetalles()",
       "source_file": "frontend/src/components/VentaActual.vue",
@@ -645,7 +717,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "total()",
       "source_file": "frontend/src/components/VentaActual.vue",
@@ -657,7 +729,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "acentavos()",
       "source_file": "frontend/src/dinero.js",
@@ -669,7 +741,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "formatearcentavos()",
       "source_file": "frontend/src/dinero.js",
@@ -681,7 +753,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "calcularsubtotal()",
       "source_file": "frontend/src/ventaActual/ventaActual.js",
@@ -693,7 +765,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "calculartotal()",
       "source_file": "frontend/src/ventaActual/ventaActual.js",
@@ -705,7 +777,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "vaciarventaactual()",
       "source_file": "frontend/src/ventaActual/ventaActual.js",
@@ -717,7 +789,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "congelar()",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
@@ -940,76 +1012,40 @@
       "source_location": "L24"
     },
     {
-      "id": "frontend_src_api_http_crearerror",
-      "label": "crearError()",
+      "id": "frontend_src_components_nuevoproducto_abierto",
+      "label": "abierto()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
       "community_name": "NuevoProducto.test.js",
       "file_type": "code",
-      "norm_label": "crearerror()",
-      "source_file": "frontend/src/api/http.js",
-      "source_location": "L16"
+      "norm_label": "abierto()",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L56"
     },
     {
-      "id": "frontend_src_api_http_traducirerror",
-      "label": "traducirError()",
+      "id": "frontend_src_components_nuevoproducto_data",
+      "label": "data()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
       "community_name": "NuevoProducto.test.js",
       "file_type": "code",
-      "norm_label": "traducirerror()",
-      "source_file": "frontend/src/api/http.js",
-      "source_location": "L22"
+      "norm_label": "data()",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L44"
     },
     {
-      "id": "frontend_tests_api_http_test_cargarhttp",
-      "label": "cargarHttp()",
+      "id": "frontend_src_components_nuevoproducto_mostraraviso",
+      "label": "mostrarAviso()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
       "community_name": "NuevoProducto.test.js",
       "file_type": "code",
-      "norm_label": "cargarhttp()",
-      "source_file": "frontend/tests/api/http.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "frontend_tests_api_http_test_respondercon",
-      "label": "responderCon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "respondercon()",
-      "source_file": "frontend/tests/api/http.test.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_cargar",
-      "label": "cargar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "cargar()",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_respondercon",
-      "label": "responderCon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "respondercon()",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L18"
+      "norm_label": "mostraraviso()",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L63"
     },
     {
       "id": "frontend_tests_componentes_nuevoproducto_test_abierto",
@@ -1230,6 +1266,18 @@
       "norm_label": "lenguaje ubicuo \u2014 aipos",
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L1"
+    },
+    {
+      "id": "docs_lenguaje_ubicuo_negocio",
+      "label": "Negocio",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "negocio",
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L18"
     },
     {
       "id": "docs_lenguaje_ubicuo_pendientes_por_confirmar",
@@ -1823,160 +1871,6 @@
       "source_location": "L4"
     },
     {
-      "id": "frontend_package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "frontend/package.json",
-      "source_location": "L27"
-    },
-    {
-      "id": "frontend_package_devdependencies_eslint",
-      "label": "eslint",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "eslint",
-      "source_file": "frontend/package.json",
-      "source_location": "L31"
-    },
-    {
-      "id": "frontend_package_devdependencies_eslint_config_prettier",
-      "label": "eslint-config-prettier",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "eslint-config-prettier",
-      "source_file": "frontend/package.json",
-      "source_location": "L32"
-    },
-    {
-      "id": "frontend_package_devdependencies_eslint_js",
-      "label": "@eslint/js",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@eslint/js",
-      "source_file": "frontend/package.json",
-      "source_location": "L28"
-    },
-    {
-      "id": "frontend_package_devdependencies_eslint_plugin_vue",
-      "label": "eslint-plugin-vue",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "eslint-plugin-vue",
-      "source_file": "frontend/package.json",
-      "source_location": "L33"
-    },
-    {
-      "id": "frontend_package_devdependencies_globals",
-      "label": "globals",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "globals",
-      "source_file": "frontend/package.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "frontend_package_devdependencies_jsdom",
-      "label": "jsdom",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "jsdom",
-      "source_file": "frontend/package.json",
-      "source_location": "L35"
-    },
-    {
-      "id": "frontend_package_devdependencies_prettier",
-      "label": "prettier",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "prettier",
-      "source_file": "frontend/package.json",
-      "source_location": "L36"
-    },
-    {
-      "id": "frontend_package_devdependencies_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "frontend/package.json",
-      "source_location": "L37"
-    },
-    {
-      "id": "frontend_package_devdependencies_vitejs_plugin_vue2",
-      "label": "@vitejs/plugin-vue2",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@vitejs/plugin-vue2",
-      "source_file": "frontend/package.json",
-      "source_location": "L29"
-    },
-    {
-      "id": "frontend_package_devdependencies_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vitest",
-      "source_file": "frontend/package.json",
-      "source_location": "L38"
-    },
-    {
-      "id": "frontend_package_devdependencies_vue_eslint_parser",
-      "label": "vue-eslint-parser",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vue-eslint-parser",
-      "source_file": "frontend/package.json",
-      "source_location": "L39"
-    },
-    {
-      "id": "frontend_package_devdependencies_vue_template_compiler",
-      "label": "vue-template-compiler",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vue-template-compiler",
-      "source_file": "frontend/package.json",
-      "source_location": "L40"
-    },
-    {
-      "id": "frontend_package_devdependencies_vue_test_utils",
-      "label": "@vue/test-utils",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@vue/test-utils",
-      "source_file": "frontend/package.json",
-      "source_location": "L30"
-    },
-    {
       "id": "frontend_package_engines",
       "label": "engines",
       "_origin": "ast",
@@ -2019,6 +1913,105 @@
       "norm_label": "private",
       "source_file": "frontend/package.json",
       "source_location": "L5"
+    },
+    {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "frontend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "frontend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "frontend_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "frontend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "frontend_package_scripts_format",
+      "label": "format",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "format",
+      "source_file": "frontend/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_package_scripts_format_check",
+      "label": "format:check",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "format:check",
+      "source_file": "frontend/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "frontend_package_scripts_lint",
+      "label": "lint",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "lint",
+      "source_file": "frontend/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "frontend_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "frontend/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "frontend_package_scripts_test_vigilar",
+      "label": "test:vigilar",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "test:vigilar",
+      "source_file": "frontend/package.json",
+      "source_location": "L15"
     },
     {
       "id": "frontend_package_type",
@@ -4387,160 +4380,158 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_reglas_de_negocio",
-      "label": "Reglas de negocio",
+      "id": "frontend_package_devdependencies",
+      "label": "devDependencies",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "reglas de negocio",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L233"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "frontend/package.json",
+      "source_location": "L27"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
-      "label": "Requerimientos funcionales",
+      "id": "frontend_package_devdependencies_eslint",
+      "label": "eslint",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "requerimientos funcionales",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L1"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "eslint",
+      "source_file": "frontend/package.json",
+      "source_location": "L31"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_01_crear_producto",
-      "label": "RF-01 Crear producto",
+      "id": "frontend_package_devdependencies_eslint_config_prettier",
+      "label": "eslint-config-prettier",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-01 crear producto",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L23"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "eslint-config-prettier",
+      "source_file": "frontend/package.json",
+      "source_location": "L32"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_02_buscar_producto",
-      "label": "RF-02 Buscar producto",
+      "id": "frontend_package_devdependencies_eslint_js",
+      "label": "@eslint/js",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-02 buscar producto",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L45"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@eslint/js",
+      "source_file": "frontend/package.json",
+      "source_location": "L28"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_03_agregar_a_la_venta_actual",
-      "label": "RF-03 Agregar a la venta actual",
+      "id": "frontend_package_devdependencies_eslint_plugin_vue",
+      "label": "eslint-plugin-vue",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-03 agregar a la venta actual",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L67"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "eslint-plugin-vue",
+      "source_file": "frontend/package.json",
+      "source_location": "L33"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_04_ver_los_detalles_de_la_venta_actual",
-      "label": "RF-04 Ver los detalles de la venta actual",
+      "id": "frontend_package_devdependencies_globals",
+      "label": "globals",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-04 ver los detalles de la venta actual",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L82"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "globals",
+      "source_file": "frontend/package.json",
+      "source_location": "L34"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_05_editar_el_precio_aplicado",
-      "label": "RF-05 Editar el precio aplicado",
+      "id": "frontend_package_devdependencies_jsdom",
+      "label": "jsdom",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-05 editar el precio aplicado",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L103"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "jsdom",
+      "source_file": "frontend/package.json",
+      "source_location": "L35"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_06_cambiar_la_cantidad",
-      "label": "RF-06 Cambiar la cantidad",
+      "id": "frontend_package_devdependencies_prettier",
+      "label": "prettier",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-06 cambiar la cantidad",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L116"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "prettier",
+      "source_file": "frontend/package.json",
+      "source_location": "L36"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_07_eliminar_un_producto_de_la_venta_actual",
-      "label": "RF-07 Eliminar un producto de la venta actual",
+      "id": "frontend_package_devdependencies_vite",
+      "label": "vite",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-07 eliminar un producto de la venta actual",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L130"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vite",
+      "source_file": "frontend/package.json",
+      "source_location": "L37"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_08_ver_el_total",
-      "label": "RF-08 Ver el total",
+      "id": "frontend_package_devdependencies_vitejs_plugin_vue2",
+      "label": "@vitejs/plugin-vue2",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-08 ver el total",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L141"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@vitejs/plugin-vue2",
+      "source_file": "frontend/package.json",
+      "source_location": "L29"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_09_registrar_venta",
-      "label": "RF-09 Registrar venta",
+      "id": "frontend_package_devdependencies_vitest",
+      "label": "vitest",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-09 registrar venta",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L154"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vitest",
+      "source_file": "frontend/package.json",
+      "source_location": "L38"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_11_registrar_venta_con_sp_registrar_venta",
-      "label": "RF-11 Registrar venta con `sp_registrar_venta`",
+      "id": "frontend_package_devdependencies_vue_eslint_parser",
+      "label": "vue-eslint-parser",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-11 registrar venta con `sp_registrar_venta`",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L202"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vue-eslint-parser",
+      "source_file": "frontend/package.json",
+      "source_location": "L39"
     },
     {
-      "id": "requerimientos_02_requerimientos_funcionales_rf_12_agregar_con_un_c\u00f3digo_de_barras_exacto",
-      "label": "RF-12 Agregar con un c\u00f3digo de barras exacto",
+      "id": "frontend_package_devdependencies_vue_template_compiler",
+      "label": "vue-template-compiler",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Requerimientos funcionales",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "rf-12 agregar con un codigo de barras exacto",
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L222"
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vue-template-compiler",
+      "source_file": "frontend/package.json",
+      "source_location": "L40"
+    },
+    {
+      "id": "frontend_package_devdependencies_vue_test_utils",
+      "label": "@vue/test-utils",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@vue/test-utils",
+      "source_file": "frontend/package.json",
+      "source_location": "L30"
     },
     {
       "id": "tests_hook_de_git_graphify_falla_test",
@@ -4671,6 +4662,22 @@
       "file_type": "code",
       "norm_label": "formularioproducto.test.js",
       "source_file": "frontend/tests/componentes/FormularioProducto.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
     },
     {
@@ -5103,22 +5110,6 @@
       },
       "norm_label": "merge-sin-choques.test.sh script",
       "source_file": "tests/hook-de-git/merge-sin-choques.test.sh",
-      "source_location": "L1"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
     },
     {
@@ -5974,110 +5965,88 @@
       "source_location": "L18"
     },
     {
-      "id": "frontend_package_scripts",
-      "label": "scripts",
+      "id": "frontend_src_api_http",
+      "label": "http.js",
       "_origin": "ast",
       "community": 56,
-      "community_name": "scripts",
+      "community_name": "http.js",
       "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "frontend/package.json",
-      "source_location": "L10"
+      "norm_label": "http.js",
+      "source_file": "frontend/src/api/http.js",
+      "source_location": "L1"
     },
     {
-      "id": "frontend_package_scripts_build",
-      "label": "build",
+      "id": "frontend_src_api_http_http",
+      "label": "http",
       "_origin": "ast",
       "community": 56,
-      "community_name": "scripts",
+      "community_name": "http.js",
       "file_type": "code",
-      "norm_label": "build",
-      "source_file": "frontend/package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "frontend_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "frontend/package.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "frontend_package_scripts_format",
-      "label": "format",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "format",
-      "source_file": "frontend/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "frontend_package_scripts_format_check",
-      "label": "format:check",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "format:check",
-      "source_file": "frontend/package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "frontend_package_scripts_lint",
-      "label": "lint",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "lint",
-      "source_file": "frontend/package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "frontend_package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "frontend/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "frontend_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 56,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "frontend/package.json",
+      "norm_label": "http",
+      "source_file": "frontend/src/api/http.js",
       "source_location": "L14"
     },
     {
-      "id": "frontend_package_scripts_test_vigilar",
-      "label": "test:vigilar",
+      "id": "frontend_src_api_productos",
+      "label": "productos.js",
       "_origin": "ast",
       "community": 56,
-      "community_name": "scripts",
+      "community_name": "http.js",
       "file_type": "code",
-      "norm_label": "test:vigilar",
+      "norm_label": "productos.js",
+      "source_file": "frontend/src/api/productos.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_api_http_test",
+      "label": "http.test.js",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "http.test.js",
+      "source_file": "frontend/tests/api/http.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_api_productos_test",
+      "label": "productos.test.js",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "productos.test.js",
+      "source_file": "frontend/tests/api/productos.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_tests_api_productos_test_producto",
+      "label": "producto",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "code",
+      "norm_label": "producto",
+      "source_file": "frontend/tests/api/productos.test.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "ref_axios",
+      "label": "axios",
+      "_origin": "ast",
+      "community": 56,
+      "community_name": "http.js",
+      "file_type": "concept",
+      "norm_label": "axios",
       "source_file": "frontend/package.json",
-      "source_location": "L15"
+      "source_location": "L22"
     },
     {
       "id": "frontend_src_app",
       "label": "App.vue",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "app.vue",
       "source_file": "frontend/src/App.vue",
@@ -6088,7 +6057,7 @@
       "label": "BuscadorProductos.vue",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "buscadorproductos.vue",
       "source_file": "frontend/src/components/BuscadorProductos.vue",
@@ -6099,7 +6068,7 @@
       "label": "VentaActual.vue",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "ventaactual.vue",
       "source_file": "frontend/src/components/VentaActual.vue",
@@ -6110,7 +6079,7 @@
       "label": "dinero.js",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "dinero.js",
       "source_file": "frontend/src/dinero.js",
@@ -6121,7 +6090,7 @@
       "label": "ventaActual.js",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "ventaactual.js",
       "source_file": "frontend/src/ventaActual/ventaActual.js",
@@ -6132,7 +6101,7 @@
       "label": "dinero.test.js",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "dinero.test.js",
       "source_file": "frontend/tests/dinero.test.js",
@@ -6143,7 +6112,7 @@
       "label": "venta-vacia.test.js",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "venta-vacia.test.js",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
@@ -6154,7 +6123,7 @@
       "label": "leche",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "leche",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
@@ -6165,18 +6134,29 @@
       "label": "pan",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "code",
       "norm_label": "pan",
       "source_file": "frontend/tests/venta-actual/venta-vacia.test.js",
       "source_location": "L20"
     },
     {
+      "id": "ref_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "concept",
+      "norm_label": "vitest",
+      "source_file": "frontend/package.json",
+      "source_location": "L38"
+    },
+    {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_mysql_stored_procedure_authoring_skill",
       "label": "mysql-stored-procedure-authoring/SKILL.md",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "frontmatter": {
         "name": "mysql-stored-procedure-authoring",
@@ -6188,23 +6168,143 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_lenguaje_ubicuo_negocio",
-      "label": "Negocio",
+      "id": "requerimientos_02_requerimientos_funcionales_reglas_de_negocio",
+      "label": "Reglas de negocio",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "negocio",
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L18"
+      "norm_label": "reglas de negocio",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L233"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
+      "label": "Requerimientos funcionales",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requerimientos funcionales",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_01_crear_producto",
+      "label": "RF-01 Crear producto",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-01 crear producto",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_02_buscar_producto",
+      "label": "RF-02 Buscar producto",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-02 buscar producto",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_03_agregar_a_la_venta_actual",
+      "label": "RF-03 Agregar a la venta actual",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-03 agregar a la venta actual",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L67"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_04_ver_los_detalles_de_la_venta_actual",
+      "label": "RF-04 Ver los detalles de la venta actual",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-04 ver los detalles de la venta actual",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L82"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_05_editar_el_precio_aplicado",
+      "label": "RF-05 Editar el precio aplicado",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-05 editar el precio aplicado",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L103"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_06_cambiar_la_cantidad",
+      "label": "RF-06 Cambiar la cantidad",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-06 cambiar la cantidad",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L116"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_07_eliminar_un_producto_de_la_venta_actual",
+      "label": "RF-07 Eliminar un producto de la venta actual",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-07 eliminar un producto de la venta actual",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L130"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_08_ver_el_total",
+      "label": "RF-08 Ver el total",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-08 ver el total",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L141"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_09_registrar_venta",
+      "label": "RF-09 Registrar venta",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-09 registrar venta",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L154"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_10_guardar_productos_ventas_y_detalles_con_sus_relaciones",
       "label": "RF-10 Guardar productos, ventas y detalles con sus relaciones",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "rf-10 guardar productos, ventas y detalles con sus relaciones",
@@ -6212,11 +6312,35 @@
       "source_location": "L174"
     },
     {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_11_registrar_venta_con_sp_registrar_venta",
+      "label": "RF-11 Registrar venta con `sp_registrar_venta`",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-11 registrar venta con `sp_registrar_venta`",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L202"
+    },
+    {
+      "id": "requerimientos_02_requerimientos_funcionales_rf_12_agregar_con_un_c\u00f3digo_de_barras_exacto",
+      "label": "RF-12 Agregar con un c\u00f3digo de barras exacto",
+      "_origin": "ast",
+      "community": 57,
+      "community_name": "vitest",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "rf-12 agregar con un codigo de barras exacto",
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L222"
+    },
+    {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_mysql_stored_procedure_authoring_skill_1_files",
       "label": "1. Files",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. files",
@@ -6228,7 +6352,7 @@
       "label": "2. Migration",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. migration",
@@ -6240,7 +6364,7 @@
       "label": "3. Template: a sale with its items",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. template: a sale with its items",
@@ -6252,7 +6376,7 @@
       "label": "4. Rules inside the body",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. rules inside the body",
@@ -6264,7 +6388,7 @@
       "label": "5. Final check",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. final check",
@@ -6276,7 +6400,7 @@
       "label": "MySQL stored procedure authoring",
       "_origin": "ast",
       "community": 57,
-      "community_name": "venta-vacia.test.js",
+      "community_name": "vitest",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "mysql stored procedure authoring",
@@ -6958,70 +7082,15 @@
       "source_location": "L110"
     },
     {
-      "id": "frontend_src_api_http",
-      "label": "http.js",
+      "id": "frontend_src_components_nuevoproducto",
+      "label": "NuevoProducto.vue",
       "_origin": "ast",
       "community": 8,
       "community_name": "NuevoProducto.test.js",
       "file_type": "code",
-      "norm_label": "http.js",
-      "source_file": "frontend/src/api/http.js",
+      "norm_label": "nuevoproducto.vue",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
       "source_location": "L1"
-    },
-    {
-      "id": "frontend_src_api_http_http",
-      "label": "http",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "http",
-      "source_file": "frontend/src/api/http.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "frontend_src_api_productos",
-      "label": "productos.js",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "productos.js",
-      "source_file": "frontend/src/api/productos.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_api_http_test",
-      "label": "http.test.js",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "http.test.js",
-      "source_file": "frontend/tests/api/http.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_api_productos_test",
-      "label": "productos.test.js",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "productos.test.js",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_tests_api_productos_test_producto",
-      "label": "producto",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "code",
-      "norm_label": "producto",
-      "source_file": "frontend/tests/api/productos.test.js",
-      "source_location": "L30"
     },
     {
       "id": "frontend_tests_componentes_nuevoproducto_test",
@@ -7055,28 +7124,6 @@
       "norm_label": "producto",
       "source_file": "frontend/tests/componentes/NuevoProducto.test.js",
       "source_location": "L25"
-    },
-    {
-      "id": "ref_axios",
-      "label": "axios",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "concept",
-      "norm_label": "axios",
-      "source_file": "frontend/package.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "ref_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "NuevoProducto.test.js",
-      "file_type": "concept",
-      "norm_label": "vitest",
-      "source_file": "frontend/package.json",
-      "source_location": "L38"
     },
     {
       "id": "tests_grafo_del_proyecto_saltos_de_linea_test",
@@ -7145,18 +7192,6 @@
       "type": "external"
     },
     {
-      "id": "frontend_src_assets_animaciones_producto_creado",
-      "label": "frontend_src_assets_animaciones_producto_creado",
-      "_origin": "semantic",
-      "community": 6,
-      "community_name": "vitest-vue2.test.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_src_assets_animaciones_producto_creado",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_node_fs",
       "label": "ref_node_fs",
       "_origin": "semantic",
@@ -7213,6 +7248,18 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_app_vue",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_src_components_nuevoproducto_vue",
+      "label": "ref_src_components_nuevoproducto_vue",
+      "_origin": "semantic",
+      "community": 65,
+      "community_name": "ref_src_components_nuevoproducto_vue",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_src_components_nuevoproducto_vue",
       "source_file": "",
       "type": "external"
     },
@@ -7289,14 +7336,14 @@
       "type": "external"
     },
     {
-      "id": "ref_src_components_nuevoproducto_vue",
-      "label": "ref_src_components_nuevoproducto_vue",
+      "id": "frontend_src_assets_animaciones_producto_creado",
+      "label": "frontend_src_assets_animaciones_producto_creado",
       "_origin": "semantic",
       "community": 8,
       "community_name": "NuevoProducto.test.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_src_components_nuevoproducto_vue",
+      "norm_label": "frontend_src_assets_animaciones_producto_creado",
       "source_file": "",
       "type": "external"
     }
@@ -7395,7 +7442,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L156",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -7407,7 +7454,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L162",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -7419,7 +7466,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L163",
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -7431,7 +7478,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L184",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -7443,7 +7490,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L181",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -7467,7 +7514,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L194",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
@@ -7479,7 +7526,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L199",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -7491,7 +7538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L203",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -7503,7 +7550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L206",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -7515,7 +7562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L206",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -7527,7 +7574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L208",
+      "source_location": "L210",
       "weight": 1.0
     },
     {
@@ -7539,7 +7586,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L210",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -7563,7 +7610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L218",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -7575,7 +7622,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L219",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -7587,7 +7634,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L223",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -7599,7 +7646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L175",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -9627,6 +9674,42 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_assets_animaciones_producto_creado",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_components_animacionlottie",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_components_formularioproducto",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_src_components_ventaactual",
       "target": "frontend_src_dinero",
       "relation": "imports_from",
@@ -10012,7 +10095,7 @@
     },
     {
       "source": "frontend_tests_componentes_nuevoproducto_test",
-      "target": "ref_src_components_nuevoproducto_vue",
+      "target": "frontend_src_components_nuevoproducto",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11687,7 +11770,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L151",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -11698,7 +11781,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L155",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -11709,7 +11792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L167",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -11720,7 +11803,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L171",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -11731,7 +11814,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L174",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -11742,7 +11825,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L179",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -11753,7 +11836,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L183",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -11764,7 +11847,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L187",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -11775,7 +11858,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L190",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -11786,7 +11869,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/FormularioProducto.vue",
-      "source_location": "L215",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_components_nuevoproducto_data",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_components_nuevoproducto_abierto",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_src_components_nuevoproducto",
+      "target": "frontend_src_components_nuevoproducto_mostraraviso",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/NuevoProducto.vue",
+      "source_location": "L63",
       "weight": 1.0
     },
     {

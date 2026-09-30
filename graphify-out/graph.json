@@ -5684,7 +5684,7 @@
       "node_kind": "heading",
       "norm_label": "al crear el producto",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L320"
+      "source_location": "L323"
     },
     {
       "id": "specs_crear_producto_spec_bugs",
@@ -5696,7 +5696,7 @@
       "node_kind": "heading",
       "norm_label": "bugs",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L474"
+      "source_location": "L477"
     },
     {
       "id": "specs_crear_producto_spec_contrato",
@@ -5708,7 +5708,7 @@
       "node_kind": "heading",
       "norm_label": "contrato",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L142"
+      "source_location": "L145"
     },
     {
       "id": "specs_crear_producto_spec_crear_producto",
@@ -5732,7 +5732,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-01",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L112"
+      "source_location": "L115"
     },
     {
       "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_02",
@@ -5744,7 +5744,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-02",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L230"
+      "source_location": "L233"
     },
     {
       "id": "specs_crear_producto_spec_criterios_de_aceptaci\u00f3n_de_p_03",
@@ -5756,7 +5756,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion de p-03",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L356"
+      "source_location": "L359"
     },
     {
       "id": "specs_crear_producto_spec_dise\u00f1o_con_impeccable",
@@ -5768,7 +5768,7 @@
       "node_kind": "heading",
       "norm_label": "diseno con `impeccable`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L340"
+      "source_location": "L343"
     },
     {
       "id": "specs_crear_producto_spec_documentaci\u00f3n_de_la_api_tarjeta_a_01",
@@ -5780,7 +5780,7 @@
       "node_kind": "heading",
       "norm_label": "documentacion de la api (tarjeta a-01)",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L221"
+      "source_location": "L224"
     },
     {
       "id": "specs_crear_producto_spec_el_formulario",
@@ -5792,7 +5792,7 @@
       "node_kind": "heading",
       "norm_label": "el formulario",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L275"
+      "source_location": "L278"
     },
     {
       "id": "specs_crear_producto_spec_los_componentes",
@@ -5804,7 +5804,7 @@
       "node_kind": "heading",
       "norm_label": "los componentes",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L256"
+      "source_location": "L259"
     },
     {
       "id": "specs_crear_producto_spec_migraci\u00f3n",
@@ -5816,7 +5816,7 @@
       "node_kind": "heading",
       "norm_label": "migracion",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L62"
+      "source_location": "L65"
     },
     {
       "id": "specs_crear_producto_spec_modelo",
@@ -5828,7 +5828,7 @@
       "node_kind": "heading",
       "norm_label": "modelo",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L92"
+      "source_location": "L95"
     },
     {
       "id": "specs_crear_producto_spec_p_01_la_base",
@@ -5840,7 +5840,7 @@
       "node_kind": "heading",
       "norm_label": "p-01: la base",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L389"
+      "source_location": "L392"
     },
     {
       "id": "specs_crear_producto_spec_p_01_la_tabla_productos_y_el_modelo_producto",
@@ -5852,7 +5852,7 @@
       "node_kind": "heading",
       "norm_label": "p-01 \u00b7 la tabla `productos` y el modelo `producto`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L60"
+      "source_location": "L63"
     },
     {
       "id": "specs_crear_producto_spec_p_02_la_api_con_curl",
@@ -5864,7 +5864,7 @@
       "node_kind": "heading",
       "norm_label": "p-02: la api con `curl`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L395"
+      "source_location": "L398"
     },
     {
       "id": "specs_crear_producto_spec_p_02_post_api_productos",
@@ -5876,7 +5876,7 @@
       "node_kind": "heading",
       "norm_label": "p-02 \u00b7 `post /api/productos`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L131"
+      "source_location": "L134"
     },
     {
       "id": "specs_crear_producto_spec_p_03_el_bot\u00f3n_nuevo_producto_y_el_formulario",
@@ -5888,7 +5888,7 @@
       "node_kind": "heading",
       "norm_label": "p-03 \u00b7 el boton \"nuevo producto\" y el formulario",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L254"
+      "source_location": "L257"
     },
     {
       "id": "specs_crear_producto_spec_p_03_la_pantalla_en_el_navegador_con_el_mcp_chrome_devtools",
@@ -5900,7 +5900,7 @@
       "node_kind": "heading",
       "norm_label": "p-03: la pantalla, en el navegador con el mcp `chrome-devtools`",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L449"
+      "source_location": "L452"
     },
     {
       "id": "specs_crear_producto_spec_patrones_de_dise\u00f1o",
@@ -5912,7 +5912,7 @@
       "node_kind": "heading",
       "norm_label": "patrones de diseno",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L480"
+      "source_location": "L483"
     },
     {
       "id": "specs_crear_producto_spec_productos_de_ejemplo_opcional_por_confirmar",
@@ -5924,7 +5924,7 @@
       "node_kind": "heading",
       "norm_label": "productos de ejemplo (opcional, por confirmar)",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L104"
+      "source_location": "L107"
     },
     {
       "id": "specs_crear_producto_spec_pruebas_en_local",
@@ -5936,7 +5936,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L383"
+      "source_location": "L386"
     },
     {
       "id": "specs_crear_producto_spec_reglas_de_negocio",
@@ -5948,7 +5948,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L44"
+      "source_location": "L47"
     },
     {
       "id": "specs_crear_producto_spec_servicio_409_y_peticiones_al_mismo_tiempo",
@@ -5960,7 +5960,7 @@
       "node_kind": "heading",
       "norm_label": "servicio, 409 y peticiones al mismo tiempo",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L206"
+      "source_location": "L209"
     },
     {
       "id": "specs_crear_producto_spec_validaci\u00f3n",
@@ -5972,7 +5972,7 @@
       "node_kind": "heading",
       "norm_label": "validacion",
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L192"
+      "source_location": "L195"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -8899,7 +8899,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L131",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -8910,7 +8910,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L254",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -8921,7 +8921,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L383",
+      "source_location": "L386",
       "weight": 1.0
     },
     {
@@ -8932,7 +8932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L44",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -8943,7 +8943,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L480",
+      "source_location": "L483",
       "weight": 1.0
     },
     {
@@ -8954,7 +8954,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L60",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -8965,7 +8965,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L104",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -8976,7 +8976,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L112",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -8987,7 +8987,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L62",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -8998,7 +8998,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L92",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -9009,7 +9009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L142",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -9020,7 +9020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L192",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -9031,7 +9031,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L206",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -9042,7 +9042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L221",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -9053,7 +9053,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L230",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -9064,7 +9064,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L256",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -9075,7 +9075,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L275",
+      "source_location": "L278",
       "weight": 1.0
     },
     {
@@ -9086,7 +9086,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L320",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -9097,7 +9097,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L340",
+      "source_location": "L343",
       "weight": 1.0
     },
     {
@@ -9108,7 +9108,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L356",
+      "source_location": "L359",
       "weight": 1.0
     },
     {
@@ -9119,7 +9119,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L389",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -9130,7 +9130,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L395",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -9141,7 +9141,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L449",
+      "source_location": "L452",
       "weight": 1.0
     },
     {
@@ -9152,7 +9152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/crear-producto.spec.md",
-      "source_location": "L474",
+      "source_location": "L477",
       "weight": 1.0
     },
     {

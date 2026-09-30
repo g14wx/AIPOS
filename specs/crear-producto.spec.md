@@ -32,7 +32,10 @@ tres tarjetas del tablero AIPOS, una por área:
 | P-03 | Frontend | El botón "Nuevo producto" y el formulario en un modal | `feature/p-03-formulario-producto` |
 
 Se hacen en ese orden: P-02 depende de P-01 y P-03 depende de P-02. Todas dependen de que el entregable base esté
-integrado. Esta spec se apoya en `specs/arquitectura.spec.md` y no repite lo que ya dice: versiones, capas, formato de
+integrado. P-02 y P-04 corren a la vez (P-04 es la ruta de buscar producto, flujo 02) y comparten los archivos de
+`productos` del backend: `routes/productos.js`, `controllers/productos.js`, `services/productos.js`,
+`validators/productos.js` y `validators/comunes.js`. Los crea la primera de las dos que se integra en
+`feature/productos`, y la otra los junta (spec de arquitectura, "Carpetas"). P-01 solo hace la migración y el modelo. Esta spec se apoya en `specs/arquitectura.spec.md` y no repite lo que ya dice: versiones, capas, formato de
 error, dinero, migraciones, paleta y `AnimacionLottie`. Si algo choca, manda el orden de la arquitectura:
 `requerimientos/`, la spec de arquitectura y las reglas de los tiles.
 
@@ -134,9 +137,9 @@ Sigue las capas de la arquitectura, cada una en su archivo:
 
 | Capa | Archivo | Qué hace aquí |
 |---|---|---|
-| Rutas | `src/routes/productos.js` | `router.post('/', crearProducto)`, montado en `/api/productos` por `routes/index.js`. |
+| Rutas | `src/routes/productos.js` | `router.post('/', crearProducto)`, montado en `/api/productos` con una entrada de `montajes` en `routes/index.js`. Si P-04 se integró antes, el router ya existe y P-02 solo le suma el `POST`. |
 | Controladores | `src/controllers/productos.js` | `crearProducto`: llama a `validarProductoNuevo(req.body)`, después al servicio y responde `201` con el producto. |
-| Validadores | `src/validators/productos.js` | `validarProductoNuevo(cuerpo)`: usa `validarTexto` y `validarDinero` de `comunes.js` y devuelve los datos limpios, o lanza `ErrorApi` 400 con todos los campos con problema. |
+| Validadores | `src/validators/productos.js` | `validarProductoNuevo(cuerpo)`: usa `validarTexto` y `validarDinero` de `comunes.js` (`validarDinero` sin `permiteCero`: el precio es mayor que 0, RN-02) y devuelve los datos limpios, o lanza `ErrorApi` 400 con todos los campos con problema. |
 | Servicios | `src/services/productos.js` | `crearProducto({ nombre, precio, codigoBarras })`: guarda con `Producto.create`, lee la fila guardada y traduce el error del índice único a 409. |
 
 ### Contrato
@@ -270,7 +273,7 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
 - Ningún componente importa `axios` ni escribe una URL.
   `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
 - `crearProducto` manda `POST /productos` con el cuerpo de la tabla de arriba y devuelve el producto.
-  `[@test] ../frontend/tests/api/productos.test.js`
+  `[@test] ../frontend/tests/api/crear-producto.test.js`
 
 ### El formulario
 
@@ -306,7 +309,7 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
 |---|---|
 | 400 con `detalles` | El mensaje de cada elemento, junto a su campo (`error-messages`). El foco va al primer campo con error. El mensaje de un campo se quita cuando el cajero lo edita. Un `campo` que la pantalla no conoce se muestra en la franja de error del modal. |
 | 409 `CODIGO_BARRAS_DUPLICADO` | "Ya existe un producto con ese código de barras" junto al campo "Código de barras", y el foco va ahí. |
-| Sin respuesta (`status` 0: sin red, servidor apagado o pasaron los 10 segundos) | Una franja de error en el modal: "No se pudo conectar con el servidor. Intenta de nuevo." (el mensaje de `http.js`). |
+| Sin respuesta (`status` 0 y `codigo` `SIN_CONEXION`: sin red, servidor apagado o pasaron los 10 segundos) | Una franja de error en el modal: "No se pudo conectar con el servidor. Intenta de nuevo." (el mensaje de `http.js`). |
 | 500 u otro estado | La franja de error con el mensaje de la API ("Ocurrió un error inesperado. Intenta de nuevo."). |
 
   En los dos últimos casos "Guardar" vuelve a habilitarse, para que el cajero lo reintente con los mismos datos. Si la
@@ -331,8 +334,8 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
   skill `text-to-lottie`, y la agrega P-03.
   `[@test] ../frontend/tests/animaciones.test.js`
 - Con `prefers-reduced-motion: reduce` no se anima: se ve un solo cuadro fijo, el último (la palomita ya dibujada), no
-  uno vacío. Si `AnimacionLottie` (que crea B-04) muestra otro cuadro por defecto, P-03 le agrega la propiedad que
-  hace falta para elegirlo, sin cambiar lo que ya hace.
+  uno vacío. `AnimacionLottie` (que crea B-04) ya muestra el último cuadro por defecto (su propiedad `cuadroFijo` vale
+  `'ultimo'`), así que P-03 no le agrega nada: solo le pasa `animacion` y `loop` en `false`.
   `[@test] ../frontend/tests/componentes/AnimacionLottie.test.js`
 - El producto creado sale al buscarlo. Se comprueba cuando P-04 y P-05 estén integrados, con el mismo procedimiento
   de "Pruebas en local".

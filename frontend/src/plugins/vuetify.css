@@ -1,0 +1,121 @@
+/*
+ * Correcciones que el tema de Vuetify 2 no hace solo (specs/arquitectura.spec.md, "Diseño de la pantalla").
+ * Vuetify pinta el texto con negro y transparencia y el de los botones de color con blanco. La spec pide texto
+ * #292F36 y nunca blanco sobre el turquesa. Los colores salen de las variables que crea el tema (--v-*-base),
+ * así que la paleta vive solo en vuetify.js. Cada tarjeta que suma un componente de Vuetify revisa aquí su texto.
+ */
+
+/* Fondo menta, texto tinta y la tipografía del sistema: es una herramienta de trabajo, no lleva fuente propia. */
+.v-application[data-app].theme--light {
+  background: var(--v-background-base);
+  color: var(--v-secondary-base);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+}
+
+.v-application .text-h1,
+.v-application .text-h2,
+.v-application .text-h3,
+.v-application .text-h4,
+.v-application .text-h5,
+.v-application .text-h6,
+.v-application .text-subtitle-1,
+.v-application .text-subtitle-2,
+.v-application .text-body-1,
+.v-application .text-body-2,
+.v-application .text-button,
+.v-application .text-caption,
+.v-application .text-overline {
+  font-family: inherit !important;
+}
+
+/* Etiquetas, ayudas y texto escrito de los campos: tinta y no gris transparente. */
+.v-application .theme--light.v-label:not(.v-label--is-disabled),
+.v-application .theme--light.v-messages,
+.v-application .theme--light.v-counter,
+.v-application .theme--light.v-input:not(.v-input--is-disabled),
+.v-application .theme--light.v-input:not(.v-input--is-disabled) input,
+.v-application .theme--light.v-input:not(.v-input--is-disabled) textarea {
+  color: var(--v-secondary-base);
+}
+
+.v-application .theme--light.v-input input::placeholder,
+.v-application .theme--light.v-input textarea::placeholder {
+  color: var(--v-secondary-base);
+  opacity: 0.72;
+}
+
+/* Las ayudas y los errores de los campos miden 14 px y no 12 px: el cajero los lee de pie y con prisa. */
+.v-application .v-messages {
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+}
+
+.v-application .v-messages__message {
+  line-height: 1.25rem;
+}
+
+/* Borde de los campos: la tinta al 55 % da 3.4 de contraste sobre blanco, y el negro al 38 % de Vuetify da 2.6. */
+.v-application .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) fieldset {
+  border-color: color-mix(in srgb, var(--v-secondary-base) 55%, transparent);
+}
+
+.v-application
+  .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state)
+  .v-input__slot:hover
+  fieldset {
+  border-color: var(--v-secondary-base);
+}
+
+/* Botones de color: texto tinta. Vuetify pone blanco, que sobre el turquesa da 1.93 de contraste. */
+.v-application .v-btn:not(.v-btn--outlined).primary,
+.v-application .v-btn:not(.v-btn--outlined).accent,
+.v-application .v-btn:not(.v-btn--outlined).error,
+.v-application .v-btn:not(.v-btn--outlined).info,
+.v-application .v-btn:not(.v-btn--outlined).success,
+.v-application .v-btn:not(.v-btn--outlined).warning {
+  color: var(--v-secondary-base);
+}
+
+/* Los botones dicen su acción con frase normal: "Nuevo producto", no "NUEVO PRODUCTO". */
+.v-application .v-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Foco visible con teclado: contorno de tinta, y turquesa sobre la barra oscura. Los campos ya marcan su borde. */
+.v-application :focus-visible:not(input):not(textarea):not(select) {
+  outline: 3px solid var(--v-secondary-base);
+  outline-offset: 2px;
+}
+
+.v-application .v-app-bar :focus-visible {
+  outline-color: var(--v-primary-base);
+}
+
+/*
+ * Menos movimiento: los cambios de estado se ven al instante, sin transiciones ni ondas en los botones.
+ * Las animaciones que informan, como un indicador de carga girando, no se apagan: sin ellas el cajero no sabe que
+ * algo está pasando. Las animaciones de Lottie las maneja AnimacionLottie.vue.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .v-application *,
+  .v-application *::before,
+  .v-application *::after {
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .v-application .v-ripple__container {
+    display: none !important;
+  }
+}

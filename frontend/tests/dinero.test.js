@@ -66,9 +66,12 @@ describe('formatearCentavos', () => {
     [9999999, '99999.99'],
     [9989999001, '99899990.01'],
     [19979998002, '199799980.02'],
-  ])('muestra %i centavos como "%s", con 2 decimales y sin símbolo de moneda', (centavos, texto) => {
-    expect(formatearCentavos(centavos)).toBe(texto);
-  });
+  ])(
+    'muestra %i centavos como "%s", con 2 decimales y sin símbolo de moneda',
+    (centavos, texto) => {
+      expect(formatearCentavos(centavos)).toBe(texto);
+    },
+  );
 
   it('no agrega separador de miles ni símbolo de moneda', () => {
     expect(formatearCentavos(123456789)).toBe('1234567.89');

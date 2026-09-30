@@ -8,10 +8,17 @@ import { describe, it, expect } from 'vitest';
 
 // Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y fileURLToPath falla.
 const carpeta = resolve(import.meta.dirname, '../src/assets/animaciones');
-const permitidas = ['venta-vacia.json', 'producto-creado.json', 'venta-registrada.json', 'buscando.json'];
+const permitidas = [
+  'venta-vacia.json',
+  'producto-creado.json',
+  'venta-registrada.json',
+  'buscando.json',
+];
 const paleta = ['#292F36', '#4ECDC4', '#F7FFF7', '#FF6B6B', '#FFE66D', '#FFFFFF'];
 
-const archivos = existsSync(carpeta) ? readdirSync(carpeta).filter((nombre) => nombre.endsWith('.json')) : [];
+const archivos = existsSync(carpeta)
+  ? readdirSync(carpeta).filter((nombre) => nombre.endsWith('.json'))
+  : [];
 
 function aHex([r, g, b]) {
   return (
@@ -20,7 +27,7 @@ function aHex([r, g, b]) {
       .map((c) =>
         Math.round(c * 255)
           .toString(16)
-          .padStart(2, '0')
+          .padStart(2, '0'),
       )
       .join('')
       .toUpperCase()
@@ -32,7 +39,12 @@ function coloresDe(nodo, encontrados = []) {
   if (Array.isArray(nodo)) {
     nodo.forEach((hijo) => coloresDe(hijo, encontrados));
   } else if (nodo && typeof nodo === 'object') {
-    if ((nodo.ty === 'fl' || nodo.ty === 'st') && nodo.c && Array.isArray(nodo.c.k) && typeof nodo.c.k[0] === 'number') {
+    if (
+      (nodo.ty === 'fl' || nodo.ty === 'st') &&
+      nodo.c &&
+      Array.isArray(nodo.c.k) &&
+      typeof nodo.c.k[0] === 'number'
+    ) {
       encontrados.push(aHex(nodo.c.k));
     }
     Object.values(nodo).forEach((hijo) => coloresDe(hijo, encontrados));

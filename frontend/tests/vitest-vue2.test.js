@@ -45,7 +45,10 @@ const versionesDelFrontend = {
 
 describe('Vitest con Vue 2 y Vuetify 2', () => {
   it('compila un .vue con @vitejs/plugin-vue2 y dibuja un v-btn de Vuetify', () => {
-    const wrapper = mount(BotonDePrueba, { vuetify: new Vuetify(), propsData: { texto: 'Hola AIPOS' } });
+    const wrapper = mount(BotonDePrueba, {
+      vuetify: new Vuetify(),
+      propsData: { texto: 'Hola AIPOS' },
+    });
     const boton = wrapper.find('button.v-btn');
     expect(boton.exists()).toBe(true);
     expect(boton.text()).toBe('Hola AIPOS');
@@ -89,7 +92,17 @@ describe('Versiones fijas del package.json del frontend', () => {
   });
 
   it('no trae paquetes que la spec prohíbe', () => {
-    const prohibidos = ['sass', 'vite-plugin-vuetify', 'unplugin-vue-components', 'vue-router', 'vuex', 'pinia', 'express-validator', 'joi', 'zod'];
+    const prohibidos = [
+      'sass',
+      'vite-plugin-vuetify',
+      'unplugin-vue-components',
+      'vue-router',
+      'vuex',
+      'pinia',
+      'express-validator',
+      'joi',
+      'zod',
+    ];
     for (const nombre of prohibidos) {
       expect(declaradas[nombre], nombre).toBeUndefined();
     }

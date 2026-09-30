@@ -127,7 +127,9 @@ describe('la pantalla única (App.vue montada)', () => {
   });
 
   it('tiene las tres zonas, en orden: nuevo producto, búsqueda y venta actual', () => {
-    const zonas = wrapper.findAll('[data-zona]').wrappers.map((zona) => zona.attributes('data-zona'));
+    const zonas = wrapper
+      .findAll('[data-zona]')
+      .wrappers.map((zona) => zona.attributes('data-zona'));
     expect(zonas).toEqual(['nuevo-producto', 'busqueda', 'venta-actual']);
   });
 

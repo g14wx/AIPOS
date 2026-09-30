@@ -34,7 +34,9 @@ describe('src/ tiene lo que estas pruebas revisan', () => {
 describe('solo src/api/ conoce a axios y las URL', () => {
   it('ningún archivo fuera de src/api/ importa axios', () => {
     for (const ruta of fueraDeApi) {
-      expect(leer(ruta), enSrc(ruta)).not.toMatch(/from\s+['"]axios['"]|require\(\s*['"]axios['"]\s*\)|import\(\s*['"]axios['"]\s*\)/);
+      expect(leer(ruta), enSrc(ruta)).not.toMatch(
+        /from\s+['"]axios['"]|require\(\s*['"]axios['"]\s*\)|import\(\s*['"]axios['"]\s*\)/,
+      );
     }
   });
 
@@ -53,7 +55,9 @@ describe('solo src/api/ conoce a axios y las URL', () => {
   });
 
   it('dentro de src/api/, solo http.js importa axios', () => {
-    const deApi = todos.filter((ruta) => enSrc(ruta).startsWith('api/') && enSrc(ruta) !== 'api/http.js');
+    const deApi = todos.filter(
+      (ruta) => enSrc(ruta).startsWith('api/') && enSrc(ruta) !== 'api/http.js',
+    );
     for (const ruta of deApi) {
       expect(leer(ruta), enSrc(ruta)).not.toMatch(/from\s+['"]axios['"]/);
     }
@@ -80,12 +84,20 @@ describe('la venta actual no vive en los componentes', () => {
   });
 
   it('ningún componente define las funciones de la venta actual, solo las importa de src/ventaActual/', () => {
-    const funciones = ['agregarAVentaActual', 'cambiarPrecioAplicado', 'cambiarCantidad', 'eliminarDetalle', 'calcularTotal'];
+    const funciones = [
+      'agregarAVentaActual',
+      'cambiarPrecioAplicado',
+      'cambiarCantidad',
+      'eliminarDetalle',
+      'calcularTotal',
+    ];
     for (const ruta of componentes) {
       const texto = leer(ruta);
       for (const funcion of funciones) {
         expect(texto, `${enSrc(ruta)} define ${funcion}`).not.toMatch(
-          new RegExp(`function\\s+${funcion}\\b|(const|let|var)\\s+${funcion}\\s*=|\\b${funcion}\\s*\\([^)]*\\)\\s*\\{`)
+          new RegExp(
+            `function\\s+${funcion}\\b|(const|let|var)\\s+${funcion}\\s*=|\\b${funcion}\\s*\\([^)]*\\)\\s*\\{`,
+          ),
         );
       }
     }

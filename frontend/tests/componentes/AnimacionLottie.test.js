@@ -10,7 +10,13 @@ import { mount } from '@vue/test-utils';
 const { loadAnimation, instancias } = vi.hoisted(() => {
   const instancias = [];
   const loadAnimation = vi.fn((opciones) => {
-    const instancia = { opciones, totalFrames: 60, destroy: vi.fn(), goToAndStop: vi.fn(), play: vi.fn() };
+    const instancia = {
+      opciones,
+      totalFrames: 60,
+      destroy: vi.fn(),
+      goToAndStop: vi.fn(),
+      play: vi.fn(),
+    };
     instancias.push(instancia);
     return instancia;
   });
@@ -133,10 +139,14 @@ describe('AnimacionLottie: la librería solo la conoce el adaptador', () => {
         if (statSync(ruta).isDirectory()) return archivos(ruta);
         return /\.(vue|js)$/.test(nombre) ? [ruta] : [];
       });
-    const otros = archivos(raiz).filter((ruta) => relative(raiz, ruta) !== 'components/AnimacionLottie.vue');
+    const otros = archivos(raiz).filter(
+      (ruta) => relative(raiz, ruta) !== 'components/AnimacionLottie.vue',
+    );
     expect(otros.length).toBeGreaterThan(0);
     for (const ruta of otros) {
-      expect(readFileSync(ruta, 'utf8'), relative(raiz, ruta)).not.toMatch(/lottie-web|lottie_light/);
+      expect(readFileSync(ruta, 'utf8'), relative(raiz, ruta)).not.toMatch(
+        /lottie-web|lottie_light/,
+      );
     }
   });
 });

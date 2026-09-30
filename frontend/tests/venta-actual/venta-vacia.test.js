@@ -10,7 +10,9 @@ import {
 } from '../../src/ventaActual/ventaActual.js';
 
 const congelar = (valor) => {
-  Object.values(valor).forEach((hijo) => typeof hijo === 'object' && hijo !== null && congelar(hijo));
+  Object.values(valor).forEach(
+    (hijo) => typeof hijo === 'object' && hijo !== null && congelar(hijo),
+  );
   return Object.freeze(valor);
 };
 

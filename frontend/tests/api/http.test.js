@@ -62,7 +62,10 @@ describe('configuración de http.js', () => {
 describe('respuestas buenas', () => {
   it('dejan pasar la respuesta sin cambiarla', async () => {
     const http = await cargarHttp();
-    responderCon(http, { estado: 201, datos: { id: 7, nombre: 'Leche entera 1 L', precio: '25.00' } });
+    responderCon(http, {
+      estado: 201,
+      datos: { id: 7, nombre: 'Leche entera 1 L', precio: '25.00' },
+    });
     const respuesta = await http.post('/productos', {});
     expect(respuesta.status).toBe(201);
     expect(respuesta.data).toEqual({ id: 7, nombre: 'Leche entera 1 L', precio: '25.00' });
@@ -97,7 +100,11 @@ describe('errores con el formato de error de la API', () => {
     responderCon(http, {
       estado: 409,
       datos: {
-        error: { codigo: 'CODIGO_BARRAS_DUPLICADO', mensaje: 'Código de barras repetido.', detalles },
+        error: {
+          codigo: 'CODIGO_BARRAS_DUPLICADO',
+          mensaje: 'Código de barras repetido.',
+          detalles,
+        },
       },
     });
     const error = await http.post('/productos', {}).catch((e) => e);
@@ -122,7 +129,12 @@ describe('errores con el formato de error de la API', () => {
     const http = await cargarHttp();
     responderCon(http, {
       estado: 500,
-      datos: { error: { codigo: 'ERROR_INTERNO', mensaje: 'Ocurrió un error inesperado. Intenta de nuevo.' } },
+      datos: {
+        error: {
+          codigo: 'ERROR_INTERNO',
+          mensaje: 'Ocurrió un error inesperado. Intenta de nuevo.',
+        },
+      },
     });
     const error = await http.get('/productos').catch((e) => e);
     expect(error.status).toBe(500);
@@ -158,7 +170,9 @@ describe('errores sin respuesta', () => {
 
   it('al pasar los 10 segundos, también status 0 y el mismo mensaje', async () => {
     const http = await cargarHttp();
-    responderCon(http, { error: new AxiosError('timeout of 10000ms exceeded', AxiosError.ECONNABORTED) });
+    responderCon(http, {
+      error: new AxiosError('timeout of 10000ms exceeded', AxiosError.ECONNABORTED),
+    });
     const error = await http.get('/productos').catch((e) => e);
     expect(error.status).toBe(0);
     expect(error.mensaje).toBe(mensajeSinConexion);

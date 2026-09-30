@@ -105,7 +105,7 @@ Cómo se contó:
 - Las estimaciones de R-00, S-01, S-02 y F-01 salen solo del tablero AIPOS: `requerimientos/04-entregables.md` no las trae. R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
 - F-01 es una tarjeta de corrección, sin entregable. E-01 es esta tarjeta y E-02 está en curso; sus tiempos los anotan sus entradas. E-03 está pendiente (estado del 2026-09-30 a las 15:36).
 
-Lo que se aprende: las 25 filas con tiempo real suman 56 h 25 min contra 33 h 30 min estimadas (1,7 veces), y la razón baja con cada entregable que siguió el mismo proceso: base 3,6, productos 1,8 y ventas 1,3. Las estimaciones de 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces, y ninguna tarjeta de backend, pantalla o base de datos tardó menos de 45 min (V-01, estimada en 30 min). La preparación sí tardó menos de lo estimado (0,7 veces).
+Lo que se aprende: el tiempo real fue 1,7 veces el estimado (56 h 25 min contra 33 h 30 min), la razón bajó con cada entregable que siguió el mismo proceso (base 3,6, productos 1,8 y ventas 1,3) y cinco de las siete tarjetas estimadas en 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces.
 
 ## Por confirmar con la persona
 

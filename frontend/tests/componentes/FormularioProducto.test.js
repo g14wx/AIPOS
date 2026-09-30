@@ -54,7 +54,8 @@ const mensajesDe = (texto) =>
   [...raizDe(texto).querySelectorAll('.v-messages__message')].map((m) => m.textContent.trim());
 const boton = (texto) =>
   [...dialogo().querySelectorAll('button')].find((b) => b.textContent.includes(texto));
-const franja = () => dialogo().querySelector('[role="alert"]');
+// Los mensajes de error de cada campo también llevan role="alert" en Vuetify: la franja es el v-alert.
+const franja = () => dialogo().querySelector('.v-alert[role="alert"]');
 
 async function escribir(texto, valor) {
   const campo = entrada(texto);

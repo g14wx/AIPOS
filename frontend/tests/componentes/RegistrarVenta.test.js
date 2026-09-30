@@ -128,6 +128,11 @@ const franjaDeEstado = () => wrapper.find('[role="status"]');
 const franjaDeError = () => wrapper.find('[role="alert"]');
 const estaDeshabilitado = (candidato) => candidato.attributes('disabled') !== undefined;
 const emitidos = (nombre) => wrapper.emitted(nombre) ?? [];
+// Los textos de los detalles del error que muestra la franja de error de un 400: uno por cada detalle del error.
+const textosDeLosDetallesDelError = () =>
+  franjaDeError()
+    .findAll('li')
+    .wrappers.map((elemento) => elemento.text());
 // El componente espera a la API con await: unos cuantos ciclos dejan que termine y que Vue vuelva a pintar.
 async function asentar() {
   for (let vuelta = 0; vuelta < 6; vuelta += 1) await wrapper.vm.$nextTick();
@@ -424,7 +429,7 @@ describe('errores: la venta actual se conserva (criterios 4, 5 y 6)', () => {
     expect(wrapper.text()).not.toContain('registrada');
   });
 
-  it('400 (criterio 5): muestra el mensaje y, uno por línea, los detalles del error con su campo', async () => {
+  it('400 (criterio 5): muestra el mensaje y un texto por cada detalle del error, con su campo', async () => {
     registrarVenta.mockRejectedValue(
       datosInvalidos([
         { campo: 'detalles[1].cantidad', mensaje: 'Debe ser un entero de 1 a 999.' },
@@ -435,44 +440,32 @@ describe('errores: la venta actual se conserva (criterios 4, 5 y 6)', () => {
     montar();
     await registrar();
     expect(franjaDeError().text()).toContain('Los datos de la venta no son válidos.');
-    expect(
-      franjaDeError()
-        .findAll('li')
-        .wrappers.map((linea) => linea.text()),
-    ).toEqual([
+    expect(textosDeLosDetallesDelError()).toEqual([
       'Detalle 2, cantidad: Debe ser un entero de 1 a 999.',
       'Detalle 1, precio aplicado: No puede tener más de 2 decimales.',
       'Detalle 3, producto: Este producto ya está en la venta.',
     ]);
   });
 
-  it('400 de la lista entera (detalles): la línea es el mensaje solo, sin un campo técnico delante', async () => {
+  it('400 de la lista entera (detalles): el texto es el mensaje solo, sin un campo técnico delante', async () => {
     registrarVenta.mockRejectedValue(
       datosInvalidos([{ campo: 'detalles', mensaje: 'Agrega al menos un producto.' }]),
     );
     montar();
     await registrar();
-    expect(
-      franjaDeError()
-        .findAll('li')
-        .wrappers.map((linea) => linea.text()),
-    ).toEqual(['Agrega al menos un producto.']);
+    expect(textosDeLosDetallesDelError()).toEqual(['Agrega al menos un producto.']);
   });
 
-  it('400 con un campo que la pantalla no conoce: la línea es el mensaje, sin el nombre técnico', async () => {
+  it('400 con un campo que la pantalla no conoce: el texto es el mensaje, sin el nombre técnico', async () => {
     registrarVenta.mockRejectedValue(
       datosInvalidos([{ campo: 'cuerpo.raro', mensaje: 'No se pudo leer.' }]),
     );
     montar();
     await registrar();
-    expect(
-      franjaDeError()
-        .findAll('li')
-        .wrappers.map((linea) => linea.text()),
-    ).toEqual(['No se pudo leer.']);
+    expect(textosDeLosDetallesDelError()).toEqual(['No se pudo leer.']);
   });
 
-  it('400 sin detalles del error, o con uno sin mensaje: muestra solo el mensaje y ninguna línea vacía', async () => {
+  it('400 sin detalles del error, o con uno sin mensaje: muestra solo el mensaje y ningún texto vacío', async () => {
     registrarVenta.mockRejectedValue(datosInvalidos([{ campo: 'detalles[0].cantidad' }, null]));
     montar();
     await registrar();

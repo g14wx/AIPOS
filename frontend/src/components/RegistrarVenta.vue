@@ -41,8 +41,8 @@
 
     <v-alert v-if="error" type="error" text dense class="registrar-venta__error">
       <p class="error__mensaje">{{ error.mensaje }}</p>
-      <ul v-if="error.lineas.length > 0" class="error__lineas">
-        <li v-for="(linea, indice) in error.lineas" :key="indice">{{ linea }}</li>
+      <ul v-if="error.detallesDelError.length > 0" class="error__detalles">
+        <li v-for="(texto, indice) in error.detallesDelError" :key="indice">{{ texto }}</li>
       </ul>
     </v-alert>
 
@@ -92,9 +92,9 @@ const CAMPOS = Object.freeze({
 });
 const CAMPO_DE_UN_DETALLE = /^detalles\[(\d+)\](?:\.(productoId|cantidad|precioAplicado))?$/;
 
-// Una línea por cada detalle del error de un 400: el campo en palabras del cajero y el motivo. Un campo que la pantalla no
+// El texto de cada detalle del error de un 400: el campo en palabras del cajero y el motivo. Un campo que la pantalla no
 // conoce, o la lista entera («detalles»), va sin nombre: el mensaje ya dice todo y «cuerpo.raro» no le sirve al cajero.
-function lineaDelError(detalleDelError) {
+function textoDelDetalleDelError(detalleDelError) {
   if (typeof detalleDelError?.mensaje !== 'string' || detalleDelError.mensaje === '') return '';
   const partes = CAMPO_DE_UN_DETALLE.exec(detalleDelError.campo);
   if (!partes) return detalleDelError.mensaje;
@@ -104,18 +104,18 @@ function lineaDelError(detalleDelError) {
 }
 
 // Anti-Corruption Layer: traduce el Error de la API (status, codigo, mensaje y los detalles del error, como los deja
-// http.js) a lo que muestra la franja: un mensaje y, en un 400, una línea por cada detalle del error.
+// http.js) a lo que muestra la franja: un mensaje y, en un 400, un texto por cada detalle del error.
 function traducirError(error) {
   if (!(error instanceof Error) || typeof error.status !== 'number') {
-    return { mensaje: INESPERADO, lineas: [] };
+    return { mensaje: INESPERADO, detallesDelError: [] };
   }
   // Sin respuesta (API caída o más de 10 segundos): el mensaje de http.js es genérico; aquí se le dice al cajero que su venta
   // sigue en la pantalla.
-  if (error.status === 0) return { mensaje: SIN_CONEXION, lineas: [] };
+  if (error.status === 0) return { mensaje: SIN_CONEXION, detallesDelError: [] };
   const detalles = error.status === 400 && Array.isArray(error.detalles) ? error.detalles : [];
   return {
     mensaje: error.mensaje || INESPERADO,
-    lineas: detalles.map(lineaDelError).filter(Boolean),
+    detallesDelError: detalles.map(textoDelDetalleDelError).filter(Boolean),
   };
 }
 
@@ -136,7 +136,7 @@ export default {
       enviando: false,
       // { ventaId, total } de la venta que registró la API, o null. Se queda hasta que el cajero la cierra o registra otra.
       exito: null,
-      // { mensaje, lineas } del último error, o null. Se quita al empezar otro envío.
+      // { mensaje, detallesDelError } del último error (los textos de sus detalles, si es un 400), o null. Se quita al empezar otro envío.
       error: null,
       animacionVentaRegistrada,
       avisoDelMaximo: AVISO_DEL_MAXIMO,
@@ -246,7 +246,7 @@ export default {
 }
 
 /* El error: la franja de error de siempre (borde e ícono coral, texto en tinta). El mensaje de la API va en 600 y, si es un
-   400, una línea de 14 px por cada detalle del error. */
+   400, un texto de 14 px por cada detalle del error. */
 .registrar-venta__error {
   margin-bottom: 0.75rem;
 }
@@ -256,7 +256,7 @@ export default {
   font-weight: 600;
 }
 
-.error__lineas {
+.error__detalles {
   padding-left: 1.25rem;
   margin: 0.25rem 0 0;
   font-size: 0.875rem;

@@ -5,12 +5,39 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 
 ## Resumen
 
-| Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
+El tiempo de cada entregable es la suma de sus filas de la tabla por tarea. Varias tareas corrieron a la vez (por ejemplo, V-05, V-06 y V-07 empezaron a las 11:26), así que la suma es mayor que el reloj: del primer commit (2026-09-29 12:46) a la última hora anotada (2026-09-30 15:25) pasaron 26 h 39 min, con pausas.
+
+### Por entregable
+
+| Entregable | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas | Qué suma |
+|---|---|---|---|---|
+| Preparación | 11 h 08 min | 34 | 26 | Agentes, tiles y glosario (8 h 37 min), y requerimientos, diagramas BPMN y tablero AIPOS (2 h 31 min) |
+| Specs | 10 h, sin la spec de despliegue (sin medir) | 10 | 14 | S-01 (2 h 58 min), S-02 (4 h 33 min) y las 6 specs de flujo |
+| Base | 18 h 55 min | 7 | 32 | B-01, B-02, B-03, B-04, A-01 y el PR #70 del entregable |
+| D-01 | 5 h 24 min | 1 | 3 | El pipeline de despliegue |
+| Productos | 11 h 22 min | 7 | 34 | P-01 a P-05 y el PR #76 del entregable |
+| Ventas | 10 h 52 min | 10 | 70 | V-01 a V-08 y el PR #96 del entregable |
+| F-01, corrección sin entregable | 1 h 27 min | 1 | 9 | Los issues #58, #59 y #60 del backend |
+| Entrega final | en curso | — | — | E-01, E-02 y E-03: todavía sin entrada |
+| Total | 69 h 08 min | 70 | 188 | |
+
+Correcciones del 2026-09-30 (tarjeta E-01): la fila de S-01 decía 2 h 20 min y sus cuatro rangos de horas suman 2 h 58 min. La de Preparación decía 31 tareas y son 32 (hay 34 entradas hasta el cierre del PR #19, y 2 son de requerimientos), y ya no está en curso: su última entrada termina a las 00:38 del 30. B-01 y las 6 specs de flujo tenían entrada y no fila, y se agregaron. La fila de F-01 suma su cierre, de 15:08 a 15:25. La de la spec de registrar venta dice 36 min, que son sus horas (01:59–02:35); su entrada dice «unos 35». La prueba `tests/documentacion/bitacora-sumas.test.sh` revisa todas estas sumas.
+
+### Por tarea
+
+| Tarea | Tiempo aprox. | Tareas con agente | Propuestas cambiadas o descartadas |
 |---|---|---|---|
-| Preparación: agentes, tiles y glosario | 8 h 37 min hasta ahora (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30), en curso | 31 | 19 |
-| S-01: spec de arquitectura y planificación de la noche | 2 h 20 min (18:04–18:10, 20:29–21:05, 00:40–01:20 y 01:24–03:00 del 30) | 3 | 9 |
+| Preparación: agentes, tiles y glosario | 8 h 37 min (12:46–17:33, 20:35–20:47 y 21:00–00:38 del 30) | 32 | 19 |
+| S-01: spec de arquitectura y planificación de la noche | 2 h 58 min (18:04–18:10, 20:29–21:05, 00:40–01:20 y 01:24–03:00 del 30) | 3 | 9 |
+| P-01: spec de crear producto (P-01, P-02 y P-03) | 20 min (01:59–02:19 del 30) | 1 | 0 (por confirmar) |
+| P-04: spec de buscar producto (P-04 y P-05) | 27 min (01:59–02:26 del 30) | 1 | 0 (por confirmar) |
+| V-04: spec de armar la venta actual (V-04 a V-07) | 27 min (01:59–02:26 del 30) | 1 | 1 |
+| V-01: spec de registrar venta (V-01, V-02, V-03 y V-08) | 36 min (01:59–02:35 del 30) | 1 | 1 |
+| A-01: spec de la documentación de la API (A-01) | 39 min (01:59–02:38 del 30) | 1 | 0 (por confirmar) |
+| D-01: spec de despliegue (D-01) | sin medir (primer commit a las 02:24 y corrección de Codex a las 03:22 del 30) | 1 | 0 (por confirmar) |
 | S-02: ajustes de las specs tras la revisión cruzada | 4 h 33 min (04:59–09:32 del 30, con 5 cortes) | 1 | 3 |
 | Requerimientos, diagramas BPMN y tablero AIPOS | 2 h 31 min (15:18–17:49) | 2 | 7 |
+| B-01: preparar GitHub y crear ProductionEnv (tarjeta del entregable base) | 15 min (03:25–03:40 del 30), sin contar el cambio de configuración de las 01:11 | 1 | 0 |
 | B-04: base del frontend con la pantalla única (entregable base) | 3 h 58 min (04:21–08:19 del 30), sin contar los intentos anteriores desde las 03:45 | 1 | 7 |
 | D-01: pipeline de despliegue con etiquetas `release-*` | 5 h 24 min de reloj (04:21–09:45 del 30), con cortes del sistema | 1 | 3 |
 | B-02: base del backend (tarjeta del entregable base) | 4 h 08 min (04:24–08:32 del 30; un intento anterior desde las 03:44) | 1 | 4 |
@@ -32,7 +59,140 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 | V-03: API para registrar venta (tarjeta del entregable ventas) | 55 min (11:41–12:36 del 30) | 1 | 6 |
 | V-08: botón «Registrar venta» y resultado (tarjeta del entregable ventas) | 1 h 29 min (12:18–13:47 del 30) | 1 | 11 |
 | Entregable ventas: unir con ProductionEnv, probar en local, revisar con Codex e integrar (PR #96) | 59 min (13:53–14:52 del 30), hasta dejar el PR listo para integrar | 2 | 8 |
-| F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 10 min (13:55–15:05 del 30) | 1 | 9 |
+| F-01: corregir los issues #58, #59 y #60 del backend (tarjeta de corrección, rama `fix/issues-58-59-60`) | 1 h 27 min (13:55–15:05 y 15:08–15:25 del 30) | 1 | 9 |
+
+## Estimación contra tiempo real
+
+La estimación inicial sale de `requerimientos/04-entregables.md` y de la descripción de cada tarjeta en el tablero AIPOS («Estimación inicial», en horas, con el agente). El tiempo real es el que anota la entrada de cada tarjeta; en las de código va desde que el agente empieza hasta dejar el PR listo, con la revisión de Codex, el cierre y los cortes del sistema. La diferencia es el tiempo real menos la estimación: con «+», la tarjeta tardó más.
+
+| Tarjeta | Estimación inicial | Tiempo real | Diferencia | Entregable | Entradas |
+|---|---|---|---|---|---|
+| R-00 | 3 h | 2 h 31 min | -29 min | Preparación | [15:18 del 29](#2026-09-29-1518--requerimientos-diagramas-bpmn-y-tablero-aipos), [17:29 del 29](#2026-09-29-1729--pr-15-y-14-integrados-enlaces-en-el-tablero-aipos-y-cierre-de-r-00) |
+| T-01 y T-02 | 3 h | 39 min | -2 h 21 min | Preparación | [16:32 del 29](#2026-09-29-1632--tiles-mysql-sequelize-procedimientos-y-vue2-vuetify2-vite), [16:48 del 29](#2026-09-29-1648--revisión-de-codex-del-pr-9), [17:11 del 29](#2026-09-29-1711--pr-9-integrado-y-tiles-publicados) |
+| T-03 | 2 h | 2 h 20 min | +20 min | Preparación | [16:34 del 29](#2026-09-29-1634--grafo-del-proyecto-con-graphify-t-03), [22:49 del 29](#2026-09-29-2249--revisión-de-codex-del-pr-19), [23:19 del 29](#2026-09-29-2319--segunda-revisión-de-codex-del-pr-19), [00:36 del 30](#2026-09-30-0036--cierre-del-pr-19) |
+| S-01 | 2 h | 1 h 36 min | -24 min | Specs | [01:24 del 30](#2026-09-30-0124--s-01-spec-de-arquitectura) |
+| S-02 | 30 min | 4 h 33 min | +4 h 03 min | Specs | [04:59 del 30](#2026-09-30-0459--s-02-ajustes-de-las-specs-tras-la-revisión-cruzada) |
+| B-01 | 30 min | 15 min | -15 min | Base | [03:25 del 30](#2026-09-30-0325--b-01-preparar-github-y-crear-productionenv) |
+| B-02 | 1 h | 4 h 08 min | +3 h 08 min | Base | [04:35 del 30](#2026-09-30-0435--b-02-base-del-backend) |
+| B-03 | 1 h | 5 h 14 min | +4 h 14 min | Base | [04:42 del 30](#2026-09-30-0442--b-03-mysql-con-docker-compose-y-migraciones) |
+| B-04 | 1 h 30 min | 3 h 58 min | +2 h 28 min | Base | [04:21 del 30](#2026-09-30-0421--b-04-base-del-frontend-con-la-pantalla-única) |
+| A-01 | 1 h | 4 h 23 min | +3 h 23 min | Base | [04:46 del 30](#2026-09-30-0446--a-01-documentación-de-la-api-con-swagger-ui) |
+| D-01 | 4 h | 5 h 24 min | +1 h 24 min | D-01 | [04:21 del 30](#2026-09-30-0421--d-01-pipeline-de-despliegue-con-etiquetas-release--d-01) |
+| P-01 | 30 min | 3 h 09 min | +2 h 39 min | Productos | [07:00 del 30](#2026-09-30-0700--p-01-tabla-productos) |
+| P-02 | 1 h | 1 h 38 min | +38 min | Productos | [09:08 del 30](#2026-09-30-0908--p-02-api-para-crear-producto) |
+| P-03 | 1 h 30 min | 2 h 51 min | +1 h 21 min | Productos | [07:27 del 30](#2026-09-30-0727--p-03-botón-nuevo-producto-y-formulario) |
+| P-04 | 1 h | 1 h 15 min | +15 min | Productos | [09:08 del 30](#2026-09-30-0908--p-04-api-para-buscar-productos) |
+| P-05 | 1 h 30 min | 1 h 11 min | -19 min | Productos | [09:47 del 30](#2026-09-30-0947--p-05-campo-de-búsqueda-y-resultados) |
+| V-01 | 30 min | 45 min | +15 min | Ventas | [10:28 del 30](#2026-09-30-1028--v-01-tablas-ventas-y-detalles_venta) |
+| V-02 | 2 h | 1 h 06 min | -54 min | Ventas | [10:56 del 30](#2026-09-30-1056--v-02-procedimiento-sp_registrar_venta) |
+| V-03 | 1 h | 55 min | -5 min | Ventas | [11:41 del 30](#2026-09-30-1141--v-03-api-para-registrar-venta) |
+| V-04 | 1 h 30 min | 1 h 19 min | -11 min | Ventas | [10:34 del 30](#2026-09-30-1034--v-04-agregar-productos-a-la-venta-actual-y-ver-el-total) |
+| V-05 | 30 min | 1 h 53 min | +1 h 23 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-05-editar-el-precio-aplicado-de-un-producto-de-la-venta-actual) |
+| V-06 | 30 min | 1 h 24 min | +54 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-06-cambiar-la-cantidad-de-un-producto-de-la-venta-actual) |
+| V-07 | 30 min | 1 h 02 min | +32 min | Ventas | [11:26 del 30](#2026-09-30-1126--v-07-eliminar-un-producto-de-la-venta-actual) |
+| V-08 | 1 h | 1 h 29 min | +29 min | Ventas | [12:18 del 30](#2026-09-30-1218--v-08-botón-registrar-venta-y-resultado) |
+| F-01 | 1 h | 1 h 27 min | +27 min | Sin entregable | [13:55 del 30](#2026-09-30-1355--f-01-corregir-los-issues-58-59-y-60-del-backend) |
+| E-01 | 30 min | en curso | — | Entrega final | — |
+| E-02 | 1 h 30 min | en curso | — | Entrega final | — |
+| E-03 | 1 h | pendiente | — | Entrega final | — |
+| Total (25 filas con tiempo real) | 33 h 30 min | 56 h 25 min | +22 h 55 min | | |
+
+Cómo se contó:
+
+- T-01 y T-02 se hicieron con dos agentes a la vez y comparten entradas, así que van en una fila: 39 min, que son 14, 22 y 3 de sus tres entradas. La versión 0.1.1 del tile de MySQL (12 min, en las entradas de las 20:35 y 20:45) no se suma.
+- T-03 suma la implementación (21:40–22:46), las dos revisiones de Codex del PR #19 y su cierre: 2 h 20 min. La planeación tuvo pausas y no se midió.
+- S-01 es la spec de arquitectura: no cuenta las dos planificaciones (42 min la de S-01 y 40 min la de la noche) ni las otras 6 specs de flujo, que no tienen estimación propia. D-01 tampoco cuenta su spec, que no se midió.
+- Las estimaciones de R-00, S-01, S-02 y F-01 salen solo del tablero AIPOS: `requerimientos/04-entregables.md` no las trae. R-01 a R-04 son tarjetas de consulta y no tienen estimación. Los PR de los entregables base, productos y ventas tampoco: sus tiempos están en el Resumen.
+- F-01 es una tarjeta de corrección, sin entregable. E-01 es esta tarjeta y E-02 está en curso; sus tiempos los anotan sus entradas. E-03 está pendiente (estado del 2026-09-30 a las 15:36).
+
+Lo que se aprende: el tiempo real fue 1,7 veces el estimado (56 h 25 min contra 33 h 30 min), la razón bajó con cada entregable que siguió el mismo proceso (base 3,6, productos 1,8 y ventas 1,3) y cinco de las siete tarjetas estimadas en 30 min (S-02, P-01, V-05, V-06 y V-07) se pasaron de 2 a 9 veces.
+
+## Por confirmar con la persona
+
+La persona no pudo confirmar estas entradas: cuando se cerró la bitácora dormía, según el orquestador. Aquí están juntas las 44 entradas (de las 70 que había el 2026-09-30 a las 15:40) que dicen «por confirmar», cada una con su enlace y lo que hay que decidir. Ninguna está marcada como confirmada: la columna Estado dice «por confirmar» hasta que la persona responda, y entonces pasa a «confirmada» con la fecha, porque las entradas no se reescriben.
+
+Desde las 01:40 del 2026-09-30 la persona dio su OK general al proceso y a los PR, antes de ver el código y las specs, y se fue a dormir. Por eso, en todas las entradas de la noche, queda por confirmar su revisión del trabajo, además de lo que dice cada fila. Donde una fila habla de agregar algo a la spec o de ajustarla, la spec aprobada no se tocó y la decisión es de la persona.
+
+Fuera de la bitácora también quedan por confirmar los términos nuevos de «Pendientes (por confirmar)» en `docs/lenguaje-ubicuo.md` y las preguntas abiertas de `requerimientos/README.md`.
+
+### Preparación
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-29 12:46 — Configuración de agentes y MCP de Trello (reconstruido, por confirmar)](#2026-09-29-1246--configuración-de-agentes-y-mcp-de-trello-reconstruido-por-confirmar) | Entrada reconstruida desde git: confirmar qué pidió la persona, el agente (Fable 5.1 según los commits) y si 12:46–13:24 fue el tiempo real. | por confirmar |
+| [2026-09-29 13:27 — PR #1 y protección de `main` (reconstruido, por confirmar)](#2026-09-29-1327--pr-1-y-protección-de-main-reconstruido-por-confirmar) | Entrada reconstruida desde GitHub: confirmar qué pidió, qué agente lo hizo, qué revisó la persona y si hubo propuestas descartadas. | por confirmar |
+| [2026-09-29 14:16 — Tile entrega-trazable](#2026-09-29-1416--tile-entrega-trazable) | Confirmar si la persona ya revisó el contenido del tile entrega-trazable. | por confirmar |
+| [2026-09-29 14:42 — Revisión de calidad de las skills](#2026-09-29-1442--revisión-de-calidad-de-las-skills) | Confirmar si la persona revisó las notas de calidad de las 4 skills (93, 90, 95 y 97) y el cambio que se aplicó a la skill del glosario. | por confirmar |
+| [2026-09-29 15:13 — Resultado del eval del tile lenguaje-ubicuo](#2026-09-29-1513--resultado-del-eval-del-tile-lenguaje-ubicuo) | Confirmar si la persona revisó el resultado del eval (66 % sin el tile y 81 % con él) y la decisión de quedarse con el tile. | por confirmar |
+| [2026-09-29 15:28 — Resultado del eval con el límite de largo](#2026-09-29-1528--resultado-del-eval-con-el-límite-de-largo) | Confirmar si la persona revisó el resultado (90 % con el tile; respuestas de unas 200 palabras, sobre la meta de 100). | por confirmar |
+| [2026-09-29 16:34 — Grafo del proyecto con Graphify (T-03)](#2026-09-29-1634--grafo-del-proyecto-con-graphify-t-03) | Decir por qué el grafo va a git (el motivo quedó por confirmar) y en qué horas fue la planeación, que tuvo pausas. | por confirmar |
+| [2026-09-29 17:20 — Tile spec-driven-development en `tessl.json`](#2026-09-29-1720--tile-spec-driven-development-en-tessljson) | Confirmar si el cambio pasó por la revisión de Codex antes de integrarse; la entrada no lo dice. | por confirmar |
+
+### Specs
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-29 18:04 — Planificación de S-01 (sin commit)](#2026-09-29-1804--planificación-de-s-01-sin-commit) | Decir qué modelo usó el agente; la entrada dice «modelo por confirmar». | por confirmar |
+| [2026-09-30 00:40 — Planificación de la noche: una tarjeta por workflow (sin commit)](#2026-09-30-0040--planificación-de-la-noche-una-tarjeta-por-workflow-sin-commit) | Decir qué modelo usó la sesión de planificación; la entrada dice «modelo por confirmar». | por confirmar |
+| [2026-09-30 01:24 — S-01: spec de arquitectura](#2026-09-30-0124--s-01-spec-de-arquitectura) | Revisar la spec de arquitectura, que no leyó, y confirmar las decisiones del agente: `DECIMAL(12,2)` solo para subtotal y total, 400 `CUERPO_MUY_GRANDE` en lugar de 413, funciones propias en lugar de zod o joi, y el quinto color `#FFE66D`, que es un supuesto. | por confirmar |
+| [2026-09-30 03:50 — P-01: spec de crear producto (P-01, P-02 y P-03)](#2026-09-30-0350--p-01-spec-de-crear-producto-p-01-p-02-y-p-03) | Revisar la spec y las 6 decisiones del agente (sin `created_at` ni `updated_at`, espacios recortados en la API, los `CHECK`, el 201 con el precio leído de la fila, el aviso con Lottie, productos de ejemplo opcionales). Las propuestas descartadas no se registraron. | por confirmar |
+| [2026-09-30 03:53 — P-04: spec de buscar producto (P-04 y P-05)](#2026-09-30-0353--p-04-spec-de-buscar-producto-p-04-y-p-05) | Revisar la spec y las 7 decisiones del agente (entre ellas: mínimo de 2 caracteres y máximo de 20 resultados, código de barras exacto primero, RF-12 opcional). Las propuestas descartadas no se registraron. | por confirmar |
+| [2026-09-30 03:54 — V-04: spec de armar la venta actual (V-04 a V-07)](#2026-09-30-0354--v-04-spec-de-armar-la-venta-actual-v-04-a-v-07) | Revisar la spec. No hay decisiones del agente por confirmar: las de esta spec vienen de la persona (2026-09-30). | por confirmar |
+| [2026-09-30 03:59 — V-01: spec de registrar venta (V-01, V-02, V-03 y V-08)](#2026-09-30-0359--v-01-spec-de-registrar-venta-v-01-v-02-v-03-y-v-08) | Revisar la spec y las 4 decisiones del agente: máximo de 100 detalles por venta (o total `DECIMAL(14,2)`), precio revisado como texto en el procedimiento, errores con código en `MESSAGE_TEXT` y sin idempotencia por llave. | por confirmar |
+| [2026-09-30 04:06 — A-01: spec de la documentación de la API (A-01)](#2026-09-30-0406--a-01-spec-de-la-documentación-de-la-api-a-01) | Revisar la spec y las 4 decisiones del agente (5 respuestas de error reusables, `montajes`, política de contenido propia de `/api/docs`, ejemplos sin `stack` ni SQL); aprobar «documentación de la API» en el glosario. Las propuestas descartadas no se registraron. | por confirmar |
+| [2026-09-30 04:08 — D-01: spec de despliegue (D-01)](#2026-09-30-0408--d-01-spec-de-despliegue-d-01) | Revisar la spec y las decisiones del agente (etiquetas `release-MAYOR.MENOR.PARCHE`, todo en `127.0.0.1` con Caddy como única entrada, `/api/docs` cuando A-01 esté integrada); aprobar los términos del glosario. Faltan los patrones consultados, las propuestas descartadas y la hora de inicio. | por confirmar |
+| [2026-09-30 04:59 — S-02: ajustes de las specs tras la revisión cruzada](#2026-09-30-0459--s-02-ajustes-de-las-specs-tras-la-revisión-cruzada) | Confirmar el máximo de 100 detalles por venta (RN-14, pregunta abierta 9, que resolvió el orquestador), la palabra «orquestador» del glosario, el contrato de `validarDinero`, el botón «Nuevo producto» en la primera zona de la pantalla y los nombres de las ramas de tarjeta de ventas. | por confirmar |
+
+### Base
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 03:25 — B-01: preparar GitHub y crear ProductionEnv](#2026-09-30-0325--b-01-preparar-github-y-crear-productionenv) | Confirmar lo que B-01 dejó en GitHub: la rama `ProductionEnv` y su regla «Protect ProductionEnv» (solo merge commit). La persona dio el permiso en su plan, no en la tarjeta, y no leyó lo que se hizo. | por confirmar |
+| [2026-09-30 04:21 — B-04: base del frontend con la pantalla única](#2026-09-30-0421--b-04-base-del-frontend-con-la-pantalla-única) | Confirmar la revisión del código y las 7 propuestas; decidir si la spec ajusta su frase «sin configuración extra» (el alias de Vue de las pruebas, #47), aprobar `PRODUCT.md` y `frontend/DESIGN.md` (inferidos, sin entrevista) y el quinto color `#FFE66D`; repetir la prueba con el MCP `chrome-devtools`. | por confirmar |
+| [2026-09-30 04:35 — B-02: base del backend](#2026-09-30-0435--b-02-base-del-backend) | Confirmar la revisión del código y las 4 propuestas; decidir si la spec de arquitectura suma lo que solo está en el código (`[@test]` de 3 pruebas, el cierre con SIGINT y SIGTERM, el rango de `PORT` y `MYSQL_PORT`, `crearApp(config, { montajes })` y el 400 de los otros errores del lector del cuerpo). | por confirmar |
+| [2026-09-30 04:46 — A-01: documentación de la API con Swagger UI](#2026-09-30-0446--a-01-documentación-de-la-api-con-swagger-ui) | Confirmar la revisión del código y las 5 propuestas; decidir si se ajusta la spec de arquitectura, que dice que la política de contenido de helmet bloquea los estilos de Swagger UI (con helmet 8.3.0 no es cierto); repetir la prueba con el MCP `chrome-devtools`. | por confirmar |
+| [2026-09-30 04:42 — B-03: MySQL con Docker Compose y migraciones](#2026-09-30-0442--b-03-mysql-con-docker-compose-y-migraciones) | Confirmar la revisión del código y las 8 propuestas; decidir si la spec de arquitectura suma el tope de 3 s de la salud y el `connectTimeout`, y que `src/config.js` le da la clave de root al script de la base de prueba. | por confirmar |
+| [2026-09-30 09:59 — Entregable base: unir con ProductionEnv, probar en local y abrir el PR](#2026-09-30-0959--entregable-base-unir-con-productionenv-probar-en-local-y-abrir-el-pr) | Confirmar el PR #70 y las 6 propuestas del agente (entre ellas: el mensaje del merge en español, el total de 30 horas, la variable `clave` del backend, `puppeteer-core` en lugar del MCP `chrome-devtools`, dejar abierto el #60). | por confirmar |
+| [2026-09-30 10:32 — Entregable base: revisión de Codex, corrección del issue #72 y PR listo para integrar](#2026-09-30-1032--entregable-base-revisión-de-codex-corrección-del-issue-72-y-pr-listo-para-integrar) | Confirmar la revisión de Codex del PR #70 y las 2 propuestas del agente: no cambiar `MYSQL_ROOT_HOST` (la imagen ya crea `root@%`) y no cerrar las plantillas literales con un espacio, una comilla o `#` dentro. | por confirmar |
+
+### D-01
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 04:21 — D-01: pipeline de despliegue con etiquetas `release-*` (D-01)](#2026-09-30-0421--d-01-pipeline-de-despliegue-con-etiquetas-release--d-01) | Confirmar la revisión del pipeline y las 4 decisiones del agente (Fallback, Pessimistic Locking y Retry with Backoff en los scripts, `AIPOS_BAJAR_SOLO_SI_FALTA`, la etiqueta `release-0.0.N` de la prueba de arranque local, `.shellcheckrc`); aprobar los términos del glosario y que el orquestador suba `release-0.1.0` y apruebe el primer despliegue en su nombre. | por confirmar |
+
+### Productos
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 07:00 — P-01: tabla productos](#2026-09-30-0700--p-01-tabla-productos) | Confirmar la revisión y las 3 propuestas: sin productos de ejemplo (seeder), qué hacer con `modelos.test.js`, que S-02 dejó sin enlace, y si el `CHECK` de espacios se amplía más allá del espacio normal. | por confirmar |
+| [2026-09-30 07:27 — P-03: botón «Nuevo producto» y formulario](#2026-09-30-0727--p-03-botón-nuevo-producto-y-formulario) | Confirmar la revisión y las 7 propuestas; decidir si la spec suma lo que el código agrega (accesibilidad de los campos, foco del modal, aviso) y corrige el nombre de la rama de P-03; `PRODUCT.md` y `DESIGN.md` inferidos sin entrevista; repetir la prueba con el MCP `chrome-devtools`. | por confirmar |
+| [2026-09-30 09:08 — P-04: API para buscar productos](#2026-09-30-0908--p-04-api-para-buscar-productos) | Confirmar la revisión y las 4 decisiones: patrón del precio de la respuesta en `openapi.yaml` (dejarlo o exigir 2 decimales cambiando la spec de A-01), textos de los detalles del error del 400, dónde viven las piezas comunes de validación y el `LIKE '%texto%'`, que no usa índice. | por confirmar |
+| [2026-09-30 09:08 — P-02: API para crear producto](#2026-09-30-0908--p-02-api-para-crear-producto) | Confirmar la revisión y las 3 decisiones: el ejemplo del 400 de la documentación (dejarlo, sumar una frase o permitir un ejemplo por ruta), si la spec de arquitectura dice la forma de las piezas comunes de validación y si el `CHECK` de espacios se amplía. | por confirmar |
+| [2026-09-30 09:47 — P-05: campo de búsqueda y resultados](#2026-09-30-0947--p-05-campo-de-búsqueda-y-resultados) | Confirmar la revisión y las 4 decisiones: «Buscando…» desde el segundo carácter, los dos pares de color nuevos de `tema.test.js` (la spec dice que no agrega pares), lo que el código agrega y la spec no dice, y cómo se cuentan los caracteres; `PRODUCT.md` y `DESIGN.md` inferidos sin entrevista. | por confirmar |
+| [2026-09-30 11:01 — Entregable productos: unir con ProductionEnv, probar en local y abrir el PR](#2026-09-30-1101--entregable-productos-unir-con-productionenv-probar-en-local-y-abrir-el-pr) | Confirmar el PR #76 y las 4 propuestas del agente (mensaje del merge en español, bitácora armada por entradas, `puppeteer-core` en lugar del MCP `chrome-devtools`, no comentar el issue #58). | por confirmar |
+| [2026-09-30 11:35 — Entregable productos: revisión de Codex, corrección del issue #87 e integración](#2026-09-30-1135--entregable-productos-revisión-de-codex-corrección-del-issue-87-e-integración) | Confirmar la revisión y las 5 propuestas; decidir entre la spec de P-05 («no agrega pares nuevos») y `tema.test.js`, que fija dos pares de color nuevos: poner los dos pares en la spec o quitar los tintes del puntero y del clic. | por confirmar |
+
+### Ventas
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 10:28 — V-01: tablas `ventas` y `detalles_venta`](#2026-09-30-1028--v-01-tablas-ventas-y-detalles_venta) | Confirmar la revisión y las 4 decisiones: nombres de las relaciones (`venta` y `detalles`), nombre de la rama (`feature/v-01-tablas-de-ventas`, que la spec escribe distinto), llaves foráneas con nombre fijo y la aprobación de la spec de registrar venta (subtarea sin marcar: solo la persona puede atestiguarla). | por confirmar |
+| [2026-09-30 10:34 — V-04: agregar productos a la venta actual y ver el total](#2026-09-30-1034--v-04-agregar-productos-a-la-venta-actual-y-ver-el-total) | Confirmar la revisión y las 10 decisiones (por ejemplo, dónde se ve el aviso de límite, la tabla que se apila según el ancho de la tarjeta, el botón «Registrar venta» provisional y el ejemplo `0.10 × 3 + 0.20` de la spec, que en JavaScript da `0.5`) y la aprobación de la spec de armar la venta actual (subtarea sin marcar). | por confirmar |
+| [2026-09-30 10:56 — V-02: procedimiento `sp_registrar_venta`](#2026-09-30-1056--v-02-procedimiento-sp_registrar_venta) | Confirmar la revisión y las 4 decisiones: `1e2` como número JSON se guarda como `100.00`, `productoId` debe ser un entero JSON, la cantidad con ceros a la izquierda (`"0001"`) y las reglas después de `START TRANSACTION`; decidir si se agregan a la spec. | por confirmar |
+| [2026-09-30 11:26 — V-07: eliminar un producto de la venta actual](#2026-09-30-1126--v-07-eliminar-un-producto-de-la-venta-actual) | Confirmar la revisión y las 7 propuestas; decidir si la spec suma 4 comportamientos del código (segundo clic de un doble clic, Enter mantenido, `scroll-margin`, detalle que ya no está) y qué hacer con el contraste del coral `#FF6B6B` (2.78, menos de 3). | por confirmar |
+| [2026-09-30 11:26 — V-06: cambiar la cantidad de un producto de la venta actual](#2026-09-30-1126--v-06-cambiar-la-cantidad-de-un-producto-de-la-venta-actual) | Confirmar la revisión y las 7 propuestas; decidir si la spec suma 7 comportamientos del código (accesibilidad del error, medidas del campo, `scroll-margin`…) y qué hacer con los límites conocidos (contraste del borde coral y `aria-live` de «+» y «−»). | por confirmar |
+| [2026-09-30 11:26 — V-05: editar el precio aplicado de un producto de la venta actual](#2026-09-30-1126--v-05-editar-el-precio-aplicado-de-un-producto-de-la-venta-actual) | Confirmar la revisión y las 11 propuestas; decidir si la spec suma 7 comportamientos del código y qué hacer con 3 límites conocidos: el error que aparece un instante al escribir «22.», la coma decimal del teléfono y el foco de 2 px. | por confirmar |
+| [2026-09-30 11:41 — V-03: API para registrar venta](#2026-09-30-1141--v-03-api-para-registrar-venta) | Confirmar la revisión y las 6 decisiones: textos del 400 que la spec no fija, solo se revisa `detalles` con más de 100, solo se traduce el error 1644, `validarEnteroEnRango`, `MENSAJES_DE_LAS_REGLAS` y pruebas de más; y la idempotencia por llave, que sigue como pregunta abierta. | por confirmar |
+| [2026-09-30 12:18 — V-08: botón «Registrar venta» y resultado](#2026-09-30-1218--v-08-botón-registrar-venta-y-resultado) | Confirmar la revisión y las decisiones: lo que el código hace y la spec no dice (texto de los 400 con palabras del cajero, foco, `aria`), un 2xx que no es 201 se trata como error (#93, #94 y #95), un 201 con propiedades de más se da por venta registrada (Codex pidió lo contrario) y el foco después de registrar. | por confirmar |
+| [2026-09-30 13:53 — Entregable ventas: unir con ProductionEnv, probar en local y abrir el PR](#2026-09-30-1353--entregable-ventas-unir-con-productionenv-probar-en-local-y-abrir-el-pr) | Confirmar el PR #96 y las 4 propuestas del agente (`puppeteer-core` en lugar del MCP `chrome-devtools`, probar también el sistema armado como producción, cliente `mysql` en el `PATH` para emular el pipeline, no comentar el issue #58). | por confirmar |
+| [2026-09-30 13:55 — Entregable ventas: revisión de Codex, explicación de sus tres hallazgos e integración](#2026-09-30-1355--entregable-ventas-revisión-de-codex-explicación-de-sus-tres-hallazgos-e-integración) | Confirmar la revisión y las 3 decisiones sobre los hallazgos de Codex (`1e2` como número JSON, ejemplos compartidos del 400 y el 422, rango de `ventaId`), y la aprobación de las specs de V-01 y de V-04: sus subtareas siguen sin marcar porque no consta que la persona las aprobara. | por confirmar |
+
+### F-01, sin entregable
+
+| Entrada | Qué hay que decidir | Estado |
+|---|---|---|
+| [2026-09-30 13:55 — F-01: corregir los issues #58, #59 y #60 del backend](#2026-09-30-1355--f-01-corregir-los-issues-58-59-y-60-del-backend) | Confirmar la revisión y las 4 decisiones: texto nuevo de la spec de arquitectura para `crearServidor` y `pedir`, el arreglo de #60 en el `emit` de una subclase de `http.Server` y no en un oyente, qué estado dar al tiempo agotado y a la petición mal formada (#97, sigue abierto) y un servidor por petición en `pedir`. | por confirmar |
 
 ## Entradas
 
@@ -950,3 +1110,4 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Propuestas cambiadas o descartadas:** las decidieron los agentes, y la persona debe confirmarlas. `pedir(app)` que devuelve directo el `request` de supertest, como proponía el issue #59 → `pedir(app, función)` → supertest no envía la petición hasta que se hace `await`, así que con un `pedir(app)` que devuelve el `request` no hay un momento claro para cerrar el servidor; con una función, el servidor vive justo lo que dura la petición. Un servidor por archivo para todas las pruebas, como P-02, P-04 y V-03 (issue #58) → un servidor por petición → `errores.test.js`, `csp-docs.test.js`, `comparar-rutas.test.js` y `ejemplos-reales.test.js` arman una app distinta en cada prueba; los archivos de P-02, P-04 y V-03 conservan el suyo. Un oyente `server.on('clientError', ...)` para #60 → el `emit` de una subclase de `http.Server` → con un oyente hay que copiar las respuestas de Node a los demás errores del cliente. `destroy(err)` como Node → `destroy()` → sin el error no sale un evento `error` del socket que nadie escuche (lo encontró la revisión del agente). Buscar el puerto libre de `servidor.test.js` con `listen(0)` → en `127.0.0.1` → el sistema puede dar un puerto que otro programa ya usa ahí. Probar la respuesta en curso mandando las dos peticiones juntas → mandar la segunda después de recibir el comienzo de la primera → con las dos juntas, hasta el servidor de Node sin arreglo entrega una respuesta vacía: Node guarda las escrituras de un mismo ciclo (`cork`, en `_http_outgoing.js`) y las pierde al destruir el socket. `enviarCrudo` con un plazo de 5 segundos que devolvía lo recibido → un plazo de 2 segundos que rechaza y dice qué llegó → con `destroy` desactivado a propósito, la prueba de `servidor.test.js` seguía en verde porque el plazo vencía con la respuesta ya recibida; lo mostró la mutación. La evidencia «después» con la base de prueba `aipos_prueba_ev` → un MySQL aparte con los nombres normales → `database.test.js` exige `aipos_prueba` y esas 2 pruebas fallaban en las dos corridas que terminaron; se descartó esa primera tanda. Cambiar la frase de la spec (hallazgo de Codex) → no se cambió → está aprobada y la tarjeta prohíbe tocarla.
 - **Tiempo:** 13:55–15:05 (1 h 10 min), desde la hora de inicio del archivo de avance. El último commit de código es de las 14:28; después corrieron la evidencia final de 20 corridas (de 42 a 45 s cada una), Codex (3 min) y la bitácora. El conector de claude.ai de Trello no conectó, y el tablero AIPOS se actualizó con el MCP local de Trello.
 - **Commits:** este commit y los 23 anteriores de la rama `fix/issues-58-59-60`, que el orquestador lleva a `ProductionEnv` en un PR, todavía por abrir. Pruebas primero: `faf9b60` (la ayuda), `9fd6286` (el programa aparte) y `3e380ae` (#60). La ayuda: `fc9c6f1` (`pedir`), `fe4d27f` (`PEDIR_DESDE_UN_PROGRAMA`), `c6ece14` (`enviarCrudo`) y `e9a9d38` (abre el servidor con `crearServidor`). Pruebas que piden con `pedir`: `c77e2d6` (cabeceras), `add18b0` (CORS), `ef8daf7` (salud), `a52929c` (Vitest con CommonJS), `b6347fa` (límite del cuerpo), `13a3082` (errores), `81bd186` (comparar rutas), `9783a11` (política de contenido), `cd2563f` (ejemplos reales), `596a311` (Swagger UI) y `2f1cbfc` (salud con la base de datos). #60: `6c885fd` (`aFormatoDeError`) y `89b9d7e` (`crearServidor`). Revisión del agente: `bb7de45`, `ccae5db` y `02fa25a`.
+- **Actualización (2026-09-30, de 15:08 a 15:25):** el PR #98 (`fix/issues-58-59-60` hacia `ProductionEnv`) se abrió a las 15:24 y se integró a las 15:25 con el merge commit `0c15dc9`, de padres `923005e` y `985ab56`. Los issues #58, #59 y #60 quedaron cerrados a las 15:25, cada uno con un comentario que nombra el commit que lo corrige: `fc9c6f1` y las conversiones hasta `2f1cbfc` (#58 y #59) y `89b9d7e` (#60). El #97, que F-01 dejó a propósito, sigue abierto. El tiempo de la tarjeta suma este cierre: 1 h 27 min (13:55–15:05 y 15:08–15:25). La línea de Commits de arriba decía «todavía por abrir» porque se escribió antes.

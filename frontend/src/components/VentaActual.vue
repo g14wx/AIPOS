@@ -33,7 +33,14 @@
         </template>
 
         <template #item.cantidad="{ item }">
-          <span class="detalle__cantidad">{{ item.cantidad }}</span>
+          <CampoCantidad
+            class="detalle__cantidad"
+            :value="item.cantidad"
+            :error="errorDeCantidad(item)"
+            :nombre="item.nombre"
+            :disabled="enviando"
+            @input="alCambiarCantidad(item.productoId, $event)"
+          />
         </template>
 
         <template #item.subtotal="{ item }">
@@ -70,10 +77,12 @@ import { formatearCentavos } from '../dinero.js';
 import {
   calcularSubtotal,
   calcularTotal,
+  cambiarCantidad,
   vaciarVentaActual,
   ventaActualEsValida,
 } from '../ventaActual/ventaActual.js';
 import AnimacionLottie from './AnimacionLottie.vue';
+import CampoCantidad from './CampoCantidad.vue';
 
 // Vuetify apila las filas de una tabla cuando el ancho de la ventana es menor que su punto de apilado. La tarjeta de la
 // venta actual puede ser angosta aunque la ventana no lo sea (desde 960 px hay dos columnas y la tarjeta mide unos
@@ -90,7 +99,7 @@ const APILADO_DE_VUETIFY = 600;
 // celda de su columna; V-08 reemplaza el botón «Registrar venta» provisional.
 export default {
   name: 'VentaActual',
-  components: { AnimacionLottie },
+  components: { AnimacionLottie, CampoCantidad },
   props: {
     ventaActual: { type: Object, default: vaciarVentaActual },
     // El productoId del detalle recién agregado: su fila se pinta con el acento unos segundos. Lo decide App.vue.
@@ -146,6 +155,14 @@ export default {
   methods: {
     subtotalDe(detalle) {
       return formatearCentavos(calcularSubtotal(detalle));
+    },
+    // El mensaje de error de la cantidad de un detalle, o '' si no tiene.
+    errorDeCantidad(detalle) {
+      return this.ventaActual.errores[detalle.productoId]?.cantidad ?? '';
+    },
+    // El cajero cambió la cantidad de un detalle (con «+», «−» o escribiendo): la venta actual nueva sube a App.vue.
+    alCambiarCantidad(productoId, valor) {
+      this.$emit('update:ventaActual', cambiarCantidad(this.ventaActual, productoId, valor));
     },
     claseDeFila(detalle) {
       return detalle.productoId === this.resaltarId ? 'detalle-resaltado' : '';

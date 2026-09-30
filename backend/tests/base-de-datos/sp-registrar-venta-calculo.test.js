@@ -139,6 +139,37 @@ describe('las formas de entrada', () => {
   });
 });
 
+describe('los precios escritos como número JSON', () => {
+  // MySQL lee un número JSON con punto como DOUBLE y lo pasa a DECIMAL(10,2): los precios con 2 decimales
+  // que en punto flotante no son exactos (1.15, 4.35, 0.07...) se tienen que guardar igual que se escribieron.
+  const PRECIOS = [
+    0.01, 0.07, 0.14, 0.29, 0.57, 1.1, 1.15, 4.35, 5.05, 8.2, 10.29, 19.99, 1234.56, 99999.99,
+  ];
+
+  it('se guardan exactos, sin errores de punto flotante', async () => {
+    const productoIds = await crearProductos(PRECIOS.length, 'FLOTANTE');
+    const resultado = await contexto.llamador.llamar(
+      PRECIOS.map((precio, i) => detalle(productoIds[i], 1, precio)),
+    );
+    const guardados = await leerDetalles(resultado.ventaId);
+    expect(guardados.map((guardado) => guardado.precioAplicado)).toEqual(
+      PRECIOS.map((precio) => precio.toFixed(2)),
+    );
+    expect(guardados.map((guardado) => guardado.subtotal)).toEqual(
+      PRECIOS.map((precio) => precio.toFixed(2)),
+    );
+  });
+
+  it('un 1e2 escrito como número llega a MySQL ya convertido a 100.0 y se guarda como 100.00; como texto se rechaza', async () => {
+    // MySQL no conserva cómo se escribió un número JSON, así que el procedimiento no puede ver la notación científica.
+    const [leche] = contexto.productoIds;
+    const resultado = await contexto.llamador.llamarCrudo(
+      `[{"productoId": ${leche}, "cantidad": 1, "precioAplicado": 1e2}]`,
+    );
+    expect(resultado[0][0].total).toBe('100.00');
+  });
+});
+
 describe('lo que devuelve', () => {
   it('un solo SELECT al final, con una fila y dos columnas: ventaId (número) y total (texto con 2 decimales)', async () => {
     const [leche] = contexto.productoIds;

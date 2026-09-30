@@ -208,6 +208,7 @@ const omitida = cliente
 
 describe('criterio 5: la migración y el cliente mysql crean el mismo procedimiento', () => {
   afterAll(() => {
+    if (!cliente) return;
     // Deja el procedimiento como lo crea la migración, que es como lo encuentran las demás pruebas.
     correrCli('db:migrate:undo', '--name', archivoProcedimiento, '--env', 'test');
     correrNpm('migrar:prueba');

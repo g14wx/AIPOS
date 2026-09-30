@@ -1,7 +1,7 @@
 # Graph Report - v-02  (2026-09-30)
 
 ## Corpus Check
-- 222 files · ~165,137 words
+- 222 files · ~165,396 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 17, .drawio 8, .example 2)
 
@@ -644,9 +644,9 @@ Nodes (3): { DataTypes }, Producto, sequelize
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `crearProducto()` connect `crearProducto` to `NuevoProducto.test.js`, `FormularioProducto.vue`, `Frontend`, `http.js`, `FormularioProducto.test.js`, `Lenguaje ubicuo — AIPOS`, `Backend`?**
-  _High betweenness centrality (0.113) - this node is a cross-community bridge._
+  _High betweenness centrality (0.114) - this node is a cross-community bridge._
 - **Why does `Negocio` connect `Lenguaje ubicuo — AIPOS` to `crearProducto`, `Requerimientos funcionales`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
 - **Why does `Lenguaje ubicuo — AIPOS` connect `Lenguaje ubicuo — AIPOS` to `graphify-setup.md`?**
   _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**

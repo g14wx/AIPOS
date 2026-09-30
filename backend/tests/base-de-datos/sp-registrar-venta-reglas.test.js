@@ -92,6 +92,15 @@ rechaza('DETALLE_INVALIDO', [
   ['productoId null', () => [detalle(null)]],
   ['productoId que es un arreglo', (ids) => [detalle([ids[0]])]],
   ['productoId que es un objeto', () => [detalle({ id: 1 })]],
+  ['productoId de 100 dígitos como texto', () => [detalle('1'.repeat(100))]],
+  [
+    'productoId -0 escrito como número',
+    () => crudo('[{"productoId": -0, "cantidad": 2, "precioAplicado": "22.00"}]'),
+  ],
+  [
+    'productoId de 20 dígitos como número',
+    () => crudo(`[{"productoId": ${'9'.repeat(20)}, "cantidad": 2, "precioAplicado": "22.00"}]`),
+  ],
 ]);
 
 rechaza('CANTIDAD_FUERA_DE_RANGO', [
@@ -117,6 +126,9 @@ rechaza('CANTIDAD_FUERA_DE_RANGO', [
   ['cantidad null', conCantidad(null)],
   ['cantidad que es un arreglo', conCantidad([2])],
   ['cantidad que es un objeto', conCantidad({ valor: 2 })],
+  ['cantidad de 100 dígitos como texto', conCantidad('1'.repeat(100))],
+  ['cantidad -0 escrita como número', crudoConCantidad('-0')],
+  ['cantidad de 20 dígitos como número', crudoConCantidad('9'.repeat(20))],
 ]);
 
 rechaza('PRECIO_FUERA_DE_RANGO', [
@@ -145,6 +157,8 @@ rechaza('PRECIO_FUERA_DE_RANGO', [
   ['precio null', conPrecio(null)],
   ['precio que es un arreglo', conPrecio([22])],
   ['precio que es un objeto', conPrecio({ valor: 22 })],
+  ['precio de 100 dígitos como texto', conPrecio('1'.repeat(100))],
+  ['precio "10" seguido de 60 espacios', conPrecio(`10${' '.repeat(60)}`)],
 ]);
 
 rechaza('PRODUCTO_REPETIDO', [

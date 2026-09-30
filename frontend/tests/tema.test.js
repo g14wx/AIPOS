@@ -175,7 +175,12 @@ describe('el CSS del tema pinta los errores y el aviso con la paleta (specs/arqu
     expect(css).not.toMatch(/border-(left|right)\s*:\s*[2-9]\d*px/);
   });
 
-  it('el botón "Guardar" guardando conserva el turquesa y el texto en tinta', () => {
+  it('el botón "Guardar" guardando conserva el turquesa y el texto en tinta, sin depender de la clase primary', () => {
+    // Vuetify 2 no le pone la clase primary a un botón deshabilitado, y guardando lo está (#57).
+    const selectores = reglas.flatMap((regla) => regla.selectores);
+    const guardando = selectores.filter((selector) => selector.includes('.v-btn--loading'));
+    expect(guardando.length).toBeGreaterThan(0);
+    for (const selector of guardando) expect(selector).not.toContain('.primary');
     expect(
       pintaCon('.v-btn--loading', 'background-color', 'var(--v-primary-base) !important'),
     ).toBe(true);

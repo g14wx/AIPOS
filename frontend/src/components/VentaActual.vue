@@ -214,11 +214,15 @@ export default {
   position: sticky;
   bottom: 0;
   background: var(--v-surface-base);
+  border-top: 1px solid var(--filete);
   border-radius: 0 0 0.25rem 0.25rem;
 }
 
+/* Si la cifra más grande (13 caracteres) no cabe junto a «Total» en una pantalla muy angosta, pasa a la línea de abajo. */
 .venta-actual__total {
   display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
   align-items: baseline;
   justify-content: space-between;
   padding: 1rem 1.25rem;
@@ -232,6 +236,7 @@ export default {
 }
 
 .venta-actual__importe {
+  margin-left: auto;
   font-size: 2rem;
   font-variant-numeric: tabular-nums;
   font-weight: 700;

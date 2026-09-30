@@ -433,6 +433,107 @@ Las entradas marcadas "reconstruido" se armaron después, desde git y GitHub, y 
 - **Tiempo:** 03:25–03:40 (unos 15 min), sin contar el cambio de configuración de las 01:11.
 - **Commits:** este commit.
 
+### 2026-09-30 03:50 — P-01: spec de crear producto (P-01, P-02 y P-03)
+
+- **Tarea:** escribir `specs/crear-producto.spec.md`, la spec del flujo 01 completo (tabla `productos` y modelo, `POST /api/productos`, botón "Nuevo producto" con su modal), apoyada en la spec de arquitectura. Rama `docs/p-01-spec-crear-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-01 a P-03 con sus checklists, el flujo 01, RF-01, RF-10, RN-01 a RN-04, RNF-03 a RNF-05 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `0381de0`); pasó la revisión de Codex y corrigió un hallazgo (commit `7ed27ec`). El orquestador puso la rama al día con `ProductionEnv` (merge sin choques de contenido, solo el grafo) y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Sin `created_at` ni `updated_at` en `productos`, como fija la arquitectura, aunque el encargo hablaba de timestamps con valor por defecto.
+  - La API quita los espacios de los extremos del nombre y del código de barras (RN-04), en lugar de responder 400. El precio no se recorta y `" 25"` es un 400.
+  - El `CHECK` del precio incluye el máximo 99 999.99, y hay dos `CHECK` más de "no vacío y sin espacios en los extremos" (nombre y código de barras).
+  - El 201 devuelve el precio leído de la fila (`"25.00"`), no el texto que llegó.
+  - El aviso "Producto creado" es un `v-snackbar` con la animación Lottie, no una pausa antes de cerrar el modal.
+  - Los productos de ejemplo quedan como opcionales por confirmar: un seeder necesita carpeta, ruta y script que la arquitectura no lista.
+- **Patrones consultados:** Constraints Enforcer, Active Record y Keyed Idempotency (los más cercanos); para la migración, el formulario y el doble clic, ningún patrón del catálogo encajó.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos (leyó demasiado); la segunda, acotada, dio 1 hallazgo P2 (la pantalla recortaba el precio mientras la API lo rechazaba con espacios) y ningún P0 ni P1. Se corrigió: la pantalla tampoco lo recorta.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 20 minutos para escribir la spec (01:59–02:19). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 anteriores de la rama (`0381de0` la spec y `7ed27ec` el ajuste del precio en la pantalla).
+
+### 2026-09-30 03:53 — P-04: spec de buscar producto (P-04 y P-05)
+
+- **Tarea:** escribir `specs/buscar-producto.spec.md`, la spec del flujo 02 (`GET /api/productos?busqueda=` y el campo de búsqueda con sus resultados), con RF-12 como opcional, apoyada en la spec de arquitectura. Rama `docs/p-04-spec-buscar-producto`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, las tarjetas P-04 y P-05 con sus checklists, el flujo 02, RF-02, RF-12, RNF-04 y el glosario; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `ee8dcdf`); pasó la revisión de Codex y corrigió los hallazgos (commit `8503976`). El orquestador puso la rama al día con `ProductionEnv` y agregó esta entrada.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Se busca desde 2 caracteres y como máximo 20 resultados. El texto se recorta y tiene de 2 a 120 caracteres.
+  - Un código de barras exacto va siempre primero en la lista; después se ordena por nombre y por `id`.
+  - Sin coincidencias, la API responde 200 con la lista vacía. Un `busqueda` repetido, ausente o de menos de 2 caracteres es un 400 `DATOS_INVALIDOS`.
+  - `%`, `_` y `\` se escapan antes de `Op.like`. La prueba del escape de la barra invertida usa `a\` (2 caracteres).
+  - La pantalla espera 300 ms al escribir, ignora las respuestas viejas con un contador (sin `AbortController`) y muestra 6 estados: inicial, pocos caracteres, buscando, con resultados, sin resultados y error con "Reintentar". Con 20 resultados avisa que solo muestra los primeros 20.
+  - RF-12 queda opcional, con su propio archivo de pruebas. Sin código exacto, Enter muestra "No hay un producto con ese código de barras".
+  - La documentación de la ruta apunta a `backend/docs/openapi.yaml` como ruta propuesta; si la spec de A-01 fija otra, manda esa.
+- **Patrones consultados:** Input Validation, Layered Architecture con Service Layer, Debounce, SwitchMap (el más cercano) y Facade; Query Object descartado.
+- **Revisión de Codex:** 3 hallazgos P2 y 1 P3. Corregidos: la prueba de la barra invertida usaba un solo carácter, que la validación rechaza con 400; RF-12 no mostraba el error cuando el texto coincidía con nombres pero no con un código exacto; el texto decía que RF-12 esperaba una confirmación ya resuelta. El cuarto, la falta de esta entrada de la bitácora, se resolvió con este commit.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los de la rama (`ee8dcdf` la spec y `8503976` la corrección de Codex).
+
+### 2026-09-30 03:54 — V-04: spec de armar la venta actual (V-04 a V-07)
+
+- **Tarea:** escribir `specs/armar-venta-actual.spec.md`, la spec del flujo 03 (tarjetas V-04, V-05, V-06 y V-07). Rama `docs/v-04-spec-armar-venta-actual`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** escribió la spec con las reglas de negocio RN-05 a RN-09, el módulo `src/ventaActual/` (funciones puras: agregar, precio aplicado, cantidad, eliminar, subtotales y total en centavos), guardar la venta actual en `localStorage`, los componentes `VentaActual.vue`, `CampoPrecioAplicado.vue` y `CampoCantidad.vue`, los casos de error, los criterios de aceptación de las 4 tarjetas y las pruebas en local con `curl` y el MCP `chrome-devtools`. Una primera pasada escribió el borrador y una segunda lo revisó contra las tarjetas, `requerimientos/`, el glosario y la spec de arquitectura, y agregó el caso de un producto guardado que ya no existe. Patrones consultados en el MCP `design-patterns`: Pure Functions e Immutability para el módulo, Memento (el más cercano) para guardar en el navegador, Null Object para la venta vacía, Mediator para `App.vue`; sin patrón para los componentes de Vue 2. Escribió la spec (commit `9fe4819`), corrigió a Codex (commit `ca6cdf0`), el orquestador puso la rama al día con `ProductionEnv` y agregó esta entrada.
+- **Revisión de Codex:** 3 hallazgos P2, sin P0 ni P1. Corregidos: la spec decía que `App.vue` era el único que llama al módulo, pero `VentaActual.vue` también lo usa (ahora `App.vue` es el único que guarda la venta actual, y el componente calcula y emite); y permitía "404 o 422" para un producto que ya no existe, cuando RF-09 pide 422 (ahora dice 422). El tercero, la falta de esta entrada de la bitácora, se resolvió con este commit.
+- **Decisiones que vienen de la persona (2026-09-30):** el precio aplicado puede ser 0; la cantidad es un entero de 1 a 999 y el precio aplicado llega hasta 99 999.99; los precios se muestran con 2 decimales y sin símbolo de moneda; la venta actual no se pierde al recargar (se guarda en el navegador y se vacía al registrar la venta).
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó `vuex`, `pinia` y un bus de eventos (son solo dos componentes y un estado en `App.vue`).
+- **Tiempo:** unos 27 minutos para escribir la spec (01:59–02:26). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`9fe4819` la spec y `ca6cdf0` las correcciones de Codex).
+
+### 2026-09-30 03:59 — V-01: spec de registrar venta (V-01, V-02, V-03 y V-08)
+
+- **Tarea:** escribir `specs/registrar-venta.spec.md`, la spec del flujo 04: las tablas `ventas` y `detalles_venta` con sus modelos, el procedimiento almacenado `sp_registrar_venta`, `POST /api/ventas` y el botón "Registrar venta" (tarjetas V-01, V-02, V-03 y V-08). Rama `docs/v-01-spec-registrar-venta`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la spec de arquitectura, las 4 tarjetas con sus checklists, el flujo 04, RF-09 a RF-11, RNF-05 y RNF-07 y las skills de MySQL y Sequelize; consultó el grafo del proyecto y los patrones de diseño; escribió la spec y corrigió los hallazgos de Codex.
+- **Decisiones del agente (por confirmar por la persona):**
+  - El procedimiento devuelve un solo `SELECT` con `ventaId` y `total`. Sus rechazos usan `SIGNAL SQLSTATE '45000'` con un código en `MESSAGE_TEXT` (`VENTA_SIN_DETALLES`, `PRODUCTO_NO_EXISTE`, etc.), que la API traduce a un 422 con mensaje en español.
+  - Máximo de 100 detalles por venta (API, procedimiento y botón), porque con 101 detalles de 999 × 99 999.99 el total pasa de `DECIMAL(12,2)`. No está en los requerimientos. La otra opción es ampliar el total a `DECIMAL(14,2)`.
+  - El procedimiento revisa el precio como texto para rechazar decimales de más; la columna que inserta sigue en `DECIMAL(10,2)`, como pide la arquitectura.
+  - No se incluye idempotencia por llave (reintento cuando la respuesta se pierde): queda como pregunta abierta.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos. La segunda dio 1 P1 y 4 P2: el procedimiento redondeaba `"10.999"` a `11.00`, una venta válida desbordaba el total (límite de 100), faltaban las llaves foráneas de las relaciones y dos archivos en los `targets`, y faltaba esta entrada. Una tercera pasada dio 1 P1 (la columna de `JSON_TABLE` debía alinearse con la arquitectura) y 1 P2 (el máximo de 100 debía entrar en `valida` del botón). Todo quedó corregido en la rama (commits `adb6a95` y `0dddbea`).
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar.
+- **Propuestas descartadas:** ninguna descartada por la persona. El agente descartó los patrones Repository y Data Mapper, porque los modelos solo consultan y la venta se escribe en el procedimiento.
+- **Tiempo:** unos 35 minutos para escribir la spec (01:59–02:35). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 3 de la rama (`379099b` la spec, `adb6a95` y `0dddbea` las correcciones de Codex).
+
+### 2026-09-30 04:06 — A-01: spec de la documentación de la API (A-01)
+
+- **Tarea:** escribir `specs/documentacion-de-la-api.spec.md`: el documento OpenAPI 3 del backend (`backend/docs/openapi.yaml`), Swagger UI en `GET /api/docs`, el formato de error como esquema compartido y una prueba que falla si una ruta de Express no está documentada. Rama `docs/a-01-spec-documentacion-de-la-api`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, los requerimientos y la tarjeta A-01 con sus checklists; comprobó en local el montaje con Express 5.2.1, helmet 8.3.0 y swagger-ui-express 5.0.1; consultó el grafo del proyecto y el MCP `design-patterns`; escribió la spec (commit `066093c`) y enlazó la prueba de la autoverificación de rutas (commit `e8703ee`). Su borrador de bitácora se cortó: esta entrada se armó desde el historial de git, la salida de Codex y la tarjeta.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Cinco respuestas de error reusables (400, 404, 409, 422 y 500) desde A-01, con los mensajes que de verdad devuelve la API, para que P-02, P-04 y V-03 solo escriban `$ref`.
+  - `routes/index.js` expone los `montajes` (prefijo y router de cada ruta), porque Express 5 ya no guarda el prefijo, y la prueba de rutas documentadas los consulta.
+  - Helmet queda estricto en todo el backend y solo `/api/docs` tiene una CSP propia para los estilos de Swagger UI.
+  - Los ejemplos de error no llevan `stack` ni SQL (RNF-04), y el esquema de error los prohíbe.
+- **Patrones consultados:** Registry y Layer-Specific Logic Testing (los más cercanos); para el documento OpenAPI, el esquema de error compartido y la CSP propia, ningún patrón del catálogo encajó. Sin capa nueva: `docs.js` es una ruta más.
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos; la segunda dio 1 P2 (faltaba el enlace `[@test]` del requisito de autoverificación de `sinDocumentar` y `sinRuta`) y ningún P0 ni P1. Se corrigió en `e8703ee`.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar. La subtarea de aprobar «documentación de la API» en el glosario sigue por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** unos 39 minutos para escribir la spec (01:59–02:38). Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`066093c` la spec y `e8703ee` la corrección de Codex).
+
+### 2026-09-30 04:08 — D-01: spec de despliegue (D-01)
+
+- **Tarea:** escribir `specs/despliegue.spec.md`, la spec del flujo 07: desplegar a producción con una etiqueta `release-*` (workflow de GitHub, imágenes, Docker Compose de producción, Caddy, scripts del servidor, volver a la versión anterior y revisión desde internet). Rama `docs/d-01-spec-despliegue`.
+- **Agente:** Claude Code (Sonnet 5.5) en un workflow. Codex como agente revisor.
+- **Qué hizo el agente:** leyó la arquitectura, los requerimientos y la tarjeta D-01 con sus checklists; escribió la spec (commit `85b4540`). Su borrador de bitácora se cortó: esta entrada se armó desde el historial de git, la salida de Codex y la tarjeta. Las correcciones de Codex (commit `65cee01`) las hizo el agente orquestador del workflow.
+- **Decisiones del agente (por confirmar por la persona):**
+  - Los dominios `aipos.salsalvador.io` (pantalla) y `aipos-back.salsalvador.io` (backend) son decisión de la persona del 2026-09-30, según la spec.
+  - Las etiquetas válidas son `release-MAYOR.MENOR.PARCHE`; `release-hoy` falla.
+  - Todo se publica solo en `127.0.0.1` y Caddy es la única entrada desde internet.
+  - `/api/docs` se revisa en producción solo cuando A-01 esté integrada.
+- **Patrones consultados:** por confirmar (la spec tiene su tabla "Cómo se decidió el diseño").
+- **Revisión de Codex:** la primera corrida se cortó a los 9 minutos sin hallazgos. La segunda dio 1 P1 y 2 P2, sin P0: el flujo de error podía retroceder dos veces cuando `desplegar.sh` fallaba antes de activar la versión nueva (P1); el criterio 1 aceptaba cualquier `release-*` y contradecía al criterio 8 con `release-hoy` (P2); el criterio de `/api/docs` no tenía `[@test]` (P2). Los tres se corrigieron en `65cee01`.
+- **Revisión de la persona:** a las 01:40 del 2026-09-30 dio el OK para todas las PR y para levantar los ambientes esa noche, antes de que las specs estuvieran escritas, y se fue a dormir. No leyó las specs: su revisión queda por confirmar. La subtarea de aprobar los términos del glosario sigue por confirmar.
+- **Propuestas descartadas:** por confirmar.
+- **Tiempo:** primer commit de la spec a las 02:24 y corrección de Codex a las 03:22; el inicio exacto queda por confirmar. Las 7 specs de la noche se escribieron juntas, antes de que sus tarjetas se tomaran una por una.
+- **Commits:** este commit y los 2 de la rama (`85b4540` la spec y `65cee01` la corrección de Codex).
+
 ### 2026-09-30 04:21 — B-04: base del frontend con la pantalla única
 
 - **Tarea:** la persona pidió avanzar el tablero AIPOS tarjeta por tarjeta, probando todo en local. Esta es la tarjeta B-04: crear la base del frontend (Vue 2.7, Vuetify 2.7, Vite 7 y Axios) y la pantalla única vacía con sus tres zonas, en la rama `feature/b-04-base-del-frontend`. Su PR es el #48, hacia `feature/base`.

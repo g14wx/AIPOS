@@ -5757,7 +5757,7 @@
       "node_kind": "heading",
       "norm_label": "do's and don'ts",
       "source_file": "frontend/DESIGN.md",
-      "source_location": "L122"
+      "source_location": "L123"
     },
     {
       "id": "frontend_design_elevation_depth",
@@ -40816,7 +40816,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/DESIGN.md",
-      "source_location": "L122",
+      "source_location": "L123",
       "weight": 1.0
     },
     {

@@ -2,11 +2,15 @@
 
 const { Router } = require('express');
 const salud = require('./salud');
+const productos = require('./productos');
 const docs = require('./docs');
 
 // Cada recurso monta su router con su prefijo. La tarjeta que crea una ruta agrega su entrada aquí y su ruta a la
 // documentación de la API (backend/docs): la prueba de rutas documentadas falla si falta cualquiera de las dos.
-const montajes = [{ ruta: '/salud', router: salud }];
+const montajes = [
+  { ruta: '/salud', router: salud },
+  { ruta: '/productos', router: productos },
+];
 
 function crearRouterApi(lista = montajes) {
   const router = Router();

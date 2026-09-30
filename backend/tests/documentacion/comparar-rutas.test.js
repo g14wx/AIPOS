@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import request from 'supertest';
+import { pedir } from '../servidor-de-prueba.js';
 import { createRequire } from 'node:module';
 import {
   compararRutas,
@@ -109,7 +109,7 @@ describe('la comparación se prueba a sí misma con apps falsas', () => {
     const montajesFalsos = [...montajes, { ruta: '/extra', router: extra }];
     const app = crearApp(undefined, { montajes: montajesFalsos });
 
-    expect((await request(app).get('/api/extra')).status).toBe(200);
+    expect((await pedir(app, (api) => api.get('/api/extra'))).status).toBe(200);
     expect(encontrarRutasFueraDeMontajes(app, montajesFalsos, docs)).toEqual([]);
 
     const resultado = compararRutas(listarRutasRegistradas(montajesFalsos), documentadas);
@@ -123,7 +123,7 @@ describe('la comparación se prueba a sí misma con apps falsas', () => {
     const sinSalud = montajes.filter((montaje) => montaje.ruta !== '/salud');
     const app = crearApp(undefined, { montajes: sinSalud });
 
-    expect((await request(app).get('/api/salud')).status).toBe(404);
+    expect((await pedir(app, (api) => api.get('/api/salud'))).status).toBe(404);
 
     const resultado = compararRutas(listarRutasRegistradas(sinSalud), documentadas);
     expect(resultado.sinDocumentar).toEqual([]);

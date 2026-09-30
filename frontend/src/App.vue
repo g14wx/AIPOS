@@ -14,7 +14,7 @@
   <v-app>
     <v-app-bar app dense flat color="secondary" class="barra">
       <div class="pantalla">
-        <v-toolbar-title class="marca">AIPOS</v-toolbar-title>
+        <h1 class="marca">AIPOS</h1>
       </div>
     </v-app-bar>
 
@@ -78,9 +78,11 @@ export default {
 }
 
 .marca {
+  margin: 0;
   color: var(--v-primary-base);
   font-size: 1.25rem;
   font-weight: 700;
+  line-height: 1.75rem;
   letter-spacing: normal;
 }
 </style>

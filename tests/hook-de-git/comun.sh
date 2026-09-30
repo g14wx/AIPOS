@@ -6,14 +6,17 @@ set -euo pipefail
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 GIT_REAL="$(command -v git)"
 
-# Repo temporal con el hook de git activo. El PATH solo trae git y las herramientas del sistema,
-# así que el graphify de esta máquina no se ve.
+# Repo temporal con el hook de git activo. El PATH solo trae git y las herramientas del sistema, y el HOME es
+# aparte, así que el graphify de esta máquina no se ve, ni en el PATH ni en ~/.local/bin.
 preparar_repo() {
   TMP="$(mktemp -d)"
   trap 'rm -rf "$TMP"' EXIT
   BIN="$TMP/bin"
   mkdir -p "$BIN"
   ln -s "$GIT_REAL" "$BIN/git"
+  HOME="$TMP/home"
+  mkdir -p "$HOME"
+  export HOME
   REPO="$TMP/repo"
   mkdir -p "$REPO/.githooks"
   cp "$RAIZ/.githooks/pre-commit" "$REPO/.githooks/pre-commit"
@@ -29,23 +32,34 @@ preparar_repo() {
   export PATH
 }
 
-# graphify falso. Con "ok", `graphify update` escribe los dos archivos del grafo y uno local.
-# Con "falla", termina con error.
+# graphify falso en BIN, o en el directorio que se pase como segundo argumento. Modos:
+#   ok: `graphify update` escribe los dos archivos del grafo, con la marca de commit que deja el Graphify real, y un
+#       archivo local
+#   falla: `graphify update` termina con error
+#   otra-version: `graphify --version` responde otra versión
 crear_graphify_falso() {
   local modo="$1"
-  cat > "$BIN/graphify" <<EOF
+  local dir="${2:-$BIN}"
+  mkdir -p "$dir"
+  cat > "$dir/graphify" <<EOF
 #!/bin/sh
-[ "\$1" = "update" ] || exit 0
+case "\$1" in
+  --version)
+    if [ "$modo" = "otra-version" ]; then echo "graphify 0.9.11"; else echo "graphify 0.9.72"; fi
+    exit 0 ;;
+  update) ;;
+  *) exit 0 ;;
+esac
 if [ "$modo" = "falla" ]; then
   echo "[graphify] WARNING: Refusing to overwrite. Pass --force to override." >&2
   exit 1
 fi
 mkdir -p graphify-out
-echo "{\"nodes\": [\"\$(date +%s)\"]}" > graphify-out/graph.json
-echo "# Graph Report" > graphify-out/GRAPH_REPORT.md
+printf '{\n  "nodes": ["%s"],\n  "built_at_commit": "abc1234"\n}\n' "\$(date +%s)" > graphify-out/graph.json
+printf '# Graph Report\n\n## Graph Freshness\n- Built from commit: \`abc1234\`\n- Run \`git rev-parse HEAD\` and compare to check if the graph is stale.\n- Run \`graphify update .\` after code changes (no API cost).\n' > graphify-out/GRAPH_REPORT.md
 echo "/ruta/de/esta/maquina" > graphify-out/.graphify_root
 EOF
-  chmod +x "$BIN/graphify"
+  chmod +x "$dir/graphify"
 }
 
 falla() {

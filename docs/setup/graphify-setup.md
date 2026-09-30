@@ -108,6 +108,7 @@ imágenes.
 |---|---|---|
 | `graphify: command not found` | La carpeta de uv no está en el `PATH`. | Corre `uv tool update-shell` y abre una terminal nueva. |
 | El commit no trae el grafo | El hook de git no está activo. | `git config core.hooksPath` tiene que responder `.githooks`. Si no, corre `git config core.hooksPath .githooks`. |
+| Un commit desde WebStorm u otra app dice que Graphify no está instalado | La app no ve la carpeta donde está `graphify`. El hook de git lo busca en el `PATH` y en `~/.local/bin`, donde lo pone `uv tool install`. | Si lo instalaste en otro lugar, agrega esa carpeta al `PATH` de la app, o instálalo con `uv tool install`. |
 | `pre-commit: 'graphify update .' falló` con "Refusing to overwrite" | Se borró código y el grafo nuevo tiene menos nodos, así que Graphify se niega a achicarlo. | Si lo borraste a propósito, corre `graphify update . --force` y agrega el grafo en otro commit. |
 | `graph.json` choca en un merge o un rebase | Dos ramas cambiaron el grafo. | No lo arregles a mano: quédate con la versión de la rama de destino y haz commit. El hook de git lo regenera. |
 | El grafo del commit muestra un archivo que no entró al commit | El hook de git arma el grafo con lo que hay en la carpeta, no solo con lo que agregaste al commit. | Se corrige solo en el commit siguiente. Para evitarlo, haz commit de todo lo de la tarea junto. |

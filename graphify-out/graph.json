@@ -196,66 +196,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L44"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L53"
-    },
-    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -313,22 +253,6 @@
       "node_kind": "page",
       "norm_label": "requerimientos/readme.md",
       "source_file": "requerimientos/README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "specs_grafo_del_proyecto_spec",
-      "label": "grafo-del-proyecto.spec.md",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Grafo del proyecto",
-        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
-      },
-      "node_kind": "page",
-      "norm_label": "grafo-del-proyecto.spec.md",
-      "source_file": "specs/grafo-del-proyecto.spec.md",
       "source_location": "L1"
     },
     {
@@ -428,18 +352,6 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_setup_agents_setup_setup_de_agents",
-      "label": "Setup de agents",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de agents",
-      "source_file": "docs/setup/agents-setup.md",
-      "source_location": "L1"
-    },
-    {
       "id": "docs_setup_graphify_setup",
       "label": "graphify-setup.md",
       "_origin": "ast",
@@ -450,6 +362,150 @@
       "norm_label": "graphify-setup.md",
       "source_file": "docs/setup/graphify-setup.md",
       "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_graphify_setup_1_instalar_graphify",
+      "label": "1. Instalar Graphify",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. instalar graphify",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "docs_setup_graphify_setup_2_activar_el_hook_de_git",
+      "label": "2. Activar el hook de git",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. activar el hook de git",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "docs_setup_graphify_setup_3_verificar",
+      "label": "3. Verificar",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. verificar",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L52"
+    },
+    {
+      "id": "docs_setup_graphify_setup_comandos_\u00fatiles",
+      "label": "Comandos \u00fatiles",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "comandos utiles",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "docs_setup_graphify_setup_flujo_de_una_tarea",
+      "label": "Flujo de una tarea",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo de una tarea",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L63"
+    },
+    {
+      "id": "docs_setup_graphify_setup_privacidad",
+      "label": "Privacidad",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "privacidad",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L117"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
+      "label": "Qu\u00e9 es y para qu\u00e9 sirve",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que es y para que sirve",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_no_usamos_y_por_qu\u00e9",
+      "label": "Qu\u00e9 no usamos, y por qu\u00e9",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no usamos, y por que",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L95"
+    },
+    {
+      "id": "docs_setup_graphify_setup_qu\u00e9_va_a_git_y_qu\u00e9_no",
+      "label": "Qu\u00e9 va a git y qu\u00e9 no",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que va a git y que no",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L86"
+    },
+    {
+      "id": "docs_setup_graphify_setup_requisitos",
+      "label": "Requisitos",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requisitos",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "docs_setup_graphify_setup_setup_de_graphify",
+      "label": "Setup de Graphify",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de graphify",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_setup_graphify_setup_soluci\u00f3n_de_problemas",
+      "label": "Soluci\u00f3n de problemas",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Lenguaje ubicuo \u2014 AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "solucion de problemas",
+      "source_file": "docs/setup/graphify-setup.md",
+      "source_location": "L105"
     },
     {
       "id": "docs_setup_tessl_setup",
@@ -642,6 +698,22 @@
       "norm_label": "tiles y entregable base",
       "source_file": "requerimientos/04-entregables.md",
       "source_location": "L58"
+    },
+    {
+      "id": "specs_grafo_del_proyecto_spec",
+      "label": "grafo-del-proyecto.spec.md",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Grafo del proyecto",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Grafo del proyecto",
+        "description": "Consultar el grafo del proyecto antes de empezar una tarea y actualizarlo en cada commit, con el tile grafo-del-proyecto, un hook de git pre-commit y un arranque que funciona desde un clon nuevo"
+      },
+      "node_kind": "page",
+      "norm_label": "grafo-del-proyecto.spec.md",
+      "source_file": "specs/grafo-del-proyecto.spec.md",
+      "source_location": "L1"
     },
     {
       "id": "specs_grafo_del_proyecto_spec_arranque_de_un_clon_nuevo",
@@ -1663,6 +1735,36 @@
       "source_location": "L21"
     },
     {
+      "id": "tests_hook_de_claude_code_graphify_fuera_del_path_test",
+      "label": "hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "_origin": "ast",
+      "community": 20,
+      "community_name": "hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "source_file": "tests/hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_claude_code_graphify_fuera_del_path_test_sh__entry",
+      "label": "graphify-fuera-del-path.test.sh script",
+      "_origin": "ast",
+      "community": 20,
+      "community_name": "hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "graphify-fuera-del-path.test.sh script",
+      "source_file": "tests/hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "tessl_plugins_grafo_del_proyecto_rules_grafo_del_proyecto",
       "label": "grafo-del-proyecto.md",
       "_origin": "ast",
@@ -1750,7 +1852,7 @@
       },
       "norm_label": "crear_graphify_falso()",
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L34"
+      "source_location": "L40"
     },
     {
       "id": "tests_hook_de_git_comun_falla",
@@ -1765,7 +1867,7 @@
       },
       "norm_label": "falla()",
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L51"
+      "source_location": "L65"
     },
     {
       "id": "tests_hook_de_git_comun_preparar_repo",
@@ -2785,6 +2887,36 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_hook_de_git_graphify_fuera_del_path_test",
+      "label": "hook-de-git/graphify-fuera-del-path.test.sh",
+      "_origin": "ast",
+      "community": 42,
+      "community_name": "hook-de-git/graphify-fuera-del-path.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "hook-de-git/graphify-fuera-del-path.test.sh",
+      "source_file": "tests/hook-de-git/graphify-fuera-del-path.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_hook_de_git_graphify_fuera_del_path_test_sh__entry",
+      "label": "graphify-fuera-del-path.test.sh script",
+      "_origin": "ast",
+      "community": 42,
+      "community_name": "hook-de-git/graphify-fuera-del-path.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "graphify-fuera-del-path.test.sh script",
+      "source_file": "tests/hook-de-git/graphify-fuera-del-path.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "requerimientos_03_requerimientos_no_funcionales_requerimientos_no_funcionales",
       "label": "Requerimientos no funcionales",
       "_origin": "ast",
@@ -2953,148 +3085,64 @@
       "source_location": "L149"
     },
     {
-      "id": "docs_setup_graphify_setup_1_instalar_graphify",
-      "label": "1. Instalar Graphify",
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
       "_origin": "ast",
       "community": 6,
-      "community_name": "Comandos \u00fatiles",
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "1. instalar graphify",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L29"
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L38"
     },
     {
-      "id": "docs_setup_graphify_setup_2_activar_el_hook_de_git",
-      "label": "2. Activar el hook de git",
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
       "_origin": "ast",
       "community": 6,
-      "community_name": "Comandos \u00fatiles",
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. activar el hook de git",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "docs_setup_graphify_setup_3_verificar",
-      "label": "3. Verificar",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. verificar",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L52"
-    },
-    {
-      "id": "docs_setup_graphify_setup_comandos_\u00fatiles",
-      "label": "Comandos \u00fatiles",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "comandos utiles",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L75"
-    },
-    {
-      "id": "docs_setup_graphify_setup_flujo_de_una_tarea",
-      "label": "Flujo de una tarea",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo de una tarea",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L63"
-    },
-    {
-      "id": "docs_setup_graphify_setup_privacidad",
-      "label": "Privacidad",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "privacidad",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L116"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_es_y_para_qu\u00e9_sirve",
-      "label": "Qu\u00e9 es y para qu\u00e9 sirve",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que es y para que sirve",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_no_usamos_y_por_qu\u00e9",
-      "label": "Qu\u00e9 no usamos, y por qu\u00e9",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no usamos, y por que",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L95"
-    },
-    {
-      "id": "docs_setup_graphify_setup_qu\u00e9_va_a_git_y_qu\u00e9_no",
-      "label": "Qu\u00e9 va a git y qu\u00e9 no",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que va a git y que no",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L86"
-    },
-    {
-      "id": "docs_setup_graphify_setup_requisitos",
-      "label": "Requisitos",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "requisitos",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L24"
-    },
-    {
-      "id": "docs_setup_graphify_setup_setup_de_graphify",
-      "label": "Setup de Graphify",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Comandos \u00fatiles",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setup de graphify",
-      "source_file": "docs/setup/graphify-setup.md",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
       "source_location": "L1"
     },
     {
-      "id": "docs_setup_graphify_setup_soluci\u00f3n_de_problemas",
-      "label": "Soluci\u00f3n de problemas",
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
       "_origin": "ast",
       "community": 6,
-      "community_name": "Comandos \u00fatiles",
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "solucion de problemas",
-      "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L105"
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L44"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L53"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -3339,6 +3387,18 @@
       "norm_label": "seguridad",
       "source_file": "docs/setup/agents-setup.md",
       "source_location": "L177"
+    },
+    {
+      "id": "docs_setup_agents_setup_setup_de_agents",
+      "label": "Setup de agents",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Configurar el MCP de Trello",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setup de agents",
+      "source_file": "docs/setup/agents-setup.md",
+      "source_location": "L1"
     },
     {
       "id": "docs_setup_agents_setup_soluci\u00f3n_de_problemas",
@@ -3771,7 +3831,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/setup/graphify-setup.md",
-      "source_location": "L116",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -5953,6 +6013,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_hook_de_claude_code_graphify_fuera_del_path_test",
+      "target": "tests_hook_de_claude_code_graphify_fuera_del_path_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/hook-de-claude-code/graphify-fuera-del-path.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_hook_de_claude_code_sin_graphify_test",
       "target": "tests_hook_de_claude_code_sin_graphify_test_sh__entry",
       "relation": "contains",
@@ -5993,6 +6064,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/graphify-falla.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_hook_de_git_graphify_fuera_del_path_test",
+      "target": "tests_hook_de_git_graphify_fuera_del_path_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/hook-de-git/graphify-fuera-del-path.test.sh",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -6059,7 +6141,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L34",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -6070,7 +6152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/hook-de-git/comun.sh",
-      "source_location": "L51",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -6548,5 +6630,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "36f1a79effee7c416ec45ae3310b5968fce69e73"
+  "built_at_commit": "a198a401f7cb70bba7a99926972c5054575b12ae"
 }

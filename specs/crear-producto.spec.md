@@ -282,8 +282,9 @@ Vue 2.7 con Options API y Vuetify 2.7, como en la arquitectura. Cada componente 
 - Los contadores de caracteres (120 y 50) se ven, pero los campos no usan `maxlength`: así un texto pegado que sobra se
   marca como error en lugar de cortarse sin avisar.
 - Las reglas de Vuetify de cada campo usan los mismos textos que la API (tabla del contrato) y revisan lo mismo. La
-  pantalla quita los espacios de los extremos del nombre, del precio y del código de barras antes de revisarlos y de
-  mandarlos. El máximo del precio se compara en centavos con `aCentavos` de `src/dinero.js`, sin sumar decimales de
+  pantalla quita los espacios de los extremos del nombre y del código de barras antes de revisarlos y de mandarlos. El
+  precio no se recorta, igual que en la API: `" 25"` se marca con "Debe ser un número con punto decimal, por ejemplo
+  25.50.". El máximo del precio se compara en centavos con `aCentavos` de `src/dinero.js`, sin sumar decimales de
   JavaScript.
   `[@test] ../frontend/tests/reglasProducto.test.js`
 - Al presionar "Guardar" con el formulario vacío se marcan los tres campos como obligatorios, el foco va al primero
@@ -357,7 +358,7 @@ auditoría sobre lo que cambió. Lo que esta spec fija además:
 1. Dado el formulario vacío, cuando el cajero presiona "Guardar", entonces se marcan los tres campos y no se llama a
    la API.
    `[@test] ../frontend/tests/componentes/FormularioProducto.test.js`
-2. Dado un precio `-5`, `abc`, `10.999`, `100000` o `0`, cuando el cajero presiona "Guardar", entonces se marca el
+2. Dado un precio `-5`, `abc`, `10.999`, `100000`, `0` o `" 25"` (con un espacio), cuando el cajero presiona "Guardar", entonces se marca el
    precio con su motivo y no se llama a la API.
    `[@test] ../frontend/tests/reglasProducto.test.js`
 3. Dado un código de barras que ya existe, cuando guarda, entonces ve "Ya existe un producto con ese código de barras"

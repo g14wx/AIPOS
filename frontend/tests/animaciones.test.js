@@ -3,11 +3,11 @@
 // venta-registrada y buscando). B-04 crea la carpeta y el componente; cada tarjeta agrega la animación que le toca,
 // así que esta prueba revisa las que existan y no exige que estén las cuatro.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 
-const carpeta = fileURLToPath(new URL('../src/assets/animaciones', import.meta.url));
+// Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y fileURLToPath falla.
+const carpeta = resolve(import.meta.dirname, '../src/assets/animaciones');
 const permitidas = ['venta-vacia.json', 'producto-creado.json', 'venta-registrada.json', 'buscando.json'];
 const paleta = ['#292F36', '#4ECDC4', '#F7FFF7', '#FF6B6B', '#FFE66D', '#FFFFFF'];
 

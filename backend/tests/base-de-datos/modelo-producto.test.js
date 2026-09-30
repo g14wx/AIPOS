@@ -63,7 +63,10 @@ describe('la definición del modelo Producto (no necesita MySQL)', () => {
       .filter((n) => n.endsWith('.js'));
     expect(archivos.length).toBeGreaterThan(0);
     for (const archivo of archivos) {
-      const codigo = fs.readFileSync(path.join(carpetaSrc, archivo), 'utf8');
+      // Sin los comentarios: un comentario puede nombrar sync() para decir que no se usa.
+      const codigo = fs
+        .readFileSync(path.join(carpetaSrc, archivo), 'utf8')
+        .replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '');
       expect(codigo, archivo).not.toMatch(/\.sync\s*\(/);
     }
   });

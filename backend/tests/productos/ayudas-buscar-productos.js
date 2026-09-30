@@ -9,10 +9,29 @@ const { Producto } = require('../../src/models/index.js');
 // Test Fixture: la tabla `productos` de la base de prueba puede traer filas que no son de la prueba que corre. Son los
 // restos de una corrida que se cortó (Ctrl+C, un proceso que se cae, el modo vigilar al guardar un archivo) o los que
 // dejó otra prueba: las de crear producto (P-02) dejan «Leche entera 1 L» si se cortan. La búsqueda mira todos los
-// nombres, así que una prueba que supone la tabla limpia falla en cuanto encuentra uno (issue #87).
+// nombres, así que una prueba que supone la tabla limpia falla en cuanto encuentra uno (issue #87). Dos cosas lo
+// evitan:
 //
-// `sembrarRestos` pone esas filas ajenas antes de las pruebas de búsqueda y `borrarRestos` las quita al terminar. Así
-// cada corrida comprueba que las pruebas miran solo lo que ellas crearon.
+// 1. Los códigos de barras son únicos por corrida (`codigoNuevo` y `codigoConCerosNuevo`). Si no, el UNIQUE de RN-03
+//    rechaza el producto de la prueba cuando la tabla ya trae uno con ese código, y fallan todas las pruebas siguientes.
+// 2. Cada prueba mira solo los productos que ella creó, y donde el orden y el máximo de 20 resultados dependen del
+//    texto, lo busca con un nombre único por corrida. `sembrarRestos` pone filas ajenas antes de las pruebas y
+//    `borrarRestos` las quita al terminar: así cada corrida comprueba que eso se cumple.
+
+let contador = 0;
+
+// Un código de barras nuevo, con letras. Mismo esquema que `codigoDeBarrasNuevo` de ayudas-crear-producto.js (P-02): el
+// número del proceso, la hora y un contador. No choca con el de un resto ni con el de otra corrida, aunque se corte.
+export function codigoNuevo() {
+  contador += 1;
+  return `BUSCAR-${process.pid}-${Date.now()}-${contador}`;
+}
+
+// Un código de barras nuevo de solo dígitos que empieza con ceros, como los que pierde un número.
+export function codigoConCerosNuevo() {
+  contador += 1;
+  return `00${process.pid}${Date.now()}${contador}`;
+}
 
 // El código de barras del ejemplo de la documentación de la API, que estas pruebas guardaban tal cual antes de tener
 // códigos únicos por corrida.

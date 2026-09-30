@@ -218,6 +218,37 @@ describe('carpetas y capas', () => {
     }
   });
 
+  // Habla con la base de datos el archivo que carga Sequelize o mysql2, la conexión (src/database.js) o los modelos.
+  function hablaConLaBase(ruta) {
+    return requeridos(ruta).some((carga) => {
+      if (/^(sequelize|mysql2)(\/|$)/.test(carga)) return true;
+      if (!carga.startsWith('.')) return false;
+      const destino = path.relative(src, path.resolve(path.dirname(ruta), carga));
+      return (
+        destino.split(path.sep)[0].replace(/\.js$/, '') === 'database' ||
+        destino.split(path.sep)[0] === 'models'
+      );
+    });
+  }
+
+  it('el detector de archivos que hablan con la base de datos los reconoce', () => {
+    expect(hablaConLaBase(path.join(src, 'database.js'))).toBe(true);
+    expect(hablaConLaBase(path.join(src, 'models', 'Venta.js'))).toBe(true);
+    expect(hablaConLaBase(path.join(src, 'services', 'salud.js'))).toBe(true);
+    expect(hablaConLaBase(path.join(src, 'controllers', 'salud.js'))).toBe(false);
+    expect(hablaConLaBase(path.join(src, 'validators', 'comunes.js'))).toBe(false);
+  });
+
+  it('ningún archivo de src/ fuera de services/ y models/ habla con la base de datos (RNF-06)', () => {
+    const infractores = archivosJs(src)
+      .filter((ruta) => !['services', 'models'].includes(carpetaDe(ruta)))
+      // database.js es la conexión misma: la crea, y solo la comparten los modelos y los servicios.
+      .filter((ruta) => path.relative(src, ruta) !== 'database.js')
+      .filter(hablaConLaBase)
+      .map((ruta) => path.relative(src, ruta));
+    expect(infractores).toEqual([]);
+  });
+
   it('solo servidor.js escucha un puerto: app.js no llama a listen', () => {
     expect(fs.readFileSync(path.join(src, 'app.js'), 'utf8')).not.toMatch(/\.listen\(/);
     expect(fs.readFileSync(path.join(src, 'servidor.js'), 'utf8')).toMatch(/\.listen\(/);

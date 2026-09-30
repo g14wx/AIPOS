@@ -68,7 +68,8 @@ function montar(propsData = {}) {
 }
 
 const filas = () => wrapper.findAll('tbody tr').wrappers;
-// Lo que muestra cada celda: el valor de su campo si lo tiene (el precio aplicado es un campo desde V-05) o su texto.
+// Lo que muestra cada celda: el valor de su campo si lo tiene o su texto. El precio aplicado (V-05) y la cantidad (V-06)
+// son campos y muestran su valor en el input, no como texto de la celda.
 const celdas = (fila) =>
   fila.findAll('td').wrappers.map((celda) => {
     const campo = celda.find('input');

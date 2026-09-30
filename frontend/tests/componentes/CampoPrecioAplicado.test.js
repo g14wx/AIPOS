@@ -431,10 +431,16 @@ describe('estilos de la fila de VentaActual que dependen del campo (alineación)
     expect(declara('.v-data-table__mobile-table-row', 'align-items', 'flex-start')).toBe(true);
   });
 
-  it('la cantidad y el subtotal miden 44 px como los campos, con el texto centrado: sus cifras quedan a la altura de las del precio aplicado', () => {
-    for (const clase of ['.detalle__cantidad', '.detalle__subtotal']) {
-      expect(declara(clase, 'min-height', '2.75rem')).toBe(true);
-      expect(declara(clase, 'align-items', 'center')).toBe(true);
-    }
+  it('el subtotal mide 44 px como los campos, con el texto centrado: sus cifras quedan a la altura de las del precio aplicado', () => {
+    expect(declara('.detalle__subtotal', 'min-height', '2.75rem')).toBe(true);
+    expect(declara('.detalle__subtotal', 'align-items', 'center')).toBe(true);
+  });
+
+  // La cantidad (V-06) es CampoCantidad: sus botones y su campo ya miden 44 px, y su raíz es una columna en línea que se
+  // alinea con la celda (a la derecha en la tabla, a la izquierda en las filas apiladas) y le da al mensaje de error el ancho
+  // de los tres controles. Con display flex se volvería un bloque del ancho de la celda y sus controles quedarían centrados.
+  it('la cantidad no lleva la regla del subtotal: su raíz sigue siendo en línea y no se vuelve un bloque flex', () => {
+    expect(declara('.detalle__cantidad', 'display', 'flex')).toBe(false);
+    expect(declara('.detalle__cantidad', 'min-height', '2.75rem')).toBe(false);
   });
 });

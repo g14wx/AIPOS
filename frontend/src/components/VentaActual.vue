@@ -1,6 +1,9 @@
 <template>
   <section class="venta-actual" aria-labelledby="venta-actual-titulo">
-    <h2 id="venta-actual-titulo" class="venta-actual__titulo">Venta actual</h2>
+    <!-- Con tabindex -1 recibe el foco con código al eliminar el último detalle, sin entrar en el orden de Tab. -->
+    <h2 id="venta-actual-titulo" ref="titulo" class="venta-actual__titulo" tabindex="-1">
+      Venta actual
+    </h2>
 
     <div class="venta-actual__cuerpo">
       <div v-if="!hayDetalles" class="venta-actual__vacia">
@@ -40,7 +43,14 @@
         </template>
 
         <template #item.cantidad="{ item }">
-          <span class="detalle__cantidad">{{ item.cantidad }}</span>
+          <CampoCantidad
+            class="detalle__cantidad"
+            :value="item.cantidad"
+            :error="errorDeCantidad(item)"
+            :nombre="item.nombre"
+            :disabled="enviando"
+            @input="alCambiarCantidad(item.productoId, $event)"
+          />
         </template>
 
         <template #item.subtotal="{ item }">
@@ -51,8 +61,21 @@
           <span class="solo-lectores">Acciones</span>
         </template>
 
-        <template #item.acciones>
-          <div class="detalle__acciones"></div>
+        <template #item.acciones="{ item }">
+          <div class="detalle__acciones">
+            <v-btn
+              class="detalle__eliminar"
+              icon
+              large
+              color="error"
+              :aria-label="`Eliminar ${item.nombre} de la venta actual`"
+              :disabled="enviando"
+              @click="alEliminar(item, $event)"
+              @keydown="ignorarRepeticionDeEnter"
+            >
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </div>
         </template>
       </v-data-table>
     </div>
@@ -77,11 +100,14 @@ import { formatearCentavos } from '../dinero.js';
 import {
   calcularSubtotal,
   calcularTotal,
+  cambiarCantidad,
   cambiarPrecioAplicado,
+  eliminarDetalle,
   vaciarVentaActual,
   ventaActualEsValida,
 } from '../ventaActual/ventaActual.js';
 import AnimacionLottie from './AnimacionLottie.vue';
+import CampoCantidad from './CampoCantidad.vue';
 import CampoPrecioAplicado from './CampoPrecioAplicado.vue';
 
 // Vuetify apila las filas de una tabla cuando el ancho de la ventana es menor que su punto de apilado. La tarjeta de la
@@ -99,7 +125,7 @@ const APILADO_DE_VUETIFY = 600;
 // celda de su columna; V-08 reemplaza el botón «Registrar venta» provisional.
 export default {
   name: 'VentaActual',
-  components: { AnimacionLottie, CampoPrecioAplicado },
+  components: { AnimacionLottie, CampoCantidad, CampoPrecioAplicado },
   props: {
     ventaActual: { type: Object, default: vaciarVentaActual },
     // El productoId del detalle recién agregado: su fila se pinta con el acento unos segundos. Lo decide App.vue.
@@ -136,9 +162,25 @@ export default {
     },
   },
   watch: {
+    // V-07: cuando llega la venta actual sin el detalle que se eliminó, el foco pasa a un lugar con sentido. Si el detalle
+    // sigue ahí (la propiedad cambió por otra cosa), la anotación se descarta y el foco no se mueve.
+    ventaActual(nueva) {
+      const eliminado = this.ultimoEliminado;
+      this.ultimoEliminado = null;
+      if (!eliminado) return;
+      const sigueAhi = nueva.detalles.some(
+        (detalle) => detalle.productoId === eliminado.productoId,
+      );
+      if (!sigueAhi) this.$nextTick(() => this.enfocarTrasEliminar(eliminado.indice));
+    },
     resaltarId(productoId) {
       if (productoId !== null) this.$nextTick(this.mostrarFilaResaltada);
     },
+  },
+  created() {
+    // El último detalle que eliminó el cajero (V-07), hasta que llegue la venta actual sin él. No es reactivo, porque no
+    // se dibuja: no va en data.
+    this.ultimoEliminado = null;
   },
   mounted() {
     this.anchoDeLaTarjeta = this.$el.clientWidth || null;
@@ -153,8 +195,45 @@ export default {
     this.observador?.disconnect();
   },
   methods: {
+    // El cajero presionó «Eliminar» en la fila de un detalle: se emite la venta actual sin él y App.vue la reemplaza. No pide
+    // confirmación: el producto se puede volver a agregar desde la búsqueda. Antes de emitir se anota qué fila era, para
+    // llevar el foco a la que ocupe su lugar cuando la venta nueva llegue.
+    alEliminar(detalle, evento) {
+      // El segundo clic de un doble clic (detail 2 o más) cae sobre el botón de la fila que subió a ocupar el lugar del
+      // detalle eliminado, y no debe eliminar otro (#79). El clic suelto trae detail 1 y el teclado (Enter o Espacio), 0.
+      if (evento?.detail > 1) return;
+      const nueva = eliminarDetalle(this.ventaActual, detalle.productoId);
+      // Si el detalle ya no estaba, la venta actual es la misma: no hay nada que emitir ni a dónde llevar el foco.
+      if (nueva === this.ventaActual) return;
+      const indice = this.ventaActual.detalles.findIndex(
+        (d) => d.productoId === detalle.productoId,
+      );
+      this.ultimoEliminado = { productoId: detalle.productoId, indice };
+      this.$emit('update:ventaActual', nueva);
+    },
+    // Mantener presionado Enter repite la tecla, y el navegador hace un clic por cada repetición sobre el botón con foco. Tras
+    // eliminar, el foco pasa al «Eliminar» de la fila siguiente y la repetición lo presionaría también, hasta vaciar la venta
+    // actual (#83). El keydown de una repetición trae repeat true: se cancela y no llega a hacer clic.
+    ignorarRepeticionDeEnter(evento) {
+      if (evento.key === 'Enter' && evento.repeat) evento.preventDefault();
+    },
+    // El botón que tenía el foco ya no está: el foco pasa al «Eliminar» de la fila que ocupó su lugar (o al de la anterior,
+    // si era la última) y, si no quedó ninguna, al título «Venta actual», para que quien usa el teclado no pierda su lugar.
+    enfocarTrasEliminar(indice) {
+      const botones = this.$el.querySelectorAll('.detalle__eliminar');
+      if (botones.length === 0) this.$refs.titulo?.focus();
+      else botones[Math.min(indice, botones.length - 1)].focus();
+    },
     subtotalDe(detalle) {
       return formatearCentavos(calcularSubtotal(detalle));
+    },
+    // El mensaje de error de la cantidad de un detalle, o '' si no tiene.
+    errorDeCantidad(detalle) {
+      return this.ventaActual.errores[detalle.productoId]?.cantidad ?? '';
+    },
+    // El cajero cambió la cantidad de un detalle (con «+», «−» o escribiendo): la venta actual nueva sube a App.vue.
+    alCambiarCantidad(productoId, valor) {
+      this.$emit('update:ventaActual', cambiarCantidad(this.ventaActual, productoId, valor));
     },
     claseDeFila(detalle) {
       return detalle.productoId === this.resaltarId ? 'detalle-resaltado' : '';
@@ -284,14 +363,37 @@ export default {
   line-height: 1.5rem;
 }
 
-/* Las cifras de la cantidad y del subtotal miden lo mismo que los campos de su fila (44 px) y su texto queda centrado: así
-   quedan a la altura de lo que escribe el cajero en el precio aplicado. */
-.detalle__cantidad,
+/* El subtotal mide lo mismo que los campos de su fila (44 px) y su texto queda centrado: así queda a la altura de lo que
+   escribe el cajero en el precio aplicado y de los controles de la cantidad (V-05). */
 .detalle__subtotal {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   min-height: 2.75rem;
+}
+
+/* V-07: el botón «Eliminar» de cada detalle mide 44 px para el dedo y se corre 10 px a la derecha, sobre el margen de la
+   fila, para que el ícono y no su zona táctil quede alineado con el borde de las cifras. */
+.detalle__eliminar {
+  margin-right: -0.625rem;
+}
+
+/* Con las filas apiladas, el nombre se centra con el botón «Eliminar» en vez de quedar pegado abajo. */
+.detalles ::v-deep .v-data-table__mobile-row:nth-child(1) {
+  align-self: center;
+}
+
+/* El título recibe el foco con código al eliminar el último detalle: su contorno va por dentro de la tarjeta. */
+.venta-actual__titulo:focus-visible {
+  outline-offset: -3px;
+}
+
+/* La franja de abajo es sticky (mide unos 150 px, y unos 190 con un total de dos líneas) y la barra de arriba es fija: un
+   botón o un campo de una fila que recibe el foco con Tab no debe quedar debajo de ellas. Con este margen el navegador lo
+   deja a la vista al llevarle el foco (#80, #81 y #85). */
+.detalles ::v-deep button,
+.detalles ::v-deep input {
+  scroll-margin: 4rem 0 12rem;
 }
 
 .solo-lectores {

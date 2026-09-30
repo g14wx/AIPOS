@@ -16,7 +16,8 @@ export const RUTA = '/api/productos';
 const codigosUsados = new Set();
 let contador = 0;
 
-function anotar(codigo) {
+// Anota un código de barras para borrarlo al terminar. Devuelve el mismo código.
+export function anotarCodigoDeBarras(codigo) {
   codigosUsados.add(codigo);
   return codigo;
 }
@@ -24,13 +25,13 @@ function anotar(codigo) {
 // Un código de barras que no existe en la tabla, con letras. Los códigos son únicos aunque se repita la corrida.
 export function codigoDeBarrasNuevo() {
   contador += 1;
-  return anotar(`PRUEBA-${process.pid}-${Date.now()}-${contador}`);
+  return anotarCodigoDeBarras(`PRUEBA-${process.pid}-${Date.now()}-${contador}`);
 }
 
 // Un código de barras de solo dígitos que empieza con ceros, como los que pierde un número.
 export function codigoConCerosNuevo() {
   contador += 1;
-  return anotar(`00${process.pid}${Date.now()}${contador}`);
+  return anotarCodigoDeBarras(`00${process.pid}${Date.now()}${contador}`);
 }
 
 export function productoValido(cambios = {}) {

@@ -175,10 +175,39 @@ for nombre in '`cambiarPrecioAplicado`' '`cambiarCantidad`' '`eliminarDetalle`' 
 done
 debe_decir "$G" '«detalles del error»'
 
-# requerimientos/: la regla de negocio nueva y la pregunta abierta 9 (por confirmar con la persona).
-debe_decir requerimientos/02-requerimientos-funcionales.md '| RN-14 | Una venta tiene como máximo 100 detalles.'
-debe_decir requerimientos/README.md '| 9 | ¿Se limita a 100 los detalles de una venta?'
-debe_decir requerimientos/README.md 'resuelta por el orquestador'
+# requerimientos/: la regla de negocio nueva y la pregunta abierta 9. La resolvió el orquestador con el consentimiento
+# general de la persona desarrolladora, que puede confirmarla o revertirla: ningún documento la deja a la vez
+# "resuelta" y "por confirmar".
+R=requerimientos/README.md
+RF=requerimientos/02-requerimientos-funcionales.md
+debe_decir "$RF" '| RN-14 | Una venta tiene como máximo 100 detalles.'
+debe_decir "$R" '| 9 | ¿Se limita a 100 los detalles de una venta?'
+debe_decir "$R" 'Resuelta el 2026-09-30 por el orquestador'
+debe_decir "$R" 'consentimiento general que la persona desarrolladora dio para todo el proceso (01:40 y 01:45)'
+debe_decir "$R" 'puede confirmarla o revertirla'
+ya_no_debe_decir "$R" 'orquestador, por confirmar|sigue por confirmar'
+debe_decir "$RF" 'resuelta el 2026-09-30 por el orquestador'
+ya_no_debe_decir "$RF" 'por confirmar \(pregunta abierta 9'
+debe_decir "$AVA" 'que resolvió el orquestador'
+ya_no_debe_decir "$AVA" 'que sigue por confirmar'
+debe_decir "$RV" 'puede confirmarla o revertirla'
+ya_no_debe_decir "$RV" 'Por confirmar con la persona desarrolladora'
+debe_decir "$G" 'ella puede confirmarla o revertirla'
+ya_no_debe_decir "$G" 'sigue por confirmar|El máximo de 100 detalles y «orquestador» son propuestas'
+
+# Flujos 03 y 04: el texto dice el máximo de 100 detalles y su línea de Requerimientos cita RN-14. Los diagramas
+# BPMN no se tocan: el texto del flujo manda y lo dice cada flujo, hasta que otra tarea actualice el diagrama.
+F3=requerimientos/flujos/03-armar-la-venta-actual.md
+F4=requerimientos/flujos/04-registrar-venta.md
+debe_decir "$F3" 'RN-05 a RN-09 y RN-14.'
+debe_decir "$F3" 'no lo agrega y avisa «Una venta puede tener como máximo 100 productos.»'
+debe_decir "$F3" 'ya tiene 100 detalles'
+debe_decir "$F3" 'no muestra todavía el máximo de 100 detalles'
+debe_decir "$F4" 'RN-08 a RN-12 y RN-14.'
+debe_decir "$F4" 'tiene de 1 a 100 detalles'
+debe_decir "$F4" 'más de 100 detalles'
+debe_decir "$F4" 'DEMASIADOS_DETALLES'
+debe_decir "$F4" 'no muestra todavía el máximo de 100 detalles'
 
 if [ "$fallas" -gt 0 ]; then
   echo "$fallas fallas"

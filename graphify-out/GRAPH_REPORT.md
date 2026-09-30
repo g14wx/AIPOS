@@ -1,12 +1,12 @@
 # Graph Report - despliegue  (2026-09-30)
 
 ## Corpus Check
-- 96 files · ~92,646 words
+- 97 files · ~92,908 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 622 nodes · 657 edges · 79 communities (36 shown, 43 thin omitted)
+- 625 nodes · 660 edges · 82 communities (38 shown, 44 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -16,7 +16,7 @@
 
 ## Community Hubs (Navigation)
 - requerimientos/README.md
-- Grafo del proyecto
+- Configurar el MCP de Trello
 - dependencies
 - Trabajar en un tile
 - Requerimientos funcionales
@@ -88,10 +88,13 @@
 - sin-datos-privados.test.sh
 - github-environment-y-etiquetas.test.sh
 - compose-produccion.test.sh
+- Grafo del proyecto
+- Lenguaje ubicuo — AIPOS
 - sin-borrar-datos.test.sh
 - imagenes.test.sh
 - documentos.test.sh
 - arranque-local.test.sh
+- crear-env.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `Despliegue de AIPOS` - 22 edges
@@ -111,15 +114,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (79 total, 43 thin omitted)
+## Communities (82 total, 44 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.07
-Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
-
-### Community 1 - "Grafo del proyecto"
 Cohesion: 0.06
-Nodes (31): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar), 1. Crear el board en Trello, 2. Obtener el API key (+23 more)
+Nodes (31): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+23 more)
+
+### Community 1 - "Configurar el MCP de Trello"
+Cohesion: 0.18
+Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el token, 4. Agregar el servidor a Claude Code, 5. Verificar la conexión, Alternativa: Codex CLI, Configurar el MCP de Trello, Requisitos (+3 more)
 
 ### Community 2 - "dependencies"
 Cohesion: 0.12
@@ -230,7 +233,7 @@ Cohesion: 0.08
 Nodes (24): Caddy, Casos de error, Configuración del servidor (una sola vez), Criterios de aceptación, Cómo queda armado el servidor, Cómo se decidió el diseño, Despliegue de AIPOS, Docker Compose de producción (`docker-compose.produccion.yml`) (+16 more)
 
 ### Community 56 - "Alcance"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 57 - "despliegue/comun.sh"
@@ -249,6 +252,14 @@ Nodes (5): armar(), CADDY_FALLA, CAMBIA_VECINO, correr_script(), instalar-caddy.
 Cohesion: 0.70
 Nodes (4): arrancar(), parar(), revisar(), revisar-produccion.test.sh script
 
+### Community 75 - "Grafo del proyecto"
+Cohesion: 0.18
+Nodes (10): Arranque de un clon nuevo, Grafo del proyecto, Hook de Claude Code, Hook de git `pre-commit`, Proceso escrito, Qué entra al grafo, Qué no se usa, Qué va a git (+2 more)
+
+### Community 76 - "Lenguaje ubicuo — AIPOS"
+Cohesion: 0.33
+Nodes (6): Convención de nombres en código, Herramientas y proceso, Historial de cambios, Lenguaje ubicuo — AIPOS, Negocio, Pendientes (por confirmar)
+
 ### Community 78 - "imagenes.test.sh"
 Cohesion: 0.38
 Nodes (3): leer(), imagenes.test.sh script, uso()
@@ -260,7 +271,7 @@ Nodes (6): compose(), desplegar(), limpiar(), mysql_app(), restos_del_proyecto()
 ## Knowledge Gaps
 - **357 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+352 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 419 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **43 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **44 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -274,8 +285,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `name`, `mode`, `source` to the rest of the system?**
   _357 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
-- **Should `Grafo del proyecto` be split into smaller, more focused modules?**
-  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05959183673469388 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Trabajar en un tile` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

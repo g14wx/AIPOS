@@ -8,8 +8,9 @@ const dotenv = require('dotenv');
 const OBLIGATORIAS = ['MYSQL_DATABASE', 'MYSQL_USER', 'MYSQL_PASSWORD', 'CORS_ORIGIN'];
 
 // El .env vive en la raíz del proyecto. Una variable que ya está en el entorno gana sobre el archivo.
-function cargarArchivoEnv() {
-  dotenv.config({ path: path.resolve(__dirname, '../../.env'), override: false, quiet: true });
+// La ruta se puede cambiar para probarlo con un .env de mentira.
+function cargarArchivoEnv(ruta = path.resolve(__dirname, '../../.env')) {
+  dotenv.config({ path: ruta, override: false, quiet: true });
 }
 
 function texto(env, nombre) {
@@ -27,6 +28,19 @@ function entero(env, nombre, porDefecto, { minimo, maximo }) {
   return numero;
 }
 
+// La pantalla se abre con http o https, y el navegador manda `Origin` como esquema://servidor[:puerto],
+// en minúsculas y sin el puerto por defecto. Si `new URL` no devuelve el mismo texto (sin esquema, con
+// ruta, con usuario, con mayúsculas o con el puerto por defecto), o el esquema no es http ni https, ese
+// origen nunca coincidiría con el de la pantalla y el navegador la bloquearía.
+function esUnOrigen(valor) {
+  try {
+    const url = new URL(valor);
+    return (url.protocol === 'http:' || url.protocol === 'https:') && url.origin === valor;
+  } catch {
+    return false;
+  }
+}
+
 function leerOrigenes(env) {
   const origenes = texto(env, 'CORS_ORIGIN')
     .split(',')
@@ -39,6 +53,19 @@ function leerOrigenes(env) {
     if (origen.endsWith('/')) {
       throw new Error(`CORS_ORIGIN no lleva barra final: "${origen}".`);
     }
+    if (!esUnOrigen(origen)) {
+      throw new Error(
+        'CORS_ORIGIN debe ser un origen como http://localhost:5173: esquema http o https, servidor ' +
+          'y puerto, en minúsculas, sin ruta y sin escribir el puerto por defecto (80 o 443). ' +
+          `Vale "${origen}".`,
+      );
+    }
+  }
+  // Un valor como "," pasa la revisión de variables obligatorias y deja la lista vacía.
+  if (origenes.length === 0) {
+    throw new Error(
+      'CORS_ORIGIN no tiene ningún origen: pon el de la pantalla, como http://localhost:5173.',
+    );
   }
   return origenes;
 }
@@ -74,6 +101,17 @@ function cargarConfig(env) {
   };
 }
 
+// La configuración de un entorno concreto, para sequelize-cli (db/config.js): así process.env
+// se sigue leyendo solo en este archivo.
+function cargarConfigDeEntorno(entorno) {
+  return cargarConfig({ ...process.env, NODE_ENV: entorno });
+}
+
 cargarArchivoEnv();
 
-module.exports = { config: cargarConfig(process.env), cargarConfig, cargarArchivoEnv };
+module.exports = {
+  config: cargarConfig(process.env),
+  cargarConfig,
+  cargarConfigDeEntorno,
+  cargarArchivoEnv,
+};

@@ -44,13 +44,16 @@ describe('el índice único de codigo_barras (RN-03)', () => {
   it.each([
     ['ABC-1', 'abc-1'],
     ['CAFÉ-1', 'cafe-1'],
-  ])('no distingue mayúsculas ni tildes: "%s" y "%s" son el mismo código', async (uno, otro) => {
-    await conTransaccionDescartada(async ({ consultar }) => {
-      await insertarProducto(consultar, { ...valido, codigoBarras: uno });
-      const error = await guardar(consultar, { codigoBarras: otro });
-      expect(error?.errno).toBe(ER_DUP_ENTRY);
-    });
-  });
+  ])(
+    'no distingue mayúsculas ni tildes: "%s" y "%s" son el mismo código de barras',
+    async (uno, otro) => {
+      await conTransaccionDescartada(async ({ consultar }) => {
+        await insertarProducto(consultar, { ...valido, codigoBarras: uno });
+        const error = await guardar(consultar, { codigoBarras: otro });
+        expect(error?.errno).toBe(ER_DUP_ENTRY);
+      });
+    },
+  );
 
   it('solo el código de barras es único: dos productos pueden tener el mismo nombre', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
@@ -191,7 +194,7 @@ describe('los largos (RN-04)', () => {
 });
 
 describe('lo que se guarda es lo que se lee', () => {
-  it('el precio 25.00 conserva sus centavos y el código 0012345 conserva sus ceros', async () => {
+  it('el precio 25.00 conserva sus centavos y el código de barras 0012345 conserva sus ceros', async () => {
     await conTransaccionDescartada(async ({ consultar }) => {
       await insertarProducto(consultar, {
         nombre: 'Pan',

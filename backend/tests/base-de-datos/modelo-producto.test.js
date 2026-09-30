@@ -64,17 +64,17 @@ describe('la definición del modelo Producto (no necesita MySQL)', () => {
     expect(archivos.length).toBeGreaterThan(0);
     for (const archivo of archivos) {
       // Sin los comentarios: un comentario puede nombrar sync() para decir que no se usa.
-      const codigo = fs
+      const fuente = fs
         .readFileSync(path.join(carpetaSrc, archivo), 'utf8')
         .replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '');
-      expect(codigo, archivo).not.toMatch(/\.sync\s*\(/);
+      expect(fuente, archivo).not.toMatch(/\.sync\s*\(/);
     }
   });
 });
 
 // Necesita MySQL levantado y la base de prueba migrada. Cada prueba corre en una transacción que se descarta.
 describe('Producto contra MySQL', () => {
-  it('create y findByPk devuelven el precio como texto de 2 decimales y el código con sus ceros', async () => {
+  it('create y findByPk devuelven el precio como texto de 2 decimales y el código de barras con sus ceros', async () => {
     await conTransaccionDescartada(async ({ transaccion }) => {
       const creado = await Producto.create(leche, { transaction: transaccion });
       expect(creado.precio).toBe('25.00');

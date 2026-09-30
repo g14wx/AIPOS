@@ -116,6 +116,10 @@ td.text-end .campo-precio-aplicado__mensaje {
 .campo-precio-aplicado ::v-deep input {
   font-variant-numeric: tabular-nums;
   text-align: right;
+  /* Con el teclado, el navegador lleva el campo al borde de la ventana sin contar la franja de abajo (sticky, unos
+     149 px) ni la barra de arriba (48 px): estos márgenes lo dejan a la vista (#85). */
+  scroll-margin-top: 4rem;
+  scroll-margin-bottom: 10rem;
 }
 
 /* El mensaje de error: el ícono coral fijo a la izquierda y el texto en tinta (vuetify.css) que pasa a otra línea. */

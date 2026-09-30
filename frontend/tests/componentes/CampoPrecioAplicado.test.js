@@ -392,6 +392,13 @@ describe('estilos del campo (skill impeccable: cifras tabulares, zona táctil y 
     expect(declara('input', 'text-align', 'right')).toBe(true);
   });
 
+  // #85: la franja de abajo (el total y «Registrar venta») es sticky y la barra de arriba es fija: el navegador lleva el campo
+  // con foco de teclado al borde de la ventana sin contarlas y lo dejaba tapado. El margen debe cubrir la franja (unos 149 px).
+  it('el campo con foco de teclado no queda tapado por la franja de abajo ni por la barra de arriba: scroll-margin (#85)', () => {
+    expect(declara('input', 'scroll-margin-bottom', '10rem')).toBe(true);
+    expect(declara('input', 'scroll-margin-top', '4rem')).toBe(true);
+  });
+
   it('el campo mide al menos 44 px de alto: se usa con el dedo', () => {
     expect(declara('.v-input__slot', 'min-height', '2.75rem')).toBe(true);
   });

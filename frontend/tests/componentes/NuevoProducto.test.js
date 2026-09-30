@@ -92,7 +92,7 @@ async function escribir(texto, valor) {
 }
 
 async function abrirLlenarYGuardar() {
-  botonNuevo().trigger('click');
+  await botonNuevo().trigger('click');
   await esperar();
   await escribir('Nombre', producto.nombre);
   await escribir('Precio', producto.precio);
@@ -113,7 +113,7 @@ describe('el botón "Nuevo producto"', () => {
   it('el modal empieza cerrado, y al presionarlo se abre con el foco en "Nombre"', async () => {
     await montar();
     expect(abierto()).toBe(false);
-    botonNuevo().trigger('click');
+    await botonNuevo().trigger('click');
     await esperar();
     expect(abierto()).toBe(true);
     expect(document.activeElement).toBe(entrada('Nombre'));
@@ -188,7 +188,7 @@ describe('criterio 4: al crear un producto válido', () => {
 describe('cuando no se crea nada', () => {
   it('"Cancelar" cierra el modal sin llamar a la API ni mostrar el aviso', async () => {
     await montar();
-    botonNuevo().trigger('click');
+    await botonNuevo().trigger('click');
     await esperar();
     boton('Cancelar').click();
     await esperar();
@@ -216,7 +216,7 @@ describe('cuando no se crea nada', () => {
 describe('el foco vuelve al botón "Nuevo producto" al cerrar el modal', () => {
   it('con "Cancelar"', async () => {
     await montar();
-    botonNuevo().trigger('click');
+    await botonNuevo().trigger('click');
     await esperar();
     boton('Cancelar').click();
     await esperar();
@@ -232,7 +232,7 @@ describe('el foco vuelve al botón "Nuevo producto" al cerrar el modal', () => {
 
   it('con la tecla Esc, cuando el formulario está vacío', async () => {
     await montar();
-    botonNuevo().trigger('click');
+    await botonNuevo().trigger('click');
     await esperar();
     dialogo().dispatchEvent(new KeyboardEvent('keydown', { keyCode: 27, bubbles: true }));
     await esperar();

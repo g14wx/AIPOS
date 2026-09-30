@@ -60,7 +60,7 @@ avisa, la API valida y la base de datos la protege.
 | RN-11 | Registrar venta es todo o nada. | Procedimiento con su propia transacción |
 | RN-12 | Cada venta guarda su fecha, y la pone la base de datos. | `DEFAULT CURRENT_TIMESTAMP` |
 | RN-13 | Un producto que está en una venta no se puede borrar. | Llave foránea `ON DELETE RESTRICT` |
-| RN-14 | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. Por confirmar con la persona desarrolladora (ver preguntas). | Pantalla (no agrega el detalle 101; el botón y `valida`), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
+| RN-14 | Una venta tiene como máximo 100 detalles de venta. Con 100 detalles de 999 × 99 999.99 el total llega a 9 989 999 001.00 y cabe en `DECIMAL(12,2)`; con 101 se desbordaría. La resolvió el orquestador; la persona desarrolladora puede confirmarla o revertirla (ver preguntas). | Pantalla (no agrega el detalle 101; el botón y `valida`), API (400) y procedimiento (`DEMASIADOS_DETALLES`) |
 
 ## Tablas y modelos (V-01)
 
@@ -560,11 +560,11 @@ Si la sesión no tiene el MCP `chrome-devtools`, lo dice y la persona desarrolla
 
 - **Límite de 100 detalles (RN-14, pregunta abierta 9 de `requerimientos/README.md`).** Los requerimientos no lo pedían.
   Esta spec lo propuso porque, sin él, 101 productos distintos con cantidad 999 y precio 99 999.99 (una venta válida en
-  cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Ya está adoptado, con el consentimiento general de la persona
-  desarrolladora: la API, el procedimiento y el botón lo rechazan, y la spec de armar la venta actual lo incluye en `valida`
-  y lo avisa al agregar el producto 101. La otra opción era ampliar `ventas.total` a `DECIMAL(14,2)`, que cambia la spec de
-  arquitectura y RN-08. Por confirmar con la persona desarrolladora: si prefiere la otra opción, cambia RN-14, esta spec y
-  la de armar la venta actual.
+  cada campo) pasan de `DECIMAL(12,2)` y darían un 500. Ya la resolvió el orquestador (2026-09-30), con el consentimiento
+  general de la persona desarrolladora: la API, el procedimiento y el botón lo rechazan, y la spec de armar la venta
+  actual lo incluye en `valida` y lo avisa al agregar el producto 101. La otra opción era ampliar `ventas.total` a
+  `DECIMAL(14,2)`, que cambia la spec de arquitectura y RN-08. La persona desarrolladora puede confirmarla o revertirla:
+  si prefiere la otra opción, cambia RN-14, esta spec y la de armar la venta actual.
 - **Reintento con la respuesta perdida.** Ver "Riesgo conocido" en la sección de la API.
 
 ## Bugs y issues

@@ -51,7 +51,8 @@ Una sola pantalla, cuatro tarjetas en orden. Cada una depende de la anterior.
 ## Reglas de negocio
 
 Salen de RF-03 a RF-08, RN-05 a RN-09 y RN-14, y de las decisiones de la persona desarrolladora del 2026-09-30 (preguntas
-abiertas 1, 2, 4 y 6 de `requerimientos/README.md`). RN-14 sale de la pregunta abierta 9, que sigue por confirmar.
+abiertas 1, 2, 4 y 6 de `requerimientos/README.md`). RN-14 sale de la pregunta abierta 9, que resolvió el orquestador el
+2026-09-30 y que la persona desarrolladora puede confirmar o revertir.
 
 - **RN-05.** El precio aplicado empieza igual al precio del producto. Cambiarlo no cambia el precio del producto: la
   pantalla nunca llama a la API para esto. Es 0 o más, hasta 99 999.99, con 2 decimales como máximo. **El 0 se permite**

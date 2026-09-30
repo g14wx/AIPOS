@@ -17,6 +17,42 @@
       "source_location": "L6"
     },
     {
+      "id": "backend_src_controllers_salud_obtenersalud",
+      "label": "obtenerSalud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 108,
+      "community_name": "routes/salud.js",
+      "file_type": "code",
+      "norm_label": "obtenersalud()",
+      "source_file": "backend/src/controllers/salud.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_src_services_salud_conlimitedetiempo",
+      "label": "conLimiteDeTiempo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 108,
+      "community_name": "routes/salud.js",
+      "file_type": "code",
+      "norm_label": "conlimitedetiempo()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_src_services_salud_consultarsalud",
+      "label": "consultarSalud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 108,
+      "community_name": "routes/salud.js",
+      "file_type": "code",
+      "norm_label": "consultarsalud()",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L25"
+    },
+    {
       "id": "frontend_tests_tema_test_contraste",
       "label": "contraste()",
       "_callable": true,
@@ -53,16 +89,52 @@
       "source_location": "L21"
     },
     {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_routerdelaapi",
-      "label": "routerDeLaApi()",
+      "id": "backend_tests_base_de_datos_ayudas_productos_contransacciondescartada",
+      "label": "conTransaccionDescartada()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "rutas-documentadas.test.js",
+      "community_name": "ayudas-productos.js",
       "file_type": "code",
-      "norm_label": "routerdelaapi()",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L24"
+      "norm_label": "contransacciondescartada()",
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_productos_errordemysql",
+      "label": "errorDeMySQL()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "errordemysql()",
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
+      "source_location": "L34"
+    },
+    {
+      "id": "backend_tests_base_de_datos_ayudas_productos_insertarproducto",
+      "label": "insertarProducto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "insertarproducto()",
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "backend_tests_base_de_datos_productos_restricciones_test_guardar",
+      "label": "guardar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "guardar()",
+      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
+      "source_location": "L16"
     },
     {
       "id": "backend_tests_documentacion_comparar_rutas_test_routercon",
@@ -99,6 +171,18 @@
       "norm_label": "describircapa()",
       "source_file": "backend/tests/documentacion/rutas.js",
       "source_location": "L61"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_routerdelaapi",
+      "label": "routerDeLaApi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "routerdelaapi()",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L24"
     },
     {
       "id": "backend_tests_documentacion_rutas_encontrarrutasfuerademontajes",
@@ -147,18 +231,6 @@
       "norm_label": "mensajesdelacomparacion()",
       "source_file": "backend/tests/documentacion/rutas.js",
       "source_location": "L52"
-    },
-    {
-      "id": "backend_db_config_test",
-      "label": "test()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "backend/db/config.js",
-      "source_location": "L26"
     },
     {
       "id": "backend_db_migrations_20260930133500_crear_productos_down",
@@ -557,6 +629,18 @@
       "source_location": "L29"
     },
     {
+      "id": "backend_db_config_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "backend/db/config.js",
+      "source_location": "L26"
+    },
+    {
       "id": "backend_scripts_crear_base_de_prueba_crearbasedeprueba",
       "label": "crearBaseDePrueba()",
       "_callable": true,
@@ -665,78 +749,6 @@
       "source_location": "L16"
     },
     {
-      "id": "backend_src_controllers_salud_obtenersalud",
-      "label": "obtenerSalud()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "obtenersalud()",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "backend_src_services_salud_conlimitedetiempo",
-      "label": "conLimiteDeTiempo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "conlimitedetiempo()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_src_services_salud_consultarsalud",
-      "label": "consultarSalud()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "consultarsalud()",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L25"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos_contransacciondescartada",
-      "label": "conTransaccionDescartada()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "contransacciondescartada()",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos_errordemysql",
-      "label": "errorDeMySQL()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "errordemysql()",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L34"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos_insertarproducto",
-      "label": "insertarProducto()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "insertarproducto()",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L25"
-    },
-    {
       "id": "backend_tests_base_de_datos_dinero_como_texto_test_contabladedinero",
       "label": "conTablaDeDinero()",
       "_callable": true,
@@ -747,18 +759,6 @@
       "norm_label": "contabladedinero()",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
       "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_base_de_datos_productos_restricciones_test_guardar",
-      "label": "guardar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "guardar()",
-      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
-      "source_location": "L16"
     },
     {
       "id": "backend_tests_base_de_datos_compose_test_leerconfiguracion",
@@ -893,6 +893,30 @@
       "source_location": "L11"
     },
     {
+      "id": "backend_tests_errores_test_appconruta",
+      "label": "appConRuta()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "appconruta()",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L87"
+    },
+    {
+      "id": "backend_tests_errores_test_errordemysql",
+      "label": "errorDeMysql()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "errordemysql()",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L11"
+    },
+    {
       "id": "backend_tests_base_de_datos_ayudas_corrernpm",
       "label": "correrNpm()",
       "_callable": true,
@@ -975,6 +999,30 @@
       "norm_label": "cargardocumentacionapi()",
       "source_file": "backend/src/documentacion.js",
       "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_ejemplode",
+      "label": "ejemploDe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "ejemplode()",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L45"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_problemas",
+      "label": "problemas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "problemas()",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L19"
     },
     {
       "id": "backend_tests_documentacion_openapi_valido_test_copiarota",
@@ -1265,12 +1313,24 @@
       "source_location": "L95"
     },
     {
+      "id": "backend_tests_base_de_datos_conexion_test_consultar",
+      "label": "consultar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "consultar()",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L9"
+    },
+    {
       "id": "backend_tests_documentacion_csp_docs_test_directivas",
       "label": "directivas()",
       "_callable": true,
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "directivas()",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -1282,7 +1342,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "politicade()",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -1294,7 +1354,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "politicadehelmet()",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -1407,6 +1467,18 @@
       "norm_label": "esperar400()",
       "source_file": "backend/tests/productos/crear-producto-400.test.js",
       "source_location": "L27"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_simultaneo_test_estados",
+      "label": "estados()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "file_type": "code",
+      "norm_label": "estados()",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L19"
     },
     {
       "id": "frontend_src_api_http_crearerror",
@@ -1565,42 +1637,6 @@
       "source_location": "L55"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_ejemplode",
-      "label": "ejemploDe()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 93,
-      "community_name": "ejemplos-reales.test.js",
-      "file_type": "code",
-      "norm_label": "ejemplode()",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L45"
-    },
-    {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_problemas",
-      "label": "problemas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 93,
-      "community_name": "ejemplos-reales.test.js",
-      "file_type": "code",
-      "norm_label": "problemas()",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_base_de_datos_conexion_test_consultar",
-      "label": "consultar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 95,
-      "community_name": "conexion.test.js",
-      "file_type": "code",
-      "norm_label": "consultar()",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L9"
-    },
-    {
       "id": "frontend_tests_pantalla_unica_test_destroy",
       "label": "destroy()",
       "_callable": true,
@@ -1647,46 +1683,6 @@
       "norm_label": "play()",
       "source_file": "frontend/tests/pantalla-unica.test.js",
       "source_location": "L113"
-    },
-    {
-      "id": "backend_tests_errores_test_appconruta",
-      "label": "appConRuta()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "appconruta()",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L87"
-    },
-    {
-      "id": "backend_tests_errores_test_errordemysql",
-      "label": "errorDeMysql()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "errordemysql()",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
     },
     {
       "id": "requerimientos_01_alcance",
@@ -1795,6 +1791,54 @@
       "norm_label": "04-registrar-venta.md",
       "source_file": "requerimientos/flujos/04-registrar-venta.md",
       "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
+      "label": "Flujo 04 \u00b7 Registrar venta",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 04 \u00b7 registrar venta",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
+      "label": "Notas t\u00e9cnicas",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas tecnicas",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "requerimientos_flujos_04_registrar_venta_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/04-registrar-venta.md",
+      "source_location": "L19"
     },
     {
       "id": "requerimientos_flujos_05_entregar_un_entregable",
@@ -2526,54 +2570,6 @@
       "source_location": "L18"
     },
     {
-      "id": "requerimientos_flujos_04_registrar_venta_flujo_04_registrar_venta",
-      "label": "Flujo 04 \u00b7 Registrar venta",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 04 \u00b7 registrar venta",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_notas_t\u00e9cnicas",
-      "label": "Notas t\u00e9cnicas",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas tecnicas",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "requerimientos_flujos_04_registrar_venta_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Flujo 04 \u00b7 Registrar venta",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/04-registrar-venta.md",
-      "source_location": "L19"
-    },
-    {
       "id": "requerimientos_flujos_00_mapa_de_procesos_desarrollo_de_aipos",
       "label": "Desarrollo de AIPOS",
       "_origin": "ast",
@@ -2610,66 +2606,33 @@
       "source_location": "L11"
     },
     {
-      "id": "backend_src_routes_index",
-      "label": "routes/index.js",
+      "id": "backend_src_controllers_salud",
+      "label": "controllers/salud.js",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
+      "community_name": "routes/salud.js",
       "file_type": "code",
-      "norm_label": "routes/index.js",
-      "source_file": "backend/src/routes/index.js",
+      "norm_label": "controllers/salud.js",
+      "source_file": "backend/src/controllers/salud.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_src_routes_index_docs",
-      "label": "docs",
+      "id": "backend_src_controllers_salud_consultarsalud",
+      "label": "{ consultarSalud }",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
+      "community_name": "routes/salud.js",
       "file_type": "code",
-      "norm_label": "docs",
-      "source_file": "backend/src/routes/index.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "backend_src_routes_index_montajes",
-      "label": "montajes",
-      "_origin": "ast",
-      "community": 108,
-      "community_name": "routes/index.js",
-      "file_type": "code",
-      "norm_label": "montajes",
-      "source_file": "backend/src/routes/index.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_src_routes_index_router",
-      "label": "{ Router }",
-      "_origin": "ast",
-      "community": 108,
-      "community_name": "routes/index.js",
-      "file_type": "code",
-      "norm_label": "{ router }",
-      "source_file": "backend/src/routes/index.js",
+      "norm_label": "{ consultarsalud }",
+      "source_file": "backend/src/controllers/salud.js",
       "source_location": "L3"
-    },
-    {
-      "id": "backend_src_routes_index_salud",
-      "label": "salud",
-      "_origin": "ast",
-      "community": 108,
-      "community_name": "routes/index.js",
-      "file_type": "code",
-      "norm_label": "salud",
-      "source_file": "backend/src/routes/index.js",
-      "source_location": "L4"
     },
     {
       "id": "backend_src_routes_salud",
       "label": "routes/salud.js",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
+      "community_name": "routes/salud.js",
       "file_type": "code",
       "norm_label": "routes/salud.js",
       "source_file": "backend/src/routes/salud.js",
@@ -2680,7 +2643,7 @@
       "label": "{ obtenerSalud }",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
+      "community_name": "routes/salud.js",
       "file_type": "code",
       "norm_label": "{ obtenersalud }",
       "source_file": "backend/src/routes/salud.js",
@@ -2691,22 +2654,33 @@
       "label": "{ Router }",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
+      "community_name": "routes/salud.js",
       "file_type": "code",
       "norm_label": "{ router }",
       "source_file": "backend/src/routes/salud.js",
       "source_location": "L3"
     },
     {
-      "id": "ref_express",
-      "label": "express",
+      "id": "backend_src_services_salud",
+      "label": "services/salud.js",
       "_origin": "ast",
       "community": 108,
-      "community_name": "routes/index.js",
-      "file_type": "concept",
-      "norm_label": "express",
-      "source_file": "backend/package.json",
-      "source_location": "L32"
+      "community_name": "routes/salud.js",
+      "file_type": "code",
+      "norm_label": "services/salud.js",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_services_salud_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 108,
+      "community_name": "routes/salud.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/src/services/salud.js",
+      "source_location": "L3"
     },
     {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente_flujo_06_trabajar_una_tarjeta_con_el_agente",
@@ -2822,28 +2796,6 @@
       "source_location": "L5"
     },
     {
-      "id": "backend_package_scarfsettings",
-      "label": "scarfSettings",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "backend/package.json",
-      "file_type": "code",
-      "norm_label": "scarfsettings",
-      "source_file": "backend/package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_package_scarfsettings_enabled",
-      "label": "enabled",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "backend/package.json",
-      "file_type": "code",
-      "norm_label": "enabled",
-      "source_file": "backend/package.json",
-      "source_location": "L11"
-    },
-    {
       "id": "backend_package_version",
       "label": "version",
       "_origin": "ast",
@@ -2919,6 +2871,28 @@
       "norm_label": "vitest",
       "source_file": "backend/package.json",
       "source_location": "L49"
+    },
+    {
+      "id": "ref_cors",
+      "label": "cors",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "backend/package.json",
+      "file_type": "concept",
+      "norm_label": "cors",
+      "source_file": "backend/package.json",
+      "source_location": "L30"
+    },
+    {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "backend/package.json",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "backend/package.json",
+      "source_location": "L31"
     },
     {
       "id": "ref_sequelize_cli",
@@ -3040,72 +3014,6 @@
       "norm_label": "vitest",
       "source_file": "backend/package.json",
       "source_location": "L49"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test",
-      "label": "limite-del-cuerpo.test.js",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "limite-del-cuerpo.test.js",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test_crearapp",
-      "label": "{ crearApp }",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "{ crearapp }",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test_eco",
-      "label": "eco",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "eco",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_limite_del_cuerpo_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "limite-del-cuerpo.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/limite-del-cuerpo.test.js",
-      "source_location": "L5"
     },
     {
       "id": "frontend_tests_tema_test",
@@ -3419,92 +3327,70 @@
       "source_location": "L38"
     },
     {
-      "id": "backend_tests_documentacion_rutas_documentadas_test",
-      "label": "rutas-documentadas.test.js",
+      "id": "backend_tests_base_de_datos_ayudas_productos",
+      "label": "ayudas-productos.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "rutas-documentadas.test.js",
+      "community_name": "ayudas-productos.js",
       "file_type": "code",
-      "norm_label": "rutas-documentadas.test.js",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "norm_label": "ayudas-productos.js",
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "rutas-documentadas.test.js",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "rutas-documentadas.test.js",
-      "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_carpetaderutas",
-      "label": "carpetaDeRutas",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "rutas-documentadas.test.js",
-      "file_type": "code",
-      "norm_label": "carpetaderutas",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_docs",
-      "label": "docs",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "rutas-documentadas.test.js",
-      "file_type": "code",
-      "norm_label": "docs",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L18"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_montajes",
-      "label": "{ montajes }",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "rutas-documentadas.test.js",
-      "file_type": "code",
-      "norm_label": "{ montajes }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L17"
-    },
-    {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_require",
+      "id": "backend_tests_base_de_datos_ayudas_productos_require",
       "label": "require",
       "_origin": "ast",
       "community": 15,
-      "community_name": "rutas-documentadas.test.js",
+      "community_name": "ayudas-productos.js",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L14"
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
+      "source_location": "L3"
     },
     {
-      "id": "backend_tests_documentacion_rutas_documentadas_test_router",
-      "label": "{ Router }",
+      "id": "backend_tests_base_de_datos_ayudas_productos_sequelize",
+      "label": "sequelize",
       "_origin": "ast",
       "community": 15,
-      "community_name": "rutas-documentadas.test.js",
+      "community_name": "ayudas-productos.js",
       "file_type": "code",
-      "norm_label": "{ router }",
-      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
-      "source_location": "L15"
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_tests_base_de_datos_productos_restricciones_test",
+      "label": "productos-restricciones.test.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "productos-restricciones.test.js",
+      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_productos_restricciones_test_textosinvalidos",
+      "label": "textosInvalidos",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "textosinvalidos",
+      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
+      "source_location": "L104"
+    },
+    {
+      "id": "backend_tests_base_de_datos_productos_restricciones_test_valido",
+      "label": "valido",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "ayudas-productos.js",
+      "file_type": "code",
+      "norm_label": "valido",
+      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
+      "source_location": "L13"
     },
     {
       "id": "tessl_plugins_mysql_sequelize_procedimientos_skills_sequelize_call_procedure_skill",
@@ -3793,6 +3679,94 @@
       "source_location": "L1"
     },
     {
+      "id": "backend_tests_documentacion_rutas_documentadas_test",
+      "label": "rutas-documentadas.test.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "rutas-documentadas.test.js",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_carpetaderutas",
+      "label": "carpetaDeRutas",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "carpetaderutas",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_docs",
+      "label": "docs",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "docs",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_montajes",
+      "label": "{ montajes }",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "{ montajes }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_documentacion_rutas_documentadas_test_router",
+      "label": "{ Router }",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "comparar-rutas.test.js",
+      "file_type": "code",
+      "norm_label": "{ router }",
+      "source_file": "backend/tests/documentacion/rutas-documentadas.test.js",
+      "source_location": "L15"
+    },
+    {
       "id": "backend_tests_documentacion_rutas_metodos_de_openapi",
       "label": "METODOS_DE_OPENAPI",
       "_origin": "ast",
@@ -3812,6 +3786,22 @@
       "file_type": "code",
       "norm_label": "20260930133500-crear-productos.js",
       "source_file": "backend/db/migrations/20260930133500-crear-productos.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura de AIPOS",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
       "source_location": "L1"
     },
     {
@@ -3959,18 +3949,6 @@
       "source_location": "L622"
     },
     {
-      "id": "specs_arquitectura_spec_carpetas_439",
-      "label": "Carpetas",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "carpetas",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L439"
-    },
-    {
       "id": "specs_arquitectura_spec_c\u00f3mo_se_decide_un_dise\u00f1o",
       "label": "C\u00f3mo se decide un dise\u00f1o",
       "_origin": "ast",
@@ -4017,18 +3995,6 @@
       "norm_label": "frontend",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L433"
-    },
-    {
-      "id": "specs_arquitectura_spec_git_y_entrega",
-      "label": "Git y entrega",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "git y entrega",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L639"
     },
     {
       "id": "specs_arquitectura_spec_la_venta_actual",
@@ -4137,30 +4103,6 @@
       "norm_label": "iconos y animaciones",
       "source_file": "specs/arquitectura.spec.md",
       "source_location": "L563"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
-      "label": "entrega-trazable.md",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "entrega-trazable.md",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
-      "label": "Entrega trazable",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega trazable",
-      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
-      "source_location": "L1"
     },
     {
       "id": "tessl",
@@ -6384,92 +6326,81 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_src_routes_docs",
-      "label": "docs.js",
+      "id": "backend_tests_database_test",
+      "label": "database.test.js",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "docs.js",
-      "source_file": "backend/src/routes/docs.js",
+      "norm_label": "database.test.js",
+      "source_file": "backend/tests/database.test.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_src_routes_docs_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
+      "id": "backend_tests_database_test_config",
+      "label": "{ config }",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/src/routes/docs.js",
-      "source_location": "L6"
+      "norm_label": "{ config }",
+      "source_file": "backend/tests/database.test.js",
+      "source_location": "L8"
     },
     {
-      "id": "backend_src_routes_docs_de_demostracion",
-      "label": "DE_DEMOSTRACION",
+      "id": "backend_tests_database_test_dbconfig",
+      "label": "dbConfig",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "de_demostracion",
-      "source_file": "backend/src/routes/docs.js",
-      "source_location": "L18"
-    },
-    {
-      "id": "backend_src_routes_docs_documento",
-      "label": "documento",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "docs.js",
-      "file_type": "code",
-      "norm_label": "documento",
-      "source_file": "backend/src/routes/docs.js",
+      "norm_label": "dbconfig",
+      "source_file": "backend/tests/database.test.js",
       "source_location": "L11"
     },
     {
-      "id": "backend_src_routes_docs_helmet",
-      "label": "helmet",
+      "id": "backend_tests_database_test_modelos",
+      "label": "modelos",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "helmet",
-      "source_file": "backend/src/routes/docs.js",
-      "source_location": "L4"
+      "norm_label": "modelos",
+      "source_file": "backend/tests/database.test.js",
+      "source_location": "L10"
     },
     {
-      "id": "backend_src_routes_docs_router",
-      "label": "{ Router }",
+      "id": "backend_tests_database_test_require",
+      "label": "require",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "{ router }",
-      "source_file": "backend/src/routes/docs.js",
-      "source_location": "L3"
+      "norm_label": "require",
+      "source_file": "backend/tests/database.test.js",
+      "source_location": "L6"
     },
     {
-      "id": "backend_src_routes_docs_swaggerui",
-      "label": "swaggerUi",
+      "id": "backend_tests_database_test_sequelize",
+      "label": "{ Sequelize }",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
+      "community_name": "database.test.js",
       "file_type": "code",
-      "norm_label": "swaggerui",
-      "source_file": "backend/src/routes/docs.js",
-      "source_location": "L5"
+      "norm_label": "{ sequelize }",
+      "source_file": "backend/tests/database.test.js",
+      "source_location": "L7"
     },
     {
-      "id": "ref_swagger_ui_express",
-      "label": "swagger-ui-express",
+      "id": "backend_tests_database_test_sequelizerc",
+      "label": "sequelizerc",
       "_origin": "ast",
       "community": 44,
-      "community_name": "docs.js",
-      "file_type": "concept",
-      "norm_label": "swagger-ui-express",
-      "source_file": "backend/package.json",
-      "source_location": "L38"
+      "community_name": "database.test.js",
+      "file_type": "code",
+      "norm_label": "sequelizerc",
+      "source_file": "backend/tests/database.test.js",
+      "source_location": "L12"
     },
     {
       "id": "backend_db_config",
@@ -6662,6 +6593,54 @@
       "norm_label": "pendientes (por confirmar)",
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L97"
+    },
+    {
+      "id": "specs_arquitectura_spec_carpetas_439",
+      "label": "Carpetas",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "carpetas",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L439"
+    },
+    {
+      "id": "specs_arquitectura_spec_git_y_entrega",
+      "label": "Git y entrega",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "git y entrega",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L639"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable",
+      "label": "entrega-trazable.md",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "entrega-trazable.md",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tessl_plugins_entrega_trazable_rules_entrega_trazable_entrega_trazable",
+      "label": "Entrega trazable",
+      "_origin": "ast",
+      "community": 45,
+      "community_name": "src/config.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega trazable",
+      "source_file": "tessl-plugins/entrega-trazable/rules/entrega-trazable.md",
+      "source_location": "L1"
     },
     {
       "id": "tests_hook_de_git_marca_de_commit_test",
@@ -7012,28 +6991,6 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_src_controllers_salud",
-      "label": "controllers/salud.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "controllers/salud.js",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_controllers_salud_consultarsalud",
-      "label": "{ consultarSalud }",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "{ consultarsalud }",
-      "source_file": "backend/src/controllers/salud.js",
-      "source_location": "L3"
-    },
-    {
       "id": "backend_src_database",
       "label": "database.js",
       "_origin": "ast",
@@ -7064,39 +7021,6 @@
       "file_type": "code",
       "norm_label": "{ sequelize }",
       "source_file": "backend/src/database.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_src_models_index",
-      "label": "models/index.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "models/index.js",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_models_index_producto",
-      "label": "Producto",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "producto",
-      "source_file": "backend/src/models/index.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_src_models_index_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/src/models/index.js",
       "source_location": "L3"
     },
     {
@@ -7144,105 +7068,6 @@
       "source_location": "L4"
     },
     {
-      "id": "backend_src_services_salud",
-      "label": "services/salud.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "services/salud.js",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_services_salud_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/src/services/salud.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_src_servidor",
-      "label": "servidor.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "servidor.js",
-      "source_file": "backend/src/servidor.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_src_servidor_app",
-      "label": "app",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/src/servidor.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "backend_src_servidor_config",
-      "label": "{ config }",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "{ config }",
-      "source_file": "backend/src/servidor.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_src_servidor_servidor",
-      "label": "servidor",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "servidor",
-      "source_file": "backend/src/servidor.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos",
-      "label": "ayudas-productos.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "ayudas-productos.js",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "backend_tests_base_de_datos_ayudas_productos_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/ayudas-productos.js",
-      "source_location": "L4"
-    },
-    {
       "id": "backend_tests_base_de_datos_dinero_como_texto_test",
       "label": "dinero-como-texto.test.js",
       "_origin": "ast",
@@ -7285,182 +7110,6 @@
       "norm_label": "sequelize",
       "source_file": "backend/tests/base-de-datos/dinero-como-texto.test.js",
       "source_location": "L6"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test",
-      "label": "modelo-producto.test.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "modelo-producto.test.js",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test_carpetasrc",
-      "label": "carpetaSrc",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "carpetasrc",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test_leche",
-      "label": "leche",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "leche",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test_modelos",
-      "label": "modelos",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "modelos",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_base_de_datos_modelo_producto_test_sequelize",
-      "label": "sequelize",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_base_de_datos_productos_restricciones_test",
-      "label": "productos-restricciones.test.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "productos-restricciones.test.js",
-      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_base_de_datos_productos_restricciones_test_textosinvalidos",
-      "label": "textosInvalidos",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "textosinvalidos",
-      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
-      "source_location": "L104"
-    },
-    {
-      "id": "backend_tests_base_de_datos_productos_restricciones_test_valido",
-      "label": "valido",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "valido",
-      "source_file": "backend/tests/base-de-datos/productos-restricciones.test.js",
-      "source_location": "L13"
-    },
-    {
-      "id": "backend_tests_database_test",
-      "label": "database.test.js",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "database.test.js",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_tests_database_test_config",
-      "label": "{ config }",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "{ config }",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_database_test_dbconfig",
-      "label": "dbConfig",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "dbconfig",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_database_test_modelos",
-      "label": "modelos",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "modelos",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "backend_tests_database_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "backend_tests_database_test_sequelize",
-      "label": "{ Sequelize }",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "{ sequelize }",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_database_test_sequelizerc",
-      "label": "sequelizerc",
-      "_origin": "ast",
-      "community": 52,
-      "community_name": "database.js",
-      "file_type": "code",
-      "norm_label": "sequelizerc",
-      "source_file": "backend/tests/database.test.js",
-      "source_location": "L12"
     },
     {
       "id": "ref_sequelize",
@@ -7939,17 +7588,6 @@
       "source_location": "L14"
     },
     {
-      "id": "ref_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 66,
-      "community_name": "ref_node_path",
-      "file_type": "concept",
-      "norm_label": "dotenv",
-      "source_file": "backend/package.json",
-      "source_location": "L31"
-    },
-    {
       "id": "backend_src_app",
       "label": "app.js",
       "_origin": "ast",
@@ -8038,15 +7676,202 @@
       "source_location": "L7"
     },
     {
-      "id": "ref_cors",
-      "label": "cors",
+      "id": "backend_src_routes_index",
+      "label": "routes/index.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "routes/index.js",
+      "source_file": "backend/src/routes/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_routes_index_docs",
+      "label": "docs",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "docs",
+      "source_file": "backend/src/routes/index.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_src_routes_index_montajes",
+      "label": "montajes",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "montajes",
+      "source_file": "backend/src/routes/index.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_src_routes_index_router",
+      "label": "{ Router }",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "{ router }",
+      "source_file": "backend/src/routes/index.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_routes_index_salud",
+      "label": "salud",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "salud",
+      "source_file": "backend/src/routes/index.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_tests_errores_test",
+      "label": "errores.test.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "errores.test.js",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_errores_test_crearapp",
+      "label": "{ crearApp }",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "{ crearapp }",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_errores_test_desdebasededatos",
+      "label": "desdeBaseDeDatos",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "desdebasededatos",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_errores_test_errorapi",
+      "label": "ErrorApi",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "errorapi",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_tests_errores_test_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_tests_errores_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/errores.test.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test",
+      "label": "limite-del-cuerpo.test.js",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "limite-del-cuerpo.test.js",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test_crearapp",
+      "label": "{ crearApp }",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "{ crearapp }",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test_eco",
+      "label": "eco",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "eco",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test_express",
+      "label": "express",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "express",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_tests_limite_del_cuerpo_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/limite-del-cuerpo.test.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "ref_express",
+      "label": "express",
       "_origin": "ast",
       "community": 67,
       "community_name": "app.js",
       "file_type": "concept",
-      "norm_label": "cors",
+      "norm_label": "express",
       "source_file": "backend/package.json",
-      "source_location": "L30"
+      "source_location": "L32"
     },
     {
       "id": "backend_tests_base_de_datos_ayudas",
@@ -8201,6 +8026,72 @@
       "norm_label": "ruta_del_documento",
       "source_file": "backend/src/documentacion.js",
       "source_location": "L10"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test",
+      "label": "ejemplos-reales.test.js",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "ejemplos-reales.test.js",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_app",
+      "label": "app",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "app",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_documento",
+      "label": "documento",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "documento",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_tests_documentacion_ejemplos_reales_test_router",
+      "label": "{ Router }",
+      "_origin": "ast",
+      "community": 69,
+      "community_name": "documentacion.js",
+      "file_type": "code",
+      "norm_label": "{ router }",
+      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "source_location": "L7"
     },
     {
       "id": "backend_tests_documentacion_openapi_valido_test",
@@ -9347,6 +9238,39 @@
       "source_location": "L13"
     },
     {
+      "id": "backend_src_models_index",
+      "label": "models/index.js",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "modelos.test.js",
+      "file_type": "code",
+      "norm_label": "models/index.js",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_models_index_producto",
+      "label": "Producto",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "modelos.test.js",
+      "file_type": "code",
+      "norm_label": "producto",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_models_index_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 79,
+      "community_name": "modelos.test.js",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/src/models/index.js",
+      "source_location": "L3"
+    },
+    {
       "id": "backend_tests_base_de_datos_modelos_test",
       "label": "modelos.test.js",
       "_origin": "ast",
@@ -9933,6 +9857,39 @@
       "source_location": "L15"
     },
     {
+      "id": "backend_tests_base_de_datos_conexion_test",
+      "label": "conexion.test.js",
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "conexion.test.js",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_tests_base_de_datos_conexion_test_sequelize",
+      "label": "sequelize",
+      "_origin": "ast",
+      "community": 84,
+      "community_name": "ref_vitest",
+      "file_type": "code",
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "source_location": "L5"
+    },
+    {
       "id": "backend_tests_cabeceras_test",
       "label": "cabeceras.test.js",
       "_origin": "ast",
@@ -10098,11 +10055,88 @@
       "source_location": "L48"
     },
     {
+      "id": "backend_src_routes_docs",
+      "label": "docs.js",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "docs.js",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_routes_docs_cargardocumentacionapi",
+      "label": "{ cargarDocumentacionApi }",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "{ cargardocumentacionapi }",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_src_routes_docs_de_demostracion",
+      "label": "DE_DEMOSTRACION",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "de_demostracion",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "backend_src_routes_docs_documento",
+      "label": "documento",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "documento",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_src_routes_docs_helmet",
+      "label": "helmet",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "helmet",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_src_routes_docs_router",
+      "label": "{ Router }",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "{ router }",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_routes_docs_swaggerui",
+      "label": "swaggerUi",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "code",
+      "norm_label": "swaggerui",
+      "source_file": "backend/src/routes/docs.js",
+      "source_location": "L5"
+    },
+    {
       "id": "backend_tests_documentacion_csp_docs_test",
       "label": "csp-docs.test.js",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "csp-docs.test.js",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10113,7 +10147,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10124,7 +10158,7 @@
       "label": "docs",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "docs",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10135,7 +10169,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10146,7 +10180,7 @@
       "label": "helmet",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "helmet",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10157,7 +10191,7 @@
       "label": "require",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "code",
       "norm_label": "require",
       "source_file": "backend/tests/documentacion/csp-docs.test.js",
@@ -10168,11 +10202,22 @@
       "label": "helmet",
       "_origin": "ast",
       "community": 85,
-      "community_name": "csp-docs.test.js",
+      "community_name": "docs.js",
       "file_type": "concept",
       "norm_label": "helmet",
       "source_file": "backend/package.json",
       "source_location": "L33"
+    },
+    {
+      "id": "ref_swagger_ui_express",
+      "label": "swagger-ui-express",
+      "_origin": "ast",
+      "community": 85,
+      "community_name": "docs.js",
+      "file_type": "concept",
+      "norm_label": "swagger-ui-express",
+      "source_file": "backend/package.json",
+      "source_location": "L38"
     },
     {
       "id": "backend_tests_productos_ayudas_crear_producto",
@@ -10305,6 +10350,50 @@
       "norm_label": "sequelize",
       "source_file": "backend/tests/productos/crear-producto-409.test.js",
       "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_simultaneo_test",
+      "label": "crear-producto-simultaneo.test.js",
+      "_origin": "ast",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "file_type": "code",
+      "norm_label": "crear-producto-simultaneo.test.js",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_simultaneo_test_crearproducto",
+      "label": "{ crearProducto }",
+      "_origin": "ast",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "file_type": "code",
+      "norm_label": "{ crearproducto }",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_simultaneo_test_errorapi",
+      "label": "ErrorApi",
+      "_origin": "ast",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "file_type": "code",
+      "norm_label": "errorapi",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_tests_productos_crear_producto_simultaneo_test_require",
+      "label": "require",
+      "_origin": "ast",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "file_type": "code",
+      "norm_label": "require",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L10"
     },
     {
       "id": "backend_tests_productos_crear_producto_test",
@@ -10678,70 +10767,70 @@
       "source_location": "L33"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test",
-      "label": "ejemplos-reales.test.js",
+      "id": "backend_tests_base_de_datos_modelo_producto_test",
+      "label": "modelo-producto.test.js",
       "_origin": "ast",
       "community": 93,
-      "community_name": "ejemplos-reales.test.js",
+      "community_name": "modelo-producto.test.js",
       "file_type": "code",
-      "norm_label": "ejemplos-reales.test.js",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "norm_label": "modelo-producto.test.js",
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_app",
-      "label": "app",
+      "id": "backend_tests_base_de_datos_modelo_producto_test_carpetasrc",
+      "label": "carpetaSrc",
       "_origin": "ast",
       "community": 93,
-      "community_name": "ejemplos-reales.test.js",
+      "community_name": "modelo-producto.test.js",
       "file_type": "code",
-      "norm_label": "app",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L8"
+      "norm_label": "carpetasrc",
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
+      "source_location": "L12"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_cargardocumentacionapi",
-      "label": "{ cargarDocumentacionApi }",
+      "id": "backend_tests_base_de_datos_modelo_producto_test_leche",
+      "label": "leche",
       "_origin": "ast",
       "community": 93,
-      "community_name": "ejemplos-reales.test.js",
+      "community_name": "modelo-producto.test.js",
       "file_type": "code",
-      "norm_label": "{ cargardocumentacionapi }",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
+      "norm_label": "leche",
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "backend_tests_base_de_datos_modelo_producto_test_modelos",
+      "label": "modelos",
+      "_origin": "ast",
+      "community": 93,
+      "community_name": "modelo-producto.test.js",
+      "file_type": "code",
+      "norm_label": "modelos",
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
       "source_location": "L9"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_documento",
-      "label": "documento",
-      "_origin": "ast",
-      "community": 93,
-      "community_name": "ejemplos-reales.test.js",
-      "file_type": "code",
-      "norm_label": "documento",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L11"
-    },
-    {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_require",
+      "id": "backend_tests_base_de_datos_modelo_producto_test_require",
       "label": "require",
       "_origin": "ast",
       "community": 93,
-      "community_name": "ejemplos-reales.test.js",
+      "community_name": "modelo-producto.test.js",
       "file_type": "code",
       "norm_label": "require",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L6"
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
+      "source_location": "L7"
     },
     {
-      "id": "backend_tests_documentacion_ejemplos_reales_test_router",
-      "label": "{ Router }",
+      "id": "backend_tests_base_de_datos_modelo_producto_test_sequelize",
+      "label": "sequelize",
       "_origin": "ast",
       "community": 93,
-      "community_name": "ejemplos-reales.test.js",
+      "community_name": "modelo-producto.test.js",
       "file_type": "code",
-      "norm_label": "{ router }",
-      "source_file": "backend/tests/documentacion/ejemplos-reales.test.js",
-      "source_location": "L7"
+      "norm_label": "sequelize",
+      "source_file": "backend/tests/base-de-datos/modelo-producto.test.js",
+      "source_location": "L8"
     },
     {
       "id": "frontend_package_dependencies",
@@ -10810,37 +10899,48 @@
       "source_location": "L25"
     },
     {
-      "id": "backend_tests_base_de_datos_conexion_test",
-      "label": "conexion.test.js",
+      "id": "backend_src_servidor",
+      "label": "servidor.js",
       "_origin": "ast",
       "community": 95,
-      "community_name": "conexion.test.js",
+      "community_name": "servidor.js",
       "file_type": "code",
-      "norm_label": "conexion.test.js",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "norm_label": "servidor.js",
+      "source_file": "backend/src/servidor.js",
       "source_location": "L1"
     },
     {
-      "id": "backend_tests_base_de_datos_conexion_test_require",
-      "label": "require",
+      "id": "backend_src_servidor_app",
+      "label": "app",
       "_origin": "ast",
       "community": 95,
-      "community_name": "conexion.test.js",
+      "community_name": "servidor.js",
       "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
+      "norm_label": "app",
+      "source_file": "backend/src/servidor.js",
       "source_location": "L4"
     },
     {
-      "id": "backend_tests_base_de_datos_conexion_test_sequelize",
-      "label": "sequelize",
+      "id": "backend_src_servidor_config",
+      "label": "{ config }",
       "_origin": "ast",
       "community": 95,
-      "community_name": "conexion.test.js",
+      "community_name": "servidor.js",
       "file_type": "code",
-      "norm_label": "sequelize",
-      "source_file": "backend/tests/base-de-datos/conexion.test.js",
-      "source_location": "L5"
+      "norm_label": "{ config }",
+      "source_file": "backend/src/servidor.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_servidor_servidor",
+      "label": "servidor",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "servidor.js",
+      "file_type": "code",
+      "norm_label": "servidor",
+      "source_file": "backend/src/servidor.js",
+      "source_location": "L8"
     },
     {
       "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
@@ -10925,70 +11025,26 @@
       "source_location": "L12"
     },
     {
-      "id": "backend_tests_errores_test",
-      "label": "errores.test.js",
+      "id": "backend_package_scarfsettings",
+      "label": "scarfSettings",
       "_origin": "ast",
       "community": 98,
-      "community_name": "errores.test.js",
+      "community_name": "scarfSettings",
       "file_type": "code",
-      "norm_label": "errores.test.js",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L1"
+      "norm_label": "scarfsettings",
+      "source_file": "backend/package.json",
+      "source_location": "L10"
     },
     {
-      "id": "backend_tests_errores_test_crearapp",
-      "label": "{ crearApp }",
+      "id": "backend_package_scarfsettings_enabled",
+      "label": "enabled",
       "_origin": "ast",
       "community": 98,
-      "community_name": "errores.test.js",
+      "community_name": "scarfSettings",
       "file_type": "code",
-      "norm_label": "{ crearapp }",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L7"
-    },
-    {
-      "id": "backend_tests_errores_test_desdebasededatos",
-      "label": "desdeBaseDeDatos",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "desdebasededatos",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "backend_tests_errores_test_errorapi",
-      "label": "ErrorApi",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "errorapi",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "backend_tests_errores_test_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "express",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "backend_tests_errores_test_require",
-      "label": "require",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "errores.test.js",
-      "file_type": "code",
-      "norm_label": "require",
-      "source_file": "backend/tests/errores.test.js",
-      "source_location": "L5"
+      "norm_label": "enabled",
+      "source_file": "backend/package.json",
+      "source_location": "L11"
     },
     {
       "id": "requerimientos_flujos_01_crear_producto_flujo_01_crear_producto",
@@ -11114,23 +11170,11 @@
       "id": "backend_sequelizerc",
       "label": "backend_sequelizerc",
       "_origin": "semantic",
-      "community": 52,
-      "community_name": "database.js",
+      "community": 44,
+      "community_name": "database.test.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "backend_sequelizerc",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "backend_src_config_config",
-      "label": "backend_src_config_config",
-      "_origin": "semantic",
-      "community": 52,
-      "community_name": "database.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "backend_src_config_config",
       "source_file": "",
       "type": "external"
     },
@@ -11371,6 +11415,40 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_globals",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "backend_src_config_config",
+      "label": "backend_src_config_config",
+      "_origin": "semantic",
+      "community": 95,
+      "community_name": "servidor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "backend_src_config_config",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_crearproducto",
+      "label": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_crearproducto",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_crearproducto",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_js",
+      "label": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_js",
+      "community": 86,
+      "community_name": "ayudas-crear-producto.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_js",
       "source_file": "",
       "type": "external"
     }
@@ -13141,6 +13219,18 @@
       "weight": 1.0
     },
     {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_crear_producto_simultaneo_test_estados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
       "source": "backend_tests_productos_validador_producto_test",
       "target": "backend_tests_productos_validador_producto_test_errorde",
       "relation": "contains",
@@ -14548,6 +14638,54 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/tests/productos/crear-producto-409.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_crearproducto",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_ayudas_crear_producto_crearproductoporapi",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_ayudas_crear_producto_filasconcodigodebarras",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_ayudas_crear_producto_productovalido",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -17668,6 +17806,66 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/tests/productos/crear-producto-409.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "ref_vitest",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_src_errors_errorapi",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "users_g14wxz_webstormprojects_aipos_wt_p_02_backend_src_services_productos_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "ref_node_module",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_ayudas_crear_producto",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -21500,6 +21698,39 @@
       "confidence_score": 1.0,
       "source_file": "backend/tests/productos/crear-producto-409.test.js",
       "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_crear_producto_simultaneo_test_require",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_crear_producto_simultaneo_test_errorapi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_crear_producto_simultaneo_test_crearproducto",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -26525,6 +26756,18 @@
       "context": "argument",
       "source_file": "backend/tests/productos/crear-producto-400.test.js",
       "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_tests_productos_crear_producto_simultaneo_test",
+      "target": "backend_tests_productos_ayudas_crear_producto_borrarproductosdeprueba",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "backend/tests/productos/crear-producto-simultaneo.test.js",
+      "source_location": "L17",
       "weight": 1.0
     },
     {

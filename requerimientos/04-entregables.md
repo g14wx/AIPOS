@@ -125,7 +125,7 @@ Rama: `feature/ventas`.
 
 Rama: `docs/entrega-final` para E-01 y E-02; E-03 etiqueta `v1.0.0` y abre el PR de `ProductionEnv` a `main`.
 
-Total estimado: 30 horas, con A-01 y D-01, sin contar R-00.
+Total estimado: 30 horas, con A-01 y D-01 y sin contar R-00.
 
 ## Definición de terminado
 

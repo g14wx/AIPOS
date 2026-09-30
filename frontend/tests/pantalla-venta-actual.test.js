@@ -458,6 +458,190 @@ describe('mientras V-08 registra la venta (enviando)', () => {
   });
 });
 
+// V-07: la pantalla entera (App y VentaActual) con el botón «Eliminar» de cada fila.
+describe('eliminar un detalle de la venta actual (V-07, criterios 1, 2 y 3)', () => {
+  const huevos = { id: 3, nombre: 'Huevos x 12', codigoBarras: '7501000222303', precio: '4.25' };
+  const botonEliminar = (producto) =>
+    zonaVenta()
+      .findAll('button')
+      .wrappers.find(
+        (boton) =>
+          boton.attributes('aria-label') === `Eliminar ${producto.nombre} de la venta actual`,
+      );
+  const eliminar = (producto) => botonEliminar(producto).trigger('click');
+  const idsGuardados = () => guardado().detalles.map((d) => d.productoId);
+
+  it('criterio 1: con leche y pan, eliminar el pan deja la leche, recalcula el total y lo guarda en el navegador', async () => {
+    dejarGuardado([detalle(leche, 2, '22.00'), detalle(pan)]);
+    abrir();
+    expect(total()).toBe('47.50');
+    await eliminar(pan);
+    expect(filas()).toHaveLength(1);
+    expect(celdas(filas()[0]).slice(0, 4)).toEqual(['Leche entera 1 L', '22.00', '2', '44.00']);
+    expect(total()).toBe('44.00');
+    expect(guardado()).toEqual({ version: 1, detalles: [detalle(leche, 2, '22.00')] });
+  });
+
+  it('criterios 2 y 3: con un solo detalle, al eliminarlo la venta actual queda vacía, sin nada guardado, y al recargar sigue vacía', async () => {
+    abrir();
+    await elegir(leche);
+    await eliminar(leche);
+    expect(filas()).toHaveLength(0);
+    expect(zonaVenta().text()).toContain('Busca un producto para empezar la venta');
+    expect(total()).toBe('0.00');
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    expect(localStorage.getItem(LLAVE)).toBeNull();
+    wrapper.destroy();
+    abrir();
+    expect(filas()).toHaveLength(0);
+    expect(zonaVenta().text()).toContain('Busca un producto para empezar la venta');
+    expect(localStorage.getItem(LLAVE)).toBeNull();
+  });
+
+  it('se guarda después de cada eliminación, y al recargar la venta actual sigue sin ese detalle', async () => {
+    dejarGuardado([detalle(leche), detalle(pan), detalle(huevos)]);
+    abrir();
+    await eliminar(pan);
+    expect(idsGuardados()).toEqual([1, 3]);
+    wrapper.destroy();
+    abrir();
+    expect(filas().map((fila) => celdas(fila)[0])).toEqual(['Leche entera 1 L', 'Huevos x 12']);
+    await eliminar(leche);
+    expect(idsGuardados()).toEqual([3]);
+  });
+
+  it('un producto eliminado y agregado otra vez empieza de nuevo con cantidad 1 y el precio del producto', async () => {
+    dejarGuardado([detalle(pan, 4, '2.00')]);
+    abrir();
+    await eliminar(pan);
+    await elegir(pan);
+    expect(celdas(filas()[0]).slice(0, 4)).toEqual(['Pan de caja', '3.50', '1', '3.50']);
+    expect(guardado().detalles).toEqual([detalle(pan, 1, '3.50')]);
+  });
+
+  it('«Registrar venta» se deshabilita al quedar vacía la venta actual y se habilita con el siguiente producto', async () => {
+    abrir();
+    await elegir(leche);
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+    await eliminar(leche);
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    await elegir(pan);
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+  });
+
+  it('un detalle con un error escrito: al eliminarlo se van el detalle y su error, y «Registrar venta» se habilita', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(pan);
+    const errores = { 2: { cantidad: 'La cantidad debe ser un número entero de 1 a 999.' } };
+    ventaActual().vm.$emit('update:ventaActual', {
+      detalles: [detalle(leche), detalle(pan)],
+      errores,
+    });
+    await wrapper.vm.$nextTick();
+    expect(botonRegistrar().attributes('disabled')).toBeDefined();
+    await eliminar(pan);
+    expect(ventaActual().props('ventaActual').errores).toEqual({});
+    expect(botonRegistrar().attributes('disabled')).toBeUndefined();
+    expect(total()).toBe('25.00');
+  });
+
+  // #79: el segundo clic de un doble clic cae sobre el botón de la fila que subió a ocupar el lugar del detalle eliminado.
+  it('un doble clic elimina un solo detalle (#79): el segundo clic no elimina el que subió', async () => {
+    const clic = (producto, detail) =>
+      botonEliminar(producto).element.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true, detail }),
+      );
+    dejarGuardado([detalle(leche), detalle(pan), detalle(huevos)]);
+    abrir();
+    clic(leche, 1);
+    await wrapper.vm.$nextTick();
+    clic(pan, 2);
+    await wrapper.vm.$nextTick();
+    expect(filas().map((fila) => celdas(fila)[0])).toEqual(['Pan de caja', 'Huevos x 12']);
+    expect(idsGuardados()).toEqual([2, 3]);
+  });
+
+  it('eliminar no llama a la API: la venta actual vive en la pantalla hasta registrar la venta', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(pan);
+    await eliminar(pan);
+    await eliminar(leche);
+    expect(buscarProductos).not.toHaveBeenCalled();
+    expect(crearProducto).not.toHaveBeenCalled();
+  });
+
+  it('mientras V-08 registra la venta (enviando) el botón está deshabilitado y la venta actual no cambia', async () => {
+    abrir();
+    await elegir(leche);
+    ventaActual().vm.$emit('update:enviando', true);
+    await wrapper.vm.$nextTick();
+    expect(botonEliminar(leche).attributes('disabled')).toBeDefined();
+    await eliminar(leche);
+    expect(filas()).toHaveLength(1);
+    expect(guardado().detalles).toEqual([detalle(leche)]);
+    ventaActual().vm.$emit('update:enviando', false);
+    await wrapper.vm.$nextTick();
+    await eliminar(leche);
+    expect(filas()).toHaveLength(0);
+  });
+
+  it('con 100 detalles, eliminar uno deja lugar: el producto 101 se agrega y no hay aviso (RN-14)', async () => {
+    const producto101 = { id: 101, nombre: 'Producto 101', codigoBarras: '101', precio: '1.00' };
+    dejarGuardado(cienDetalles());
+    abrir();
+    await elegir(producto101);
+    expect(avisoVisible().text()).toBe('Una venta puede tener como máximo 100 productos.');
+    await vi.advanceTimersByTimeAsync(AVISO_MS);
+    await eliminar({ nombre: 'Producto 50' });
+    expect(filas()).toHaveLength(99);
+    await elegir(producto101);
+    expect(filas()).toHaveLength(100);
+    expect(avisoVisible().exists()).toBe(false);
+    expect(idsGuardados()).not.toContain(50);
+    expect(idsGuardados().at(-1)).toBe(101);
+  });
+
+  it('si el navegador no deja borrar lo guardado, eliminar el último detalle funciona igual y no avisa', async () => {
+    abrir();
+    await elegir(leche);
+    vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
+      throw new DOMException('Acceso denegado', 'SecurityError');
+    });
+    await eliminar(leche);
+    expect(zonaVenta().text()).toContain('Busca un producto para empezar la venta');
+    expect(total()).toBe('0.00');
+    expect(avisoVisible().exists()).toBe(false);
+  });
+
+  it('el foco pasa a la fila que ocupó su lugar y, si no queda ninguna, al título «Venta actual»', async () => {
+    dejarGuardado([detalle(leche), detalle(pan)]);
+    abrir();
+    botonEliminar(leche).element.focus();
+    await eliminar(leche);
+    await wrapper.vm.$nextTick();
+    expect(document.activeElement).toBe(botonEliminar(pan).element);
+    await eliminar(pan);
+    await wrapper.vm.$nextTick();
+    expect(document.activeElement).toBe(zonaVenta().find('h2').element);
+  });
+
+  it('eliminar el detalle recién agregado no deja nada colgado: el resaltado se quita a su hora y los temporizadores se cancelan', async () => {
+    abrir();
+    await elegir(leche);
+    await elegir(pan);
+    await eliminar(pan);
+    expect(filas()).toHaveLength(1);
+    expect(filas()[0].classes()).not.toContain('detalle-resaltado');
+    await vi.advanceTimersByTimeAsync(RESALTADO_MS);
+    expect(ventaActual().props('resaltarId')).toBeNull();
+    await elegir(pan);
+    wrapper.destroy();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+});
+
 describe('temporizadores', () => {
   it('se cancelan al destruir la pantalla (beforeDestroy): no queda ninguno pendiente', async () => {
     dejarGuardado([detalle(leche, 999)]);

@@ -498,10 +498,14 @@ frontend/
 - Patrón: ninguno del catálogo describe un módulo de estado de la venta; se usan funciones puras. Memento es el más
   cercano para guardar y restaurar la venta actual, y Money para el dinero (ver "Dinero").
 
-Las pruebas de esta parte las escribe V-04, en la spec de armar la venta actual, dentro de
-`frontend/tests/venta-actual/`. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica:
-
+`[@test] ../frontend/tests/venta-actual/funciones.test.js`
+`[@test] ../frontend/tests/venta-actual/almacenamiento.test.js`
 `[@test] ../frontend/tests/sin-axios-en-componentes.test.js`
+
+Los dos archivos de `frontend/tests/venta-actual/` los escribe V-04, junto con la spec de armar la venta actual:
+`funciones.test.js` prueba las funciones puras y los centavos, y `almacenamiento.test.js` prueba restaurar tras
+recargar, tolerar un `localStorage` que falla, ignorar un JSON con otra forma y vaciar solo cuando la API confirmó la
+venta. Esta spec solo fija dónde vive el módulo y que ningún componente contiene esa lógica.
 
 ## Diseño de la pantalla
 

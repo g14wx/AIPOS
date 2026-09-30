@@ -177,12 +177,17 @@
   color: var(--v-secondary-base);
 }
 
-/* Aviso de éxito: superficie blanca, texto en tinta y un borde primary de 1 px. Sin sombra y sin franja gruesa. */
+/*
+ * Aviso de éxito: superficie blanca, texto en tinta y el borde izquierdo primary que pide la spec. Mide 1 px: una franja
+ * de color más gruesa a un lado está prohibida (DESIGN.md). Los otros tres lados llevan el filete de tinta al 16 % que
+ * separa las superficies del fondo. Sin sombra.
+ */
 .v-application .v-snack__wrapper {
   min-width: 0;
   color: var(--v-secondary-base);
   background-color: var(--v-surface-base);
-  border: 1px solid var(--v-primary-base) !important;
+  border: 1px solid color-mix(in srgb, var(--v-secondary-base) 16%, transparent) !important;
+  border-left-color: var(--v-primary-base) !important;
   /* La sombra de elevación de Vuetify pesa más que una regla normal (#56). */
   box-shadow: none !important;
 }

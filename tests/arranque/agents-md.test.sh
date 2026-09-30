@@ -19,7 +19,9 @@ revisar() {
 }
 
 revisar "tessl install" "correr tessl install"
+revisar "find tessl.json tessl-plugins -newer .tessl/RULES.md" "reinstalar si cambiaron los tiles"
 revisar "sesión nueva" "pedir una sesión nueva después de tessl install"
+revisar "codex review" "seguir sin persona, por ejemplo en codex review"
 revisar "git config core.hooksPath .githooks" "activar el hook de git"
 revisar 'uv tool install "graphifyy[sql]==0.9.72"' "instalar Graphify en la versión fijada"
 revisar "Nunca lo instales sin preguntar" "preguntar antes de instalar Graphify"

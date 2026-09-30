@@ -7143,7 +7143,7 @@
       },
       "norm_label": "resumir()",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L95"
+      "source_location": "L97"
     },
     {
       "id": "tests_despliegue_sin_datos_privados_test_sh__entry",
@@ -9352,7 +9352,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L107",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -15319,7 +15319,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/sin-datos-privados.test.sh",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0
     },
     {

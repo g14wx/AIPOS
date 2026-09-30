@@ -34,11 +34,13 @@ RUTA = re.compile(r"/Users/[A-Za-z0-9._-]+|/private/(?:tmp|var|etc)/|/home/[a-z]
 SESION = re.compile(r"claude\.ai/code/session|^Claude-Session:", re.M)
 USUARIO = re.compile(r"(?P<u>[^\s@'\"`(]*)@aipos(?:-back)?\.salsalvador\.io")
 FICHAS = re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|ssh-(?:ed25519|rsa) AAAA[A-Za-z0-9+/]{20,}")
-# Asignaciones de una variable secreta: en mayúsculas (estilo .env), en minúsculas con igual o como campo de JSON.
+# Asignaciones de una variable secreta: NOMBRE=valor en cualquier parte, una línea entera NOMBRE: valor (YAML),
+# nombre=valor en minúsculas o un campo de JSON. Una frase que dice "NOMBRE: ..." no cuenta.
 _NOMBRE = "(?:PASSWORD|PASSWD|SECRET|TOKEN|API_?KEY|CLAVE)"
 _VALOR = "\\s*[\"']?([^\\s\"'#]+)"
 ASIGNA = [
-    re.compile(r"\b[A-Z][A-Z0-9_]*" + _NOMBRE + r"[A-Z0-9_]*\s*[:=]" + _VALOR),
+    re.compile(r"\b[A-Z][A-Z0-9_]*" + _NOMBRE + r"[A-Z0-9_]*\s*=" + _VALOR),
+    re.compile(r"^\s*(?:-\s*)?[\"']?[A-Z][A-Z0-9_]*" + _NOMBRE + r"[A-Z0-9_]*[\"']?\s*:" + _VALOR + r"[\"']?\s*$"),
     re.compile(r"(?i)\b" + _NOMBRE + r"\s*=" + _VALOR),
     re.compile(r"(?i)[\"']" + _NOMBRE + r"[\"']\s*:" + _VALOR),
 ]

@@ -9,7 +9,14 @@
 .v-application[data-app].theme--light {
   background: var(--v-background-base);
   color: var(--v-secondary-base);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
 }
 
 .v-application .text-h1,
@@ -45,11 +52,14 @@
 }
 
 /* Borde de los campos: la tinta al 55 % da 3.4 de contraste sobre blanco, y el negro al 38 % de Vuetify da 2.6. */
-.v-application .theme--light.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) fieldset {
-  border-color: rgb(41 47 54 / 55%);
+.v-application .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) fieldset {
+  border-color: color-mix(in srgb, var(--v-secondary-base) 55%, transparent);
 }
 
-.v-application .theme--light.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state):hover fieldset {
+.v-application
+  .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state)
+  .v-input__slot:hover
+  fieldset {
   border-color: var(--v-secondary-base);
 }
 

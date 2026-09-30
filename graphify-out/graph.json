@@ -7221,6 +7221,51 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test",
+      "label": "github-environment-y-etiquetas.test.sh",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "github-environment-y-etiquetas.test.sh",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "label": "api()",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "api()",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L12"
+    },
+    {
+      "id": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "label": "github-environment-y-etiquetas.test.sh script",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "github-environment-y-etiquetas.test.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "github-environment-y-etiquetas.test.sh script",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_setup_agents_setup_1_crear_el_board_en_trello",
       "label": "1. Crear el board en Trello",
       "_origin": "ast",
@@ -7694,6 +7739,18 @@
       "context": "call",
       "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -12339,6 +12396,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "tests_despliegue_instalar_caddy_test",
       "target": "tests_despliegue_instalar_caddy_test_sh__entry",
       "relation": "contains",
@@ -13029,6 +13097,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/despliegue/etiqueta-en-produccionenv.test.sh",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_despliegue_github_environment_y_etiquetas_test",
+      "target": "tests_despliegue_github_environment_y_etiquetas_test_api",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/despliegue/github-environment-y-etiquetas.test.sh",
+      "source_location": "L12",
       "weight": 1.0
     },
     {

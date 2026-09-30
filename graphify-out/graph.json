@@ -361,7 +361,7 @@
       "node_kind": "heading",
       "norm_label": "historial de cambios",
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L88"
+      "source_location": "L93"
     },
     {
       "id": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
@@ -397,7 +397,7 @@
       "node_kind": "heading",
       "norm_label": "pendientes (por confirmar)",
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L84"
+      "source_location": "L89"
     },
     {
       "id": "docs_setup_agents_setup",
@@ -4654,18 +4654,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L84",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
-      "target": "docs_lenguaje_ubicuo_historial_de_cambios",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/lenguaje-ubicuo.md",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4677,6 +4666,17 @@
       "confidence_score": 1.0,
       "source_file": "docs/lenguaje-ubicuo.md",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_lenguaje_ubicuo_lenguaje_ubicuo_aipos",
+      "target": "docs_lenguaje_ubicuo_historial_de_cambios",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lenguaje-ubicuo.md",
+      "source_location": "L93",
       "weight": 1.0
     },
     {

@@ -328,7 +328,7 @@ export default {
   margin-right: -0.625rem;
 }
 
-/* Con las filas apiladas, el nombre se centra con el botón «Eliminar» en vez de quedar en el fondo de su línea. */
+/* Con las filas apiladas, el nombre se centra con el botón «Eliminar» en vez de quedar pegado abajo. */
 .detalles ::v-deep .v-data-table__mobile-row:nth-child(1) {
   align-self: center;
 }

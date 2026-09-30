@@ -446,7 +446,7 @@ describe('estilos de los controles de las filas y del foco (skill impeccable)', 
     expect(cuerpoDe('.detalle__eliminar')).toMatch(/margin-right\s*:\s*-0\.625rem/);
   });
 
-  it('con las filas apiladas, el nombre se centra con el botón «Eliminar» y no queda en el fondo de su línea', () => {
+  it('con las filas apiladas, el nombre se centra con el botón «Eliminar» y no queda pegado abajo', () => {
     const selector = '.detalles ::v-deep .v-data-table__mobile-row:nth-child(1)';
     expect(cuerpoDe(selector)).toMatch(/align-self\s*:\s*center/);
   });

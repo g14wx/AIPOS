@@ -460,6 +460,22 @@
       "source_location": "L21"
     },
     {
+      "id": "specs_arquitectura_spec",
+      "label": "arquitectura.spec.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "requerimientos/README.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "Arquitectura de AIPOS",
+        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
+      },
+      "node_kind": "page",
+      "norm_label": "arquitectura.spec.md",
+      "source_file": "specs/arquitectura.spec.md",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_lenguaje_ubicuo",
       "label": "docs/lenguaje-ubicuo.md",
       "_origin": "ast",
@@ -916,66 +932,6 @@
       "source_location": "L1"
     },
     {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
-      "label": "Entrega final",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entrega final",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
-      "label": "Flujo 05 \u00b7 Entregar un entregable",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "flujo 05 \u00b7 entregar un entregable",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
-      "label": "Otros caminos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "otros caminos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
-      "label": "Pasos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pasos",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
-      "label": "Qu\u00e9 no se hace",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "requerimientos/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "que no se hace",
-      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
-      "source_location": "L66"
-    },
-    {
       "id": "requerimientos_flujos_06_trabajar_una_tarjeta_con_el_agente",
       "label": "06-trabajar-una-tarjeta-con-el-agente.md",
       "_origin": "ast",
@@ -1326,72 +1282,6 @@
       "source_location": "L1"
     },
     {
-      "id": "frontend_package_dependencies",
-      "label": "dependencies",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "frontend/package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "frontend_package_dependencies_axios",
-      "label": "axios",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "axios",
-      "source_file": "frontend/package.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "frontend_package_dependencies_lottie_web",
-      "label": "lottie-web",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "lottie-web",
-      "source_file": "frontend/package.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "frontend_package_dependencies_mdi_font",
-      "label": "@mdi/font",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@mdi/font",
-      "source_file": "frontend/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "frontend_package_dependencies_vue",
-      "label": "vue",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vue",
-      "source_file": "frontend/package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "frontend_package_dependencies_vuetify",
-      "label": "vuetify",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vuetify",
-      "source_file": "frontend/package.json",
-      "source_location": "L25"
-    },
-    {
       "id": "frontend_package_description",
       "label": "description",
       "_origin": "ast",
@@ -1401,28 +1291,6 @@
       "norm_label": "description",
       "source_file": "frontend/package.json",
       "source_location": "L4"
-    },
-    {
-      "id": "frontend_package_engines",
-      "label": "engines",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "engines",
-      "source_file": "frontend/package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "frontend_package_engines_node",
-      "label": "node",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "node",
-      "source_file": "frontend/package.json",
-      "source_location": "L8"
     },
     {
       "id": "frontend_package_name",
@@ -1447,105 +1315,6 @@
       "source_location": "L5"
     },
     {
-      "id": "frontend_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "frontend/package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "frontend/package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "frontend_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "frontend/package.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "frontend_package_scripts_format",
-      "label": "format",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "format",
-      "source_file": "frontend/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "frontend_package_scripts_format_check",
-      "label": "format:check",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "format:check",
-      "source_file": "frontend/package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "frontend_package_scripts_lint",
-      "label": "lint",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "lint",
-      "source_file": "frontend/package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "frontend_package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "frontend/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "frontend_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "frontend/package.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "frontend_package_scripts_test_vigilar",
-      "label": "test:vigilar",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "test:vigilar",
-      "source_file": "frontend/package.json",
-      "source_location": "L15"
-    },
-    {
       "id": "frontend_package_type",
       "label": "type",
       "_origin": "ast",
@@ -1566,17 +1335,6 @@
       "norm_label": "version",
       "source_file": "frontend/package.json",
       "source_location": "L3"
-    },
-    {
-      "id": "frontend_vite_config",
-      "label": "vite.config.js",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vite.config.js",
-      "source_file": "frontend/vite.config.js",
-      "source_location": "L1"
     },
     {
       "id": "ref_eslint",
@@ -1654,28 +1412,6 @@
       "norm_label": "prettier",
       "source_file": "frontend/package.json",
       "source_location": "L36"
-    },
-    {
-      "id": "ref_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "frontend/package.json",
-      "source_location": "L37"
-    },
-    {
-      "id": "ref_vitejs_plugin_vue2",
-      "label": "@vitejs/plugin-vue2",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@vitejs/plugin-vue2",
-      "source_file": "frontend/package.json",
-      "source_location": "L29"
     },
     {
       "id": "ref_vue_eslint_parser",
@@ -3697,6 +3433,130 @@
       "source_location": "L1"
     },
     {
+      "id": "frontend_design",
+      "label": "DESIGN.md",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "AIPOS",
+        "description": "La pantalla \u00fanica de un punto de venta, en un solo tema claro y con el total siempre a la vista."
+      },
+      "node_kind": "page",
+      "norm_label": "design.md",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_design_colors",
+      "label": "Colors",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "colors",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L74"
+    },
+    {
+      "id": "frontend_design_components",
+      "label": "Components",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "components",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L110"
+    },
+    {
+      "id": "frontend_design_design_system_aipos",
+      "label": "Design System: AIPOS",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "design system: aipos",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L62"
+    },
+    {
+      "id": "frontend_design_do_s_and_don_ts",
+      "label": "Do's and Don'ts",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "do's and don'ts",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L118"
+    },
+    {
+      "id": "frontend_design_elevation_depth",
+      "label": "Elevation & Depth",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "elevation & depth",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L100"
+    },
+    {
+      "id": "frontend_design_layout",
+      "label": "Layout",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "layout",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L93"
+    },
+    {
+      "id": "frontend_design_overview",
+      "label": "Overview",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "overview",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L67"
+    },
+    {
+      "id": "frontend_design_shapes",
+      "label": "Shapes",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "shapes",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "frontend_design_typography",
+      "label": "Typography",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "Design System: AIPOS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "typography",
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L87"
+    },
+    {
       "id": "tests_grafo_del_proyecto_sin_rutas_ni_evals_test",
       "label": "sin-rutas-ni-evals.test.sh",
       "_origin": "ast",
@@ -4371,22 +4231,6 @@
       "norm_label": "supuestos",
       "source_file": "requerimientos/01-alcance.md",
       "source_location": "L70"
-    },
-    {
-      "id": "specs_arquitectura_spec",
-      "label": "arquitectura.spec.md",
-      "_origin": "ast",
-      "community": 45,
-      "community_name": "Arquitectura de AIPOS",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "Arquitectura de AIPOS",
-        "description": "Tecnolog\u00edas y versiones, carpetas, capas, errores, dinero, base de datos, pruebas, calidad, dise\u00f1o de la pantalla y forma de trabajar con Git, para que una sesi\u00f3n nueva tome cualquier tarjeta sin volver a preguntar lo que ya se decidi\u00f3"
-      },
-      "node_kind": "page",
-      "norm_label": "arquitectura.spec.md",
-      "source_file": "specs/arquitectura.spec.md",
-      "source_location": "L1"
     },
     {
       "id": "specs_arquitectura_spec_arquitectura_de_aipos",
@@ -5133,6 +4977,105 @@
       "source_location": "L1"
     },
     {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "frontend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "frontend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "frontend_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "frontend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "frontend_package_scripts_format",
+      "label": "format",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "format",
+      "source_file": "frontend/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "frontend_package_scripts_format_check",
+      "label": "format:check",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "format:check",
+      "source_file": "frontend/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "frontend_package_scripts_lint",
+      "label": "lint",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "lint",
+      "source_file": "frontend/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "frontend_package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "frontend_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "frontend/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "frontend_package_scripts_test_vigilar",
+      "label": "test:vigilar",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test:vigilar",
+      "source_file": "frontend/package.json",
+      "source_location": "L15"
+    },
+    {
       "id": "frontend_package_devdependencies",
       "label": "devDependencies",
       "_origin": "ast",
@@ -5780,6 +5723,187 @@
       "norm_label": "vuetify",
       "source_file": "frontend/package.json",
       "source_location": "L25"
+    },
+    {
+      "id": "frontend_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "frontend/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "frontend_package_dependencies_axios",
+      "label": "axios",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "axios",
+      "source_file": "frontend/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "frontend_package_dependencies_lottie_web",
+      "label": "lottie-web",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "lottie-web",
+      "source_file": "frontend/package.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "frontend_package_dependencies_mdi_font",
+      "label": "@mdi/font",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "@mdi/font",
+      "source_file": "frontend/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "frontend_package_dependencies_vue",
+      "label": "vue",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "vue",
+      "source_file": "frontend/package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "frontend_package_dependencies_vuetify",
+      "label": "vuetify",
+      "_origin": "ast",
+      "community": 61,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "vuetify",
+      "source_file": "frontend/package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_entrega_final",
+      "label": "Entrega final",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entrega final",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_flujo_05_entregar_un_entregable",
+      "label": "Flujo 05 \u00b7 Entregar un entregable",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 05 \u00b7 entregar un entregable",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_otros_caminos",
+      "label": "Otros caminos",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "otros caminos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_pasos",
+      "label": "Pasos",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pasos",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "requerimientos_flujos_05_entregar_un_entregable_qu\u00e9_no_se_hace",
+      "label": "Qu\u00e9 no se hace",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "Flujo 05 \u00b7 Entregar un entregable",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "que no se hace",
+      "source_file": "requerimientos/flujos/05-entregar-un-entregable.md",
+      "source_location": "L66"
+    },
+    {
+      "id": "frontend_vite_config",
+      "label": "vite.config.js",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "vite.config.js",
+      "file_type": "code",
+      "norm_label": "vite.config.js",
+      "source_file": "frontend/vite.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "vite.config.js",
+      "file_type": "concept",
+      "norm_label": "vite",
+      "source_file": "frontend/package.json",
+      "source_location": "L37"
+    },
+    {
+      "id": "ref_vitejs_plugin_vue2",
+      "label": "@vitejs/plugin-vue2",
+      "_origin": "ast",
+      "community": 63,
+      "community_name": "vite.config.js",
+      "file_type": "concept",
+      "norm_label": "@vitejs/plugin-vue2",
+      "source_file": "frontend/package.json",
+      "source_location": "L29"
+    },
+    {
+      "id": "frontend_package_engines",
+      "label": "engines",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "engines",
+      "file_type": "code",
+      "norm_label": "engines",
+      "source_file": "frontend/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "frontend_package_engines_node",
+      "label": "node",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "engines",
+      "file_type": "code",
+      "norm_label": "node",
+      "source_file": "frontend/package.json",
+      "source_location": "L8"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -8325,6 +8449,105 @@
       "confidence_score": 1.0,
       "source_file": "docs/setup/tessl-setup.md",
       "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design",
+      "target": "frontend_design_design_system_aipos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_elevation_depth",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_shapes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_components",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_do_s_and_don_ts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_overview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_colors",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_typography",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_design_design_system_aipos",
+      "target": "frontend_design_layout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/DESIGN.md",
+      "source_location": "L93",
       "weight": 1.0
     },
     {

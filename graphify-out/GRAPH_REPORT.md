@@ -1,12 +1,12 @@
 # Graph Report - b-04  (2026-09-30)
 
 ## Corpus Check
-- 91 files · ~51,403 words
+- 92 files · ~52,247 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 16 file(s) not represented in the graph (top: (none) 7, .drawio 7, .example 1)
 
 ## Summary
-- 508 nodes · 565 edges · 64 communities (30 shown, 34 thin omitted)
+- 518 nodes · 574 edges · 70 communities (34 shown, 36 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
@@ -49,6 +49,7 @@
 - comunicacion-clara.md
 - rules/lenguaje-ubicuo.md
 - mysql-sequelize.md
+- Design System: AIPOS
 - sin-rutas-ni-evals.test.sh
 - update-sin-cambios.test.sh
 - hook-de-claude-code/sin-graphify.test.sh
@@ -66,9 +67,14 @@
 - merge-sin-cambios-en-el-grafo.test.sh
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
+- scripts
 - devDependencies
 - venta-vacia.test.js
 - http.js
+- dependencies
+- Flujo 05 · Entregar un entregable
+- vite.config.js
+- engines
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
@@ -80,7 +86,7 @@
 7. `Flujo de un entregable` - 10 edges
 8. `scripts` - 9 edges
 9. `Configurar el MCP de Trello` - 9 edges
-10. `Alcance` - 9 edges
+10. `Design System: AIPOS` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `La venta actual` --references--> `calcularTotal()`  [INFERRED]
@@ -97,11 +103,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (64 total, 34 thin omitted)
+## Communities (70 total, 36 thin omitted)
 
 ### Community 0 - "requerimientos/README.md"
-Cohesion: 0.06
-Nodes (31): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+23 more)
+Cohesion: 0.07
+Nodes (26): AIPOS, Grafo del proyecto, Setup de agents, Tiles de Tessl, Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto (+18 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.18
@@ -140,8 +146,8 @@ Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
 ### Community 11 - "package.json"
-Cohesion: 0.06
-Nodes (33): dependencies, axios, lottie-web, @mdi/font, vue, vuetify, description, engines (+25 more)
+Cohesion: 0.15
+Nodes (14): description, name, private, type, version, eslint, eslint-config-prettier, @eslint/js (+6 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -195,17 +201,25 @@ Nodes (13): 1. Instalar Graphify, 2. Activar el hook de git, 3. Verificar, Antes
 Cohesion: 0.83
 Nodes (3): debe_ignorar(), no_debe_ignorar(), ignora-lo-local.test.sh script
 
+### Community 35 - "Design System: AIPOS"
+Cohesion: 0.20
+Nodes (9): Colors, Components, Design System: AIPOS, Do's and Don'ts, Elevation & Depth, Layout, Overview, Shapes (+1 more)
+
 ### Community 44 - "Alcance"
 Cohesion: 0.22
 Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PDF no pide, Objetivo, Qué entra, Restricciones, Riesgos (+1 more)
 
 ### Community 45 - "Arquitectura de AIPOS"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (23): Arquitectura de AIPOS, Backend, Base de datos, Calidad, Capas, Carpetas, Carpetas, Cómo se decide un diseño (+15 more)
 
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
+
+### Community 55 - "scripts"
+Cohesion: 0.22
+Nodes (9): scripts, build, dev, format, format:check, lint, preview, test (+1 more)
 
 ### Community 56 - "devDependencies"
 Cohesion: 0.14
@@ -219,24 +233,32 @@ Nodes (9): data(), aCentavos(), formatearCentavos(), calcularSubtotal(), calcula
 Cohesion: 0.36
 Nodes (5): crearError(), http, traducirError(), cargarHttp(), axios
 
+### Community 61 - "dependencies"
+Cohesion: 0.33
+Nodes (6): dependencies, axios, lottie-web, @mdi/font, vue, vuetify
+
+### Community 62 - "Flujo 05 · Entregar un entregable"
+Cohesion: 0.40
+Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+
 ## Knowledge Gaps
-- **279 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+274 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 336 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **287 isolated node(s):** `singleQuote`, `printWidth`, `trailingComma`, `name`, `version` (+282 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 345 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `total()` connect `Requerimientos funcionales` to `venta-vacia.test.js`?**
-  _High betweenness centrality (0.159) - this node is a cross-community bridge._
+  _High betweenness centrality (0.152) - this node is a cross-community bridge._
 - **Why does `vitest` connect `vitest-vue2.test.js` to `venta-vacia.test.js`, `http.js`, `package.json`?**
-  _High betweenness centrality (0.158) - this node is a cross-community bridge._
-- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `AnimacionLottie.vue`?**
-  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+  _High betweenness centrality (0.152) - this node is a cross-community bridge._
+- **Why does `Arquitectura de AIPOS` connect `Arquitectura de AIPOS` to `requerimientos/README.md`, `AnimacionLottie.vue`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `trailingComma` to the rest of the system?**
-  _279 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _287 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.06294326241134751 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07188160676532769 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**

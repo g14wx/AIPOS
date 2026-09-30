@@ -1,12 +1,12 @@
-# Graph Report - spec-buscar-producto  (2026-09-30)
+# Graph Report - spec-armar-venta-actual  (2026-09-30)
 
 ## Corpus Check
-- 69 files · ~53,136 words
+- 70 files · ~59,787 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 393 nodes · 388 edges · 57 communities (30 shown, 27 thin omitted)
+- 425 nodes · 419 edges · 54 communities (27 shown, 27 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -15,7 +15,7 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Requerimientos no funcionales
+- requerimientos/README.md
 - Grafo del proyecto
 - dependencies
 - Trabajar en un tile
@@ -26,7 +26,7 @@
 - Configurar el MCP de Trello
 - saltos-de-linea.test.sh
 - Entregables y tarjetas
-- Flujo 01 · Crear producto
+- Armar la venta actual
 - Glosario de lenguaje ubicuo
 - Bitácora de IA
 - README de entrega
@@ -39,7 +39,7 @@
 - Grafo del proyecto
 - comun.sh
 - AIPOS
-- Flujo 05 · Entregar un entregable
+- Requerimientos no funcionales
 - Comandos útiles
 - misma-version.test.sh
 - ignora-lo-local.test.sh
@@ -65,23 +65,20 @@
 - desactualizado-tras-falla.test.sh
 - merge-sin-choques.test.sh
 - merge-sin-cambios-en-el-grafo.test.sh
-- Flujo 02 · Buscar producto
 - spec-arquitectura.test.sh
 - agents-md-tarjeta.test.sh
-- Flujo 03 · Armar la venta actual
-- Flujo 04 · Registrar venta
 
 ## God Nodes (most connected - your core abstractions)
 1. `Requerimientos funcionales` - 14 edges
 2. `Requerimientos no funcionales` - 14 edges
-3. `Arquitectura de AIPOS` - 13 edges
-4. `Buscar producto` - 10 edges
-5. `Grafo del proyecto` - 10 edges
-6. `Flujo de un entregable` - 10 edges
-7. `Configurar el MCP de Trello` - 9 edges
-8. `Alcance` - 9 edges
-9. `Backend` - 8 edges
-10. `Trabajar en un tile` - 7 edges
+3. `Armar la venta actual` - 13 edges
+4. `Arquitectura de AIPOS` - 13 edges
+5. `Buscar producto` - 10 edges
+6. `Grafo del proyecto` - 10 edges
+7. `Flujo de un entregable` - 10 edges
+8. `Configurar el MCP de Trello` - 9 edges
+9. `Alcance` - 9 edges
+10. `Backend` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -89,11 +86,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (57 total, 27 thin omitted)
+## Communities (54 total, 27 thin omitted)
 
-### Community 0 - "Requerimientos no funcionales"
-Cohesion: 0.10
-Nodes (20): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+12 more)
+### Community 0 - "requerimientos/README.md"
+Cohesion: 0.08
+Nodes (27): Desarrollo de AIPOS, Flujo 00 · Mapa de procesos, Operación del POS, Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos, Flujo 02 · Buscar producto (+19 more)
 
 ### Community 1 - "Grafo del proyecto"
 Cohesion: 0.09
@@ -131,9 +128,9 @@ Nodes (11): 1. Crear el board en Trello, 2. Obtener el API key, 3. Generar el to
 Cohesion: 0.18
 Nodes (11): Definición de terminado, Entrega final, Entregable productos, Entregable ventas, Entregables y tarjetas, Ramas de tarjeta, Requerimientos, Secuencia de los entregables (+3 more)
 
-### Community 11 - "Flujo 01 · Crear producto"
-Cohesion: 0.50
-Nodes (4): Flujo 01 · Crear producto, Notas técnicas, Otros caminos, Pasos
+### Community 11 - "Armar la venta actual"
+Cohesion: 0.06
+Nodes (31): `agregarAVentaActual` (V-04), `App.vue`: une la búsqueda con la venta actual (V-04), Armar la venta actual, Botón «Eliminar» (V-07), `cambiarCantidad` y `validarCantidad` (V-06), `cambiarPrecioAplicado` y `validarPrecioAplicado` (V-05), `CampoCantidad.vue` (V-06), `CampoPrecioAplicado.vue` (V-05) (+23 more)
 
 ### Community 12 - "Glosario de lenguaje ubicuo"
 Cohesion: 0.22
@@ -175,9 +172,9 @@ Nodes (5): Al terminar una tarea, Antes de empezar una tarea, Antes de integrar 
 Cohesion: 0.25
 Nodes (7): Agent Rules <!-- tessl-managed -->, AIPOS, Antes de empezar, Cómo tomar una tarjeta, Decisiones de diseño, Nada depende de una sesión ni de una máquina, Qué es AIPOS
 
-### Community 24 - "Flujo 05 · Entregar un entregable"
-Cohesion: 0.40
-Nodes (5): Entrega final, Flujo 05 · Entregar un entregable, Otros caminos, Pasos, Qué no se hace
+### Community 24 - "Requerimientos no funcionales"
+Cohesion: 0.14
+Nodes (14): Requerimientos no funcionales, RNF-01 Una sola pantalla, RNF-02 Tecnologías y versiones, RNF-03 Validación en tres lugares, RNF-04 Seguridad básica, RNF-05 Manejo de errores, RNF-06 Arquitectura en capas, RNF-07 Base de datos reproducible (+6 more)
 
 ### Community 25 - "Comandos útiles"
 Cohesion: 0.15
@@ -195,41 +192,29 @@ Nodes (9): Actores y partes, Alcance, Fuera de alcance, Lo que agregamos y el PD
 Cohesion: 0.07
 Nodes (26): Arquitectura de AIPOS, Backend, Base de datos, Calidad, Capas, Carpetas, Carpetas, Cómo se decide un diseño (+18 more)
 
-### Community 52 - "Flujo 02 · Buscar producto"
-Cohesion: 0.50
-Nodes (4): Flujo 02 · Buscar producto, Notas técnicas, Otros caminos, Pasos
-
 ### Community 53 - "spec-arquitectura.test.sh"
 Cohesion: 0.90
 Nodes (4): falla(), ok(), revisar(), spec-arquitectura.test.sh script
 
-### Community 55 - "Flujo 03 · Armar la venta actual"
-Cohesion: 0.50
-Nodes (4): Flujo 03 · Armar la venta actual, Notas técnicas, Otros caminos, Pasos
-
-### Community 56 - "Flujo 04 · Registrar venta"
-Cohesion: 0.50
-Nodes (4): Flujo 04 · Registrar venta, Notas técnicas, Otros caminos, Pasos
-
 ## Knowledge Gaps
-- **252 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+247 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 286 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **278 isolated node(s):** `name`, `mode`, `source`, `source`, `source` (+273 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 313 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `Requerimientos no funcionales`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `Requerimientos funcionales` connect `Requerimientos funcionales` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+- **Why does `Requerimientos no funcionales` connect `Requerimientos no funcionales` to `requerimientos/README.md`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `name`, `mode`, `source` to the rest of the system?**
-  _252 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Requerimientos no funcionales` be split into smaller, more focused modules?**
-  _Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected._
+  _278 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `requerimientos/README.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.07823613086770982 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
   _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Trabajar en un tile` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Requerimientos funcionales` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

@@ -21,8 +21,8 @@ Fuente editable: [`04-registrar-venta.drawio`](../diagramas/04-registrar-venta.d
 1. **Cajero:** presiona "Registrar venta".
 2. **Pantalla:** deshabilita el botón, para que un doble clic no registre dos ventas, y manda `POST /api/ventas`
    con cada detalle: producto, cantidad y precio aplicado.
-3. **API:** valida la venta: al menos un detalle, ids enteros, cantidad entera de 1 o más, precio aplicado de 0
-   o más con 2 decimales como máximo y sin productos repetidos.
+3. **API:** valida la venta: al menos un detalle, ids enteros, cantidad entera de 1 a 999, precio aplicado de 0
+   a 99 999.99 con 2 decimales como máximo y sin productos repetidos.
 4. **API:** llama a `CALL sp_registrar_venta(:detalles)` con los detalles en JSON.
 5. **MySQL:** empieza la operación con `START TRANSACTION`.
 6. **MySQL:** revisa que la lista no esté vacía y que cada producto exista.
@@ -32,7 +32,7 @@ Fuente editable: [`04-registrar-venta.drawio`](../diagramas/04-registrar-venta.d
 10. **MySQL:** confirma con `COMMIT` y devuelve el número de la venta y el total con un `SELECT`.
 11. **API:** responde 201 con el número de la venta y el total.
 12. **Pantalla:** muestra "Venta N registrada · Total X" con los valores que devolvió MySQL y deja la venta
-    actual vacía.
+    actual vacía, también en el navegador (flujo 03).
 
 ## Otros caminos
 

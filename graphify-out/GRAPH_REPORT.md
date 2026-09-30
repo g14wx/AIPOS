@@ -1,12 +1,12 @@
 # Graph Report - spec-arquitectura  (2026-09-30)
 
 ## Corpus Check
-- 67 files · ~42,297 words
+- 67 files · ~42,677 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 
 ## Summary
-- 348 nodes · 344 edges · 53 communities (26 shown, 27 thin omitted)
+- 348 nodes · 345 edges · 53 communities (26 shown, 27 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -208,7 +208,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `name`, `mode`, `source` to the rest of the system?**
   _218 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `requerimientos/README.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.10080645161290322 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1028225806451613 - nodes in this community are weakly interconnected._
 - **Should `Grafo del proyecto` be split into smaller, more focused modules?**
   _Cohesion score 0.08615384615384615 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

@@ -2867,7 +2867,7 @@
       "node_kind": "heading",
       "norm_label": "reglas de negocio",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L224"
+      "source_location": "L233"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
@@ -2939,7 +2939,7 @@
       "node_kind": "heading",
       "norm_label": "rf-05 editar el precio aplicado",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L96"
+      "source_location": "L103"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_06_cambiar_la_cantidad",
@@ -2951,7 +2951,7 @@
       "node_kind": "heading",
       "norm_label": "rf-06 cambiar la cantidad",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L109"
+      "source_location": "L116"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_07_eliminar_un_producto_de_la_venta_actual",
@@ -2963,7 +2963,7 @@
       "node_kind": "heading",
       "norm_label": "rf-07 eliminar un producto de la venta actual",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L123"
+      "source_location": "L130"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_08_ver_el_total",
@@ -2975,7 +2975,7 @@
       "node_kind": "heading",
       "norm_label": "rf-08 ver el total",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L134"
+      "source_location": "L141"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_09_registrar_venta",
@@ -2987,7 +2987,7 @@
       "node_kind": "heading",
       "norm_label": "rf-09 registrar venta",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L147"
+      "source_location": "L154"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_10_guardar_productos_ventas_y_detalles_con_sus_relaciones",
@@ -2999,7 +2999,7 @@
       "node_kind": "heading",
       "norm_label": "rf-10 guardar productos, ventas y detalles con sus relaciones",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L167"
+      "source_location": "L174"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_11_registrar_venta_con_sp_registrar_venta",
@@ -3011,7 +3011,7 @@
       "node_kind": "heading",
       "norm_label": "rf-11 registrar venta con `sp_registrar_venta`",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L193"
+      "source_location": "L202"
     },
     {
       "id": "requerimientos_02_requerimientos_funcionales_rf_12_agregar_con_un_c\u00f3digo_de_barras_exacto",
@@ -3023,7 +3023,7 @@
       "node_kind": "heading",
       "norm_label": "rf-12 agregar con un codigo de barras exacto",
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L213"
+      "source_location": "L222"
     },
     {
       "id": "tests_hook_de_git_graphify_falla_test",
@@ -4055,7 +4055,7 @@
       "node_kind": "heading",
       "norm_label": "notas tecnicas",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L39"
+      "source_location": "L41"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_otros_caminos",
@@ -4067,7 +4067,7 @@
       "node_kind": "heading",
       "norm_label": "otros caminos",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "requerimientos_flujos_03_armar_la_venta_actual_pasos",
@@ -4079,7 +4079,7 @@
       "node_kind": "heading",
       "norm_label": "pasos",
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -5287,13 +5287,24 @@
     },
     {
       "source": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
+      "target": "requerimientos_02_requerimientos_funcionales_rf_05_editar_el_precio_aplicado",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
       "target": "requerimientos_02_requerimientos_funcionales_rf_06_cambiar_la_cantidad",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L109",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -5304,7 +5315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L123",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -5315,7 +5326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L134",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -5326,7 +5337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L147",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -5337,7 +5348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L167",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -5348,7 +5359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L193",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -5359,18 +5370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L213",
-      "weight": 1.0
-    },
-    {
-      "source": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
-      "target": "requerimientos_02_requerimientos_funcionales_reglas_de_negocio",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L224",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -5382,6 +5382,17 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
       "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
+      "target": "requerimientos_02_requerimientos_funcionales_reglas_de_negocio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -5415,17 +5426,6 @@
       "confidence_score": 1.0,
       "source_file": "requerimientos/02-requerimientos-funcionales.md",
       "source_location": "L82",
-      "weight": 1.0
-    },
-    {
-      "source": "requerimientos_02_requerimientos_funcionales_requerimientos_funcionales",
-      "target": "requerimientos_02_requerimientos_funcionales_rf_05_editar_el_precio_aplicado",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "requerimientos/02-requerimientos-funcionales.md",
-      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -5843,7 +5843,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -5854,7 +5854,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -5865,7 +5865,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L39",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -7805,6 +7805,17 @@
       "weight": 1.0
     },
     {
+      "source": "requerimientos_02_requerimientos_funcionales",
+      "target": "specs_arquitectura_spec",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requerimientos/02-requerimientos-funcionales.md",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
       "source": "requerimientos_03_requerimientos_no_funcionales",
       "target": "requerimientos_flujos_05_entregar_un_entregable",
       "relation": "references",
@@ -7988,7 +7999,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -7999,7 +8010,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "requerimientos/flujos/03-armar-la-venta-actual.md",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {

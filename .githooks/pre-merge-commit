@@ -1,0 +1,13 @@
+#!/bin/sh
+# Hook de git pre-merge-commit del grafo del proyecto (spec: specs/grafo-del-proyecto.spec.md).
+# En los merges sin choques, git corre este hook y no pre-commit, y no mete en el merge commit lo que este hook
+# agregue. Por eso actualiza el grafo con .githooks/pre-commit y, si el grafo cambió, detiene el merge: termina con
+# `git commit --no-edit`, que sí corre pre-commit y mete el grafo en el merge commit.
+antes=$(git write-tree)
+"$(dirname "$0")/pre-commit"
+despues=$(git write-tree)
+if [ "$antes" != "$despues" ]; then
+  echo "pre-merge-commit: el hook de git actualizó el grafo del proyecto. Termina el merge con: git commit --no-edit" >&2
+  exit 1
+fi
+exit 0

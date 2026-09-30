@@ -159,6 +159,13 @@ describe('la pantalla única (App.vue montada)', () => {
     expect(total.text()).toBe('0.00');
   });
 
+  it('tiene un solo h1, la marca, y el título de la venta actual es un h2', () => {
+    const titulos = wrapper
+      .findAll('h1, h2')
+      .wrappers.map((t) => `${t.element.tagName} ${t.text()}`);
+    expect(titulos).toEqual(['H1 AIPOS', 'H2 Venta actual']);
+  });
+
   it('no usa v-html: ningún elemento se pinta con datos como HTML', () => {
     expect(wrapper.html()).not.toMatch(/v-html/);
   });

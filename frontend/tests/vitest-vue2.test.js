@@ -2,6 +2,7 @@
 // Tapa la trampa de S-01: Vitest 5 tiene que compilar un .vue con @vitejs/plugin-vue2 y dibujar un v-btn de
 // Vuetify 2 en jsdom, y lottie-web no puede cargarse en jsdom sin sustituirlo con vi.mock.
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
@@ -10,7 +11,8 @@ import BotonDePrueba from './fixtures/BotonDePrueba.vue';
 
 Vue.use(Vuetify);
 
-const paquete = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+// Con jsdom, Vite reescribe new URL(ruta, import.meta.url) a una dirección http: y readFileSync falla.
+const paquete = JSON.parse(readFileSync(resolve(import.meta.dirname, '../package.json'), 'utf8'));
 const declaradas = { ...paquete.dependencies, ...paquete.devDependencies };
 
 // Tabla "Versiones" de specs/arquitectura.spec.md, solo las del frontend.

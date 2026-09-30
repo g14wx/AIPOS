@@ -4548,7 +4548,7 @@
       "file_type": "code",
       "norm_label": "declaradas",
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L14"
+      "source_location": "L16"
     },
     {
       "id": "frontend_tests_vitest_vue2_test_paquete",
@@ -4559,7 +4559,7 @@
       "file_type": "code",
       "norm_label": "paquete",
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
       "id": "frontend_tests_vitest_vue2_test_versionesdelfrontend",
@@ -4570,7 +4570,7 @@
       "file_type": "code",
       "norm_label": "versionesdelfrontend",
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L17"
+      "source_location": "L19"
     },
     {
       "id": "tessl_plugins_entrega_trazable_skills_flujo_entregable_skill",
@@ -5450,7 +5450,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5707,6 +5707,18 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
+      "target": "frontend_tests_fixtures_botondeprueba",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/tests/vitest-vue2.test.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_tests_vitest_vue2_test",
       "target": "ref_node_fs",
       "relation": "imports_from",
       "_origin": "ast",
@@ -5719,7 +5731,7 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
-      "target": "ref_vitest",
+      "target": "ref_node_path",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5731,7 +5743,7 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
-      "target": "ref_vue",
+      "target": "ref_vitest",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5743,7 +5755,7 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
-      "target": "ref_vuetify",
+      "target": "ref_vue",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5755,7 +5767,7 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
-      "target": "ref_vue_test_utils",
+      "target": "ref_vuetify",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5767,7 +5779,7 @@
     },
     {
       "source": "frontend_tests_vitest_vue2_test",
-      "target": "frontend_tests_fixtures_botondeprueba",
+      "target": "ref_vue_test_utils",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6544,7 +6556,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -6555,7 +6567,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L14",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -6566,7 +6578,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/tests/vitest-vue2.test.js",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0
     },
     {

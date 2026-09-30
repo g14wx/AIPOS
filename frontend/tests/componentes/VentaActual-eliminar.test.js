@@ -341,3 +341,50 @@ describe('con las filas apiladas (la tarjeta es angosta)', () => {
     expect(document.activeElement).toBe(botonEliminar(huevos.nombre).element);
   });
 });
+
+// #79: con un doble clic, el primer clic elimina el detalle, la lista sube y el segundo clic cae sobre el botón «Eliminar»
+// de la fila que ocupó su lugar. Un navegador de verdad numera los clics seguidos en event.detail: 1 el clic suelto, 2 el
+// segundo de un doble clic, 3 el tercero y 0 el que sale del teclado (Enter o Espacio). Vue Test Utils no deja poner
+// detail en trigger, así que el clic se arma con MouseEvent.
+describe('un doble clic no elimina dos detalles (#79)', () => {
+  async function clic(nombre, detail) {
+    const evento = new MouseEvent('click', { bubbles: true, cancelable: true, detail });
+    botonEliminar(nombre).element.dispatchEvent(evento);
+    await wrapper.vm.$nextTick();
+  }
+
+  it('el segundo clic de un doble clic no elimina el detalle que subió a ocupar su lugar', async () => {
+    montar({ ventaActual: venta(leche, pan, huevos) });
+    await clic(leche.nombre, 1);
+    await reemplazarConLaEmitida();
+    await clic(pan.nombre, 2);
+    expect(emitidas()).toHaveLength(1);
+    expect(filas()).toHaveLength(2);
+  });
+
+  it('un tercer clic seguido (detail 3) tampoco elimina', async () => {
+    montar({ ventaActual: venta(leche, pan, huevos) });
+    await clic(leche.nombre, 3);
+    expect(emitidas()).toHaveLength(0);
+  });
+
+  it('un clic suelto (detail 1) y las teclas Enter o Espacio (detail 0) sí eliminan', async () => {
+    montar({ ventaActual: venta(leche, pan, huevos) });
+    await clic(leche.nombre, 1);
+    expect(emitidas()).toHaveLength(1);
+    await clic(pan.nombre, 0);
+    expect(emitidas()).toHaveLength(2);
+    await botonEliminar(huevos.nombre).trigger('click');
+    expect(emitidas()).toHaveLength(3);
+  });
+
+  it('el cajero que espera y vuelve a presionar (detail 1) elimina otra vez', async () => {
+    montar({ ventaActual: venta(leche, pan, huevos) });
+    await clic(leche.nombre, 1);
+    await reemplazarConLaEmitida();
+    await clic(pan.nombre, 1);
+    await reemplazarConLaEmitida();
+    expect(filas()).toHaveLength(1);
+    expect(celdas(filas()[0])[0]).toBe('Huevos x 12');
+  });
+});

@@ -546,6 +546,22 @@ describe('eliminar un detalle de la venta actual (V-07, criterios 1, 2 y 3)', ()
     expect(total()).toBe('25.00');
   });
 
+  // #79: el segundo clic de un doble clic cae sobre el botón de la fila que subió a ocupar el lugar del detalle eliminado.
+  it('un doble clic elimina un solo detalle (#79): el segundo clic no elimina el que subió', async () => {
+    const clic = (producto, detail) =>
+      botonEliminar(producto).element.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true, detail }),
+      );
+    dejarGuardado([detalle(leche), detalle(pan), detalle(huevos)]);
+    abrir();
+    clic(leche, 1);
+    await wrapper.vm.$nextTick();
+    clic(pan, 2);
+    await wrapper.vm.$nextTick();
+    expect(filas().map((fila) => celdas(fila)[0])).toEqual(['Pan de caja', 'Huevos x 12']);
+    expect(idsGuardados()).toEqual([2, 3]);
+  });
+
   it('eliminar no llama a la API: la venta actual vive en la pantalla hasta registrar la venta', async () => {
     abrir();
     await elegir(leche);

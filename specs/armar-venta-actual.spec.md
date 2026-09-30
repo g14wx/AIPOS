@@ -268,7 +268,10 @@ guardarVentaActual(venta)  // -> true si guardó o borró, false si el navegador
 ### `App.vue`: une la búsqueda con la venta actual (V-04)
 
 `App.vue` es el mediador entre `BuscadorProductos.vue` y `VentaActual.vue`: los dos no se conocen, y `App.vue` es el único
-que llama al módulo. Guarda `ventaActual` (con `leerVentaActual()` al crearse), `enviando` y `resaltarId`.
+que guarda la venta actual: la conserva en su estado (`ventaActual`, con `leerVentaActual()` al crearse), la guarda en el
+navegador con `guardarVentaActual` y llama a `agregarAVentaActual`. También guarda `enviando` y `resaltarId`.
+`VentaActual.vue` usa las demás funciones del módulo para calcular y para cambiar la venta actual, pero no la conserva:
+emite la venta nueva y `App.vue` la reemplaza.
 
 - Al recibir `producto-elegido`, llama a `agregarAVentaActual`, guarda el resultado y lo guarda en el navegador
   (`guardarVentaActual`). El componente `BuscadorProductos.vue` no sabe nada de la venta actual.
@@ -440,7 +443,7 @@ cambió. Todo dentro de Vue 2 y Vuetify 2, con la paleta y los contrastes de la 
 | El cajero recarga la página | La pantalla lee la venta actual del navegador y se ve igual, con sus detalles, precios aplicados y cantidades. Un valor con error que no se había corregido vuelve a su último valor válido. |
 | Lo guardado en el navegador está dañado o tiene otra forma | Se ignora y se empieza con la venta actual vacía. La pantalla no falla. |
 | El navegador no deja usar `localStorage` (ventana privada, datos del sitio bloqueados) | La pantalla funciona igual. La venta actual vive en memoria y se pierde al recargar. |
-| Lo guardado en el navegador tiene un producto que ya no existe en la base (por ejemplo, después de reiniciar la base de desarrollo) | La pantalla no lo sabe: solo la API conoce los productos. Al registrar la venta, la API responde con el error de la llave foránea (404 o 422), `RegistrarVenta.vue` muestra el motivo, la venta actual se conserva y el cajero elimina ese detalle. |
+| Lo guardado en el navegador tiene un producto que ya no existe en la base (por ejemplo, después de reiniciar la base de desarrollo) | La pantalla no lo sabe: solo la API conoce los productos. Al registrar la venta, la API responde 422 con el motivo (RF-09, criterio 4), `RegistrarVenta.vue` lo muestra, la venta actual se conserva y el cajero elimina ese detalle. |
 | V-08 está registrando la venta | No se puede agregar, editar ni eliminar hasta que termine. |
 | V-08 recibe un error de la API | La venta actual no se toca (RNF-05). Lo decide `RegistrarVenta.vue`, que no la vacía. |
 

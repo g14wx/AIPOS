@@ -1,7 +1,7 @@
 # Graph Report - spec-armar-venta-actual  (2026-09-30)
 
 ## Corpus Check
-- 65 files · ~39,362 words
+- 65 files · ~39,403 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .drawio 7, (none) 5, .example 1)
 

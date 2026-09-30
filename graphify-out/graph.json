@@ -725,7 +725,7 @@
       "node_kind": "heading",
       "norm_label": "boton \u00abeliminar\u00bb (v-07)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L394"
+      "source_location": "L397"
     },
     {
       "id": "specs_armar_venta_actual_spec_cambiarcantidad_y_validarcantidad_v_06",
@@ -761,7 +761,7 @@
       "node_kind": "heading",
       "norm_label": "`campocantidad.vue` (v-06)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L361"
+      "source_location": "L364"
     },
     {
       "id": "specs_armar_venta_actual_spec_campoprecioaplicado_vue_v_05",
@@ -773,7 +773,7 @@
       "node_kind": "heading",
       "norm_label": "`campoprecioaplicado.vue` (v-05)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L329"
+      "source_location": "L332"
     },
     {
       "id": "specs_armar_venta_actual_spec_casos_de_error_y_bordes",
@@ -785,7 +785,7 @@
       "node_kind": "heading",
       "norm_label": "casos de error y bordes",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L428"
+      "source_location": "L431"
     },
     {
       "id": "specs_armar_venta_actual_spec_criterios_de_aceptaci\u00f3n",
@@ -797,7 +797,7 @@
       "node_kind": "heading",
       "norm_label": "criterios de aceptacion",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L464"
+      "source_location": "L467"
     },
     {
       "id": "specs_armar_venta_actual_spec_c\u00f3mo_se_decidi\u00f3_el_dise\u00f1o",
@@ -809,7 +809,7 @@
       "node_kind": "heading",
       "norm_label": "como se decidio el diseno",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L638"
+      "source_location": "L641"
     },
     {
       "id": "specs_armar_venta_actual_spec_dise\u00f1o_skill_impeccable",
@@ -821,7 +821,7 @@
       "node_kind": "heading",
       "norm_label": "diseno (skill `impeccable`)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L407"
+      "source_location": "L410"
     },
     {
       "id": "specs_armar_venta_actual_spec_el_m\u00f3dulo_src_ventaactual",
@@ -869,7 +869,7 @@
       "node_kind": "heading",
       "norm_label": "la api, con `curl`",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L563"
+      "source_location": "L566"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_pantalla",
@@ -893,7 +893,7 @@
       "node_kind": "heading",
       "norm_label": "la pantalla, en el navegador con el mcp `chrome-devtools`",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L582"
+      "source_location": "L585"
     },
     {
       "id": "specs_armar_venta_actual_spec_la_venta_actual_los_datos",
@@ -917,7 +917,7 @@
       "node_kind": "heading",
       "norm_label": "lo que esta spec no cubre",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L628"
+      "source_location": "L631"
     },
     {
       "id": "specs_armar_venta_actual_spec_lo_que_v_08_espera_de_esta_spec",
@@ -929,7 +929,7 @@
       "node_kind": "heading",
       "norm_label": "lo que v-08 espera de esta spec",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L449"
+      "source_location": "L452"
     },
     {
       "id": "specs_armar_venta_actual_spec_pruebas_en_local",
@@ -941,7 +941,7 @@
       "node_kind": "heading",
       "norm_label": "pruebas en local",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L556"
+      "source_location": "L559"
     },
     {
       "id": "specs_armar_venta_actual_spec_qui\u00e9n_implementa_qu\u00e9",
@@ -989,7 +989,7 @@
       "node_kind": "heading",
       "norm_label": "v-04 \u00b7 agregar productos y ver el total (rf-03, rf-04, rf-08)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L468"
+      "source_location": "L471"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_05_editar_el_precio_aplicado_rf_05",
@@ -1001,7 +1001,7 @@
       "node_kind": "heading",
       "norm_label": "v-05 \u00b7 editar el precio aplicado (rf-05)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L509"
+      "source_location": "L512"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_06_cambiar_la_cantidad_rf_06",
@@ -1013,7 +1013,7 @@
       "node_kind": "heading",
       "norm_label": "v-06 \u00b7 cambiar la cantidad (rf-06)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L527"
+      "source_location": "L530"
     },
     {
       "id": "specs_armar_venta_actual_spec_v_07_eliminar_un_producto_rf_07",
@@ -1025,7 +1025,7 @@
       "node_kind": "heading",
       "norm_label": "v-07 \u00b7 eliminar un producto (rf-07)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L544"
+      "source_location": "L547"
     },
     {
       "id": "specs_armar_venta_actual_spec_validez_registro_y_vaciado_v_04",
@@ -1049,7 +1049,7 @@
       "node_kind": "heading",
       "norm_label": "`ventaactual.vue` (v-04, y v-05 a v-07 sobre el)",
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L289"
+      "source_location": "L292"
     },
     {
       "id": "tessl_plugins_lenguaje_ubicuo_skills_glosario_lenguaje_ubicuo_skill",
@@ -5871,7 +5871,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L428",
+      "source_location": "L431",
       "weight": 1.0
     },
     {
@@ -5882,7 +5882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L449",
+      "source_location": "L452",
       "weight": 1.0
     },
     {
@@ -5893,7 +5893,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L464",
+      "source_location": "L467",
       "weight": 1.0
     },
     {
@@ -5915,7 +5915,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L556",
+      "source_location": "L559",
       "weight": 1.0
     },
     {
@@ -5926,7 +5926,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L628",
+      "source_location": "L631",
       "weight": 1.0
     },
     {
@@ -5937,7 +5937,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L638",
+      "source_location": "L641",
       "weight": 1.0
     },
     {
@@ -5970,7 +5970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L468",
+      "source_location": "L471",
       "weight": 1.0
     },
     {
@@ -5981,7 +5981,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L509",
+      "source_location": "L512",
       "weight": 1.0
     },
     {
@@ -5992,7 +5992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L527",
+      "source_location": "L530",
       "weight": 1.0
     },
     {
@@ -6003,7 +6003,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L544",
+      "source_location": "L547",
       "weight": 1.0
     },
     {
@@ -6091,7 +6091,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L289",
+      "source_location": "L292",
       "weight": 1.0
     },
     {
@@ -6102,7 +6102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L329",
+      "source_location": "L332",
       "weight": 1.0
     },
     {
@@ -6113,7 +6113,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L361",
+      "source_location": "L364",
       "weight": 1.0
     },
     {
@@ -6124,7 +6124,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L394",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -6135,7 +6135,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L407",
+      "source_location": "L410",
       "weight": 1.0
     },
     {
@@ -6146,7 +6146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L563",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -6157,7 +6157,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/armar-venta-actual.spec.md",
-      "source_location": "L582",
+      "source_location": "L585",
       "weight": 1.0
     },
     {

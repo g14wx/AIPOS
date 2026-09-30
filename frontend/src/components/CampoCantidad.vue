@@ -172,7 +172,9 @@ export default {
   padding: 0;
 }
 
-.campo-cantidad__campo ::v-deep .v-input__slot {
+/* Las clases repetidas de Vuetify (.v-text-field, .v-input--dense y .v-text-field--outlined) son para ganarle a su regla
+   de los campos compactos, que fija el alto en 40 px con cinco clases de especificidad. */
+.campo-cantidad__campo.v-text-field.v-input--dense.v-text-field--outlined ::v-deep .v-input__slot {
   min-height: 2.75rem;
   padding: 0 0.25rem;
 }

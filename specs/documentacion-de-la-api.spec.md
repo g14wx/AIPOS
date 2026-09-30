@@ -43,7 +43,7 @@ backend/
   docs/openapi.yaml           el documento OpenAPI 3: la única fuente de lo que dice la documentación de la API
   src/documentacion.js        lee y parsea el documento: cargarDocumentacionApi()
   src/routes/docs.js          el router de Swagger UI, con su política de contenido propia
-  src/routes/index.js         (ya existe, de B-02) exporta también `montajes`, la lista de routers y su prefijo
+  src/routes/index.js         (ya existe, de B-02) exporta `montajes` y `crearRouterApi`; A-01 monta `/docs` fuera de `montajes`
   tests/documentacion/        las pruebas de esta spec, y rutas.js con las funciones que listan y comparan rutas
 tests/documentacion/glosario-y-alcance.test.sh
 ```
@@ -203,8 +203,8 @@ DetalleDeError:
 
 ## Swagger UI en `GET /api/docs`
 
-Se monta con `swagger-ui-express` 5.0.1 dentro de `src/routes/docs.js`, y `src/routes/index.js` lo monta en `/docs`
-(o sea, `/api/docs`), fuera de `montajes` (ver "La prueba de rutas documentadas"). Dentro del router:
+Se monta con `swagger-ui-express` 5.0.1 dentro de `src/routes/docs.js`, y `crearRouterApi`, de `src/routes/index.js`, lo
+monta en `/docs` (o sea, `/api/docs`), fuera de `montajes` (ver "La prueba de rutas documentadas"). Dentro del router:
 
 ```js
 router.use(swaggerUi.serve); // los archivos de Swagger UI: CSS, JS, íconos
@@ -274,31 +274,36 @@ una ruta nueva sin documentar no llega a `main`, y una documentación de una rut
 En Express 5 el router vive en `app.router` (`app._router` ya no existe). Cada capa de su `stack` tiene `route`
 (`route.path` y `route.methods`) si es una ruta, y es un router hijo si es un `use`. Lo que Express 5 ya no guarda es la
 ruta con la que se montó el router hijo: la capa no tiene `regexp` ni `path` (comprobado con Express 5.2.1). Por eso
-`src/routes/index.js` es el que sabe los prefijos y los exporta:
+`src/routes/index.js` es el que sabe las rutas y las exporta. B-02 lo crea con `salud` y `crearRouterApi`; A-01 le suma
+el montaje de `/docs`, fuera de `montajes`:
 
 ```js
-// src/routes/index.js (boceto)
+// src/routes/index.js (boceto; la lista y crearRouterApi son de B-02, la línea de docs la suma A-01)
 const montajes = [
-  { prefijo: '/salud', router: salud },
-  // { prefijo: '/productos', router: productos },  las agregan P-02 y V-03
+  { ruta: '/salud', router: salud },
+  // { ruta: '/productos', router: productos },  la agrega la primera de P-02 y P-04 que se integra
+  // { ruta: '/ventas', router: ventas },        la agrega V-03
 ];
-for (const { prefijo, router: hijo } of montajes) router.use(prefijo, hijo);
-router.use('/docs', docs); // fuera de `montajes`: la documentación no se documenta a sí misma
-module.exports = router;
-module.exports.montajes = montajes;
+function crearRouterApi(lista = montajes) {
+  const router = Router();
+  for (const { ruta, router: hijo } of lista) router.use(ruta, hijo);
+  router.use('/docs', docs); // fuera de `montajes`: la documentación no se documenta a sí misma
+  return router;
+}
+module.exports = { montajes, crearRouterApi };
 ```
 
 ```js
 // tests/documentacion/rutas.js (boceto): las rutas de la app, como 'MÉTODO /ruta'
 function listarRutasRegistradas(montajes) {
   const rutas = [];
-  for (const { prefijo, router } of montajes) {
+  for (const { ruta, router } of montajes) {
     for (const capa of router.stack) {
-      if (!capa.route) throw new Error(`En ${prefijo} hay algo que no es una ruta: la prueba no lo entiende.`);
+      if (!capa.route) throw new Error(`En ${ruta} hay algo que no es una ruta: la prueba no lo entiende.`);
       const sub = capa.route.path === '/' ? '' : capa.route.path;
       if (/[*(){}]/.test(sub)) throw new Error(`La ruta ${sub} usa una sintaxis que la prueba no entiende.`);
       for (const metodo of Object.keys(capa.route.methods)) {
-        rutas.push(`${metodo.toUpperCase()} /api${prefijo}${sub}`.replace(/:(\w+)/g, '{$1}'));
+        rutas.push(`${metodo.toUpperCase()} /api${ruta}${sub}`.replace(/:(\w+)/g, '{$1}'));
       }
     }
   }
@@ -308,7 +313,7 @@ function listarRutasRegistradas(montajes) {
 
 - Cada archivo de `src/routes/` (salvo `index.js` y `docs.js`) se monta en `montajes`. Un router que se monte de otra
   forma no lo ve la prueba, y por eso la prueba lo cuida (siguiente punto).
-- La prueba falla si el router de `/api` (el que exporta `routes/index.js`) tiene una capa que no sea un router de
+- La prueba falla si el router de `/api` (el que devuelve `crearRouterApi`) tiene una capa que no sea un router de
   `montajes` ni el de `docs`, si `app.router` tiene una ruta registrada directo en `app`, o si `app.router` monta algo
   distinto del router de `/api` (además de los middlewares que son funciones, como `noEncontrado` y `errorHandler`).
   Así una ruta puesta "por el camino corto" también rompe la prueba.
@@ -335,14 +340,12 @@ tiene, y espera `sinRuta`. Sin esta prueba no se sabría si la de arriba de verd
 
 ## Glosario y alcance
 
-- El glosario (`docs/lenguaje-ubicuo.md`) agrega «documentación de la API», que la persona desarrolladora aprueba
-  (subtarea de A-01) y que la tarjeta cita como su término. Entrada propuesta: *El documento OpenAPI 3 del backend
-  (`backend/docs/openapi.yaml`) y la página de Swagger UI en `GET /api/docs` que lo muestra. Describe cada ruta de la
-  API, lo que recibe, lo que responde y su formato de error. No decir: doc de la API, Swagger a secas (Swagger UI es la
-  página; OpenAPI es el formato). Ejemplo: "La ruta de crear producto está en la documentación de la API".*
-- También se propone «formato de error»: *La forma única de toda respuesta de error de la API: `{ "error": { "codigo",
-  "mensaje", "detalles" } }`. Está descrita en la spec de arquitectura y en el esquema `RespuestaDeError` de la
-  documentación de la API.*
+- El glosario ya trae «documentación de la API» y «formato de error» (en `docs/lenguaje-ubicuo.md`), y la persona
+  desarrolladora las aprueba con el lote de specs. A-01 no las agrega: la tarjeta las cita como sus términos.
+  «Documentación de la API» es el documento OpenAPI 3 del backend (`backend/docs/openapi.yaml`) y la página de Swagger UI
+  en `GET /api/docs` que lo muestra. «Formato de error» es la forma única de toda respuesta de error de la API
+  (`{ "error": { "codigo", "mensaje", "detalles" } }`), descrita en la spec de arquitectura y en el esquema
+  `RespuestaDeError`. Los «detalles del error» son la lista `detalles` de ese formato, no los detalles de una venta.
 - `requerimientos/01-alcance.md` suma la fila «Documentación de la API» a "Lo que agregamos y el PDF no pide", con su
   porqué: la persona desarrolladora la pidió el 2026-09-30 y el PDF no la pide.
 - `requerimientos/04-entregables.md` suma la fila de A-01 a la tabla del entregable base (área Backend y Documentación,
@@ -355,7 +358,7 @@ tiene, y espera `sinRuta`. Sin esta prueba no se sabría si la de arriba de verd
 | Parte | Tarjeta |
 |---|---|
 | `openapi.yaml` con la cabecera, `GET /api/salud`, los esquemas y las respuestas de error | A-01 |
-| `src/documentacion.js`, `src/routes/docs.js`, `montajes` en `src/routes/index.js` y la política de contenido | A-01 |
+| `src/documentacion.js`, `src/routes/docs.js`, el montaje de `/docs` en `src/routes/index.js` (fuera de `montajes`, que crea B-02) y la política de contenido | A-01 |
 | La prueba de rutas documentadas y las demás pruebas de esta spec | A-01 |
 | Glosario, `01-alcance.md` y `04-entregables.md` | A-01 |
 | Campo `baseDeDatos` de `GET /api/salud` en el documento, si B-03 llega después de A-01 | B-03 (el orden del plan es B-02, B-03 y A-01, así que normalmente ya lo hace A-01) |
@@ -368,6 +371,9 @@ tiene, y espera `sinRuta`. Sin esta prueba no se sabría si la de arriba de verd
   que crea la ruta: agregan la ruta a `montajes` y su entrada a `openapi.yaml` con sus esquemas, sus ejemplos y los
   `$ref` a las respuestas de error. Si falta cualquiera de las dos, `npm test` falla. Su spec dice el detalle de su
   cuerpo y de sus respuestas; esta solo fija cómo se documenta.
+- P-02 y P-04 corren a la vez y comparten el router de `productos`: la que se integra primero crea el router y agrega
+  `{ ruta: '/productos', router: productos }` a `montajes`, y la otra solo suma su ruta al router y su entrada al
+  documento (ver "Carpetas" en la spec de arquitectura).
 - D-01 no toca el documento. Solo comprueba, después del despliegue, que el proxy deja pasar `/api/docs` (ver
   "Pruebas en local").
 
@@ -447,7 +453,7 @@ Se consultó el MCP `design-patterns` antes de cada decisión:
 |---|---|---|
 | Un documento OpenAPI y Swagger UI | Ninguno del catálogo | Los que salen (Versioning, API Gateway, API Composition) resuelven otras cosas; se sigue la práctica estándar de OpenAPI. |
 | El formato de error como esquema compartido | Ninguno del catálogo | Los que salen son de React o de programación funcional; se usa `$ref` de OpenAPI para no repetir el formato. |
-| `montajes` en `routes/index.js` | Registry (el más cercano) | Un solo lugar dice qué routers hay y con qué prefijo, y la prueba lo consulta; Express 5 ya no guarda ese prefijo. |
+| `montajes` en `routes/index.js` | Registry (el más cercano) | Un solo lugar dice qué routers hay y con qué ruta, y la prueba lo consulta; Express 5 ya no guarda esa ruta. |
 | La prueba de rutas documentadas | Layer-Specific Logic Testing (el más cercano) | Se prueba en la capa de rutas, que es donde vive lo que se compara. |
 | CSP propia solo en `/api/docs` | Ninguno del catálogo | Es configuración de helmet; la regla es dejar estricto todo lo demás y relajar lo mínimo donde hace falta. |
 | Sin capa nueva para la documentación | Layered Architecture, de la arquitectura | `docs.js` es una ruta más y no tiene reglas de negocio; un controller o un servicio solo reenviarían la llamada. |

@@ -475,3 +475,417 @@ describe('temporizadores', () => {
     expect(vi.getTimerCount()).toBe(0);
   });
 });
+
+// Spec armar-venta-actual, "CampoCantidad.vue (V-06)" y criterios 1, 3, 4 y 5 de V-06 (RF-06, RN-06 y RN-08), con la
+// pantalla entera montada: el cajero cambia la cantidad de un detalle con los botones «+» y «−» o escribiéndola, el
+// subtotal y el total se recalculan al momento, y un valor escrito que no sirve se marca en el campo y deshabilita
+// «Registrar venta» sin cambiar el detalle ni guardarse en el navegador.
+describe('cambiar la cantidad de un detalle (V-06)', () => {
+  const NOMBRE = 'Leche entera 1 L';
+  const MENSAJE_INVALIDA = 'La cantidad debe ser un número entero de 1 a 999.';
+  const MENSAJE_VACIA = 'Escribe una cantidad.';
+
+  const campoDe = (nombre) => zonaVenta().find(`input[aria-label="Cantidad de ${nombre}"]`);
+  const masDe = (nombre) =>
+    zonaVenta().find(`button[aria-label="Aumentar la cantidad de ${nombre}"]`);
+  const menosDe = (nombre) =>
+    zonaVenta().find(`button[aria-label="Disminuir la cantidad de ${nombre}"]`);
+  // El mensaje de error del campo de un detalle, o null si no tiene.
+  const mensajeDe = (nombre) => {
+    const alerta = campoDe(nombre)
+      .element.closest('.campo-cantidad')
+      .querySelector('[role="alert"]');
+    return alerta ? alerta.textContent.trim() : null;
+  };
+  const escribir = (nombre, texto) => campoDe(nombre).setValue(texto);
+  const salirDelCampo = async (nombre) => {
+    campoDe(nombre).element.focus();
+    campoDe(nombre).element.blur();
+    await wrapper.vm.$nextTick();
+  };
+  const estaDeshabilitado = (elemento) => elemento.attributes('disabled') !== undefined;
+  const registrarDeshabilitado = () => estaDeshabilitado(botonRegistrar());
+  const conLecheYPan = (cantidadDeLeche = 2) =>
+    dejarGuardado([detalle(leche, cantidadDeLeche, '22.00'), detalle(pan)]);
+
+  describe('los botones «+» y «−» (criterios 1, 2 y 4)', () => {
+    it('criterio 1: con la leche en 2, «+» la pasa a 3 y se recalculan el subtotal y el total', async () => {
+      conLecheYPan(2);
+      abrir();
+      expect(total()).toBe('47.50');
+      await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0]).slice(0, 4)).toEqual([NOMBRE, '22.00', '3', '66.00']);
+      expect(total()).toBe('69.50');
+      expect(registrarDeshabilitado()).toBe(false);
+    });
+
+    it('«−» baja la cantidad en 1 y recalcula el subtotal y el total', async () => {
+      conLecheYPan(3);
+      abrir();
+      await menosDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0]).slice(0, 4)).toEqual([NOMBRE, '22.00', '2', '44.00']);
+      expect(total()).toBe('47.50');
+    });
+
+    it('cada clic parte de la cantidad nueva: tres clics en «+» suben de 2 a 5', async () => {
+      conLecheYPan(2);
+      abrir();
+      for (let i = 0; i < 3; i += 1) await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('5');
+      expect(total()).toBe('113.50');
+    });
+
+    it('se guarda en el navegador después de cada cambio', async () => {
+      conLecheYPan(2);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      expect(guardado().detalles[0].cantidad).toBe(3);
+      await menosDe(NOMBRE).trigger('click');
+      await menosDe(NOMBRE).trigger('click');
+      expect(guardado().detalles).toEqual([detalle(leche, 1, '22.00'), detalle(pan)]);
+    });
+
+    it('criterio 2: con la cantidad 1, «−» está deshabilitado y presionarlo no cambia nada', async () => {
+      conLecheYPan(1);
+      abrir();
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(true);
+      const antes = localStorage.getItem(LLAVE);
+      await menosDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('1');
+      expect(total()).toBe('25.50');
+      expect(localStorage.getItem(LLAVE)).toBe(antes);
+    });
+
+    it('bajar con «−» hasta 1 lo deshabilita, y «+» lo habilita otra vez', async () => {
+      conLecheYPan(2);
+      abrir();
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(false);
+      await menosDe(NOMBRE).trigger('click');
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(true);
+      await masDe(NOMBRE).trigger('click');
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(false);
+    });
+
+    it('criterio 4: con la cantidad 999, «+» está deshabilitado y «−» no', async () => {
+      conLecheYPan(999);
+      abrir();
+      expect(estaDeshabilitado(masDe(NOMBRE))).toBe(true);
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(false);
+      await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('999');
+    });
+
+    it('subir con «+» hasta 999 lo deshabilita', async () => {
+      conLecheYPan(998);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('999');
+      expect(estaDeshabilitado(masDe(NOMBRE))).toBe(true);
+    });
+  });
+
+  // La tarjeta V-06 lista «0», «1.5» y «abc»; «1000» viene de RF-06 y de la pregunta abierta 4; vacío es de la spec.
+  describe.each([
+    ['0', MENSAJE_INVALIDA],
+    ['1000', MENSAJE_INVALIDA],
+    ['1.5', MENSAJE_INVALIDA],
+    ['abc', MENSAJE_INVALIDA],
+    ['', MENSAJE_VACIA],
+  ])('criterio 3: con «%s» escrito en la cantidad', (texto, mensaje) => {
+    it('el campo muestra el error y conserva lo escrito, y «Registrar venta» queda deshabilitado', async () => {
+      conLecheYPan(2);
+      abrir();
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      await escribir(NOMBRE, texto);
+      expect(campoDe(NOMBRE).element.value).toBe(texto);
+      expect(mensajeDe(NOMBRE)).toBe(mensaje);
+      expect(campoDe(NOMBRE).attributes('aria-invalid')).toBe('true');
+      expect(registrarDeshabilitado()).toBe(true);
+    });
+
+    it('el detalle conserva su última cantidad válida: el subtotal y el total no cambian', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, texto);
+      expect(celdas(filas()[0]).slice(1, 4)).toEqual(['22.00', texto, '44.00']);
+      expect(total()).toBe('47.50');
+    });
+
+    it('no se guarda el error ni lo escrito: lo guardado sigue con la última cantidad válida', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, texto);
+      expect(guardado().detalles).toEqual([detalle(leche, 2, '22.00'), detalle(pan)]);
+      expect(localStorage.getItem(LLAVE)).not.toMatch(/errores|La cantidad debe|Escribe una/);
+    });
+
+    it('«+» usa la cantidad válida y no el texto: pasa a 3, el error se va y el campo muestra 3', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, texto);
+      await masDe(NOMBRE).trigger('click');
+      expect(campoDe(NOMBRE).element.value).toBe('3');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(registrarDeshabilitado()).toBe(false);
+      expect(total()).toBe('69.50');
+    });
+  });
+
+  describe('corregir lo escrito y escribir cantidades válidas', () => {
+    it('al corregir una cantidad con error, el error se va y «Registrar venta» se habilita', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      expect(registrarDeshabilitado()).toBe(true);
+      await escribir(NOMBRE, '5');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(registrarDeshabilitado()).toBe(false);
+      expect(celdas(filas()[0]).slice(1, 4)).toEqual(['22.00', '5', '110.00']);
+      expect(total()).toBe('113.50');
+    });
+
+    it('mientras escribe, el subtotal y el total se recalculan al momento con cada cifra', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, '1');
+      expect(total()).toBe('25.50');
+      await escribir(NOMBRE, '12');
+      expect(total()).toBe('267.50');
+      await escribir(NOMBRE, '123');
+      expect(celdas(filas()[0])[3]).toBe('2706.00');
+      expect(total()).toBe('2709.50');
+      expect(guardado().detalles[0].cantidad).toBe(123);
+    });
+
+    it('escribir «1000» marca error y al borrar el último cero vuelve a ser válido', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, '1000');
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+      await escribir(NOMBRE, '100');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(celdas(filas()[0])[2]).toBe('100');
+    });
+
+    it('«999» es válida y deshabilita «+»; «1» deshabilita «−»', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, '999');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(estaDeshabilitado(masDe(NOMBRE))).toBe(true);
+      await escribir(NOMBRE, '1');
+      expect(estaDeshabilitado(menosDe(NOMBRE))).toBe(true);
+      expect(estaDeshabilitado(masDe(NOMBRE))).toBe(false);
+    });
+
+    it('al salir del campo con un texto válido lo normaliza: «007» pasa a «7»', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, '007');
+      expect(celdas(filas()[0])[2]).toBe('007');
+      await salirDelCampo(NOMBRE);
+      expect(celdas(filas()[0]).slice(1, 4)).toEqual(['22.00', '7', '154.00']);
+      expect(guardado().detalles[0].cantidad).toBe(7);
+    });
+
+    it('al salir del campo con un texto inválido deja lo escrito y su error', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      await salirDelCampo(NOMBRE);
+      expect(campoDe(NOMBRE).element.value).toBe('abc');
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+    });
+  });
+
+  describe('varios detalles, recargar y lo que pasa a su alrededor', () => {
+    it('cada detalle tiene su propio campo: cambiar el de la leche no toca el del pan', async () => {
+      conLecheYPan(2);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('3');
+      expect(celdas(filas()[1])[2]).toBe('1');
+      await masDe('Pan de caja').trigger('click');
+      await masDe('Pan de caja').trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('3');
+      expect(celdas(filas()[1]).slice(2, 4)).toEqual(['3', '10.50']);
+      expect(total()).toBe('76.50');
+    });
+
+    it('el error de un detalle deshabilita «Registrar venta» hasta corregirlo, aunque el otro cambie bien', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      await masDe('Pan de caja').trigger('click');
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+      expect(mensajeDe('Pan de caja')).toBeNull();
+      expect(registrarDeshabilitado()).toBe(true);
+      await escribir(NOMBRE, '4');
+      expect(registrarDeshabilitado()).toBe(false);
+    });
+
+    it('dos detalles con error tienen cada uno su mensaje, y «Registrar venta» espera a que se corrijan los dos', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, '0');
+      await escribir('Pan de caja', '');
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+      expect(mensajeDe('Pan de caja')).toBe(MENSAJE_VACIA);
+      await escribir(NOMBRE, '2');
+      expect(registrarDeshabilitado()).toBe(true);
+      await escribir('Pan de caja', '2');
+      expect(registrarDeshabilitado()).toBe(false);
+    });
+
+    it('elegir otra vez un producto que tiene una cantidad con error sube la cantidad válida y quita el error', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      await elegir(leche);
+      expect(campoDe(NOMBRE).element.value).toBe('3');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(registrarDeshabilitado()).toBe(false);
+      expect(total()).toBe('69.50');
+    });
+
+    it('al recargar la pantalla, una cantidad con error sin corregir vuelve a su último valor válido', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      expect(registrarDeshabilitado()).toBe(true);
+      wrapper.destroy();
+      abrir();
+      expect(campoDe(NOMBRE).element.value).toBe('2');
+      expect(mensajeDe(NOMBRE)).toBeNull();
+      expect(registrarDeshabilitado()).toBe(false);
+      expect(total()).toBe('47.50');
+    });
+
+    it('al recargar, la cantidad que se había cambiado sigue igual', async () => {
+      conLecheYPan(2);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      await escribir('Pan de caja', '12');
+      wrapper.destroy();
+      abrir();
+      expect(celdas(filas()[0])[2]).toBe('3');
+      expect(celdas(filas()[1])[2]).toBe('12');
+      expect(total()).toBe('108.00');
+    });
+
+    it('cambiar la cantidad no llama a la API, no marca la fila y no muestra el aviso de un límite', async () => {
+      conLecheYPan(2);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      await escribir(NOMBRE, 'abc');
+      expect(buscarProductos).not.toHaveBeenCalled();
+      expect(crearProducto).not.toHaveBeenCalled();
+      expect(ventaActual().props('resaltarId')).toBeNull();
+      expect(wrapper.find('.v-alert').exists()).toBe(false);
+    });
+
+    it('cada cambio sale de VentaActual como update:ventaActual con la venta actual nueva entera', async () => {
+      conLecheYPan(2);
+      abrir();
+      await masDe(NOMBRE).trigger('click');
+      const emitidos = ventaActual().emitted('update:ventaActual');
+      expect(emitidos).toHaveLength(1);
+      expect(emitidos[0][0].detalles.map((d) => d.cantidad)).toEqual([3, 1]);
+      await escribir(NOMBRE, 'abc');
+      const ultimo = ventaActual().emitted('update:ventaActual').at(-1)[0];
+      expect(ultimo.errores).toEqual({ 1: { cantidad: MENSAJE_INVALIDA } });
+    });
+  });
+
+  describe('mientras V-08 registra la venta (enviando)', () => {
+    it('los campos y los botones de cantidad no se pueden usar, y la venta actual no cambia', async () => {
+      conLecheYPan(2);
+      abrir();
+      ventaActual().vm.$emit('update:enviando', true);
+      await wrapper.vm.$nextTick();
+      const antes = localStorage.getItem(LLAVE);
+      for (const nombre of [NOMBRE, 'Pan de caja']) {
+        expect(estaDeshabilitado(campoDe(nombre))).toBe(true);
+        expect(estaDeshabilitado(masDe(nombre))).toBe(true);
+        expect(estaDeshabilitado(menosDe(nombre))).toBe(true);
+      }
+      await masDe(NOMBRE).trigger('click');
+      await campoDe(NOMBRE).setValue('9');
+      expect(celdas(filas()[0])[2]).toBe('2');
+      expect(localStorage.getItem(LLAVE)).toBe(antes);
+    });
+
+    it('cuando termina de enviar, los campos vuelven a poder usarse', async () => {
+      conLecheYPan(2);
+      abrir();
+      ventaActual().vm.$emit('update:enviando', true);
+      await wrapper.vm.$nextTick();
+      ventaActual().vm.$emit('update:enviando', false);
+      await wrapper.vm.$nextTick();
+      expect(estaDeshabilitado(campoDe(NOMBRE))).toBe(false);
+      await masDe(NOMBRE).trigger('click');
+      expect(celdas(filas()[0])[2]).toBe('3');
+    });
+
+    it('un campo con error se deshabilita también y conserva su mensaje', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      ventaActual().vm.$emit('update:enviando', true);
+      await wrapper.vm.$nextTick();
+      expect(estaDeshabilitado(campoDe(NOMBRE))).toBe(true);
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+      expect(campoDe(NOMBRE).element.value).toBe('abc');
+    });
+  });
+
+  describe('el campo sigue siendo el mismo mientras el cajero escribe', () => {
+    it('escribir varias cifras seguidas no vuelve a crear el campo: conserva el mismo input', async () => {
+      conLecheYPan(2);
+      abrir();
+      const antes = campoDe(NOMBRE).element;
+      for (const texto of ['1', '12', '123', '12a', '12']) {
+        await escribir(NOMBRE, texto);
+        expect(campoDe(NOMBRE).element).toBe(antes);
+      }
+      expect(antes.value).toBe('12');
+    });
+
+    it('agregar otro producto mientras hay un texto escrito no borra lo escrito en el campo de otro detalle', async () => {
+      conLecheYPan(2);
+      abrir();
+      await escribir(NOMBRE, 'abc');
+      await elegir({ id: 3, nombre: 'Huevos x12', codigoBarras: '750', precio: '4.25' });
+      expect(filas()).toHaveLength(3);
+      expect(campoDe(NOMBRE).element.value).toBe('abc');
+      expect(mensajeDe(NOMBRE)).toBe(MENSAJE_INVALIDA);
+    });
+
+    it('en cada fila los controles van en este orden: «−», el campo y «+»', async () => {
+      conLecheYPan(2);
+      abrir();
+      const celda = campoDe(NOMBRE).element.closest('td');
+      const controles = [...celda.querySelectorAll('button, input')];
+      expect(controles.map((c) => c.getAttribute('aria-label'))).toEqual([
+        `Disminuir la cantidad de ${NOMBRE}`,
+        `Cantidad de ${NOMBRE}`,
+        `Aumentar la cantidad de ${NOMBRE}`,
+      ]);
+    });
+  });
+
+  describe('con 100 detalles (RN-14)', () => {
+    it('se puede cambiar la cantidad del último y el total la suma', async () => {
+      dejarGuardado(cienDetalles());
+      abrir();
+      expect(filas()).toHaveLength(100);
+      expect(total()).toBe('100.00');
+      await masDe('Producto 100').trigger('click');
+      await escribir('Producto 1', '10');
+      expect(celdas(filas()[99])[2]).toBe('2');
+      expect(celdas(filas()[0])[2]).toBe('10');
+      expect(total()).toBe('110.00');
+      expect(registrarDeshabilitado()).toBe(false);
+    });
+  });
+});
